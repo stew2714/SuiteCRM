@@ -52,7 +52,8 @@
                                                        value=""
                                                        title="{sugar_translate label='LBL_POST_TITLE' module='SuiteFeed'} {$user_name} "/>
                 </td>
-                <td><select id="secGroup" name="secGroup">{$groups}</select></td>
+                <td><select id="secGroup" multiple="multiple" name="secGroup">{$groups}</select></td>
+                <td><input type="checkbox" name="public" value="true">Public</td>
                 <td nowrap="nowrap">
                     <input type="submit" value="{$LBL_POST}" class="button" style="vertical-align:top"
                            onclick="SuiteFeed.pushUserFeed('{$id}'); return false;"></td>

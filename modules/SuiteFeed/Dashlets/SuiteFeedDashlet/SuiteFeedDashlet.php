@@ -281,6 +281,7 @@ class SuiteFeedDashlet extends DashletGeneric
                     //related_module now included but keep this here just in case
                     'related_module',
                     'related_id',
+                    'public',
                     /* END - SECURITY GROUPS */
 
                     'link_url',
@@ -418,7 +419,8 @@ class SuiteFeedDashlet extends DashletGeneric
                 $GLOBALS['current_user']->id,
                 $_REQUEST['link_type'],
                 $_REQUEST['link_url'],
-                $_REQUEST['secGroup']
+                $_REQUEST['secGroup'],
+                $_REQUEST['public']
             );
         }
 
@@ -431,6 +433,14 @@ class SuiteFeedDashlet extends DashletGeneric
             $feed->retrieve($_REQUEST['record']);
             $feed->load_relationship("suitefeed_users");
             $feed->suitefeed_users->add( $GLOBALS['current_user']->id );
+        }
+    }
+    function userEditFeedSave(){
+        if (!empty($_REQUEST['record'])) {
+            $feed = new SuiteFeed();
+            $feed->retrieve($_REQUEST['record']);
+            $feed->name = $_REQUEST['data'];
+            $feed->save();
         }
     }
     function userUnlikeFeed()
@@ -565,12 +575,12 @@ enableQS(false);
     {
 
         $listview = parent::display();
-        $GLOBALS['current_sugarfeed'] = $this;
+        $GLOBALS['current_suitefeed'] = $this;
         $listview = preg_replace_callback(
             '/\{([^\^ }]+)\.([^\}]+)\}/',
             create_function(
                 '$matches',
-                'if($matches[1] == "this"){$var = $matches[2]; return $GLOBALS[\'current_sugarfeed\']->$var;}else{return translate($matches[2], $matches[1]);}'
+                'if($matches[1] == "this"){$var = $matches[2]; return $GLOBALS[\'current_suitefeed\']->$var;}else{return translate($matches[2], $matches[1]);}'
             ),
             $listview
         );
@@ -682,8 +692,12 @@ enableQS(false);
         $ss->assign('less_img', $lessimg);
         $secGroups = BeanFactory::getBean("SecurityGroups");
         $groups[] = "";
+
+        $userGroups = SecurityGroup::getUserSecurityGroups($current_user->id);
         foreach($secGroups->get_full_list() as $record){
-            $groups[ $record->id ] = $record->name;
+            if(is_admin($current_user) || array_key_exists($record->id, $userGroups)){
+                $groups[ $record->id ] = $record->name;
+            }
         }
         $ss->assign('groups', get_select_options_with_id($groups));
 

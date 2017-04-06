@@ -236,8 +236,9 @@ class SuiteFeed extends Basic
      * @param $bean The SugarBean that is triggering the feed
      * @param $link_type boolean value indicating whether or not feed is a link type
      * @param $link_url String value of the URL (for link types only)
+     * @param $publicPost bool value to set if the post should be public or not
      */
-    static function pushFeed2($text, $bean, $link_type = false, $link_url = false)
+    static function pushFeed2($text, $bean, $link_type = false, $link_url = false, $publicPost = false)
     {
         self::pushFeed(
             $text,
@@ -245,7 +246,8 @@ class SuiteFeed extends Basic
             $bean->id,
             $bean->assigned_user_id,
             $link_type,
-            $link_url
+            $link_url,
+            $publicPost
         );
     }
 
@@ -256,7 +258,8 @@ class SuiteFeed extends Basic
         $record_assigned_user_id = false,
         $link_type = false,
         $link_url = false,
-        $sec_group_id = false
+        $sec_group_id = false,
+        $publicPost = false
     ) {
         $feed = new SuiteFeed();
         if ((empty($text) && empty($link_url)) || !$feed->ACLAccess('save', true)) {
@@ -272,7 +275,7 @@ class SuiteFeed extends Basic
             }
         }
         $text = strip_tags(from_html($text));
-        $text = '<b>{this.CREATED_BY}</b> ' . $text;
+        //$text = '<b>{this.CREATED_BY}</b> ' . $text;
         $feed->name = substr($text, 0, 255);
         if (strlen($text) > 255) {
             $feed->description = substr($text, 255, 510);
@@ -285,8 +288,15 @@ class SuiteFeed extends Basic
         }
         $feed->related_id = $id;
         $feed->related_module = $module;
-        $feed->sec_group_id = $sec_group_id;
+        $feed->public = $publicPost;
         $feed->save();
+        $rel = "suitefeed_securitygroups";
+        if($feed->load_relationship($rel)){
+            $groups = explode(",", $sec_group_id);
+            foreach($groups as $group){
+                $feed->$rel->add($group);
+            }
+        }
     }
 
     static function getLinkTypes()
@@ -374,15 +384,32 @@ class SuiteFeed extends Basic
     }
     function get_list_view_data()
     {
+        global $current_user;
+        require_once("modules/SecurityGroups/SecurityGroup.php");
+
         $data = parent::get_list_view_data();
         $delete = '';
+
+        if($this->public != "1"){
+            $data = '';
+            return $data;
+        }
+        $rel = "suitefeed_securitygroups";
+        if($this->load_relationship($rel) && !is_admin($current_user)){
+            $secGroups = $this->$rel->getBeans();
+            $usersGroups = SecurityGroup::getUserSecurityGroups($current_user->id);
+            $common = array_intersect_key($usersGroups, $secGroups);
+            if( (count($common) == 0 && count($secGroups) != 0)){
+                $data = '';
+                return $data;
+            }
+        }
         /* BEGIN - SECURITY GROUPS */
         /**
          * if (ACLController::moduleSupportsACL($data['RELATED_MODULE']) && !ACLController::checkAccess($data['RELATED_MODULE'], 'view', $data['CREATED_BY'] == $GLOBALS['current_user']->id) && !ACLController::checkAccess($data['RELATED_MODULE'], 'list', $data['CREATED_BY'] == $GLOBALS['current_user']->id)){
          */
         if (ACLController::moduleSupportsACL($data['RELATED_MODULE'])) {
             $in_group = 'not_set';
-            require_once("modules/SecurityGroups/SecurityGroup.php");
             $in_group = SecurityGroup::groupHasAccess($data['RELATED_MODULE'], $data['RELATED_ID'], 'list');
             if (!ACLController::checkAccess(
                     $data['RELATED_MODULE'],
@@ -457,9 +484,20 @@ class SuiteFeed extends Basic
         $data['NAME'] .= $data['DESCRIPTION'];
         $inlineEdit = $data['NAME'];
         $inlineEdit = $this->stripData($inlineEdit);
-        $data['NAME'] = '<div style="padding:3px">' . html_entity_decode($data['NAME']);
+        $data['NAME'] = '<div style="padding:3px"><b>{this.CREATED_BY}</b> <span id="inLineDetail' . $data['ID'] . '">' .
+                        html_entity_decode
+            ($data['NAME']) . '</span>';
 
-        $data['NAME'] = '<input type="text" value="' . html_entity_decode($inlineEdit) . '" />';
+        $data['NAME'] .= '<input type="text" style="display:none;width:50%;" id="inLineEdit' .
+                         $data['ID'] .
+                         '" value="' .
+                         html_entity_decode($inlineEdit) .
+                         '" />
+            <input type="submit" value="Post" class="button" style="display:none;vertical-align:top" 
+            id="inLineEditPost' . $data['ID'] .'"
+            onclick="SuiteFeed.editFeed(\'' . $data['ID'] . '\', 
+            $(\'#inLineEdit' . $data['ID'] . '\').val(), \'{this.id}\'); 
+            return false;">';
         if (!empty($data['LINK_URL'])) {
             $linkClass = SuiteFeed::getLinkClass($data['LINK_TYPE']);
             if ($linkClass !== false) {
@@ -504,6 +542,7 @@ class SuiteFeed extends Basic
         foreach ($replies['list'] as $reply) {
             // Setup the delete link
             $delete = '';
+            $like = '';
             if (is_admin($GLOBALS['current_user']) || $data['CREATED_BY'] == $GLOBALS['current_user']->id) {
                 $delete =
                     '<a id="sugarFieldDeleteLink' .
@@ -514,6 +553,33 @@ class SuiteFeed extends Basic
                     $GLOBALS['app_strings']['LBL_DELETE_BUTTON_LABEL'] .
                     '</a>';
             }
+
+
+            $rel = "suitefeed_users";
+            $reply->load_relationship($rel);
+            $liked = $reply->$rel->getBeans();
+            if ( !array_key_exists($GLOBALS['current_user']->id, $liked)
+            ) {
+                $like =
+                    '<a id="sugarFeedDeleteLink' .
+                    $reply->id .
+                    '" href="#" onclick=\'SuiteFeed.userLikeFeed("' .
+                    $reply->id .
+                    '", "{this.id}"); return false;\'>' .
+                    $GLOBALS['app_strings']['LBL_LIKE_BUTTON_LABEL'] .
+                    '</a>  - ';
+            }else{
+                $like =
+                    ' <a id="sugarFeedDeleteLink' .
+                    $reply->id .
+                    '" href="#" onclick=\'SuiteFeed.userUnlikeFeed("' .
+                    $reply->id .
+                    '", "{this.id}"); return false;\'>' .
+                    $GLOBALS['app_strings']['LBL_UNLIKE_BUTTON_LABEL'] .
+                    '</a>  -';
+            }
+
+
 
             $image_url = 'include/images/default_user_feed_picture.png';
             if (isset($reply->created_by)) {
@@ -535,6 +601,7 @@ class SuiteFeed extends Basic
             $replyHTML .= '<div class="byLineBox"><span class="byLineLeft">' .
                           $this->getTimeLapse($reply->date_entered) .
                           '&nbsp;</span><div class="byLineRight">  &nbsp;' .
+                          $like .
                           $delete .
                           '</div></div><div class="clear"></div>';
         }

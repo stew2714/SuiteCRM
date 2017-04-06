@@ -53,11 +53,12 @@
                  * Called when the textarea is blurred
                  */
                 pushUserFeed: function (id) {
-                    secGroup = $("#secGroup").val();
+                    var secGroup = $("#secGroup").val();
+                    var publicPost = $("#public").val();
                     ajaxStatus.showStatus('{/literal}{$saving}{literal}'); // show that AJAX call is happening
                     // what data to post to the dashlet
 
-                    postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=pushUserFeed&id=' + id + '&secGroup=' + secGroup;
+                    postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=pushUserFeed&id=' + id + '&secGroup=' + secGroup + '&public=' + publicPost;
                     YAHOO.util.Connect.setForm(document.getElementById('form_' + id));
                     var cObj = YAHOO.util.Connect.asyncRequest('POST', 'index.php',
                             {success: SuiteFeed.saved, failure: SuiteFeed.saved, argument: id}, postData);
@@ -67,11 +68,16 @@
                     var cObj = YAHOO.util.Connect.asyncRequest('POST', 'index.php',
                             {success: SuiteFeed.saved, failure: SuiteFeed.saved, argument: id}, postData);
                 },
-                editFeed: function (record){
-
+                editFeed: function (record, data, id){
+                  console.log(data);
+                    $("#inLineDetail" + record).hide();
+                    $("#inLineEditPost" + record).show();
+                    $("#inLineEdit" + record).show();
+                  postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=userEditFeedSave&id=' + id + '&record=' + record + '&data=' + data;
+                  var cObj = YAHOO.util.Connect.asyncRequest('POST', 'index.php',
+                    {success: SuiteFeed.saved, failure: SuiteFeed.saved, argument: id}, postData);
                 },
                 userUnlikeFeed: function (record, id) {
-                    console.log("test");
                     postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=userUnlikeFeed&id=' + id + '&record=' + record;
                     var cObj = YAHOO.util.Connect.asyncRequest('POST', 'index.php',
                             {success: SuiteFeed.saved, failure: SuiteFeed.saved, argument: id}, postData);

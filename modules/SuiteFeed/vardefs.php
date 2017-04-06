@@ -121,14 +121,12 @@ $dictionary['SuiteFeed'] = array(
             //property value is case insensitive.
         ),
 
-        'sec_group_id'      => array(
-            'name'             => 'sec_group_id',
-            'type'             => 'id',
-            'vname'            => 'LBL_SECURITY_GROUP_ID',
+        'public'      => array(
+            'name'             => 'public',
+            'type'             => 'bool',
+            'vname'            => 'LBL_PUBLIC',
             'len'              => 30,
             'comment'          => '',
-            'unified_search'   => true,
-            'full_text_search' => array('boost' => 1),
             'audited'          => false,
             'merge_filter'     => 'selected',
         ),
@@ -141,8 +139,16 @@ $dictionary['SuiteFeed'] = array(
             'module'       => 'Users',
             'bean_name'    => 'User',
             'vname'        => 'LBL_SUITEFEED_USERS_FROM_USERS_TITLE'
-        )
-
+        ),
+        'suitefeed_securitygroups' => array(
+            'name'         => 'suitefeed_securitygroups',
+            'type'         => 'link',
+            'relationship' => 'suitefeed_securitygroups',
+            'source'       => 'non-db',
+            'module'       => 'SecurityGroups',
+            'bean_name'    => 'SecurityGroup',
+            'vname'        => 'LBL_SUITEFEED_SECURITYGROUPS_FROM_SECURITYGROUPS_TITLE',
+        ),
     ),
     'relationships' => array(
 
