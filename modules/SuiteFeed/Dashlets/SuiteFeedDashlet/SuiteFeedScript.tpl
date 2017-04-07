@@ -73,9 +73,11 @@
                     $("#inLineDetail" + record).hide();
                     $("#inLineEditPost" + record).show();
                     $("#inLineEdit" + record).show();
-                  postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=userEditFeedSave&id=' + id + '&record=' + record + '&data=' + data;
-                  var cObj = YAHOO.util.Connect.asyncRequest('POST', 'index.php',
-                    {success: SuiteFeed.saved, failure: SuiteFeed.saved, argument: id}, postData);
+                    if(typeof id !== "undefined") {
+                      postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=userEditFeedSave&id=' + id + '&record=' + record + '&data=' + data;
+                      var cObj = YAHOO.util.Connect.asyncRequest('POST', 'index.php',
+                        {success: SuiteFeed.saved, failure: SuiteFeed.saved, argument: id}, postData);
+                    }
                 },
                 userUnlikeFeed: function (record, id) {
                     postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=userUnlikeFeed&id=' + id + '&record=' + record;

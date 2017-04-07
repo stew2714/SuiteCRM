@@ -126,7 +126,8 @@ $mod_strings = array(
     'LBL_TEAM_VISIBILITY_TITLE'  => 'team that can see this post',
     'LBL_SOCIAL'                 => 'Social',
 
-    'LBL_SUITEFEED_USERS_FROM_USERS_TITLE' => 'Users'
+    'LBL_SUITEFEED_USERS_FROM_USERS_TITLE' => 'Users',
+    'LBL_ALL_USERS' => 'All'
 
 );
 ?>

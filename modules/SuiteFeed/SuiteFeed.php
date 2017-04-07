@@ -390,8 +390,9 @@ class SuiteFeed extends Basic
         $data = parent::get_list_view_data();
         $delete = '';
 
-        if($this->public != "1"){
-            $data = '';
+        if($this->public != "1" && (isset($data['CREATED_BY']) && $data['CREATED_BY'] !=
+                                                                  $GLOBALS['current_user']->id) ){
+            $data = false; //'';
             return $data;
         }
         $rel = "suitefeed_securitygroups";
@@ -447,7 +448,7 @@ class SuiteFeed extends Basic
             (isset($data['CREATED_BY']) && $data['CREATED_BY'] == $GLOBALS['current_user']->id)
         ) {
             $edit =
-                '<a id="sugarFeedDeleteLink' .
+                '<a id="sugarFeedInLineLink' .
                 $data['ID'] .
                 '" href="#" onclick=\'SuiteFeed.editFeed("' .
                 $data['ID'] .
@@ -542,10 +543,10 @@ class SuiteFeed extends Basic
         foreach ($replies['list'] as $reply) {
             // Setup the delete link
             $delete = '';
-            $like = '';
+            $edit = '';
             if (is_admin($GLOBALS['current_user']) || $data['CREATED_BY'] == $GLOBALS['current_user']->id) {
                 $delete =
-                    '<a id="sugarFieldDeleteLink' .
+                    ' - <a id="sugarFieldDeleteLink' .
                     $reply->id .
                     '" href="#" onclick=\'SuiteFeed.deleteFeed("' .
                     $reply->id .
@@ -567,7 +568,7 @@ class SuiteFeed extends Basic
                     $reply->id .
                     '", "{this.id}"); return false;\'>' .
                     $GLOBALS['app_strings']['LBL_LIKE_BUTTON_LABEL'] .
-                    '</a>  - ';
+                    '</a>';
             }else{
                 $like =
                     ' <a id="sugarFeedDeleteLink' .
@@ -576,14 +577,25 @@ class SuiteFeed extends Basic
                     $reply->id .
                     '", "{this.id}"); return false;\'>' .
                     $GLOBALS['app_strings']['LBL_UNLIKE_BUTTON_LABEL'] .
-                    '</a>  -';
+                    '</a>';
             }
 
+            if (is_admin($GLOBALS['current_user']) ||
+                (isset($data['CREATED_BY']) && $data['CREATED_BY'] == $GLOBALS['current_user']->id)
+            ) {
+                $edit =
+                    '<a id="sugarFeedInLineLink' .
+                    $reply->id .
+                    '" href="#" onclick=\'SuiteFeed.editFeed("' .
+                    $reply->id . '"); return false;\'>' .
+                    $GLOBALS['app_strings']['LBL_EDIT_BUTTON_LABEL'] .
+                    '</a>  - ';
+            }
 
 
             $image_url = 'include/images/default_user_feed_picture.png';
             if (isset($reply->created_by)) {
-                $user = loadBean('Users');
+                $user = BeanFactory::getBean("Users");
                 $user->retrieve($reply->created_by);
                 $image_url =
                     'index.php?entryPoint=download&id=' .
@@ -593,14 +605,27 @@ class SuiteFeed extends Basic
             $replyHTML .= '<div style="float: left; margin-right: 3px; width: 50px; height: 50px;"><!--not_in_theme!--><img src="' .
                           $image_url .
                           '" style="max-width: 50px; max-height: 50px;"></div> ';
+            $text = $reply->name;
+            $inLine = '<input type="text" style="display:none;width:50%;" id="inLineEdit' .
+                      $reply->id .
+                      '" value="' .
+                      html_entity_decode($text) .
+                      '" />
+            <input type="submit" value="Post" class="button" style="display:none;vertical-align:top" 
+            id="inLineEditPost' . $reply->id .'"
+            onclick="SuiteFeed.editFeed(\'' . $reply->id . '\', 
+            $(\'#inLineEdit' . $reply->id . '\').val(), \'{this.id}\'); 
+            return false;">';
+            $text = "<b>{this.CREATED_BY}</b> " . $text;
             $replyHTML .= str_replace(
                               "{this.CREATED_BY}",
                               get_assigned_user_name($reply->created_by),
-                              html_entity_decode($reply->name)
-                          ) . '<br>';
+                              html_entity_decode($text)
+                          ) . $inLine . '<br>';
             $replyHTML .= '<div class="byLineBox"><span class="byLineLeft">' .
                           $this->getTimeLapse($reply->date_entered) .
                           '&nbsp;</span><div class="byLineRight">  &nbsp;' .
+                          $edit .
                           $like .
                           $delete .
                           '</div></div><div class="clear"></div>';
@@ -688,5 +713,4 @@ class SuiteFeed extends Basic
 
         return $input;
     }
-
 }

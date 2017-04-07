@@ -42,6 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 
 require_once('include/Dashlets/DashletGeneric.php');
 require_once('include/externalAPI/ExternalAPIFactory.php');
+require_once('custom/include/ListView/ListViewData.php');
 
 class SuiteFeedDashlet extends DashletGeneric
 {
@@ -55,10 +56,9 @@ class SuiteFeedDashlet extends DashletGeneric
 
     function __construct($id, $def = null)
     {
-        global $current_user, $app_strings, $app_list_strings;
-
+        global $app_list_strings;
+        $dashletData = array();
         require_once('modules/SuiteFeed/metadata/dashletviewdefs.php');
-        $this->myItemsOnly = false;
         parent::__construct($id, $def);
         $this->myItemsOnly = false;
         $this->isConfigurable = true;
@@ -112,17 +112,6 @@ class SuiteFeedDashlet extends DashletGeneric
         $this->searchFields = $dashletData['SuiteFeedDashlet']['searchFields'];
         $this->columns = $dashletData['SuiteFeedDashlet']['columns'];
 
-        $twitter_enabled = $this->check_enabled('twitter');
-        $facebook_enabled = $this->check_enabled('facebook');
-
-        if ($facebook_enabled) {
-            $this->categories["Facebook"] = "Facebook";
-        }
-
-        if ($twitter_enabled) {
-            $this->categories["Twitter"] = "Twitter";
-        }
-
         $catCount = count($this->categories);
         ACLController::filterModuleList($this->categories, false);
         if (count($this->categories) < $catCount) {
@@ -134,6 +123,10 @@ class SuiteFeedDashlet extends DashletGeneric
             }
         }
         $this->seedBean = new SuiteFeed();
+
+        //override the custom list view to remove the display lines from the SuiteFeed
+
+        $this->lvs->lvd = new CustomListViewData();
     }
 
     /**
@@ -411,6 +404,11 @@ class SuiteFeedDashlet extends DashletGeneric
         if (!empty($_REQUEST['text']) || (!empty($_REQUEST['link_url']) && !empty($_REQUEST['link_type']))) {
             $text = htmlspecialchars($_REQUEST['text']);
             //allow for bold and italic user tags
+            if($_REQUEST['public'] == "true"){
+                $_REQUEST['public'] = 1;
+            }else{
+                $_REQUEST['public'] = 0;
+            }
             $text = preg_replace('/&amp;lt;(\/*[bi])&amp;gt;/i', '<$1>', $text);
             SuiteFeed::pushFeed(
                 $text,
@@ -449,7 +447,7 @@ class SuiteFeedDashlet extends DashletGeneric
             $feed = new SuiteFeed();
             $feed->retrieve($_REQUEST['record']);
             $feed->load_relationship("suitefeed_users");
-            $feed->suitefeed_users->delete( $GLOBALS['current_user']->id, $REQUEST['record'] );
+            $feed->suitefeed_users->delete( $GLOBALS['current_user']->id, $_REQUEST['record'] );
         }
     }
 
@@ -691,7 +689,7 @@ enableQS(false);
         $ss->assign('more_img', $moreimg);
         $ss->assign('less_img', $lessimg);
         $secGroups = BeanFactory::getBean("SecurityGroups");
-        $groups[] = "";
+        $groups[] = translate('LBL_ALL_USERS', 'SuiteFeed');
 
         $userGroups = SecurityGroup::getUserSecurityGroups($current_user->id);
         foreach($secGroups->get_full_list() as $record){
@@ -700,10 +698,6 @@ enableQS(false);
             }
         }
         $ss->assign('groups', get_select_options_with_id($groups));
-
-
-        include_once("include/social/get_feed_data.php");
-        $ss->assign('facebook', $html);
 
         if ($current_user->getPreference('use_real_names') == 'on') {
             $ss->assign('user_name', $current_user->full_name);
@@ -723,7 +717,7 @@ enableQS(false);
         return $fetch;
     }
 
-    // This is called from the include/MySugar/DashletsDialog/DashletsDialog.php and determines if we should display the SuiteFeed dashlet as an option or not
+    //determines if we should display the SuiteFeed dashlet as an option or not
     static function shouldDisplay()
     {
 
@@ -736,17 +730,4 @@ enableQS(false);
             return true;
         }
     }
-
-    function check_enabled($type)
-    {
-        global $db;
-        $query = "SELECT * FROM config where name = 'module_" . $type . "' and value =  1;";
-        $results = $db->query($query);
-
-        while ($row = $db->fetchByAssoc($results)) {
-            return true;
-            break;
-        }
-    }
-
 }
