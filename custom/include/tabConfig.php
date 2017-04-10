@@ -1,5 +1,6 @@
-<?php 
-$GLOBALS["tabStructure"] =array (
+<?php
+// created: 2017-04-04 09:38:59
+$GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_SALES' => 
   array (
     'label' => 'LBL_TABGROUP_SALES',
@@ -10,23 +11,16 @@ $GLOBALS["tabStructure"] =array (
       2 => 'Contacts',
       3 => 'Opportunities',
       4 => 'Leads',
-      5 => 'Contracts',
-      6 => 'Quotes',
-      7 => 'Forecasts',
     ),
   ),
-  'LBL_TABGROUP_MARKETING' => 
+  'LBL_GROUPTAB5_1491298541' => 
   array (
-    'label' => 'LBL_TABGROUP_MARKETING',
+    'label' => 'LBL_GROUPTAB5_1491298541',
     'modules' => 
     array (
-      0 => 'Home',
-      1 => 'Accounts',
-      2 => 'Contacts',
-      3 => 'Leads',
-      4 => 'Campaigns',
-      5 => 'Prospects',
-      6 => 'ProspectLists',
+      0 => 'SA_Curriculum',
+      1 => 'SA_Courses',
+      2 => 'SA_Assignments',
     ),
   ),
   'LBL_TABGROUP_SUPPORT' => 
@@ -64,6 +58,20 @@ $GLOBALS["tabStructure"] =array (
       1 => 'Emails',
       2 => 'Documents',
       3 => 'Project',
+    ),
+  ),
+  'LBL_TABGROUP_MARKETING' => 
+  array (
+    'label' => 'LBL_TABGROUP_MARKETING',
+    'modules' => 
+    array (
+      0 => 'Home',
+      1 => 'Accounts',
+      2 => 'Contacts',
+      3 => 'Leads',
+      4 => 'Campaigns',
+      5 => 'Prospects',
+      6 => 'ProspectLists',
     ),
   ),
 );
