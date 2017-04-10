@@ -40,7 +40,7 @@
 *}
 <form name="AdminSettings" method="POST">
     <input type="hidden" name="action" value="AdminSettings">
-    <input type="hidden" name="module" value="SugarFeed">
+    <input type="hidden" name="module" value="SuiteFeed">
     <input type="hidden" name="process" value="">
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0" class="actionsContainer">
