@@ -98,7 +98,7 @@ class ViewAdminsettings extends SugarView
                     // The feed is enabled, pay attention to what categories should be enabled or disabled
 
                     $db = DBManagerFactory::getInstance();
-                    $ret = $db->query("SELECT * FROM config WHERE category = 'sugarfeed' AND name LIKE 'module_%'");
+                    $ret = $db->query("SELECT * FROM config WHERE category = 'suitefeed' AND name LIKE 'module_%'");
                     $current_modules = array();
                     while ($row = $db->fetchByAssoc($ret)) {
                         $current_modules[$row['name']] = $row['value'];
@@ -121,9 +121,9 @@ class ViewAdminsettings extends SugarView
                         }
                     }
 
-                    $admin->saveSetting('sugarfeed', 'enabled', '1');
+                    $admin->saveSetting('suitefeed', 'enabled', '1');
                 } else {
-                    $admin->saveSetting('sugarfeed', 'enabled', '0');
+                    $admin->saveSetting('suitefeed', 'enabled', '0');
                     // Now we need to remove all of the logic hooks, so they don't continue to run
                     // We also need to leave the database alone, so they can enable/disable modules with the system disabled
                     $modulesWithFeeds = SuiteFeed::getAllFeedModules();
@@ -140,7 +140,7 @@ class ViewAdminsettings extends SugarView
                     if (!isset($db)) {
                         $db = DBManagerFactory::getInstance();
                     }
-                    $db->query("UPDATE sugarfeed SET deleted = '1'");
+                    $db->query("UPDATE suitefeed SET deleted = '1'");
                     echo(translate('LBL_RECORDS_DELETED', 'SuiteFeed'));
                 }
             }
@@ -156,7 +156,7 @@ class ViewAdminsettings extends SugarView
         $sugar_smarty->assign('mod', $mod_strings);
         $sugar_smarty->assign('app', $app_strings);
 
-        if (isset($admin->settings['sugarfeed_enabled']) && $admin->settings['sugarfeed_enabled'] == '1') {
+        if (isset($admin->settings['suitefeed_enabled']) && $admin->settings['suitefeed_enabled'] == '1') {
             $sugar_smarty->assign('enabled_checkbox', 'checked');
         }
 
@@ -167,8 +167,8 @@ class ViewAdminsettings extends SugarView
         $userFeedEnabled = 0;
         foreach ($possible_feeds as $module) {
             $currModule = array();
-            if (isset($admin->settings['sugarfeed_module_' . $module]) &&
-                $admin->settings['sugarfeed_module_' . $module] == '1'
+            if (isset($admin->settings['suitefeed_module_' . $module]) &&
+                $admin->settings['suitefeed_module_' . $module] == '1'
             ) {
                 $currModule['enabled'] = 1;
             } else {

@@ -724,7 +724,7 @@ enableQS(false);
         $admin = new Administration();
         $admin->retrieveSettings();
 
-        if (!isset($admin->settings['sugarfeed_enabled']) || $admin->settings['sugarfeed_enabled'] != '1') {
+        if (!isset($admin->settings['suitefeed_enabled']) || $admin->settings['suitefeed_enabled'] != '1') {
             return false;
         } else {
             return true;

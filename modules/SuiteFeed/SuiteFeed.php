@@ -84,7 +84,7 @@ class SuiteFeed extends Basic
         if ($updateDB == true) {
 
             $admin = new Administration();
-            $admin->saveSetting('sugarfeed', 'module_' . $admin->db->quote($module), '1');
+            $admin->saveSetting('suitefeed', 'module_' . $admin->db->quote($module), '1');
         }
     }
 
@@ -107,7 +107,7 @@ class SuiteFeed extends Basic
         if ($updateDB == true) {
 
             $admin = new Administration();
-            $admin->saveSetting('sugarfeed', 'module_' . $admin->db->quote($module), '0');
+            $admin->saveSetting('suitefeed', 'module_' . $admin->db->quote($module), '0');
         }
     }
 
@@ -174,10 +174,10 @@ class SuiteFeed extends Basic
         $admin->retrieveSettings();
 
         $feedModules = array();
-        if (isset($admin->settings['sugarfeed_enabled']) && $admin->settings['sugarfeed_enabled'] == '1') {
+        if (isset($admin->settings['suitefeed_enabled']) && $admin->settings['suitefeed_enabled'] == '1') {
             // Only enable modules if the feed system is enabled
             foreach ($admin->settings as $key => $value) {
-                if (strncmp($key, 'sugarfeed_module_', 17) === 0) {
+                if (strncmp($key, 'suitefeed_module_', 17) === 0) {
                     // It's a module setting
                     if ($value == '1') {
                         $moduleName = substr($key, 17);

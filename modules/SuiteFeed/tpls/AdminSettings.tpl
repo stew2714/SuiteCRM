@@ -71,23 +71,6 @@
             </td>
         </tr>
         <tr>
-            <td scope="row" align="right" valign="top" nowrap>{$mod.LBL_ENABLE_MODULE_LIST}:</td>
-            <td colspan="4" width="95%">
-                <table id="sugarfeed_modulelist" cellspacing=3 border=0>
-                    {foreach name=feedModuleList from=$module_list key=i item=entry}
-                        {if ($i % 2)==0}<tr>{/if}
-                        <td scope="row" align="right">{$entry.label}:</td>
-                        <td>
-                            <input type="hidden" name="modules[module_{$entry.module}]" value="0">
-                            <input type="checkbox" id="modules[module_{$entry.module}]"
-                                   name="modules[module_{$entry.module}]" value="1" {if $entry.enabled==1}CHECKED{/if}>
-                        </td>
-                        {if ($i % 2)==1}</tr>{/if}
-                    {/foreach}
-                </table>
-            </td>
-        </tr>
-        <tr>
             <td scope="row" align="right" nowrap>{$mod.LBL_ENABLE_USER_FEED}:</td>
             <td align="left" width="25%">
                 <input type="hidden" id="modules[module_UserFeed]" name="modules[module_UserFeed]" value="0">
