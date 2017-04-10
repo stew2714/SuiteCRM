@@ -14,7 +14,11 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+          4 => array (
+            'customCode' => '<input type="button" class="button" onClick="inviteParticipants();" value="{$MOD.LBL_INVITE_PARTICIPANTS}">',
+          ),
         ),
+        'footerTpl' => 'modules/SA_Assignments/tpls/inviteParticipants.tpl',
       ),
       'maxColumns' => '2',
       'widths' => 
@@ -30,6 +34,13 @@ array (
           'field' => '30',
         ),
       ),
+     'includes' =>
+        array (
+            0 =>
+            array (
+                'file' => 'modules/SA_Assignments/js/inviteParticipants.js',
+            ),
+        ),
     ),
     'panels' => 
     array (

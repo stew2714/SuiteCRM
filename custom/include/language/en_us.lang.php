@@ -12,3 +12,12 @@ $GLOBALS['app_list_strings']['correct_answer_list']=array (
   'C' => 'C',
   'D' => 'D',
 );
+$GLOBALS['app_list_strings']['pdf_template_type_dom']=array (
+  'AOS_Quotes' => 'Quotes',
+  'AOS_Invoices' => 'Invoices',
+  'AOS_Contracts' => 'Contracts',
+  'Accounts' => 'Accounts',
+  'Contacts' => 'Contacts',
+  'Leads' => 'Leads',
+  'SA_Assignments' => 'Assignments',
+);
