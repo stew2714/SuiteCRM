@@ -54,7 +54,10 @@
                  */
                 pushUserFeed: function (id) {
                     var secGroup = $("#secGroup").val();
-                    var publicPost = $("#public").val();
+                    var publicPost = false;
+                      if ($('#public').attr(':checked')) {
+                            publicPost = $("#public").val();
+                      }
                     ajaxStatus.showStatus('{/literal}{$saving}{literal}'); // show that AJAX call is happening
                     // what data to post to the dashlet
 
