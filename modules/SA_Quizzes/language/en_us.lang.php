@@ -72,4 +72,5 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_QUIZZES_SUBPANEL_TITLE' => 'Quizzes',
   'LBL_NEW_FORM_TITLE' => 'New Quizzes',
+  'LBL_START_QUIZ' => 'Start Quiz',
 );

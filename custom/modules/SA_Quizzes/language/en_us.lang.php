@@ -2,4 +2,5 @@
 // created: 2017-04-04 11:19:35
 $mod_strings = array (
   'LBL_PASS_SCORE' => 'Pass Score',
+  'LBL_START_QUIZ' => 'Start Quiz'
 );

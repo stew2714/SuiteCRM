@@ -1,18 +1,10 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-if (!defined('sugarEntry')) {
-    define('sugarEntry', true);
-}
-/**
- *
+/*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- *
- * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2016 SalesAgility Ltd.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -43,13 +35,37 @@ if (!defined('sugarEntry')) {
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- */
+ ********************************************************************************/
 
-include 'include/MVC/preDispatch.php';
-$startTime = microtime(true);
-require_once 'include/entryPoint.php';
-ob_start();
-require_once 'include/MVC/SugarApplication.php';
-$app = new SugarApplication();
-$app->startSession();
-$app->execute();
+require_once 'include/MVC/Controller/SugarController.php';
+
+class SA_QuizQuestionsController extends SugarController
+{
+    public function action_getQuestions() {
+        $id = $_REQUEST['id'];
+
+        $bean = BeanFactory::getBean('SA_Quizzes',$id);
+        $bean->load_relationship('sa_quizzes_sa_quizquestions_1');
+        $relatedBean = $bean->sa_quizzes_sa_quizquestions_1->getBeans();
+        $questions_container = array();
+
+        foreach ($relatedBean as $question) {
+            $current_question = array(
+                'id' => $question->id,
+                'name' => html_entity_decode($question->name),
+                'question_number' => $question->question_number_c,
+                'answer_a' => html_entity_decode($question->possible_answer_a_c),
+                'answer_b' => html_entity_decode($question->possible_answer_b_c),
+                'answer_c' => html_entity_decode($question->possible_answer_c),
+                'answer_d' => html_entity_decode($question->possible_answer_d_c),
+                'correct_answer' => $question->correct_answer_c,
+            );
+
+            array_push($questions_container,$current_question);
+        }
+
+        echo json_encode($questions_container);
+        die();
+    }
+}
+?>
