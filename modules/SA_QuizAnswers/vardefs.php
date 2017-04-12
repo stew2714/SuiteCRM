@@ -1,10 +1,11 @@
 <?php
-/*********************************************************************************
+/**
+ *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
-
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -35,11 +36,21 @@
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- ********************************************************************************/
+ */
 
-
-class SA_QuizzesController extends SugarController
-{
-
+$dictionary['SA_QuizAnswers'] = array(
+    'table' => 'sa_quizanswers',
+    'audited' => true,
+    'inline_edit' => true,
+    'duplicate_merge' => true,
+    'fields' => array (
+),
+    'relationships' => array (
+),
+    'optimistic_locking' => true,
+    'unified_search' => true,
+);
+if (!class_exists('VardefManager')) {
+        require_once('include/SugarObjects/VardefManager.php');
 }
-?>
+VardefManager::createVardef('SA_QuizAnswers', 'SA_QuizAnswers', array('basic','assignable','security_groups'));

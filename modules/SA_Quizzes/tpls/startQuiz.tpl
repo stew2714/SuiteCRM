@@ -8,7 +8,7 @@
                 <h4 id="question-name" class="modal-title">Quiz Dialog</h4>
             </div>
             <div class="modal-body" id="searchList">
-                <form name="addInvite" method="post" action="index.php?module=SA_Assignments&amp;action=sendInvite">
+                <form id="quizForm" name="quizForm" method="post" action="index.php?module=SA_Assignments&amp;action=sendInvite">
                     <div id="questions-wrapper">
 
                     </div>

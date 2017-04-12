@@ -1,10 +1,11 @@
 <?php
-/*********************************************************************************
+/**
+ *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
-
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -35,11 +36,23 @@
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- ********************************************************************************/
+ */
 
-
-class SA_QuizzesController extends SugarController
-{
-
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
 }
-?>
+
+$module_name = 'SA_QuizAnswers';
+$object_name = 'SA_QuizAnswers';
+$_module_name = 'sa_quizanswers';
+$popupMeta = array(
+    'moduleMain' => $module_name,
+    'varName' => $object_name,
+    'orderBy' => $_module_name . '.name',
+    'whereClauses' => array(
+        'name' => $_module_name . '.name',
+    ),
+    'searchInputs' => array($_module_name . '_number', 'name', 'priority', 'status'),
+
+);
+ 

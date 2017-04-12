@@ -1,10 +1,11 @@
 <?php
-/*********************************************************************************
+/**
+ *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
-
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -35,11 +36,40 @@
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- ********************************************************************************/
+ */
 
 
-class SA_QuizzesController extends SugarController
-{
-
-}
-?>
+$mod_strings = array (
+  'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
+  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
+  'LBL_SECURITYGROUPS' => 'Security Groups',
+  'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Security Groups',
+  'LBL_ID' => 'ID',
+  'LBL_DATE_ENTERED' => 'Date Created',
+  'LBL_DATE_MODIFIED' => 'Date Modified',
+  'LBL_MODIFIED' => 'Modified By',
+  'LBL_MODIFIED_ID' => 'Modified By Id',
+  'LBL_MODIFIED_NAME' => 'Modified By Name',
+  'LBL_CREATED' => 'Created By',
+  'LBL_CREATED_ID' => 'Created By Id',
+  'LBL_DESCRIPTION' => 'Description',
+  'LBL_DELETED' => 'Deleted',
+  'LBL_NAME' => 'Name',
+  'LBL_CREATED_USER' => 'Created by User',
+  'LBL_MODIFIED_USER' => 'Modified by User',
+  'LBL_LIST_NAME' => 'Name',
+  'LBL_EDIT_BUTTON' => 'Edit',
+  'LBL_REMOVE' => 'Remove',
+  'LBL_LIST_FORM_TITLE' => 'Quiz Answers List',
+  'LBL_MODULE_NAME' => 'Quiz Answers',
+  'LBL_MODULE_TITLE' => 'Quiz Answers',
+  'LBL_HOMEPAGE_TITLE' => 'My Quiz Answers',
+  'LNK_NEW_RECORD' => 'Create Quiz Answers',
+  'LNK_LIST' => 'View Quiz Answers',
+  'LNK_IMPORT_SA_QUIZANSWERS' => 'Import Quiz Answers',
+  'LBL_SEARCH_FORM_TITLE' => ' Quiz Answers',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'View History',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
+  'LBL_SA_QUIZANSWERS_SUBPANEL_TITLE' => 'Quiz Answers',
+  'LBL_NEW_FORM_TITLE' => 'New Quiz Answers',
+);

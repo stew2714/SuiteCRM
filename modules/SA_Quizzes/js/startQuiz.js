@@ -112,3 +112,11 @@ function handleButtons(){
     $('#previous-question').hide();
   }
 }
+
+$('#myForm').on('submit', function(e){
+  e.preventDefault();
+  var len = $('#username').val().length;
+  if (len < 6 && len > 1) {
+    this.submit();
+  }
+});
