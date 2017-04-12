@@ -15,6 +15,9 @@ function startQuiz(id) {
     currentQuestion = x + 1;
     numberOfQuestions = questions.length;
 
+    // Add the Questions to the Quiz Template
+    buildTemplate(numberOfQuestions);
+
     // Display the initial Question
     displayQuestion();
   }
@@ -32,6 +35,33 @@ function getQuestions(id) {
   });
 
   return questions.responseText;
+}
+
+function buildTemplate(numberOfQuestions) {
+  for (i=1; i<=numberOfQuestions; i++) {
+    var template = '<div id="question-' + i + '"> \
+      <fieldset id="question-' + i + '-group">\
+      <div id="option-1" class="question-row"> \
+      <label id="question-' + i + '-answer-a-label" for="question-' + i + '-answer-a"></label> \
+      <input type="radio" id="question-' + i + '-answer-a" name="question-' + i + '" value=""> \
+      </div> \
+      <div id="option-2" class="question-row"> \
+      <label id="question-' + i + '-answer-b-label" for="question-' + i + '-answer-b"></label> \
+      <input type="radio" id="question-' + i + '-answer-b" name="question-' + i + '" value=""> \
+      </div> \
+      <div id="option-3" class="question-row"> \
+      <label id="question-' + i + '-answer-c-label" for="question-' + i + '-answer-c"></label> \
+      <input type="radio" id="question-' + i + '-answer-c" name="question-' + i + '" value=""> \
+      </div> \
+      <div id="option-4" class="question-row"> \
+      <label id="question-' + i + '-answer-d-label" for="question-' + i + '-answer-d"></label> \
+      <input type="radio" id="question-' + i + '-answer-d" name="question-' + i + '" value=""> \
+      </div> \
+      </fieldset> \
+      </div>';
+
+    $("#questions-wrapper").append(template);
+  }
 }
 
 function displayNextQuestion(){
