@@ -1,5 +1,5 @@
 <?php
-$module_name = 'SA_QuizAnswers';
+$module_name = 'SA_Quizzes';
 $viewdefs [$module_name] = 
 array (
   'DetailView' => 
@@ -50,14 +50,7 @@ array (
           0 => 'description',
           1 => 
           array (
-            'name' => 'sa_quizzes_sa_quizanswers_1_name',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'sa_quizzes_sa_quizanswers_1_name',
+            'name' => 'sa_assignments_sa_quizzes_1_name',
           ),
         ),
       ),

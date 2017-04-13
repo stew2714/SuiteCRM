@@ -1,25 +1,25 @@
 <?php
-// created: 2017-04-13 09:20:13
-$dictionary["sa_quizzes_sa_quizquestions_1"] = array (
+// created: 2017-04-12 15:50:23
+$dictionary["sa_quizzes_sa_quizanswers_2"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => true,
   'relationships' => 
   array (
-    'sa_quizzes_sa_quizquestions_1' => 
+    'sa_quizzes_sa_quizanswers_2' => 
     array (
       'lhs_module' => 'SA_Quizzes',
       'lhs_table' => 'sa_quizzes',
       'lhs_key' => 'id',
-      'rhs_module' => 'SA_QuizQuestions',
-      'rhs_table' => 'sa_quizquestions',
+      'rhs_module' => 'SA_QuizAnswers',
+      'rhs_table' => 'sa_quizanswers',
       'rhs_key' => 'id',
       'relationship_type' => 'many-to-many',
-      'join_table' => 'sa_quizzes_sa_quizquestions_1_c',
-      'join_key_lhs' => 'sa_quizzes_sa_quizquestions_1sa_quizzes_ida',
-      'join_key_rhs' => 'sa_quizzes_sa_quizquestions_1sa_quizquestions_idb',
+      'join_table' => 'sa_quizzes_sa_quizanswers_2_c',
+      'join_key_lhs' => 'sa_quizzes_sa_quizanswers_2sa_quizzes_ida',
+      'join_key_rhs' => 'sa_quizzes_sa_quizanswers_2sa_quizanswers_idb',
     ),
   ),
-  'table' => 'sa_quizzes_sa_quizquestions_1_c',
+  'table' => 'sa_quizzes_sa_quizanswers_2_c',
   'fields' => 
   array (
     0 => 
@@ -43,13 +43,13 @@ $dictionary["sa_quizzes_sa_quizquestions_1"] = array (
     ),
     3 => 
     array (
-      'name' => 'sa_quizzes_sa_quizquestions_1sa_quizzes_ida',
+      'name' => 'sa_quizzes_sa_quizanswers_2sa_quizzes_ida',
       'type' => 'varchar',
       'len' => 36,
     ),
     4 => 
     array (
-      'name' => 'sa_quizzes_sa_quizquestions_1sa_quizquestions_idb',
+      'name' => 'sa_quizzes_sa_quizanswers_2sa_quizanswers_idb',
       'type' => 'varchar',
       'len' => 36,
     ),
@@ -58,7 +58,7 @@ $dictionary["sa_quizzes_sa_quizquestions_1"] = array (
   array (
     0 => 
     array (
-      'name' => 'sa_quizzes_sa_quizquestions_1spk',
+      'name' => 'sa_quizzes_sa_quizanswers_2spk',
       'type' => 'primary',
       'fields' => 
       array (
@@ -67,20 +67,20 @@ $dictionary["sa_quizzes_sa_quizquestions_1"] = array (
     ),
     1 => 
     array (
-      'name' => 'sa_quizzes_sa_quizquestions_1_ida1',
+      'name' => 'sa_quizzes_sa_quizanswers_2_ida1',
       'type' => 'index',
       'fields' => 
       array (
-        0 => 'sa_quizzes_sa_quizquestions_1sa_quizzes_ida',
+        0 => 'sa_quizzes_sa_quizanswers_2sa_quizzes_ida',
       ),
     ),
     2 => 
     array (
-      'name' => 'sa_quizzes_sa_quizquestions_1_alt',
+      'name' => 'sa_quizzes_sa_quizanswers_2_alt',
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'sa_quizzes_sa_quizquestions_1sa_quizquestions_idb',
+        0 => 'sa_quizzes_sa_quizanswers_2sa_quizanswers_idb',
       ),
     ),
   ),

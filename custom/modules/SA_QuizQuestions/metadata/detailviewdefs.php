@@ -1,11 +1,21 @@
 <?php
-$module_name = 'SA_QuizAnswers';
+$module_name = 'SA_QuizQuestions';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'DetailView' => 
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+          3 => 'FIND_DUPLICATES',
+        ),
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -32,17 +42,15 @@ array (
         ),
         1 => 
         array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'sa_quizzes_sa_quizanswers_1_name',
-          ),
+          0 => 'date_entered',
+          1 => 'date_modified',
         ),
         2 => 
         array (
-          0 => 
+          0 => 'description',
+          1 => 
           array (
-            'name' => 'sa_quizzes_sa_quizanswers_1_name',
+            'name' => 'sa_quizzes_sa_quizquestions_1_name',
           ),
         ),
       ),
