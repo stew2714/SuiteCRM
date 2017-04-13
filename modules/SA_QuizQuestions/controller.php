@@ -61,7 +61,7 @@ class SA_QuizQuestionsController extends SugarController
                 'answer_d' => html_entity_decode($question->possible_answer_d),
                 'correct_answer' => $question->correct_answer,
             );
-
+            
             array_push($questions_container,$current_question);
         }
 

@@ -42,20 +42,20 @@ function buildTemplate(numberOfQuestions) {
     var template = '<div id="question-' + i + '"> \
       <fieldset id="question-' + i + '-group">\
       <div id="option-1" class="question-row"> \
-      <label id="question-' + i + '-answer-a-label" for="question-' + i + '-answer-a"></label> \
-      <input type="radio" id="question-' + i + '-answer-a" name="question-' + i + '" value=""> \
+      <label id="question-' + i + '-answer-a-label" for=""></label> \
+      <input type="radio" id="question-' + i + '-answer-a" name="" value=""> \
       </div> \
       <div id="option-2" class="question-row"> \
-      <label id="question-' + i + '-answer-b-label" for="question-' + i + '-answer-b"></label> \
-      <input type="radio" id="question-' + i + '-answer-b" name="question-' + i + '" value=""> \
+      <label id="question-' + i + '-answer-b-label" for=""></label> \
+      <input type="radio" id="question-' + i + '-answer-b" name="" value=""> \
       </div> \
       <div id="option-3" class="question-row"> \
-      <label id="question-' + i + '-answer-c-label" for="question-' + i + '-answer-c"></label> \
-      <input type="radio" id="question-' + i + '-answer-c" name="question-' + i + '" value=""> \
+      <label id="question-' + i + '-answer-c-label" for=""></label> \
+      <input type="radio" id="question-' + i + '-answer-c" name="" value=""> \
       </div> \
       <div id="option-4" class="question-row"> \
       <label id="question-' + i + '-answer-d-label" for="question-' + i + '-answer-d"></label> \
-      <input type="radio" id="question-' + i + '-answer-d" name="question-' + i + '" value=""> \
+      <input type="radio" id="question-' + i + '-answer-d" name="" value=""> \
       </div> \
       </fieldset> \
       </div>';
@@ -85,12 +85,28 @@ function displayQuestion() {
   $("#question-" + currentQuestion).show();
   $("#question-" + currentQuestion).siblings().hide();
 
-  // Update nodes to show the related question's information
+  // Question's Title/Name Applied to the Header
   $('#question-name').text("Question " + currentQuestion + ": " + questions[x]['name']);
+
+  // Option A Grouping
   $('#question-' + currentQuestion + '-answer-a-label').text(questions[x]['answer_a']);
+  $('#question-' + currentQuestion + '-answer-a-label').attr("for",questions[x]['id']);
+  $('#question-' + currentQuestion + '-answer-a').attr("name",questions[x]['id']);
+
+  // Option B Grouping
   $('#question-' + currentQuestion + '-answer-b-label').text(questions[x]['answer_b']);
+  $('#question-' + currentQuestion + '-answer-b-label').attr("for",questions[x]['id']);
+  $('#question-' + currentQuestion + '-answer-b').attr("name",questions[x]['id']);
+
+  // Option C Grouping
   $('#question-' + currentQuestion + '-answer-c-label').text(questions[x]['answer_c']);
+  $('#question-' + currentQuestion + '-answer-c-label').attr("for",questions[x]['id']);
+  $('#question-' + currentQuestion + '-answer-c').attr("name",questions[x]['id']);
+
+  // Option D Grouping
   $('#question-' + currentQuestion + '-answer-d-label').text(questions[x]['answer_d']);
+  $('#question-' + currentQuestion + '-answer-d-label').attr("for",questions[x]['id']);
+  $('#question-' + currentQuestion + '-answer-d').attr("name",questions[x]['id']);
 
   handleButtons();
 }
