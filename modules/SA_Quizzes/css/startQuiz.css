@@ -8,6 +8,8 @@
 
 .question-row{
     padding: 10px;
+    display: inline-block;
+    width: 100%;
 }
 
 .question-row label{
@@ -37,4 +39,8 @@
 
 .question-nav-button{
     width: 190px;
+}
+
+.question-label{
+    display: inline-block;
 }

@@ -86,7 +86,7 @@ function displayQuestion() {
   $("#question-" + currentQuestion).siblings().hide();
 
   // Update nodes to show the related question's information
-  $('#question-name').text("Question " + questions[x]['question_number'] + ": " + questions[x]['name']);
+  $('#question-name').text("Question " + currentQuestion + ": " + questions[x]['name']);
   $('#question-' + currentQuestion + '-answer-a-label').text(questions[x]['answer_a']);
   $('#question-' + currentQuestion + '-answer-b-label').text(questions[x]['answer_b']);
   $('#question-' + currentQuestion + '-answer-c-label').text(questions[x]['answer_c']);
