@@ -53,6 +53,14 @@ array (
             'label' => 'LBL_SA_ASSIGNMENTS_SA_QUIZZES_1_FROM_SA_ASSIGNMENTS_TITLE',
           ),
         ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'pass_score',
+            'label' => 'LBL_PASS_SCORE',
+          ),
+        ),
       ),
     ),
   ),
