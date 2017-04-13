@@ -87,6 +87,15 @@ array (
         array (
           0 => 
           array (
+            'name' => 'randomise_questions',
+            'label' => 'LBL_RANDOMISE_QUESTIONS',
+          ),
+          1 => '',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
             'name' => 'modified_by_name',
             'label' => 'LBL_MODIFIED_NAME',
           ),

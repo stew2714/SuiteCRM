@@ -51,6 +51,15 @@ array (
         array (
           0 => 
           array (
+            'name' => 'randomise_questions',
+            'label' => 'LBL_RANDOMISE_QUESTIONS',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'pass_score',
             'label' => 'LBL_PASS_SCORE',
           ),

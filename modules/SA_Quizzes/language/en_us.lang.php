@@ -74,4 +74,5 @@ $mod_strings = array (
   'LBL_NEW_FORM_TITLE' => 'New Quizzes',
   'LBL_PASS_SCORE' => 'Pass Score',
   'LBL_START_QUIZ' => 'Start Quiz',
+  'LBL_RANDOMISE_QUESTIONS' => 'Randomise Questions',
 );

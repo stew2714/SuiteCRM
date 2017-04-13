@@ -45,6 +45,7 @@ class SA_QuizQuestionsController extends SugarController
         $id = $_REQUEST['id'];
 
         $bean = BeanFactory::getBean('SA_Quizzes',$id);
+        $randomise_flag = $bean->randomise_questions;
         $bean->load_relationship('sa_quizzes_sa_quizquestions_1');
         $relatedBean = $bean->sa_quizzes_sa_quizquestions_1->getBeans();
         $questions_container = array();
@@ -62,6 +63,11 @@ class SA_QuizQuestionsController extends SugarController
             );
 
             array_push($questions_container,$current_question);
+        }
+
+        // If Randomise Questions is set, shuffle the questions.
+        if ($randomise_flag === 1) {
+            $questions_container = shuffle($questions_container);
         }
 
         echo json_encode($questions_container);
