@@ -69,16 +69,13 @@ array (
             'name' => 'possible_answer',
             'label' => 'LBL_POSSIBLE_ANSWER_C',
           ),
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'possible_answer_d',
             'label' => 'LBL_POSSIBLE_ANSWER_D',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -87,20 +84,23 @@ array (
             'label' => 'LBL_CORRECT_ANSWER',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 'description',
         ),
-        8 => 
+        7 => 
         array (
           0 => 'assigned_user_name',
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
             'name' => 'sa_quizzes_sa_quizquestions_1_name',
           ),
+        ),
+        9 => 
+        array (
         ),
       ),
     ),
