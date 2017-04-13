@@ -113,7 +113,7 @@ $dictionary['SA_QuizQuestions'] = array(
                 'len' => '255',
                 'size' => '20',
             ),
-        'possible_answer' =>
+        'possible_answer_c' =>
             array (
                 'required' => false,
                 'name' => 'possible_answer_c',
