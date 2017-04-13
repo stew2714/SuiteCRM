@@ -14,7 +14,11 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+          4 => array (
+            'customCode' => '<input type="button" class="button" onClick="startQuiz(\'{$id}\');" value="{$MOD.LBL_START_QUIZ}">',
+          ),
         ),
+        'footerTpl' => 'modules/SA_Quizzes/tpls/startQuiz.tpl',
       ),
       'maxColumns' => '2',
       'widths' => 
@@ -28,6 +32,22 @@ array (
         array (
           'label' => '10',
           'field' => '30',
+        ),
+      ),
+      'includes' =>
+        array (
+            0 =>
+                array (
+                    'file' => 'modules/SA_Quizzes/js/startQuiz.js',
+                ),
+        ),
+      'useTabs' => false,
+      'tabDefs' =>
+      array (
+        'DEFAULT' =>
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
         ),
       ),
     ),

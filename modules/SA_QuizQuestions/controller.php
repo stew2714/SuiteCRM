@@ -53,12 +53,12 @@ class SA_QuizQuestionsController extends SugarController
             $current_question = array(
                 'id' => $question->id,
                 'name' => html_entity_decode($question->name),
-                'question_number' => $question->question_number_c,
-                'answer_a' => html_entity_decode($question->possible_answer_a_c),
-                'answer_b' => html_entity_decode($question->possible_answer_b_c),
+                'question_number' => $question->question_number,
+                'answer_a' => html_entity_decode($question->possible_answer_a),
+                'answer_b' => html_entity_decode($question->possible_answer_b),
                 'answer_c' => html_entity_decode($question->possible_answer_c),
-                'answer_d' => html_entity_decode($question->possible_answer_d_c),
-                'correct_answer' => $question->correct_answer_c,
+                'answer_d' => html_entity_decode($question->possible_answer_d),
+                'correct_answer' => $question->correct_answer,
             );
 
             array_push($questions_container,$current_question);

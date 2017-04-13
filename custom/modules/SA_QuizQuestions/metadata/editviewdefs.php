@@ -20,6 +20,15 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -27,13 +36,68 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'question_number',
+            'label' => 'LBL_QUESTION_NUMBER',
+          ),
         ),
         1 => 
         array (
+          0 => 'name',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'possible_answer_a',
+            'label' => 'LBL_POSSIBLE_ANSWER_A',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'possible_answer_b',
+            'label' => 'LBL_POSSIBLE_ANSWER_B',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'possible_answer',
+            'label' => 'LBL_POSSIBLE_ANSWER_C',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'possible_answer_d',
+            'label' => 'LBL_POSSIBLE_ANSWER_D',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'correct_answer',
+            'studio' => 'visible',
+            'label' => 'LBL_CORRECT_ANSWER',
+          ),
+        ),
+        7 => 
+        array (
           0 => 'description',
-          1 => 
+        ),
+        8 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+        9 => 
+        array (
+          0 => 
           array (
             'name' => 'sa_quizzes_sa_quizquestions_1_name',
           ),
