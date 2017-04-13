@@ -2,20 +2,10 @@
 $module_name = 'SA_QuizQuestions';
 $viewdefs [$module_name] = 
 array (
-  'DetailView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
-      'form' => 
-      array (
-        'buttons' => 
-        array (
-          0 => 'EDIT',
-          1 => 'DUPLICATE',
-          2 => 'DELETE',
-          3 => 'FIND_DUPLICATES',
-        ),
-      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -99,7 +89,12 @@ array (
         ),
         7 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
         ),
         8 => 
         array (
@@ -110,6 +105,7 @@ array (
           0 => 
           array (
             'name' => 'sa_quizzes_sa_quizquestions_1_name',
+            'label' => 'LBL_SA_QUIZZES_SA_QUIZQUESTIONS_1_FROM_SA_QUIZZES_TITLE',
           ),
         ),
       ),
