@@ -37,16 +37,9 @@ array (
         0 => 
         array (
           0 => 'name',
+          1 => 'assigned_user_name',
         ),
         1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'sa_assignments_sa_quizzes_1_name',
-            'label' => 'LBL_SA_ASSIGNMENTS_SA_QUIZZES_1_FROM_SA_ASSIGNMENTS_TITLE',
-          ),
-        ),
-        2 => 
         array (
           0 => 
           array (
@@ -54,18 +47,11 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'pass_score_c',
-            'label' => 'LBL_PASS_SCORE',
+            'name' => 'sa_assignments_sa_quizzes_1_name',
+            'label' => 'LBL_SA_ASSIGNMENTS_SA_QUIZZES_1_FROM_SA_ASSIGNMENTS_TITLE',
           ),
-        ),
-        4 => 
-        array (
-          0 => 'assigned_user_name',
         ),
       ),
     ),

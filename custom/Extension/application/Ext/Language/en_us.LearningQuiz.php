@@ -40,5 +40,6 @@
 
 
 
+$app_list_strings['moduleList']['SA_QuizAnswers'] = 'Quiz Answers';
 $app_list_strings['moduleList']['SA_QuizQuestions'] = 'Quiz Questions';
 $app_list_strings['moduleList']['SA_Quizzes'] = 'Quizzes';
