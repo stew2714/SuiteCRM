@@ -112,7 +112,7 @@ function displayQuestion() {
 }
 
 function handleButtons(){
-  // Next Buttons
+  // Next and Submit Buttons
   if (currentQuestion === numberOfQuestions) {
     $('#next-question').hide();
     $('#submit-questions').show();
