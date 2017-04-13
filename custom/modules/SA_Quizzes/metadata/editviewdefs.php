@@ -20,6 +20,15 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -36,6 +45,14 @@ array (
           1 => 
           array (
             'name' => 'sa_assignments_sa_quizzes_1_name',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'pass_score',
+            'label' => 'LBL_PASS_SCORE',
           ),
         ),
       ),
