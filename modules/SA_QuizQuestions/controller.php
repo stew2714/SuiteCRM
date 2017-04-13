@@ -66,8 +66,8 @@ class SA_QuizQuestionsController extends SugarController
         }
 
         // If Randomise Questions is set, shuffle the questions.
-        if ($randomise_flag === 1) {
-            $questions_container = shuffle($questions_container);
+        if ($randomise_flag == 1) {
+            shuffle($questions_container);
         }
 
         echo json_encode($questions_container);
