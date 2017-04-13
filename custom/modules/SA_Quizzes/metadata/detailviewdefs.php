@@ -14,7 +14,8 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-          4 => array (
+          4 => 
+          array (
             'customCode' => '<input type="button" class="button" onClick="startQuiz(\'{$id}\');" value="{$MOD.LBL_START_QUIZ}">',
           ),
         ),
@@ -34,17 +35,17 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' =>
-        array (
-            0 =>
-                array (
-                    'file' => 'modules/SA_Quizzes/js/startQuiz.js',
-                ),
-        ),
-      'useTabs' => false,
-      'tabDefs' =>
+      'includes' => 
       array (
-        'DEFAULT' =>
+        0 => 
+        array (
+          'file' => 'modules/SA_Quizzes/js/startQuiz.js',
+        ),
+      ),
+      'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -58,20 +59,38 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'date_entered',
-          1 => 'date_modified',
+          0 => 
+          array (
+            'name' => 'pass_score',
+            'label' => 'LBL_PASS_SCORE',
+          ),
         ),
         2 => 
         array (
+          0 => 'assigned_user_name',
+        ),
+        3 => 
+        array (
           0 => 'description',
-          1 => 
+        ),
+        4 => 
+        array (
+          0 => 
           array (
             'name' => 'sa_assignments_sa_quizzes_1_name',
           ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
+          1 => 'date_modified',
         ),
       ),
     ),
