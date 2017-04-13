@@ -72,4 +72,10 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_QUIZQUESTIONS_SUBPANEL_TITLE' => 'Quiz Questions',
   'LBL_NEW_FORM_TITLE' => 'New Quiz Questions',
+  'LBL_QUESTION_NUMBER' => 'Question Number',
+  'LBL_POSSIBLE_ANSWER_A' => 'Possible Answer A',
+  'LBL_POSSIBLE_ANSWER_B' => 'Possible Answer B',
+  'LBL_POSSIBLE_ANSWER_C' => 'Possible Answer C',
+  'LBL_POSSIBLE_ANSWER_D' => 'Possible Answer D',
+  'LBL_CORRECT_ANSWER' => 'Correct Answer',
 );
