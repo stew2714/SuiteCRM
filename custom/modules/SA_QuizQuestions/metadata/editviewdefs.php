@@ -66,16 +66,19 @@ array (
         array (
           0 => 
           array (
-            'name' => 'possible_answer',
+            'name' => 'possible_answer_c',
             'label' => 'LBL_POSSIBLE_ANSWER_C',
           ),
-          1 => 
+        ),
+        5 => 
+        array (
+          0 => 
           array (
             'name' => 'possible_answer_d',
             'label' => 'LBL_POSSIBLE_ANSWER_D',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -84,22 +87,22 @@ array (
             'label' => 'LBL_CORRECT_ANSWER',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 'description',
         ),
-        7 => 
+        8 => 
         array (
           0 => 'assigned_user_name',
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
             'name' => 'sa_quizzes_sa_quizquestions_1_name',
           ),
         ),
-        9 => 
+        10 => 
         array (
         ),
       ),

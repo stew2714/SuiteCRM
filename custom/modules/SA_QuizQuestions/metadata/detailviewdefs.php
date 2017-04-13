@@ -76,7 +76,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'possible_answer',
+            'name' => 'possible_answer_c',
             'label' => 'LBL_POSSIBLE_ANSWER_C',
           ),
         ),
