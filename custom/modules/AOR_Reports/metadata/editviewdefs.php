@@ -50,7 +50,7 @@ array (
       'useTabs' => false,
         'form' => array(
             'headerTpl' => 'modules/AOR_Reports/tpls/EditViewHeader.tpl',
-            'footerTpl' => 'modules/AOR_Reports/tpls/EditViewFooter.tpl',
+            'footerTpl' => 'custom/modules/AOR_Reports/tpls/EditViewFooter.tpl',
             'buttons' =>
                 array (
                     0 => 'SAVE',
