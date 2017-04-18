@@ -1,5 +1,5 @@
 <?php
-// created: 2017-04-12 15:50:23
+// created: 2017-04-18 09:34:58
 $dictionary["sa_quizzes_sa_quizanswers_2"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => true,

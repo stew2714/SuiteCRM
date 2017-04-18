@@ -1,10 +1,15 @@
 var x,
+    quizId,
     questions,
     currentQuestion,
     numberOfQuestions,
-    modalVisible;
+    modalVisible,
+    quizSubmit,
+    quizSaves,
+    errors = false;
 
 function startQuiz(id) {
+  quizId = id;
   $('#quiz-dialog').modal("toggle");
 
   modalVisible = $('#quiz-dialog').hasClass('in');
@@ -43,19 +48,19 @@ function buildTemplate(numberOfQuestions) {
       <fieldset id="question-' + i + '-group">\
       <div id="option-1" class="question-row"> \
       <label id="question-' + i + '-answer-a-label" for=""></label> \
-      <input type="radio" id="question-' + i + '-answer-a" name="" value=""> \
+      <input type="radio" id="question-' + i + '-answer-a" name="" value="a"> \
       </div> \
       <div id="option-2" class="question-row"> \
       <label id="question-' + i + '-answer-b-label" for=""></label> \
-      <input type="radio" id="question-' + i + '-answer-b" name="" value=""> \
+      <input type="radio" id="question-' + i + '-answer-b" name="" value="b"> \
       </div> \
       <div id="option-3" class="question-row"> \
       <label id="question-' + i + '-answer-c-label" for=""></label> \
-      <input type="radio" id="question-' + i + '-answer-c" name="" value=""> \
+      <input type="radio" id="question-' + i + '-answer-c" name="" value="c"> \
       </div> \
       <div id="option-4" class="question-row"> \
       <label id="question-' + i + '-answer-d-label" for="question-' + i + '-answer-d"></label> \
-      <input type="radio" id="question-' + i + '-answer-d" name="" value=""> \
+      <input type="radio" id="question-' + i + '-answer-d" name="" value="d"> \
       </div> \
       </fieldset> \
       </div>';
@@ -129,10 +134,34 @@ function handleButtons(){
   }
 }
 
-$('#myForm').on('submit', function(e){
+$('#quizForm').on('submit', function(e){
   e.preventDefault();
-  var len = $('#username').val().length;
-  if (len < 6 && len > 1) {
-    this.submit();
+  // Fetch all questions associated with the quiz
+  quizSubmit = $.ajax({
+    type: "POST",
+    url: "index.php?module=SA_QuizQuestions&action=quizSubmit",
+    data: {
+      'form': $('#quizForm').serialize(),
+      'questions': questions,
+      'id': quizId,
+    },
+    dataType: "json",
+    success: function (data) {
+      return data;
+    }
+  });
+
+  quizSaves = quizSubmit.responseText;
+
+  console.log(quizId);
+
+  for (i=0; i<quizSaves.length; i++) {
+    if (quizSaves[i] === 'false'){
+      errors = true;
+    }
+  }
+
+  if (errors === false) {
+    $('#quiz-dialog').modal("toggle");
   }
 });

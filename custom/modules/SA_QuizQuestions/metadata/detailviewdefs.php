@@ -99,13 +99,9 @@ array (
         ),
         7 => 
         array (
-          0 => 'description',
-        ),
-        8 => 
-        array (
           0 => 'assigned_user_name',
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (

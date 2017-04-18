@@ -73,5 +73,69 @@ class SA_QuizQuestionsController extends SugarController
         echo json_encode($questions_container);
         die();
     }
+
+    public function action_quizSubmit() {
+        global $current_user;
+        parse_str($_POST['form'],$answer);
+        $id = $_REQUEST['id'];
+
+        $quiz = BeanFactory::getBean('SA_Quizzes',$id);
+        $pass_score = $quiz->pass_score;
+
+        $submission = BeanFactory::getBean('SA_QuizSubmissions');
+        $submission->assigned_user_id = $current_user->id;
+        $submission->name = $current_user->user_name;
+        $submission->sa_quizzes_sa_quizsubmissions_1sa_quizzes_ida = $id;
+        $submission->save();
+
+        $number_of_answers = count($answer);
+        $number_correct = 0;
+
+        foreach ($answer as $key => $value) {
+            foreach ($_POST['questions'] as $question ) {
+                if ($question['id'] === $key) {
+                    $correct_answer = strtolower($question['correct_answer']);
+                }
+            }
+
+            if ($correct_answer == $value) {
+                $correct_status = '1';
+                $number_correct++;
+            } else {
+                $correct_status = '0';
+            }
+
+            $bean = BeanFactory::getBean('SA_QuizAnswers');
+            $bean->question_answer = $value;
+            $bean->correct_answer = $correct_answer;
+            $bean->name = $current_user->user_name;
+            $bean->assigned_user_id = $current_user->id;
+            $bean->correct_status = $correct_status;
+            $bean->sa_quizquestions_sa_quizanswers_1sa_quizquestions_ida = $key;
+            $bean->sa_quizsubmissions_sa_quizanswers_1sa_quizsubmissions_ida = $submission->id;
+            $bean->sa_quizzes_sa_quizanswers_2sa_quizzes_ida = $id;
+            $bean->save();
+
+            $results[] = $bean->id;
+        }
+
+        $submission_score = 100 / $number_of_answers * $number_correct;
+        $submission->score = $submission_score;
+        $submission->total_questions = $number_of_answers;
+        $submission->correct_answers = $number_correct;
+
+        if ($submission_score >= $pass_score) {
+            $submission_pass = 'yes';
+        } else {
+            $submission_pass = 'no';
+        }
+
+        $submission->pass = $submission_pass;
+        $submission->status = 'complete';
+        $submission->save();
+
+        echo json_encode($results);
+        die();
+    }
 }
 ?>
