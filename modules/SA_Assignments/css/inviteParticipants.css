@@ -1,0 +1,20 @@
+#invite-dialog, #user-group, #user{
+    display: none;
+}
+
+#invite-select, #user-group-select, #user-select{
+    width: 80%;
+}
+
+.child-select-spacer{
+    margin-top: 15px;
+}
+
+.drop-label{
+    width: 110px;
+    padding-left: 10px;
+}
+
+#invite-buttons-container{
+    margin-top: 20px;
+}
