@@ -373,8 +373,10 @@ function showConditionModuleField(ln, operator_value, type_value, field_value, o
             success: function(result) {
                 document.getElementById('aor_conditions_fieldInput'+ln).innerHTML = result.responseText;
                 SUGAR.util.evalScript(result.responseText);
+                console.log(result.responseText);
                 enableQS(false);
                 testModuleFieldsPandingFinihed();
+              $("#aor_conditions_value\\[" + ln +"\\]").blur( UpdatePreview("preview") );
             },
             failure: function(result) {
                 document.getElementById('aor_conditions_fieldInput'+ln).innerHTML = '';
@@ -507,7 +509,7 @@ function insertConditionLine(condition){
 
         var a = x.insertCell(nxtCell++);
         if(action_sugar_grp1 == 'EditView'){
-            a.innerHTML = "<button type='button' id='aor_conditions_delete_line" + condln + "' class='button' value='' tabindex='116' onclick='markConditionLineDeleted(" + condln + ")'><img src='themes/default/images/id-ff-remove-nobg.png' alt=''></button><br>";
+            a.innerHTML = "<button type='button'  onblur='UpdatePreview(\"preview\");' id='aor_conditions_delete_line" + condln + "' class='button' value='' tabindex='116' onclick='markConditionLineDeleted(" + condln + ")'><img src='themes/default/images/id-ff-remove-nobg.png' alt=''></button><br>";
             a.innerHTML += "<input type='hidden' name='aor_conditions_deleted[" + condln + "]' id='aor_conditions_deleted" + condln + "' value='0'><input type='hidden' name='aor_conditions_id[" + condln + "]' id='aor_conditions_id" + condln + "' value=''>";
         } else{
             a.innerHTML = condln +1 + "<input class='aor_conditions_id' type='hidden' name='aor_conditions_id[" + condln + "]' id='aor_conditions_id" + condln + "' value=''>";
