@@ -35,7 +35,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         $requestData = $this->parseLines($requestData);
         $bean = BeanFactory::getBean("AOR_Reports", $requestData['id']);
         $preview = new reportPreview($bean, $requestData);
-        echo $preview->buildMultiGroupReport("0", true);
+        echo $preview->buildMultiGroupReport("-2", true);
         die();
     }
 
@@ -46,14 +46,6 @@ class customAOR_ReportsController extends AOR_ReportsController
             $this->bean->user_parameters = requestToUserParameters();
             echo $this->bean->build_group_report($offset, true);
         }
-//        }else{
-//            parse_str($_REQUEST['formdata'], $requestData);
-//            $requestData = $this->parseLines($requestData);
-//            $bean = BeanFactory::getBean("AOR_Reports", $requestData['id']);
-//            $preview = new reportPreview($bean, $requestData);
-//            echo $preview->build_group_report($offset, true);
-//        }
-
         die();
     }
 

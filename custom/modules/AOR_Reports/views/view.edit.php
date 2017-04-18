@@ -15,7 +15,7 @@ class customAOR_ReportsViewEdit extends AOR_ReportsViewEdit
     {
         parent::display();
         if(!empty($this->bean->id) ){
-            $reportHTML = '<div id="preview">' . $this->bean->buildMultiGroupReport('0', true) . '</div>';
+            $reportHTML = '<div id="preview">' . $this->bean->buildMultiGroupReport('-2', true) . '</div>';
         }else{
             $reportHTML = '<div id="preview"></div>';
         }

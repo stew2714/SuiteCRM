@@ -418,7 +418,7 @@ class reportPreview extends AOR_Report
                         <td style='text-align:left' ><H3><a href=\"javascript:void(0)\" class=\"collapseLink\" onclick=\"groupedReportToggler.toggleList(this);\"><img border=\"0\" id=\"detailpanel_1_img_hide\" src=\"themes/SuiteR/images/basic_search.gif\"></a>$moduleFieldByGroupValue</H3></td>
                         <td class='paginationChangeButtons' align='right' nowrap='nowrap' width='1%'>";
 
-            if ($offset == 0) {
+            if ($offset == 0 || $offset == "-2") {
                 $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' disabled='disabled'>
                     <img src='" . SugarThemeRegistry::current()->getImageURL('start_off.gif') . "' alt='Start' align='absmiddle' border='0'>
                 </button>
@@ -552,7 +552,9 @@ class reportPreview extends AOR_Report
 
         if ($offset >= 0) {
             $result = $this->db->limitQuery($report_sql, $offset, $max_rows);
-        } else {
+        } elseif($offset == "-2") {
+            $result = $this->db->limitQuery($report_sql, 0, "10");
+        }else{
             $result = $this->db->query($report_sql);
         }
 
@@ -705,19 +707,12 @@ class reportPreview extends AOR_Report
         $module = new $beanList[$this->report_module]();
 
         $field = $this->getViewParams(true);
-//        $sql =
-//            "SELECT id FROM aor_fields WHERE aor_report_id = '" .
-//            $this->id .
-//            "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
-//        $field_id = $this->db->getOne($sql);
 
         if (!$field) {
             $query_array['select'][] = $module->table_name . ".id AS '" . $module->table_name . "_id'";
         }
 
         if ($field != false) {
-//            $field = new AOR_Field();
-//            $field->retrieve($field_id);
 
             $field_label = str_replace(' ', '_', $field->label);
 
