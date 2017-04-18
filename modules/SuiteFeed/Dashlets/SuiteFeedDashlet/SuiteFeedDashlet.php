@@ -446,8 +446,9 @@ class SuiteFeedDashlet extends DashletGeneric
         if (!empty($_REQUEST['record'])) {
             $feed = new SuiteFeed();
             $feed->retrieve($_REQUEST['record']);
-            $feed->load_relationship("suitefeed_users");
-            $feed->suitefeed_users->delete( $GLOBALS['current_user']->id, $_REQUEST['record'] );
+            if($feed->load_relationship("suitefeed_users")){
+                $feed->suitefeed_users->delete( $_REQUEST['record'],$GLOBALS['current_user']->id );
+            }
         }
     }
 
