@@ -656,9 +656,11 @@ class SuiteFeed extends Basic
 
     static function getTimeLapse($startDate)
     {
+        global $timedate;
+
         //setup timedate with correct times.
-        $startDateObj = new DateTime( $startDate );
-        $timeNow = new DateTime(  );
+        $startDateObj = $timedate->fromDb($startDate);
+        $timeNow = new DateTime( $GLOBALS['timedate']->getNow() );
         //get difference between dates
         $interval = $startDateObj->diff($timeNow);
 
