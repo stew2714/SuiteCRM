@@ -1,0 +1,41 @@
+
+#quiz-dialog{
+    display: none;
+}
+
+#questions-wrapper{
+    margin-top: -25px;
+}
+
+.question-row{
+    padding: 10px;
+}
+
+.question-row label{
+    display: inline-block;
+    padding-right: 20px;
+    min-width: 100px;
+}
+
+/* Navigation Buttons */
+#invite-buttons-container{
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+#previous-question{
+    display: none;
+    float: left;
+}
+
+#submit-questions{
+    display: none;
+}
+
+.ok-dialog{
+    float: right;
+}
+
+.question-nav-button{
+    width: 190px;
+}

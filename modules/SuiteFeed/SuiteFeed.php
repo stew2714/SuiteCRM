@@ -510,6 +510,11 @@ class SuiteFeed extends Basic
         $time = $this->getTimeWithSeconds($this->id);
         $data['NAME'] .= $this->getTimeLapse($time) .
                          '&nbsp;</span><div class="byLineRight">' .
+                         '<a href="#" 
+                        onclick=\'SuiteFeed.userListFeed("' .
+                         $data['ID'] .
+                         '", "{this.id}", this);\'> 
+                         One </a>' .
                          $edit .
                          '<a id="sugarFeedReplyLink' .
                          $data['ID'] .
