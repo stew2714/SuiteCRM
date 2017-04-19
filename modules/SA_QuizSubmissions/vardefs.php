@@ -114,6 +114,37 @@ $dictionary['SA_QuizSubmissions'] = array(
                 'studio' => 'visible',
                 'dependency' => false,
             ),
+        'quiz_start_time' => array(
+            'name' => 'quiz_start_time',
+            'vname' => 'LBL_QUIZ_START_TIME',
+            'type' => 'datetime',
+            'comment' => 'Start time of the quiz',
+            'enable_range_search' => true,
+            'options' => 'date_range_search_dom',
+        ),
+        'quiz_end_time' => array(
+            'name' => 'quiz_end_time',
+            'vname' => 'LBL_QUIZ_END_TIME',
+            'type' => 'datetime',
+            'comment' => 'End time of the quiz',
+            'enable_range_search' => true,
+            'options' => 'date_range_search_dom',
+        ),
+        'quiz_duration' =>
+            array(
+                'required' => true,
+                'name' => 'quiz_duration',
+                'vname' => 'LBL_QUIZ_DURATION',
+                'type' => 'int',
+                'len' => 100,
+                'isnull' => 'false',
+                'unified_search' => true,
+                'comments' => '',
+                'importable' => 'true',
+                'duplicate_merge' => 'disabled',
+                'reportable' => true,
+                'disable_num_format' => true,
+            ),
         'status' =>
             array (
                 'required' => true,

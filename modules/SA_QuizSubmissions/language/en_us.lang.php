@@ -78,4 +78,7 @@ $mod_strings = array (
   'LBL_TOTAL_QUESTIONS' => 'Total Questions',
   'LBL_PASS_FAIL' => 'Pass',
   'LBL_QUIZ_STATUS' => 'Status',
+  'LBL_QUIZ_START_TIME' => 'Quiz Start Time',
+  'LBL_QUIZ_END_TIME' => 'Quiz End Time',
+  'LBL_QUIZ_DURATION' => 'Quiz Time (Seconds)',
 );

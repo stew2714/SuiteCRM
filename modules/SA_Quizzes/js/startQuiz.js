@@ -5,27 +5,32 @@ var x,
     numberOfQuestions,
     modalVisible,
     quizSubmit,
-    quizSaves,
+    quizResults,
+    currentDate,
     errors = false;
 
 function startQuiz(id) {
-  quizId = id;
-  $('#quiz-dialog').modal("toggle");
-
+  // Reset form to be a new session
   modalVisible = $('#quiz-dialog').hasClass('in');
 
   if (modalVisible === true) {
-    x = 0;
     questions = JSON.parse(getQuestions(id));
-    currentQuestion = x + 1;
     numberOfQuestions = questions.length;
 
     // Add the Questions to the Quiz Template
     buildTemplate(numberOfQuestions);
-
-    // Display the initial Question
-    displayQuestion();
   }
+
+  $('#quizForm').trigger("reset");
+  x = 0;
+  currentQuestion = x + 1;
+
+  // Display the initial Question
+  displayQuestion();
+
+  quizId = id;
+  currentDate = new Date().getTime() / 1000;
+  $('#quiz-dialog').modal("toggle");
 }
 
 function getQuestions(id) {
@@ -144,6 +149,7 @@ $('#quizForm').on('submit', function(e){
       'form': $('#quizForm').serialize(),
       'questions': questions,
       'id': quizId,
+      'time': Math.floor(currentDate),
     },
     dataType: "json",
     success: function (data) {
@@ -151,17 +157,49 @@ $('#quizForm').on('submit', function(e){
     }
   });
 
-  quizSaves = quizSubmit.responseText;
+  quizResults = quizSubmit.responseText;
 
-  console.log(quizId);
-
-  for (i=0; i<quizSaves.length; i++) {
-    if (quizSaves[i] === 'false'){
-      errors = true;
-    }
-  }
-
-  if (errors === false) {
-    $('#quiz-dialog').modal("toggle");
-  }
+  buildResultTemplate(quizResults);
 });
+
+function buildResultTemplate(quizResults) {
+  quizResults = JSON.parse(quizResults);
+
+  // Empty Questions Wrapper to be blank
+  $('#questions-wrapper').empty();
+
+  // Hide Any Possible Buttons
+  $('#next-question').hide();
+  $('#previous-question').hide();
+  $('#submit-questions').hide();
+  $('#invite-buttons-container').hide();
+
+  var resultsTemplate = '<div id="quiz-pass"></div> \
+  <div id="quiz-score"></div> \
+  <div id="quiz-questions"></div> \
+  <div id="quiz-total-correct"></div> \
+  <div id="quiz-time-started"></div> \
+  <div id="quiz-time-ended"></div> \
+  <div id="quiz-time-spent"></div>';
+
+  $("#questions-wrapper").append(resultsTemplate);
+
+  if (quizResults['pass'] === "yes") {
+    $('#question-name').text("Congratulations, you passed!");
+  } else if (quizResults['pass'] === "no") {
+    $('#question-name').text("Sorry, you haven't passed!");
+  }
+
+  if (quizResults['pass'] === "yes") {
+    $('#quiz-pass').text("Passed: Yes");
+  } else if (quizResults['pass'] === "no") {
+    $('#quiz-pass').text("Passed: No");
+  }
+
+  $('#quiz-score').text("Score: " + quizResults['score'] + "%");
+  $('#quiz-questions').text("Questions: " + quizResults['total_questions']);
+  $('#quiz-total-correct').text("Total Correct: " + quizResults['total_correct']);
+  $('#quiz-time-started').text("Started: " + quizResults['time_start']);
+  $('#quiz-time-ended').text("Ended: " + quizResults['time_ended']);
+  $('#quiz-time-spent').text("Time Spent: " + quizResults['time_spent'] + ' seconds');
+}

@@ -78,6 +78,9 @@ class SA_QuizQuestionsController extends SugarController
         global $current_user;
         parse_str($_POST['form'],$answer);
         $id = $_REQUEST['id'];
+        $time_started = $_POST['time'];
+        $time_now = strtotime(date("Y-m-d H:i:s"));
+        $time_spent = $time_now - $time_started;
 
         $quiz = BeanFactory::getBean('SA_Quizzes',$id);
         $pass_score = $quiz->pass_score;
@@ -132,7 +135,20 @@ class SA_QuizQuestionsController extends SugarController
 
         $submission->pass = $submission_pass;
         $submission->status = 'complete';
+        $submission->quiz_start_time = date('Y-m-d H:i:s', $time_started);
+        $submission->quiz_end_time = date('Y-m-d H:i:s', $time_now);
+        $submission->quiz_duration = $time_spent;
         $submission->save();
+
+        $results = array(
+            'score' => $submission_score,
+            'pass' => $submission_pass,
+            'total_questions' => $number_of_answers,
+            'total_correct' => $number_correct,
+            'time_start' => date('Y-m-d H:i:s', $time_started),
+            'time_ended' => date('Y-m-d H:i:s', $time_now),
+            'time_spent' => $time_spent,
+        );
 
         echo json_encode($results);
         die();
