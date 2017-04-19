@@ -91,12 +91,36 @@ array (
         array (
           0 => 
           array (
+            'name' => 'quiz_end_time',
+            'comment' => 'End time of the quiz',
+            'label' => 'LBL_QUIZ_END_TIME',
+          ),
+          1 => 
+          array (
+            'name' => 'quiz_start_time',
+            'comment' => 'Start time of the quiz',
+            'label' => 'LBL_QUIZ_START_TIME',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quiz_duration',
+            'label' => 'LBL_QUIZ_DURATION',
+          ),
+          1 => '',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
             'name' => 'date_entered',
             'comment' => 'Date record created',
             'label' => 'LBL_DATE_ENTERED',
           ),
         ),
-        8 => 
+        10 => 
         array (
           0 => 
           array (
@@ -105,7 +129,7 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
-        9 => 
+        11 => 
         array (
           0 => 'assigned_user_name',
         ),

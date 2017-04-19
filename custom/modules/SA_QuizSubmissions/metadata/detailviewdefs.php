@@ -99,13 +99,37 @@ array (
         ),
         7 => 
         array (
-          0 => 'date_entered',
+          0 => 
+          array (
+            'name' => 'quiz_end_time',
+            'comment' => 'End time of the quiz',
+            'label' => 'LBL_QUIZ_END_TIME',
+          ),
+          1 => 
+          array (
+            'name' => 'quiz_start_time',
+            'comment' => 'Start time of the quiz',
+            'label' => 'LBL_QUIZ_START_TIME',
+          ),
         ),
         8 => 
         array (
-          0 => 'date_modified',
+          0 => 
+          array (
+            'name' => 'quiz_duration',
+            'label' => 'LBL_QUIZ_DURATION',
+          ),
+          1 => '',
         ),
         9 => 
+        array (
+          0 => 'date_entered',
+        ),
+        10 => 
+        array (
+          0 => 'date_modified',
+        ),
+        11 => 
         array (
           0 => 'assigned_user_name',
         ),
