@@ -658,7 +658,7 @@ class SuiteFeed extends Basic
     {
         //setup timedate with correct times.
         $startDateObj = new DateTime( $startDate );
-        $timeNow = new DateTime( $GLOBALS['timedate']->getNow() );
+        $timeNow = new DateTime(  );
         //get difference between dates
         $interval = $startDateObj->diff($timeNow);
 
