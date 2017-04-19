@@ -506,7 +506,9 @@ class SuiteFeed extends Basic
             }
         }
         $data['NAME'] .= '<div class="byLineBox"><span class="byLineLeft">';
-        $data['NAME'] .= $this->getTimeLapse($data['DATE_ENTERED']) .
+
+        $time = $this->getTimeWithSeconds($this->id);
+        $data['NAME'] .= $this->getTimeLapse($time) .
                          '&nbsp;</span><div class="byLineRight">' .
                          $edit .
                          '<a id="sugarFeedReplyLink' .
@@ -524,6 +526,20 @@ class SuiteFeed extends Basic
 
         return $data;
     }
+
+    /**
+     *
+     * getTimeWithSeconds - Return the date entered for the given ID, simple function to return the datetime with the
+     * seconds included, something that the datetime field does not do out of the box.
+     * @param $id
+     * @return array
+     */
+    private function getTimeWithSeconds($id){
+        global $db;
+        return $db->getOne("SELECT date_entered FROM suitefeed WHERE id = '" . $id . "'");
+
+    }
+
 
     function fetchReplies($data)
     {
@@ -622,8 +638,9 @@ class SuiteFeed extends Basic
                               get_assigned_user_name($reply->created_by),
                               html_entity_decode($text)
                           ) . $inLine . '<br>';
+            $time = $this->getTimeWithSeconds($this->id);
             $replyHTML .= '<div class="byLineBox"><span class="byLineLeft">' .
-                          $this->getTimeLapse($reply->date_entered) .
+                          $this->getTimeLapse($time) .
                           '&nbsp;</span><div class="byLineRight">  &nbsp;' .
                           $edit .
                           $like .
@@ -639,19 +656,28 @@ class SuiteFeed extends Basic
 
     static function getTimeLapse($startDate)
     {
-        $seconds = $GLOBALS['timedate']->getNow()->ts - $GLOBALS['timedate']->fromUser($startDate)->ts;
-        $minutes = $seconds / 60;
-        $seconds = $seconds % 60;
-        $hours = floor($minutes / 60);
-        $minutes = $minutes % 60;
-        $days = floor($hours / 24);
-        $hours = $hours % 24;
+        //setup timedate with correct times.
+        $startDateObj = new DateTime( $startDate );
+        $timeNow = new DateTime( $GLOBALS['timedate']->getNow() );
+        //get difference between dates
+        $interval = $startDateObj->diff($timeNow);
+
+        //get the values into the right vars for the following conditions.
+        $minutes = $interval->format('%i');
+        $seconds = $interval->format('%s');
+        $hours = $interval->format('%h');
+        $days = $interval->format('%d');
         $weeks = floor($days / 7);
+
+        //round
+        $seconds = $seconds % 60;
+        $minutes = $minutes % 60;
+        $hours = $hours % 24;
         $days = $days % 7;
         $result = '';
+
         if ($weeks == 1) {
             $result = translate('LBL_TIME_LAST_WEEK', 'SuiteFeed') . ' ';
-
             return $result;
         } else {
             if ($weeks > 1) {
