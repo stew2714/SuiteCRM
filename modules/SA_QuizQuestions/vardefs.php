@@ -183,8 +183,6 @@ $dictionary['SA_QuizQuestions'] = array(
                 'min' => false,
                 'max' => false,
             ),
-
-
         ),
     'relationships' => array (
 ),

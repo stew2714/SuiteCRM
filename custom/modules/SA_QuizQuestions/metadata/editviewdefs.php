@@ -102,9 +102,6 @@ array (
             'name' => 'sa_quizzes_sa_quizquestions_1_name',
           ),
         ),
-        10 => 
-        array (
-        ),
       ),
     ),
   ),

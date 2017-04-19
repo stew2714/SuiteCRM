@@ -38,7 +38,6 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-
 $mod_strings = array (
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
   'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
@@ -72,4 +71,10 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_QUIZANSWERS_SUBPANEL_TITLE' => 'Quiz Answers',
   'LBL_NEW_FORM_TITLE' => 'New Quiz Answers',
+  'LBL_QUESTION_ID' =>  'Question ID',
+  'LBL_QUESTION_ANSWER' => 'Question Answer',
+  'LBL_CORRECT_ANSWER' => 'Correct Answer',
+  'LBL_USER_ID' => 'User ID',
+  'LBL_CORRECT_STATUS' => 'Correct',
+  'LBL_SA_QUIZQUESTIONS_SA_QUIZANSWERS_1_FROM_SA_QUIZQUESTIONS_TITLE' => 'Question Title',
 );
