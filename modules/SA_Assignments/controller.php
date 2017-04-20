@@ -80,9 +80,9 @@ class SA_AssignmentsController extends SugarController
             $user->retrieve($user->id);
 
             if ($template === false || $user === false || $bean === false) {
-                SA_AssignmentsController::parseAndSendBroadcastEmail($template, $user, $bean);
-            } else {
                 $GLOBALS['log']->fatal = "Error occurred: either Template or Bean is false or null on line 82 of SA_Assignments Controller";
+            } else {
+                SA_AssignmentsController::parseAndSendBroadcastEmail($template, $user, $bean);
             }
         }
 
