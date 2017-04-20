@@ -433,6 +433,29 @@ class SuiteFeedDashlet extends DashletGeneric
             $feed->suitefeed_users->add( $GLOBALS['current_user']->id );
         }
     }
+    function userListFeed()
+    {
+        if (!empty($_REQUEST['record'])) {
+            $feed = new SuiteFeed();
+            $feed->retrieve($_REQUEST['record']);
+            $html = '';
+            if($feed->load_relationship("suitefeed_users")){
+
+                $beans = $feed->suitefeed_users->getBeans();
+                if(count($beans) > 0 ) {
+                    $html .= '<ul>';
+                    foreach ($beans as $bean) {
+                        $html .= '<li>' . $bean->user_name . '</li>';
+                    }
+                    $html .= '</ul>';
+                }else{
+                    $html = "No Users have liked this post";
+                }
+
+            }
+            echo $html;
+        }
+    }
     function userEditFeedSave(){
         if (!empty($_REQUEST['record'])) {
             $feed = new SuiteFeed();
@@ -619,6 +642,7 @@ enableQS(false);
         return parent::getHeader($text) .
                $this->getPostForm() .
                $this->getDisabledWarning() .
+               $this->getModal() .
                $this->sugarFeedDisplayScript() .
                '<div class="sugarFeedDashlet"><div id="contentScroller' .
                $this->idjs .
@@ -713,6 +737,20 @@ enableQS(false);
         $ss->assign('link_types', $linkTypes);
 
         $userPostFormTplFile = 'modules/SuiteFeed/Dashlets/SuiteFeedDashlet/UserPostForm.tpl';
+        $fetch = $ss->fetch(get_custom_file_if_exists($userPostFormTplFile));
+
+        return $fetch;
+    }
+
+    function getModal()
+    {
+        global $current_user;
+
+        $ss = new Sugar_Smarty();
+
+        $ss->assign('link_types', $linkTypes);
+
+        $userPostFormTplFile = 'modules/SuiteFeed/tpls/modal.tpl';
         $fetch = $ss->fetch(get_custom_file_if_exists($userPostFormTplFile));
 
         return $fetch;
