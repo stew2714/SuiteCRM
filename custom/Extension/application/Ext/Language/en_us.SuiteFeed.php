@@ -41,3 +41,4 @@
 $app_strings['LBL_LIKE_BUTTON_LABEL'] = 'Like';
 $app_strings['LBL_UNLIKE_BUTTON_LABEL'] = 'Unlike';
 $app_strings['LBL_EDIT_BUTTON_LABEL'] = 'Edit';
+$app_strings['LBL_LIKE_LIST_BUTTON'] = 'Liked List';

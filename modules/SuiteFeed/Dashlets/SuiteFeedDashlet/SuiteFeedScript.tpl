@@ -72,7 +72,7 @@
               userListFeed: function (record, id) {
                 postData = 'to_pdf=1&module=Home&action=CallMethodDashlet&method=userListFeed&id=' + id + '&record=' + record;
                 var cObj = YAHOO.util.Connect.asyncRequest('POST', 'index.php',
-                  {success: function(results){ console.log("test");console.log(results); $("#user_list").html(results.responseText) } , failure: SuiteFeed.saved, argument: id}, postData);
+                  {success: function(results){ $("#user_list").html(results.responseText) } , failure: SuiteFeed.saved, argument: id}, postData);
                 $('#ok-dialog').modal('toggle');
               },
                 editFeed: function (record, data, id){

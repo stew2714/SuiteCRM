@@ -514,8 +514,7 @@ class SuiteFeed extends Basic
                         onclick=\'SuiteFeed.userListFeed("' .
                          $data['ID'] .
                          '", "{this.id}", this);\'> 
-                         One </a>' .
-                         $edit .
+                         ' . $GLOBALS['app_strings']['LBL_LIKE_LIST_BUTTON'] . ' - </a>' .
                          '<a id="sugarFeedReplyLink' .
                          $data['ID'] .
                          '" href="#" onclick=\'SuiteFeed.buildReplyForm("' .
