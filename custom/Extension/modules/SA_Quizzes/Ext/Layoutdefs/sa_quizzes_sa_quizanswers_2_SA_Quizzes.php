@@ -10,14 +10,5 @@ $layout_defs["SA_Quizzes"]["subpanel_setup"]['sa_quizzes_sa_quizanswers_2'] = ar
   'get_subpanel_data' => 'sa_quizzes_sa_quizanswers_2',
   'top_buttons' => 
   array (
-    0 => 
-    array (
-      'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
-    1 => 
-    array (
-      'widget_class' => 'SubPanelTopSelectButton',
-      'mode' => 'MultiSelect',
-    ),
   ),
 );
