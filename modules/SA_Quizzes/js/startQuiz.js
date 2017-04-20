@@ -139,28 +139,30 @@ function handleButtons(){
   }
 }
 
-$('#quizForm').on('submit', function(e){
-  e.preventDefault();
-  // Fetch all questions associated with the quiz
-  quizSubmit = $.ajax({
-    type: "POST",
-    url: "index.php?module=SA_QuizQuestions&action=quizSubmit",
-    data: {
-      'form': $('#quizForm').serialize(),
-      'questions': questions,
-      'id': quizId,
-      'time': Math.floor(currentDate),
-    },
-    dataType: "json",
-    success: function (data) {
-      return data;
-    }
+$(document).ready(function() {
+  $('#quizForm').on('submit', function(e){
+    e.preventDefault();
+    // Fetch all questions associated with the quiz
+    quizSubmit = $.ajax({
+      type: "POST",
+      url: "index.php?module=SA_QuizQuestions&action=quizSubmit",
+      data: {
+        'form': $('#quizForm').serialize(),
+        'questions': questions,
+        'id': quizId,
+        'time': Math.floor(currentDate),
+      },
+      dataType: "json",
+      success: function (data) {
+        return data;
+      }
+    });
+
+    quizResults = quizSubmit.responseText;
+
+    buildResultTemplate(quizResults);
   });
-
-  quizResults = quizSubmit.responseText;
-
-  buildResultTemplate(quizResults);
-});
+}
 
 function buildResultTemplate(quizResults) {
   quizResults = JSON.parse(quizResults);
