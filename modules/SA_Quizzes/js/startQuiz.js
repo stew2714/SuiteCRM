@@ -140,7 +140,7 @@ function handleButtons(){
 }
 
 $(document).ready(function() {
-  $('#quizForm').on('submit', function(e){
+  $('#quizForm').on('submit', function (e) {
     e.preventDefault();
     // Fetch all questions associated with the quiz
     quizSubmit = $.ajax({
@@ -162,7 +162,7 @@ $(document).ready(function() {
 
     buildResultTemplate(quizResults);
   });
-}
+});
 
 function buildResultTemplate(quizResults) {
   quizResults = JSON.parse(quizResults);
