@@ -510,7 +510,11 @@ class SuiteFeed extends Basic
         $time = $this->getTimeWithSeconds($this->id);
         $data['NAME'] .= $this->getTimeLapse($time) .
                          '&nbsp;</span><div class="byLineRight">' .
-                         $edit .
+                         '<a href="#" 
+                        onclick=\'SuiteFeed.userListFeed("' .
+                         $data['ID'] .
+                         '", "{this.id}", this);\'> 
+                         ' . $GLOBALS['app_strings']['LBL_LIKE_LIST_BUTTON'] . ' - </a>' .
                          '<a id="sugarFeedReplyLink' .
                          $data['ID'] .
                          '" href="#" onclick=\'SuiteFeed.buildReplyForm("' .
