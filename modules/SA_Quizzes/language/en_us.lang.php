@@ -75,4 +75,5 @@ $mod_strings = array (
   'LBL_PASS_SCORE' => 'Pass Score',
   'LBL_START_QUIZ' => 'Start Quiz',
   'LBL_RANDOMISE_QUESTIONS' => 'Randomise Questions',
+  'LBL_SA_QUIZZES_SA_QUIZSUBMISSIONS_1_FROM_SA_QUIZSUBMISSIONS_TITLE' => 'Quiz Submissions',
 );
