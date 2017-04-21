@@ -78,7 +78,7 @@ class SA_QuizQuestionsController extends SugarController
             shuffle($questions_container);
         } else {
             function cmp($a,$b) {
-                return strcmp($a['question_number'],$b['question_number']);
+                return $a['question_number'] - $b['question_number'];
             }
 
             usort($questions_container, "cmp");
