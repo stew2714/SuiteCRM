@@ -2,6 +2,7 @@
 
 
 require_once('modules/AOR_Reports/views/view.edit.php');
+require_once('custom/modules/AOR_Reports/AdvancedReporter.php');
 
 class customAOR_ReportsViewEdit extends AOR_ReportsViewEdit
 {
@@ -14,8 +15,10 @@ class customAOR_ReportsViewEdit extends AOR_ReportsViewEdit
     function display()
     {
         parent::display();
+
         if(!empty($this->bean->id) ){
-            $reportHTML = '<div id="preview">' . $this->bean->buildMultiGroupReport('-2', true) . '</div>';
+            $preview = new AdvancedReporter($this->bean);
+            $reportHTML = '<div id="preview">' . $preview->buildMultiGroupReport('-2', true) . '</div>';
         }else{
             $reportHTML = '<div id="preview"></div>';
         }

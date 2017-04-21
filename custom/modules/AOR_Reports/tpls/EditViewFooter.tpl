@@ -10,7 +10,7 @@
 {literal}
     <script src="modules/AOR_Reports/js/jqtree/tree.jquery.js"></script>
     <script src="custom/modules/AOR_Fields/fieldLines.js"></script>
-    <script src="modules/AOR_Conditions/conditionLines.js"></script>
+    <script src="custom/modules/AOR_Conditions/conditionLines.js"></script>
     <script src="modules/AOR_Charts/chartLines.js"></script>
 
     <link rel="stylesheet" href="include/javascript/jquery/themes/base/jquery-ui.min.css">
@@ -47,6 +47,7 @@
                     {
                         'module' : 'AOR_Reports',
                         'action' : 'getModuleTreeData',
+                        'report_module':$('#report_module').val(),
                         'aor_module' : module,
                         'view' : 'JSON'
                     },
@@ -134,12 +135,13 @@
             var module = node.module;
             var module_name = node.name;
             var module_path_display = node.module_path_display;
-
             if(!treeDataLeafs[module]) {
+              console.log("ONETWOTHREEFOUR");
                 $.getJSON('index.php',
                         {
                             'module': 'AOR_Reports',
                             'action': 'getModuleFields',
+                            'report_module':$("#report_module").val(),
                             'aor_module': node.module,
                             'view': 'JSON'
                         },

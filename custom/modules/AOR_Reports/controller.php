@@ -24,7 +24,7 @@
  */
 
 require_once("modules/AOR_Reports/controller.php");
-require_once("custom/modules/AOR_Reports/ReportPreview.php");
+require_once("custom/modules/AOR_Reports/AdvancedReporter.php");
 
 class customAOR_ReportsController extends AOR_ReportsController
 {
@@ -34,17 +34,24 @@ class customAOR_ReportsController extends AOR_ReportsController
         parse_str($_REQUEST['formdata'], $requestData);
         $requestData = $this->parseLines($requestData);
         $bean = BeanFactory::getBean("AOR_Reports", $requestData['id']);
-        $preview = new reportPreview($bean, $requestData);
+        $preview = new AdvancedReporter($bean, $requestData);
         echo $preview->buildMultiGroupReport("-2", true);
         die();
     }
-
+    protected function action_export()
+    {
+        $this->bean->user_parameters = requestToUserParameters();
+        $advancedReporter = new AdvancedReporter($this->bean);
+        $advancedReporter->build_report_csv();
+        die;
+    }
     protected function action_changeReportPage()
     {
         $offset = !empty($_REQUEST['offset']) ? $_REQUEST['offset'] : 0;
         if (!empty($this->bean->id)) {
             $this->bean->user_parameters = requestToUserParameters();
-            echo $this->bean->build_group_report($offset, true);
+            $advancedReporter = new AdvancedReporter($this->bean);
+            echo $advancedReporter->build_group_report($offset, true);
         }
         die();
     }

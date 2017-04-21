@@ -7,9 +7,11 @@
  */
 
 require_once("modules/AOR_Reports/AOR_Report.php");
+require_once("custom/modules/AOR_Reports/dateHelper.php");
 
-class reportPreview extends AOR_Report
+class AdvancedReporter extends AOR_Report
 {
+
 
     var $bean;
     var $db;
@@ -17,14 +19,20 @@ class reportPreview extends AOR_Report
     var $report_module;
     var $id;
 
-    function __construct($bean, $requestData)
+    function __construct($bean, $requestData = false)
     {
         global $db;
         $this->bean = $bean;
+        $this->id = $bean->id; //this is to handle the pagination
         $this->db = $db;
         $this->requestData = $requestData;
-        $this->report_module = $requestData['report_module'];
-        $this->id = $requestData['record'];
+        if($requestData != false){
+            $this->report_module = $requestData['report_module'];
+            $this->id = $requestData['record'];
+        }else{
+            $this->report_module = $bean->report_module;
+        }
+
     }
 
     public function buildMultiGroupReport($offset = -1, $links = true, $level = 2, $path = array())
@@ -114,11 +122,13 @@ class reportPreview extends AOR_Report
         $_level = (int)$level;
 
         // get results array
-
-        $rows = $this->getViewParams(true, true, $level);
-//        $query =
-//            "SELECT id, field, module_path FROM aor_fields WHERE aor_report_id = '$_id' AND group_display = $_level AND deleted = 0;";
-//        $rows = $this->dbSelect($query);
+        if ($this->requestData != false) {
+            $rows = $this->getViewParams(true, true, $level);
+        } else {
+            $query =
+                "SELECT id, field, module_path FROM aor_fields WHERE aor_report_id = '$_id' AND group_display = $_level AND deleted = 0;";
+            $rows = $this->dbSelect($query);
+        }
 
         return $rows;
     }
@@ -216,7 +226,21 @@ class reportPreview extends AOR_Report
                 $this->db->quoteIdentifier($module->table_name) . ".id AS '" . $module->table_name . "_id'";
             $query['id_select_group'][$module->table_name] = $this->db->quoteIdentifier($module->table_name) . ".id";
 
-            $rows = $this->getViewParams();
+            if($this->requestData != false){
+                $rows = $this->getViewParams();
+            }else {
+                $sql =
+                    "SELECT id FROM aor_fields WHERE aor_report_id = '" .
+                    $this->bean->id .
+                    "' AND deleted = 0 ORDER BY field_order ASC";
+                $result = $this->db->query($sql);
+                $rows = array();
+                while ($row = $this->db->fetchByAssoc($result)) {
+                    $field = new AOR_Field();
+                    $field->retrieve($row['id']);
+                    $rows[] = $field;
+                }
+            }
 
             $i = 0;
             foreach ($rows as $field) {
@@ -501,7 +525,17 @@ class reportPreview extends AOR_Report
             $html = "<H3>$moduleFieldByGroupValue</H3>" . $html;
         }
 
-        $rows = $this->getViewParams();
+        if($this->requestData != false){
+            $rows = $this->getViewParams();
+        }else{
+            $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND deleted = 0 ORDER BY field_order ASC";
+            $result = $this->db->query($sql);
+            while ($row = $this->db->fetchByAssoc($result)) {
+                $field = new AOR_Field();
+                $field->retrieve($row['id']);
+                $rows[] = $field;
+            }
+        }
 
         $html .= "<thead>";
         $html .= "<tr>";
@@ -668,7 +702,7 @@ class reportPreview extends AOR_Report
         }
 
 
-        if($this->requestData['fieldView'][0]['aor_fields_group_display'] != "-1"){
+        if($this->requestData['fieldView'][0]['aor_fields_group_display'] != "-1" && count($rows) != 0){
             $rows[ $this->requestData['fieldView'][0]['aor_fields_group_display'] ]->group_display = '1';
         }
         ksort($rows);
@@ -705,8 +739,16 @@ class reportPreview extends AOR_Report
         $query = '';
         $query_array = array();
         $module = new $beanList[$this->report_module]();
-
-        $field = $this->getViewParams(true);
+        $field = false;
+        if($this->requestData != false){
+            $field = $this->getViewParams(true);
+        }else{
+            $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
+            $field_id = $this->db->getOne($sql);
+            if(!empty($field_id)){
+                $field = BeanFactory::getBean("AOR_Field", $field_id);
+            }
+        }
 
         if (!$field) {
             $query_array['select'][] = $module->table_name . ".id AS '" . $module->table_name . "_id'";
@@ -896,8 +938,21 @@ class reportPreview extends AOR_Report
         if ($beanList[$this->report_module]) {
             $module = new $beanList[$this->report_module]();
 
-            $rows = $this->getConditionParams();
-
+            if($this->requestData != false){
+                $rows = $this->getConditionParams();
+            }else {
+                $sql =
+                    "SELECT id FROM aor_conditions WHERE aor_report_id = '" .
+                    $this->id .
+                    "' AND deleted = 0 ORDER BY condition_order ASC";
+                $result = $this->db->query($sql);
+                $rows = array();
+                while ($row = $this->db->fetchByAssoc($result)) {
+                    $condition = new AOR_Condition();
+                    $condition->retrieve($row['id']);
+                    $rows[] = $condition;
+                }
+            }
 
             $tiltLogicOp = true;
 
@@ -1078,7 +1133,8 @@ class reportPreview extends AOR_Report
                             } else {
                                 $params = base64_decode($condition->value);
                             }
-                            $value = '"' . getPeriodDate($params)->format('Y-m-d H:i:s') . '"';
+
+                            $value = '"' . DateHelper::getPeriodDate($params)->format('Y-m-d H:i:s') . '"';
                             break;
                         case "CurrentUserID":
                             global $current_user;
@@ -1114,8 +1170,8 @@ class reportPreview extends AOR_Report
                             } else {
                                 $params = base64_decode($condition->value);
                             }
-                            $date = getPeriodEndDate($params)->format('Y-m-d H:i:s');
-                            $value = '"' . getPeriodDate($params)->format('Y-m-d H:i:s') . '"';
+                            $date = DateHelper::getPeriodEndDate($params)->format('Y-m-d H:i:s');
+                            $value = '"' . DateHelper::getPeriodDate($params)->format('Y-m-d H:i:s') . '"';
 
                             $query['where'][] = ($tiltLogicOp ? '' : ($condition->logic_op ? $condition->logic_op . ' ' : 'AND '));
                             $tiltLogicOp = false;
@@ -1123,6 +1179,7 @@ class reportPreview extends AOR_Report
                             switch ($aor_sql_operator_list[$condition->operator]) {
                                 case "=":
                                     $query['where'][] = $field . ' BETWEEN ' . $value . ' AND ' . '"' . $date . '"';
+                                    echo '<pre>' . $field . ' BETWEEN ' . $value . ' AND ' . '"' . $date . '"' . '</pre>';
                                     break;
                                 case "!=":
                                     $query['where'][] = $field . ' NOT BETWEEN ' . $value . ' AND ' . '"' . $date . '"';
@@ -1191,5 +1248,99 @@ class reportPreview extends AOR_Report
         }
 
         return $query_where;
+    }
+
+    function build_report_csv()
+    {
+        global $beanList;
+        ini_set('zlib.output_compression', 'Off');
+
+        ob_start();
+        require_once('include/export_utils.php');
+
+        $delimiter = getDelimiter();
+        $csv = '';
+        //text/comma-separated-values
+
+        $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->id . "' AND deleted = 0 ORDER BY field_order ASC";
+        $result = $this->db->query($sql);
+
+        $fields = array();
+        $i = 0;
+        while ($row = $this->db->fetchByAssoc($result)) {
+
+            $field = new AOR_Field();
+            $field->retrieve($row['id']);
+
+            $path = unserialize(base64_decode($field->module_path));
+            $field_bean = new $beanList[$this->report_module]();
+            $field_module = $this->report_module;
+            $field_alias = $field_bean->table_name;
+
+            if ($path[0] != $this->report_module) {
+                foreach ($path as $rel) {
+                    if (empty($rel)) {
+                        continue;
+                    }
+                    $field_module = getRelatedModule($field_module, $rel);
+                    $field_alias = $field_alias . ':' . $rel;
+                }
+            }
+            $label = str_replace(' ', '_', $field->label) . $i;
+            $fields[$label]['field'] = $field->field;
+            $fields[$label]['display'] = $field->display;
+            $fields[$label]['function'] = $field->field_function;
+            $fields[$label]['module'] = $field_module;
+            $fields[$label]['alias'] = $field_alias;
+            $fields[$label]['params'] = $field->format;
+
+            if ($field->display) {
+                $csv .= $this->encloseForCSV($field->label);
+                $csv .= $delimiter;
+            }
+            ++$i;
+        }
+
+        $sql = $this->build_report_query();
+        $result = $this->db->query($sql);
+
+        while ($row = $this->db->fetchByAssoc($result)) {
+            $csv .= "\r\n";
+            foreach ($fields as $name => $att) {
+                $currency_id = isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
+                if ($att['display']) {
+                    if ($att['function'] != '' || $att['params'] != '') {
+                        $csv .= $this->encloseForCSV($row[$name]);
+                    } else {
+                        $csv .= $this->encloseForCSV(trim(strip_tags(getModuleField($att['module'], $att['field'],
+                                                                                    $att['field'], 'DetailView', $row[$name], '', $currency_id))));
+                    }
+                    $csv .= $delimiter;
+                }
+            }
+        }
+
+        $csv = $GLOBALS['locale']->translateCharset($csv, 'UTF-8', $GLOBALS['locale']->getExportCharset());
+
+        ob_clean();
+        header("Pragma: cache");
+        header("Content-type: text/comma-separated-values; charset=" . $GLOBALS['locale']->getExportCharset());
+        header("Content-Disposition: attachment; filename=\"{$this->name}.csv\"");
+        header("Content-transfer-encoding: binary");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Last-Modified: " . TimeDate::httpTime());
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Content-Length: " . mb_strlen($csv, '8bit'));
+        if (!empty($sugar_config['export_excel_compatible'])) {
+            $csv = chr(255) . chr(254) . mb_convert_encoding($csv, 'UTF-16LE', 'UTF-8');
+        }
+        print $csv;
+
+        sugar_cleanup(true);
+    }
+
+    private function encloseForCSV($field)
+    {
+        return '"' . $field . '"';
     }
 }
