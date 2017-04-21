@@ -19,6 +19,8 @@ class dateHelper
      */
     static function getPeriodEndDate($dateTimePeriodListSelected)
     {
+        $datetimePeriod = new DateTime();
+
         switch ($dateTimePeriodListSelected) {
             case 'today':
                 $datetimePeriod = new DateTime();

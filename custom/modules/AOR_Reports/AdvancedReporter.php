@@ -1179,7 +1179,6 @@ class AdvancedReporter extends AOR_Report
                             switch ($aor_sql_operator_list[$condition->operator]) {
                                 case "=":
                                     $query['where'][] = $field . ' BETWEEN ' . $value . ' AND ' . '"' . $date . '"';
-                                    echo '<pre>' . $field . ' BETWEEN ' . $value . ' AND ' . '"' . $date . '"' . '</pre>';
                                     break;
                                 case "!=":
                                     $query['where'][] = $field . ' NOT BETWEEN ' . $value . ' AND ' . '"' . $date . '"';
