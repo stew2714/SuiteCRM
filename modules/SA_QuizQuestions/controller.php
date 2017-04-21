@@ -42,6 +42,13 @@ require_once 'include/MVC/Controller/SugarController.php';
 class SA_QuizQuestionsController extends SugarController
 {
     public function action_getQuestions() {
+        /**
+         * Variables used throughout the retrieval of form questions...
+         * @id - Form id,  used to fetch associated questions.
+         * @randomise_flag - Used to determine if the order presented to the user should be randomised.
+         * @questions_container - Container array for the returned questions.
+         */
+
         $id = $_REQUEST['id'];
 
         $bean = BeanFactory::getBean('SA_Quizzes',$id);
@@ -50,6 +57,7 @@ class SA_QuizQuestionsController extends SugarController
         $relatedBean = $bean->sa_quizzes_sa_quizquestions_1->getBeans();
         $questions_container = array();
 
+        // Loop through the returned questions and store them.
         foreach ($relatedBean as $question) {
             $current_question = array(
                 'id' => $question->id,
@@ -61,13 +69,19 @@ class SA_QuizQuestionsController extends SugarController
                 'answer_d' => html_entity_decode($question->possible_answer_d),
                 'correct_answer' => $question->correct_answer,
             );
-            
+
             array_push($questions_container,$current_question);
         }
 
-        // If Randomise Questions is set, shuffle the questions.
+        // If Randomise Questions is set, shuffle the questions otherwise, sort by question number.
         if ($randomise_flag == 1) {
             shuffle($questions_container);
+        } else {
+            function cmp($a,$b) {
+                return strcmp($a['question_number'],$b['question_number']);
+            }
+
+            usort($questions_container, "cmp");
         }
 
         echo json_encode($questions_container);
@@ -75,25 +89,42 @@ class SA_QuizQuestionsController extends SugarController
     }
 
     public function action_quizSubmit() {
+        /**
+         * Variables and functions used throughout the answer handling and quiz handling...
+         * @current_user - Required global needed to get information regarding the Participant of the quiz.
+         * @parse_str($_POST['form'],$answer) -  Parse the form into the answer variable.
+         * @id - ID of the Quiz.
+         * @time_started - The time the Quiz was launched.
+         * @time_now - Current DateTime, converted to seconds for calculation.
+         * @time_spent - Finding the Duration spent on the quiz.
+         * @number_of_answers - Number of Answers submitted.
+         * @number_correct - Setting the number of correct answers variable.
+         * @quiz - Container for the associated quiz
+         * @pass_score - Required percentage to pass the quiz
+         * @correct_status - A flag for if a question has the correct answer supplied or not.
+         */
+
         global $current_user;
+
         parse_str($_POST['form'],$answer);
         $id = $_REQUEST['id'];
         $time_started = $_POST['time'];
         $time_now = strtotime(date("Y-m-d H:i:s"));
         $time_spent = $time_now - $time_started;
+        $number_of_answers = count($answer);
+        $number_correct = 0;
 
         $quiz = BeanFactory::getBean('SA_Quizzes',$id);
         $pass_score = $quiz->pass_score;
 
+        // Store the username and id of the user as a new submission.
         $submission = BeanFactory::getBean('SA_QuizSubmissions');
         $submission->assigned_user_id = $current_user->id;
         $submission->name = $current_user->user_name;
         $submission->sa_quizzes_sa_quizsubmissions_1sa_quizzes_ida = $id;
         $submission->save();
 
-        $number_of_answers = count($answer);
-        $number_correct = 0;
-
+        // Loop through the supplied answers and save them individually.
         foreach ($answer as $key => $value) {
             foreach ($_POST['questions'] as $question ) {
                 if ($question['id'] === $key) {
@@ -101,6 +132,7 @@ class SA_QuizQuestionsController extends SugarController
                 }
             }
 
+            // Check if the answer provided is correct or not. (if it is, increment the correct counter)
             if ($correct_answer == $value) {
                 $correct_status = '1';
                 $number_correct++;
@@ -108,6 +140,7 @@ class SA_QuizQuestionsController extends SugarController
                 $correct_status = '0';
             }
 
+            // Handle the submitted answer
             $bean = BeanFactory::getBean('SA_QuizAnswers');
             $bean->question_answer = $value;
             $bean->correct_answer = $correct_answer;
@@ -122,17 +155,20 @@ class SA_QuizQuestionsController extends SugarController
             $results[] = $bean->id;
         }
 
+        // Calculate and store the Score Percentage along with storing Totla Questions and Total Correct Answers
         $submission_score = 100 / $number_of_answers * $number_correct;
         $submission->score = $submission_score;
         $submission->total_questions = $number_of_answers;
         $submission->correct_answers = $number_correct;
 
+        // Determine if the submission has passed or failed
         if ($submission_score >= $pass_score) {
             $submission_pass = 'yes';
         } else {
             $submission_pass = 'no';
         }
 
+        // Store the pass/fail result and set the quiz to complete as well as storing the duration of the quiz.
         $submission->pass = $submission_pass;
         $submission->status = 'complete';
         $submission->quiz_start_time = date('Y-m-d H:i:s', $time_started);
@@ -140,6 +176,7 @@ class SA_QuizQuestionsController extends SugarController
         $submission->quiz_duration = $time_spent;
         $submission->save();
 
+        // Build the results array to return back to the page.
         $results = array(
             'score' => $submission_score,
             'pass' => $submission_pass,
