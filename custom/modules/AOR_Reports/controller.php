@@ -25,6 +25,7 @@
 
 require_once("modules/AOR_Reports/controller.php");
 require_once("custom/modules/AOR_Reports/AdvancedReporter.php");
+require_once("custom/modules/AOR_Reports/fieldFormatting.php");
 
 class customAOR_ReportsController extends AOR_ReportsController
 {
@@ -87,108 +88,108 @@ class customAOR_ReportsController extends AOR_ReportsController
 
 
 
-/***
- * modified existing controlers to add javascript hook.
- *
- */
+    /***
+     * modified existing controlers to add javascript hook.
+     *
+     */
 
-protected function action_getModuleOperatorField()
-{
+    protected function action_getModuleOperatorField()
+    {
 
-    global $app_list_strings, $beanFiles, $beanList;
+        global $app_list_strings, $beanFiles, $beanList;
 
-    if (isset($_REQUEST['rel_field']) && $_REQUEST['rel_field'] != '') {
-        $module = getRelatedModule($_REQUEST['aor_module'], $_REQUEST['rel_field']);
-    } else {
-        $module = $_REQUEST['aor_module'];
-    }
-    $fieldname = $_REQUEST['aor_fieldname'];
-    $aor_field = $_REQUEST['aor_newfieldname'];
-
-    if (isset($_REQUEST['view'])) {
-        $view = $_REQUEST['view'];
-    } else {
-        $view = 'EditView';
-    }
-
-    if (isset($_REQUEST['aor_value'])) {
-        $value = $_REQUEST['aor_value'];
-    } else {
-        $value = '';
-    }
-
-
-    require_once($beanFiles[$beanList[$module]]);
-    $focus = new $beanList[$module];
-    $vardef = $focus->getFieldDefinition($fieldname);
-
-    switch ($vardef['type']) {
-        case 'double':
-        case 'decimal':
-        case 'float':
-        case 'currency':
-            $valid_opp = array(
-                'Equal_To',
-                'Not_Equal_To',
-                'Greater_Than',
-                'Less_Than',
-                'Greater_Than_or_Equal_To',
-                'Less_Than_or_Equal_To'
-            );
-            break;
-        case 'uint':
-        case 'ulong':
-        case 'long':
-        case 'short':
-        case 'tinyint':
-        case 'int':
-            $valid_opp = array(
-                'Equal_To',
-                'Not_Equal_To',
-                'Greater_Than',
-                'Less_Than',
-                'Greater_Than_or_Equal_To',
-                'Less_Than_or_Equal_To'
-            );
-            break;
-        case 'date':
-        case 'datetime':
-        case 'datetimecombo':
-            $valid_opp = array(
-                'Equal_To',
-                'Not_Equal_To',
-                'Greater_Than',
-                'Less_Than',
-                'Greater_Than_or_Equal_To',
-                'Less_Than_or_Equal_To'
-            );
-            break;
-        case 'enum':
-        case 'multienum':
-            $valid_opp = array('Equal_To', 'Not_Equal_To');
-            break;
-        default:
-            $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains', 'Starts_With', 'Ends_With',);
-            break;
-    }
-
-    foreach ($app_list_strings['aor_operator_list'] as $key => $keyValue) {
-        if (!in_array($key, $valid_opp)) {
-            unset($app_list_strings['aor_operator_list'][$key]);
+        if (isset($_REQUEST['rel_field']) && $_REQUEST['rel_field'] != '') {
+            $module = getRelatedModule($_REQUEST['aor_module'], $_REQUEST['rel_field']);
+        } else {
+            $module = $_REQUEST['aor_module'];
         }
+        $fieldname = $_REQUEST['aor_fieldname'];
+        $aor_field = $_REQUEST['aor_newfieldname'];
+
+        if (isset($_REQUEST['view'])) {
+            $view = $_REQUEST['view'];
+        } else {
+            $view = 'EditView';
+        }
+
+        if (isset($_REQUEST['aor_value'])) {
+            $value = $_REQUEST['aor_value'];
+        } else {
+            $value = '';
+        }
+
+
+        require_once($beanFiles[$beanList[$module]]);
+        $focus = new $beanList[$module];
+        $vardef = $focus->getFieldDefinition($fieldname);
+
+        switch ($vardef['type']) {
+            case 'double':
+            case 'decimal':
+            case 'float':
+            case 'currency':
+                $valid_opp = array(
+                    'Equal_To',
+                    'Not_Equal_To',
+                    'Greater_Than',
+                    'Less_Than',
+                    'Greater_Than_or_Equal_To',
+                    'Less_Than_or_Equal_To'
+                );
+                break;
+            case 'uint':
+            case 'ulong':
+            case 'long':
+            case 'short':
+            case 'tinyint':
+            case 'int':
+                $valid_opp = array(
+                    'Equal_To',
+                    'Not_Equal_To',
+                    'Greater_Than',
+                    'Less_Than',
+                    'Greater_Than_or_Equal_To',
+                    'Less_Than_or_Equal_To'
+                );
+                break;
+            case 'date':
+            case 'datetime':
+            case 'datetimecombo':
+                $valid_opp = array(
+                    'Equal_To',
+                    'Not_Equal_To',
+                    'Greater_Than',
+                    'Less_Than',
+                    'Greater_Than_or_Equal_To',
+                    'Less_Than_or_Equal_To'
+                );
+                break;
+            case 'enum':
+            case 'multienum':
+                $valid_opp = array('Equal_To', 'Not_Equal_To');
+                break;
+            default:
+                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains', 'Starts_With', 'Ends_With',);
+                break;
+        }
+
+        foreach ($app_list_strings['aor_operator_list'] as $key => $keyValue) {
+            if (!in_array($key, $valid_opp)) {
+                unset($app_list_strings['aor_operator_list'][$key]);
+            }
+        }
+
+
+        $app_list_strings['aor_operator_list'];
+        if ($view == 'EditView') {
+            echo "<select type='text' style='width:178px;' name='$aor_field' id='$aor_field' title='' onblur='UpdatePreview(\"preview\");' tabindex='116'>"
+                . get_select_options_with_id($app_list_strings['aor_operator_list'], $value) . "</select>";
+        } else {
+            echo $app_list_strings['aor_operator_list'][$value];
+        }
+        die;
+
     }
-
-
-    $app_list_strings['aor_operator_list'];
-    if ($view == 'EditView') {
-        echo "<select type='text' style='width:178px;' name='$aor_field' id='$aor_field' title='' onblur='UpdatePreview(\"preview\");' tabindex='116'>"
-             . get_select_options_with_id($app_list_strings['aor_operator_list'], $value) . "</select>";
-    } else {
-        echo $app_list_strings['aor_operator_list'][$value];
-    }
-    die;
-
-}
     protected function action_getFieldTypeOptions()
     {
 
@@ -263,7 +264,7 @@ protected function action_getModuleOperatorField()
 
         if ($view == 'EditView') {
             echo "<select type='text' style='width:178px;'  onblur='UpdatePreview(\"preview\");' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aor_condition_type_list'],
-                                                                                                                                                    $value) . "</select>";
+                    $value) . "</select>";
         } else {
             echo $app_list_strings['aor_condition_type_list'][$value];
         }
@@ -304,13 +305,13 @@ protected function action_getModuleOperatorField()
                 }
                 if ($view == 'EditView') {
                     echo "<select type='text'  onblur='UpdatePreview(\"preview\");' style='width:178px;' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . getModuleFields($module,
-                                                                                                                                                 $view, $value) . "</select>";
+                            $view, $value) . "</select>";
                 } else {
                     echo getModuleFields($module, $view, $value);
                 }
                 break;
             case 'Date':
-                echo getDateField($module, $aor_field, $view, $value, false);
+                echo fieldFormatting::getDateField($module, $aor_field, $view, $value, false);
                 break;
             case 'Multi':
                 echo getModuleField($rel_module, $fieldname, $aor_field, $view, $value, 'multienum');
@@ -318,7 +319,7 @@ protected function action_getModuleOperatorField()
             case 'Period':
                 if ($view == 'EditView') {
                     echo "<select type='text' style='width:178px;'  onblur='UpdatePreview(\"preview\");' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . getDropdownList('date_time_period_list',
-                                                                                                                                                 $_REQUEST['aor_value']) . "</select>";
+                            $_REQUEST['aor_value']) . "</select>";
                 } else {
                     echo getDropdownList('date_time_period_list', $_REQUEST['aor_value']);
                 }
