@@ -373,7 +373,6 @@ function showConditionModuleField(ln, operator_value, type_value, field_value, o
             success: function(result) {
                 document.getElementById('aor_conditions_fieldInput'+ln).innerHTML = result.responseText;
                 SUGAR.util.evalScript(result.responseText);
-                console.log(result.responseText);
                 enableQS(false);
                 testModuleFieldsPandingFinihed();
               $("#aor_conditions_value\\[" + ln +"\\]").blur( UpdatePreview("preview") );
