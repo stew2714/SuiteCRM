@@ -39,7 +39,7 @@ class fieldFormatting
         if ($view == 'EditView') {
             $field .= "<select type='text' onchange='UpdatePreview(\"preview\");' name='$aow_field" . '[0]' . "' id='$aow_field" . '[0]' . "' title='' tabindex='116'>" . getDateFields($module,
                     $view, $value[0], $field_option) . "</select>&nbsp;&nbsp;";
-            $field .= "<select type='text' onchange='UpdatePreview(\"preview\");' name='$aow_field" . '[1]' . "' id='$aow_field" . '[1]' . "' onchange='date_field_change(\"$aow_field\")'  title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aow_date_operator'],
+            $field .= "<select type='text' name='$aow_field" . '[1]' . "' id='$aow_field" . '[1]' . "' onchange='UpdatePreview(\"preview\");date_field_change(\"$aow_field\")'  title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aow_date_operator'],
                     $value[1]) . "</select>&nbsp;";
             $display = 'none';
             if ($value[1] == 'plus' || $value[1] == 'minus') {
