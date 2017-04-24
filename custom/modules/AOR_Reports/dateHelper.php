@@ -51,57 +51,6 @@ class dateHelper
             case 'next_month':
                 $dateTimePeriod = new DateTime("last day of next month");
                 break;
-//            case 'this_quarter':
-//                $thisMonth = new DateTime('first day of this month');
-//                $thisMonth = $thisMonth->format('n');
-//                if ($thisMonth < 4) {
-//                    // quarter 1
-//                    $dateTimePeriod = new DateTime('last day of march');
-//                } elseif ($thisMonth > 3 && $thisMonth < 7) {
-//                    // quarter 2
-//                    $dateTimePeriod = new DateTime('last day of june');
-//                } elseif ($thisMonth > 6 && $thisMonth < 10) {
-//                    // quarter 3
-//                    $dateTimePeriod = new DateTime('last day of september');
-//                } elseif ($thisMonth > 9) {
-//                    // quarter 4
-//                    $dateTimePeriod = new DateTime('last day of december');
-//                }
-//                break;
-//            case 'last_quarter':
-//                $thisMonth = new DateTime('first day of this month');
-//                $thisMonth = $thisMonth->format('n');
-//                if ($thisMonth < 4) {
-//                    // previous quarter 1
-//                    $dateTimePeriod = new DateTime('last year last day of december');
-//                } elseif ($thisMonth > 3 && $thisMonth < 7) {
-//                    // previous quarter 2
-//                    $dateTimePeriod = new DateTime('last day of march');
-//                } elseif ($thisMonth > 6 && $thisMonth < 10) {
-//                    // previous quarter 3
-//                    $dateTimePeriod = new DateTime('last day of june');
-//                } elseif ($thisMonth > 9) {
-//                    // previous quarter 4
-//                    $dateTimePeriod = new DateTime('last day of september');
-//                }
-//                break;
-//            case 'next_quarter':
-//                $thisMonth = new DateTime('first day of this month');
-//                $thisMonth = $thisMonth->format('n');
-//                if ($thisMonth < 4) {
-//                    // previous quarter 2
-//                    $dateTimePeriod = new DateTime('last day of march');
-//                } elseif ($thisMonth > 3 && $thisMonth < 7) {
-//                    // previous quarter 3
-//                    $dateTimePeriod = new DateTime('last day of june');
-//                } elseif ($thisMonth > 6 && $thisMonth < 10) {
-//                    // previous quarter 4
-//                    $dateTimePeriod = new DateTime('last day of september');
-//                } elseif ($thisMonth > 9) {
-//                    // previous quarter 1
-//                    $dateTimePeriod = new DateTime('last year last day of december');
-//                }
-//                break;
             case 'this_year':
                 $dateTimePeriod = new DateTime('this year last day of december');
                 break;
@@ -180,7 +129,7 @@ class dateHelper
                 }
                 break;
             case 'next_fiscal_quarter':
-            case 'last_quarter';
+            case 'next_quarter';
                 if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
                     $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
                 } else {
@@ -208,14 +157,33 @@ class dateHelper
                 }
                 break;
             case 'this_fiscal_year':
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+                $dateTimePeriod = $q[4]['end'];
                 break;
             case 'last_fiscal_year':
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+                $dateTimePeriod = $q[4]['end']->format('Y') + 1;
                 break;
             case 'next_fiscal_year':
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+                $dateTimePeriod = $q[4]['end']->format('Y') + 1;
                 break;
             case 'last_n_years':
-                break;
             case 'next_n_years':
+            case 'next_n_quarter':
+            case 'last_n_quarter':
                 break;
 
         }
@@ -232,13 +200,6 @@ class dateHelper
     {
         global $sugar_config;
         $dateTimePeriod = new DateTime();
-
-        // Setup when year quarters start & end
-        if ($sugar_config['aor']['quarters_begin']) {
-            $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
-        } else {
-            $q = calculateQuarters();
-        }
 
         switch ($dateTimePeriodListSelected) {
             case 'today':
@@ -273,6 +234,14 @@ class dateHelper
                 $dateTimePeriod = $dateTimePeriod->modify('first day of next month');
                 break;
             case 'this_fiscal_quarter':
+            case 'this_quarter':
+                // Setup when year quarters start & end
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "this_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+
                 $thisMonth = $dateTimePeriod->setDate(
                     $dateTimePeriod->format('Y'),
                     $dateTimePeriod->format('m'),
@@ -309,6 +278,14 @@ class dateHelper
                 }
                 break;
             case 'last_fiscal_quarter':
+            case 'last_quarter';
+                // Setup when year quarters start & end
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "last_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+
                 $thisMonth = $dateTimePeriod->setDate(
                     $dateTimePeriod->format('Y'),
                     $dateTimePeriod->format('m'),
@@ -329,6 +306,14 @@ class dateHelper
                 }
                 break;
             case 'next_fiscal_quarter':
+            case 'next_quarter':
+                // Setup when year quarters start & end
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+
                 $thisMonth = $dateTimePeriod->setDate(
                     $dateTimePeriod->format('Y'),
                     $dateTimePeriod->format('m'),
@@ -371,14 +356,34 @@ class dateHelper
                     1
                 );
                 break;
-            case 'this_quarter':
-            case 'last_quarter':
-            case 'next_quarter':
             case 'this_fiscal_year':
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+                $dateTimePeriod = $q[1]['start'];
+                break;
             case 'last_fiscal_year':
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+                $dateTimePeriod = $q[1]['start']->format('Y') - 1;
+                break;
             case 'next_fiscal_year':
+                if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "next_fiscal_quarter") {
+                    $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
+                } else {
+                    $q = calculateQuarters();
+                }
+                $dateTimePeriod = $q[1]['start']->format('Y') + 1;
+                break;
             case 'last_n_years':
             case 'next_n_years':
+            case 'next_n_quarter':
+            case 'last_n_quarter':
                 break;
         }
         $dateTimePeriod = $dateTimePeriod->setTime(0, 0, 0);
