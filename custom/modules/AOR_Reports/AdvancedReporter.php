@@ -1138,7 +1138,11 @@ class AdvancedReporter extends AOR_Report
                             break;
                         case "CurrentUserID":
                             global $current_user;
-                            $value = '"' . $current_user->id . '"';
+                            if(!empty($this->view_as) ){
+                                $value = '"' . $this->view_as . '"';
+                            }else{
+                                $value = '"' . $current_user->id . '"';
+                            }
                             break;
                         case 'Value':
                         default:
