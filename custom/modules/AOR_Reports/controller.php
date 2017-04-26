@@ -319,9 +319,11 @@ class customAOR_ReportsController extends AOR_ReportsController
                 break;
             case 'Period':
                 if ($view == 'EditView') {
-                    echo "<select type='text' style='width:178px;' onchange='periodOptions(this);' name='$aor_field" . '[0]' . "' id='$aor_field" . '[0]' . "' title='' tabindex='116'>" . getDropdownList('date_time_period_list',
+                    $current_field_index = explode("[", $aor_field);
+                    $current_field_index = substr_replace($current_field_index[1], "", -1);
+                    echo "<select type='text' style='width:178px;' onchange='periodOptions(this);' name='$aor_field' id='$aor_field' tabindex='116'>" . getDropdownList('date_time_period_list',
                             $_REQUEST['aor_value']) . "</select>";
-                    echo "<input type='text' onblur='periodOptionsValue(this)' style='display: none' name='aor_conditions_period_duration_value' class='period-options-input' id='aor_conditions_period_duration_value' title='' tabindex='116' disabled>";
+                    echo "<input type='text' onblur='periodOptionsValue(this)' style='display: none' value='" . $_REQUEST['offset'] . "' name='period_duration_value[" . $current_field_index . "]' class='period-options-input' id='aor_conditions_condition_period_length" . $current_field_index . "' title='' tabindex='116' disabled>";
                 } else {
                     echo getDropdownList('date_time_period_list', $_REQUEST['aor_value']);
                 }
@@ -399,7 +401,7 @@ class customAOR_ReportsController extends AOR_ReportsController
                         $condition->condition_order = ++$j;
                     }
                     $condition->aor_report_id = $parent->id;
-                    $condition->condition_period_length = $post_data['period_duration_value'];
+                    $condition->condition_period_length = $post_data['period_duration_value'][$i];
                     $conditionId = $condition->save();
                     $conditionId = $condition->id;
                     if ($condition->parenthesis == 'START') {

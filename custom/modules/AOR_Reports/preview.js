@@ -4,7 +4,6 @@
 
 
 function UpdatePreview(panel){
-  console.log($('#EditView').serialize());
   var url = "index.php?module=AOR_Reports&action=getPreview";
     $.ajax({
       url: url,
@@ -42,3 +41,14 @@ function periodOptionsValue(option) {
   console.log(currentValue);
   UpdatePreview('preview');
 }
+
+$( document ).ready(function() {
+  var nextNFields = [
+    'last_n_quarters',
+    'next_n_quarters',
+    'last_n_years',
+    'next_n_years',
+  ];
+
+  $( "#myselect" ).val();
+});

@@ -251,6 +251,7 @@ function loadConditionLine(condition, overrideView){
 
     for(var a in condition){
         var elem = document.getElementById(prefix + a + ln);
+
         if(elem != null){
             if(elem.nodeName !== 'INPUT') {
                 elem.innerHTML = condition[a];
@@ -267,7 +268,7 @@ function loadConditionLine(condition, overrideView){
     }
 
     if(!condition['parenthesis']) {
-        showConditionModuleField(ln, condition['operator'], condition['value_type'], condition['value'],overrideView, condition['logic_op'], condition['condition_order'], condition['parenthesis']);
+        showConditionModuleField(ln, condition['operator'], condition['value_type'], condition['value'],overrideView, condition['logic_op'], condition['condition_order'], condition['parenthesis'],condition['condition_period_length']);
     }
 
     return $('#product_line'+ln);
@@ -334,7 +335,7 @@ var testModuleFieldsPandingFinihed = function() {
 
 
 
-function showConditionModuleField(ln, operator_value, type_value, field_value, overrideView, logic_value, condition_order, parenthesis){
+function showConditionModuleField(ln, operator_value, type_value, field_value, overrideView, logic_value, condition_order, parenthesis, offset){
     if(overrideView === undefined){
         overrideView = action_sugar_grp1;
     }
@@ -343,6 +344,7 @@ function showConditionModuleField(ln, operator_value, type_value, field_value, o
     if (typeof operator_value === 'undefined') { operator_value = ''; }
     if (typeof type_value === 'undefined') { type_value = ''; }
     if (typeof field_value === 'undefined') { field_value = ''; }
+    if (typeof offset === 'undefined') { offset = ''; }
 
     var rel_field = document.getElementById('aor_conditions_module_path'+ln).value;
     var aor_field = document.getElementById('aor_conditions_field'+ln).value;
@@ -391,13 +393,14 @@ function showConditionModuleField(ln, operator_value, type_value, field_value, o
 
         moduleFieldsPendingFinished++; YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getModuleOperatorField&view="+overrideView+"&aor_module="+report_module+"&aor_fieldname="+aor_field+"&aor_newfieldname="+aor_operator_name+"&aor_value="+operator_value+"&rel_field="+rel_field,callback);
         moduleFieldsPendingFinished++; YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getFieldTypeOptions&view="+overrideView+"&aor_module="+report_module+"&aor_fieldname="+aor_field+"&aor_newfieldname="+aor_field_type_name+"&aor_value="+type_value+"&rel_field="+rel_field,callback2);
-        moduleFieldsPendingFinished++; YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getModuleFieldType&view="+overrideView+"&aor_module="+report_module+"&aor_fieldname="+aor_field+"&aor_newfieldname="+aor_field_name+"&aor_value="+field_value+"&aor_type="+type_value+"&rel_field="+rel_field,callback3);
+        moduleFieldsPendingFinished++; YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getModuleFieldType&view="+overrideView+"&aor_module="+report_module+"&aor_fieldname="+aor_field+"&aor_newfieldname="+aor_field_name+"&aor_value="+field_value+"&aor_type="+type_value+"&rel_field="+rel_field+"&offset="+offset,callback3);
 
     } else {
-        document.getElementById('aor_conditions_logicInput'+ln).innerHTML = ''
-        document.getElementById('aor_conditions_operatorInput'+ln).innerHTML = ''
+        document.getElementById('aor_conditions_logicInput'+ln).innerHTML = '';
+        document.getElementById('aor_conditions_operatorInput'+ln).innerHTML = '';
         document.getElementById('aor_conditions_fieldTypeInput'+ln).innerHTML = '';
         document.getElementById('aor_conditions_fieldInput'+ln).innerHTML = '';
+        document.getElementById('')
     }
 }
 
