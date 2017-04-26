@@ -34,9 +34,15 @@ $app_list_strings['date_time_period_list']['next_fiscal_quarter'] = 'Next Fiscal
 $app_list_strings['date_time_period_list']['this_fiscal_year'] = 'This Fiscal Year';
 $app_list_strings['date_time_period_list']['last_fiscal_year'] = 'Last Fiscal Year';
 $app_list_strings['date_time_period_list']['next_fiscal_year'] = 'Next Fiscal Year';
-$app_list_strings['date_time_period_list']['this_year'] = 'This year';
-$app_list_strings['date_time_period_list']['last_year'] = 'Last year';
-$app_list_strings['date_time_period_list']['next_year'] = 'Next year';
+$app_list_strings['date_time_period_list']['this_year'] = 'This Year';
+$app_list_strings['date_time_period_list']['last_year'] = 'Last Year';
+$app_list_strings['date_time_period_list']['next_year'] = 'Next Year';
+$app_list_strings['date_time_period_list']['last_n_quarters'] = 'Last n Quarters';
+$app_list_strings['date_time_period_list']['next_n_quarters'] = 'Next n Quarters';
+$app_list_strings['date_time_period_list']['last_n_years'] = 'Last n Years';
+$app_list_strings['date_time_period_list']['next_n_years'] = 'Next n Years';
+//$app_list_strings['date_time_period_list']['n_years_ago'] = 'n Years ago';
+
 
 
 

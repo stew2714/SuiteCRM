@@ -196,7 +196,7 @@ class dateHelper
      *
      * @return DateTime|static
      */
-    static function getPeriodDate($dateTimePeriodListSelected)
+    static function getPeriodDate($dateTimePeriodListSelected,$period_duration_value=0)
     {
         global $sugar_config;
         $dateTimePeriod = new DateTime();

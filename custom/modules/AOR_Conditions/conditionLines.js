@@ -246,6 +246,8 @@ function loadConditionLine(condition, overrideView){
     var ln = 0;
 
     ln = insertConditionLine(condition);
+  console.log('condition below:');
+      console.log(condition);
 
     for(var a in condition){
         var elem = document.getElementById(prefix + a + ln);

@@ -182,7 +182,7 @@ class customAOR_ReportsController extends AOR_ReportsController
 
         $app_list_strings['aor_operator_list'];
         if ($view == 'EditView') {
-            echo "<select type='text' style='width:178px;' name='$aor_field' id='$aor_field' title='' onblur='UpdatePreview(\"preview\");' tabindex='116'>"
+            echo "<select type='text' style='width:178px;' name='$aor_field' id='$aor_field' title='' onchange='UpdatePreview(\"preview\");' tabindex='116'>"
                 . get_select_options_with_id($app_list_strings['aor_operator_list'], $value) . "</select>";
         } else {
             echo $app_list_strings['aor_operator_list'][$value];
@@ -263,7 +263,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         }
 
         if ($view == 'EditView') {
-            echo "<select type='text' style='width:178px;'  onblur='UpdatePreview(\"preview\");' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aor_condition_type_list'],
+            echo "<select type='text' style='width:178px;'  onchange='UpdatePreview(\"preview\");' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aor_condition_type_list'],
                     $value) . "</select>";
         } else {
             echo $app_list_strings['aor_condition_type_list'][$value];
@@ -304,7 +304,7 @@ class customAOR_ReportsController extends AOR_ReportsController
                     $module = $_REQUEST['alt_module'];
                 }
                 if ($view == 'EditView') {
-                    echo "<select type='text'  onblur='UpdatePreview(\"preview\");' style='width:178px;' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . getModuleFields($module,
+                    echo "<select type='text'  onchange='UpdatePreview(\"preview\");' style='width:178px;' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . getModuleFields($module,
                             $view, $value) . "</select>";
                 } else {
                     echo getModuleFields($module, $view, $value);
@@ -318,8 +318,9 @@ class customAOR_ReportsController extends AOR_ReportsController
                 break;
             case 'Period':
                 if ($view == 'EditView') {
-                    echo "<select type='text' style='width:178px;'  onblur='UpdatePreview(\"preview\");' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . getDropdownList('date_time_period_list',
+                    echo "<select type='text' style='width:178px;' onchange='periodOptions(this);' name='$aor_field" . '[0]' . "' id='$aor_field" . '[0]' . "' title='' tabindex='116'>" . getDropdownList('date_time_period_list',
                             $_REQUEST['aor_value']) . "</select>";
+                    echo "<input type='text' onblur='periodOptionsValue(this)' style='display: none' name='aor_conditions_period_duration_value' class='period-options-input' id='aor_conditions_period_duration_value' title='' tabindex='116' disabled>";
                 } else {
                     echo getDropdownList('date_time_period_list', $_REQUEST['aor_value']);
                 }
@@ -336,4 +337,75 @@ class customAOR_ReportsController extends AOR_ReportsController
 
     }
 
+    public function action_save()
+    {
+        $post_data = $_POST;
+        $parent = $_POST['record'];
+        $parent = BeanFactory::getBean('AOR_Reports',$parent);
+       // $conditions = BeanFactory::getBean('AOR_Conditions',$parent);
+        $key = 'aor_conditions_';
+
+        require_once('modules/AOW_WorkFlow/aow_utils.php');
+
+        $j = 0;
+        foreach ($post_data[$key . 'field'] as $i => $field) {
+
+            if ($post_data[$key . 'deleted'][$i] == 1) {
+                $parent->mark_deleted($post_data[$key . 'id'][$i]);
+            } else {
+                $condition = new AOR_Condition();
+                foreach ($condition->field_defs as $field_def) {
+                    $field_name = $field_def['name'];
+                    if (isset($post_data[$key . $field_name][$i])) {
+                        if (is_array($post_data[$key . $field_name][$i])) {
+
+                            switch ($condition->value_type) {
+                                case 'Date':
+                                    $post_data[$key . $field_name][$i] = base64_encode(serialize($post_data[$key . $field_name][$i]));
+                                    break;
+                                default:
+                                    $post_data[$key . $field_name][$i] = encodeMultienumValue($post_data[$key . $field_name][$i]);
+                            }
+                        } else if ($field_name == 'value' && $post_data[$key . 'value_type'][$i] === 'Value') {
+                            $post_data[$key . $field_name][$i] = fixUpFormatting($_REQUEST['report_module'], $condition->field, $post_data[$key . $field_name][$i]);
+                        } else if ($field_name == 'parameter') {
+                            $post_data[$key . $field_name][$i] = isset($post_data[$key . $field_name][$i]);
+                        } else if ($field_name == 'module_path') {
+                            $post_data[$key . $field_name][$i] = base64_encode(serialize(explode(":", $post_data[$key . $field_name][$i])));
+                        }
+                        if ($field_name == 'parenthesis' && $post_data[$key . $field_name][$i] == 'END') {
+                            if (!isset($lastParenthesisStartConditionId)) {
+                                throw new Exception('a closure parenthesis has no starter pair');
+                            }
+                            $condition->parenthesis = $lastParenthesisStartConditionId;
+                        } else {
+                            $condition->$field_name = $post_data[$key . $field_name][$i];
+                        }
+                    } else if ($field_name == 'parameter') {
+                        $condition->$field_name = 0;
+                    }
+
+                }
+                // Period must be saved as a string instead of a base64 encoded datetime.
+                // Overwriting value
+                if ((!isset($condition->parenthesis) || !$condition->parenthesis) && isset($condition->value_type) && $condition->value_type == 'Period') {
+                    $condition->value = base64_encode($_POST['aor_conditions_value'][$i]);
+                }
+                if (trim($condition->field) != '' || $condition->parenthesis) {
+                    if (isset($_POST['aor_conditions_order'][$i])) {
+                        $condition->condition_order = (int)$_POST['aor_conditions_order'][$i];
+                    } else {
+                        $condition->condition_order = ++$j;
+                    }
+                    $condition->aor_report_id = $parent->id;
+                    $condition->condition_period_length = $post_data['period_duration_value'];
+                    $conditionId = $condition->save();
+                    $conditionId = $condition->id;
+                    if ($condition->parenthesis == 'START') {
+                        $lastParenthesisStartConditionId = $conditionId;
+                    }
+                }
+            }
+        }
+    }
 }
