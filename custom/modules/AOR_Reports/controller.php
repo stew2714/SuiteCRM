@@ -52,6 +52,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         if (!empty($this->bean->id)) {
             $this->bean->user_parameters = requestToUserParameters();
             $advancedReporter = new AdvancedReporter($this->bean);
+            $advancedReporter->view_as = $_REQUEST['view_as'];
             echo $advancedReporter->build_group_report($offset, true);
         }
         die();
