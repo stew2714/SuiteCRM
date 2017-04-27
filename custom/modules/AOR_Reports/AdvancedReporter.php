@@ -1175,8 +1175,7 @@ class AdvancedReporter extends AOR_Report
                             } else {
                                 $params = base64_decode($condition->value);
                             }
-                            $date = DateHelper::getPeriodEndDate($params)->format('Y-m-d H:i:s',
-                                                                                  $condition->condition_period_length);
+                            $date = DateHelper::getPeriodEndDate($params,$condition->condition_period_length)->format('Y-m-d H:i:s');
                             $value = '"' . DateHelper::getPeriodDate($params,$condition->condition_period_length)->format('Y-m-d H:i:s') . '"';
 
                             $query['where'][] = ($tiltLogicOp ? '' : ($condition->logic_op ? $condition->logic_op . ' ' : 'AND '));
@@ -1196,6 +1195,11 @@ class AdvancedReporter extends AOR_Report
                                     $query['where'][] = $field . ' ' . $aor_sql_operator_list[$condition->operator] . ' ' . $value;
                                     break;
                             }
+
+                            echo '<pre>';
+                            print_r($query['where']);
+                            echo '</pre>';
+
                         } else {
                             if (!$where_set) {
                                 $query['where'][] = ($tiltLogicOp ? '' : ($condition->logic_op ? $condition->logic_op . ' ' : 'AND ')) . $field . ' ' . $aor_sql_operator_list[$condition->operator] . ' ' . $value;

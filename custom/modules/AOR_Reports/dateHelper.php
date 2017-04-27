@@ -55,6 +55,7 @@ class dateHelper
                 $dateTimePeriod = new DateTime('this year last day of december');
                 break;
             case 'last_year':
+            case 'last_n_years':
                 $dateTimePeriod = new DateTime("last year last day of december");
                 break;
             case 'next_year':
@@ -223,9 +224,12 @@ class dateHelper
             $dateTimePeriod = $dateTimePeriod->add(new DateInterval('P' . $months .'M'));
 
             break;
-
-            case 'last_n_years':
             case 'next_n_years':
+                $dateTimePeriod = $dateTimePeriod->setDate(
+                    $dateTimePeriod->format('Y') + $period_duration_value,
+                    12,
+                    31
+                );
                 break;
         }
         $dateTimePeriod->setTime(23, 59, 59);
@@ -424,17 +428,13 @@ class dateHelper
                 break;
             case 'last_n_years':
                 $dateTimePeriod = $dateTimePeriod->setDate(
-                    $dateTimePeriod->format('Y') - $period_duration_value,
+                    $dateTimePeriod->format('Y') - ($period_duration_value + 1),
                     1,
                     1
                 );
                 break;
             case 'next_n_years':
-                $dateTimePeriod = $dateTimePeriod->setDate(
-                    $dateTimePeriod->format('Y') + $period_duration_value,
-                    1,
-                    1
-                );
+                $dateTimePeriod = new DateTime('next year first day of January');
 
             case 'last_n_quarters':
                 $q = calculateQuarters();
