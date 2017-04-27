@@ -1134,7 +1134,8 @@ class AdvancedReporter extends AOR_Report
                                 $params = base64_decode($condition->value);
                             }
 
-                            $value = '"' . DateHelper::getPeriodDate($params,$this->requestData['period_duration_value']) . '"';
+                            $value = '"' . DateHelper::getPeriodDate($params,$condition->condition_period_length)
+                                    ->format('Y-m-d H:i:s') . '"';
                             break;
                         case "CurrentUserID":
                             global $current_user;
@@ -1174,8 +1175,9 @@ class AdvancedReporter extends AOR_Report
                             } else {
                                 $params = base64_decode($condition->value);
                             }
-                            $date = DateHelper::getPeriodEndDate($params)->format('Y-m-d H:i:s');
-                            $value = '"' . DateHelper::getPeriodDate($params,$this->requestData['period_duration_value'])->format('Y-m-d H:i:s') . '"';
+                            $date = DateHelper::getPeriodEndDate($params)->format('Y-m-d H:i:s',
+                                                                                  $condition->condition_period_length);
+                            $value = '"' . DateHelper::getPeriodDate($params,$condition->condition_period_length)->format('Y-m-d H:i:s') . '"';
 
                             $query['where'][] = ($tiltLogicOp ? '' : ($condition->logic_op ? $condition->logic_op . ' ' : 'AND '));
                             $tiltLogicOp = false;
