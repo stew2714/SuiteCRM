@@ -1,9 +1,29 @@
 /**
- * Created by ian on 11/04/17.
+ * Advanced OpenReports, SugarCRM Reporting.
+ * @package Advanced OpenReports for SugarCRM
+ * @copyright SalesAgility Ltd http://www.salesagility.com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * along with this program; if not, see http://www.gnu.org/licenses
+ * or write to the Free Software Foundation,Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301  USA
+ *
+ * @author SalesAgility <info@salesagility.com>
  */
 
-
 function UpdatePreview(panel){
+  var numberOfConditions = $("#aor_conditions_body tr").length;
+
   var url = "index.php?module=AOR_Reports&action=getPreview";
     $.ajax({
       url: url,
@@ -16,20 +36,20 @@ function UpdatePreview(panel){
 
 function periodOptions(option) {
   var currentValue = option.value,
-      nextNFields = [
-        'last_n_quarters',
-        'next_n_quarters',
-        'last_n_years',
-        'next_n_years',
-      ];
+    nextNFields = [
+      'last_n_quarters',
+      'next_n_quarters',
+      'last_n_years',
+      'next_n_years',
+    ];
 
   if (nextNFields.includes(currentValue)) {
-    $('.period-options-input').show();
-    $('.period-options-input').removeAttr("disabled");
+    $(option).siblings('input').show();
+    $(option).siblings('input').removeAttr("disabled");
   } else {
-    $('.period-options-input').hide();
-    $('.period-options-input').prop('disabled', true);
-    $('.period-options-input').val('');
+    $(option).siblings('input').hide();
+    $(option).siblings('input').prop('disabled', true);
+    $(option).siblings('input').val('');
     UpdatePreview('preview');
   }
 }
@@ -42,13 +62,8 @@ function periodOptionsValue(option) {
   UpdatePreview('preview');
 }
 
-$( document ).ready(function() {
-  var nextNFields = [
-    'last_n_quarters',
-    'next_n_quarters',
-    'last_n_years',
-    'next_n_years',
-  ];
+$(document).ready(function() {
+  $('.period-options-input').show();
+  $('.period-options-input').removeAttr("disabled");
 
-  $( "#myselect" ).val();
 });

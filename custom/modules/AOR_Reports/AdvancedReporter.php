@@ -306,7 +306,7 @@ class AdvancedReporter extends AOR_Report
 
                 if ($data['type'] == 'currency' && isset($field_module->field_defs['currency_id'])) {
                     if ((isset($field_module->field_defs['currency_id']['source']) &&
-                         $field_module->field_defs['currency_id']['source'] == 'custom_fields')
+                        $field_module->field_defs['currency_id']['source'] == 'custom_fields')
                     ) {
                         $query['select'][$table_alias . '_currency_id'] =
                             $this->db->quoteIdentifier($table_alias . '_cstm') .
@@ -451,57 +451,57 @@ class AdvancedReporter extends AOR_Report
                 </button>";
             } else {
                 $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\",0,\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\",0,\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                     <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('start.gif') .
-                         "' alt='Start' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('start.gif') .
+                    "' alt='Start' align='absmiddle' border='0'>
                 </button>
                 <button type='button' id='listViewPrevButton_top' name='listViewPrevButton' class='button' title='Previous' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\"," .
-                         $previous_offset .
-                         ",\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\"," .
+                    $previous_offset .
+                    ",\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                     <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('previous.gif') .
-                         "' alt='Previous' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('previous.gif') .
+                    "' alt='Previous' align='absmiddle' border='0'>
                 </button>";
             }
             $html .= " <span class='pageNumbers'>(" . $start . " - " . $end . " of " . $total_rows . ")</span>";
             if ($next_offset < $total_rows) {
                 $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\"," .
-                         $next_offset .
-                         ",\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\"," .
+                    $next_offset .
+                    ",\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                         <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('next.gif') .
-                         "' alt='Next' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('next.gif') .
+                    "' alt='Next' align='absmiddle' border='0'>
                     </button>
                      <button type='button' id='listViewEndButton_top' name='listViewEndButton' title='End' class='button' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\"," .
-                         $last_offset .
-                         ",\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\"," .
+                    $last_offset .
+                    ",\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                         <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('end.gif') .
-                         "' alt='End' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('end.gif') .
+                    "' alt='End' align='absmiddle' border='0'>
                     </button>";
             } else {
                 $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button'  disabled='disabled'>
@@ -603,12 +603,12 @@ class AdvancedReporter extends AOR_Report
                     $html .= "<td class='' valign='top' align='left'>";
                     if ($att['link'] && $links) {
                         $html .= "<a href='" .
-                                 $sugar_config['site_url'] .
-                                 "/index.php?module=" .
-                                 $att['module'] .
-                                 "&action=DetailView&record=" .
-                                 $row[$att['alias'] . '_id'] .
-                                 "'>";
+                            $sugar_config['site_url'] .
+                            "/index.php?module=" .
+                            $att['module'] .
+                            "&action=DetailView&record=" .
+                            $row[$att['alias'] . '_id'] .
+                            "'>";
                     }
 
                     $currency_id =
@@ -793,7 +793,7 @@ class AdvancedReporter extends AOR_Report
                 ) && isset($field_module->field_defs['currency_id'])
             ) {
                 if ((isset($field_module->field_defs['currency_id']['source']) &&
-                     $field_module->field_defs['currency_id']['source'] == 'custom_fields')
+                    $field_module->field_defs['currency_id']['source'] == 'custom_fields')
                 ) {
                     $query['select'][$table_alias . '_currency_id'] =
                         $table_alias . '_cstm' . ".currency_id AS '" . $table_alias . "_currency_id'";
@@ -977,7 +977,7 @@ class AdvancedReporter extends AOR_Report
                         $oldAlias = $table_alias;
                         $table_alias = $table_alias . ":" . $rel;
                         $query = $this->build_report_query_join($rel, $table_alias, $oldAlias, $condition_module,
-                                                                'relationship', $query, $new_condition_module);
+                            'relationship', $query, $new_condition_module);
                         $condition_module = $new_condition_module;
                     }
                 }
@@ -998,10 +998,10 @@ class AdvancedReporter extends AOR_Report
 
                     if ($data['type'] == 'link' && $data['source'] == 'non-db') {
                         $new_field_module = new $beanList[getRelatedModule($condition_module->module_dir,
-                                                                           $data['relationship'])];
+                            $data['relationship'])];
                         $table_alias = $data['relationship'];
                         $query = $this->build_report_query_join($data['relationship'], $table_alias, $oldAlias,
-                                                                $condition_module, 'relationship', $query, $new_field_module);
+                            $condition_module, 'relationship', $query, $new_field_module);
                         $condition_module = $new_field_module;
 
                         // Debugging: security groups conditions - It's a hack to just get the query working
@@ -1013,7 +1013,7 @@ class AdvancedReporter extends AOR_Report
                     if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                         $field = $this->db->quoteIdentifier($table_alias . '_cstm') . '.' . $condition->field;
                         $query = $this->build_report_query_join($table_alias . '_cstm', $table_alias . '_cstm',
-                                                                $table_alias, $condition_module, 'custom', $query);
+                            $table_alias, $condition_module, 'custom', $query);
                     } else {
                         $field = $this->db->quoteIdentifier($table_alias) . '.' . $condition->field;
                     }
@@ -1041,17 +1041,17 @@ class AdvancedReporter extends AOR_Report
 
                             if ($data['type'] == 'link' && $data['source'] == 'non-db') {
                                 $new_field_module = new $beanList[getRelatedModule($condition_module->module_dir,
-                                                                                   $data['relationship'])];
+                                    $data['relationship'])];
                                 $table_alias = $data['relationship'];
                                 $query = $this->build_report_query_join($data['relationship'], $table_alias, $oldAlias,
-                                                                        $condition_module, 'relationship', $query, $new_field_module);
+                                    $condition_module, 'relationship', $query, $new_field_module);
                                 $condition_module = $new_field_module;
                                 $condition->field = 'id';
                             }
                             if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                                 $value = $condition_module->table_name . '_cstm.' . $condition->value;
                                 $query = $this->build_report_query_join($condition_module->table_name . '_cstm',
-                                                                        $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
+                                    $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
                             } else {
                                 $value = ($table_alias ? $this->db->quoteIdentifier($table_alias) : $condition_module->table_name) . '.' . $condition->value;
                             }
@@ -1085,7 +1085,7 @@ class AdvancedReporter extends AOR_Report
                                     if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                                         $value = $condition_module->table_name . '_cstm.' . $params[0];
                                         $query = $this->build_report_query_join($condition_module->table_name . '_cstm',
-                                                                                $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
+                                            $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
                                     } else {
                                         $value = $condition_module->table_name . '.' . $params[0];
                                     }
@@ -1134,7 +1134,7 @@ class AdvancedReporter extends AOR_Report
                                 $params = base64_decode($condition->value);
                             }
 
-                            $value = '"' . DateHelper::getPeriodDate($params,$this->requestData['period_duration_value'])->format('Y-m-d H:i:s') . '"';
+                            $value = '"' . DateHelper::getPeriodDate($params,$this->requestData['period_duration_value']) . '"';
                             break;
                         case "CurrentUserID":
                             global $current_user;
@@ -1222,7 +1222,7 @@ class AdvancedReporter extends AOR_Report
                 $query['where'][] = ') AND ';
             }
             $query['where'][] = $module->table_name . ".deleted = 0 " . $this->build_report_access_query($module,
-                                                                                                         $module->table_name);
+                    $module->table_name);
 
         }
 
@@ -1316,7 +1316,7 @@ class AdvancedReporter extends AOR_Report
                         $csv .= $this->encloseForCSV($row[$name]);
                     } else {
                         $csv .= $this->encloseForCSV(trim(strip_tags(getModuleField($att['module'], $att['field'],
-                                                                                    $att['field'], 'DetailView', $row[$name], '', $currency_id))));
+                            $att['field'], 'DetailView', $row[$name], '', $currency_id))));
                     }
                     $csv .= $delimiter;
                 }

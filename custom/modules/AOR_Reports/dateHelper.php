@@ -196,7 +196,7 @@ class dateHelper
      *
      * @return DateTime|static
      */
-    static function getPeriodDate($dateTimePeriodListSelected,$period_duration_value=0)
+    static function getPeriodDate($dateTimePeriodListSelected,$period_duration_value)
     {
         global $sugar_config;
         $dateTimePeriod = new DateTime();
@@ -381,6 +381,12 @@ class dateHelper
                 $dateTimePeriod = $q[1]['start']->format('Y') + 1;
                 break;
             case 'last_n_years':
+                $dateTimePeriod = $dateTimePeriod->setDate(
+                    $dateTimePeriod->format('Y') - 1,
+                    1,
+                    1
+                );
+                break;
             case 'next_n_years':
             case 'next_n_quarter':
             case 'last_n_quarter':
