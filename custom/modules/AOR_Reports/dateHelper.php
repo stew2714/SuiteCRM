@@ -181,8 +181,6 @@ class dateHelper
                 }
                 $dateTimePeriod = $q[4]['end']->format('Y') + 1;
                 break;
-            case 'last_n_years':
-            case 'next_n_years':
             case 'next_n_quarter':
             $q = calculateQuarters();
 
@@ -225,6 +223,10 @@ class dateHelper
             $dateTimePeriod = $dateTimePeriod->add(new DateInterval('P' . $months .'M'));
 
             break;
+
+            case 'last_n_years':
+            case 'next_n_years':
+                break;
         }
         $dateTimePeriod->setTime(23, 59, 59);
         return $dateTimePeriod;
