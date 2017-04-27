@@ -105,7 +105,7 @@ class dateHelper
                 break;
             case 'last_fiscal_quarter':
             case 'last_quarter':
-            case 'last_n_quarter':
+            case 'last_n_quarters':
                 if ($sugar_config['aor']['quarters_begin'] && $dateTimePeriodListSelected == "last_fiscal_quarter") {
                     $q = calculateQuarters($sugar_config['aor']['quarters_begin']);
                 } else {
@@ -182,48 +182,48 @@ class dateHelper
                 }
                 $dateTimePeriod = $q[4]['end']->format('Y') + 1;
                 break;
-            case 'next_n_quarter':
-            $q = calculateQuarters();
+            case 'next_n_quarters':
+                $q = calculateQuarters();
 
-            $thisMonth = $dateTimePeriod->setDate(
-                $dateTimePeriod->format('Y'),
-                $dateTimePeriod->format('m'),
-                1
-            );
-            if ($thisMonth >= $q[1]['start'] && $thisMonth <= $q[1]['end']) {
-                // quarter 1
-                $dateTimePeriod = $dateTimePeriod->setDate(
-                    $q[1]['start']->format('Y'),
-                    $q[1]['start']->format('m'),
-                    $q[1]['start']->format('d')
+                $thisMonth = $dateTimePeriod->setDate(
+                    $dateTimePeriod->format('Y'),
+                    $dateTimePeriod->format('m'),
+                    1
                 );
-            } elseif ($thisMonth >= $q[2]['start'] && $thisMonth <= $q[2]['end']) {
-                // quarter 2
-                $dateTimePeriod = $dateTimePeriod->setDate(
-                    $q[2]['start']->format('Y'),
-                    $q[2]['start']->format('m'),
-                    $q[2]['start']->format('d')
-                );
-            } elseif ($thisMonth >= $q[3]['start'] && $thisMonth <= $q[3]['end']) {
-                // quarter 3
-                $dateTimePeriod = $dateTimePeriod->setDate(
-                    $q[3]['start']->format('Y'),
-                    $q[3]['start']->format('m'),
-                    $q[3]['start']->format('d')
-                );
-            } elseif ($thisMonth >= $q[4]['start'] && $thisMonth <= $q[4]['end']) {
-                // quarter 4
-                $dateTimePeriod = $dateTimePeriod->setDate(
-                    $q[4]['start']->format('Y'),
-                    $q[4]['start']->format('m'),
-                    $q[4]['start']->format('d')
-                );
-            }
-            //this Q start - $dateTimePeriod
-            $months = $period_duration_value * 3;
-            $dateTimePeriod = $dateTimePeriod->add(new DateInterval('P' . $months .'M'));
+                if ($thisMonth >= $q[1]['start'] && $thisMonth <= $q[1]['end']) {
+                    // quarter 1
+                    $dateTimePeriod = $dateTimePeriod->setDate(
+                        $q[1]['end']->format('Y'),
+                        $q[1]['end']->format('m'),
+                        $q[1]['end']->format('d')
+                    );
+                } elseif ($thisMonth >= $q[2]['start'] && $thisMonth <= $q[2]['end']) {
+                    // quarter 2
+                    $dateTimePeriod = $dateTimePeriod->setDate(
+                        $q[2]['end']->format('Y'),
+                        $q[2]['end']->format('m'),
+                        $q[2]['end']->format('d')
+                    );
+                } elseif ($thisMonth >= $q[3]['start'] && $thisMonth <= $q[3]['end']) {
+                    // quarter 3
+                    $dateTimePeriod = $dateTimePeriod->setDate(
+                        $q[3]['end']->format('Y'),
+                        $q[3]['end']->format('m'),
+                        $q[3]['end']->format('d')
+                    );
+                } elseif ($thisMonth >= $q[4]['start'] && $thisMonth <= $q[4]['end']) {
+                    // quarter 4
+                    $dateTimePeriod = $dateTimePeriod->setDate(
+                        $q[4]['end']->format('Y'),
+                        $q[4]['end']->format('m'),
+                        $q[4]['end']->format('d')
+                    );
+                }
+                //this Q start - $dateTimePeriod
+                $months = $period_duration_value * 3;
+                $dateTimePeriod = $dateTimePeriod->add(new DateInterval('P' . $months .'M'));
 
-            break;
+                break;
             case 'next_n_years':
                 $dateTimePeriod = $dateTimePeriod->setDate(
                     $dateTimePeriod->format('Y') + $period_duration_value,
@@ -347,7 +347,7 @@ class dateHelper
                     $dateTimePeriod = $q[3]['start']->sub(new DateInterval('P3M'));
                 } elseif ($thisMonth >= $q[4]['start'] && $thisMonth <= $q[4]['end']) {
                     // quarter 4 - 3 months
-                    $dateTimePeriod = $q[3]['start']->sub(new DateInterval('P3M'));
+                    $dateTimePeriod = $q[4]['start']->sub(new DateInterval('P3M'));
                 }
                 break;
             case 'next_fiscal_quarter':
@@ -367,16 +367,16 @@ class dateHelper
                 );
                 if ($thisMonth >= $q[1]['start'] && $thisMonth <= $q[1]['end']) {
                     // quarter 4 - 3 months
-                    $dateTimePeriod = $q[3]['start']->sub(new DateInterval('P3M'));
+                    $dateTimePeriod = $q[1]['start']->add(new DateInterval('P3M'));
                 } elseif ($thisMonth >= $q[2]['start'] && $thisMonth <= $q[2]['end']) {
                     // quarter 1 - 3 months
-                    $dateTimePeriod = $q[1]['start']->sub(new DateInterval('P3M'));
+                    $dateTimePeriod = $q[2]['start']->add(new DateInterval('P3M'));
                 } elseif ($thisMonth >= $q[3]['start'] && $thisMonth <= $q[3]['end']) {
                     // quarter 2 - 3 months
-                    $dateTimePeriod = $q[2]['start']->sub(new DateInterval('P3M'));
+                    $dateTimePeriod = $q[3]['start']->add(new DateInterval('P3M'));
                 } elseif ($thisMonth >= $q[4]['start'] && $thisMonth <= $q[4]['end']) {
                     // quarter 3 - 3 months
-                    $dateTimePeriod = $q[3]['start']->sub(
+                    $dateTimePeriod = $q[4]['start']->add(
                         new DateInterval('P3M')
                     );
                 }
@@ -428,13 +428,17 @@ class dateHelper
                 break;
             case 'last_n_years':
                 $dateTimePeriod = $dateTimePeriod->setDate(
-                    $dateTimePeriod->format('Y') - ($period_duration_value + 1),
+                    $dateTimePeriod->format('Y') - $period_duration_value,
                     1,
                     1
                 );
                 break;
             case 'next_n_years':
-                $dateTimePeriod = new DateTime('next year first day of January');
+                $dateTimePeriod = $dateTimePeriod->setDate(
+                    $dateTimePeriod->format('Y') + $period_duration_value,
+                    1,
+                    1
+                );
 
             case 'last_n_quarters':
                 $q = calculateQuarters();
