@@ -49,7 +49,7 @@ function periodOptions(option) {
   } else {
     $(option).siblings('input').hide();
     $(option).siblings('input').prop('disabled', true);
-    $(option).siblings('input').val('');
+    $(option). siblings('input').val('');
     UpdatePreview('preview');
   }
 }

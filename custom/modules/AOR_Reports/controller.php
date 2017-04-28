@@ -340,12 +340,33 @@ class customAOR_ReportsController extends AOR_ReportsController
 
     }
 
-    public function action_save()
+    public function action_save($check_notify = false)
+    {
+
+        // TODO: process of saveing the fields and conditions is too long so we will have to make some optimization on save_lines functions
+        set_time_limit(3600);
+
+        $parent = $_POST['record'];
+        $parent = BeanFactory::getBean('AOR_Reports',$parent);
+
+        require_once('modules/AOR_Fields/AOR_Field.php');
+        $field = new AOR_Field();
+        $field->save_lines($_POST, $parent, 'aor_fields_');
+
+        // Save Conditions
+        $this->save_conditions();
+
+        require_once('modules/AOR_Charts/AOR_Chart.php');
+        $chart = new AOR_Chart();
+        $chart->save_lines($_POST, $parent, 'aor_chart_');
+    }
+
+    public function save_conditions()
     {
         $post_data = $_POST;
         $parent = $_POST['record'];
         $parent = BeanFactory::getBean('AOR_Reports',$parent);
-       // $conditions = BeanFactory::getBean('AOR_Conditions',$parent);
+        // $conditions = BeanFactory::getBean('AOR_Conditions',$parent);
         $key = 'aor_conditions_';
 
         require_once('modules/AOW_WorkFlow/aow_utils.php');

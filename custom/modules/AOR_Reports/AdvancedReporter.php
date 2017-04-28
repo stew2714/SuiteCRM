@@ -1195,11 +1195,6 @@ class AdvancedReporter extends AOR_Report
                                     $query['where'][] = $field . ' ' . $aor_sql_operator_list[$condition->operator] . ' ' . $value;
                                     break;
                             }
-
-                            echo '<pre>';
-                            print_r($query['where']);
-                            echo '</pre>';
-
                         } else {
                             if (!$where_set) {
                                 $query['where'][] = ($tiltLogicOp ? '' : ($condition->logic_op ? $condition->logic_op . ' ' : 'AND ')) . $field . ' ' . $aor_sql_operator_list[$condition->operator] . ' ' . $value;
