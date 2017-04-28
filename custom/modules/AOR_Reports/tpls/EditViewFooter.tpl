@@ -136,7 +136,6 @@
             var module_name = node.name;
             var module_path_display = node.module_path_display;
             if(!treeDataLeafs[module]) {
-              console.log("ONETWOTHREEFOUR");
                 $.getJSON('index.php',
                         {
                             'module': 'AOR_Reports',

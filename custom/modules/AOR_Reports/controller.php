@@ -345,10 +345,8 @@ class customAOR_ReportsController extends AOR_ReportsController
 
         // TODO: process of saveing the fields and conditions is too long so we will have to make some optimization on save_lines functions
         set_time_limit(3600);
-
-        $parent = $_POST['record'];
-        $parent = BeanFactory::getBean('AOR_Reports',$parent);
-
+        parent::action_save($check_notify);
+        $parent = $this->bean;
         require_once('modules/AOR_Fields/AOR_Field.php');
         $field = new AOR_Field();
         $field->save_lines($_POST, $parent, 'aor_fields_');
