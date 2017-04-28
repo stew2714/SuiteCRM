@@ -72,7 +72,6 @@ array (
         ),
         3 => 
         array (
-          0 => 'picture',
         ),
       ),
       'LBL_EMPLOYEE_INFORMATION' => 
@@ -108,7 +107,6 @@ array (
         4 => 
         array (
           0 => 'reports_to_name',
-          1 => '',
         ),
         5 => 
         array (
@@ -145,7 +143,7 @@ array (
             'name' => 'work_location_c',
             'label' => 'LBL_WORK_LOCATION',
           ),
-          1 => '',
+          1 => 'photo',
         ),
       ),
     ),

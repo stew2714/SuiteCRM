@@ -15,6 +15,23 @@ array (
     ),
     'advanced_search' => 
     array (
+      'user_name' => 
+      array (
+        'type' => 'user_name',
+        'studio' => 
+        array (
+          'no_duplicate' => true,
+          'editview' => false,
+          'detailview' => true,
+          'quickcreate' => false,
+          'basic_search' => false,
+          'advanced_search' => false,
+        ),
+        'label' => 'LBL_USER_NAME',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'user_name',
+      ),
       'first_name' => 
       array (
         'name' => 'first_name',
