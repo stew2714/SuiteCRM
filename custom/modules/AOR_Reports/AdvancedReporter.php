@@ -370,7 +370,7 @@ class AdvancedReporter extends AOR_Report
 
                 //$query['select'][] = $select_field . " AS '" . $field->label . "'";
 
-                $date = "2017-04-21 08:30:11";
+                $date = $timedate->fromUser($this->bean->snapshot_date)->asDb();
 
                 $query['select'][] = "
                 (
@@ -379,7 +379,7 @@ class AdvancedReporter extends AOR_Report
                 (SELECT after_value_string
                 FROM opportunities_audit
                 WHERE parent_id = " . $table_alias . ".id AND 
-                      date_created < '" . $date . "' AND 
+                      date_created > '" . $date . "' AND 
                       field_name = '" . $field->field . "'
                 ORDER BY date_created DESC
                 limit 1)
@@ -387,7 +387,7 @@ class AdvancedReporter extends AOR_Report
                 THEN (SELECT after_value_string
                 FROM opportunities_audit
                 WHERE parent_id = " . $table_alias . ".id AND 
-                      date_created < '" . $date . "'AND 
+                      date_created > '" . $date . "'AND 
                       field_name = '" . $field->field . "'
                 ORDER BY date_created DESC
                 limit 1)
@@ -395,7 +395,7 @@ class AdvancedReporter extends AOR_Report
             (SELECT before_value_string
             FROM opportunities_audit
             WHERE parent_id = " . $table_alias . ".id AND
-                  date_created >= '" . $date . "' AND 
+                  date_created < '" . $date . "' AND 
                   field_name = '" . $field->field . "'
             ORDER BY date_created ASC
             limit 1)
@@ -403,7 +403,7 @@ class AdvancedReporter extends AOR_Report
         THEN (SELECT before_value_string
             FROM opportunities_audit
             WHERE parent_id = " . $table_alias . ".id AND 
-                  date_created >= '" . $date . "' AND 
+                  date_created < '" . $date . "' AND 
                   field_name = '" . $field->field . "'
             ORDER BY date_created ASC
             limit 1)
