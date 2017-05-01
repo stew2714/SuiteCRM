@@ -439,6 +439,7 @@ function fieldSort(){
         updateChartDimensionSelects();
         FieldLineHandler.makeGroupDisplaySelectOptions();
     }
+  UpdatePreview('preview');
 }
 
 function hideElem(id){
