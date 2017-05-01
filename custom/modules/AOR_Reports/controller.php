@@ -361,6 +361,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         set_time_limit(3600);
         parent::action_save($check_notify);
         $parent = $this->bean;
+        $_POST['record'] = $this->bean->id;
         require_once('modules/AOR_Fields/AOR_Field.php');
         $field = new AOR_Field();
         $field->save_lines($_POST, $parent, 'aor_fields_');
