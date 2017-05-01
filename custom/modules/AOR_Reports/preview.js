@@ -58,12 +58,6 @@ function periodOptionsValue(option) {
   var currentValue = option.value;
   currentValue = currentValue.replace(/[^0-9\.]/g,'');
   $('.period-options-input').val(currentValue);
-  console.log(currentValue);
+  // console.log(currentValue);
   UpdatePreview('preview');
 }
-
-$(document).ready(function() {
-  $('.period-options-input').show();
-  $('.period-options-input').removeAttr("disabled");
-
-});

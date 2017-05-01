@@ -323,7 +323,21 @@ class customAOR_ReportsController extends AOR_ReportsController
                     $current_field_index = substr_replace($current_field_index[1], "", -1);
                     echo "<select type='text' style='width:178px;' onchange='periodOptions(this);' name='$aor_field' id='$aor_field' class='aor-dropdown-list' tabindex='116'>" . getDropdownList('date_time_period_list',
                             $_REQUEST['aor_value']) . "</select>";
-                    echo "<input type='text' onblur='periodOptionsValue(this)' value='" . $_REQUEST['offset'] . "' name='aor_conditions_condition_period_length[" . $current_field_index . "]' class='period-options-input' id='aor_conditions_condition_period_length" . $current_field_index . "' title='' tabindex='116'>";
+                    $options_with_text_field = array(
+                        'last_n_quarters',
+                        'next_n_quarters',
+                        'last_n_years',
+                        'next_n_years',
+                    );
+                    $current_value = base64_decode($_REQUEST['aor_value']);
+
+                    if (in_array($current_value,$options_with_text_field)) {
+                        $show_text_field = "";
+                    } else {
+                        $show_text_field = "style='display: none'";
+                    }
+
+                    echo "<input type='text' onblur='periodOptionsValue(this)' value='" . $_REQUEST['offset'] . "' name='aor_conditions_condition_period_length[" . $current_field_index . "]' class='period-options-input' id='aor_conditions_condition_period_length" . $current_field_index . "' title='' tabindex='116'" . $show_text_field . ">";
                 } else {
                     echo getDropdownList('date_time_period_list', $_REQUEST['aor_value']);
                 }
