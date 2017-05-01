@@ -23,7 +23,6 @@
 
 function UpdatePreview(panel){
   var numberOfConditions = $("#aor_conditions_body tr").length;
-
   var url = "index.php?module=AOR_Reports&action=getPreview";
     $.ajax({
       url: url,
@@ -58,7 +57,6 @@ function periodOptionsValue(option) {
   var currentValue = option.value;
   currentValue = currentValue.replace(/[^0-9\.]/g,'');
   $('.period-options-input').val(currentValue);
-  console.log(currentValue);
   UpdatePreview('preview');
 }
 
@@ -66,4 +64,13 @@ $(document).ready(function() {
   $('.period-options-input').show();
   $('.period-options-input').removeAttr("disabled");
 
+  $( "#snapshot_date_date,#snapshot_date_hours,#snapshot_date_minutes,#snapshot_date_meridiem" ).blur(function() {
+    UpdatePreview('preview');
+  });
+  $( "#snapshot_date_trigger" ).click(function() {
+    SUGAR.util.doWhen("$('#container_snapshot_date_trigger_c').css('visibility') === 'hidden' ", function(){
+      UpdatePreview('preview')
+    });
+  });
 });
+
