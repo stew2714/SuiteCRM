@@ -368,49 +368,56 @@ class AdvancedReporter extends AOR_Report
                     $query['sort_by'][] = $select_field . " " . $field->sort_by;
                 }
 
-                //$query['select'][] = $select_field . " AS '" . $field->label . "'";
 
-                $date = "2017-04-21 08:30:11";
+
+                if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                                                      !empty($this->bean->snapshot_date) )){
+                    if(empty($this->requestData['snapshot_date'])){
+                        $date = $timedate->fromUser($this->bean->snapshot_date)->asDb();
+                    }else{
+                        $date = $timedate->fromUser($this->requestData['snapshot_date'])->asDb();
+                    }
 
                 $query['select'][] = "
-                (
-                CASE
-                WHEN EXISTS (
-                (SELECT after_value_string
-                FROM opportunities_audit
-                WHERE parent_id = " . $table_alias . ".id AND 
-                      date_created < '" . $date . "' AND 
-                      field_name = '" . $field->field . "'
-                ORDER BY date_created DESC
-                limit 1)
-                )
-                THEN (SELECT after_value_string
-                FROM opportunities_audit
-                WHERE parent_id = " . $table_alias . ".id AND 
-                      date_created < '" . $date . "'AND 
-                      field_name = '" . $field->field . "'
-                ORDER BY date_created DESC
-                limit 1)
-                        WHEN EXISTS (
-            (SELECT before_value_string
-            FROM opportunities_audit
-            WHERE parent_id = " . $table_alias . ".id AND
-                  date_created >= '" . $date . "' AND 
-                  field_name = '" . $field->field . "'
-            ORDER BY date_created ASC
-            limit 1)
-        )
-        THEN (SELECT before_value_string
-            FROM opportunities_audit
-            WHERE parent_id = " . $table_alias . ".id AND 
-                  date_created >= '" . $date . "' AND 
-                  field_name = '" . $field->field . "'
-            ORDER BY date_created ASC
-            limit 1)
-               else " . $select_field . " END
-)  as '" . $field->label . "'" ;
-
-               // $query['select'][] = $select_field . " AS '" . $field->label . "'";
+                                    (
+                                    CASE
+                                    WHEN EXISTS (
+                                    (SELECT after_value_string
+                                    FROM opportunities_audit
+                                    WHERE parent_id = " . $table_alias . ".id AND 
+                                          date_created < '" . $date . "' AND 
+                                          field_name = '" . $field->field . "'
+                                    ORDER BY date_created DESC
+                                    limit 1)
+                                    )
+                                    THEN (SELECT after_value_string
+                                    FROM opportunities_audit
+                                    WHERE parent_id = " . $table_alias . ".id AND 
+                                          date_created < '" . $date . "'AND 
+                                          field_name = '" . $field->field . "'
+                                    ORDER BY date_created DESC
+                                    limit 1)
+                                            WHEN EXISTS (
+                                (SELECT before_value_string
+                                FROM opportunities_audit
+                                WHERE parent_id = " . $table_alias . ".id AND
+                                      date_created > '" . $date . "' AND 
+                                      field_name = '" . $field->field . "'
+                                ORDER BY date_created ASC
+                                limit 1)
+                            )
+                            THEN (SELECT before_value_string
+                                FROM opportunities_audit
+                                WHERE parent_id = " . $table_alias . ".id AND 
+                                      date_created > '" . $date . "' AND 
+                                      field_name = '" . $field->field . "'
+                                ORDER BY date_created ASC
+                                limit 1)
+                                   else " . $select_field . " END
+                    )  as '" . $field->label . "'" ;
+                }else{
+                    $query['select'][] = $select_field . " AS '" . $field->label . "'";
+                }
 
 
 
@@ -422,6 +429,13 @@ class AdvancedReporter extends AOR_Report
 
                 ++$i;
             }
+
+            //if a snap shot asked for we do not want to display anything after that time.
+            if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                                                  !empty($this->bean->snapshot_date) )){
+                $query['where'][] = $table_alias . ".date_entered < '" . $date . "' AND ";
+            }
+
         }
 
         return $query;
