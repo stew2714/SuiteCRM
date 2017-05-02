@@ -25,7 +25,7 @@ $dictionary['AOR_Report']['fields']['private_to_user_or_group']=  array(
     'merge_filter' => 'disabled',
     'len' => 100,
     'size' => '20',
-    'options' => 'report_user_or_group',
+    'options' => 'private_user_or_group',
     'studio' => 'visible',
     'dependency' => false,
 );
