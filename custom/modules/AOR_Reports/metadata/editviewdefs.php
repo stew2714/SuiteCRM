@@ -109,7 +109,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PRIVATE_USER_OR_GROUP',
           ),
-          1 => '',
         ),
         6 => 
         array (

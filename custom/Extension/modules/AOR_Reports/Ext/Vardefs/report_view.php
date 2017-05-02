@@ -31,7 +31,6 @@ $dictionary['AOR_Report']['fields']['private_to_user_or_group']=  array(
 );
 
 $dictionary['AOR_Report']['fields']['private_user_list']=  array(
-    'required' => true,
     'name' => 'private_user_list',
     'vname' => 'LBL_PRIVATE_USERS',
     'type' => 'enum',
@@ -55,7 +54,6 @@ $dictionary['AOR_Report']['fields']['private_user_list']=  array(
 );
 
 $dictionary['AOR_Report']['fields']['private_group_list']=  array(
-    'required' => true,
     'name' => 'private_group_list',
     'vname' => 'LBL_PRIVATE_GROUPS',
     'type' => 'enum',
