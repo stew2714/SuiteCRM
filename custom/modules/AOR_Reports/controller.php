@@ -386,11 +386,10 @@ class customAOR_ReportsController extends AOR_ReportsController
 
         $j = 0;
         foreach ($post_data[$key . 'field'] as $i => $field) {
-
+            $condition = new AOR_Condition();
             if ($post_data[$key . 'deleted'][$i] == 1) {
-                $parent->mark_deleted($post_data[$key . 'id'][$i]);
+                $condition->mark_deleted($post_data[$key . 'id'][$i]);
             } else {
-                $condition = new AOR_Condition();
                 foreach ($condition->field_defs as $field_def) {
                     $field_name = $field_def['name'];
                     if (isset($post_data[$key . $field_name][$i])) {
