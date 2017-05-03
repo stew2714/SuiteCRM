@@ -110,6 +110,7 @@ class customAOR_ReportsViewEdit extends AOR_ReportsViewEdit
         echo $reportHTML;
     }
 
+    // Redirection script
     function redirectFlags($flags) {
         if ($flags['admin'] === false) {
             if ($flags['assigned_user'] === false) {
