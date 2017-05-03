@@ -1,20 +1,31 @@
 <?php
 $viewdefs ['AOR_Reports'] = 
 array (
-  'EditView' => 
+  'DetailView' => 
   array (
     'templateMeta' => 
     array (
-      'includes' => 
+      'form' => 
       array (
-        0 => 
+        'buttons' => 
         array (
-          'file' => 'modules/AOR_Reports/AOR_Report.js',
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+          3 => 
+          array (
+            'customCode' => '<input type="button" class="button" id="download_csv_button_old" value="{$MOD.LBL_EXPORT}">',
+          ),
+          4 => 
+          array (
+            'customCode' => '<input type="button" class="button" id="download_pdf_button_old" value="{$MOD.LBL_DOWNLOAD_PDF}">',
+          ),
+          5 => 
+          array (
+            'customCode' => '<input type="button" class="button" onClick="openProspectPopup();" value="{$MOD.LBL_ADD_TO_PROSPECT_LIST}">',
+          ),
         ),
-        1 => 
-        array (
-          'file' => 'custom/modules/AOR_Reports/preview.js',
-        ),
+        'footerTpl' => 'modules/AOR_Reports/tpls/report.tpl',
       ),
       'maxColumns' => '2',
       'widths' => 
@@ -30,19 +41,11 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
-      'form' => 
+      'includes' => 
       array (
-        'headerTpl' => 'modules/AOR_Reports/tpls/EditViewHeader.tpl',
-        'footerTpl' => 'custom/modules/AOR_Reports/tpls/EditViewFooter.tpl',
-        'buttons' => 
+        0 => 
         array (
-          0 => 'SAVE',
-          1 => 'CANCEL',
-          2 => 
-          array (
-            'customCode' => '<input type="button" class="button" onClick="UpdatePreview(\'preview\');" value="{$MOD.LBL_RUN_PREVIEW}">',
-          ),
+          'file' => 'modules/AOR_Reports/AOR_Report.js',
         ),
       ),
       'tabDefs' => 
@@ -50,9 +53,10 @@ array (
         'DEFAULT' => 
         array (
           'newTab' => false,
-          'panelDefault' => 'expanded',
+          'panelDefault' => 'collapsed',
         ),
       ),
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -67,12 +71,22 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_module',
-            'studio' => 'visible',
-            'label' => 'LBL_REPORT_MODULE',
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
         2 => 
+        array (
+          0 => 'description',
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -85,15 +99,17 @@ array (
             'label' => 'LBL_SNAPSHOT_DATE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
-            'name' => 'graphs_per_row',
-            'label' => 'LBL_GRAPHS_PER_ROW',
+            'name' => 'report_module',
+            'studio' => 'visible',
+            'label' => 'LBL_REPORT_MODULE',
           ),
+          1 => '',
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -101,7 +117,7 @@ array (
             'label' => 'LBL_PRIVATE_REPORT_CHECKBOX',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -110,7 +126,7 @@ array (
             'label' => 'LBL_PRIVATE_USER_OR_GROUP',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -119,7 +135,7 @@ array (
             'label' => 'LBL_PRIVATE_USERS',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
