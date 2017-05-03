@@ -36,6 +36,46 @@ class customAOR_ReportsViewEdit extends AOR_ReportsViewEdit
     function display()
     {
         global $app_list_strings;
+        global $current_user;
+        $security_group = new SecurityGroup();
+        $groups = $security_group->getUserSecurityGroups($current_user->id);
+        $group_ids = array();
+        $redirect_flags = array();
+
+        // Build the string for the query out of the associated security groups
+        foreach ($groups as $key => $value) {
+            $group_ids[] = $key;
+        }
+
+        // See what permissions fail
+        if ($this->bean->private_report_checkbox == '1') {
+            if (is_admin($current_user)) {
+                $redirect_flags['admin'] = true;
+            } else {
+                $redirect_flags['admin'] = false;
+            }
+
+            if ($current_user->id !== $this->bean->assigned_user_id) {
+                $redirect_flag['assigned_user'] = false;
+            } else {
+                $redirect_flags['assigned_user'] = true;
+            }
+
+            if (!in_array($this->bean->private_group_list,$group_ids)) {
+                $redirect_flags['private_group'] = false;
+            } else {
+                $redirect_flags['private_group'] = true;
+            }
+
+            if ($current_user->id !== $this->bean->private_user_list) {
+                $redirect_flags['private_user'] = false;
+            } else {
+                $redirect_flags['private_user'] = true;
+            }
+        }
+
+        $this->redirectFlags($redirect_flags);
+
         // Fetch the bean to return all Users
         $user = BeanFactory::getBean("Users");
         $userList = $user->get_full_list();
@@ -68,5 +108,28 @@ class customAOR_ReportsViewEdit extends AOR_ReportsViewEdit
             $reportHTML = '<div id="preview"></div>';
         }
         echo $reportHTML;
+    }
+
+    function redirectFlags($flags) {
+        if ($flags['admin'] === false) {
+            if ($flags['assigned_user'] === false) {
+                if ($this->bean->private_to_user_or_group == 'private_group' && $flags['private_group'] === false) {
+                    header('Location: index.php?module=AOR_Reports&action=index');
+                    exit();
+                } elseif ($this->bean->private_to_user_or_group == 'private_user' && $flags['private_user'] === false) {
+                    header('Location: index.php?module=AOR_Reports&action=index');
+                    exit();
+                } elseif (empty($this->bean->private_to_user_or_group)) {
+                    header('Location: index.php?module=AOR_Reports&action=index');
+                    exit();
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
     }
 }
