@@ -28,6 +28,7 @@ $dictionary['AOR_Report']['fields']['private_to_user_or_group']=  array(
     'options' => 'private_user_or_group',
     'studio' => 'visible',
     'dependency' => false,
+    'inline_edit' => false,
 );
 
 $dictionary['AOR_Report']['fields']['private_user_list']=  array(
@@ -51,6 +52,7 @@ $dictionary['AOR_Report']['fields']['private_user_list']=  array(
     'options' => 'report_private_users',
     'studio' => 'visible',
     'dependency' => false,
+    'inline_edit' => false,
 );
 
 $dictionary['AOR_Report']['fields']['private_group_list']=  array(
@@ -73,6 +75,7 @@ $dictionary['AOR_Report']['fields']['private_group_list']=  array(
     'size' => '20',
     'options' => 'report_private_groups',
     'studio' => 'visible',
+    'inline_edit' => false,
     'dependency' => false,
 );
 
@@ -89,7 +92,7 @@ $dictionary['AOR_Report']['fields']['private_report_checkbox']= array (
     'help' => '',
     'duplicate_merge_dom_value' => '0',
     'audited' => false,
-    'inline_edit' => true,
+    'inline_edit' => false,
     'reportable' => true,
     'size' => '20',
 );
