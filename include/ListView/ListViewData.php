@@ -333,7 +333,6 @@ class ListViewData {
             	$totalCount = $this->getTotalCount($main_query);
             	$offset = (floor(($totalCount -1) / $limit)) * $limit;
             }
-            echo $main_query;
             if($this->seed->ACLAccess('ListView')) {
                 $result = $this->db->limitQuery($main_query, $offset, $limit + 1);
             }
