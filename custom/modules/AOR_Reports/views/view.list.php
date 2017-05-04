@@ -52,9 +52,14 @@ class customAOR_ReportsViewList extends ViewList
                 $x++;
             }
 
+            // Make an empty list to give to the IN statement so results are still returned.
+            if (empty($group_ids)) {
+                $group_ids = "''";
+            }
+
             $this->where = "(aor_reports.private_report_checkbox = '0') OR ";
-            $this->where .= "(aor_reports.assigned_user_id = $current_user->id) OR ";
-            $this->where .= "(aor_reports.private_report_checkbox = '1' AND aor_reports.private_to_user_or_group = 'private_user' AND aor_reports.private_user_list =  $current_user->id) OR ";
+            $this->where .= "(aor_reports.assigned_user_id = '$current_user->id') OR ";
+            $this->where .= "(aor_reports.private_report_checkbox = '1' AND aor_reports.private_to_user_or_group = 'private_user' AND aor_reports.private_user_list = '$current_user->id') OR ";
             $this->where .= "(aor_reports.private_group_list IN ($group_ids))";
         }
 
