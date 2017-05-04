@@ -7,7 +7,7 @@
  */
 
 $dictionary['AOR_Report']['fields']['private_to_user_or_group']=  array(
-    'required' => true,
+    'required' => false,
     'name' => 'private_to_user_or_group',
     'vname' => 'LBL_PRIVATE_USER_OR_GROUP',
     'type' => 'enum',
