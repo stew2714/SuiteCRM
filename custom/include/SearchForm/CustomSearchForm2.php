@@ -626,10 +626,11 @@ class CustomSearchForm extends SearchForm
                 $group_ids = "''";
             }
 
-            $whereClauses[] = "(aor_reports.private_report_checkbox = '0') OR ";
-            $whereClauses[] = "(aor_reports.assigned_user_id = '$current_user->id') OR ";
-            $whereClauses[] = "(aor_reports.private_report_checkbox = '1' AND aor_reports.private_to_user_or_group = 'private_user' AND aor_reports.private_user_list = '$current_user->id') OR ";
-            $whereClauses[] = "(aor_reports.private_group_list IN ($group_ids))";
+            $where .=  "(aor_reports.private_report_checkbox = '0') OR ";
+            $where .= "(aor_reports.assigned_user_id = '$current_user->id') OR ";
+            $where .= "(aor_reports.private_report_checkbox = '1' AND aor_reports.private_to_user_or_group = 'private_user' AND aor_reports.private_user_list = '$current_user->id') OR ";
+            $where .= "(aor_reports.private_group_list IN ($group_ids))";
+            $whereClauses[] = $where;
 
             return $whereClauses;
         }

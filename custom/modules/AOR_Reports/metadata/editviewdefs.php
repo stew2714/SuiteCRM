@@ -71,7 +71,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_REPORT_MODULE',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -85,7 +84,6 @@ array (
             ),
             'label' => 'LBL_SNAPSHOT_DATE',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -94,7 +92,41 @@ array (
             'name' => 'graphs_per_row',
             'label' => 'LBL_GRAPHS_PER_ROW',
           ),
-          1 => '',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'private_report_checkbox',
+            'label' => 'LBL_PRIVATE_REPORT_CHECKBOX',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'private_to_user_or_group',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIVATE_USER_OR_GROUP',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'private_user_list',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIVATE_USERS',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'private_group_list',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIVATE_GROUPS',
+          ),
         ),
       ),
     ),
