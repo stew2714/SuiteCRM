@@ -593,7 +593,46 @@ class CustomSearchForm extends SearchForm
             }
         }
 
+        $where_clauses = $this->whereClauses($where_clauses);
+
         return $where_clauses;
+    }
+
+    function whereClauses($whereClauses)
+    {
+        global $current_user;
+
+        // Build where conditions if the user is not an Administrator Account
+        if (!is_admin($current_user)) {
+            // Return the security group id's this user belongs to.
+            $security_group = new SecurityGroup();
+            $groups = $security_group->getUserSecurityGroups($current_user->id);
+            $group_ids = "";
+            $x = 0;
+
+            // Build the string for the query out of the associated security groups
+            foreach ($groups as $key => $value) {
+                if (($x + 1) !== count($groups)) {
+                    $group_ids .= "'" . $key . "',";
+                } else {
+                    $group_ids .= "'" . $key . "'";
+                }
+
+                $x++;
+            }
+
+            // Make an empty list to give to the IN statement so results are still returned.
+            if (empty($group_ids)) {
+                $group_ids = "''";
+            }
+
+            $whereClauses[] = "(aor_reports.private_report_checkbox = '0') OR ";
+            $whereClauses[] = "(aor_reports.assigned_user_id = '$current_user->id') OR ";
+            $whereClauses[] = "(aor_reports.private_report_checkbox = '1' AND aor_reports.private_to_user_or_group = 'private_user' AND aor_reports.private_user_list = '$current_user->id') OR ";
+            $whereClauses[] = "(aor_reports.private_group_list IN ($group_ids))";
+
+            return $whereClauses;
+        }
     }
 
 }
