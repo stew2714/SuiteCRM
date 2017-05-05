@@ -72,21 +72,19 @@ function showHideUserGroupSelect(bool) {
 
 function showHidePrivateUsers(value) {
   if (value === 'private_user') {
-    $('#private_user_list').removeAttr("disabled");
     $('#private_user_list').closest('.edit-view-row-item').show();
   } else {
-    $('#private_user_list').prop('disabled', true);
+    $('#private_user_list').val('');
     $('#private_user_list').closest('.edit-view-row-item').hide();
   }
 }
 
 function showHidePrivateGroups(value) {
   if (value === 'private_group') {
-    $('#private_group_list').removeAttr("disabled");
     $('#private_group_list').closest('.edit-view-row-item').show();
   } else {
-    $('#private_group_list').prop('disabled', true);
     $('#private_group_list').closest('.edit-view-row-item').hide();
+    $('#private_group_list').val('');
   }
 }
 
@@ -104,6 +102,7 @@ function displayFieldsOnLoad(checkbox,choice,user,group) {
 
         // Private Group List Handlers
         $('#private_group_list').prop('disabled', true);
+        $('#private_group_list').removeAttr("selected");
         $('#private_group_list').val('');
         $('#private_group_list').closest('.edit-view-row-item').hide();
 
