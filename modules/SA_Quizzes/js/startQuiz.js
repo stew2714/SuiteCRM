@@ -185,6 +185,7 @@ function buildResultTemplate(quizResults) {
   <div id="quiz-time-spent"></div>';
 
   $("#questions-wrapper").append(resultsTemplate);
+  $("#questions-wrapper").css({"margin-top": "5px"});
 
   if (quizResults['pass'] === "yes") {
     $('#question-name').text("Congratulations, you passed!");
