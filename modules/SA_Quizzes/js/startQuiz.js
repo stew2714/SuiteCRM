@@ -7,6 +7,9 @@ var x,
     quizSubmit,
     quizResults,
     currentDate,
+    currentQuestionId,
+    currentAnswer,
+    timeSpent,
     errors = false;
 
 function startQuiz(id) {
@@ -75,14 +78,29 @@ function buildTemplate(numberOfQuestions) {
 }
 
 function displayNextQuestion(){
-  // Set the position of what Question should be displayed
-  x++;
-  currentQuestion = x + 1;
+  currentQuestionId = questions[x]['id'];
+  currentAnswer = $("input[name=" + currentQuestionId + "]:checked").val();
 
-  displayQuestion();
+  if (typeof currentAnswer != 'undefined') {
+      // Remove Error Message if there is any.
+      $('#error-messages').text("");
+
+      // Set the position of what Question should be displayed
+      x++;
+
+      currentQuestion = x + 1;
+      displayQuestion();
+  } else {
+      // Display Error
+      $('#error-messages').text("You cannot leave this question blank, please select an option.");
+  }
+
 }
 
 function displayPreviousQuestion(){
+  // Remove Error Message if there is any.
+  $('#error-messages').text("");
+
   // Set the position of what Question should be displayed
   x--;
   currentQuestion = x + 1;
@@ -204,5 +222,45 @@ function buildResultTemplate(quizResults) {
   $('#quiz-total-correct').text("Total Correct: " + quizResults['total_correct']);
   $('#quiz-time-started').text("Started: " + quizResults['time_start']);
   $('#quiz-time-ended').text("Ended: " + quizResults['time_ended']);
-  $('#quiz-time-spent').text("Time Spent: " + quizResults['time_spent'] + ' seconds');
+
+  // Convert Time Spent
+  timeSpent = quizResults['time_spent'];
+  timeSpent = calculateTimeSpent(timeSpent);
+  $('#quiz-time-spent').text("Duration: " + timeSpent);
+
+}
+
+function calculateTimeSpent(timeSpent) {
+  // @timeSpent - integer of seconds elapsed throughout the quiz.
+
+  var duration = Number(timeSpent);
+
+  var h = String(Math.floor(duration / 3600));
+  var m = String(Math.floor(duration % 3600 / 60));
+  var s = String(Math.floor(duration % 3600 % 60));
+  var result = "";
+
+  console.log(h + ":" + m + ":" + s);
+
+  if (h > 0) {
+    result = result.concat(h + " hours");
+  }
+
+  if (m > 0) {
+    if (result !== "") {
+      result = result.concat(", ");
+    }
+
+    result = result.concat(m + " minutes");
+  }
+
+  if (s > 0) {
+    if (result !== "") {
+      result = result.concat("and ");
+    }
+
+    result = result.concat(s + " seconds");
+  }
+
+  return result;
 }

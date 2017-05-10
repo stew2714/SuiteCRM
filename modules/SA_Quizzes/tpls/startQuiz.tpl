@@ -9,6 +9,9 @@
             </div>
             <div class="modal-body" id="searchList">
                 <form id="quizForm" name="quizForm">
+                    <div id="error-messages">
+
+                    </div>
                     <div id="questions-wrapper">
 
                     </div>
