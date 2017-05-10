@@ -29,6 +29,84 @@ require_once("custom/modules/AOR_Reports/fieldFormatting.php");
 
 class customAOR_ReportsController extends AOR_ReportsController
 {
+    public function action_matrixReport(){
+        global $db, $app_list_strings;
+
+        $module = "opportunities";
+        $bean = BeanFactory::getBean("Opportunities");
+        $fieldx1 = "probability";
+        $fieldx2 = "assigned_user_id";
+        $fieldx3 = "lead_source";
+
+        $fieldy1 = "sales_stage";
+        $fieldy2 = "probability";
+        $fieldy3 = "lead_source";
+
+        $action = "";
+        $field = "amount_usdollar";
+
+        echo '<br><br><br><br><br><br><br><br><br><br><pre>';
+        $selects = array();
+        if($bean->field_defs[$fieldy1]['type'] == "enum"){
+            foreach ($app_list_strings[$bean->field_defs[$fieldy1]['options']] as $key =>  $option) {
+                $labelKey = $this->swap($key);
+                if ($bean->field_defs[$fieldy2]['type'] == "enum") {
+                    foreach ($app_list_strings[$bean->field_defs[$fieldy2]['options']] as $key2 => $level2option) {
+                        $label2Key = $this->swap($key2);
+                            if ($bean->field_defs[$fieldy3]['type'] == "enum") {
+                                foreach ($app_list_strings[$bean->field_defs[$fieldy3]['options']] as $key3 =>
+                                         $level3option) {
+                                    $label3Key = $this->swap($key3);
+                                    $selects[] = " SUM(CASE WHEN {$fieldy1} ='{$key}'  AND {$fieldy2} = '{$key2}' AND {$fieldy3} = {$key3} THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_$label3Key,";
+                                }
+                            }elseif($bean->field_defs[$fieldy3]['type']){
+                                $subSql = "SELECT distinct {$fieldy3} FROM " . $module . " WHERE deleted = 0";
+                                $results = $db->query($subSql);
+                                $selects[] = "SUM(CASE WHEN {$fieldy1} ='{$key}' AND {$fieldy2} = '{$key2}' AND {$fieldy3} = '' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_none,";
+                                foreach($results as $item){
+                                    $selects[] = "SUM(CASE WHEN {$fieldy1} ='{$key}' AND {$fieldy2} = '{$key2}' AND {$fieldy3} = '{$item[$fieldy3]}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_{$item[$fieldy3]},";
+                                }
+                            }else{
+                                $selects[] = "SUM(CASE WHEN {$fieldy1} ='{$key}' AND {$fieldy2} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
+
+                            }
+                    }
+                }else{
+                    //@todo this has the same problem.
+                    $selects[] = "SUM(CASE WHEN {$fieldy1} ='{$key}' AND {$fieldy2} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
+                }
+            }
+        }else{
+            $selects[] = "SUM(CASE WHEN {$fieldy1} ='{$key}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey},";
+        }
+
+
+        $string = implode("\n", $selects);
+
+        $sql = "SELECT
+              {$fieldx1},
+              {$fieldx2},
+              {$fieldx3},
+              {$string}
+              SUM({$field})                                               AS TOTAL
+       FROM   opportunities
+       WHERE  deleted = 0
+       GROUP BY   {$fieldx1},{$fieldx2},{$fieldx3}";
+
+        print_r($sql);
+        echo '</pre>';
+        die();
+    }
+    public function swap($string){
+        $string = str_replace(" ", "_",$string);
+        $string = str_replace("/", "_",$string);
+        $string = str_replace(".", "_",$string);
+        if($string == ""){
+         $string = "none";
+        }
+
+        return $string;
+    }
 
     public function action_getPreview()
     {
