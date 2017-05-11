@@ -168,4 +168,14 @@ class matrixReportBuilder
 
         return $string;
     }
+
+
+
+    public function getFieldDefs($fieldDefs){
+        $defs[] = "";
+        foreach($fieldDefs as $field){
+            $defs[ $field['name'] ]  = $field['name'];
+        }
+        return $defs;
+    }
 }

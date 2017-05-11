@@ -26,29 +26,12 @@
 require_once("modules/AOR_Reports/controller.php");
 require_once("custom/modules/AOR_Reports/AdvancedReporter.php");
 require_once("custom/modules/AOR_Reports/fieldFormatting.php");
-require_once("custom/modules/AOR_Reports/matrixReportBuilder.php");
+
 
 class customAOR_ReportsController extends AOR_ReportsController
 {
-    public function action_matrixReport(){
-        $module = "Opportunities";
-
-        $fields_y = array(
-            "sales_stage",
-            "probability",
-            "lead_source",
-        );
-
-        $fields_x = array(
-            "probability",
-            "assigned_user_id",
-            "lead_source",
-        );
-
-        $field = "amount_usdollar";
-
-        $matrix = new matrixReportBuilder();
-        $matrix->buildReport($module, $fields_x, $fields_y, $field);
+    public function action_matrixreport(){
+        $this->view = 'matrixreport';
     }
 
     public function action_getPreview()
