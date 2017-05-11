@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
@@ -39,22 +40,23 @@
  */
 class matrixReportBuilder
 {
-    public function buildReport($module, $fieldx, $fieldy, $field) {
+    public function buildReport($module, $field_x, $field_y, $field)
+    {
         global $db, $app_list_strings;
         $bean = BeanFactory::getBean($module);
         $module = $bean->module_name;
-        $selects = $this->buildSelects($bean,$fieldx,$fieldy,$field,$module);
+        $selects = $this->buildSelects($bean, $field_x, $field_y, $field, $module);
         $string = implode("\n", $selects);
 
         $sql = "SELECT
-              {$fieldx[0]},
-              {$fieldx[1]},
-              {$fieldx[2]},
+              {$field_x[0]},
+              {$field_x[1]},
+              {$field_x[2]},
               {$string}
               SUM({$field})                                               AS TOTAL
        FROM   opportunities
        WHERE  deleted = 0
-       GROUP BY   {$fieldx[0]},{$fieldx[1]},{$fieldx[2]}";
+       GROUP BY   {$field_x[0]},{$field_x[1]},{$field_x[2]}";
 
         echo '<br><br><br><br><br><br><br><br><br><br><pre>';
         print_r($sql);
@@ -62,55 +64,95 @@ class matrixReportBuilder
         die();
     }
 
-    public function buildSelects($bean,$fieldx,$fieldy,$field,$module) {
+    public function buildSelects($bean, $field_x, $field_y, $field, $module)
+    {
         global $db, $app_list_strings;
         $selects = array();
 
         echo '<pre>';
-        print_r($bean->field_defs[$fieldy[0]]);
+        print_r($this->checkType($bean,$field_y));
         echo '</pre>';
 
+        //@todo - separate nest below into function calls where applicable... possibly also variables not being hit at the last else block.
+
         if ($bean->field_defs[$fieldy[0]]['type'] == "enum") {
-            foreach ($app_list_strings[$bean->field_defs[$fieldy[0]]['options']] as $key =>  $option) {
+            foreach ($app_list_strings[$bean->field_defs[$field_y[0]]['options']] as $key => $option) {
                 $labelKey = $this->swap($key);
-                if ($bean->field_defs[$fieldy[1]]['type'] == "enum") {
-                    foreach ($app_list_strings[$bean->field_defs[$fieldy[1]]['options']] as $key2 => $level2option) {
+                if ($bean->field_defs[$field_y[1]]['type'] == "enum") {
+                    foreach ($app_list_strings[$bean->field_defs[$field_y[1]]['options']] as $key2 => $level2option) {
                         $label2Key = $this->swap($key2);
-                        if ($bean->field_defs[$fieldy[2]]['type'] == "enum") {
-                            foreach ($app_list_strings[$bean->field_defs[$fieldy[2]]['options']] as $key3 =>
+                        if ($bean->field_defs[$field_y[2]]['type'] == "enum") {
+                            foreach ($app_list_strings[$bean->field_defs[$field_y[2]]['options']] as $key3 =>
                                      $level3option) {
                                 $label3Key = $this->swap($key3);
-                                $selects[] = " SUM(CASE WHEN {$fieldy[0]} ='{$key}'  AND {$fieldy[1]} = '{$key2}' AND {$fieldy[2]} = {$key3} THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_$label3Key,";
+                                $selects[] = " SUM(CASE WHEN {$field_y[0]} ='{$key}'  AND {$field_y[1]} = '{$key2}' AND {$field_y[2]} = {$key3} THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_$label3Key,";
                             }
-                        } elseif ($bean->field_defs[$fieldy[2]]['type']){
-                            $subSql = "SELECT distinct {$fieldy[3]} FROM " . $module . " WHERE deleted = 0";
+                        } elseif ($bean->field_defs[$field_y[2]]['type']) {
+                            $subSql = "SELECT distinct {$field_y[3]} FROM " . $module . " WHERE deleted = 0";
                             $results = $db->query($subSql);
-                            $selects[] = "SUM(CASE WHEN {$fieldy[0]} ='{$key}' AND {$fieldy[1]} = '{$key2}' AND {$fieldy[2]} = '' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_none,";
-                            foreach($results as $item){
-                                $selects[] = "SUM(CASE WHEN {$fieldy[0]} ='{$key}' AND {$fieldy[1]} = '{$key2}' AND {$fieldy[2]} = '{$item[$fieldy[2]]}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_{$item[$fieldy3]},";
+                            $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' AND {$field_y[2]} = '' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_none,";
+                            foreach ($results as $item) {
+                                $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' AND {$field_y[2]} = '{$item[$field_y[2]]}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_{$item[$fieldy3]},";
                             }
                         } else {
-                            $selects[] = "SUM(CASE WHEN {$fieldy[0]} ='{$key}' AND {$fieldy[1]} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
+                            $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
 
                         }
                     }
-                }else{
+                } else {
                     //@todo this has the same problem.
-                    $selects[] = "SUM(CASE WHEN {$fieldy[0]} ='{$key}' AND {$fieldy[1]} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
+                    $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
                 }
             }
-        }else{
-            $selects[] = "SUM(CASE WHEN {$fieldy[0]} ='{$key}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey},";
+        } else {
+            $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' THEN amount_usdollar ELSE 0 END) AS {$labelKey},";
         }
 
         return $selects;
     }
 
-    public function swap($string) {
-        $string = str_replace(" ", "_",$string);
-        $string = str_replace("/", "_",$string);
-        $string = str_replace(".", "_",$string);
-        if($string == ""){
+    public function checkType($bean, $field_y)
+    {
+        global $db, $app_list_strings;
+        $results = array();
+        $possible_types = array(
+            'enum',
+            'multienum',
+        );
+
+        for ($x=0; $x<count($field_y); $x++) {
+            $results[$x] = array();
+            $in_type = in_array($bean->field_defs[$field_y[$x]]['type'],$possible_types);
+            $results[$x]['in_type'] = $in_type;
+
+            if ($in_type) {
+                $results[$x]['options'] = $this->getKeys($app_list_strings[$bean->field_defs[$field_y[$x]]['options']]);
+            }
+        }
+
+        return $results;
+    }
+
+    public function getKeys($options)
+    {
+        $result = array();
+
+        foreach ($options as $key => $value) {
+            $result[] = array(
+                'original_key' => $key,
+                'swap_key' => $this->swap($key),
+            );
+        }
+
+        return $result;
+    }
+
+    public function swap($string)
+    {
+        $string = str_replace(" ", "_", $string);
+        $string = str_replace("/", "_", $string);
+        $string = str_replace(".", "_", $string);
+        if ($string == "") {
             $string = "none";
         }
 

@@ -33,13 +33,13 @@ class customAOR_ReportsController extends AOR_ReportsController
     public function action_matrixReport(){
         $module = "Opportunities";
 
-        $fieldsy = array(
+        $fields_y = array(
             "sales_stage",
             "probability",
             "lead_source",
         );
 
-        $fieldsx = array(
+        $fields_x = array(
             "probability",
             "assigned_user_id",
             "lead_source",
@@ -48,7 +48,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         $field = "amount_usdollar";
 
         $matrix = new matrixReportBuilder();
-        $matrix->buildReport($module, $fieldsx, $fieldsy, $field);
+        $matrix->buildReport($module, $fields_x, $fields_y, $field);
     }
 
     public function action_getPreview()
