@@ -108,12 +108,14 @@ class matrixReportBuilder
             $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' THEN amount_usdollar ELSE 0 END) AS {$labelKey},";
         }
 
+
         return $selects;
     }
 
     public function checkType($bean, $field_y)
     {
         global $db, $app_list_strings;
+        $module = $bean->module_name;
         $results = array();
         $possible_types = array(
             'enum',
@@ -126,7 +128,15 @@ class matrixReportBuilder
             $results[$x]['in_type'] = $in_type;
 
             if ($in_type) {
-                $results[$x]['options'] = $this->getKeys($app_list_strings[$bean->field_defs[$field_y[$x]]['options']]);
+                if ($bean->field_defs[$field_y[$x]]['options'] !== 'null') {
+                    $results[$x]['options'] = $this->getKeys($app_list_strings[$bean->field_defs[$field_y[$x]]['options']]);
+                }
+            } else {
+                $subSql = "SELECT distinct {$field_y[$x]} FROM " . $module . " WHERE deleted = 0";
+                $options_result = $db->query($subSql);
+                foreach ($options_result as $item) {
+                    $results[$x]['options'] = $item;
+                }
             }
         }
 
