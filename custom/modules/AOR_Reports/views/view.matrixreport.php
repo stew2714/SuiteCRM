@@ -22,46 +22,58 @@
  *
  * @author Salesagility Ltd <support@salesagility.com>
  */
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
 require_once('include/MVC/View/SugarView.php');
 require_once("custom/modules/AOR_Reports/matrixReportBuilder.php");
 
-class AOR_ReportsViewMatrixReport extends SugarView {
+class AOR_ReportsViewMatrixReport extends SugarView
+{
 
-    public function display(){
-        global $app_list_strings;
+    public function display()
+    {
+        global $app_list_strings, $mod_strings;
         $matrix = new matrixReportBuilder();
         parent::display();
-        $module = "Opportunities";
-        $this->ss->assign('moduleList',get_select_options_with_id($app_list_strings['aor_module_list'], ""));
+        $module = $_POST['reportModule'];
+        $this->ss->assign('actionFieldText', $mod_strings['LBL_ACTION_FIELD_TEXT']);
+        $this->ss->assign('moduleList', get_select_options_with_id($app_list_strings['aor_moduleList'], $module));
 
-        if($module){
+        if ($module) {
             $bean = BeanFactory::getBean($module);
             $fieldDefs = $matrix->getFieldDefs($bean->field_defs);
-            $this->ss->assign('fieldlist',get_select_options_with_id($fieldDefs, ""));
+            $this->ss->assign('fieldlistx1', get_select_options_with_id($fieldDefs, $_POST['fieldx1']));
+            $this->ss->assign('fieldlistx2', get_select_options_with_id($fieldDefs, $_POST['fieldx2']));
+            $this->ss->assign('fieldlistx3', get_select_options_with_id($fieldDefs, $_POST['fieldx3']));
+
+            $this->ss->assign('fieldlisty1', get_select_options_with_id($fieldDefs, $_POST['fieldy1']));
+            $this->ss->assign('fieldlisty2', get_select_options_with_id($fieldDefs, $_POST['fieldy2']));
+            $this->ss->assign('fieldlisty3', get_select_options_with_id($fieldDefs, $_POST['fieldx3']));
+
+            $this->ss->assign('actionField', get_select_options_with_id($fieldDefs, $_POST['actionField']));
+
+            //set up the fields.
+            $fields_y = array(
+                $_POST['fieldx1'],
+                $_POST['fieldx2'],
+                $_POST['fieldx3'],
+            );
+
+            $fields_x = array(
+                $_POST['fieldy1'],
+                $_POST['fieldy2'],
+                $_POST['fieldy3'],
+            );
+
+            $field = $_POST['actionField'];
+
         }
 
         echo $this->ss->fetch('custom/modules/AOR_Reports/tpls/matrixReport.tpl');
 
-                $module = "Opportunities";
-
-                $fields_y = array(
-                    "sales_stage",
-                    "probability",
-                    "lead_source",
-                );
-
-                $fields_x = array(
-                    "probability",
-                    "assigned_user_id",
-                    "lead_source",
-                );
-
-                $field = "amount_usdollar";
-
-
-                $matrix->buildReport($module, $fields_x, $fields_y, $field);
+        $matrix->buildReport($module, $fields_x, $fields_y, $field);
     }
 
 }

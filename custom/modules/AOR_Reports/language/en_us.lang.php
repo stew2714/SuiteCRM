@@ -9,4 +9,5 @@ $mod_strings = array (
   'LBL_PRIVATE_USER_OR_GROUP' => 'Users or Groups',
   'LBL_SNAPSHOT_DATE' => 'Snapshot Date',
   'LBL_MATRIX_REPORT' => 'Maxtrix Report',
+  'LBL_ACTION_FIELD_TEXT' => 'Action',
 );
