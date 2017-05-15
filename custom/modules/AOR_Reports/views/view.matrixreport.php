@@ -43,14 +43,14 @@ class AOR_ReportsViewMatrixReport extends SugarView
 
         if ($module) {
             $bean = BeanFactory::getBean($module);
-            $fieldDefs = $matrix->getFieldDefs($bean->field_defs);
+            $fieldDefs = $matrix->getFieldDefs($bean->field_defs, $bean->module_name);
             $this->ss->assign('fieldlistx1', get_select_options_with_id($fieldDefs, $_POST['fieldx1']));
             $this->ss->assign('fieldlistx2', get_select_options_with_id($fieldDefs, $_POST['fieldx2']));
             $this->ss->assign('fieldlistx3', get_select_options_with_id($fieldDefs, $_POST['fieldx3']));
 
             $this->ss->assign('fieldlisty1', get_select_options_with_id($fieldDefs, $_POST['fieldy1']));
             $this->ss->assign('fieldlisty2', get_select_options_with_id($fieldDefs, $_POST['fieldy2']));
-            $this->ss->assign('fieldlisty3', get_select_options_with_id($fieldDefs, $_POST['fieldx3']));
+            $this->ss->assign('fieldlisty3', get_select_options_with_id($fieldDefs, $_POST['fieldy3']));
 
             $this->ss->assign('actionField', get_select_options_with_id($fieldDefs, $_POST['actionField']));
 
@@ -69,16 +69,41 @@ class AOR_ReportsViewMatrixReport extends SugarView
 
             $field = $_POST['actionField'];
 
-            if(!empty($field) && is_array($fields_x) && is_array($fields_y) ){
+            if(!empty($field) && !empty($_POST['fieldx1']) && !empty($_POST['fieldy1']) ){
                 $results = $matrix->buildReport($module, $fields_x, $fields_y, $field);
             }
         }
 
+        if($matrix->level3 == true || $matrix->level2 == true ){
+            $tmp = array_values($matrix->headers);
+            $total = '0';
+            foreach($tmp as $header){
+                if(is_array($header)){
+                    $number = count($header);
+                    foreach($header as $base){
+                        if(is_array($base)){
+                            $caseNumber = count($base);
+                            continue;
+                        }
+                    }
+                    if($caseNumber){
+                        $total = $caseNumber * $number;
+                    }else{
+                        $total = $number;
+                    }
+                    continue;
+                }
 
+            }
+            $this->ss->assign('level1Break', $total);
+        }
 
-        echo $this->ss->assign('header', $matrix->headers);
-        echo $this->ss->assign('data', $results);
+        $this->ss->assign('header', $matrix->headers);
+        $this->ss->assign('data', $results);
+        $this->ss->assign('counts', $matrix->totals);
 
+        $this->ss->assign('level2', $matrix->level2);
+        $this->ss->assign('level3', $matrix->level3);
 
         echo $this->ss->fetch('custom/modules/AOR_Reports/tpls/matrixReport.tpl');
 

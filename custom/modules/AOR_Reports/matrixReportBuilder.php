@@ -41,11 +41,18 @@
 class matrixReportBuilder
 {
     var $headers = array();
+    var $totals = array();
+    var $level2 = "";
+    var $level3 = "";
+    var $mainField = "";
+    var $bean = array();
 
     public function buildReport($module, $field_x, $field_y, $field)
     {
         global $db, $app_list_strings;
-        $bean = BeanFactory::getBean($module);
+        $this->bean = BeanFactory::getBean($module);
+        $this->mainField = $field;
+        $bean = $this->bean;
         $module = $bean->module_name;
         $selects = $this->buildSelects($bean, $field_x, $field_y, $field, $module);
         $string = implode("\n", $selects);
@@ -56,11 +63,27 @@ class matrixReportBuilder
 
         foreach ($results as $row) {
             $data[] = $row;
+
+            $i = 0;
+            foreach($row as $key =>  $count){
+                if(is_numeric($count)){
+                    $this->totals[ $key ] += $count;
+                }else{
+                    if($i != 0){
+                        $label = "";
+                    }else{
+                        $label = "Total";
+                        $i = 1;
+                    }
+                    $this->totals[ $key ] = $label;
+                }
+
+            }
         }
 
-//        echo '<pre>';
-//        print_r($sql  );
-//        echo '</pre>';
+//            echo '<pre>';
+//            print_r($sql  );
+//            echo '</pre>';
         return $data;
 
     }
@@ -71,17 +94,17 @@ class matrixReportBuilder
         $sql .= "SELECT ";
         if ($field_x[0]) {
             $sql .= "{$field_x[0]},";
-            $labels[0] =  $field_x[0];
+            $labels[0] =  $this->getLabel($field_x[0]);
         }
 
         if ($field_x[1]) {
             $sql .= "{$field_x[1]},";
-            $labels[1] =  $field_x[1];
+            $labels[1] =  $this->getLabel($field_x[1]);
         }
 
         if ($field_x[2]) {
             $sql .= "{$field_x[2]},";
-            $labels[2] =  $field_x[2];
+            $labels[2] =  $this->getLabel($field_x[2]);
         }
 
         $this->headers =  $labels + $this->headers;
@@ -174,16 +197,35 @@ class matrixReportBuilder
 
         return $selects;
     }
-
+    public function getLabel($field, $value = null){
+        global $app_list_strings;
+        if(!is_null($value) ){
+            $label = $app_list_strings[ $this->bean->field_defs[$field]['options'] ][ $value ] ;
+            if(empty($label)){
+                if(!empty($value)){
+                    $label = $value;
+                }else{
+                    $label = "None";
+                }
+            }
+        }else{
+            $label = translate($this->bean->field_defs[ $field ]['vname'], $this->bean->module_name);
+        }
+        return $label;
+    }
     public function buildCaseStatement($field1, $key1, $field2 = null, $key2 = null, $field3 = null, $key3 = null)
     {
         $label = $this->swap($key1 . $key2 .  $key3);
+
         if($field3 != null){
-            $this->headers[ $key1 ][$key2][$key3] = $key3;
+            $this->level3 = true;
+            $this->level2 = true;
+            $this->headers[ $key1 ][$key2][$key3] = $this->getLabel($field3 , $key3);
         }elseif($field2 != null){
-            $this->headers[ $key1 ][$key2] = $key2;
+            $this->level2 = true;
+            $this->headers[ $key1 ][$key2] = $this->getLabel($field2 , $key2);
         }else{
-            $this->headers[ $key1 ] = $label;
+            $this->headers[ $key1 ] = $this->getLabel($field1 , $key1);
         }
 
         $select = "SUM(CASE WHEN 
@@ -192,9 +234,9 @@ class matrixReportBuilder
             $select .= " AND {$field2} = '{$key2}' ";
         }
         if ($field3 != null) {
-            $select .= " AND {$field3[0]} = '{$key3}'";
+            $select .= " AND {$field3} = '{$key3}'";
         }
-        $select .= "THEN amount_usdollar  
+        $select .= "THEN {$this->mainField}  
                 ELSE 0  END) AS '{$label}',";
 
         return $select;
@@ -259,11 +301,16 @@ class matrixReportBuilder
         return $string;
     }
 
-    public function getFieldDefs($fieldDefs)
+    public function getFieldDefs($fieldDefs, $module)
     {
+
         $defs[] = "";
         foreach ($fieldDefs as $field) {
-            $defs[$field['name']] = $field['name'];
+            $label = translate($field['vname'], $module);
+            if( empty($label) ){
+                $label = $field['name'];
+            }
+            $defs[$field['name']] = $label;
         }
 
         return $defs;

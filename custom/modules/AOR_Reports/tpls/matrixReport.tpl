@@ -42,7 +42,7 @@
         <tr>
         {foreach from=$header key=name item=title}
             {if $title|is_array}
-                <td colspan="{$title|@count}">
+                <td colspan="{$level1Break}">
                     {$name}
                 </td>
             {else}
@@ -52,6 +52,42 @@
             {/if}
             {/foreach}
         </tr>
+        {if $level2 == "true"}
+        <tr>
+            {foreach from=$header key=name item=title}
+                {if $title|is_array}
+                    {foreach from=$title key=subname item=subtitle}
+                        {if $subtitle|is_array}
+                        <td colspan="{$subtitle|@count}">{$subname}</td>
+                        {else}
+                            <td>{$subtitle}</td>
+                        {/if}
+                    {/foreach}
+                {else}
+                    <td></td>
+                {/if}
+            {/foreach}
+        </tr>
+        {/if}
+        {if $level3 == "true"}
+        <tr>
+            {foreach from=$header key=name item=title}
+                {if $title|is_array}
+                    {foreach from=$title key=name item=subtitle}
+                        {if $subtitle|is_array}
+                            {foreach from=$subtitle key=name item=subsubtitle}
+                                <td colspan="">{$subsubtitle}</td>
+                            {/foreach}
+                        {else}
+                            <td></td>
+                        {/if}
+                    {/foreach}
+                {else}
+                    <td></td>
+                {/if}
+            {/foreach}
+        </tr>
+        {/if}
         </tbody>
 
     {foreach from=$data key=name item=group}
@@ -68,7 +104,9 @@
     {/foreach}
         <tbody>
         <tr>
-
+        {foreach from=$counts key=totalkey item=totalvalue}
+            <td>{$totalvalue}</td>
+        {/foreach}
         </tr>
         </tbody>
 </table>
