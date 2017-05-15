@@ -240,8 +240,6 @@ function calculateTimeSpent(timeSpent) {
   var s = String(Math.floor(duration % 3600 % 60));
   var result = "";
 
-  console.log(h + ":" + m + ":" + s);
-
   if (h > 0) {
     result = result.concat(h + " hours");
   }
