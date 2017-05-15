@@ -69,11 +69,19 @@ class AOR_ReportsViewMatrixReport extends SugarView
 
             $field = $_POST['actionField'];
 
+            if(!empty($field) && is_array($fields_x) && is_array($fields_y) ){
+                $results = $matrix->buildReport($module, $fields_x, $fields_y, $field);
+            }
         }
+
+
+
+        echo $this->ss->assign('header', $matrix->headers);
+        echo $this->ss->assign('data', $results);
+
 
         echo $this->ss->fetch('custom/modules/AOR_Reports/tpls/matrixReport.tpl');
 
-        $matrix->buildReport($module, $fields_x, $fields_y, $field);
     }
 
 }

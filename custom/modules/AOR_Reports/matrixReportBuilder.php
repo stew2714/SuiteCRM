@@ -40,6 +40,8 @@
  */
 class matrixReportBuilder
 {
+    var $headers = array();
+
     public function buildReport($module, $field_x, $field_y, $field)
     {
         global $db, $app_list_strings;
@@ -48,88 +50,175 @@ class matrixReportBuilder
         $selects = $this->buildSelects($bean, $field_x, $field_y, $field, $module);
         $string = implode("\n", $selects);
 
-        $sql = "SELECT
-              {$field_x[0]},
-              {$field_x[1]},
-              {$field_x[2]},
-              {$string}
-              SUM({$field})                                               AS TOTAL
-       FROM   opportunities
-       WHERE  deleted = 0
-       GROUP BY   {$field_x[0]},{$field_x[1]},{$field_x[2]}";
+        $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
 
-        echo '<br><br><br><br><br><br><br><br><br><br><pre>';
-        print_r($sql);
-        echo '</pre>';
-        die();
+        $results = $db->query($sql);
+
+        foreach ($results as $row) {
+            $data[] = $row;
+        }
+
+//        echo '<pre>';
+//        print_r($sql  );
+//        echo '</pre>';
+        return $data;
+
+    }
+
+    public function buildQuery($module, $field_x, $field, $string)
+    {
+        $sql = '';
+        $sql .= "SELECT ";
+        if ($field_x[0]) {
+            $sql .= "{$field_x[0]},";
+            $labels[0] =  $field_x[0];
+        }
+
+        if ($field_x[1]) {
+            $sql .= "{$field_x[1]},";
+            $labels[1] =  $field_x[1];
+        }
+
+        if ($field_x[2]) {
+            $sql .= "{$field_x[2]},";
+            $labels[2] =  $field_x[2];
+        }
+
+        $this->headers =  $labels + $this->headers;
+
+
+        $sql .= "      {$string}";
+        $sql .= "      SUM({$field})  AS TOTAL ";
+        $this->headers[] = "Total";
+        $sql .= "FROM   {$module} ";
+        $sql .= "WHERE  deleted = 0 ";
+
+        if ($field_x[0]) {
+            $sql .= "GROUP BY {$field_x[0]}";
+        }
+        if ($field_x[1]) {
+            $sql .= " ,{$field_x[1]}";
+        }
+        if ($field_x[2]) {
+            $sql .= " ,{$field_x[2]}";
+        }
+
+        return $sql;
+
     }
 
     public function buildSelects($bean, $field_x, $field_y, $field, $module)
     {
-        global $db, $app_list_strings;
+        global $app_list_strings;
         $selects = array();
 
-        echo '<pre>';
-        print_r($this->checkType($bean,$field_y));
-        echo '</pre>';
-
-        //@todo - separate nest below into function calls where applicable... possibly also variables not being hit at the last else block.
-
-        if ($bean->field_defs[$fieldy[0]]['type'] == "enum") {
+        if ($bean->field_defs[$field_y[0]]['type'] == "enum") {
             foreach ($app_list_strings[$bean->field_defs[$field_y[0]]['options']] as $key => $option) {
-                $labelKey = $this->swap($key);
                 if ($bean->field_defs[$field_y[1]]['type'] == "enum") {
                     foreach ($app_list_strings[$bean->field_defs[$field_y[1]]['options']] as $key2 => $level2option) {
-                        $label2Key = $this->swap($key2);
                         if ($bean->field_defs[$field_y[2]]['type'] == "enum") {
-                            foreach ($app_list_strings[$bean->field_defs[$field_y[2]]['options']] as $key3 =>
-                                     $level3option) {
-                                $label3Key = $this->swap($key3);
-                                $selects[] = " SUM(CASE WHEN {$field_y[0]} ='{$key}'  AND {$field_y[1]} = '{$key2}' AND {$field_y[2]} = {$key3} THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_$label3Key,";
+                            foreach ($app_list_strings[$bean->field_defs[$field_y[2]]['options']] as $key3 => $level3option) {
+                                $selects[] = $this->buildCaseStatement(
+                                    $field_y[0],
+                                    $key,
+                                    $field_y[1],
+                                    $key2,
+                                    $field_y[2],
+                                    $key3
+                                );
                             }
                         } elseif ($bean->field_defs[$field_y[2]]['type']) {
-                            $subSql = "SELECT distinct {$field_y[3]} FROM " . $module . " WHERE deleted = 0";
-                            $results = $db->query($subSql);
-                            $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' AND {$field_y[2]} = '' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_none,";
+                            $results = $this->fetchLabelsFromDB($field_y[3], $bean->table_name);
+                            $selects[] =
+                                $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2, $field_y[2], '');
                             foreach ($results as $item) {
-                                $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' AND {$field_y[2]} = '{$item[$field_y[2]]}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key}_{$item[$fieldy3]},";
+                                $selects[] =
+                                    $this->buildCaseStatement(
+                                        $field_y[0],
+                                        $key,
+                                        $field_y[1],
+                                        $key2,
+                                        $field_y[2],
+                                        $item
+                                    );
+
                             }
                         } else {
-                            $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
-
+                            $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
                         }
                     }
                 } else {
-                    //@todo this has the same problem.
-                    $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' AND {$field_y[1]} = '{$key2}' THEN amount_usdollar  ELSE 0  END) AS {$labelKey}_{$label2Key},";
+                    $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
                 }
             }
         } else {
-            $selects[] = "SUM(CASE WHEN {$field_y[0]} ='{$key}' THEN amount_usdollar ELSE 0 END) AS {$labelKey},";
+            $results = $this->fetchLabelsFromDB($field_y[0], $bean->table_name);
+            $selects[] = $this->buildCaseStatement($field_y[0], '');
+            foreach ($results as $item) {
+                $selects[] = $this->buildCaseStatement($field_y[0], $item);
+
+            }
         }
 
+        return $selects;
+    }
+
+    public function fetchLabelsFromDB($field, $module)
+    {
+        global $db;
+        $subSql = "SELECT distinct {$field} FROM " . $module . " WHERE deleted = 0";
+        $results = $db->query($subSql);
+        foreach ($results as $item) {
+            $selects[] = $db->quote($item[$field]);
+        }
 
         return $selects;
+    }
+
+    public function buildCaseStatement($field1, $key1, $field2 = null, $key2 = null, $field3 = null, $key3 = null)
+    {
+        $label = $this->swap($key1 . $key2 .  $key3);
+        if($field3 != null){
+            $this->headers[ $key1 ][$key2][$key3] = $key3;
+        }elseif($field2 != null){
+            $this->headers[ $key1 ][$key2] = $key2;
+        }else{
+            $this->headers[ $key1 ] = $label;
+        }
+
+        $select = "SUM(CASE WHEN 
+                {$field1} ='{$key1}'  ";
+        if ($field2 != null) {
+            $select .= " AND {$field2} = '{$key2}' ";
+        }
+        if ($field3 != null) {
+            $select .= " AND {$field3[0]} = '{$key3}'";
+        }
+        $select .= "THEN amount_usdollar  
+                ELSE 0  END) AS '{$label}',";
+
+        return $select;
     }
 
     public function checkType($bean, $field_y)
     {
         global $db, $app_list_strings;
-        $module = $bean->module_name;
+        $module = $bean->table_name;
         $results = array();
         $possible_types = array(
             'enum',
             'multienum',
         );
 
-        for ($x=0; $x<count($field_y); $x++) {
+        for ($x = 0; $x < count($field_y); $x++) {
             $results[$x] = array();
-            $in_type = in_array($bean->field_defs[$field_y[$x]]['type'],$possible_types);
+            $in_type = in_array($bean->field_defs[$field_y[$x]]['type'], $possible_types);
             $results[$x]['in_type'] = $in_type;
 
             if ($in_type) {
                 if ($bean->field_defs[$field_y[$x]]['options'] !== 'null') {
-                    $results[$x]['options'] = $this->getKeys($app_list_strings[$bean->field_defs[$field_y[$x]]['options']]);
+                    $results[$x]['options'] =
+                        $this->getKeys($app_list_strings[$bean->field_defs[$field_y[$x]]['options']]);
                 }
             } else {
                 $subSql = "SELECT distinct {$field_y[$x]} FROM " . $module . " WHERE deleted = 0";
@@ -150,7 +239,7 @@ class matrixReportBuilder
         foreach ($options as $key => $value) {
             $result[] = array(
                 'original_key' => $key,
-                'swap_key' => $this->swap($key),
+                'swap_key'     => $this->swap($key),
             );
         }
 
@@ -162,6 +251,7 @@ class matrixReportBuilder
         $string = str_replace(" ", "_", $string);
         $string = str_replace("/", "_", $string);
         $string = str_replace(".", "_", $string);
+        $string = str_replace("-", "_", $string);
         if ($string == "") {
             $string = "none";
         }
@@ -169,13 +259,13 @@ class matrixReportBuilder
         return $string;
     }
 
-
-
-    public function getFieldDefs($fieldDefs){
+    public function getFieldDefs($fieldDefs)
+    {
         $defs[] = "";
-        foreach($fieldDefs as $field){
-            $defs[ $field['name'] ]  = $field['name'];
+        foreach ($fieldDefs as $field) {
+            $defs[$field['name']] = $field['name'];
         }
+
         return $defs;
     }
 }

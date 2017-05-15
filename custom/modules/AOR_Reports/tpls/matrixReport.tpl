@@ -35,20 +35,33 @@
                 {$fieldlisty3}
             </select></td>
     </tr>
+</table>
+
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+        {foreach from=$header key=name item=title}
+            {if $title|is_array}
+                <td colspan="{$title|@count}">
+                    {$name}
+                </td>
+            {else}
+                <td>
+                    {$title}
+                </td>
+            {/if}
+            {/foreach}
+        </tr>
+        </tbody>
 
     {foreach from=$data key=name item=group}
         <tbody>
         <tr>
+            {foreach from=$group key=field item=value}
             <td>
-                {$group.name}
-            </td>
-            {foreach from=$group.data key=date item=order}
-            <td>
-                {$order}
+                {$value}
             </td>
         {/foreach}
-            <td>{$group.region}</td>
-            <td>{$group.account}</td>
         </tr>
 
         </tbody>
