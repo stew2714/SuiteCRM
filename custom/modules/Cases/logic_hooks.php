@@ -19,8 +19,5 @@ $hook_array['after_relationship_add'][] = Array(77, 'addRelationship', 'modules/
 $hook_array['after_retrieve'] = Array(); 
 $hook_array['after_retrieve'][] = Array(10, 'Filter HTML', 'modules/AOP_Case_Updates/CaseUpdatesHook.php','CaseUpdatesHook', 'filterHTML'); 
 $hook_array['after_relationship_delete'] = Array(); 
-$hook_array['after_relationship_delete'][] = Array(77, 'deleteRelationship', 'modules/Cases/CasesJjwg_MapsLogicHook.php','CasesJjwg_MapsLogicHook', 'deleteRelationship'); 
-
-
-
+$hook_array['after_relationship_delete'][] = Array(77, 'deleteRelationship', 'modules/Cases/CasesJjwg_MapsLogicHook.php','CasesJjwg_MapsLogicHook', 'deleteRelationship');
 ?>
