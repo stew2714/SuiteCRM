@@ -58,7 +58,7 @@ class matrixReportBuilder
         $string = implode("\n", $selects);
 
         $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
-
+        //echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
@@ -81,30 +81,75 @@ class matrixReportBuilder
             }
         }
 
-//            echo '<pre>';
-//            print_r($sql  );
-//            echo '</pre>';
+        foreach($this->totals as $key => $unformated){
+            if(is_numeric($unformated) ){
+                $this->totals[$key] = currency_format_number($unformated);
+            }
+        }
         return $data;
 
     }
+    public function fieldTypeCheck($field){
+        global $current_user;
+        if($this->bean->field_defs[ $field]['type'] == "datetime" ||
+           $this->bean->field_defs[ $field]['type'] == "date" ||
+           $this->bean->field_defs[ $field]['type'] == "datetimecombo"
+        ) {
+            $allFormats = $current_user->getUserDateTimePreferences();
+            $format = preg_replace("/[a-zA-Z]/",'%$0',$allFormats['date'] . ' H:i:s');
+            $field = " DATE_FORMAT({$this->bean->table_name}.{$field}, '{$format}')";
+        }elseif($this->bean->field_defs[ $field]['type'] == "relate"){
+            $related = $this->bean->field_defs[ $this->bean->field_defs[ $field][ 'link' ] ] ;
+            $fieldDef = $this->bean->field_defs[$field] ;
+            $relatedBean = BeanFactory::getBean($related['module']);
+            $relatedField = array_search($this->bean->table_name, $relatedBean->relationship_fields);
+            $field = array(
+                "field" => $fieldDef['join_name'] . '.' . $fieldDef['rname'],
+                "join" => " 
+                LEFT JOIN {$related['relationship']} ON {$related['relationship']}
+                .{$relatedField} = {$this->bean->table_name}.id
+                LEFT JOIN {$fieldDef['join_name']} ON {$fieldDef['join_name']}.id = {$related['relationship']}.{$fieldDef['id_name']} ");
+        }else{
+            $field = $this->bean->table_name . "." . $field;
+        }
 
+        return $field;
+    }
     public function buildQuery($module, $field_x, $field, $string)
     {
         $sql = '';
+        $join = '';
         $sql .= "SELECT ";
         if ($field_x[0]) {
-            $sql .= "{$field_x[0]},";
             $labels[0] =  $this->getLabel($field_x[0]);
+            $field_x[0] = $this->fieldTypeCheck($field_x[0]);
+            if(is_array($field_x[0])){
+                $join .= $field_x[0]['join'];
+                $field_x[0] = $field_x[0]['field'];
+            }
+            $sql .= "{$field_x[0]},";
+
         }
 
         if ($field_x[1]) {
-            $sql .= "{$field_x[1]},";
             $labels[1] =  $this->getLabel($field_x[1]);
+            $field_x[1] = $this->fieldTypeCheck($field_x[1]);
+            if(is_array($field_x[1])){
+                $join .= $field_x[1]['join'];
+                $field_x[1] = $field_x[1]['field'];
+            }
+            $sql .= "{$field_x[1]},";
+
         }
 
         if ($field_x[2]) {
-            $sql .= "{$field_x[2]},";
             $labels[2] =  $this->getLabel($field_x[2]);
+            $field_x[2] = $this->fieldTypeCheck($field_x[1]);
+            if(is_array($field_x[2])){
+                $join .= $field_x[2]['join'];
+                $field_x[2] = $field_x[2]['field'];
+            }
+            $sql .= "{$field_x[2]},";
         }
 
         $this->headers =  $labels + $this->headers;
@@ -114,7 +159,8 @@ class matrixReportBuilder
         $sql .= "      SUM({$field})  AS TOTAL ";
         $this->headers[] = "Total";
         $sql .= "FROM   {$module} ";
-        $sql .= "WHERE  deleted = 0 ";
+        $sql .= $join;
+        $sql .= "WHERE  {$this->bean->table_name}.deleted = 0 ";
 
         if ($field_x[0]) {
             $sql .= "GROUP BY {$field_x[0]}";
@@ -215,6 +261,7 @@ class matrixReportBuilder
     }
     public function buildCaseStatement($field1, $key1, $field2 = null, $key2 = null, $field3 = null, $key3 = null)
     {
+        global $locale;
         $label = $this->swap($key1 . $key2 .  $key3);
 
         if($field3 != null){
@@ -227,8 +274,11 @@ class matrixReportBuilder
         }else{
             $this->headers[ $key1 ] = $this->getLabel($field1 , $key1);
         }
-
-        $select = "SUM(CASE WHEN 
+        $select = "";
+        if($this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
+            $select = "ROUND( ";
+        }
+        $select .= "SUM(CASE WHEN 
                 {$field1} ='{$key1}'  ";
         if ($field2 != null) {
             $select .= " AND {$field2} = '{$key2}' ";
@@ -236,8 +286,15 @@ class matrixReportBuilder
         if ($field3 != null) {
             $select .= " AND {$field3} = '{$key3}'";
         }
-        $select .= "THEN {$this->mainField}  
-                ELSE 0  END) AS '{$label}',";
+        $select .= " THEN {$this->mainField}  
+                ELSE 0  END)";
+
+        if($this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
+            $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');
+            $select .= ", {$decimal} ) ";
+        }
+
+        $select .= " AS '{$label}',";
 
         return $select;
     }

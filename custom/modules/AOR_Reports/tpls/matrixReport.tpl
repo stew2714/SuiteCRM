@@ -95,7 +95,7 @@
         <tr>
             {foreach from=$group key=field item=value}
             <td>
-                {$value}
+                {if is_numeric($value)}{$currency}{/if}{$value}
             </td>
         {/foreach}
         </tr>
