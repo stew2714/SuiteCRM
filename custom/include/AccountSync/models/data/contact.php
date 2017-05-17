@@ -1,7 +1,7 @@
 <?php
 
 class Contact  
-{  
+{
         public $accountName;  
         public $address1;  
         public $address2;  
@@ -16,6 +16,7 @@ class Contact
         public $isSubscribed;  
         public $isBounceback;  
         public $salesPerson;  
-	public $title;  
+	    public $title;
+	    public $leadStatus;
 }
 ?>
