@@ -60,7 +60,9 @@ class EloquaContact
             $contact->city = $bean->primary_address_city;
             $contact->country = $bean->primary_address_country;
             $contact->salesPerson = $bean->assigned_user_name;
-            $contact->leadStatus = $bean->status;
+            $contact->fieldValues = array();
+            $cotnact->fieldValues[0]->id = "100048";
+            $contact->fieldValues[0]->value = $bean->status;
             $response = $client->post('data/contact', $contact);
             // The ID of the Contact that's been pushed into Eloqua
             $contactId = $response->id;
@@ -78,7 +80,9 @@ class EloquaContact
             $contact->city = $bean->primary_address_city;
             $contact->country = $bean->primary_address_country;
             $contact->salesPerson = $bean->assigned_user_name;
-            $contact->leadStatus = $bean->status;
+            $contact->fieldValues = array();
+            $cotnact->fieldValues[0]->id = "100048";
+            $contact->fieldValues[0]->value = $bean->status;
             $response = $client->put('data/contact/' . $bean->eloqua_id, $contact);
         }
     }
