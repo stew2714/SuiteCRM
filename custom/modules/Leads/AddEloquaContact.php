@@ -77,15 +77,17 @@ class EloquaContact
         $contact->fieldValues[1]->value = $bean->email_opt_out;
 
         if (empty($bean->eloqua_id)) {
+            // Send the new contact information to the Eloqua Instance
             $response = $client->post('data/contact', $contact);
 
-            // The ID of the Contact that's been pushed into Eloqua
+            // The ID of the Contact that's been pushed into Eloqua (saved into the CRM for reference later)
             $contactId = $response->id;
             $bean->eloqua_id = $contactId;
         } else {
-            // Build the updated information to update the Eloqua Contact from the CRM
+            // The ID of the Eloqua record you're updating
             $contact->id = $bean->eloqua_id;
 
+            // Send the updated information to the Eloqua Instance
             $response = $client->put('data/contact/' . $bean->eloqua_id, $contact);
         }
     }
@@ -95,7 +97,7 @@ class EloquaContact
         // Possible function for cleaning out the Text Area into Eloqua Fields.
         $address = explode(PHP_EOL, $address);
 
-        for ($i=0; $i<count($address); $i++) {
+        for ($i = 0; $i < count($address); $i++) {
             $address[$i] = str_replace("\r", "", $address[$i]);
         }
 
