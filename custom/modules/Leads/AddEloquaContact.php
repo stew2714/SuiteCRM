@@ -48,29 +48,35 @@ class EloquaContact
         $client = new EloquaRequest('MModalIncSandbox', 'Kieran.Monaghan', 'SalesAgility01', 'https://secure.p03.eloqua.com/API/REST/1.0/');
         $contact = new Contact();
 
+        // Fields Associated to both Updating and Creating Leads
+        $contact->emailAddress = $bean->email1;
+        $contact->salutation = $bean->salutation;
+        $contact->firstName = $bean->first_name;
+        $contact->lastName = $bean->last_name;
+        $contact->title = $bean->title;
+        $contact->accountName = $bean->account_name;
+        $contact->businessPhone = $bean->phone_work;
+
+        // Return the new lines in the CRM into Line's 1-3
+        $street_address = $this->cleanAddressLine($bean->primary_address_street);
+        $contact->address1 = $street_address[0];
+        $contact->address2 = $street_address[1];
+        $contact->address3 = $street_address[2];
+
+        $contact->city = $bean->primary_address_city;
+        $contact->country = $bean->primary_address_country;
+        $contact->salesPerson = $bean->assigned_user_name;
+        $contact->province = $bean->primary_address_state;
+        $contact->postalCode = $bean->primary_address_postalcode;
+
+        // Custom Fields Start Here
+        $contact->fieldValues = array();
+        $contact->fieldValues[0]->id = "100048"; // Lead Status
+        $contact->fieldValues[0]->value = $bean->status;
+        $contact->fieldValues[1]->id = "100043"; // Email Opt Out
+        $contact->fieldValues[1]->value = $bean->email_opt_out;
+
         if (empty($bean->eloqua_id)) {
-            // Build the new contact to push into Eloqua from the CRM
-            $contact->emailAddress = $bean->email1;
-            $contact->salutation = $bean->salutation;
-            $contact->firstName = $bean->first_name;
-            $contact->lastName = $bean->last_name;
-            $contact->title = $bean->title;
-            $contact->accountName = $bean->account_name;
-            $contact->businessPhone = $bean->phone_work;
-            $contact->address1 = $bean->primary_address_street;
-            $contact->city = $bean->primary_address_city;
-            $contact->country = $bean->primary_address_country;
-            $contact->salesPerson = $bean->assigned_user_name;
-            $contact->province = $bean->primary_address_state;
-            $contact->postalCode = $bean->primary_address_postalcode;
-
-            // Custom Fields Start Here
-            $contact->fieldValues = array();
-            $contact->fieldValues[0]->id = "100048"; // Lead Status
-            $contact->fieldValues[0]->value = $bean->status;
-            $contact->fieldValues[1]->id = "100043"; // Email Opt Out
-            $contact->fieldValues[1]->value = $bean->email_opt_out;
-
             $response = $client->post('data/contact', $contact);
 
             // The ID of the Contact that's been pushed into Eloqua
@@ -79,33 +85,20 @@ class EloquaContact
         } else {
             // Build the updated information to update the Eloqua Contact from the CRM
             $contact->id = $bean->eloqua_id;
-            $contact->emailAddress = $bean->email1;
-            $contact->salutation = $bean->salutation;
-            $contact->firstName = $bean->first_name;
-            $contact->lastName = $bean->last_name;
-            $contact->title = $bean->title;
-            $contact->accountName = $bean->account_name;
-            $contact->businessPhone = $bean->phone_work;
-            $contact->address1 = $bean->primary_address_street;
-            $contact->city = $bean->primary_address_city;
-            $contact->country = $bean->primary_address_country;
-            $contact->salesPerson = $bean->assigned_user_name;
-            $contact->province = $bean->primary_address_state;
-            $contact->postalCode = $bean->primary_address_postalcode;
-
-            // Custom Fields Start Here
-            $contact->fieldValues = array();
-            $contact->fieldValues[0]->id = "100048"; // Lead Status
-            $contact->fieldValues[0]->value = $bean->status;
-            $contact->fieldValues[1]->id = "100043"; // Email Opt Out
-            $contact->fieldValues[1]->value = $bean->email_opt_out;
 
             $response = $client->put('data/contact/' . $bean->eloqua_id, $contact);
         }
     }
 
-    public function cleanCounty()
+    public function cleanAddressLine($address)
     {
+        // Possible function for cleaning out the Text Area into Eloqua Fields.
+        $address = explode(PHP_EOL, $address);
 
+        for ($i=0; $i<count($address); $i++) {
+            $address[$i] = str_replace("\r", "", $address[$i]);
+        }
+
+        return $address;
     }
 }
