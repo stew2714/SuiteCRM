@@ -45,9 +45,38 @@ class EloquaContact
 {
     public function AddContact($bean, $event, $arg)
     {
-        $client = new EloquaRequest('MModalIncSandbox', 'Kieran.Monaghan', 'SalesAgility01', 'https://secure.eloqua.com/API/rest/2.0');
-        $contacts = $client->get('/data/contacts?search=*');
+        $client = new EloquaRequest('MModalIncSandbox', 'Kieran.Monaghan', 'SalesAgility01', 'https://secure.p03.eloqua.com/API/REST/1.0/');
+        $contact = new Contact();
 
-        print_r($contacts);
+        if (empty($bean->eloqua_id)) {
+            // Build the new contact to push into Eloqua from the CRM
+            $contact->emailAddress = $bean->email1;
+            $contact->firstName = $bean->first_name;
+            $contact->lastName = $bean->last_name;
+            $contact->title = $bean->title;
+            $contact->accountName = $bean->account_name;
+            $contact->businessPhone = $bean->phone_work;
+            $contact->address1 = $bean->primary_address_street;
+            $contact->city = $bean->primary_address_city;
+            $contact->salesPerson = $bean->assigned_user_name;
+            $response = $client->post('data/contact', $contact);
+
+            // The ID of the Contact that's been pushed into Eloqua
+            $contactId = $response->id;
+            $bean->eloqua_id = $contactId;
+        } else {
+            // Build the updated information to update the Eloqua Contact from the CRM
+            $contact->id = $bean->eloqua_id;
+            $contact->emailAddress = $bean->email1;
+            $contact->firstName = $bean->first_name;
+            $contact->lastName = $bean->last_name;
+            $contact->title = $bean->title;
+            $contact->accountName = $bean->account_name;
+            $contact->businessPhone = $bean->phone_work;
+            $contact->address1 = $bean->primary_address_street;
+            $contact->city = $bean->primary_address_city;
+            $contact->salesPerson = $bean->assigned_user_name;
+            $response = $client->put('data/contact/' . $bean->eloqua_id, $contact);
+        }
     }
 }
