@@ -56,7 +56,13 @@ class EloquaContact
         $contact->title = $bean->title;
         $contact->accountName = $bean->account_name;
         $contact->businessPhone = $bean->phone_work;
-        $contact->address1 = $bean->primary_address_street;
+
+        // Return the new lines in the CRM into Line's 1-3
+        $street_address = $this->cleanAddressLine($bean->primary_address_street);
+        $contact->address1 = $street_address[0];
+        $contact->address2 = $street_address[1];
+        $contact->address3 = $street_address[2];
+
         $contact->city = $bean->primary_address_city;
         $contact->country = $bean->primary_address_country;
         $contact->salesPerson = $bean->assigned_user_name;
@@ -84,8 +90,15 @@ class EloquaContact
         }
     }
 
-    public function cleanCounty()
+    public function cleanAddressLine($address)
     {
         // Possible function for cleaning out the Text Area into Eloqua Fields.
+        $address = explode(PHP_EOL, $address);
+
+        for ($i=0; $i<count($address); $i++) {
+            $address[$i] = str_replace("\r", "", $address[$i]);
+        }
+
+        return $address;
     }
 }
