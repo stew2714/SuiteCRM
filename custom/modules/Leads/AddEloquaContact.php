@@ -45,7 +45,9 @@ class EloquaContact
 {
     public function AddContact($bean, $event, $arg)
     {
-        $client = new EloquaRequest('MModalIncSandbox', 'Kieran.Monaghan', 'SalesAgility01', 'https://secure.p03.eloqua.com/API/REST/1.0/');
+        global $sugar_config;
+
+        $client = new EloquaRequest($sugar_config['eloqua_company'], $sugar_config['eloqua_username'], $sugar_config['eloqua_password'], 'https://secure.p03.eloqua.com/API/REST/1.0/');
         $contact = new Contact();
 
         // Fields Associated to both Updating and Creating Leads
@@ -77,7 +79,12 @@ class EloquaContact
         $contact->fieldValues[1]->value = $bean->email_opt_out;
         $contact->fieldValues[2]->id = "100017"; // Salutation
         $contact->fieldValues[2]->value = $bean->salutation;
-
+        $contact->fieldValues[3]->id = "100047"; // Annual Revenue
+        $contact->fieldValues[3]->value = $bean->annual_revenue;
+        $contact->fieldValues[4]->id = "100184"; // Number of Employees
+        $contact->fieldValues[4]->value = $bean->number_of_employees;
+        $contact->fieldValues[5]->id = "100046"; // Industry
+        $contact->fieldValues[5]->value = $bean->industry;
 
         if (empty($bean->eloqua_id)) {
             // Send the new contact information to the Eloqua Instance
