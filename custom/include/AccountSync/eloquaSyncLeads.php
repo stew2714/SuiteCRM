@@ -27,13 +27,15 @@ class eloquaSyncLeads
 {
     public function getContacts()
     {
+        global $sugar_config;
+
         // Variables for returning results in the query to the API
         $number_of_records = 100;
         $page = 1;
         $depth = 'complete';
 
         // Establish the connection to the API
-        $client = new EloquaRequest('MModalIncSandbox', 'Kieran.Monaghan', 'SalesAgility01', 'https://secure.p03.eloqua.com/API/REST/1.0/');
+        $client = new EloquaRequest($sugar_config['eloqua_company'], $sugar_config['eloqua_username'], $sugar_config['eloqua_password'],'https://secure.p03.eloqua.com/API/REST/1.0/');
 
         // Get the UNIX TIMESTAMP for today.
         $date = new DateTime();
@@ -95,12 +97,14 @@ class eloquaSyncLeads
 
     public function getRemainingContacts($total_number_of_contacts, $number_of_records, $timestamp, $depth)
     {
+        global $sugar_config;
+
         // Figure out the times the function has to be ran
         $times_to_loop = $total_number_of_contacts / $number_of_records;
         $rounded_times_to_loop = ceil($times_to_loop) - 1;
 
         // Establish the API connection
-        $client = new EloquaRequest('MModalIncSandbox', 'Kieran.Monaghan', 'SalesAgility01', 'https://secure.p03.eloqua.com/API/REST/1.0/');
+        $client = new EloquaRequest($sugar_config['eloqua_company'], $sugar_config['eloqua_username'], $sugar_config['eloqua_password'],'https://secure.p03.eloqua.com/API/REST/1.0/');
 
         for ($i = 2; $i<$rounded_times_to_loop; $i++) {
             // Build URL Fetch Params and Return the Contacts
