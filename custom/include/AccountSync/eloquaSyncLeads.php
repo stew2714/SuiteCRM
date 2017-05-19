@@ -87,7 +87,10 @@ class eloquaSyncLeads
 
     public function addContactToCRM($contact)
     {
-        return $contact->id;
+        $lead = new Lead();
+        $lead->salutation = $contact->title;
+        $lead->eloqua_id = $contact->id;
+        return $lead;
     }
 
     public function getRemainingContacts($total_number_of_contacts, $number_of_records, $timestamp, $depth)

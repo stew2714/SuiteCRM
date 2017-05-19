@@ -75,6 +75,9 @@ class EloquaContact
         $contact->fieldValues[0]->value = $bean->status;
         $contact->fieldValues[1]->id = "100043"; // Email Opt Out
         $contact->fieldValues[1]->value = $bean->email_opt_out;
+        $contact->fieldValues[2]->id = "100017"; // Salutation
+        $contact->fieldValues[2]->value = $bean->salutation;
+
 
         if (empty($bean->eloqua_id)) {
             // Send the new contact information to the Eloqua Instance
