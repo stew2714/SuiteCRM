@@ -85,6 +85,8 @@ class EloquaContact
         $contact->fieldValues[4]->value = $bean->number_of_employees;
         $contact->fieldValues[5]->id = "100046"; // Industry
         $contact->fieldValues[5]->value = $bean->industry;
+        $contact->fieldValues[6]->id = "100081"; // Lead Rating Combined
+        $contact->fieldValues[6]->value = $bean->rating;
 
         if (empty($bean->eloqua_id)) {
             // Send the new contact information to the Eloqua Instance
