@@ -23,6 +23,8 @@
 
 require_once('custom/include/AccountSync/eloquaRequest.php');
 
+// @TODO: Clean Up Update/Save Common Fields Into An Easily Manageable State
+
 class eloquaSyncLeads
 {
     public function getContacts()
