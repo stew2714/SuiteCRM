@@ -52,7 +52,7 @@
     {php}
         global $app_list_strings;
 
-        if($this->_tpl_vars['module'] == 'Leads'){
+        if($this->_tpl_vars['module'] == 'Leads' || $this->_tpl_vars['module'] == 'Accounts'){
             $list = array('primary','alt');
             $x = 0;
 
