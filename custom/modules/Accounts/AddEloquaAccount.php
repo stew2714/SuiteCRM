@@ -42,6 +42,10 @@ require_once('custom/include/AccountSync/eloquaRequest.php');
 include_once('custom/include/AccountSync/models/data/account.php');
 include_once('custom/include/AccountSync/models/data/fieldValues.php');
 
+/*
+ * @Todo: Fix Company Category Field - it breaks the update and creation progress at the moment... not sure why.
+ * @Todo: Find out a cleaner way of establishing the new object for fieldValues per custom field (API 2.0)
+ */
 class EloquaAccount
 {
     public function AddAccount($bean, $event, $arg)
@@ -80,7 +84,7 @@ class EloquaAccount
         $fieldValues[1]->id = "100182"; // Website
         $fieldValues[1]->value = $bean->website;
 
-        // Currently Broken???
+        // Currently Broken??? Breaks when trying to write info into it.
         //$fieldValues[2] = new fieldValues;
         //$fieldValues[2]->type = "FieldValue";
         //$fieldValues[2]->id = "100097"; // Company Category
