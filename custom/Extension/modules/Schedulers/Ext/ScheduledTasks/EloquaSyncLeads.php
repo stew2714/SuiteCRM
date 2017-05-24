@@ -22,11 +22,19 @@
  */
 
 require_once('custom/include/AccountSync/eloquaSyncLeads.php');
+require_once('custom/include/AccountSync/eloquaSyncAccounts.php');
 
 $job_strings[] = 'EloquaSyncLeads';
+$job_strings[] = 'EloquaSyncAccounts';
 
 function EloquaSyncLeads() {
     $sync = new eloquaSyncLeads();
     $sync->getContacts();
+    return true;
+}
+
+function EloquaSyncAccount() {
+    $sync = new eloquaSyncAccounts();
+    $sync->getAccounts();
     return true;
 }

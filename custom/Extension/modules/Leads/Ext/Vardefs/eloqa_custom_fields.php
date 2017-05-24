@@ -61,31 +61,6 @@ $dictionary['Lead']['fields']['rating'] = array (
     'len' => '255',
 );
 
-// Countries
-//$dictionary['Lead']['fields']['primary_address_country'] = array(
-//    'name' => 'primary_address_country',
-//    'vname' => 'LBL_PRIMARY_ADDRESS_COUNTRY',
-//    'type' => 'enum',
-//    'massupdate' => 0,
-//    'default' => '',
-//    'no_default' => false,
-//    'comments' => '',
-//    'help' => '',
-//    'importable' => 'true',
-//    'duplicate_merge' => 'disabled',
-//    'duplicate_merge_dom_value' => '0',
-//    'audited' => true,
-//    'reportable' => true,
-//    'unified_search' => false,
-//    'merge_filter' => 'disabled',
-//    'len' => 100,
-//    'size' => '20',
-//    'options' => 'eloqua_country_options',
-//    'studio' => 'visible',
-//    'dependency' => false,
-//    'inline_edit' => false,
-//);
-
 $dictionary['Lead']['fields']['primary_address_country']['type']='enum';
 $dictionary['Lead']['fields']['primary_address_country']['options']='eloqua_country_list';
 $dictionary['Lead']['fields']['alt_address_country']['type']='enum';

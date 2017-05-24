@@ -113,7 +113,7 @@
 {/if}
 </td>
 <td>
-	{if $module == 'Leads'}
+	{if $module == 'Leads' || $module == 'Accounts'}
 		<select name="{{$country}}" id="{{$country}}" value='{$field.{{$country}}.value}' tabindex="{{$tabindex}}">
 			{html_options options=$fields.{{$country}}.options selected=$fields.{{$country}}.value}
 		</select>

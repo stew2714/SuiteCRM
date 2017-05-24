@@ -25,9 +25,9 @@ require_once('custom/include/AccountSync/eloquaRequest.php');
 
 // @TODO: Clean Up Update/Save Common Fields Into An Easily Manageable State for adding future fields...
 
-class eloquaSyncLeads
+class eloquaSyncAccounts
 {
-    public function getContacts()
+    public function getAccounts()
     {
         global $sugar_config;
 
@@ -45,26 +45,26 @@ class eloquaSyncLeads
         $timestamp = $date->getTimestamp();
 
         // Build URL Fetch Params and Return the Contacts
-        $contacts = $client->get('data/contacts?search=*&lastUpdatedAt=' . $timestamp . '&depth=' . $depth . '&page=' . $page . '&count=' . $number_of_records);
+        $accounts = $client->get('data/accounts?search=*&lastUpdatedAt=' . $timestamp . '&depth=' . $depth . '&page=' . $page . '&count=' . $number_of_records);
 
         // Add all returned contacts
-        $contacts_to_add = $this->checkContactsExist($contacts);
+        $accounts_to_add = $this->checkAccountsExist($accounts);
 
         // Total Number of Contacts to Be Added
-        $total_number_of_contacts = $contacts->total;
+        $total_number_of_accounts = $accounts->total;
 
         // Fetch the rest of the contacts if there are more to be added
-        if ($total_number_of_contacts > $number_of_records) {
-            $this->getRemainingContacts($total_number_of_contacts, $number_of_records);
+        if ($total_number_of_accounts > $number_of_records) {
+            $this->getRemainingAccounts($total_number_of_accounts, $number_of_records);
         }
     }
 
-    public function getRemainingContacts($total_number_of_contacts, $number_of_records, $timestamp, $depth)
+    public function getRemainingAccounts($total_number_of_accounts, $number_of_records, $timestamp, $depth)
     {
         global $sugar_config;
 
         // Figure out the times the function has to be ran
-        $times_to_loop = $total_number_of_contacts / $number_of_records;
+        $times_to_loop = $total_number_of_accounts / $number_of_records;
         $rounded_times_to_loop = ceil($times_to_loop) - 1;
 
         // Establish the API connection
@@ -72,67 +72,67 @@ class eloquaSyncLeads
 
         for ($i = 2; $i < $rounded_times_to_loop; $i++) {
             // Build URL Fetch Params and Return the Contacts
-            $contacts = $client->get('data/contacts?search=*&lastUpdatedAt=' . $timestamp . '&depth=' . $depth . '&page=' . $i . '&count=' . $number_of_records);
+            $accounts = $client->get('data/accounts?search=*&lastUpdatedAt=' . $timestamp . '&depth=' . $depth . '&page=' . $i . '&count=' . $number_of_records);
 
             // Add all returned contacts
-            $this->checkContactsExist($contacts);
+            $this->checkAccountsExist($accounts);
         }
     }
 
-    public function checkContactsExist($contacts)
+    public function checkAccountsExist($accounts)
     {
         // Container Arrays for existing Eloqua Contact IDs and Results of Adding Contacts
-        $existing_eloqua_contacts = array();
+        $existing_eloqua_accounts = array();
 
         $results = array();
 
         // Fetch Existing Eloqua Contacts
-        $bean = BeanFactory::getBean('Leads');
-        $clause = "leads.eloqua_id != 0";
-        $current_leads = $bean->get_full_list('', $clause);
+        $bean = BeanFactory::getBean('Accounts');
+        $clause = "accounts.eloqua_id != 0";
+        $current_accounts = $bean->get_full_list('', $clause);
 
         // Loop through existing Eloqua Contacts in the CRM and put them in an Array for Comparison
-        foreach ($current_leads as $lead) {
-            $existing_eloqua_contacts[] = $lead->eloqua_id;
+        foreach ($current_accounts as $account) {
+            $existing_eloqua_accounts[] = $account->eloqua_id;
         }
 
         // Loop through the fetched Eloqua Contacts from the API and see if they exist in the system
-        foreach ($contacts->elements as $contact) {
-            if (!in_array($contact->id, $existing_eloqua_contacts)) {
-                $results[] = $this->addContactToCRM($contact);
-            } elseif (in_array($contact->id, $existing_eloqua_contacts)) {
-                $results[] = $this->updateContactInCRM($contact);
+        foreach ($accounts->elements as $account) {
+            if (!in_array($account->id, $existing_eloqua_accounts)) {
+                $results[] = $this->addAccountToCRM($account);
+            } elseif (in_array($account->id, $existing_eloqua_accounts)) {
+                $results[] = $this->updateContactInCRM($account);
             }
         }
 
         return $results;
     }
 
-    public function addContactToCRM($contact)
+    public function addAccountToCRM($contact)
     {
         // Build information for the new Lead entry
-        $lead = BeanFactory::newBean('Leads');
-        $lead->salutation = $contact->title;
-        $lead->eloqua_id = $contact->id;
-        $lead->first_name = $contact->firstName;
-        $lead->last_name = $contact->lastName;
-        $lead->email_address = $contact->emailAddress;
-        $lead->account_name = $contact->accountName;
-        $lead->title = $contact->title;
+        $account = BeanFactory::newBean('Accounts');
+        $account->salutation = $contact->title;
+        $account->eloqua_id = $contact->id;
+        $account->first_name = $contact->firstName;
+        $account->last_name = $contact->lastName;
+        $account->email_address = $contact->emailAddress;
+        $account->account_name = $contact->accountName;
+        $account->title = $contact->title;
 
         // Address could be in multiple fields in Eloqua
         $address = array();
         $address[] = $contact->address1;
         $address[] = $contact->address2;
         $address[] = $contact->address3;
-        $lead->primary_address_street = $this->eloquaAddressToCRM($address);
+        $account->primary_address_street = $this->eloquaAddressToCRM($address);
 
-        $lead->primary_address_city = $contact->city;
-        $lead->primary_address_state = $contact->province;
-        $lead->phone_work = $contact->businessPhone;
-        $lead->primary_address_country = $contact->country;
-        $lead->eloqua_country = $contact->countrty;
-        $lead->primary_address_postalcode = $contact->postalCode;
+        $account->primary_address_city = $contact->city;
+        $account->primary_address_state = $contact->province;
+        $account->phone_work = $contact->businessPhone;
+        $account->primary_address_country = $contact->country;
+        $account->eloqua_country = $contact->countrty;
+        $account->primary_address_postalcode = $contact->postalCode;
 
         $custom_fields_container = array();
 
@@ -148,45 +148,45 @@ class eloquaSyncLeads
             $field_name = $this->translateIdToReference($key);
 
             if ($field_name !== false) {
-                $lead->$field_name = $value;
+                $account->$field_name = $value;
             }
         }
 
         // Save the new Lead to Database
-        $lead->save();
+        $account->save();
 
-        return $lead;
+        return $account;
     }
 
     public function updateContactInCRM($contact)
     {
         // Fetch Existing Eloqua Contacts
-        $bean = BeanFactory::getBean('Leads');
-        $clause = "leads.eloqua_id = " . $contact->id;
-        $leads = $bean->get_full_list('', $clause);
+        $bean = BeanFactory::getBean('Accounts');
+        $clause = "accounts.eloqua_id = " . $contact->id;
+        $accounts = $bean->get_full_list('', $clause);
 
-        foreach ($leads as $current_lead) {
-            $current_lead->salutation = $contact->title;
-            $current_lead->eloqua_id = $contact->id;
-            $current_lead->first_name = $contact->firstName;
-            $current_lead->last_name = $contact->lastName;
-            $current_lead->email_address = $contact->emailAddress;
-            $current_lead->account_name = $contact->accountName;
-            $current_lead->title = $contact->title;
+        foreach ($accounts as $current_account) {
+            $current_account->salutation = $contact->title;
+            $current_account->eloqua_id = $contact->id;
+            $current_account->first_name = $contact->firstName;
+            $current_account->last_name = $contact->lastName;
+            $current_account->email_address = $contact->emailAddress;
+            $current_account->account_name = $contact->accountName;
+            $current_account->title = $contact->title;
 
             // Address could be in multiple fields in Eloqua
             $address = array();
             $address[] = $contact->address1;
             $address[] = $contact->address2;
             $address[] = $contact->address3;
-            $current_lead->primary_address_street = $this->eloquaAddressToCRM($address);
+            $current_account->primary_address_street = $this->eloquaAddressToCRM($address);
 
-            $current_lead->primary_address_city = $contact->city;
-            $current_lead->primary_address_state = $contact->province;
-            $current_lead->phone_work = $contact->businessPhone;
-            $current_lead->primary_address_country = $contact->country;
-            $current_lead->eloqua_country = $contact->countrty;
-            $current_lead->primary_address_postalcode = $contact->postalCode;
+            $current_account->primary_address_city = $contact->city;
+            $current_account->primary_address_state = $contact->province;
+            $current_account->phone_work = $contact->businessPhone;
+            $current_account->primary_address_country = $contact->country;
+            $current_account->eloqua_country = $contact->countrty;
+            $current_account->primary_address_postalcode = $contact->postalCode;
 
             $custom_fields_container = array();
 
@@ -202,12 +202,12 @@ class eloquaSyncLeads
                 $field_name = $this->translateIdToReference($key);
 
                 if ($field_name !== false) {
-                    $current_lead->$field_name = $value;
+                    $current_account->$field_name = $value;
                 }
             }
 
             // Save the new Lead to Database
-            $current_lead->save();
+            $current_account->save();
         }
 
         return true;
