@@ -80,7 +80,7 @@ class EloquaContact
         $contact->fieldValues[2]->id = "100017"; // Salutation
         $contact->fieldValues[2]->value = $bean->salutation;
         $contact->fieldValues[3]->id = "100047"; // Annual Revenue
-        $contact->fieldValues[3]->value = $bean->annual_revenue;
+        $contact->fieldValues[3]->value = $bean->annual_revenue__c;
         $contact->fieldValues[4]->id = "100184"; // Number of Employees
         $contact->fieldValues[4]->value = $bean->number_of_employees;
         $contact->fieldValues[5]->id = "100046"; // Industry

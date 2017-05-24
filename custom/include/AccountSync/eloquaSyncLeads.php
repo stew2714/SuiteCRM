@@ -220,7 +220,7 @@ class eloquaSyncLeads
         $possibilities = array(
             'email_opt_out' => '100043',        // Email Opt Out
             'salutation' => '100017',           // Salutation
-            'annual_revenue' => '100047',       // Annual Revenue
+            'annual_revenue__c' => '100047',       // Annual Revenue
             'number_of_employees' => '100184',  // Number of Employees
             'industry' => '100046',             // Industry
             //'status' => '100048',               // Lead Status
