@@ -84,12 +84,6 @@ class EloquaAccount
         $fieldValues[1]->id = "100182"; // Website
         $fieldValues[1]->value = $bean->website;
 
-        // Currently Broken??? Breaks when trying to write info into it.
-        //$fieldValues[2] = new fieldValues;
-        //$fieldValues[2]->type = "FieldValue";
-        //$fieldValues[2]->id = "100097"; // Company Category
-        //$fieldValues[2]->value = $bean->industry;
-
         $fieldValues[2] = new fieldValues;
         $fieldValues[2]->type = "FieldValue";
         $fieldValues[2]->id = "100170"; // FAX Number
@@ -99,6 +93,12 @@ class EloquaAccount
         $fieldValues[3]->type = "FieldValue";
         $fieldValues[3]->id = "100183"; // Account Rating
         $fieldValues[3]->value = $bean->rating;
+
+        // Currently Broken??? Breaks when trying to write info into it.
+        //$fieldValues[4] = new fieldValues;
+        //$fieldValues[4]->type = "FieldValue";
+        //$fieldValues[4]->id = "100097"; // Company Category
+        //$fieldValues[4]->value = $bean->industry;
 
         $account->fieldValues = $fieldValues;
 
