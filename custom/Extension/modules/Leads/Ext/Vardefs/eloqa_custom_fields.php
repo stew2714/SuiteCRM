@@ -14,7 +14,7 @@ $dictionary['Lead']['fields']['annual_revenue'] = array(
     'name' => 'annual_revenue',
     'vname' => 'LBL_ANNUAL_REVENUE',
     'type' => 'int',
-    'len' => 5,
+    'len' => 99,
     'default' => 0,
     'reportable' => false,
 );
