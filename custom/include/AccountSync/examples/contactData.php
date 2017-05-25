@@ -11,7 +11,7 @@ $client = new EloquaRequest('site', 'user', 'password', 'https://secure.eloqua.c
 $contacts = $client->get('/data/contacts?search=*&count=100&page=1');
 
 // instantiate a new instance of the Contact class  
-$contact = new Contact();  
+$contact = new EloquaContactModel();
 $contact->firstName = 'Sample';  
 $contact->lastName = 'Last';  
 $contact->emailAddress = 'sample@test.com';

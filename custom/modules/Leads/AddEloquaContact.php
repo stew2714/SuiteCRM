@@ -48,7 +48,7 @@ class EloquaContact
         global $sugar_config;
 
         $client = new EloquaRequest($sugar_config['eloqua_company'], $sugar_config['eloqua_username'], $sugar_config['eloqua_password'], 'https://secure.p03.eloqua.com/API/REST/1.0/');
-        $contact = new Contact();
+        $contact = new EloquaContactModel();
 
         // Fields Associated to both Updating and Creating Leads
         $contact->emailAddress = $bean->email1;
