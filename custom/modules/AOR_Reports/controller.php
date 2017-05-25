@@ -27,8 +27,12 @@ require_once("modules/AOR_Reports/controller.php");
 require_once("custom/modules/AOR_Reports/AdvancedReporter.php");
 require_once("custom/modules/AOR_Reports/fieldFormatting.php");
 
+
 class customAOR_ReportsController extends AOR_ReportsController
 {
+    public function action_matrixreport(){
+        $this->view = 'matrixreport';
+    }
 
     public function action_getPreview()
     {
