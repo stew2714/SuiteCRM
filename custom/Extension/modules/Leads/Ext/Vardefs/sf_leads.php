@@ -162,7 +162,7 @@ $dictionary['Lead']['fields']['number_of_doctors_c'] = array (
 );
 
 $dictionary['Lead']['fields']['timeframe_for_purchase_c'] = array (
-    'name' => 'directions_c',
+    'name' => 'timeframe_for_purchase_c',
     'vname' => 'LBL_TIMEFRAME_FOR_PURCHASE_C',
     'type' => 'varchar',
     'len' => '100',
