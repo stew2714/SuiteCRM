@@ -40,6 +40,7 @@
  */
 class matrixReportBuilder
 {
+    var $exemptFields = array('id', 'link');
     var $headers = array();
     var $totals = array();
     var $level2 = "";
@@ -58,7 +59,7 @@ class matrixReportBuilder
         $string = implode("\n", $selects);
 
         $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
-        //echo "<pre>{$sql}</pre>";
+//        echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
@@ -102,13 +103,26 @@ class matrixReportBuilder
             $related = $this->bean->field_defs[ $this->bean->field_defs[ $field][ 'link' ] ] ;
             $fieldDef = $this->bean->field_defs[$field] ;
             $relatedBean = BeanFactory::getBean($related['module']);
-            $relatedField = array_search($this->bean->table_name, $relatedBean->relationship_fields);
-            $field = array(
-                "field" => $fieldDef['join_name'] . '.' . $fieldDef['rname'],
-                "join" => " 
+
+            if(isset($fieldDef['join_name']) && !empty($fieldDef['join_name'])) {
+                $relatedField = array_search($this->bean->table_name, $relatedBean->relationship_fields);
+                $field = array(
+                    "field" => $fieldDef['join_name'] . '.' . $fieldDef['rname'],
+                    "join"  => " 
                 LEFT JOIN {$related['relationship']} ON {$related['relationship']}
                 .{$relatedField} = {$this->bean->table_name}.id
-                LEFT JOIN {$fieldDef['join_name']} ON {$fieldDef['join_name']}.id = {$related['relationship']}.{$fieldDef['id_name']} ");
+                LEFT JOIN {$fieldDef['join_name']} ON {$fieldDef['join_name']}.id = {$related['relationship']}.{$fieldDef['id_name']} "
+                );
+            }else{
+                if(empty($related['id_name'])){
+                    $related['id_name'] = $fieldDef['id_name'];
+                }
+                $field = array(
+                    "field" => $fieldDef['table'] . '.' . $fieldDef['rname'],
+                    "join"  => "  
+                           LEFT JOIN {$fieldDef['table']} ON {$this->bean->table_name}.{$related['id_name']} = {$fieldDef['table']}.id "
+                );
+            }
         }else{
             $field = $this->bean->table_name . "." . $field;
         }
@@ -364,6 +378,9 @@ class matrixReportBuilder
         $defs[] = "";
         foreach ($fieldDefs as $field) {
             $label = translate($field['vname'], $module);
+            if(in_array($field['type'], $this->exemptFields) || in_array($field['dbType'], $this->exemptFields)){
+                continue;
+            }
             if( empty($label) ){
                 $label = $field['name'];
             }
