@@ -35,3 +35,4 @@ $mod_strings['LBL_VIP_ACCOUNT_C'] = 'VIP Account';
 $mod_strings['LBL_ZBA_SS_C'] = 'ZBA SS';
 $mod_strings['LBL_DIRECTIONS_C'] = 'Directions';
 $mod_strings['LBL_TIMEFRAME_FOR_PURCHASE_C'] = 'Timeframe for Purchase';
+$mod_strings['LBL_ELOQUA_LEAD_RATING_C'] = 'Eloqua Lead Rating';

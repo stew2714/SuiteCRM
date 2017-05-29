@@ -119,7 +119,11 @@ class EloquaAccount
     }
 
     public function cleanAddressLine($address)
-    {
+    {        // Currently Broken??? Breaks when trying to write info into it.
+        //$fieldValues[4] = new fieldValues;
+        //$fieldValues[4]->type = "FieldValue";
+        //$fieldValues[4]->id = "100097"; // Company Category
+        //$fieldValues[4]->value = $bean->industry;
         // Possible function for cleaning out the Text Area into Eloqua Fields.
         $address = explode(PHP_EOL, $address);
 

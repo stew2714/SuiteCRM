@@ -80,13 +80,19 @@ class EloquaContact
         $contact->fieldValues[2]->id = "100017"; // Salutation
         $contact->fieldValues[2]->value = $bean->salutation;
         $contact->fieldValues[3]->id = "100047"; // Annual Revenue
-        $contact->fieldValues[3]->value = $bean->annual_revenue__c;
+        $contact->fieldValues[3]->value = $bean->annual_revenue_c;
         $contact->fieldValues[4]->id = "100184"; // Number of Employees
         $contact->fieldValues[4]->value = $bean->number_of_employees;
         $contact->fieldValues[5]->id = "100046"; // Industry
         $contact->fieldValues[5]->value = $bean->industry;
         $contact->fieldValues[6]->id = "100081"; // Lead Rating Combined
-        $contact->fieldValues[6]->value = $bean->rating;
+        $contact->fieldValues[6]->value = $bean->eloqua_lead_rating_c;
+        $contact->fieldValues[7]->id = "100197"; // Website
+        $contact->fieldValues[7]->value = $bean->website;
+        $contact->fieldValues[8]->id = "100195"; // Description
+        $contact->fieldValues[8]->value = $bean->description;
+        $contact->fieldValues[10]->id = "100196"; // Rating
+        $contact->fieldValues[10]->value = $bean->rating;
 
         if (empty($bean->eloqua_id)) {
             // Send the new contact information to the Eloqua Instance
