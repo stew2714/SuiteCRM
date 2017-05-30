@@ -88,7 +88,7 @@ class matrixReportBuilder
                     }
                     $this->totals[ $key ] = $label;
                 }
-                if(is_numeric($count)){
+                if(is_numeric($count) && $bean->field_defs[ $this->field ]['type'] == "currency"){
                     $row[ $key ] = currency_format_number($count);
                 }
             }
