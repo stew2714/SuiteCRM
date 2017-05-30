@@ -73,7 +73,7 @@ class matrixReportBuilder
         $results = $db->query($sql);
 
         foreach ($results as $row) {
-            $data[] = $row;
+
 
             $i = 0;
             foreach($row as $key =>  $count){
@@ -88,8 +88,12 @@ class matrixReportBuilder
                     }
                     $this->totals[ $key ] = $label;
                 }
-
+                if(is_numeric($count)){
+                    $row[ $key ] = currency_format_number($count);
+                }
             }
+
+            $data[] = $row;
         }
 
         foreach($this->totals as $key => $unformated){
