@@ -116,7 +116,7 @@ class eloquaSyncLeads
         $lead->eloqua_id = $contact->id;
         $lead->first_name = $contact->firstName;
         $lead->last_name = $contact->lastName;
-        $lead->email_address = $contact->emailAddress;
+        $lead->email1 = $contact->emailAddress;
         $lead->account_name = $contact->accountName;
         $lead->title = $contact->title;
 
@@ -131,10 +131,22 @@ class eloquaSyncLeads
         $lead->primary_address_state = $contact->province;
         $lead->phone_work = $contact->businessPhone;
         $lead->primary_address_country = $contact->country;
-        $lead->eloqua_country = $contact->countrty;
+        $lead->eloqua_country = $contact->country;
         $lead->primary_address_postalcode = $contact->postalCode;
 
         $custom_fields_container = array();
+
+        $verified_scores = array(
+            'A1',
+            'A2',
+            'A3',
+            'A4',
+            'B1',
+            'B2',
+            'B3',
+            'C1',
+            'C2',
+        );
 
         // Custom Eloqua Fields Loop-Through
         foreach ($contact->fieldValues as $custom_field) {
@@ -152,8 +164,11 @@ class eloquaSyncLeads
             }
         }
 
-        // Save the new Lead to Database
-        $lead->save();
+        // Only save to the CRM if the Eloqua Score is in the verified list.
+        if (in_array($lead->eloqua_lead_rating_c,$verified_scores)) {
+            // Save the new Lead to Database
+            $lead->save();
+        }
 
         return $lead;
     }
@@ -164,6 +179,18 @@ class eloquaSyncLeads
         $bean = BeanFactory::getBean('Leads');
         $clause = "leads.eloqua_id = " . $contact->id;
         $leads = $bean->get_full_list('', $clause);
+
+        $verified_scores = array(
+            'A1',
+            'A2',
+            'A3',
+            'A4',
+            'B1',
+            'B2',
+            'B3',
+            'C1',
+            'C2',
+        );
 
         foreach ($leads as $current_lead) {
             $current_lead->salutation = $contact->title;
@@ -205,9 +232,8 @@ class eloquaSyncLeads
                     $current_lead->$field_name = $value;
                 }
             }
-
-            // Save the new Lead to Database
-            $current_lead->save();
+                // Save the new Lead to Database
+                $current_lead->save();
         }
 
         return true;
@@ -218,13 +244,16 @@ class eloquaSyncLeads
         // Current Custom Fields to their ID
         // Lead Status & Rating commented out according to document
         $possibilities = array(
-            'email_opt_out' => '100043',        // Email Opt Out
-            'salutation' => '100017',           // Salutation
-            'annual_revenue__c' => '100047',       // Annual Revenue
-            'number_of_employees' => '100184',  // Number of Employees
-            'industry' => '100046',             // Industry
-            //'status' => '100048',               // Lead Status
-            //'rating' => '100081',               // Lead Rating Combined
+            'email_opt_out' => '100043',            // Email Opt Out
+            'salutation' => '100017',               // Salutation
+            'annual_revenue_c' => '100047',         // Annual Revenue
+            'number_of_employees' => '100184',      // Number of Employees
+            'industry' => '100046',                 // Industry
+            'status' => '100048',                   // Lead Status
+            'eloqua_lead_rating_c' => '100081',     // Lead Rating Combined
+            'website' => '100197',                  // Website
+            'rating' => '100196',                   // Rating
+            'description' => '100195'               // Description
         );
 
         // Get the Key where there is a match in the array to the ID supplied to the function

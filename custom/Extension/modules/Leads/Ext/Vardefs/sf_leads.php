@@ -33,6 +33,13 @@ $dictionary['Lead']['fields']['lead_rating_c'] = array (
     'len' => '255',
 );
 
+$dictionary['Lead']['fields']['eloqua_lead_rating_c'] = array (
+    'name' => 'eloqua_lead_rating_c',
+    'vname' => 'LBL_ELOQUA_LEAD_RATING_C',
+    'type' => 'varchar',
+    'len' => '50',
+);
+
 $dictionary['Lead']['fields']['latitude_c'] = array (
     'name' => 'latitude_c',
     'vname' => 'LBL_LATITUDE_C',
@@ -82,8 +89,7 @@ $dictionary['Lead']['fields']['number_of_healthcare_customers_c'] = array (
 $dictionary['Lead']['fields']['annual_revenue_c'] = array (
     'name' => 'annual_revenue_c',
     'vname' => 'LBL_ANNUAL_REVENUE_C',
-    'type' => 'varchar',
-    'len' => '30',
+    'type' => 'float',
 );
 
 $dictionary['Lead']['fields']['years_in_business_c'] = array (

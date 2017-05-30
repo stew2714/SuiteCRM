@@ -141,10 +141,15 @@ array (
       array (
         0 => 
         array (
+          0 => '',
+          1 => '',
+        ),
+        1 => 
+        array (
           0 => 'status',
           1 => 'lead_source',
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -155,12 +160,12 @@ array (
             'name' => 'lead_source_description',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 'opportunity_amount',
           1 => 'refered_by',
         ),
-        3 => 
+        4 => 
         array (
           0 => 'campaign_name',
         ),
@@ -182,17 +187,16 @@ array (
         array (
           0 => 
           array (
-            'name' => 'annual_revenue',
-            'label' => 'LBL_ANNUAL_REVENUE',
+            'name' => 'annual_revenue_c',
+            'studio' => 'visible',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'rating',
-            'studio' => 'visible',
-            'label' => 'LBL_ELOQUA_LEAD_RATING',
+            'name' => 'eloqua_lead_rating_c',
+            'label' => 'LBL_ELOQUA_LEAD_RATING_C',
           ),
         ),
         2 => 

@@ -72,3 +72,5 @@ $dictionary['Lead']['fields']['company'] = array (
     'type' => 'varchar',
     'len' => '255',
 );
+
+$dictionary['Lead']['fields']['interested_in']['options'] = 'interested_in_options';
