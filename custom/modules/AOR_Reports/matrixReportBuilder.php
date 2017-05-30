@@ -66,7 +66,7 @@ class matrixReportBuilder
         $string = implode("\n", $selects);
 
         $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string, $join);
-        echo "<pre>{$sql}</pre>";
+        //echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
