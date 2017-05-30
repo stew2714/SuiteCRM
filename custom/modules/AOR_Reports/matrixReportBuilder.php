@@ -83,7 +83,7 @@ class matrixReportBuilder
         }
 
         foreach($this->totals as $key => $unformated){
-            if(is_numeric($unformated) ){
+            if(is_numeric($unformated) && $this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
                 $this->totals[$key] = currency_format_number($unformated);
             }
         }
@@ -170,7 +170,11 @@ class matrixReportBuilder
 
 
         $sql .= "      {$string}";
-        $sql .= "      SUM({$field})  AS TOTAL ";
+        if($this->bean->field_defs[ $field ]['type'] == "currency"){
+            $sql .= "      SUM({$field})  AS TOTAL ";
+        }else{
+            $sql .= "      COUNT({$field})  AS TOTAL ";
+        }
         $this->headers[] = "Total";
         $sql .= "FROM   {$module} ";
         $sql .= $join;
@@ -292,7 +296,11 @@ class matrixReportBuilder
         if($this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
             $select = "ROUND( ";
         }
-        $select .= "SUM(CASE WHEN 
+        $type = "COUNT";
+        if($this->bean->field_defs[ $this->mainField ]['type'] == "currency") {
+            $type = "SUM";
+        }
+        $select .= $type . "(CASE WHEN 
                 {$field1} ='{$key1}'  ";
         if ($field2 != null) {
             $select .= " AND {$field2} = '{$key2}' ";
@@ -301,7 +309,7 @@ class matrixReportBuilder
             $select .= " AND {$field3} = '{$key3}'";
         }
         $select .= " THEN {$this->mainField}  
-                ELSE 0  END)";
+                ELSE null  END)";
 
         if($this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
             $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');

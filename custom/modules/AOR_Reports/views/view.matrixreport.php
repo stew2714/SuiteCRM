@@ -101,7 +101,7 @@ class AOR_ReportsViewMatrixReport extends SugarView
         if($matrix->bean->field_defs[ $matrix->mainField ]['type'] == "currency"){
             global $locale, $current_user;
 
-            $currency = $locale->getCurrencySymbol( $current_user);
+            $currency = $locale->getCurrencySymbol( $current_user );
         }
 
         $this->ss->assign('header', $matrix->headers);

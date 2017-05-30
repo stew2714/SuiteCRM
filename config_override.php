@@ -8,9 +8,11 @@ $sugar_config['SAML_loginurl'] = '';
 $sugar_config['SAML_logouturl'] = '';
 $sugar_config['SAML_X509Cert'] = '';
 $sugar_config['authenticationClass'] = '';
-
-// MMODAL Eloqua Config
 $sugar_config['eloqua_company'] = 'MModalIncSandbox';
 $sugar_config['eloqua_username'] = 'Kieran.Monaghan';
 $sugar_config['eloqua_password'] = 'SalesAgility01';
+$sugar_config['default_module_favicon'] = false;
+$sugar_config['dashlet_auto_refresh_min'] = '30';
+$sugar_config['stack_trace_errors'] = false;
+$sugar_config['developerMode'] = true;
 /***CONFIGURATOR***/
