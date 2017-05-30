@@ -56,6 +56,7 @@ class AOR_ReportsViewMatrixReport extends SugarView
         "OAuthKeys",
         "EAPM",
         "Schedulers",
+        'SugarFeed',
         "SecurityGroups",
         "TemplateSectionLine",
         "SavedSearch");
