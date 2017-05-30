@@ -40,7 +40,7 @@
  */
 class matrixReportBuilder
 {
-    var $exemptFields = array('id', 'link');
+    var $exemptFields = array('id', 'link', 'name');
     var $headers = array();
     var $totals = array();
     var $level2 = "";
