@@ -120,7 +120,7 @@ class eloquaSyncLeads
         $lead->account_name = $contact->accountName;
         $lead->title = $contact->title;
 
-        // Address could be in multiple fields in Eloqua
+        // Address could be in multiple fiel ds in Eloqua
         $address = array();
         $address[] = $contact->address1;
         $address[] = $contact->address2;
@@ -197,7 +197,7 @@ class eloquaSyncLeads
             $current_lead->eloqua_id = $contact->id;
             $current_lead->first_name = $contact->firstName;
             $current_lead->last_name = $contact->lastName;
-            $current_lead->email_address = $contact->emailAddress;
+            $current_lead->email1 = $contact->emailAddress;
             $current_lead->account_name = $contact->accountName;
             $current_lead->title = $contact->title;
 
@@ -232,8 +232,9 @@ class eloquaSyncLeads
                     $current_lead->$field_name = $value;
                 }
             }
-                // Save the new Lead to Database
-                $current_lead->save();
+
+            // Save Lead to Database
+            $current_lead->save();
         }
 
         return true;
