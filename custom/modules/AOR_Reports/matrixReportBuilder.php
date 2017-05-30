@@ -93,7 +93,7 @@ class matrixReportBuilder
         }
 
         foreach($this->totals as $key => $unformated){
-            if( $this->bean->field_defs[ $this->field ]['type'] == "currency"){
+            if( is_numeric($unformated) &&  $this->bean->field_defs[ $this->field ]['type'] == "currency"){
                 $this->totals[$key] = currency_format_number($unformated);
             }
         }
