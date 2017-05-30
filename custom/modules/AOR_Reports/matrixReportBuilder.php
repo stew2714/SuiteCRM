@@ -52,14 +52,21 @@ class matrixReportBuilder
     {
         global $db, $app_list_strings;
         $this->bean = BeanFactory::getBean($module);
-        $this->mainField = $field;
+        $this->mainField = $this->fieldTypeCheck($field);
+        if(is_array($this->mainField)){
+            if(!in_array($field,$field_x) && !in_array($field, $field_y)){
+                $join = $this->mainField['join'];
+            }
+            $this->mainField = $this->mainField['field'];
+            $field = $this->mainField;
+        }
         $bean = $this->bean;
         $module = $bean->module_name;
         $selects = $this->buildSelects($bean, $field_x, $field_y, $field, $module);
         $string = implode("\n", $selects);
 
-        $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
-//        echo "<pre>{$sql}</pre>";
+        $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string, $join);
+        echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
@@ -129,10 +136,9 @@ class matrixReportBuilder
 
         return $field;
     }
-    public function buildQuery($module, $field_x, $field, $string)
+    public function buildQuery($module, $field_x, $field, $string, $join = "" )
     {
         $sql = '';
-        $join = '';
         $sql .= "SELECT ";
         if ($field_x[0]) {
             $labels[0] =  $this->getLabel($field_x[0]);
