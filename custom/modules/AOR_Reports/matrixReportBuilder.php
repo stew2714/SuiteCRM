@@ -172,7 +172,7 @@ class matrixReportBuilder
 
         if ($field_x[2]) {
             $labels[2] =  $this->getLabel($field_x[2]);
-            $field_x[2] = $this->fieldTypeCheck($field_x[1]);
+            $field_x[2] = $this->fieldTypeCheck($field_x[2]);
             if(is_array($field_x[2])){
                 $join .= $field_x[2]['join'];
                 $field_x[2] = $field_x[2]['field'];
