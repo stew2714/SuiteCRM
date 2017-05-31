@@ -69,7 +69,7 @@ class matrixReportBuilder
         $string = implode("\n", $selects);
 
         $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string, $join);
-        //echo "<pre>{$sql}</pre>";
+//        echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
@@ -246,11 +246,45 @@ class matrixReportBuilder
 
                             }
                         } else {
-                            $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                            //$selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                            $results = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                            //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
+                            foreach ($results as $item) {
+                                $selects[] = $this->buildCaseStatement(
+                                    $field_y[0],
+                                    $key,
+                                    $field_y[1],
+                                    $key2,
+                                    $field_y[2],
+                                    $item
+                                );
+
+                            }
+
                         }
                     }
                 } else {
-                    $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                  //  $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                    $results = $this->fetchLabelsFromDB($field_y[1], $bean->table_name);
+                    //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
+                    foreach ($results as $item) {
+                        $results2 = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                        if($results2 == false){
+                            $selects[] = $this->buildCaseStatement($field_y[0], $key,  $field_y[1], $item );
+                        }else {
+                            foreach ($results2 as $item3) {
+                                $selects[] = $this->buildCaseStatement(
+                                    $field_y[0],
+                                    $key,
+                                    $field_y[1],
+                                    $item,
+                                    $field_y[2],
+                                    $item3
+                                );
+
+                            }
+                        }
+                    }
                 }
             }
         } else {
@@ -300,7 +334,11 @@ class matrixReportBuilder
         if($field3 != null){
             $this->level3 = true;
             $this->level2 = true;
+            if(!is_array($this->headers[ $key1 ][$key2])){
+                $this->headers[ $key1 ][$key2] = array();
+            }
             $this->headers[ $key1 ][$key2][$key3] = $this->getLabel($field3 , $key3);
+
         }elseif($field2 != null){
             $this->level2 = true;
             $this->headers[ $key1 ][$key2] = $this->getLabel($field2 , $key2);
