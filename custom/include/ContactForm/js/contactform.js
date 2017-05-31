@@ -30,8 +30,8 @@ $("#WebToLeadForm").submit(function(e){
       console.log('submitted');
       submit_form();
   } else {
-      console.log('not submitted');
       // Do Nothing, can be a different outcome if need be.
+      console.log('not submitted');
   }
 });
 
