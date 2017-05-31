@@ -40,21 +40,24 @@
  */
 class matrixReportBuilder
 {
-    var $exemptFields = array( 'id', 'link' );
+    var $exemptFields = array('id', 'link');
     var $headers = array();
     var $totals = array();
     var $level2 = "";
+    var $actionType = "";
     var $level3 = "";
     var $field = "";
     var $mainField = "";
     var $bean = array();
 
-    public function buildReport($module, $field_x, $field_y, $field)
+    public function buildReport($module, $field_x, $field_y, $field, $actionType)
     {
         global $db, $app_list_strings;
         $this->bean = BeanFactory::getBean($module);
         $this->mainField = $this->fieldTypeCheck($field);
         $this->field = $field;
+        $this->actionType = $actionType;
+
         if(is_array($this->mainField)){
             if(!in_array($field,$field_x) && !in_array($field, $field_y)){
                 $join = $this->mainField['join'];
@@ -88,7 +91,8 @@ class matrixReportBuilder
                     }
                     $this->totals[ $key ] = $label;
                 }
-                if(is_numeric($count) && $bean->field_defs[ $this->field ]['type'] == "currency"){
+                if(is_numeric($count) && $bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType
+                != "COUNT"){
                     $row[ $key ] = currency_format_number($count);
                 }
             }
@@ -97,7 +101,8 @@ class matrixReportBuilder
         }
 
         foreach($this->totals as $key => $unformated){
-            if( is_numeric($unformated) &&  $this->bean->field_defs[ $this->field ]['type'] == "currency"){
+            if( is_numeric($unformated) &&  $this->bean->field_defs[ $this->field ]['type'] == "currency" &&
+                $this->actionType != "COUNT"){
                 $this->totals[$key] = currency_format_number($unformated);
             }
         }
@@ -184,7 +189,7 @@ class matrixReportBuilder
 
 
         $sql .= "      {$string}";
-        if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType != "COUNT"){
             $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');
             $sql .= "      TRUNCATE(SUM({$field}), {$decimal})  AS TOTAL ";
         }else{
@@ -354,13 +359,12 @@ class matrixReportBuilder
             $this->headers[ $key1 ] = $this->getLabel($field1 , $key1);
         }
         $select = "";
-        if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType != "COUNT"){
             $select = "ROUND( ";
         }
-        $type = "COUNT";
-        if($this->bean->field_defs[ $this->field ]['type'] == "currency") {
-            $type = "SUM";
-        }
+        //if($this->bean->field_defs[ $this->field ]['type'] == "currency") {
+            $type = $this->actionType;
+        //}
         $select .= $type . "(CASE WHEN 
                 {$field1} ='{$key1}'  ";
         if($key1 == ""){
@@ -381,7 +385,7 @@ class matrixReportBuilder
         $select .= " THEN {$this->mainField}  
                 ELSE null  END)";
 
-        if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType != "COUNT"){
             $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');
             $select .= ", {$decimal} ) ";
         }
@@ -452,8 +456,10 @@ class matrixReportBuilder
 
     public function getFieldDefs($fieldDefs, $module)
     {
-
-        $defs[] = "";
+        if($module == null){
+            return array();
+        }
+        $defs[''] = "";
         foreach ($fieldDefs as $field) {
             $label = translate($field['vname'], $module);
             if(in_array($field['type'], $this->exemptFields) || in_array($field['dbType'], $this->exemptFields)){

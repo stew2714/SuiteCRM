@@ -25,7 +25,6 @@ array (
             'customCode' => '<input type="button" class="button" onClick="openProspectPopup();" value="{$MOD.LBL_ADD_TO_PROSPECT_LIST}">',
           ),
         ),
-        'footerTpl' => 'modules/AOR_Reports/tpls/report.tpl',
       ),
       'maxColumns' => '2',
       'widths' => 
