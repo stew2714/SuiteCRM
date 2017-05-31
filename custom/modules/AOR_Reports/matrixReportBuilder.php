@@ -69,7 +69,7 @@ class matrixReportBuilder
         $string = implode("\n", $selects);
 
         $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string, $join);
-//        echo "<pre>{$sql}</pre>";
+        echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
@@ -264,24 +264,28 @@ class matrixReportBuilder
                         }
                     }
                 } else {
-                  //  $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
-                    $results = $this->fetchLabelsFromDB($field_y[1], $bean->table_name);
-                    //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
-                    foreach ($results as $item) {
-                        $results2 = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
-                        if($results2 == false){
-                            $selects[] = $this->buildCaseStatement($field_y[0], $key,  $field_y[1], $item );
-                        }else {
-                            foreach ($results2 as $item3) {
-                                $selects[] = $this->buildCaseStatement(
-                                    $field_y[0],
-                                    $key,
-                                    $field_y[1],
-                                    $item,
-                                    $field_y[2],
-                                    $item3
-                                );
 
+                    $results = $this->fetchLabelsFromDB($field_y[1], $bean->table_name);
+                    if($results == false){
+                        $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                    }else {
+                        //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
+                        foreach ($results as $item) {
+                            $results2 = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                            if ($results2 == false) {
+                                $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $item);
+                            } else {
+                                foreach ($results2 as $item3) {
+                                    $selects[] = $this->buildCaseStatement(
+                                        $field_y[0],
+                                        $key,
+                                        $field_y[1],
+                                        $item,
+                                        $field_y[2],
+                                        $item3
+                                    );
+
+                                }
                             }
                         }
                     }
