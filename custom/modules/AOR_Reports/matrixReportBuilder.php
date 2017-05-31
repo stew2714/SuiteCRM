@@ -246,19 +246,23 @@ class matrixReportBuilder
 
                             }
                         } else {
-                            //$selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
-                            $results = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
-                            //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
-                            foreach ($results as $item) {
-                                $selects[] = $this->buildCaseStatement(
-                                    $field_y[0],
-                                    $key,
-                                    $field_y[1],
-                                    $key2,
-                                    $field_y[2],
-                                    $item
-                                );
 
+                            $results = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                            if($results == false) {
+                                $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                            }else {
+                                //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
+                                foreach ($results as $item) {
+                                    $selects[] = $this->buildCaseStatement(
+                                        $field_y[0],
+                                        $key,
+                                        $field_y[1],
+                                        $key2,
+                                        $field_y[2],
+                                        $item
+                                    );
+
+                                }
                             }
 
                         }
@@ -359,11 +363,20 @@ class matrixReportBuilder
         }
         $select .= $type . "(CASE WHEN 
                 {$field1} ='{$key1}'  ";
+        if($key1 == ""){
+            $select .= "OR {$field1} is null ";
+        }
         if ($field2 != null) {
             $select .= " AND {$field2} = '{$key2}' ";
+            if($key2 == ""){
+                $select .= "OR {$field2} is null ";
+            }
         }
         if ($field3 != null) {
             $select .= " AND {$field3} = '{$key3}'";
+            if($key3 == ""){
+                $select .= "OR {$field3} is null ";
+            }
         }
         $select .= " THEN {$this->mainField}  
                 ELSE null  END)";
