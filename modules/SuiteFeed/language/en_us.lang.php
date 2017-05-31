@@ -128,7 +128,10 @@ $mod_strings = array(
 
     'LBL_SUITEFEED_USERS_FROM_USERS_TITLE' => 'Users',
     'LBL_ALL_USERS' => 'All',
-    'LBL_USERLIST_TITLE' => 'User List'
+    'LBL_USERLIST_TITLE' => 'User List',
+    'LBL_LINK_URL' => 'Link URL',
+    'LBL_LINK_TYPE' => 'Link Type',
+    'LBL_RELATED_MODULE' => 'Related Module'
 
 );
 ?>

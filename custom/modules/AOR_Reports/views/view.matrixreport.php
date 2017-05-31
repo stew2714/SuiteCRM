@@ -31,7 +31,44 @@ require_once("custom/modules/AOR_Reports/matrixReportBuilder.php");
 
 class AOR_ReportsViewMatrixReport extends SugarView
 {
+    var $doNotShow = array(
+        "Administration",
+        "AOBH_BusinessHours",
+        "Calls_Reschedule",
+        "Connectors",
+        "DocumentRevisions",
+        "EmailAddreses",
+        "Emails",
+        "InboundEmail",
+        "OutboundEmailAccounts",
+        "jjwg_Maps",
+        "jjwg_Areas",
+        "jjwg_Markers",
+        "jjwg_Address_Cache",
+        "Alerts",
+        "ACLRoles",
+        "AOD_Index",
+        "AOD_IndexEvent",
+        "Spots",
+        "Trackers",
+        "Roles",
+        "OAuthTokens",
+        "OAuthKeys",
+        "EAPM",
+        "Schedulers",
+        'SugarFeed',
+        "SecurityGroups",
+        "TemplateSectionLine",
+        "SavedSearch");
 
+    public function filterResults($list){
+        foreach($list as $key => $results){
+            if(in_array($key, $this->doNotShow)){
+               unset($list[ $key ]);
+            }
+        }
+        return $list;
+    }
     public function display()
     {
         global $app_list_strings, $mod_strings;
@@ -39,7 +76,8 @@ class AOR_ReportsViewMatrixReport extends SugarView
         parent::display();
         $module = $_POST['reportModule'];
         $this->ss->assign('actionFieldText', $mod_strings['LBL_ACTION_FIELD_TEXT']);
-        $this->ss->assign('moduleList', get_select_options_with_id($app_list_strings['aor_moduleList'], $module));
+        $this->ss->assign('moduleList', get_select_options_with_id($this->filterResults($app_list_strings['aor_moduleList']),
+                                                                   $module));
 
         if ($module) {
             $bean = BeanFactory::getBean($module);
@@ -98,7 +136,7 @@ class AOR_ReportsViewMatrixReport extends SugarView
             $this->ss->assign('level1Break', $total);
         }
         $currency = "";
-        if($matrix->bean->field_defs[ $matrix->mainField ]['type'] == "currency"){
+        if($matrix->bean->field_defs[ $matrix->field ]['type'] == "currency"){
             global $locale, $current_user;
 
             $currency = $locale->getCurrencySymbol( $current_user );

@@ -40,11 +40,12 @@
  */
 class matrixReportBuilder
 {
-    var $exemptFields = array('id', 'link');
+    var $exemptFields = array( 'id', 'link' );
     var $headers = array();
     var $totals = array();
     var $level2 = "";
     var $level3 = "";
+    var $field = "";
     var $mainField = "";
     var $bean = array();
 
@@ -52,22 +53,31 @@ class matrixReportBuilder
     {
         global $db, $app_list_strings;
         $this->bean = BeanFactory::getBean($module);
-        $this->mainField = $field;
+        $this->mainField = $this->fieldTypeCheck($field);
+        $this->field = $field;
+        if(is_array($this->mainField)){
+            if(!in_array($field,$field_x) && !in_array($field, $field_y)){
+                $join = $this->mainField['join'];
+            }
+            $this->mainField = $this->mainField['field'];
+            $field = $this->mainField;
+
+        }
         $bean = $this->bean;
         $module = $bean->module_name;
         $selects = $this->buildSelects($bean, $field_x, $field_y, $field, $module);
         $string = implode("\n", $selects);
 
-        $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
-//        echo "<pre>{$sql}</pre>";
+        $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string, $join);
+        //echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
-            $data[] = $row;
+
 
             $i = 0;
             foreach($row as $key =>  $count){
-                if(is_numeric($count)){
+                if(is_numeric($count) || empty($count)){
                     $this->totals[ $key ] += $count;
                 }else{
                     if($i != 0){
@@ -78,12 +88,16 @@ class matrixReportBuilder
                     }
                     $this->totals[ $key ] = $label;
                 }
-
+                if(is_numeric($count) && $bean->field_defs[ $this->field ]['type'] == "currency"){
+                    $row[ $key ] = currency_format_number($count);
+                }
             }
+
+            $data[] = $row;
         }
 
         foreach($this->totals as $key => $unformated){
-            if(is_numeric($unformated) && $this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
+            if( is_numeric($unformated) &&  $this->bean->field_defs[ $this->field ]['type'] == "currency"){
                 $this->totals[$key] = currency_format_number($unformated);
             }
         }
@@ -129,10 +143,10 @@ class matrixReportBuilder
 
         return $field;
     }
-    public function buildQuery($module, $field_x, $field, $string)
+    public function buildQuery($module, $field_x, $field, $string, $join = "" )
     {
+        global $locale;
         $sql = '';
-        $join = '';
         $sql .= "SELECT ";
         if ($field_x[0]) {
             $labels[0] =  $this->getLabel($field_x[0]);
@@ -158,7 +172,7 @@ class matrixReportBuilder
 
         if ($field_x[2]) {
             $labels[2] =  $this->getLabel($field_x[2]);
-            $field_x[2] = $this->fieldTypeCheck($field_x[1]);
+            $field_x[2] = $this->fieldTypeCheck($field_x[2]);
             if(is_array($field_x[2])){
                 $join .= $field_x[2]['join'];
                 $field_x[2] = $field_x[2]['field'];
@@ -170,8 +184,9 @@ class matrixReportBuilder
 
 
         $sql .= "      {$string}";
-        if($this->bean->field_defs[ $field ]['type'] == "currency"){
-            $sql .= "      SUM({$field})  AS TOTAL ";
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
+            $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');
+            $sql .= "      TRUNCATE(SUM({$field}), {$decimal})  AS TOTAL ";
         }else{
             $sql .= "      COUNT({$field})  AS TOTAL ";
         }
@@ -231,11 +246,53 @@ class matrixReportBuilder
 
                             }
                         } else {
-                            $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+
+                            $results = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                            if($results == false) {
+                                $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                            }else {
+                                //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
+                                foreach ($results as $item) {
+                                    $selects[] = $this->buildCaseStatement(
+                                        $field_y[0],
+                                        $key,
+                                        $field_y[1],
+                                        $key2,
+                                        $field_y[2],
+                                        $item
+                                    );
+
+                                }
+                            }
+
                         }
                     }
                 } else {
-                    $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+
+                    $results = $this->fetchLabelsFromDB($field_y[1], $bean->table_name);
+                    if($results == false){
+                        $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $key2);
+                    }else {
+                        //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
+                        foreach ($results as $item) {
+                            $results2 = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                            if ($results2 == false) {
+                                $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $item);
+                            } else {
+                                foreach ($results2 as $item3) {
+                                    $selects[] = $this->buildCaseStatement(
+                                        $field_y[0],
+                                        $key,
+                                        $field_y[1],
+                                        $item,
+                                        $field_y[2],
+                                        $item3
+                                    );
+
+                                }
+                            }
+                        }
+                    }
                 }
             }
         } else {
@@ -285,7 +342,11 @@ class matrixReportBuilder
         if($field3 != null){
             $this->level3 = true;
             $this->level2 = true;
+            if(!is_array($this->headers[ $key1 ][$key2])){
+                $this->headers[ $key1 ][$key2] = array();
+            }
             $this->headers[ $key1 ][$key2][$key3] = $this->getLabel($field3 , $key3);
+
         }elseif($field2 != null){
             $this->level2 = true;
             $this->headers[ $key1 ][$key2] = $this->getLabel($field2 , $key2);
@@ -293,25 +354,34 @@ class matrixReportBuilder
             $this->headers[ $key1 ] = $this->getLabel($field1 , $key1);
         }
         $select = "";
-        if($this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
             $select = "ROUND( ";
         }
         $type = "COUNT";
-        if($this->bean->field_defs[ $this->mainField ]['type'] == "currency") {
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency") {
             $type = "SUM";
         }
         $select .= $type . "(CASE WHEN 
                 {$field1} ='{$key1}'  ";
+        if($key1 == ""){
+            $select .= "OR {$field1} is null ";
+        }
         if ($field2 != null) {
             $select .= " AND {$field2} = '{$key2}' ";
+            if($key2 == ""){
+                $select .= "OR {$field2} is null ";
+            }
         }
         if ($field3 != null) {
             $select .= " AND {$field3} = '{$key3}'";
+            if($key3 == ""){
+                $select .= "OR {$field3} is null ";
+            }
         }
         $select .= " THEN {$this->mainField}  
                 ELSE null  END)";
 
-        if($this->bean->field_defs[ $this->mainField ]['type'] == "currency"){
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
             $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');
             $select .= ", {$decimal} ) ";
         }
