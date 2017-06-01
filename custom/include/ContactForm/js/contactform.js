@@ -25,7 +25,7 @@ $("#WebToLeadForm").submit(function(e){
   e.preventDefault();
   var value = $("#interested_in").val();
 
-  if (value === "Product Interest" || value === "Accessory and Equipment Requests") {
+  if (value === "Product Interest" || value === "Accessory and Equipment Requests (Sales Inquiries)") {
       // Add Lead to the CRM
       console.log('submitted');
       submit_form();
