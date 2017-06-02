@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['name']='product_gma_termination_prior_to_ren_pic_c';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['vname']='LBL_PRODUCT_GMA_TERMINATION_PRIOR_TO_REN_PIC_C';
+$dictionary['AOS_Contracts']['fields']['product_gma_termination_prior_to_ren_pic_c']['source']='custom_fields';
+
+ ?>

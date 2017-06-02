@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['name']='apttus_perpetual_c';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['type']='bool';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['vname']='LBL_APTTUS_PERPETUAL_C';
+$dictionary['AOS_Contracts']['fields']['apttus_perpetual_c']['source']='custom_fields';
+
+ ?>

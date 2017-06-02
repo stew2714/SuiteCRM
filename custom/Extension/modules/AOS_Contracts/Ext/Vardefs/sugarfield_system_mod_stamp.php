@@ -1,0 +1,31 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['name']='system_mod_stamp';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['default']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['len']='255';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['required']=false;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['type']='date';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['options']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['help']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['comments']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['vname']='LBL_SYSTEM_MOD_STAMP';
+$dictionary['AOS_Contracts']['fields']['system_mod_stamp']['source']='custom_fields';
+
+ ?>

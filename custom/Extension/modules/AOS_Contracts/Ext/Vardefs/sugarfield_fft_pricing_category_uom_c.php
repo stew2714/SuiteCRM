@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['name']='fft_pricing_category_uom_c';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['vname']='LBL_FFT_PRICING_CATEGORY_UOM_C';
+$dictionary['AOS_Contracts']['fields']['fft_pricing_category_uom_c']['source']='custom_fields';
+
+ ?>

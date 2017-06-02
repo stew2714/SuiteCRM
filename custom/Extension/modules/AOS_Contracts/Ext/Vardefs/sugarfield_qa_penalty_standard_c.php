@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['name']='qa_penalty_standard_c';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['type']='bool';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['vname']='LBL_QA_PENALTY_STANDARD_C';
+$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['source']='custom_fields';
+
+ ?>
