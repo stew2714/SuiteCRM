@@ -233,7 +233,7 @@ class convertCSV
         //Hack for the broken cases module
         $vBean = $bean_name == "aCase" ? "Case" : $bean_name;
         $file_loc = "custom/Extension/modules/{$field->module}/Ext/Vardefs/sugarfield_{$field->name}.php";
-        $language_loc = "custom/Extension/modules/{$field->module}/Ext/Language/imported_custom_fields.php";
+        $language_loc = "custom/Extension/modules/{$field->module}/Ext/Language/en_us.imported_custom_fields.php";
         $language_out = "";
 
         $out = "<?php\n // Vardefs from Fields_meta_data table - created: \n";
