@@ -17,4 +17,5 @@ $mod_strings = array (
   'LBL_EMAIL_ADDRESS' => 'Email Address:',
   'LBL_ACTIVE' => 'Active',
   'LBL_EDITVIEW_PANEL1' => 'Communication',
+  'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
 );

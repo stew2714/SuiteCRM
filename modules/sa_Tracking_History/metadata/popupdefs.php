@@ -38,6 +38,21 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
+$module_name = 'sa_Tracking_History';
+$object_name = 'sa_Tracking_History';
+$_module_name = 'sa_Tracking_History';
+$popupMeta = array(
+    'moduleMain' => $module_name,
+    'varName' => $object_name,
+    'orderBy' => $_module_name . '.name',
+    'whereClauses' => array(
+        'name' => $_module_name . '.name',
+    ),
+    'searchInputs' => array($_module_name . '_number', 'name', 'priority', 'status'),
 
-$app_list_strings['moduleList']['sa_Tracking_History'] = 'Field Tracking History';
+);
+ 

@@ -17,4 +17,5 @@ $mod_strings = array (
   'LBL_ACCOUNTS_A4_SITES_1_FROM_A4_SITES_TITLE' => 'Sites',
   'LBL_BILLING_ADDRESS_STREET' => 'Street',
   'LBL_BILLING_ADDRESS_STATE' => 'State',
+  'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
 );

@@ -38,6 +38,45 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
+$module_name = 'sa_Tracking_History';
+$subpanel_layout = array(
+    'top_buttons' => array(
+    ),
 
-$app_list_strings['moduleList']['sa_Tracking_History'] = 'Field Tracking History';
+    'where' => '',
+
+    'list_fields' => array(
+        'field' => array(
+            'vname' => 'LBL_FIELD',
+            'width' => '20%',
+        ),
+        'previous_value' => array(
+            'vname' => 'LBL_PREVIOUS_VALUE',
+            'width' => '20%',
+        ),
+        'new_value' => array(
+            'vname' => 'LBL_NEW_VALUE',
+            'width' => '20%',
+        ),
+        'date_modified' => array(
+            'vname' => 'LBL_DATE_MODIFIED',
+            'width' => '45%',
+        ),
+        'modified_by_name' =>
+            array (
+                'type' => 'relate',
+                'link' => true,
+                'vname' => 'LBL_MODIFIED_NAME',
+                'id' => 'MODIFIED_USER_ID',
+                'width' => '10%',
+                'default' => true,
+                'widget_class' => 'SubPanelDetailViewLink',
+                'target_module' => 'Users',
+                'target_record_key' => 'modified_user_id',
+            ),
+    ),
+);

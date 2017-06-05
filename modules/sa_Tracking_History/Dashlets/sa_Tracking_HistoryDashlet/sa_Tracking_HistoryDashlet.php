@@ -38,6 +38,28 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
+require_once('include/Dashlets/DashletGeneric.php');
+require_once('modules/sa_Tracking_History/sa_Tracking_History.php');
 
-$app_list_strings['moduleList']['sa_Tracking_History'] = 'Field Tracking History';
+class sa_Tracking_HistoryDashlet extends DashletGeneric {
+    function __construct($id, $def = null)
+    {
+        global $current_user, $app_strings;
+        require('modules/sa_Tracking_History/metadata/dashletviewdefs.php');
+
+        parent::__construct($id, $def);
+
+        if (empty($def['title'])) {
+            $this->title = translate('LBL_HOMEPAGE_TITLE', 'sa_Tracking_History');
+        }
+
+        $this->searchFields = $dashletData['sa_Tracking_HistoryDashlet']['searchFields'];
+        $this->columns = $dashletData['sa_Tracking_HistoryDashlet']['columns'];
+
+        $this->seedBean = new sa_Tracking_History();
+    }
+}

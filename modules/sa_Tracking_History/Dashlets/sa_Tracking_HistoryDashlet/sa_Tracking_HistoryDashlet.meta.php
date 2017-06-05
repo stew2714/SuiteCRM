@@ -38,6 +38,15 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
+global $app_strings;
 
-$app_list_strings['moduleList']['sa_Tracking_History'] = 'Field Tracking History';
+$dashletMeta['sa_Tracking_HistoryDashlet'] = array(
+    'module' => 'sa_Tracking_History',
+    'title' => translate('LBL_HOMEPAGE_TITLE', 'sa_Tracking_History'),
+    'description' => 'A customizable view into sa_Tracking_History',
+    'category' => 'Module Views'
+);

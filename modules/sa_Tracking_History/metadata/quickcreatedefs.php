@@ -38,6 +38,25 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+$module_name = 'sa_Tracking_History';
+$viewdefs[$module_name]['QuickCreate'] = array(
+    'templateMeta' => array(
+        'maxColumns' => '2',
+        'widths' => array(
+            array('label' => '10', 'field' => '30'),
+            array('label' => '10', 'field' => '30')
+        ),
+    ),
 
+    'panels' => array(
+        'default' => array(
 
-$app_list_strings['moduleList']['sa_Tracking_History'] = 'Field Tracking History';
+            array(
+                'name',
+                'assigned_user_name',
+            ),
+        ),
+
+    ),
+
+);

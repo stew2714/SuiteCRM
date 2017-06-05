@@ -39,5 +39,39 @@
  */
 
 
-
-$app_list_strings['moduleList']['sa_Tracking_History'] = 'Field Tracking History';
+$mod_strings = array (
+  'LBL_ASSIGNED_TO_ID' => 'Asignado a Usuario con Id',
+  'LBL_ASSIGNED_TO_NAME' => 'Usuario',
+  'LBL_ID' => 'ID',
+  'LBL_DATE_ENTERED' => 'Fecha de Creación',
+  'LBL_DATE_MODIFIED' => 'Última Modificación',
+  'LBL_MODIFIED' => 'Modificado Por',
+  'LBL_MODIFIED_ID' => 'Modificado Por Id',
+  'LBL_MODIFIED_NAME' => 'Modificado Por Nombre',
+  'LBL_CREATED' => 'Creado Por',
+  'LBL_CREATED_ID' => 'Creado Por Id',
+  'LBL_DESCRIPTION' => 'Descripción',
+  'LBL_DELETED' => 'Eliminado',
+  'LBL_NAME' => 'Nombre',
+  'LBL_CREATED_USER' => 'Creado Por Usuario',
+  'LBL_MODIFIED_USER' => 'Modificado Por Usuario',
+  'LBL_LIST_NAME' => 'Nombre',
+  'LBL_EDIT_BUTTON' => 'Editar',
+  'LBL_REMOVE' => 'Quitar',
+  'LBL_LIST_FORM_TITLE' => 'Field Tracking History Lista',
+  'LBL_MODULE_NAME' => 'Field Tracking History',
+  'LBL_MODULE_TITLE' => 'Field Tracking History',
+  'LBL_HOMEPAGE_TITLE' => 'Mi Field Tracking History',
+  'LNK_NEW_RECORD' => 'Crear Field Tracking History',
+  'LNK_LIST' => 'Vista Field Tracking History',
+  'LNK_IMPORT_sa_Tracking_History' => 'Import Field Tracking History',
+  'LBL_SEARCH_FORM_TITLE' => 'Buscar Field Tracking History',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'Ver Historial',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Actividades',
+  'LBL_sa_Tracking_History_SUBPANEL_TITLE' => 'Field Tracking History',
+  'LBL_NEW_FORM_TITLE' => 'Nuevo Field Tracking History',
+  'LBL_FIELD' => 'Field',
+  'LBL_RELATED_MODULE' => 'Related Module',
+  'LBL_PREVIOUS_VALUE' => 'Previous Value',
+  'LBL_NEW_VALUE' => 'New Value',
+);
