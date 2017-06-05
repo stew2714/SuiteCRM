@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['name']='proposed_technology_discount_c';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['default']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['type']='real';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['options']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['help']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['vname']='LBL_PROPOSED_TECHNOLOGY_DISCOUNT_C';
+$dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['source']='custom_fields';
+
+ ?>

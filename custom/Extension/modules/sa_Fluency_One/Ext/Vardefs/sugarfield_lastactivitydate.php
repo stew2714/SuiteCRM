@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['name']='lastactivitydate';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['default']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['type']='timestamp';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['options']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['help']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['vname']='LBL_LASTACTIVITYDATE';
+$dictionary['sa_Fluency_One']['fields']['lastactivitydate']['source']='custom_fields';
+
+ ?>

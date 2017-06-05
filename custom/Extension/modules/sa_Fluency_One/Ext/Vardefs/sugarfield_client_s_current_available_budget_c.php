@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['name']='client_s_current_available_budget_c';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['default']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['type']='real';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['options']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['help']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['vname']='LBL_CLIENT_S_CURRENT_AVAILABLE_BUDGET_C';
+$dictionary['sa_Fluency_One']['fields']['client_s_current_available_budget_c']['source']='custom_fields';
+
+ ?>

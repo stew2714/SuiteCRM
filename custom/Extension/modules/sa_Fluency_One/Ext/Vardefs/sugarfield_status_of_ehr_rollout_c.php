@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['name']='status_of_ehr_rollout_c';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['default']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['options']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['help']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['vname']='LBL_STATUS_OF_EHR_ROLLOUT_C';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['source']='custom_fields';
+
+ ?>

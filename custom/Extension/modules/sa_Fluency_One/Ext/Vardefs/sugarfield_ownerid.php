@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['ownerid']['name']='ownerid';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['default']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['options']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['help']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['ownerid']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['vname']='LBL_OWNERID';
+$dictionary['sa_Fluency_One']['fields']['ownerid']['source']='custom_fields';
+
+ ?>

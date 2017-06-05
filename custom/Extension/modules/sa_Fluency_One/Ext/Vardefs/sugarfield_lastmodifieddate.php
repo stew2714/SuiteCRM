@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['name']='lastmodifieddate';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['default']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['type']='timestamp';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['options']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['help']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['vname']='LBL_LASTMODIFIEDDATE';
+$dictionary['sa_Fluency_One']['fields']['lastmodifieddate']['source']='custom_fields';
+
+ ?>
