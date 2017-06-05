@@ -1,18 +1,8 @@
 column,do no create,
 "   dq_payment_total__c numeric(19),",,
 "   id varchar(18) NOT NULL,",,sf_id_c
-"   owner_id varchar(18) NOT NULL,",X,
-"   is_deleted bool NOT NULL,",X,
-"   name varchar(80),",X,
 "   record_type_id varchar(18),", ,recordtypeid_c
-"   created_date date NOT NULL,",X,
-"   created_by_id varchar(18) NOT NULL,",X,
-"   last_modified_date date NOT NULL,",X,
-"   last_modified_by_id varchar(18) NOT NULL,",X,
-"   system_mod_stamp date NOT NULL,",X,
 "   last_activity_date date,",,lastactivitydate_c
-"   last_viewed_date date,",X,
-"   last_referenced_date date,",X,
 "   apttus__account_search_field__c varchar(255),",,
 "   apttus__account__c varchar(18),",,
 "   apttus__activated_by__c varchar(18),",,

@@ -1,18 +1,8 @@
 <?php 
 $mod_strings['LBL_DQ_PAYMENT_TOTAL_C'] = 'Dq Payment Total C';
 $mod_strings['LBL_ID'] = 'Id';
-$mod_strings['LBL_OWNER_ID'] = 'Owner Id';
-$mod_strings['LBL_IS_DELETED'] = 'Is Deleted';
-$mod_strings['LBL_NAME'] = 'Name';
 $mod_strings['LBL_RECORD_TYPE_ID'] = 'Record Type Id';
-$mod_strings['LBL_CREATED_DATE'] = 'Created Date';
-$mod_strings['LBL_CREATED_BY_ID'] = 'Created By Id';
-$mod_strings['LBL_LAST_MODIFIED_DATE'] = 'Last Modified Date';
-$mod_strings['LBL_LAST_MODIFIED_BY_ID'] = 'Last Modified By Id';
-$mod_strings['LBL_SYSTEM_MOD_STAMP'] = 'System Mod Stamp';
 $mod_strings['LBL_LAST_ACTIVITY_DATE'] = 'Last Activity Date';
-$mod_strings['LBL_LAST_VIEWED_DATE'] = 'Last Viewed Date';
-$mod_strings['LBL_LAST_REFERENCED_DATE'] = 'Last Referenced Date';
 $mod_strings['LBL_APTTUS_ACCOUNT_SEARCH_FIELD_C'] = 'Apttus Account Search Field C';
 $mod_strings['LBL_APTTUS_ACCOUNT_C'] = 'Apttus Account C';
 $mod_strings['LBL_APTTUS_ACTIVATED_BY_C'] = 'Apttus Activated By C';
