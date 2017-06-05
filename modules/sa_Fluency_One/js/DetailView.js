@@ -5,7 +5,7 @@
 
 $("#accept_button").click(function(){
   var url = "index.php?module=sa_Fluency_One&action=accept";
-  var data = "";
+  var data = $('[name=record]').val();
 
   $.ajax({
     dataType: "json",
