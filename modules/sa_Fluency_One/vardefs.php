@@ -41,7 +41,7 @@
 $dictionary['sa_Fluency_One'] = array(
     'table' => 'sa_fluency_one',
     'audited' => true,
-    'custom_fields' => true,
+//    'custom_fields' => true,
     'inline_edit' => true,
     'duplicate_merge' => true,
     'fields' => array (
