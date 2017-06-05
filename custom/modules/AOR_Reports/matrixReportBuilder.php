@@ -46,10 +46,44 @@ class matrixReportBuilder
     var $level2 = "";
     var $actionType = "";
     var $level3 = "";
+    var $join = array();
     var $field = "";
     var $mainField = "";
     var $bean = array();
 
+    public function total( $total, $count, $actionType){
+        if($total == null || empty($total)){
+            $total = 0;
+        }
+        switch($actionType){
+            case "AVG":
+            case "SUM":
+                return $total + $count;
+                break;
+            case "COUNT":
+                if($count > 0){
+                    return $total + 1;
+                }
+                return $total;
+                break;
+            case "MIN":
+                if(($count < $total && $total != 0) || $total == 0 ){
+                    return $count;
+                }
+                return $total;
+                break;
+            case "MAX":
+                if(($count > $total && $total != 0) || $total == 0 ){
+                    return $count;
+                }
+                return $total;
+                break;
+            default:
+                return $total;
+                break;
+        }
+
+    }
     public function buildReport($module, $field_x, $field_y, $field, $actionType)
     {
         global $db, $app_list_strings;
@@ -60,7 +94,11 @@ class matrixReportBuilder
 
         if(is_array($this->mainField)){
             if(!in_array($field,$field_x) && !in_array($field, $field_y)){
-                $join = $this->mainField['join'];
+                if($this->mainField['cstm'] == true){
+                    $this->join[ 'cstm' ] = $this->mainField['join'];
+                }else{
+                    $this->join[ $this->mainField['field']  ] = $this->mainField['join'];
+                }
             }
             $this->mainField = $this->mainField['field'];
             $field = $this->mainField;
@@ -71,7 +109,7 @@ class matrixReportBuilder
         $selects = $this->buildSelects($bean, $field_x, $field_y, $field, $module);
         $string = implode("\n", $selects);
 
-        $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string, $join);
+        $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
         //echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
@@ -80,8 +118,17 @@ class matrixReportBuilder
 
             $i = 0;
             foreach($row as $key =>  $count){
+
+                if(in_array("currency_name", $field_x)){
+                    $number = substr($key, -1);
+                    if($field_x[ $number ] == "currency_name"){
+                        $currency  = new Currency();
+                        $row[ $key ] =  $currency->getDefaultCurrencyName() . " ({$currency->getDefaultISO4217()})";
+                    }
+                }
+
                 if(is_numeric($count) || empty($count)){
-                    $this->totals[ $key ] += $count;
+                    $this->totals[ $key ] = $this->total($this->totals[ $key ], $count, $this->actionType);
                 }else{
                     if($i != 0){
                         $label = "";
@@ -91,6 +138,9 @@ class matrixReportBuilder
                     }
                     $this->totals[ $key ] = $label;
                 }
+
+
+
                 if(is_numeric($count) && $bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType
                 != "COUNT"){
                     $row[ $key ] = currency_format_number($count);
@@ -98,6 +148,15 @@ class matrixReportBuilder
             }
 
             $data[] = $row;
+        }
+
+        if($this->actionType == "AVG"){
+            $counted = count($data);
+            foreach($this->totals as $key => $line){
+                if(is_numeric($count) && $line != "0" ) {
+                    $this->totals[ $key ] = $line / $counted;
+                }
+            }
         }
 
         foreach($this->totals as $key => $unformated){
@@ -143,12 +202,19 @@ class matrixReportBuilder
                 );
             }
         }else{
-            $field = $this->bean->table_name . "." . $field;
+            if($this->bean->field_defs[ $field ]['source'] == "custom_fields"){
+                $field = array("field" => $this->bean->table_name . "_cstm." . $field,
+                                "join" => "LEFT JOIN {$this->bean->table_name}_cstm ON {$this->bean->table_name}_cstm.id_c = {$this->bean->table_name}.id ",
+                                "cstm" => true
+                );
+            }else{
+                $field = $this->bean->table_name . "." . $field;
+            }
         }
 
         return $field;
     }
-    public function buildQuery($module, $field_x, $field, $string, $join = "" )
+    public function buildQuery($module, $field_x, $field, $string )
     {
         global $locale;
         $sql = '';
@@ -157,21 +223,29 @@ class matrixReportBuilder
             $labels[0] =  $this->getLabel($field_x[0]);
             $field_x[0] = $this->fieldTypeCheck($field_x[0]);
             if(is_array($field_x[0])){
-                $join .= $field_x[0]['join'];
+                if($field_x[0]['cstm'] == true){
+                    $this->join[ 'cstm' ] = $field_x[0]['join'];
+
+                }else{
+                    $this->join[ $field_x[0]['field'] ] = $field_x[0]['join'];
+                }
                 $field_x[0] = $field_x[0]['field'];
             }
-            $sql .= "{$field_x[0]},";
-
+            $sql .= "{$field_x[0]} AS fieldx0,";
         }
 
         if ($field_x[1]) {
             $labels[1] =  $this->getLabel($field_x[1]);
             $field_x[1] = $this->fieldTypeCheck($field_x[1]);
             if(is_array($field_x[1])){
-                $join .= $field_x[1]['join'];
+                if($field_x[1]['cstm'] == true) {
+                    $this->join[ 'cstm' ] = $field_x[1]['join'];
+                }else{
+                    $this->join[ $field_x[1]['field'] ] = $field_x[1]['join'];
+                }
                 $field_x[1] = $field_x[1]['field'];
             }
-            $sql .= "{$field_x[1]},";
+            $sql .= "{$field_x[1]} AS fieldx1,";
 
         }
 
@@ -179,25 +253,29 @@ class matrixReportBuilder
             $labels[2] =  $this->getLabel($field_x[2]);
             $field_x[2] = $this->fieldTypeCheck($field_x[2]);
             if(is_array($field_x[2])){
-                $join .= $field_x[2]['join'];
+                if($field_x[2]['cstm'] == true) {
+                    $this->join[ 'cstm' ] = $field_x[2]['join'];
+                }else{
+                    $this->join[$field_x[2]['field']] = $field_x[2]['join'];
+                }
                 $field_x[2] = $field_x[2]['field'];
             }
-            $sql .= "{$field_x[2]},";
+            $sql .= "{$field_x[2]} AS fieldx2,";
         }
 
         $this->headers =  $labels + $this->headers;
 
 
         $sql .= "      {$string}";
-        if($this->bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType != "COUNT"){
+        if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
             $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');
-            $sql .= "      TRUNCATE(SUM({$field}), {$decimal})  AS TOTAL ";
+            $sql .= "      TRUNCATE( {$this->actionType}({$field}), {$decimal})  AS TOTAL ";
         }else{
-            $sql .= "      COUNT({$field})  AS TOTAL ";
+            $sql .= "      {$this->actionType}({$field})  AS TOTAL ";
         }
         $this->headers[] = "Total";
         $sql .= "FROM   {$module} ";
-        $sql .= $join;
+        $sql .= implode(" ", $this->join);
         $sql .= "WHERE  {$this->bean->table_name}.deleted = 0 ";
 
         if ($field_x[0]) {
@@ -315,10 +393,15 @@ class matrixReportBuilder
     public function fetchLabelsFromDB($field, $module)
     {
         global $db;
-        $subSql = "SELECT distinct {$field} FROM " . $module . " WHERE deleted = 0";
+        $field = $this->fieldTypeCheck($field);
+        if(is_array($field)){
+            $join = $field['join'];
+            $field = $field['field'];
+        }
+        $subSql = "SELECT distinct {$field} as result_field FROM " . $module . " {$join} WHERE {$module}.deleted = 0";
         $results = $db->query($subSql);
         foreach ($results as $item) {
-            $selects[] = $db->quote($item[$field]);
+            $selects[] = $db->quote($item['result_field']);
         }
 
         return $selects;
@@ -359,6 +442,18 @@ class matrixReportBuilder
             $this->headers[ $key1 ] = $this->getLabel($field1 , $key1);
         }
         $select = "";
+
+        $field1 = $this->fieldTypeCheck($field1);
+        if(is_array($field1)){
+            if($field1['cstm'] == true){
+                $this->join[ 'cstm' ] = $field1['join'];
+            }else{
+                $this->join[ $field1['field'] ] = $field1['join'];
+            }
+            $field1 = $field1['field'];
+        }
+
+
         if($this->bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType != "COUNT"){
             $select = "ROUND( ";
         }
@@ -371,12 +466,33 @@ class matrixReportBuilder
             $select .= "OR {$field1} is null ";
         }
         if ($field2 != null) {
+            $field2 = $this->fieldTypeCheck($field2);
+            if(is_array($field2)){
+                if($field2['cstm'] == true){
+                    $this->join[ 'cstm' ] = $field2['join'];
+                }else{
+                    $this->join[ $field2['field'] ] = $field2['join'];
+                }
+                $field2 = $field2['field'];
+            }
+
             $select .= " AND {$field2} = '{$key2}' ";
             if($key2 == ""){
                 $select .= "OR {$field2} is null ";
             }
         }
         if ($field3 != null) {
+
+            $field3 = $this->fieldTypeCheck($field3);
+            if(is_array($field3)){
+                if($field3['cstm'] == true){
+                    $this->join[ 'cstm' ] = $field3['join'];
+                }else{
+                    $this->join[ $field3['field'] ] = $field3['join'];
+                }
+                $field3 = $field3['field'];
+            }
+
             $select .= " AND {$field3} = '{$key3}'";
             if($key3 == ""){
                 $select .= "OR {$field3} is null ";
