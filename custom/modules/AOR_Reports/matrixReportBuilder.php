@@ -141,8 +141,10 @@ class matrixReportBuilder
 
 
 
-                if(is_numeric($count) && $bean->field_defs[ $this->field ]['type'] == "currency" && $this->actionType
-                != "COUNT"){
+
+
+                if(is_numeric($count) && $bean->field_defs[ $this->field ]['type'] == "currency" &&
+                   $this->actionType != "COUNT" && !in_array($key, array("fieldx1", "fieldx2", "fieldx3"))){
                     $row[ $key ] = currency_format_number($count);
                 }
             }
@@ -164,6 +166,14 @@ class matrixReportBuilder
                 $this->actionType != "COUNT"){
                 $this->totals[$key] = currency_format_number($unformated);
             }
+
+            if(isset($this->totals["fieldx1"]) ) {
+                $this->totals[ "fieldx1" ] = "";
+            }
+            if(isset($this->totals["fieldx2"]) ) {
+                $this->totals["fieldx2"] = "";
+            }
+
         }
         return $data;
 
