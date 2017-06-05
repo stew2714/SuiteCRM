@@ -1,5 +1,11 @@
 <?php
  // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['custom_fields']=true;
+
+
+
+
+
 $dictionary['AOS_Contracts']['fields']['activate_c']['name']='activate_c';
 $dictionary['AOS_Contracts']['fields']['activate_c']['default_value']='';
 $dictionary['AOS_Contracts']['fields']['activate_c']['default']='';
