@@ -42,20 +42,24 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'sa_FieldTrackingHistory';
-$listViewDefs[$module_name] = array(
-    'NAME' => array(
-        'width' => '32',
-        'label' => 'LBL_NAME',
-        'default' => true,
-        'link' => true
-    ),
-    'ASSIGNED_USER_NAME' => array(
-        'width' => '9',
-        'label' => 'LBL_ASSIGNED_TO_NAME',
-        'module' => 'Employees',
-        'id' => 'ASSIGNED_USER_ID',
-        'default' => true
-    ),
+require_once('include/Dashlets/DashletGeneric.php');
+require_once('modules/sa_Tracking_History/sa_Tracking_History.php');
 
-);
+class sa_Tracking_HistoryDashlet extends DashletGeneric {
+    function __construct($id, $def = null)
+    {
+        global $current_user, $app_strings;
+        require('modules/sa_Tracking_History/metadata/dashletviewdefs.php');
+
+        parent::__construct($id, $def);
+
+        if (empty($def['title'])) {
+            $this->title = translate('LBL_HOMEPAGE_TITLE', 'sa_Tracking_History');
+        }
+
+        $this->searchFields = $dashletData['sa_Tracking_HistoryDashlet']['searchFields'];
+        $this->columns = $dashletData['sa_Tracking_HistoryDashlet']['columns'];
+
+        $this->seedBean = new sa_Tracking_History();
+    }
+}

@@ -38,25 +38,12 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'sa_FieldTrackingHistory';
-$viewdefs[$module_name]['QuickCreate'] = array(
-    'templateMeta' => array(
-        'maxColumns' => '2',
-        'widths' => array(
-            array('label' => '10', 'field' => '30'),
-            array('label' => '10', 'field' => '30')
-        ),
-    ),
-
-    'panels' => array(
-        'default' => array(
-
-            array(
-                'name',
-                'assigned_user_name',
-            ),
-        ),
-
-    ),
-
+$module_name = 'sa_Tracking_History';
+$metafiles[$module_name] = array(
+    'detailviewdefs' => 'modules/' . $module_name . '/metadata/detailviewdefs.php',
+    'editviewdefs' => 'modules/' . $module_name . '/metadata/editviewdefs.php',
+    'listviewdefs' => 'modules/' . $module_name . '/metadata/listviewdefs.php',
+    'searchdefs' => 'modules/' . $module_name . '/metadata/searchdefs.php',
+    'popupdefs' => 'modules/' . $module_name . '/metadata/popupdefs.php',
+    'searchfields' => 'modules/' . $module_name . '/metadata/SearchFields.php',
 );

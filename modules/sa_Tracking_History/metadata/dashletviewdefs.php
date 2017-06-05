@@ -44,7 +44,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 
 global $current_user;
 
-$dashletData['sa_FieldTrackingHistoryDashlet']['searchFields'] = array(
+$dashletData['sa_Tracking_HistoryDashlet']['searchFields'] = array(
     'date_entered' => array('default' => ''),
     'date_modified' => array('default' => ''),
     'assigned_user_id' => array(
@@ -52,7 +52,7 @@ $dashletData['sa_FieldTrackingHistoryDashlet']['searchFields'] = array(
         'default' => $current_user->name
     )
 );
-$dashletData['sa_FieldTrackingHistoryDashlet']['columns'] = array(
+$dashletData['sa_Tracking_HistoryDashlet']['columns'] = array(
     'name' => array(
         'width' => '40',
         'label' => 'LBL_LIST_NAME',

@@ -40,4 +40,4 @@
 
 
 
-$app_list_strings['moduleList']['sa_FieldTrackingHistory'] = 'Field Tracking History';
+$app_list_strings['moduleList']['sa_Tracking_History'] = 'Field Tracking History';

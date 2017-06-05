@@ -42,11 +42,17 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-global $app_strings;
+$module_name = 'sa_Tracking_History';
+$object_name = 'sa_Tracking_History';
+$_module_name = 'sa_Tracking_History';
+$popupMeta = array(
+    'moduleMain' => $module_name,
+    'varName' => $object_name,
+    'orderBy' => $_module_name . '.name',
+    'whereClauses' => array(
+        'name' => $_module_name . '.name',
+    ),
+    'searchInputs' => array($_module_name . '_number', 'name', 'priority', 'status'),
 
-$dashletMeta['sa_FieldTrackingHistoryDashlet'] = array(
-    'module' => 'sa_FieldTrackingHistory',
-    'title' => translate('LBL_HOMEPAGE_TITLE', 'sa_FieldTrackingHistory'),
-    'description' => 'A customizable view into sa_FieldTrackingHistory',
-    'category' => 'Module Views'
 );
+ 

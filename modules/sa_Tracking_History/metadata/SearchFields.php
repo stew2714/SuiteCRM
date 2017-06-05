@@ -38,40 +38,44 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
-$mod_strings = array (
-  'LBL_ASSIGNED_TO_ID' => 'Ответственный(ая)',
-  'LBL_ASSIGNED_TO_NAME' => 'Ответственный(ая)',
-  'LBL_ID' => 'ID',
-  'LBL_DATE_ENTERED' => 'Дата создания',
-  'LBL_DATE_MODIFIED' => 'Дата изменения',
-  'LBL_MODIFIED' => 'Изменено',
-  'LBL_MODIFIED_ID' => 'Изменено(ID)',
-  'LBL_MODIFIED_NAME' => 'Изменено',
-  'LBL_CREATED' => 'Создано',
-  'LBL_CREATED_ID' => 'Создано(ID)',
-  'LBL_DESCRIPTION' => 'Описание',
-  'LBL_DELETED' => 'Удалено',
-  'LBL_NAME' => 'Название',
-  'LBL_CREATED_USER' => 'Создано',
-  'LBL_MODIFIED_USER' => 'Изменено',
-  'LBL_LIST_NAME' => 'Название',
-  'LBL_EDIT_BUTTON' => 'Править',
-  'LBL_REMOVE' => 'Удалить',
-  'LBL_LIST_FORM_TITLE' => 'Field Tracking History Список',
-  'LBL_MODULE_NAME' => 'Field Tracking History',
-  'LBL_MODULE_TITLE' => 'Field Tracking History',
-  'LBL_HOMEPAGE_TITLE' => 'Мой Field Tracking History',
-  'LNK_NEW_RECORD' => 'Создать Field Tracking History',
-  'LNK_LIST' => 'View Field Tracking History',
-  'LNK_IMPORT_SA_FIELDTRACKINGHISTORY' => 'Import Field Tracking History',
-  'LBL_SEARCH_FORM_TITLE' => 'Поиск Field Tracking History',
-  'LBL_HISTORY_SUBPANEL_TITLE' => 'Просмотр истории',
-  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Мероприятия',
-  'LBL_SA_FIELDTRACKINGHISTORY_SUBPANEL_TITLE' => 'Field Tracking History',
-  'LBL_NEW_FORM_TITLE' => 'Новый Field Tracking History',
-  'LBL_FIELD' => 'Field',
-  'LBL_RELATED_MODULE' => 'Related Module',
-  'LBL_PREVIOUS_VALUE' => 'Previous Value',
-  'LBL_NEW_VALUE' => 'New Value',
+$module_name = 'sa_Tracking_History';
+$searchFields[$module_name] = array(
+    'name' => array('query_type' => 'default'),
+    'current_user_only' => array(
+        'query_type' => 'default',
+        'db_field' => array('assigned_user_id'),
+        'my_items' => true,
+        'vname' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool'
+    ),
+    'assigned_user_id' => array('query_type' => 'default'),
+
+    //Range Search Support
+    'range_date_entered' => array('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),
+    'start_range_date_entered' => array(
+        'query_type' => 'default',
+        'enable_range_search' => true,
+        'is_date_field' => true
+    ),
+    'end_range_date_entered' => array(
+        'query_type' => 'default',
+        'enable_range_search' => true,
+        'is_date_field' => true
+    ),
+    'range_date_modified' => array('query_type' => 'default', 'enable_range_search' => true, 'is_date_field' => true),
+    'start_range_date_modified' => array(
+        'query_type' => 'default',
+        'enable_range_search' => true,
+        'is_date_field' => true
+    ),
+    'end_range_date_modified' => array(
+        'query_type' => 'default',
+        'enable_range_search' => true,
+        'is_date_field' => true
+    ),
+    //Range Search Support
 );

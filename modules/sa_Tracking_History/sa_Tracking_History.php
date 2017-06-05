@@ -39,12 +39,12 @@
  */
 
 
-class sa_FieldTrackingHistory extends Basic
+class sa_Tracking_History extends Basic
 {
     public $new_schema = true;
-    public $module_dir = 'sa_FieldTrackingHistory';
-    public $object_name = 'sa_FieldTrackingHistory';
-    public $table_name = 'sa_fieldtrackinghistory';
+    public $module_dir = 'sa_Tracking_History';
+    public $object_name = 'sa_Tracking_History';
+    public $table_name = 'sa_tracking_history';
     public $importable = false;
 
     public $id;
@@ -64,7 +64,7 @@ class sa_FieldTrackingHistory extends Basic
     public $assigned_user_link;
     public $SecurityGroups;
     public $field;
-    public $related_module;
+    public $parent_type;
     public $previous_value;
     public $new_value;
 	
@@ -78,5 +78,42 @@ class sa_FieldTrackingHistory extends Basic
 
         return false;
     }
-	
+
+    public function recordFields($bean, $arguments, $event){
+        global $current_user, $timedate;
+        if($bean->is_AuditEnabled() & $bean->module_name != "sa_Tracking_History"){
+            $fields = $bean->getAuditEnabledFieldDefinitions();
+            foreach($fields as $field){
+                $name = $field['name'];
+                if($bean->{$name} != $bean->fetched_row[ $name ]){
+                    $this->createTrackingHistory(
+                        $bean->fetched_row[$name],
+                        $bean->{$name},
+                        $name,
+                        $timedate->now(),
+                        $current_user->id,
+                        $bean->module_name,
+                        $bean->id
+                    );
+                }
+            }
+        }
+    }
+
+    public function createTrackingHistory($previousValue, $newValue, $field, $date, $user, $module, $id)
+    {
+        $bean = BeanFactory::getBean("sa_Tracking_History");
+
+        $bean->name = $field;
+        $bean->field = $field;
+        $bean->previous_value = $previousValue;
+        $bean->new_value = $newValue;
+        $bean->parent_type = $module;
+        $bean->parent_id = $id;
+        $bean->date_entered = $date;
+        $bean->update_date_entered = true;
+        $bean->created_by = $user;
+        $bean->assigned_user_id = $user;
+        $bean->save();
+    }
 }
