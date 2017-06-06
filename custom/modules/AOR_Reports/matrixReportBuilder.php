@@ -277,11 +277,16 @@ class matrixReportBuilder
 
 
         $sql .= "      {$string}";
+        if($this->bean->field_defs[ $this->field ]['source'] == "custom_fields"){
+            $tmp = $module . "_cstm";
+        }else{
+            $tmp = $module;
+        }
         if($this->bean->field_defs[ $this->field ]['type'] == "currency"){
             $decimal = $locale->getPrecedentPreference('default_currency_significant_digits');
-            $sql .= "      TRUNCATE( {$this->actionType}({$field}), {$decimal})  AS TOTAL ";
+            $sql .= "      TRUNCATE( {$this->actionType}({$tmp}.{$field}), {$decimal})  AS TOTAL ";
         }else{
-            $sql .= "      {$this->actionType}({$field})  AS TOTAL ";
+            $sql .= "      {$this->actionType}({$tmp}.{$field})  AS TOTAL ";
         }
         $this->headers[] = "Total";
         $sql .= "FROM   {$module} ";
