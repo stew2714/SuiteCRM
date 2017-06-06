@@ -10,4 +10,6 @@ $mod_strings = array (
   'LBL_SNAPSHOT_DATE' => 'Snapshot Date',
   'LBL_MATRIX_REPORT' => 'Maxtrix Report',
   'LBL_ACTION_FIELD_TEXT' => 'Action',
+  'LNK_NEW_MATRIX_RECORD' => 'New Matrix Report',
+  'LNK__MATRIX_LIST' => 'View Matrix Reports',
 );

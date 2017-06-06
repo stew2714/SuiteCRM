@@ -76,6 +76,9 @@ class AOR_ReportsViewMatrixReport extends SugarView
         parent::display();
         $module = $_POST['reportModule'];
         $this->ss->assign('actionFieldText', $mod_strings['LBL_ACTION_FIELD_TEXT']);
+        $actionType = array("SUM"=>"Sum", "COUNT" => "Count", "MIN" => "Minimum", "MAX" =>  "Maximum", "AVG" => "Average");
+        $this->ss->assign('actionTypeField', get_select_options_with_id($actionType,
+                                                                        $_POST['actionTypeField']));
         $this->ss->assign('moduleList', get_select_options_with_id($this->filterResults($app_list_strings['aor_moduleList']),
                                                                    $module));
 
@@ -106,9 +109,9 @@ class AOR_ReportsViewMatrixReport extends SugarView
             );
 
             $field = $_POST['actionField'];
-
+            $actionType = $_POST['actionTypeField'];
             if(!empty($field) && !empty($_POST['fieldx1']) && !empty($_POST['fieldy1']) ){
-                $results = $matrix->buildReport($module, $fields_x, $fields_y, $field);
+                $results = $matrix->buildReport($module, $fields_x, $fields_y, $field, $actionType);
             }
         }
 
@@ -136,7 +139,7 @@ class AOR_ReportsViewMatrixReport extends SugarView
             $this->ss->assign('level1Break', $total);
         }
         $currency = "";
-        if($matrix->bean->field_defs[ $matrix->field ]['type'] == "currency"){
+        if($matrix->bean->field_defs[ $matrix->field ]['type'] == "currency" && $matrix->actionType != "COUNT"){
             global $locale, $current_user;
 
             $currency = $locale->getCurrencySymbol( $current_user );
