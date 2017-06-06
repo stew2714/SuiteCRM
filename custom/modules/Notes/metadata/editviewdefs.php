@@ -85,6 +85,10 @@ function deleteAttachmentCallBack(text)
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
           ),
+          1 => 
+          array (
+            'name' => 'sa_legal_timesheets_notes_1_name',
+          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
