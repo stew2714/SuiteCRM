@@ -18,7 +18,5 @@ $mod_strings = array (
   'LBL_BILLING_ADDRESS_STREET' => 'Street',
   'LBL_BILLING_ADDRESS_STATE' => 'State',
   'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
-// created: 2017-05-23 10:55:41
-$mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Eloqua Fields',
 );
