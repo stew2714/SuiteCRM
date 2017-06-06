@@ -99,7 +99,7 @@ $dictionary['SA_Legal_Timesheets'] = array(
         ),
         'additional_notes' => array(
             'name' => 'additional_notes',
-            'vname' => 'LBL_NOTES',
+            'vname' => 'LBL_ADDITIONAL_NOTES',
             'type' => 'text',
             'comment' => '',
             'rows' => 6,
