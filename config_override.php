@@ -25,4 +25,5 @@ $sugar_config['verify_client_ip'] = false;
 $sugar_config['aod']['enable_aod'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['addAjaxBannedModules'][1] = 'Accounts';
+$sugar_config['comm_ops_group'] = '9d8e99e1-3f4f-a849-1200-5936c3de3e2f';
 /***CONFIGURATOR***/
