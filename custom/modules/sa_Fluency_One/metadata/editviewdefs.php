@@ -51,6 +51,14 @@ array (
             'label' => 'LBL_SA_FLUENCY_ONE_REQUESTER_USER_ID',
           ),
         ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'request_submit_date_c',
+            'label' => 'LBL_REQUEST_SUBMIT_DATE_C',
+          ),
+        ),
       ),
     ),
   ),
