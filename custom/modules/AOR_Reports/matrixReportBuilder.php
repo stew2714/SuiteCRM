@@ -594,6 +594,9 @@ class matrixReportBuilder
             if( empty($label) ){
                 $label = $field['name'];
             }
+            if(($module == "Leads" || $module == "Contacts") && ($field['name'] == "full_name" || $field['name'] == "name" ) ){
+               continue;
+            }
             $defs[$field['name']] = $label;
         }
 
