@@ -38,60 +38,12 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'sa_Fluency_One';
-$viewdefs[$module_name]['DetailView'] = array(
-    'templateMeta' => array(
-        'form' => array(
-            'buttons' => array(
-                'EDIT',
-                'DUPLICATE',
-                'DELETE',
-                'FIND_DUPLICATES',
-                array(
-                    'customCode' => '<input type="button" class="button" id="accept_button" value="{$MOD.LBL_ACCEPT}">',
-                ),
-                array(
-                    'customCode' => '<input type="button" class="button" id="return_to_requester" value="{$MOD.LBL_RETURN_TO_REQUESTER}">',
-                ),
-            ),
-            'footerTpl' => 'modules/sa_Fluency_One/tpls/modal.tpl',
-        ),
-        'maxColumns' => '2',
-        'includes' =>
-            array (
-                0 =>
-                    array (
-                        'file' => 'modules/sa_Fluency_One/js/DetailView.js',
-                    ),
-            ),
-        'widths' => array(
-            array('label' => '10', 'field' => '30'),
-            array('label' => '10', 'field' => '30')
-        ),
-    ),
-
-    'panels' => array(
-
-        array(
-            'name',
-            'assigned_user_name',
-        ),
-
-        array(
-            array(
-                'name' => 'date_entered',
-                'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-                'label' => 'LBL_DATE_ENTERED',
-            ),
-            array(
-                'name' => 'date_modified',
-                'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-                'label' => 'LBL_DATE_MODIFIED',
-            ),
-        ),
-
-        array(
-            'description',
-        ),
-    )
-);
+class RequesterManagement
+{
+    public function SetRequester($bean, $args, $events)
+    {
+        global $current_user;
+        $bean->requester_user_id = $current_user->id;
+        $bean->save();
+    }
+}
