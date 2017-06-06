@@ -47,14 +47,24 @@ array (
             'comment' => '',
             'label' => 'LBL_CATEGORY',
           ),
-          1 => 
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'date_timesheet',
             'comment' => '',
             'label' => 'LBL_DATE_TIMESHEET',
           ),
+          1 => '',
         ),
-        2 => 
+        3 => 
+        array (
+          0 => 'description',
+          1 => '',
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -65,12 +75,7 @@ array (
           array (
             'name' => 'additional_notes',
             'comment' => '',
-            'label' => 'LBL_NOTES',
           ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
         ),
       ),
     ),
