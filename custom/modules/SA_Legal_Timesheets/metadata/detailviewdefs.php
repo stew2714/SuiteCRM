@@ -93,7 +93,6 @@ array (
           array (
             'name' => 'additional_notes',
             'comment' => '',
-            'label' => 'LBL_NOTES',
           ),
           1 => '',
         ),

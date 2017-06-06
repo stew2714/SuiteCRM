@@ -72,4 +72,5 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_LEGAL_TIMESHEETS_SUBPANEL_TITLE' => 'Legal Timesheets',
   'LBL_NEW_FORM_TITLE' => 'New Legal Timesheets',
+  'LBL_ADDITIONAL_NOTES' => 'Additional Notes',
 );
