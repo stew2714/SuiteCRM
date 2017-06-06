@@ -26,7 +26,6 @@ $sugar_config['verify_client_ip'] = false;
 $sugar_config['aod']['enable_aod'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['addAjaxBannedModules'][1] = 'Accounts';
-$sugar_config['comm_ops_group'] = '9d8e99e1-3f4f-a849-1200-5936c3de3e2f';
 $sugar_config['eloqua_company'] = 'MModalIncSandbox';
 $sugar_config['eloqua_username'] = 'Kieran.Monaghan';
 $sugar_config['eloqua_password'] = 'SalesAgility01';
@@ -34,4 +33,6 @@ $sugar_config['default_module_favicon'] = false;
 $sugar_config['dashlet_auto_refresh_min'] = '30';
 $sugar_config['stack_trace_errors'] = false;
 $sugar_config['developerMode'] = true;
+$sugar_config['commsop_group'] = '9d8e99e1-3f4f-a849-1200-5936c3de3e2f';
+$sugar_config['sales_group'] = 'ce0b4da2-dbfa-a4d3-3d4f-5936d499f0df';
 /***CONFIGURATOR***/
