@@ -110,7 +110,7 @@ class matrixReportBuilder
         $string = implode("\n", $selects);
 
         $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
-        //echo "<pre>{$sql}</pre>";
+        echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
@@ -373,7 +373,15 @@ class matrixReportBuilder
                     }else {
                         //$selects[] = $this->buildCaseStatement($field_y[0], '',  $field_y[1], '');
                         foreach ($results as $item) {
-                            $results2 = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                            $results2 = false;
+                            if ($bean->field_defs[$field_y[2]]['type'] == "enum") {
+                                foreach ($app_list_strings[$bean->field_defs[$field_y[2]]['options']] as $key2 =>
+                                         $level2option) {
+                                    $results2[] = $key2;
+                                }
+                            }else{
+                                $results2 = $this->fetchLabelsFromDB($field_y[2], $bean->table_name);
+                            }
                             if ($results2 == false) {
                                 $selects[] = $this->buildCaseStatement($field_y[0], $key, $field_y[1], $item);
                             } else {
