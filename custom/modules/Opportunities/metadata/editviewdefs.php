@@ -19,7 +19,7 @@ array (
           'field' => '30',
         ),
       ),
-      'javascript' => '{$PROBABILITY_SCRIPT}',
+      'javascript' => '{$PROBABILITY_SCRIPT} {$LOCK_FILES}',
     ),
     'panels' => 
     array (
