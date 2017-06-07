@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['payment_terms_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['payment_terms_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['payment_terms_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['payment_terms_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['payment_terms_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['payment_terms_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['vname']='LBL_PAYMENT_TERMS_C';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['source']='custom_fields';
 

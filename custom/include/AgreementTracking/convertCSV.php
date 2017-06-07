@@ -105,7 +105,7 @@ class convertCSV
 
         for ($i = 0; $i < count($type_array); $i++) {
             if ($i == 0) {
-                $type_array[0] = $this->convertTypeName($type_array[0]);
+                $type_array[0] = $this->convertTypeName($type_array[0],$type_array[1]);
             }
 
             $type_array[$i] = preg_replace('/[^A-Za-z0-9\-]/', '', $type_array[$i]);
@@ -116,12 +116,14 @@ class convertCSV
         return $type_array;
     }
 
-    public function convertTypeName($type)
+    public function convertTypeName($type,$length)
     {
         if ($type == "numeric") {
             $type = "int";
         } elseif ($type == "real") {
             $type = "float";
+        } elseif ($type == "varchar" && $length >= 255) {
+            $type = "text";
         }
 
         return $type;

@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['default']=''
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['vname']='LBL_EXTENDED_ADT_RETENTION_C';
 $dictionary['AOS_Contracts']['fields']['extended_adt_retention_c']['source']='custom_fields';
 

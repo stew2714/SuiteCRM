@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c'][
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c'][
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['vname']='LBL_CODING_IMPLEMENTATION_TRAINING_FEES_C';
 $dictionary['AOS_Contracts']['fields']['coding_implementation_training_fees_c']['source']='custom_fields';
 

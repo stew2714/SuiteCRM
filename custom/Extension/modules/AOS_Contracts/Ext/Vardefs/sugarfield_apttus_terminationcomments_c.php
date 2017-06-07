@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['default'
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['len']='1024';
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['ext3']='
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['vname']='LBL_APTTUS_TERMINATIONCOMMENTS_C';
 $dictionary['AOS_Contracts']['fields']['apttus_terminationcomments_c']['source']='custom_fields';
 

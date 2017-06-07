@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['vname']='LBL_SOFTWARE_PRICING_DISCOUNT_PICKLIST_C';
 $dictionary['AOS_Contracts']['fields']['software_pricing_discount_picklist_c']['source']='custom_fields';
 

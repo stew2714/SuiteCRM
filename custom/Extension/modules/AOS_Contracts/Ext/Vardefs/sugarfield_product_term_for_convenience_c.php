@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['defaul
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['ext3']
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['vname']='LBL_PRODUCT_TERM_FOR_CONVENIENCE_C';
 $dictionary['AOS_Contracts']['fields']['product_term_for_convenience_c']['source']='custom_fields';
 

@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['gpo_idn_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['gpo_idn_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['gpo_idn_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['gpo_idn_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['vname']='LBL_GPO_IDN_C';
 $dictionary['AOS_Contracts']['fields']['gpo_idn_c']['source']='custom_fields';
 

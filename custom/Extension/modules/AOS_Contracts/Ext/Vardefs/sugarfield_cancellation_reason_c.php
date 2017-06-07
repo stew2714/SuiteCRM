@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['vname']='LBL_CANCELLATION_REASON_C';
 $dictionary['AOS_Contracts']['fields']['cancellation_reason_c']['source']='custom_fields';
 

@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['progress_bar_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['len']='1300';
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['progress_bar_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['progress_bar_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['progress_bar_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['progress_bar_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['progress_bar_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['vname']='LBL_PROGRESS_BAR_C';
 $dictionary['AOS_Contracts']['fields']['progress_bar_c']['source']='custom_fields';
 

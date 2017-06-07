@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['defau
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['ext3'
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['vname']='LBL_HOSTING_TERM_NOTICE_PERIOD_DD_C';
 $dictionary['AOS_Contracts']['fields']['hosting_term_notice_period_dd_c']['source']='custom_fields';
 

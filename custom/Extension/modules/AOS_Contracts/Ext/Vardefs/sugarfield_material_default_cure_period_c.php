@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['defaul
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['ext3']
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['vname']='LBL_MATERIAL_DEFAULT_CURE_PERIOD_C';
 $dictionary['AOS_Contracts']['fields']['material_default_cure_period_c']['source']='custom_fields';
 

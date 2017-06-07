@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['shipping_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['shipping_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['shipping_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['shipping_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['shipping_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['shipping_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['shipping_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['shipping_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['shipping_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['shipping_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['shipping_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['shipping_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['shipping_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['shipping_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['shipping_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['shipping_c']['vname']='LBL_SHIPPING_C';
 $dictionary['AOS_Contracts']['fields']['shipping_c']['source']='custom_fields';
 

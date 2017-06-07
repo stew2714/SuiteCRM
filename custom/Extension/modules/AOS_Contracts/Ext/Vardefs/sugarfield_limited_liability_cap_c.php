@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['vname']='LBL_LIMITED_LIABILITY_CAP_C';
 $dictionary['AOS_Contracts']['fields']['limited_liability_cap_c']['source']='custom_fields';
 

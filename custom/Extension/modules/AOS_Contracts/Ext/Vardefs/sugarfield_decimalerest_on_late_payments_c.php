@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['defau
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['ext3'
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['vname']='LBL_DECIMALEREST_ON_LATE_PAYMENTS_C';
 $dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['source']='custom_fields';
 

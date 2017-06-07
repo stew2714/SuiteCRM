@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['defa
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['ext3
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['vname']='LBL_MAINTENANCE_AND_SUPPORT_YEAR_1_C';
 $dictionary['AOS_Contracts']['fields']['maintenance_and_support_year_1_c']['source']='custom_fields';
 

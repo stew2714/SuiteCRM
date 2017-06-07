@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['default']=''
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['vname']='LBL_CODING_PRICE_BOOK_RATE_C';
 $dictionary['AOS_Contracts']['fields']['coding_price_book_rate_c']['source']='custom_fields';
 

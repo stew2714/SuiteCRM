@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signat
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['len']='1300';
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signat
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['vname']='LBL_APTTUS_FF_SEND_TO_OTHER_PARTY_FOR_SIGNATURES_C';
 $dictionary['AOS_Contracts']['fields']['apttus_ff_send_to_other_party_for_signatures_c']['source']='custom_fields';
 

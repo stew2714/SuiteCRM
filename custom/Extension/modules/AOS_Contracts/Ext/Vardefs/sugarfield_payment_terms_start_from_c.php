@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['default']=
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['vname']='LBL_PAYMENT_TERMS_START_FROM_C';
 $dictionary['AOS_Contracts']['fields']['payment_terms_start_from_c']['source']='custom_fields';
 

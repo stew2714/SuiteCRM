@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['legal_entity_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['legal_entity_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['legal_entity_c']['type']='text';
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['AOS_Contracts']['fields']['legal_entity_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['legal_entity_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['legal_entity_c']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['vname']='LBL_LEGAL_ENTITY_C';
 $dictionary['AOS_Contracts']['fields']['legal_entity_c']['source']='custom_fields';
 
