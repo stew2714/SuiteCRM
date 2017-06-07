@@ -84,5 +84,7 @@ $mod_strings = array (
   'LBL_FIELDY3' => "Left 3",
   'LBL_REPORT' => "Report",
   'LBL_UPDATE' => "Update",
+  'LNK_NEW_AOR_REPORT_RECORD' => "Create Report",
+  'LNK_AOR_REPORTS_LIST' => "View Reports",
 
 );
