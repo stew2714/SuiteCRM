@@ -58,7 +58,7 @@ class customOpportunitiesViewEdit extends OpportunitiesViewEdit
 
  	    //if the user is not a admin and the groups exist in the array above include the script which stops the user
         // for editing.
- 	    if( is_admin($current_user) && key_exists($sugar_config['SalesGroup'], $groups) && !key_exists
+ 	    if( !is_admin($current_user) && key_exists($sugar_config['SalesGroup'], $groups) && !key_exists
             ($sugar_config['CommOps'], $groups) ) {
             $lockScript = '<script type="text/javascript" src="custom/modules/Opportunities/js/EditView.js"></script>';
         }
