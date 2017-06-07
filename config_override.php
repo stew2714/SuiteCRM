@@ -25,4 +25,8 @@ $sugar_config['verify_client_ip'] = false;
 $sugar_config['aod']['enable_aod'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['addAjaxBannedModules'][1] = 'Accounts';
+// MMODAL Eloqua Config
+$sugar_config['eloqua_company'] = 'MModalIncSandbox';
+$sugar_config['eloqua_username'] = 'Kieran.Monaghan';
+$sugar_config['eloqua_password'] = 'SalesAgility01';
 /***CONFIGURATOR***/
