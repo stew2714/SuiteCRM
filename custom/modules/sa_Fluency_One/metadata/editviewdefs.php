@@ -58,6 +58,10 @@ array (
             'name' => 'request_submit_date_c',
             'label' => 'LBL_REQUEST_SUBMIT_DATE_C',
           ),
+          1 => 
+          array (
+            'name' => 'accounts_sa_fluency_one_1_name',
+          ),
         ),
       ),
     ),

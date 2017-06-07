@@ -1,13 +1,13 @@
 <?php
- // created: 2017-06-05 10:23:52
-$layout_defs["sa_Fluency_One"]["subpanel_setup"]['sa_fluency_one_accounts'] = array (
+ // created: 2017-06-07 08:50:56
+$layout_defs["Accounts"]["subpanel_setup"]['accounts_sa_fluency_one_1'] = array (
   'order' => 100,
-  'module' => 'Accounts',
+  'module' => 'sa_Fluency_One',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',
   'sort_by' => 'id',
-  'title_key' => 'LBL_SA_FLUENCY_ONE_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-  'get_subpanel_data' => 'sa_fluency_one_accounts',
+  'title_key' => 'LBL_ACCOUNTS_SA_FLUENCY_ONE_1_FROM_SA_FLUENCY_ONE_TITLE',
+  'get_subpanel_data' => 'accounts_sa_fluency_one_1',
   'top_buttons' => 
   array (
     0 => 

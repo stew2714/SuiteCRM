@@ -33,6 +33,6 @@ $sugar_config['default_module_favicon'] = false;
 $sugar_config['dashlet_auto_refresh_min'] = '30';
 $sugar_config['stack_trace_errors'] = false;
 $sugar_config['developerMode'] = true;
-$sugar_config['commsop_group'] = '9d8e99e1-3f4f-a849-1200-5936c3de3e2f';
-$sugar_config['sales_group'] = 'ce0b4da2-dbfa-a4d3-3d4f-5936d499f0df';
+$sugar_config['CommOps'] = '9d8e99e1-3f4f-a849-1200-5936c3de3e2f';
+$sugar_config['Sales'] = 'ce0b4da2-dbfa-a4d3-3d4f-5936d499f0df';
 /***CONFIGURATOR***/
