@@ -1,8 +1,3 @@
-/**
- * Created by ian on 05/06/17.
- */
-
-
 $("#accept_button").click(function(){
     var url = "index.php?module=sa_Fluency_One&action=accept";
     var data = {record:$('[name=record]').val()};

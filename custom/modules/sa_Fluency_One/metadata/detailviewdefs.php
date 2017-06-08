@@ -20,8 +20,12 @@ array (
           ),
           5 => 
           array (
-            'customCode' => '<input type="button" class="button" id="return_to_requester" value="{$MOD.LBL_RETURN_TO_REQUESTER}">',
+            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="return_to_requester" value="{$MOD.LBL_RETURN_TO_REQUESTER}"{/if}>',
           ),
+          6 =>
+          array (
+              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="assign_to_comms_op" value="{$MOD.LBL_REQUEST_FLUENCYONE_PRICING}"{/if}>',
+          )
         ),
         'footerTpl' => 'modules/sa_Fluency_One/tpls/modal.tpl',
       ),
