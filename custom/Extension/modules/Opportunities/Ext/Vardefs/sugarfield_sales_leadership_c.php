@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['sales_leadership_c']['name']='sales_leadership_c';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['default_value']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['default']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['display_default']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['len']='255';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['required']=false;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['type']='text';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['audited']=0;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['options']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['help']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['comments']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['importable']='true';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['ext2']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['ext4']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['ext3']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['sales_leadership_c']['vname']='LBL_SALES_LEADERSHIP_C';
+$dictionary['Opportunity']['fields']['sales_leadership_c']['source']='custom_fields';
+
+ ?>

@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['name']='proposal_or_above_c';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['default_value']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['default']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['display_default']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['len']='255';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['required']=false;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['type']='bool';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['audited']=0;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['options']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['help']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['comments']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['importable']='true';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['ext2']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['ext4']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['ext3']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['vname']='LBL_PROPOSAL_OR_ABOVE_C';
+$dictionary['Opportunity']['fields']['proposal_or_above_c']['source']='custom_fields';
+
+ ?>

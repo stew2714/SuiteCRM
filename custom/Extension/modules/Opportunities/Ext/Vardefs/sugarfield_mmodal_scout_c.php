@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['name']='mmodal_scout_c';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['default_value']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['default']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['display_default']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['len']='255';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['required']=false;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['type']='bool';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['audited']=0;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['options']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['help']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['comments']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['importable']='true';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['ext2']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['ext4']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['ext3']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['vname']='LBL_MMODAL_SCOUT_C';
+$dictionary['Opportunity']['fields']['mmodal_scout_c']['source']='custom_fields';
+
+ ?>

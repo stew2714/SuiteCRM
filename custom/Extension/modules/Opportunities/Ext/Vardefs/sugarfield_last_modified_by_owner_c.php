@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['name']='last_modified_by_owner_c';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['default_value']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['default']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['display_default']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['len']='255';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['required']=false;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['type']='timestamp';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['audited']=0;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['options']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['help']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['comments']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['importable']='true';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['ext2']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['ext4']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['ext3']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['vname']='LBL_LAST_MODIFIED_BY_OWNER_C';
+$dictionary['Opportunity']['fields']['last_modified_by_owner_c']['source']='custom_fields';
+
+ ?>

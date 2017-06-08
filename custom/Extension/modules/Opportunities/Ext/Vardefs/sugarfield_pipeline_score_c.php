@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['pipeline_score_c']['name']='pipeline_score_c';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['default_value']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['default']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['display_default']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['len']='255';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['required']=false;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['type']='real';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['audited']=0;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['options']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['help']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['comments']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['importable']='true';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['ext2']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['ext4']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['ext3']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['pipeline_score_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['vname']='LBL_PIPELINE_SCORE_C';
+$dictionary['Opportunity']['fields']['pipeline_score_c']['source']='custom_fields';
+
+ ?>

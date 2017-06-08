@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['name']='number_of_ftes_c';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['default_value']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['default']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['display_default']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['len']='255';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['required']=false;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['type']='real';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['audited']=0;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['options']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['help']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['comments']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['importable']='true';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['ext2']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['ext4']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['ext3']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['vname']='LBL_NUMBER_OF_FTES_C';
+$dictionary['Opportunity']['fields']['number_of_ftes_c']['source']='custom_fields';
+
+ ?>
