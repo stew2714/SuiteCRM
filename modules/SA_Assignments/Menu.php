@@ -48,5 +48,5 @@ if(ACLController::checkAccess('SA_Assignments', 'edit', true)){
     $module_menu[]=array('index.php?module=SA_Assignments&action=EditView&return_module=SA_Assignments&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'SA_Assignments');
 }
 if(ACLController::checkAccess('SA_Assignments', 'list', true)){
-    $module_menu[]=array('index.php?module=SA_Assignments&action=index&return_module=SA_Assignments&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'SA_Assignments');
+    $module_menu[]=array('index.php?module=SA_Assignments&action=index&return_module=SA_Assignments&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'SA_Assignments');
 }
