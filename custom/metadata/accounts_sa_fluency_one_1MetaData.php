@@ -1,24 +1,25 @@
 <?php
-// created: 2017-06-05 10:23:52
-$dictionary["sa_fluency_one_accounts"] = array (
+// created: 2017-06-08 10:36:22
+$dictionary["accounts_sa_fluency_one_1"] = array (
   'true_relationship_type' => 'one-to-many',
+  'from_studio' => true,
   'relationships' => 
   array (
-    'sa_fluency_one_accounts' => 
+    'accounts_sa_fluency_one_1' => 
     array (
-      'lhs_module' => 'sa_Fluency_One',
-      'lhs_table' => 'sa_fluency_one',
+      'lhs_module' => 'Accounts',
+      'lhs_table' => 'accounts',
       'lhs_key' => 'id',
-      'rhs_module' => 'Accounts',
-      'rhs_table' => 'accounts',
+      'rhs_module' => 'sa_Fluency_One',
+      'rhs_table' => 'sa_fluency_one',
       'rhs_key' => 'id',
       'relationship_type' => 'many-to-many',
-      'join_table' => 'sa_fluency_one_accounts_c',
-      'join_key_lhs' => 'sa_fluency_one_accountssa_fluency_one_ida',
-      'join_key_rhs' => 'sa_fluency_one_accountsaccounts_idb',
+      'join_table' => 'accounts_sa_fluency_one_1_c',
+      'join_key_lhs' => 'accounts_sa_fluency_one_1accounts_ida',
+      'join_key_rhs' => 'accounts_sa_fluency_one_1sa_fluency_one_idb',
     ),
   ),
-  'table' => 'sa_fluency_one_accounts_c',
+  'table' => 'accounts_sa_fluency_one_1_c',
   'fields' => 
   array (
     0 => 
@@ -42,13 +43,13 @@ $dictionary["sa_fluency_one_accounts"] = array (
     ),
     3 => 
     array (
-      'name' => 'sa_fluency_one_accountssa_fluency_one_ida',
+      'name' => 'accounts_sa_fluency_one_1accounts_ida',
       'type' => 'varchar',
       'len' => 36,
     ),
     4 => 
     array (
-      'name' => 'sa_fluency_one_accountsaccounts_idb',
+      'name' => 'accounts_sa_fluency_one_1sa_fluency_one_idb',
       'type' => 'varchar',
       'len' => 36,
     ),
@@ -57,7 +58,7 @@ $dictionary["sa_fluency_one_accounts"] = array (
   array (
     0 => 
     array (
-      'name' => 'sa_fluency_one_accountsspk',
+      'name' => 'accounts_sa_fluency_one_1spk',
       'type' => 'primary',
       'fields' => 
       array (
@@ -66,20 +67,20 @@ $dictionary["sa_fluency_one_accounts"] = array (
     ),
     1 => 
     array (
-      'name' => 'sa_fluency_one_accounts_ida1',
+      'name' => 'accounts_sa_fluency_one_1_ida1',
       'type' => 'index',
       'fields' => 
       array (
-        0 => 'sa_fluency_one_accountssa_fluency_one_ida',
+        0 => 'accounts_sa_fluency_one_1accounts_ida',
       ),
     ),
     2 => 
     array (
-      'name' => 'sa_fluency_one_accounts_alt',
+      'name' => 'accounts_sa_fluency_one_1_alt',
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'sa_fluency_one_accountsaccounts_idb',
+        0 => 'accounts_sa_fluency_one_1sa_fluency_one_idb',
       ),
     ),
   ),

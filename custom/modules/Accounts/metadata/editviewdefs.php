@@ -151,13 +151,6 @@ array (
             'label' => 'LBL_UCID',
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'sa_fluency_one_accounts_name',
-          ),
-        ),
       ),
       'LBL_PANEL_ADVANCED' => 
       array (

@@ -1,13 +1,13 @@
 <?php
- // created: 2016-05-10 20:11:06
-$layout_defs["Accounts"]["subpanel_setup"]['accounts_a4_sites_1'] = array (
+ // created: 2017-06-08 10:36:22
+$layout_defs["Accounts"]["subpanel_setup"]['accounts_sa_fluency_one_1'] = array (
   'order' => 100,
-  'module' => 'A4_SITES',
+  'module' => 'sa_Fluency_One',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',
   'sort_by' => 'id',
-  'title_key' => 'LBL_ACCOUNTS_A4_SITES_1_FROM_A4_SITES_TITLE',
-  'get_subpanel_data' => 'accounts_a4_sites_1',
+  'title_key' => 'LBL_ACCOUNTS_SA_FLUENCY_ONE_1_FROM_SA_FLUENCY_ONE_TITLE',
+  'get_subpanel_data' => 'accounts_sa_fluency_one_1',
   'top_buttons' =>
   array (
     0 =>
