@@ -44,7 +44,7 @@ class sa_Fluency_OneController extends SugarController
     public function action_accept()
     {
         global $current_user;
-        if($_REQUEST['record']){
+        if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
             $bean->assigned_user_id = $current_user->id;
             $bean->save();
@@ -58,7 +58,18 @@ class sa_Fluency_OneController extends SugarController
     public function action_returnToRequester()
     {
         global $current_user;
-        if($_REQUEST['record']){
+        if ($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
+            $bean->assigned_user_id = $current_user->id;
+            $bean->save();
+        }
+    }
+
+    public function action_assignToCommsOps()
+    {
+        global $sugar_config;
+
+        if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
             $bean->assigned_user_id = $current_user->id;
             $bean->save();

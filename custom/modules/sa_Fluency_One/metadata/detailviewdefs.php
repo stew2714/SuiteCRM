@@ -16,13 +16,14 @@ array (
           3 => 'FIND_DUPLICATES',
           4 => 
           array (
-            'customCode' => '<input type="button" class="button" id="accept_button" value="{$MOD.LBL_ACCEPT}">',
+            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="accept_button" value="{$MOD.LBL_ACCEPT}">{/if}',
           ),
           5 => 
           array (
-            'customCode' => '<input type="button" class="button" onClick="openProspectPopup();" value="{$MOD.LBL_RETURN_TO_REQUESTER}">',
+            'customCode' => '<input type="button" class="button" id="return_to_requester" value="{$MOD.LBL_RETURN_TO_REQUESTER}">',
           ),
         ),
+        'footerTpl' => 'modules/sa_Fluency_One/tpls/modal.tpl',
       ),
       'maxColumns' => '2',
       'includes' => 
