@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['default']=''
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['type']='text';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['rows']=NULL;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['cols']=NULL;
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['vname']='LBL_STATUS_OF_EHR_ROLLOUT_C';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['source']='custom_fields';
 

@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['current_platform_c']['default']='';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['current_platform_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['current_platform_c']['type']='text';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['current_platform_c']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['current_platform_c']['rows']=NULL;
+$dictionary['sa_Fluency_One']['fields']['current_platform_c']['cols']=NULL;
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['vname']='LBL_CURRENT_PLATFORM_C';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['source']='custom_fields';
 

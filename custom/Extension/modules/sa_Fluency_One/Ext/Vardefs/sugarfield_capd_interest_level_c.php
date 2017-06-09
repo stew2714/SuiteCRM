@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['default']='';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['type']='text';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['rows']=NULL;
+$dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['cols']=NULL;
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['vname']='LBL_CAPD_INTEREST_LEVEL_C';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['source']='custom_fields';
 

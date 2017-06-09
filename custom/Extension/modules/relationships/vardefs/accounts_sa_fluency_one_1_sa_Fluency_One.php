@@ -1,5 +1,5 @@
 <?php
-// created: 2017-06-07 08:50:56
+// created: 2017-06-08 10:36:22
 $dictionary["sa_Fluency_One"]["fields"]["accounts_sa_fluency_one_1"] = array (
   'name' => 'accounts_sa_fluency_one_1',
   'type' => 'link',

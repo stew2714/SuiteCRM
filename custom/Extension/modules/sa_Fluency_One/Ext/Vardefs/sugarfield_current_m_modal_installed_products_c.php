@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c'][
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['len']='4099';
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['type']='text';
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c'][
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['rows']=NULL;
+$dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['cols']=NULL;
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['vname']='LBL_CURRENT_M_MODAL_INSTALLED_PRODUCTS_C';
 $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c']['source']='custom_fields';
 
