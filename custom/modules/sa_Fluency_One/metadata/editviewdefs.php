@@ -62,7 +62,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'assigned_security_group_c',
+            'name' => 'assigned_security_group_id',
             'label' => 'LBL_ASSIGNED_SECURITY_GROUP',
           ),
         ),

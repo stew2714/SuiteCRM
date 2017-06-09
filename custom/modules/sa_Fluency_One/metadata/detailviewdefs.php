@@ -14,18 +14,18 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-          4 => 
+          4 =>
           array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="accept_button" value="{$MOD.LBL_ACCEPT}">{/if}',
           ),
-          5 => 
+          5 =>
           array (
-            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="return_to_requester" value="{$MOD.LBL_RETURN_TO_REQUESTER}"{/if}>',
+            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="return_to_requester" value="{$MOD.LBL_RETURN_TO_REQUESTER}">{/if}',
           ),
           6 =>
           array (
-              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="assign_to_comms_op" value="{$MOD.LBL_REQUEST_FLUENCYONE_PRICING}"{/if}>',
-          )
+            'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="assign_to_comms_op" value="{$MOD.LBL_REQUEST_FLUENCYONE_PRICING}">{/if}',
+          ),
         ),
         'footerTpl' => 'modules/sa_Fluency_One/tpls/modal.tpl',
       ),
