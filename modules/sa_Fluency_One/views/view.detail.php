@@ -38,11 +38,11 @@ class sa_Fluency_OneViewDetail extends ViewDetail
         $securityGroups = BeanFactory::getBean("SecurityGroups");
         $groups = $securityGroups->getUserSecurityGroups($current_user->id);
 
-        if (array_key_exists($sugar_config['CommOps'],$groups)) {
+        if (array_key_exists($sugar_config['CommOps'],$groups) || is_admin($current_user)) {
             $this->ss->assign('COMMS_OP', true);
         }
 
-        if (array_key_exists($sugar_config['Sales'],$groups)) {
+        if (array_key_exists($sugar_config['Sales'],$groups) || is_admin($current_user)) {
             $this->ss->assign('SALES_TEAM', true);
         }
 
