@@ -42,9 +42,12 @@ class RequesterManagement
 {
     public function SetRequester($bean, $event, $arg)
     {
-        global $current_user, $sugar_config;
+        // If it's a new record (on creation), assign the record to the sales team.
+        if (empty($bean->id)) {
+            global $current_user, $sugar_config;
 
-        $bean->requested_user_id = $current_user->id;
-        $bean->assigned_security_group_id = $sugar_config['Sales'];
+            $bean->requested_user_id = $current_user->id;
+            $bean->assigned_security_group_id = $sugar_config['Sales'];
+        }
     }
 }
