@@ -155,11 +155,11 @@ foreach ($recordIds as $recordId) {
         $pdf_history->WriteHTML($printable);
         $pdf_history->Output($sugar_config['upload_dir'] . 'nfile.pdf', 'F');
 
-        $pdf->SetHTMLHeader($header);
         $pdf->AddPage();
-        $pdf->setAutoFont();
+        $pdf->SetAutoFont();
+        $pdf->SetHTMLHeader($header);
         $pdf->SetHTMLFooter($footer);
-        $pdf->writeHTML($printable);
+        $pdf->WriteHTML($printable);
 
         rename($sugar_config['upload_dir'] . 'nfile.pdf', $sugar_config['upload_dir'] . $note->id);
 

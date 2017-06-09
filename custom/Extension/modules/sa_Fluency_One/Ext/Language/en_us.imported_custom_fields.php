@@ -1,4 +1,4 @@
-<?php 
+<?php
 $mod_strings['LBL_ID'] = 'ID';
 $mod_strings['LBL_OWNERID'] = 'Owner ID';
 $mod_strings['LBL_ISDELETED'] = 'Is Deleted';

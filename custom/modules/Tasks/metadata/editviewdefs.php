@@ -127,6 +127,10 @@ array (
           array (
             'name' => 'description',
           ),
+          1 => 
+          array (
+            'name' => 'sa_legal_vendors_activities_1_tasks_name',
+          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 

@@ -74,4 +74,5 @@ $mod_strings = array (
   'LBL_NEW_FORM_TITLE' => 'New FluencyOne',
   'LBL_RETURN_TO_REQUESTER' => 'Return to Requester',
   'LBL_ACCEPT' => 'Accept',
+  'LBL_SA_FLUENCY_ONE_REQUESTER_USER_ID' => 'Requested User ID',
 );

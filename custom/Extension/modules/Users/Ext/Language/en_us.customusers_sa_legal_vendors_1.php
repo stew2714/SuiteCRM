@@ -1,0 +1,3 @@
+<?php
+//THIS FILE IS AUTO GENERATED, DO NOT MODIFY
+$mod_strings['LBL_USERS_SA_LEGAL_VENDORS_1_FROM_SA_LEGAL_VENDORS_TITLE'] = 'Requested Vendor Contracts';

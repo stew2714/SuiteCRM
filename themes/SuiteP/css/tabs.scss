@@ -34,8 +34,8 @@
   .nav-tabs > li > a:hover {
     font-size: $page-font-size;
     font-weight: 400;
-    background-color: $default-tab-bg-hover;
-    color: $default-tab-color-hover;
+    background-color: $default-tab-bg;
+    color: $default-tab-color;
     cursor: pointer;
     margin: 0 2px 0 2px;
     border-color: #eee #eee #fff;
@@ -48,8 +48,8 @@
   .nav-tabs > li.active > a:hover {
     font-size: $page-font-size;
     font-weight: 400;
-    background-color: $active-tab-bg-hover;
-    color: $active-tab-color-hover;
+    background-color: $active-tab-bg;
+    color: $default-tab-color;
     cursor: pointer;
     margin-top: 0;
     margin-bottom: 0;
@@ -154,8 +154,7 @@
 
   #tab-actions > a:hover {
     background-color: $action-tab-bg-hover;
-    border-color: $action-tab-bg-hover;
-    color: $action-tab-color-hover;
+    color: $action-tab-color;
     cursor: pointer;
   }
 
@@ -198,15 +197,15 @@
   }
 
   #tab-actions > .dropdown-menu .button:hover {
-    background-color: $action-tab-bg-hover;
+    background-color: $action-tab-bg;
   }
 
   #tab-actions > .dropdown-menu .button:focus {
-    background-color: $action-tab-bg-hover;
+    background-color: $action-tab-bg;
   }
 
   #tab-actions > .dropdown-menu .button:active {
-    background-color: $action-tab-bg-hover;
+    background-color: $action-tab-bg;
   }
 
   #tab-actions > .dropdown-menu .open > .dropdown-toggle.btn-primary {
@@ -219,7 +218,7 @@
   }
 
   #EditView_tabs .tab-content {
-    background-color: $tab-bg;
+    background-color: #ffffff;
     padding: 24px;
     margin-bottom: $tab-margin-bottom;
     border: 1px solid transparent;
@@ -229,7 +228,7 @@
   }
 
   .detail-view .tab-content {
-    background-color: $tab-bg;
+    background-color: #ffffff;
     padding: 24px;
     margin-bottom: $tab-margin-bottom;
     border: 1px solid transparent;
@@ -240,7 +239,7 @@
 }
 
 .dashboard .tab-content {
-  background-color: $tab-bg;
+  background-color: #ffffff;
   padding: 24px;
   margin-bottom: 30px;
   border: 1px solid transparent;
