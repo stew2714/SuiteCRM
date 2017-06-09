@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created:
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['name']='assigned_security_group_c';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['default']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['len']='36';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['options']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['help']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['rows']=NULL;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['cols']=NULL;
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['vname']='LBL_ASSIGNED_SECURITY_GROUP';
+$dictionary['sa_Fluency_One']['fields']['assigned_security_group_c']['source']='custom_fields';
+
+ ?>

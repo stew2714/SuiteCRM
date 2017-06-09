@@ -279,3 +279,4 @@ $mod_strings['LBL_F1_CDI_OPP_C'] = 'F1 Cdi Opp';
 $mod_strings['LBL_F1RADTOSOPP_C'] = 'F1radtosopp';
 $mod_strings['LBL_F1_FFI_OPP_C'] = 'F1 Ffi Opp';
 $mod_strings['LBL_ASSIGNED_SECURITY_GROUP'] = 'Assigned Security Group';
+$mod_strings['LBL_REQUESTED_USER_ID'] = 'Requested User ID';

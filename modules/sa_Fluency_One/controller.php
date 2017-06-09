@@ -40,28 +40,34 @@
 
 class sa_Fluency_OneController extends SugarController
 {
-
     public function action_accept()
     {
-        global $current_user;
+        global $current_user, $sugar_config;
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
+            $bean->assigned_security_group_c = $sugar_config['CommOps'];
             $bean->assigned_user_id = $current_user->id;
             $bean->save();
-            echo json_encode(array("messsage" => "success") );
+            echo "success";
+            die();
+        } else {
+            echo "fail";
             die();
         }
-        echo json_encode(array("messsage" => "fail") );
-        die();
     }
 
     public function action_returnToRequester()
     {
-        global $current_user;
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
-            $bean->assigned_user_id = $current_user->id;
+            $bean->assigned_security_group_c = $sugar_config['Sales'];
+            $bean->assigned_user_id = $bean->requested_user_id;
             $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
         }
     }
 
@@ -71,8 +77,14 @@ class sa_Fluency_OneController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
-            $bean->assigned_user_id = $current_user->id;
+            $bean->assigned_security_group_c = $sugar_config['CommOps'];
+            $bean->assigned_user_id = '';
             $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
         }
     }
 }

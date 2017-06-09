@@ -50,6 +50,22 @@ array (
             'name' => 'accounts_sa_fluency_one_1_name',
           ),
         ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'requested_user_id',
+            'label' => 'LBL_REQUESTED_USER_ID',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'assigned_security_group_c',
+            'label' => 'LBL_ASSIGNED_SECURITY_GROUP',
+          ),
+        ),
       ),
     ),
   ),
