@@ -16,7 +16,7 @@ array (
           3 => 'FIND_DUPLICATES',
           4 => 
           array (
-            'customCode' => '<input type="button" class="button" id="accept_button" value="{$MOD.LBL_ACCEPT}">',
+            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="accept_button" value="{$MOD.LBL_ACCEPT}">{/if}',
           ),
           5 => 
           array (
