@@ -41,14 +41,18 @@
 $module_name = 'sa_Fluency_One';
 $viewdefs[$module_name]['EditView'] = array(
     'templateMeta' => array(
-        'form' => array(
-            'footerTpl' => 'modules/sa_Fluency_One/tpls/modal.tpl',
-        ),
         'maxColumns' => '2',
         'widths' => array(
             array('label' => '10', 'field' => '30'),
             array('label' => '10', 'field' => '30')
         ),
+        'includes' =>
+            array(
+                0 =>
+                    array(
+                        'file' => 'modules/Accounts/Account.js',
+                    ),
+            ),
     ),
 
     'panels' => array(
