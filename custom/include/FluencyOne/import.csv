@@ -1,8 +1,6 @@
 column,Do not create,
-"id varchar(18) NOT NULL,",,sf_id_c
 "   ownerid varchar(18) NOT NULL,", ,assigned_user_id
 "   isdeleted bool NOT NULL,",,deleted
-"   name varchar(80) NOT NULL,",, 
 "   createddate timestamp NOT NULL,", ,date_entered
 "   createdbyid varchar(18) NOT NULL,", ,created_by
 "   lastmodifieddate timestamp NOT NULL,",,date_modified

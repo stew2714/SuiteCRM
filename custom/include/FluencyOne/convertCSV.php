@@ -105,6 +105,7 @@ class convertCSV
 
         for ($i = 0; $i < count($type_array); $i++) {
             if ($i == 0) {
+                $type_array[0] = preg_replace('/[^a-zA-Z0-9\']/', '', $type_array[0]);
                 $type_array[0] = $this->convertTypeName($type_array[0],$type_array[1]);
             }
 
@@ -124,6 +125,8 @@ class convertCSV
             $type = "float";
         } elseif ($type == "varchar" && $length >= 255) {
             $type = "text";
+        } elseif ($type == "timestamp") {
+            $type = "datetime";
         }
 
         return $type;
