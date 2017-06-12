@@ -40,6 +40,7 @@
 $dictionary['AOS_Contracts'] = array(
     'table' => 'aos_contracts',
     'audited' => true,
+    'custom_fields' => true,
     'fields' => array(
         'reference_code' =>
             array(
