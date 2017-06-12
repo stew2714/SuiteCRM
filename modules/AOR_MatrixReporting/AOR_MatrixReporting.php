@@ -70,6 +70,13 @@ class AOR_MatrixReporting extends Basic
         $bean->load_report_beans();
         parent::__construct();
     }
+    public function save($check_notify = null){
+        parent::save($check_notify);
+
+        require_once('modules/AOMR_Conditions/AOMR_Condition.php');
+        $condition = new AOMR_Condition();
+        $condition->save_lines($_POST, $this, 'aow_conditions_');
+    }
     public function bean_implements($interface)
     {
         switch($interface)

@@ -85,4 +85,6 @@ $mod_strings = array (
   'LBL_REPORT' => "Report",
   'LBL_UPDATE' => "Update",
 
+  'LBL_ADD_CONDITION' => "Add Condition",
+
 );
