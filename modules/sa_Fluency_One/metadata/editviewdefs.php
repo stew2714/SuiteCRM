@@ -50,7 +50,7 @@ $viewdefs[$module_name]['EditView'] = array(
             array(
                 0 =>
                     array(
-                        'file' => 'modules/Accounts/Account.js',
+                        'file' => 'modules/sa_Fluency_One/css/modalStyling.css',
                     ),
             ),
     ),
