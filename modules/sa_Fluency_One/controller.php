@@ -63,6 +63,7 @@ class sa_Fluency_OneController extends SugarController
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
             $bean->assigned_security_group_id = $sugar_config['Sales'];
             $bean->assigned_user_id = $bean->requested_user_id;
+            $bean->date_requested_c = '';
             $bean->save();
             echo "success";
             die();
@@ -81,6 +82,7 @@ class sa_Fluency_OneController extends SugarController
             $bean->assigned_security_group_id = $sugar_config['CommOps'];
             $bean->assigned_user_id = '';
             $bean->requested_user_id = $current_user->id;
+            $bean->date_requested_c = date('Y-m-d H:i:s');
             $bean->save();
             echo "success";
             die();
