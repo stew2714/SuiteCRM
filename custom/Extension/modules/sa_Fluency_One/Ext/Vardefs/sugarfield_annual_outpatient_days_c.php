@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['default']='
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['type']='real';
+$dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['type']='float';
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['enable_range_search']='';
+$dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['precision']='8';
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['vname']='LBL_ANNUAL_OUTPATIENT_DAYS_C';
 $dictionary['sa_Fluency_One']['fields']['annual_outpatient_days_c']['source']='custom_fields';
 

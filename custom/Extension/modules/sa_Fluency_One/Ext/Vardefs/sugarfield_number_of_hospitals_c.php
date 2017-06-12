@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['default']='';
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['type']='real';
+$dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['type']='float';
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['enable_range_search']='';
+$dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['precision']='8';
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['vname']='LBL_NUMBER_OF_HOSPITALS_C';
 $dictionary['sa_Fluency_One']['fields']['number_of_hospitals_c']['source']='custom_fields';
 

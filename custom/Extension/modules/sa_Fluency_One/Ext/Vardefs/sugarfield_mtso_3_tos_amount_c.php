@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['default']='';
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['type']='real';
+$dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['type']='float';
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['enable_range_search']='';
+$dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['precision']='8';
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['vname']='LBL_MTSO_3_TOS_AMOUNT_C';
 $dictionary['sa_Fluency_One']['fields']['mtso_3_tos_amount_c']['source']='custom_fields';
 

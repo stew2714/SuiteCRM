@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['default']='';
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['type']='real';
+$dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['type']='float';
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['massupdate']=0;
@@ -24,6 +24,8 @@ $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['enable_range_search']='';
+$dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['precision']='8';
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['vname']='LBL_NUMBER_OF_DOCTORS_C';
 $dictionary['sa_Fluency_One']['fields']['number_of_doctors_c']['source']='custom_fields';
 

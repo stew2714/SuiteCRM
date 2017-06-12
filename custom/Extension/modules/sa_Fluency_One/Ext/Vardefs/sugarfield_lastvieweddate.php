@@ -6,7 +6,7 @@ $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['default']='';
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['display_default']='';
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['required']=false;
-$dictionary['sa_Fluency_One']['fields']['lastvieweddate']['type']='timestamp';
+$dictionary['sa_Fluency_One']['fields']['lastvieweddate']['type']='datetime';
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['audited']=0;
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['massupdate']=0;
@@ -24,6 +24,7 @@ $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['ext3']='';
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['labelValue']=NULL;
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['unified_search']=0;
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['lastvieweddate']['enable_range_search']='';
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['vname']='LBL_LASTVIEWEDDATE';
 $dictionary['sa_Fluency_One']['fields']['lastvieweddate']['source']='custom_fields';
 
