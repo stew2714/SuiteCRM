@@ -125,6 +125,7 @@ _form = document.getElementById(\'EditView\');_form.return_action.value=\'EditVi
                                 6 =>
                                     array (
                                         0 => 'description',
+                                        1 => 'condition_lines',
                                     ),
                             ),
                     ),
