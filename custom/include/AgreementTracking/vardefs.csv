@@ -1,6 +1,5 @@
 column,do no create,
 "   dq_payment_total__c numeric(19),",,
-"   id varchar(18) NOT NULL,",,sf_id_c
 "   record_type_id varchar(18),", ,recordtypeid_c
 "   last_activity_date date,",,lastactivitydate_c
 "   apttus__account_search_field__c varchar(255),",,
