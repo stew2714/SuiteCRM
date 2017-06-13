@@ -67,7 +67,7 @@ class matrixReportBuilder
                 return $total;
                 break;
             case "MIN":
-                if(($count < $total && $total != 0) || $total == 0 ){
+                if(($count < $total && $total != 0 && $count != null) || $total == 0 ){
                     return $count;
                 }
                 return $total;
