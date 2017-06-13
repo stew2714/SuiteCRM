@@ -48,5 +48,5 @@ if(ACLController::checkAccess('SA_Legal_Vendors', 'edit', true)){
     $module_menu[]=array('index.php?module=SA_Legal_Vendors&action=EditView&return_module=SA_Legal_Vendors&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'SA_Legal_Vendors');
 }
 if(ACLController::checkAccess('SA_Legal_Vendors', 'list', true)){
-    $module_menu[]=array('index.php?module=SA_Legal_Vendors&action=index&return_module=SA_Legal_Vendors&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'SA_Legal_Vendors');
+    $module_menu[]=array('index.php?module=SA_Legal_Vendors&action=index&return_module=SA_Legal_Vendors&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'SA_Legal_Vendors');
 }

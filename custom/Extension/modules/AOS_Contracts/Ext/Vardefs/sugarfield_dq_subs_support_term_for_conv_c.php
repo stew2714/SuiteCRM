@@ -1,0 +1,37 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['name']='dq_subs_support_term_for_conv_c';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['len']='19';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['type']='int';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['autoinc_next']=NULL;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['autoinc_start']=NULL;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['auto_increment']=NULL;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['min']=NULL;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['max']=NULL;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['disable_num_format']=NULL;
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['vname']='LBL_DQ_SUBS_SUPPORT_TERM_FOR_CONV_C';
+$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['source']='custom_fields';
+
+ ?>

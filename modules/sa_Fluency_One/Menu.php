@@ -48,5 +48,5 @@ if(ACLController::checkAccess('sa_Fluency_One', 'edit', true)){
     $module_menu[]=array('index.php?module=sa_Fluency_One&action=EditView&return_module=sa_Fluency_One&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'sa_Fluency_One');
 }
 if(ACLController::checkAccess('sa_Fluency_One', 'list', true)){
-    $module_menu[]=array('index.php?module=sa_Fluency_One&action=index&return_module=sa_Fluency_One&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'sa_Fluency_One');
+    $module_menu[]=array('index.php?module=sa_Fluency_One&action=index&return_module=sa_Fluency_One&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'sa_Fluency_One');
 }

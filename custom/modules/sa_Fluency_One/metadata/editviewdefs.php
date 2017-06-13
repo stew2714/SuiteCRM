@@ -47,20 +47,23 @@ array (
         array (
           0 => 
           array (
-            'name' => 'requester_user_id',
-            'label' => 'LBL_SA_FLUENCY_ONE_REQUESTER_USER_ID',
+            'name' => 'accounts_sa_fluency_one_1_name',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'request_submit_date_c',
-            'label' => 'LBL_REQUEST_SUBMIT_DATE_C',
+            'name' => 'requested_user_id',
+            'label' => 'LBL_REQUESTED_USER_ID',
           ),
-          1 => 
+        ),
+        4 => 
+        array (
+          0 => 
           array (
-            'name' => 'accounts_sa_fluency_one_1_name',
+            'name' => 'assigned_security_group_id',
+            'label' => 'LBL_ASSIGNED_SECURITY_GROUP',
           ),
         ),
       ),

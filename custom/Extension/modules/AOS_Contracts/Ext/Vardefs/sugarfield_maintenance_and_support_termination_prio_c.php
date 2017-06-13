@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['name']='maintenance_and_support_termination_prio_c';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['type']='bool';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['vname']='LBL_MAINTENANCE_AND_SUPPORT_TERMINATION_PRIO_C';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_termination_prio_c']['source']='custom_fields';
+
+ ?>

@@ -1,11 +1,10 @@
 <?php
-/**
- *
+/*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- *
- * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -36,17 +35,16 @@
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- */
+ ********************************************************************************/
 
 class sa_Fluency_OneController extends SugarController
 {
-
     public function action_accept()
     {
-        global $current_user;
-
+        global $current_user, $sugar_config;
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
+            $bean->assigned_security_group_id = $sugar_config['CommOps'];
             $bean->assigned_user_id = $current_user->id;
             $bean->save();
             echo "success";
@@ -59,9 +57,32 @@ class sa_Fluency_OneController extends SugarController
 
     public function action_returnToRequester()
     {
+        global $sugar_config;
+
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
-            $bean->assigned_user_id = $bean->requester_user_id;
+            $bean->assigned_security_group_id = $sugar_config['Sales'];
+            $bean->assigned_user_id = $bean->requested_user_id;
+            $bean->date_requested_c = '';
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+    public function action_assignToCommsOps()
+    {
+        global $current_user, $sugar_config;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
+            $bean->assigned_security_group_id = $sugar_config['CommOps'];
+            $bean->assigned_user_id = '';
+            $bean->requested_user_id = $current_user->id;
+            $bean->date_requested_c = date('Y-m-d H:i:s');
             $bean->save();
             echo "success";
             die();
@@ -71,5 +92,4 @@ class sa_Fluency_OneController extends SugarController
         }
     }
 }
-
 ?>

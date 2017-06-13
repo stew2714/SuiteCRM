@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['name']='apttus_workflow_trigger_created_from_clone_c';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['type']='bool';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['vname']='LBL_APTTUS_WORKFLOW_TRIGGER_CREATED_FROM_CLONE_C';
+$dictionary['AOS_Contracts']['fields']['apttus_workflow_trigger_created_from_clone_c']['source']='custom_fields';
+
+ ?>

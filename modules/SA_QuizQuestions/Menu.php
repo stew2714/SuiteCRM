@@ -48,5 +48,5 @@ if(ACLController::checkAccess('SA_QuizQuestions', 'edit', true)){
     $module_menu[]=array('index.php?module=SA_QuizQuestions&action=EditView&return_module=SA_QuizQuestions&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'SA_QuizQuestions');
 }
 if(ACLController::checkAccess('SA_QuizQuestions', 'list', true)){
-    $module_menu[]=array('index.php?module=SA_QuizQuestions&action=index&return_module=SA_QuizQuestions&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'SA_QuizQuestions');
+    $module_menu[]=array('index.php?module=SA_QuizQuestions&action=index&return_module=SA_QuizQuestions&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'SA_QuizQuestions');
 }

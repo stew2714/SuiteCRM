@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['name']='key_contact_c';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['default']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['options']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['help']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['vname']='LBL_KEY_CONTACT_C';
+$dictionary['sa_Fluency_One']['fields']['key_contact_c']['source']='custom_fields';
+
+ ?>

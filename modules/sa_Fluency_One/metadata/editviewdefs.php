@@ -46,6 +46,13 @@ $viewdefs[$module_name]['EditView'] = array(
             array('label' => '10', 'field' => '30'),
             array('label' => '10', 'field' => '30')
         ),
+        'includes' =>
+            array(
+                0 =>
+                    array(
+                        'file' => 'modules/sa_Fluency_One/css/modalStyling.css',
+                    ),
+            ),
     ),
 
     'panels' => array(
