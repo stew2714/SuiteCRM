@@ -75,14 +75,14 @@ class sa_Fluency_OneController extends SugarController
 
     public function action_assignToCommsOps()
     {
-        global $current_user, $sugar_config;
+        global $current_user, $sugar_config, $timedate;
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
             $bean->assigned_security_group_id = $sugar_config['CommOps'];
             $bean->assigned_user_id = '';
             $bean->requested_user_id = $current_user->id;
-            $bean->date_requested_c = date('Y-m-d H:i:s');
+            $bean->date_requested_c = $timedate->nowDb();
             $bean->save();
             echo "success";
             die();
