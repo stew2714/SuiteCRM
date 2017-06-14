@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function promptWindow(){
     var mb = messageBox();
-    mb.setTitle('Assigned to Legal Queue');
+    mb.setTitle('Your Agreement has been submitted to the Queue');
     mb.setBody('The agreement has been saved and assigned to the Legal Queue to handle. Your request will be handled shortly');
     mb.hideFooter();
     mb.show();
