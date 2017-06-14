@@ -48,5 +48,5 @@ if(ACLController::checkAccess('SA_Curriculum', 'edit', true)){
     $module_menu[]=array('index.php?module=SA_Curriculum&action=EditView&return_module=SA_Curriculum&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'SA_Curriculum');
 }
 if(ACLController::checkAccess('SA_Curriculum', 'list', true)){
-    $module_menu[]=array('index.php?module=SA_Curriculum&action=index&return_module=SA_Curriculum&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'SA_Curriculum');
+    $module_menu[]=array('index.php?module=SA_Curriculum&action=index&return_module=SA_Curriculum&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'SA_Curriculum');
 }

@@ -48,5 +48,5 @@ if(ACLController::checkAccess('SA_Courses', 'edit', true)){
     $module_menu[]=array('index.php?module=SA_Courses&action=EditView&return_module=SA_Courses&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'SA_Courses');
 }
 if(ACLController::checkAccess('SA_Courses', 'list', true)){
-    $module_menu[]=array('index.php?module=SA_Courses&action=index&return_module=SA_Courses&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'SA_Courses');
+    $module_menu[]=array('index.php?module=SA_Courses&action=index&return_module=SA_Courses&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'SA_Courses');
 }

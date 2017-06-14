@@ -1,217 +1,212 @@
 <?php
-// created: 2017-04-27 21:07:52
-$viewdefs = array (
-  'Accounts' => 
+$viewdefs ['Accounts'] = 
+array (
+  'DetailView' => 
   array (
-    'DetailView' => 
+    'templateMeta' => 
     array (
-      'templateMeta' => 
+      'form' => 
       array (
-        'form' => 
+        'buttons' => 
         array (
-          'buttons' => 
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+          3 => 'FIND_DUPLICATES',
+          'AOS_GENLET' => 
           array (
-            0 => 'EDIT',
-            1 => 'DUPLICATE',
-            2 => 'DELETE',
-            3 => 'FIND_DUPLICATES',
-            'AOS_GENLET' => 
-            array (
-              'customCode' => '<input type="button" class="button" onClick="showPopup();" value="{$APP.LBL_GENERATE_LETTER}">',
-            ),
-          ),
-        ),
-        'maxColumns' => '2',
-        'widths' => 
-        array (
-          0 => 
-          array (
-            'label' => '10',
-            'field' => '30',
-          ),
-          1 => 
-          array (
-            'label' => '10',
-            'field' => '30',
-          ),
-        ),
-        'includes' => 
-        array (
-          0 => 
-          array (
-            'file' => 'modules/Accounts/Account.js',
-          ),
-        ),
-        'useTabs' => true,
-        'tabDefs' => 
-        array (
-          'LBL_ACCOUNT_INFORMATION' => 
-          array (
-            'newTab' => true,
-            'panelDefault' => 'expanded',
-          ),
-          'LBL_PANEL_ADVANCED' => 
-          array (
-            'newTab' => true,
-            'panelDefault' => 'expanded',
-          ),
-          'LBL_PANEL_ASSIGNMENT' => 
-          array (
-            'newTab' => true,
-            'panelDefault' => 'expanded',
+            'customCode' => '<input type="button" class="button" onClick="showPopup();" value="{$APP.LBL_GENERATE_LETTER}">',
           ),
         ),
       ),
-      'panels' => 
+      'maxColumns' => '2',
+      'widths' => 
       array (
-        'lbl_account_information' => 
+        0 => 
         array (
-          0 => 
-          array (
-            0 => 
-            array (
-              'name' => 'name',
-              'comment' => 'Name of the Company',
-              'label' => 'LBL_NAME',
-            ),
-            1 => 
-            array (
-              'name' => 'phone_office',
-              'comment' => 'The office phone number',
-              'label' => 'LBL_PHONE_OFFICE',
-            ),
-          ),
-          1 => 
-          array (
-            0 => 
-            array (
-              'name' => 'website',
-              'type' => 'link',
-              'label' => 'LBL_WEBSITE',
-              'displayParams' => 
-              array (
-                'link_target' => '_blank',
-              ),
-            ),
-            1 => 
-            array (
-              'name' => 'phone_fax',
-              'comment' => 'The fax phone number of this company',
-              'label' => 'LBL_FAX',
-            ),
-          ),
-          2 => 
-          array (
-            0 => 
-            array (
-              'name' => 'ucid_c',
-              'label' => 'LBL_UCID',
-            ),
-            1 => 
-            array (
-              'name' => 'facility_type_dd_c',
-              'studio' => 'visible',
-              'label' => 'LBL_FACILITY_TYPE_DD',
-            ),
-          ),
-          3 => 
-          array (
-            0 => 
-            array (
-              'name' => 'billing_address_street',
-              'label' => 'LBL_BILLING_ADDRESS',
-              'type' => 'address',
-              'displayParams' => 
-              array (
-                'key' => 'billing',
-              ),
-            ),
-            1 => 
-            array (
-              'name' => 'shipping_address_street',
-              'label' => 'LBL_SHIPPING_ADDRESS',
-              'type' => 'address',
-              'displayParams' => 
-              array (
-                'key' => 'shipping',
-              ),
-            ),
-          ),
-          4 => 
-          array (
-            0 => 
-            array (
-              'name' => 'himss_id_c',
-              'label' => 'LBL_HIMSS_ID',
-            ),
-            1 => 
-            array (
-              'name' => 'defintive_id_c',
-              'label' => 'LBL_DEFINTIVE_ID',
-            ),
-          ),
-          5 => 
-          array (
-          ),
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/Accounts/Account.js',
+        ),
+      ),
+      'useTabs' => true,
+      'tabDefs' => 
+      array (
+        'LBL_ACCOUNT_INFORMATION' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
         array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_PANEL_ASSIGNMENT' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+      ),
+    ),
+    'panels' => 
+    array (
+      'lbl_account_information' => 
+      array (
+        0 => 
+        array (
           0 => 
           array (
-            0 => 
+            'name' => 'name',
+            'comment' => 'Name of the Company',
+            'label' => 'LBL_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_office',
+            'comment' => 'The office phone number',
+            'label' => 'LBL_PHONE_OFFICE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'website',
+            'type' => 'link',
+            'label' => 'LBL_WEBSITE',
+            'displayParams' => 
             array (
-              'name' => 'account_type',
-              'comment' => 'The Company is of this type',
-              'label' => 'LBL_TYPE',
-            ),
-            1 => 
-            array (
-              'name' => 'industry',
-              'comment' => 'The company belongs in this industry',
-              'label' => 'LBL_INDUSTRY',
+              'link_target' => '_blank',
             ),
           ),
           1 => 
           array (
-            0 => 
-            array (
-              'name' => 'annual_revenue',
-              'comment' => 'Annual revenue for this company',
-              'label' => 'LBL_ANNUAL_REVENUE',
-            ),
-          ),
-          2 => 
-          array (
-            0 => 
-            array (
-              'name' => 'parent_name',
-              'label' => 'LBL_MEMBER_OF',
-            ),
-            1 => 
-            array (
-              'name' => 'assigned_user_name',
-              'label' => 'LBL_ASSIGNED_TO',
-            ),
+            'name' => 'phone_fax',
+            'comment' => 'The fax phone number of this company',
+            'label' => 'LBL_FAX',
           ),
         ),
-        'LBL_PANEL_ASSIGNMENT' => 
+        2 => 
         array (
           0 => 
           array (
-            0 => 
+            'name' => 'ucid_c',
+            'label' => 'LBL_UCID',
+          ),
+          1 => 
+          array (
+            'name' => 'facility_type_dd_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE_DD',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billing_address_street',
+            'label' => 'LBL_BILLING_ADDRESS',
+            'type' => 'address',
+            'displayParams' => 
             array (
-              'name' => 'date_entered',
-              'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+              'key' => 'billing',
             ),
-            1 => 
+          ),
+          1 => 
+          array (
+            'name' => 'shipping_address_street',
+            'label' => 'LBL_SHIPPING_ADDRESS',
+            'type' => 'address',
+            'displayParams' => 
             array (
-              'name' => 'date_modified',
-              'label' => 'LBL_DATE_MODIFIED',
-              'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+              'key' => 'shipping',
             ),
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'himss_id_c',
+            'label' => 'LBL_HIMSS_ID',
+          ),
+          1 => 
+          array (
+            'name' => 'defintive_id_c',
+            'label' => 'LBL_DEFINTIVE_ID',
+          ),
+        ),
+      ),
+      'LBL_PANEL_ADVANCED' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'account_type',
+            'comment' => 'The Company is of this type',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'industry',
+            'comment' => 'The company belongs in this industry',
+            'label' => 'LBL_INDUSTRY',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'annual_revenue',
+            'comment' => 'Annual revenue for this company',
+            'label' => 'LBL_ANNUAL_REVENUE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'parent_name',
+            'label' => 'LBL_MEMBER_OF',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
+        ),
+      ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'label' => 'LBL_DATE_MODIFIED',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
           ),
         ),
       ),
     ),
   ),
 );
+?>

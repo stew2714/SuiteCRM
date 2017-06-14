@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['name']='desired_term_lengton_c';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['default']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['options']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['help']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['rows']=NULL;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['cols']=NULL;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['vname']='LBL_DESIRED_TERM_LENGTON_C';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['source']='custom_fields';
+
+ ?>

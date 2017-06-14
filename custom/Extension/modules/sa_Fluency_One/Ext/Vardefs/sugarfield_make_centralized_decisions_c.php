@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['name']='make_centralized_decisions_c';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['default']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['type']='bool';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['options']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['help']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['vname']='LBL_MAKE_CENTRALIZED_DECISIONS_C';
+$dictionary['sa_Fluency_One']['fields']['make_centralized_decisions_c']['source']='custom_fields';
+
+ ?>
