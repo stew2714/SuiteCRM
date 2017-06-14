@@ -9,6 +9,7 @@ class AOS_ContractsViewEdit extends ViewEdit {
     }
 
     function display(){
+        echo '<link rel="stylesheet" href="custom/modules/AOS_Contracts/css/modal.css">';
         echo '<script src="custom/modules/AOS_Contracts/js/EditView.js" />';
         parent::display();
     }

@@ -4,8 +4,11 @@ $viewdefs [$module_name] =
 array (
   'EditView' => 
   array (
-    'templateMeta' => 
+    'templateMeta' =>
     array (
+      'form' => array(
+        'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (

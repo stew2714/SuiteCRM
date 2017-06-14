@@ -1,0 +1,8 @@
+.modal-dialog{
+    width: 100%;
+}
+
+.modal-content{
+    width: 720px;
+    max-width: 100%;
+}
