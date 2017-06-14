@@ -105,6 +105,7 @@ class SA_QuizQuestionsController extends SugarController
          */
 
         global $current_user;
+        global $timedate;
 
         parse_str($_POST['form'],$answer);
         $id = $_REQUEST['id'];
@@ -177,13 +178,14 @@ class SA_QuizQuestionsController extends SugarController
         $submission->save();
 
         // Build the results array to return back to the page.
+
         $results = array(
             'score' => $submission_score,
             'pass' => $submission_pass,
             'total_questions' => $number_of_answers,
             'total_correct' => $number_correct,
-            'time_start' => date('Y-m-d H:i:s', $time_started),
-            'time_ended' => date('Y-m-d H:i:s', $time_now),
+            'time_start' => $timedate->asUser(new DateTime("@$time_started")),
+            'time_ended' => $timedate->asUser(new DateTime("@$time_now")),
             'time_spent' => $time_spent,
         );
 

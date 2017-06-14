@@ -265,7 +265,7 @@ initMySugar = function () {
           }
 
 
-          $('#dashlet_entire_' + id)
+          $(SUGAR.mySugar.currentDashlet)
             .find('.bd-center')
             .html(updateDashlet);
 

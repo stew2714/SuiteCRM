@@ -91,19 +91,6 @@ $viewdefs [$module_name] =
                         1 => '',
                     ),
                     3 =>
-                        array (
-                            0 =>
-                                array (
-                                    'name' => 'page_size',
-                                    'label' => 'LBL_PAGE_SIZE',
-                                ),
-                            1 =>
-                                array (
-                                    'name' => 'orientation',
-                                    'label' => 'LBL_ORIENTATION',
-                                ),
-                        ),
-                    4 =>
                     array (
                         0 =>
                         array (
@@ -112,7 +99,7 @@ $viewdefs [$module_name] =
                             'customCode' => '{$INSERT_FIELDS}',
                         ),
                     ),
-                    5 =>
+                    4 =>
                     array (
                         0 =>
                         array (
@@ -120,7 +107,7 @@ $viewdefs [$module_name] =
                             'label' => 'LBL_DESCRIPTION',
                         ),
                     ),
-                    6 =>
+                    5 =>
                     array (
                         0 =>
                         array (
@@ -128,7 +115,7 @@ $viewdefs [$module_name] =
                             'label' => 'LBL_HEADER',
                         ),
                     ),
-                    7 =>
+                    6 =>
                     array (
                         0 =>
                         array (

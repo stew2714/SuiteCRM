@@ -1220,13 +1220,13 @@ class MssqlManager extends DBManager
     {
         $ctype = $this->getColumnType($type);
         if ($ctype == 'datetime') {
-            return 'NULL';
+            return $this->convert($this->quoted('1970-01-01 00:00:00'), 'datetime');
         }
         if ($ctype == 'date') {
-            return 'NULL';
+            return $this->convert($this->quoted('1970-01-01'), 'datetime');
         }
         if ($ctype == 'time') {
-            return 'NULL';
+            return $this->convert($this->quoted('00:00:00'), 'time');
         }
 
         return parent::emptyValue($type);

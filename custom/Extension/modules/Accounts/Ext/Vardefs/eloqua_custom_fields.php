@@ -16,6 +16,20 @@ $dictionary['Account']['fields']['rating'] = array (
     'len' => '255',
 );
 
+$dictionary['Account']['fields']['owner_sales_person'] = array(
+    'name' => 'owner_sales_person',
+    'vname' => 'LBL_OWNER_SALES_PERSON',
+    'type' => 'varchar',
+    'len' => '255',
+);
+
+$dictionary['Account']['fields']['ownership'] = array(
+    'name' => 'ownership',
+    'vname' => 'LBL_OWNERSHIP',
+    'type' => 'varchar',
+    'len'  => '40',
+);
+
 $dictionary['Account']['fields']['billing_address_country']['type']='enum';
 $dictionary['Account']['fields']['billing_address_country']['options']='eloqua_country_list';
 $dictionary['Account']['fields']['shipping_address_country']['type']='enum';

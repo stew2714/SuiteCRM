@@ -308,13 +308,13 @@
 
                 <script type="text/javascript">
 
-                    var selectTabDetailView = function(tab) {
+                    var selectTab = function(tab) {
                         $('#content div.tab-content div.tab-pane-NOBOOTSTRAPTOGGLER').hide();
                         $('#content div.tab-content div.tab-pane-NOBOOTSTRAPTOGGLER').eq(tab).show().addClass('active').addClass('in');
                     };
 
                     var selectTabOnError = function(tab) {
-                        selectTabDetailView(tab);
+                        selectTab(tab);
                         $('#content ul.nav.nav-tabs > li').removeClass('active');
                         $('#content ul.nav.nav-tabs > li a').css('color', '');
 
@@ -333,7 +333,7 @@
                         $('#content ul.nav.nav-tabs > li > a[data-toggle="tab"]').click(function(e){
                             if(typeof $(this).parent().find('a').first().attr('id') != 'undefined') {
                                 var tab = parseInt($(this).parent().find('a').first().attr('id').match(/^tab(.)*$/)[1]);
-                                selectTabDetailView(tab);
+                                selectTab(tab);
                             }
                         });
                     });

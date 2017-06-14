@@ -7,10 +7,7 @@
     <tr>
         <td><select style="" onchange="this.form.submit()" id="reportModule" name="reportModule">{$moduleList}</select></td>
         <td>{$actionFieldText}</td>
-        <td><select id="actionTypeField" name="actionTypeField">
-                {$actionTypeField}
-            </select>
-            <select id="actionField" name="actionField">
+        <td><select id="actionField" name="actionField">
                 {$actionField}
             </select></td>
         <td><input type="submit"> </td>

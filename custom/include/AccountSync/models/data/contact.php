@@ -1,6 +1,6 @@
 <?php
 
-class Contact
+class EloquaContactModel
 {
     public $accountName;
     public $address1;
