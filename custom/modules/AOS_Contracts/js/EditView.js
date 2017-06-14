@@ -1,8 +1,21 @@
 $(document).ready(function() {
+    var recordID = $("input[name=record]").val();
+
     $("#SAVE").removeAttr("onclick");
     $("#SAVE").click(function(e){
         e.preventDefault();
-        promptWindow();
+
+        if (recordID === "undefined" && recordID === null && recordID === ""){
+            promptWindow();
+        } else {
+            var _form = document.getElementById('EditView');
+            _form.action.value='Save';
+
+            if(check_form('EditView')){
+                SUGAR.ajaxUI.submitForm(_form);
+                return false;
+            }
+        }
     });
 });
 
