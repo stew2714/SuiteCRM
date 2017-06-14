@@ -1,11 +1,9 @@
 $(document).ready(function() {
-    var recordID = $("input[name=record]").val();
-
     $("#SAVE").removeAttr("onclick");
     $("#SAVE").click(function(e){
         e.preventDefault();
-
-        if (recordID === "undefined" && recordID === null && recordID === ""){
+        var recordID = $("input[name=record]").val();
+        if (typeof recordID === "undefined" || recordID === null || recordID == ""){
             promptWindow();
         } else {
             var _form = document.getElementById('EditView');

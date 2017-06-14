@@ -43,7 +43,7 @@ class RequesterManagement
     public function SetRequester($bean, $event, $arg)
     {
         // If it's a new record (on creation), assign the record to the Legal team.
-        if (empty($bean->id)) {
+        if ($bean->date_modified == $bean->date_entered) {
             global $current_user, $sugar_config;
 
             $bean->requested_user_id = $current_user->id;
