@@ -153,8 +153,14 @@ class matrixReportBuilder
         }
 
         if($this->actionType == "AVG"){
-            $counted = count($data);
+
             foreach($this->totals as $key => $line){
+                $counted = 0;
+                foreach($data as $key2 => $row){
+                    if($row[$key] != "0" && $row[ $key ] != null){
+                        $counted++;
+                    }
+                }
                 if(is_numeric($count) && $line != "0" ) {
                     $this->totals[ $key ] = $line / $counted;
                 }
