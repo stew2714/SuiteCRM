@@ -22,6 +22,14 @@ array (
           array (
             'customCode' => '<input type="button" class="button" onClick="showPopup(\'emailpdf\');" value="{$MOD.LBL_EMAIL_PDF}">',
           ),
+          6 =>
+          array (
+              'customCode' => '<input type="button" class="button" id="acceptRequest()" value="Accept Request">',
+          ),
+          7 =>
+          array (
+            'customCode' => '<input type="button" class="button" id="returnToRequester()" value="Return to Requester">',
+          ),
         ),
       ),
       'maxColumns' => '2',
