@@ -143,6 +143,10 @@ array (
         4 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'sa_legal_vendors_activities_1_meetings_name',
+          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
