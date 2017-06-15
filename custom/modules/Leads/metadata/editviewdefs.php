@@ -53,6 +53,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
     ),
     'panels' => 
@@ -168,6 +173,43 @@ array (
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'annual_revenue',
+            'label' => 'LBL_ANNUAL_REVENUE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'rating',
+            'studio' => 'visible',
+            'label' => 'LBL_ELOQUA_LEAD_RATING',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'industry',
+            'studio' => 'visible',
+            'label' => 'LBL_INDUSTRY',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'number_of_employees',
+            'label' => 'LBL_NUMBER_OF_EMPLOYEES',
           ),
         ),
       ),
