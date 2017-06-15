@@ -1,0 +1,31 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['createddate']['name']='createddate';
+$dictionary['sa_Fluency_One']['fields']['createddate']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['default']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['createddate']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['createddate']['type']='datetime';
+$dictionary['sa_Fluency_One']['fields']['createddate']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['createddate']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['createddate']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['createddate']['options']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['help']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['createddate']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['createddate']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['createddate']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['createddate']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['createddate']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['enable_range_search']='';
+$dictionary['sa_Fluency_One']['fields']['createddate']['vname']='LBL_CREATEDDATE';
+$dictionary['sa_Fluency_One']['fields']['createddate']['source']='custom_fields';
+
+ ?>
