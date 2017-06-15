@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['name']='isdeleted';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['default_value']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['default']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['display_default']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['required']=false;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['type']='bool';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['audited']=0;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['massupdate']=0;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['options']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['help']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['comments']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['duplicate_merge']=0;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['duplicate_merge_dom_value']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['merge_filter']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['ext2']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['ext4']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['ext3']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['labelValue']=NULL;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['unified_search']=0;
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['full_text_search']='';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['vname']='LBL_ISDELETED';
+$dictionary['sa_Fluency_One']['fields']['isdeleted']['source']='custom_fields';
+
+ ?>
