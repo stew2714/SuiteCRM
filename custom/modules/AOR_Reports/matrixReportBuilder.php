@@ -110,7 +110,7 @@ class matrixReportBuilder
         $string = implode("\n", $selects);
 
         $sql = $this->buildQuery($bean->table_name, $field_x, $field, $string);
-        //echo "<pre>{$sql}</pre>";
+        //        echo "<pre>{$sql}</pre>";
         $results = $db->query($sql);
 
         foreach ($results as $row) {
@@ -220,8 +220,8 @@ class matrixReportBuilder
         }else{
             if($this->bean->field_defs[ $field ]['source'] == "custom_fields"){
                 $field = array("field" => $this->bean->table_name . "_cstm." . $field,
-                                "join" => "LEFT JOIN {$this->bean->table_name}_cstm ON {$this->bean->table_name}_cstm.id_c = {$this->bean->table_name}.id ",
-                                "cstm" => true
+                               "join" => "LEFT JOIN {$this->bean->table_name}_cstm ON {$this->bean->table_name}_cstm.id_c = {$this->bean->table_name}.id ",
+                               "cstm" => true
                 );
             }else{
                 $field = $this->bean->table_name . "." . $field;
@@ -405,7 +405,7 @@ class matrixReportBuilder
                         $condition->field = 'id';
                     }
                     if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
-                        $field = $this->db->quoteIdentifier($table_alias . '_cstm') . '.' . $condition->field;
+                        $field = $bean->db->quoteIdentifier($table_alias . '_cstm') . '.' . $condition->field;
                         $query = $this->build_report_query_join($table_alias . '_cstm', $table_alias . '_cstm',
                                                                 $table_alias, $condition_module, 'custom', $query);
                     } else {
@@ -447,7 +447,8 @@ class matrixReportBuilder
                                 $query = $this->build_report_query_join($condition_module->table_name . '_cstm',
                                                                         $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
                             } else {
-                                $value = ($table_alias ? $this->db->quoteIdentifier($table_alias) : $condition_module->table_name) . '.' . $condition->value;
+                                $value = ($table_alias ? $bean->db->quoteIdentifier($table_alias) :
+                                        $condition_module->table_name) . '.' . $condition->value;
                             }
                             break;
 
@@ -863,7 +864,7 @@ class matrixReportBuilder
             $select = "ROUND( ";
         }
         //if($this->bean->field_defs[ $this->field ]['type'] == "currency") {
-            $type = $this->actionType;
+        $type = $this->actionType;
         //}
         $select .= $type . "(CASE WHEN 
                 {$field1} ='{$key1}'  ";
@@ -990,7 +991,7 @@ class matrixReportBuilder
                 $label = $field['name'];
             }
             if(($module == "Leads" || $module == "Contacts") && ($field['name'] == "full_name" || $field['name'] == "name" ) ){
-               continue;
+                continue;
             }
             $defs[$field['name']] = $label;
         }
