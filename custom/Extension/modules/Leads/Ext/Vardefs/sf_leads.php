@@ -157,6 +157,7 @@ $dictionary['Lead']['fields']['time_requested_c'] = array (
     'vname' => 'LBL_TIME_REQUESTED_C',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['current_ehr_c'] = array (
@@ -164,6 +165,7 @@ $dictionary['Lead']['fields']['current_ehr_c'] = array (
     'vname' => 'LBL_CURRENT_EHR_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['currently_using_speech_rec_c'] = array (
@@ -171,6 +173,7 @@ $dictionary['Lead']['fields']['currently_using_speech_rec_c'] = array (
     'vname' => 'LBL_CURRENTLY_USING_SPEECH_REC_C',
     'type' => 'varchar',
     'len' => '10',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['lead_group_c'] = array (
@@ -178,12 +181,14 @@ $dictionary['Lead']['fields']['lead_group_c'] = array (
     'vname' => 'LBL_LEAD_GROUP_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['number_of_doctors_c'] = array (
     'name' => 'number_of_doctors_c',
     'vname' => 'LBL_NUMBER_OF_DOCTORS_C',
     'type' => 'float',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['timeframe_for_purchase_c'] = array (
@@ -191,6 +196,7 @@ $dictionary['Lead']['fields']['timeframe_for_purchase_c'] = array (
     'vname' => 'LBL_TIMEFRAME_FOR_PURCHASE_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['directions_c'] = array (
@@ -198,6 +204,7 @@ $dictionary['Lead']['fields']['directions_c'] = array (
     'vname' => 'LBL_DIRECTIONS_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['channel_c'] = array (
@@ -205,6 +212,7 @@ $dictionary['Lead']['fields']['channel_c'] = array (
     'vname' => 'LBL_CHANNEL_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['preferred_follow_up_c'] = array (
@@ -212,6 +220,7 @@ $dictionary['Lead']['fields']['preferred_follow_up_c'] = array (
     'vname' => 'LBL_PREFERRED_FOLLOW_UP_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['ehr_vendor_c'] = array (
@@ -219,6 +228,7 @@ $dictionary['Lead']['fields']['ehr_vendor_c'] = array (
     'vname' => 'LBL_EHR_VENDOR_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['bucket_c'] = array (
@@ -226,18 +236,21 @@ $dictionary['Lead']['fields']['bucket_c'] = array (
     'vname' => 'LBL_BUCKET_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['swipe_date_c'] = array (
     'name' => 'swipe_date_c',
     'vname' => 'LBL_SWIPE_DATE_C',
     'type' => 'date',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['leads_to_delete_c'] = array (
     'name' => 'leads_to_delete_c',
     'vname' => 'LBL_LEADS_TO_DELETE_C',
     'type' => 'bool',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['SEM_LS_C'] = array (
@@ -245,6 +258,7 @@ $dictionary['Lead']['fields']['SEM_LS_C'] = array (
     'vname' => 'LBL_SEM_LS_C',
     'type' => 'varchar',
     'len'  => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['GPO_C'] = array (
@@ -252,12 +266,14 @@ $dictionary['Lead']['fields']['GPO_C'] = array (
     'vname' => 'LBL_GPO_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['vip_account_c'] = array (
     'name' => 'vip_account_c',
     'vname' => 'LBL_VIP_ACCOUNT_C',
     'type' => 'bool',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['zba_ss_c'] = array (
@@ -265,4 +281,5 @@ $dictionary['Lead']['fields']['zba_ss_c'] = array (
     'vname' => 'LBL_ZBA_SS_C',
     'type' => 'varchar',
     'len' => '3',
+    'source' => 'custom_fields',
 );
