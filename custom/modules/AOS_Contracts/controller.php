@@ -81,7 +81,7 @@ class AOS_ContractsController extends SugarController
         global $current_user, $sugar_config, $timedate;
 
         if($_REQUEST['record']) {
-            $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->assigned_security_group_id = $sugar_config['Legal'];
             $bean->assigned_user_id = '';
             $bean->requested_user_id = $current_user->id;
