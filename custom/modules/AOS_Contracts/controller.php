@@ -37,15 +37,17 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-class sa_Fluency_OneController extends SugarController
+class AOS_ContractsController extends SugarController
 {
     public function action_accept()
     {
         global $current_user, $sugar_config;
+
         if ($_REQUEST['record']) {
-            $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->assigned_security_group_id = $sugar_config['Legal'];
             $bean->assigned_user_id = $current_user->id;
+            $bean->status = "Accepted";
             $bean->save();
             echo "success";
             die();
@@ -57,12 +59,13 @@ class sa_Fluency_OneController extends SugarController
 
     public function action_returnToRequester()
     {
-        global $sugar_config;
+        global $current_user, $sugar_config;
 
         if ($_REQUEST['record']) {
-            $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->assigned_security_group_id = $sugar_config['Sales'];
             $bean->assigned_user_id = $bean->requested_user_id;
+            $bean->status = "Request";
             $bean->date_requested_c = '';
             $bean->save();
             echo "success";
@@ -73,13 +76,13 @@ class sa_Fluency_OneController extends SugarController
         }
     }
 
-    public function action_assignToCommsOps()
+    public function action_assignToLegal()
     {
         global $current_user, $sugar_config, $timedate;
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("sa_Fluency_One", $_REQUEST['record']);
-            $bean->assigned_security_group_id = $sugar_config['CommOps'];
+            $bean->assigned_security_group_id = $sugar_config['Legal'];
             $bean->assigned_user_id = '';
             $bean->requested_user_id = $current_user->id;
             $bean->date_requested_c = $timedate->nowDb();

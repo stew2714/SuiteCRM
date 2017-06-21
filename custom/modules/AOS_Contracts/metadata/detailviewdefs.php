@@ -24,9 +24,13 @@ $viewdefs [$module_name] =
                                             ),
                                         6 =>
                                             array (
-                                                'customCode' => '<input type="button" class="button" id="acceptRequest" value="Accept Request">',
+                                                'customCode' => '<input type="button" class="button" id="sendToLegal" value="Send to Legal Queue">',
                                             ),
                                         7 =>
+                                            array (
+                                                'customCode' => '<input type="button" class="button" id="acceptRequest" value="Accept Request">',
+                                            ),
+                                        8 =>
                                             array (
                                                 'customCode' => '<input type="button" class="button" id="returnToRequester" value="Return to Requester">',
                                             ),

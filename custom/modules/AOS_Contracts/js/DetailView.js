@@ -3,32 +3,7 @@ $(document).ready(function() {
     $("#acceptRequest").click(function(){
         console.log('assigned');
 
-        // var url = "index.php?module=sa_Fluency_One&action=assignToCommsOps";
-        // var data = {record:$('[name=record]').val()};
-        // var query = $.ajax({
-        //     dataType: "json",
-        //     url: url,
-        //     data: data,
-        //     success: function(data){
-        //         return data;
-        //     }
-        // });
-        // var response = query.responseText;
-        //
-        // if (response === "success") {
-        //     $("#modal-title").text("Sent Successfully");
-        //     $("#modal-content").text("This record has been successfully sent over to the Comms Ops team for a FluencyOne Pricing Request.");
-        // } else {
-        //     $("#modal-title").text("Sending Failed");
-        //     $("#modal-content").text("There was a problem sending this record to the Comms Ops team as there was no record ID passed to the operation. Please try again.");
-        // }
-
-        $('#modal-dialog').modal("toggle");
-    });
-
-    // Comms Op Accept & Assign Button Functionality
-    $("#accept_button").click(function(){
-        var url = "index.php?module=sa_Fluency_One&action=accept";
+        var url = "index.php?module=AOS_Contracts&action=accept";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
@@ -41,19 +16,19 @@ $(document).ready(function() {
         var response = query.responseText;
 
         if (response === "success") {
-            $("#modal-title").text("Accept Successful");
-            $("#modal-content").text("The record has successfully been assigned.");
+            $("#modal-title").text("Sent Successfully");
+            $("#modal-content").text("This record has been successfully assigned to your account.");
         } else {
-            $("#modal-title").text("Accept Failed");
-            $("#modal-content").text("There has been a problem assigning this record as there was no record ID passed to the operation. Please try again.");
+            $("#modal-title").text("Sending Failed");
+            $("#modal-content").text("There was a problem assigning this record to yourself. Please try again. If the problem persists please contact your System Administrator.");
         }
 
         $('#modal-dialog').modal("toggle");
     });
 
     // Comms Op Return To Requester (Sales) Button Functionality
-    $("#return_to_requester").click(function(){
-        var url = "index.php?module=sa_Fluency_One&action=returnToRequester";
+    $("#returnToRequester").click(function(){
+        var url = "index.php?module=AOS_Contracts&action=returnToRequester";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
@@ -67,10 +42,35 @@ $(document).ready(function() {
 
         if (response === "success") {
             $("#modal-title").text("Return Successful");
-            $("#modal-content").text("The record has successfully been returned to the Requester");
+            $("#modal-content").text("The record has successfully been returned to the original author.");
         } else {
             $("#modal-title").text("Return Failed");
-            $("#modal-content").text("There has been a problem assigning this record back to the Requester as there was no record ID passed to the operation. Please try again.");
+            $("#modal-content").text("There has been a problem assigning this record back to the Requester. Please try again. If the problem persists please contact your System Administrator.");
+        }
+
+        $('#modal-dialog').modal("toggle");
+    });
+
+    // Send to Legal Queue
+    $("#sendToLegal").click(function (){
+        var url = "index.php?module=AOS_Contracts&action=assignToLegal";
+        var data = {record:$('[name=record]').val()};
+        var query = $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                return data;
+            }
+        });
+        var response = query.responseText;
+
+        if (response === "success") {
+            $("#modal-title").text("Sent Successfully");
+            $("#modal-content").text("This record has been successfully sent over to the Legal Queue.");
+        } else {
+            $("#modal-title").text("Sending Failed");
+            $("#modal-content").text("There was a problem sending this record to the Legal Queue as there was no record ID passed to the operation. If the problem persists please contact your System Administrator.");
         }
 
         $('#modal-dialog').modal("toggle");
