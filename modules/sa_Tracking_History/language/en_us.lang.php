@@ -76,4 +76,6 @@ $mod_strings = array (
   'LBL_RELATED_MODULE' => 'Related Module',
   'LBL_PREVIOUS_VALUE' => 'Previous Value',
   'LBL_NEW_VALUE' => 'New Value',
+  'LBL_SF_ID' => 'SalesForce ID',
+  'LBL_SF_PARENT_ID' => 'SalesForce Parent ID',
 );
