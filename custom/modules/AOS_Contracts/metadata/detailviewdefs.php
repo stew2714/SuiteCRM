@@ -38,6 +38,19 @@ $viewdefs [$module_name] =
                                             array (
                                                 'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="redlineReview" value="M*Modal Redline Review">{/if}',
                                             ),
+
+                                        10 =>
+                                            array (
+                                                'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="informCommOps" value="Send for Signatures">{/if}',
+                                            ),
+                                        11 =>
+                                            array (
+                                                'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="Submit to Comm Ops">{/if}',
+                                            ),
+                                        12 =>
+                                            array (
+                                                'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
+                                            ),
                                     ),
                                     'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
                             ),

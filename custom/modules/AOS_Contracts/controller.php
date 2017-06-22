@@ -57,6 +57,24 @@ class AOS_ContractsController extends SugarController
         }
     }
 
+    public function action_acceptCommOps()
+    {
+        global $current_date, $sugar_config;
+
+        if ($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->assigned_security_group_id = $sugar_config['CommOps'];
+            $bean->assigned_user_id = $current_user->id;
+            $bean->status = "Contracts Pending Clearance";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
     public function action_returnToRequester()
     {
         global $current_user, $sugar_config;
@@ -103,6 +121,40 @@ class AOS_ContractsController extends SugarController
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->status = 'M*Modal Redline Review';
             $bean->ts_mmodal_redline_review = $timedate->nowDb();
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+    public function action_informCommOps()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->status = 'Sent for Signatures';
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+    public function action_assignToCommOps()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->assigned_security_group_id = $sugar_config['CommOps'];
+            $bean->assigned_user_id = '';
+            $bean->status = "Submitted for Comm Ops Processing";
             $bean->save();
             echo "success";
             die();

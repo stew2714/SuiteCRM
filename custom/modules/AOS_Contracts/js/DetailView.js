@@ -109,4 +109,53 @@ $(document).ready(function() {
 
         $('#modal-dialog').modal("toggle");
     });
+
+    // Comm Ops Email Template
+    $("#informCommOps").click(function(){
+        var url = "index.php?module=AOS_Contracts&action=informCommOps";
+        var data = {record:$('[name=record]').val()};
+        var query = $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                return data;
+            }
+        });
+        var response = query.responseText;
+
+        if (response === "success") {
+            $("#modal-title").text("Successfully sent for Signatures");
+            $("#modal-content").text("This record has been successfully sent off for signatures.");
+        } else {
+            $("#modal-title").text("Sending Failed");
+            $("#modal-content").text("There was a problem sending this record for Signatures. If the problem persists please contact your System Administrator.");
+        }
+
+        $('#modal-dialog').modal("toggle");
+    });
+
+    // Send to Comm Ops
+    $("#submitToCommOps").click(function(){
+        var url = "index.php?module=AOS_Contracts&action=sendToCommOps";
+        var data = {record:$('[name=record]').val()};
+        var query = $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                return data;
+            }
+        });
+        var response = query.responseText;
+
+        if (response === "success") {
+            $("#modal-title").text("Sent Successfully");
+            $("#modal-content").text("This record has been successfully sent over to the Comm Ops Queue.");
+        } else {
+            $("#modal-title").text("Sending Failed");
+            $("#modal-content").text("There was a problem sending this record to the Comm Ops Queue as there was no record ID passed to the operation. If the problem persists please contact your System Administrator.");
+        }
+        $('#modal-dialog').modal("toggle");
+    });
 });
