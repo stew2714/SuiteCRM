@@ -136,11 +136,6 @@ $viewdefs [$module_name] =
                                     array (
                                         0 =>
                                             array (
-                                                'name' => 'hours_timesheet',
-                                                'label' => 'LBL_HOURS_TIMESHEETS',
-                                            ),
-                                        1 =>
-                                            array (
                                                 'name' => 'additional_notes',
                                                 'comment' => '',
                                             ),
