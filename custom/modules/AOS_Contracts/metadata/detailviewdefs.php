@@ -24,15 +24,19 @@ $viewdefs [$module_name] =
                                             ),
                                         6 =>
                                             array (
-                                                'customCode' => '<input type="button" class="button" id="sendToLegal" value="Send to Legal Queue">',
+                                                'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="sendToLegal" value="Send to Legal Queue">{/if}',
                                             ),
                                         7 =>
                                             array (
-                                                'customCode' => '<input type="button" class="button" id="acceptRequest" value="Accept Request">',
+                                                'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
                                             ),
                                         8 =>
                                             array (
-                                                'customCode' => '<input type="button" class="button" id="returnToRequester" value="Return to Requester">',
+                                                'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="returnToRequester" value="Return to Requester">{/if}',
+                                            ),
+                                        9 =>
+                                            array (
+                                                'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="redlineReview" value="M*Modal Redline Review">{/if}',
                                             ),
                                     ),
                                     'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',

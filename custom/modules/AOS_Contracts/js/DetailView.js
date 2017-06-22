@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    // Request FluencyOne Pricing Button Functionality
-    $("#acceptRequest").click(function(){
+    // Accept Request as a Legal Team User
+    $("#acceptRequestLegal").click(function(){
         console.log('assigned');
 
         var url = "index.php?module=AOS_Contracts&action=accept";
@@ -83,5 +83,30 @@ $(document).ready(function() {
         if (modalVisible === true) {
             location.reload();
         }
+    });
+
+    // Redline Review
+    $("#redlineReview").click(function(){
+        var url = "index.php?module=AOS_Contracts&action=redLineReview";
+        var data = {record:$('[name=record]').val()};
+        var query = $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                return data;
+            }
+        });
+        var response = query.responseText;
+
+        if (response === "success") {
+            $("#modal-title").text("Added for a M*Modal Redline Review");
+            $("#modal-content").text("This record has been successfully added to a M*Modal Redline Review.");
+        } else {
+            $("#modal-title").text("Sending Failed");
+            $("#modal-content").text("There was a problem adding this record to a M*Modal Redline Review. If the problem persists please contact your System Administrator.");
+        }
+
+        $('#modal-dialog').modal("toggle");
     });
 });
