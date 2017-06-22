@@ -42,6 +42,7 @@ $dictionary['SA_Legal_Timesheets'] = array(
     'table' => 'sa_legal_timesheets',
     'audited' => true,
     'inline_edit' => true,
+    'custom_fields' => true,
     'duplicate_merge' => true,
     'indices' => array ('entry_id' => array('name' =>'entry_idk', 'type' =>'unique', 'fields'=>array('entry_id') ) ),
 

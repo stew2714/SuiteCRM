@@ -41,6 +41,7 @@
 $dictionary['SA_Legal_Vendors'] = array(
     'table' => 'sa_legal_vendors',
     'audited' => true,
+    'custom_fields' => true,
     'inline_edit' => true,
     'duplicate_merge' => true,
     'indices' => array ('vendor_contract_id' => array('name' =>'vendor_contract_idk', 'type' =>'unique',
