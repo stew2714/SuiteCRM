@@ -7,13 +7,18 @@ $dictionary['Lead']['fields']['eloqua_id'] = array(
     'len' => 5,
     'default' => 0,
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 // Annual Revenue Field
-$dictionary['Lead']['fields']['annual_revenue_c'] = array (
-    'name' => 'annual_revenue_c',
-    'vname' => 'LBL_ANNUAL_REVENUE_C',
-    'type' => 'float',
+$dictionary['Lead']['fields']['annual_revenue'] = array(
+    'name' => 'annual_revenue',
+    'vname' => 'LBL_ANNUAL_REVENUE',
+    'type' => 'int',
+    'len' => 99,
+    'default' => 0,
+    'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 // Number of Employees
@@ -24,6 +29,7 @@ $dictionary['Lead']['fields']['number_of_employees'] = array(
     'len' => 5,
     'default' => 0,
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 // Industry Select, Options are from Eloqua Instance
@@ -49,14 +55,15 @@ $dictionary['Lead']['fields']['industry'] = array(
     'studio' => 'visible',
     'dependency' => false,
     'inline_edit' => false,
+    'source' => 'custom_fields',
 );
 
-// Industry Select, Options are from Eloqua Instance
-$dictionary['Lead']['fields']['rating'] = array(
-    'name' => 'industry',
-    'vname' => 'LBL_RATING',
+$dictionary['Lead']['fields']['rating'] = array (
+    'name' => 'rating',
+    'vname' => 'LBL_ELOQUA_LEAD_RATING',
     'type' => 'varchar',
-    'len' => '40',
+    'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['primary_address_country']['type']='enum';
