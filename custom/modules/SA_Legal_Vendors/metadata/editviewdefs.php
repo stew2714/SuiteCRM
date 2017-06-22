@@ -44,7 +44,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'business_unit',
+            'name' => 'description_document_type_c',
+            'comment' => '',
+            'label' => 'LBL_DESCRIPTION_DOCUMENT_TYPE',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'business_unit_c',
             'comment' => '',
             'label' => 'LBL_BUSINESS_UNIT',
           ),
@@ -55,7 +65,7 @@ array (
             'label' => 'LBL_DOES_VENDOR_ACCESS_PHI',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -70,7 +80,77 @@ array (
             'label' => 'LBL_REQUEST_CLOSED_DATE',
           ),
         ),
-        3 => 
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'age_c',
+            'comment' => '',
+            'label' => 'LBL_AGE',
+          ),
+          1 => 
+          array (
+            'name' => 'does_vendor_access_phi_c',
+            'comment' => '',
+            'label' => 'LBL_DOES_VENDOR_ACCESS_PHI',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'request_closed_date_c',
+            'comment' => '',
+            'label' => 'LBL_REQUEST_CLOSED_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'vendor_name_c',
+            'comment' => '',
+            'label' => 'LBL_VENDOR_NAME',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lastactivitydate_c',
+            'comment' => '',
+            'label' => 'LBL_LAST_ACTIVITY_DATE',
+          ),
+          1 => '',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'requestor_c',
+            'comment' => '',
+            'label' => 'LBL_REQUESTOR',
+          ),
+          1 => 
+          array (
+            'name' => 'time_to_complete_c',
+            'comment' => '',
+            'label' => 'LBL_TIME_TO_COMPLETE',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'notes_c',
+            'comment' => '',
+            'label' => 'LBL_NOTES',
+          ),
+          1 => 
+          array (
+            'name' => 'initital_request_date_c',
+            'comment' => '',
+            'label' => 'LBL_INITITAL_REQUEST_DATE',
+          ),
+        ),
+        9 => 
         array (
           0 => 'description',
           1 => 
