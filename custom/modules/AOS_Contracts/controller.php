@@ -39,6 +39,12 @@
 
 class AOS_ContractsController extends SugarController
 {
+    public function action_CreateView()
+    {
+        $this->view = "create";
+    }
+
+
     public function action_accept()
     {
         global $current_user, $sugar_config;
