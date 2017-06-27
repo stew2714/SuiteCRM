@@ -163,5 +163,21 @@ class AOS_ContractsController extends SugarController
             die();
         }
     }
+
+    public function action_activateRequest()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->status = "Activated";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
 }
 ?>

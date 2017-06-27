@@ -9,3 +9,4 @@ $app_list_strings['contract_status_list']['M*Modal Redline Review'] = 'M*Modal R
 $app_list_strings['contract_status_list']['Sent for Signatures'] = 'Sent for Signatures';
 $app_list_strings['contract_status_list']['Submitted for Comm Ops Processing'] = 'Submitted for Comm Ops Processing';
 $app_list_strings['contract_status_list']['Contracts Pending Clearance'] = 'Contracts Pending Clearance';
+$app_list_strings['contract_status_list']['Closed'] = 'Closed';
