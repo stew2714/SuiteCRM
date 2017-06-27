@@ -1,6 +1,4 @@
-<?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
+{*
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -39,39 +37,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-
-require_once('custom/include/MVC/views/view.create.php');
-
-class AOS_ContractsViewCreate extends ViewCreate
-{
-	var $type ='create';
-
- 	public function __construct()
- 	{
- 		parent::ViewCreate();
- 	}
-
-    public function display(){
-
-	    $this->loadRelated();
-        parent::display();
-
-        echo "<script src='custom/modules/Leads/lead_create_view.js'></script>";
-    }
-
-	public function loadRelated(){
-		global $app_list_strings;
-
-		foreach($GLOBALS['app_list_strings']['CreateViewRelatedModule'][ $this->bean->module_name ] as $prefix =>
-			$related){
-			if(isset($this->bean->{$related['relationship']}) && !empty($this->bean->{$related['relationship']})){
-				$related = BeanFactory::getBean($related['module'], $this->bean->{$related['relationship']});
-			}
-			foreach($related->field_defs as $name => $defs){
-				$this->bean->{$prefix . '_' . $name} = $related->{$name};
-			}
-
-		}
-	}
-
-}
+*}
+</form>
+<script>SUGAR.util.doWhen("document.getElementById('form') != null",
+        function(){ldelim}SUGAR.util.buildAccessKeyLabels();{rdelim});
+</script>

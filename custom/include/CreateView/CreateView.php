@@ -125,7 +125,8 @@ class CreateView extends EditView {
         {
             $this->th->ss->assign('PAGINATION', SugarVCR::menu($this->module, $this->offset, $this->focus->is_AuditEnabled(), ($this->view == 'EditView')));
         }
-        $this->th->ss->assign('moduleListing', $GLOBALS['app_list_strings']['CreateViewRelatedModule']);
+        $this->th->ss->assign('moduleListing', $GLOBALS['app_list_strings']['CreateViewRelatedModule'][
+        	$this->focus->module_name ]);
 
         if (isset($_REQUEST['return_module'])) $this->returnModule = $_REQUEST['return_module'];
         if (isset($_REQUEST['return_action'])) $this->returnAction = $_REQUEST['return_action'];
@@ -275,12 +276,12 @@ class CreateView extends EditView {
         }
 
         if($this->focus->module_dir == 'AOS_Contracts') {
-            $relatedModules = $app_list_strings['CreateViewRelatedModule'];
+            $relatedModules = $app_list_strings['CreateViewRelatedModule'][ $this->focus->module_name ];
             foreach($relatedModules as $product => $value) {
                 if($product == '') continue;
 
                 $prefix = $product . '_';
-                $mod = BeanFactory::getBean($value);
+                $mod = BeanFactory::getBean($value['module']);
                 foreach ($mod->field_defs as $name => $arr) {
 
                     if (isset($arr['options']) && isset($app_list_strings[$arr['options']])) {
@@ -301,7 +302,10 @@ class CreateView extends EditView {
                     $arr['name'] = $prefix . $arr['name'];
 
 
-                    $this->fieldDefs[$prefix . $name] = $arr;
+                    if($this->fieldDefs[$prefix . $name] != null){
+	                    $arr = array_merge($this->fieldDefs[$prefix . $name], $arr);
+                    }
+	                $this->fieldDefs[$prefix . $name] = $arr;
                     $this->fieldDefs[$prefix . $name]['moduleCore'] = $mod->module_name;
                 }
             }

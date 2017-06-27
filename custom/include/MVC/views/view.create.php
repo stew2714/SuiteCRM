@@ -17,6 +17,7 @@ class ViewCreate extends SugarView{
      */
     public function preDisplay()
     {
+    	global $app_list_strings;
         /* BEGIN - SECURITY GROUPS */
         $metadataFile = null;
         $foundViewDefs = false;
@@ -44,6 +45,42 @@ class ViewCreate extends SugarView{
         }
         /* END - SECURITY GROUPS */
         $this->cv = $this->getCreateView();
+
+
+
+	    $relatedModules = $app_list_strings['CreateViewRelatedModule'][ $this->bean->module_name ];
+	    foreach($relatedModules as $product => $value) {
+		    if($product == '') continue;
+
+		    $prefix = $product . '_';
+		    $mod = BeanFactory::getBean($value['module']);
+		    foreach ($mod->field_defs as $name => $arr) {
+
+			    if (isset($arr['options']) && isset($app_list_strings[$arr['options']])) {
+				    if (isset($GLOBALS['sugar_config']['enable_autocomplete']) && $GLOBALS['sugar_config']['enable_autocomplete'] == true) {
+					    $arr['autocomplete'] = true;
+					    $arr['autocomplete_options'] = $arr['options']; // we need the name for autocomplete
+				    } else {
+					    $arr['autocomplete'] = false;
+				    }
+				    // Bug 57472 - $arr['autocomplete_options' was set too late, it didn't retrieve the list's name, but the list itself (the developper comment show us that developper expected to retrieve list's name and not the options array)
+				    $arr['options'] = $app_list_strings[$arr['options']];
+			    }
+
+			    if (isset($arr['options']) && is_array($arr['options']) && isset($arr['default_empty']) && !isset($arr['options'][$arr['default_empty']])) {
+				    $arr['options'] = array_merge(array($arr['default_empty'] => $arr['default_empty']), $arr['options']);
+			    }
+
+			    $arr['name'] = $prefix . $arr['name'];
+
+
+			    $this->bean->field_defs[$prefix . $name] = $arr;
+			    $this->bean->field_defs[$prefix . $name]['moduleCore'] = $mod->module_name;
+		    }
+	    }
+
+
+
         $this->cv->ss =& $this->ss;
         $this->cv->setup($this->module, $this->bean, $metadataFile, 'custom/include/CreateView/CreateView.tpl');
     }
