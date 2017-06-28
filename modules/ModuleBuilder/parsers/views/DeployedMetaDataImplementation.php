@@ -346,8 +346,22 @@ class DeployedMetaDataImplementation extends AbstractMetaDataImplementation impl
 
 		
 
+
+		/* BEGIN - SECURITY GROUPS */ 
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		if(!isset($groupLayout) || empty($groupLayout)) {
+			$groupLayout = "";
+		} else {
+			$groupLayout .= "/";
+		}
+		//$GLOBALS['log']->debug("getFile: ".$_pathMap [ $type ] . 'modules/' . $moduleName . '/metadata/' . $groupLayout . $_filenames [ $view ] . '.php');
+		/**
 		// Construct filename
 		return $pathMap [ $type ] . 'modules/' . $moduleName . '/metadata/' . $filenames [ $view ] . '.php' ;
+		*/
+		return $pathMap [ $type ] . 'modules/' . $moduleName . '/metadata/' . $groupLayout . $filenames [ $view ] . '.php' ;
+		/* END - SECURITY GROUPS */ 	
 	}
 	
 	private function replaceVariables($defs, $module) {

@@ -135,6 +135,11 @@ array (
         7 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'c1_cust_contacts1_leads_name',
+            'label' => 'LBL_C1_CUST_CONTACTS1_LEADS_FROM_C1_CUST_CONTACTS1_TITLE',
+          ),
         ),
       ),
       'LBL_PANEL_ADVANCED' => 

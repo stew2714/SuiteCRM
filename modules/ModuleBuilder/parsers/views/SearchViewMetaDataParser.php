@@ -113,6 +113,12 @@ class SearchViewMetaDataParser extends ListLayoutMetaDataParser
         $this->_fielddefs = $this->implementation->getFielddefs () ;
         $this->_standardizeFieldLabels( $this->_fielddefs );
 
+        /* BEGIN - SECURITY GROUPS */ 
+        if(!empty($this->_viewdefs['securitygroup']))
+        {
+            $this->_viewdefs['securitygroup']['studio']['listview'] = true;
+        }
+        /* END - SECURITY GROUPS */ 
     }
 
     public function isValidField($key, $def)

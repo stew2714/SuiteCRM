@@ -286,6 +286,16 @@ class SugarWidgetSubPanelTopButton extends SugarWidget
 		$temp='';
 		$inputID = $this->getWidgetId();
 
+        //BEGIN - SECURITY GROUPS - create rights
+        //$GLOBALS['log']->fatal("subpanel mod: ".$defines['module']." acl: ".$this->acl);
+        /**
+        if(!empty($this->acl) && $this->acl == 'edit')
+        {
+            $this->acl = 'create';
+        }
+        */
+        //END - SECURITY GROUPS - create rights
+
 		if(!empty($this->acl) && ACLController::moduleSupportsACL($defines['module'])  &&  !ACLController::checkAccess($defines['module'], $this->acl, true)){
 			return $temp;
 		}

@@ -18,12 +18,11 @@ function popup_select(&$bean, $event, $arguments)
 
 		if(!empty($_REQUEST['securitygroup_list'])) {
 			require_once('modules/SecurityGroups/SecurityGroup.php');
-			$groupFocus = new SecurityGroup();
-			$security_modules = $groupFocus->getSecurityModules();
+			$security_modules = SecurityGroup::getSecurityModules();
 			//sanity check
 			if(in_array($bean->module_dir,array_keys($security_modules))) {
 				//add each group in securitygroup_list to new record
-				$rel_name = $groupFocus->getLinkName($bean->module_dir,"SecurityGroups");
+				$rel_name = SecurityGroup::getLinkName($bean->module_dir,"SecurityGroups");
 
 				$bean->load_relationship($rel_name);
 				foreach($_REQUEST['securitygroup_list'] as $group_id) {
@@ -42,7 +41,7 @@ function popup_select(&$bean, $event, $arguments)
 
 	else if(isset($sugar_config['securitysuite_user_popup']) && $sugar_config['securitysuite_user_popup'] == true
 		&& empty($bean->fetched_row['id']) && $bean->module_dir == "Users"
-		&& isset($_REQUEST['action']) && $_REQUEST['action'] != 'SaveSignature' ) { //Bug: 589
+		&& $_REQUEST['action'] != 'SaveSignature' ) { //Bug: 589
 
 		//$_REQUEST['return_module'] = $bean->module_dir;
 		//$_REQUEST['return_action'] = "DetailView";
@@ -92,11 +91,10 @@ function popup_onload($event, $arguments)
 			unset($_SESSION['securitygroups_popup'][$popup_index]);
 			
 			require_once('modules/SecurityGroups/SecurityGroup.php');
-			$groupFocus = new SecurityGroup();
 			if($module == 'Users') {
 				$rel_name = "SecurityGroups";
 			} else {
-				$rel_name = $groupFocus->getLinkName($module,"SecurityGroups");
+				$rel_name = SecurityGroup::getLinkName($module,"SecurityGroups");
 			}
 
 				//this only works if on the detail view of the record actually saved...
@@ -133,7 +131,7 @@ function mass_assign($event, $arguments)
 
 			require_once('modules/SecurityGroups/SecurityGroup.php');
 			$groupFocus = new SecurityGroup();
-			$security_modules = $groupFocus->getSecurityModules();
+			$security_modules = SecurityGroup::getSecurityModules();
 			//if(in_array($module,$security_modules)) {
 			if(in_array($module,array_keys($security_modules))) {
 
@@ -169,7 +167,7 @@ function send_massassign(mode, no_record_txt, start_string, end_string, del) {
 		return false;
 
 	if(document.MassAssign_SecurityGroups.massassign_group.selectedIndex == 0) {
-		alert("${current_module_strings['LBL_SELECT_GROUP_ERROR']}");
+		alert("Please select a group and try again.");
 		return false;	
 	}
 	 

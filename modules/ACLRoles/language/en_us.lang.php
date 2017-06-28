@@ -56,5 +56,10 @@ $mod_strings = array (
 'LBL_ACTION_ADMIN'=>'Access Type',
 'LBL_ALL'=>'All',
 'LBL_DUPLICATE_OF'=>'Duplicate Of ',
-)
+);
+
+//BEGIN - SECURITY GROUPS - sub-admins
+$mod_strings['LBL_USER_NAME_FOR_ROLE'] = 'Users/Security Groups/Roles';
+//END - SECURITY GROUPS
+
 ?>

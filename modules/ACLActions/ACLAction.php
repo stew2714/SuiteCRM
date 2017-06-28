@@ -574,6 +574,18 @@ class ACLAction  extends SugarBean{
         foreach($categories as $cat_name=>$category){
             foreach($category as $type_name=>$type){
                 foreach($type as $act_name=>$action){
+                    //BEGIN - SECURITY GROUPS - sub-admins
+                    if($act_name == 'admin')
+                    {
+                        require_once('modules/SecurityGroups/SecurityGroup.php');
+                        $current_plan = SecurityGroup::get_current_plan();
+                        $GLOBALS['log']->fatal("plan: ".$current_plan);
+                        if (empty($current_plan) || $current_plan == 'enhanced')
+                        {
+                            continue;
+                        }
+                    }
+                    //END - SECURITY GROUPS - sub-admins
                     $names[$act_name] = translate($ACLActions[$type_name]['actions'][$act_name]['label'], 'ACLActions');
                     $categories[$cat_name][$type_name][$act_name]['accessColor'] = ACLAction::AccessColor($action['aclaccess']);
                     if($type_name== 'module'){
@@ -590,6 +602,15 @@ class ACLAction  extends SugarBean{
                     if($cat_name=='Users'&& $act_name=='admin'){
                         $categories[$cat_name][$type_name][$act_name]['accessOptions'][ACL_ALLOW_DEFAULT]=ACLAction::AccessName(ACL_ALLOW_DEFAULT);;
                         $categories[$cat_name][$type_name][$act_name]['accessOptions'][ACL_ALLOW_DEV]=ACLAction::AccessName(ACL_ALLOW_DEV);;
+
+                        //BEGIN - SECURITY GROUPS - sub-admins
+                        require_once('modules/SecurityGroups/SecurityGroup.php');
+                        $current_plan = SecurityGroup::get_current_plan();
+                        if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+                        {
+                            $categories[$cat_name][$type_name][$act_name]['accessOptions'][ACL_ALLOW_ADMIN_DEV]=ACLAction::AccessName(ACL_ALLOW_ADMIN_DEV);
+                        }
+                        //END - SECURITY GROUPS
                     }
                     else{
                     $categories[$cat_name][$type_name][$act_name]['accessOptions'] =  ACLAction::getAccessOptions($act_name, $type_name);

@@ -20,14 +20,14 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Created by User',
   'LBL_MODIFIED_USER' => 'Modified by User',
   'LBL_LIST_FORM_TITLE' => 'Security Groups',
-  'LBL_MODULE_NAME' => 'Security Groups Management',
-  'LBL_MODULE_TITLE' => 'Security Groups Management',
+  'LBL_MODULE_NAME' => 'Security Groups',
+  'LBL_MODULE_TITLE' => 'Security Groups',
   'LNK_NEW_RECORD' => 'Create a Security Group',
   'LNK_LIST' => 'List View',
-  'LBL_SEARCH_FORM_TITLE' => 'Search Security Groups Management',
+  'LBL_SEARCH_FORM_TITLE' => 'Search Security Groups',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'History',
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
-  'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Security Groups Management',
+  'LBL_SECURITYGROUPS_SUBPANEL_TITLE' => 'Security Groups',
   'LBL_USERS' => 'Users',
   'LBL_USERS_SUBPANEL_TITLE' => 'Users',
   'LBL_ROLES_SUBPANEL_TITLE' => 'Roles',
@@ -76,18 +76,19 @@ $mod_strings = array (
   'LBL_MAKE_POST' => 'Make a Post',
   'LBL_POST' => 'Post',
   'LBL_SELECT_GROUP' => 'Select a Group',
-  'LBL_SELECT_GROUP_ERROR' => 'Please select a group and try again.',
   
   'LBL_HOOKUP_SELECT' => "Select a module",
   'LBL_HOOKUP_CONFIRM_PART1' => "You are about to add a relationship between Security Groups and ",
   'LBL_HOOKUP_CONFIRM_PART2' => ". Continue?",
   
   'LBL_GROUP_SELECT' => 'Select which groups should have access to this record',
-  'LBL_ERROR_DUPLICATE' => 'Due to a possible duplicate detected by SuiteCRM you will have to manually add Security Groups to your newly created record.',
+  'LBL_ERROR_DUPLICATE' => 'Due to a possible duplicate detected by Sugar you will have to manually add Security Groups to your newly created record.',
 
   'LBL_INBOUND_EMAIL' => 'Inbound email account',
   'LBL_INBOUND_EMAIL_DESC' => 'Only allow access to an email account if user belongs to a group that is assigned to the mail account.',
   'LBL_PRIMARY_GROUP' => 'Primary Group',
-
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED' => 'Shared Calendar - Hide Restricted',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED_DESC' => 'Only show items on the Shared Calendar that the user has rights to. Leave unchecked if your users need to see when other users are busy.',
+  'LBL_SHOW_GROUP_EVENTS' => 'Show Group Events on Calendar',
+  'LBL_SHOW_GROUP_EVENTS_DESC' => 'Show events assigned to a user\'s group on the regular calendar views',
 );
-?>

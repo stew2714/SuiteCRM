@@ -50,7 +50,12 @@ global $mod_strings;
 global $current_user;
 
 
+//BEGIN - SECURITY GROUPS - create rights
+/**  
 if(ACLController::checkAccess('Documents', 'edit', true))$module_menu[]=Array("index.php?module=Documents&action=EditView&return_module=Documents&return_action=DetailView", $mod_strings['LNK_NEW_DOCUMENT'],"Create");
+*/
+if(ACLController::checkAccess('Documents', 'edit', true))$module_menu[]=Array("index.php?module=Documents&action=EditView&return_module=Documents&return_action=DetailView", $mod_strings['LNK_NEW_DOCUMENT'],"Create");
+//END - SECURITY GROUPS - create rights
 if(ACLController::checkAccess('Documents', 'list', true))$module_menu[]=Array("index.php?module=Documents&action=index", $mod_strings['LNK_DOCUMENT_LIST'],"List");
 if(ACLController::checkAccess('Documents', 'detail', true)){
 	

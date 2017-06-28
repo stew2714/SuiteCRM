@@ -88,7 +88,24 @@ class ViewListView extends SugarView
         $subpanelName = (! empty ( $_REQUEST [ 'subpanel' ] )) ? $_REQUEST [ 'subpanel' ] : null ;
         require_once 'modules/ModuleBuilder/parsers/ParserFactory.php' ;
         $parser = ParserFactory::getParser (  $this->editLayout , $this->editModule , $packageName, $subpanelName ) ;
+		/* BEGIN - SECURITY GROUPS */ 
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		global $groupName;
+		$groupName = "Default";
+		if(!isset($groupLayout) || empty($groupLayout)) {
+			$groupLayout = "";
+		} else {
+			//Get group name for display
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			$groupFocus = new SecurityGroup();
+			$groupFocus->retrieve($groupLayout);
+			$groupName = $groupFocus->name;
+		}
+		/* END - SECURITY GROUPS */        
         $smarty = $this->constructSmarty ( $parser ) ;
+		//SECURITY GROUPS
+        $smarty->assign ( 'grpLayout', $groupLayout ) ; 
 
         if ($preview)
         {
@@ -171,6 +188,10 @@ class ViewListView extends SugarView
             } else
             {
                 $ajax->addCrumb ( translate ( $layoutLabel, 'ModuleBuilder' ), 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&view='.$layoutView.'&view_module=' . $this->editModule . '")' ) ;
+				/* BEGIN - SECURITY GROUPS */ 
+				global $groupName;
+				$ajax->addCrumb ( translate ( $groupName ), '' ) ;
+				/* END - SECURITY GROUPS */
                 $ajax->addCrumb ( $translatedViewType, '' ) ;
             }
         }
@@ -251,7 +272,11 @@ class ViewListView extends SugarView
         $buttons = array ( ) ;
         $buttons [] = array ( 'id' =>'savebtn', 'name' => 'savebtn' , 'image' => $imageSave , 'text' => (! $this->fromModuleBuilder)?$GLOBALS [ 'mod_strings' ] [ 'LBL_BTN_SAVEPUBLISH' ]: $GLOBALS [ 'mod_strings' ] [ 'LBL_BTN_SAVE' ], 'actionScript' => "onclick='studiotabs.generateGroupForm(\"edittabs\");if (countListFields()==0) ModuleBuilder.layoutValidation.popup() ; else ModuleBuilder.handleSave(\"edittabs\" )'" ) ;
         $buttons [] = array ( 'id' => 'spacer' , 'width' => '50px' ) ;
+		//SECURITY GROUPS - don't support history for group layouts...too much work
+        if(!isset($_REQUEST['grpLayout']))
         $buttons [] = array ( 'id' =>'historyBtn',       'name' => 'historyBtn' , 'text' => translate ( 'LBL_HISTORY' ) , 'actionScript' => "onclick='$histaction'" ) ;
+        //SECURITY GROUPS - don't support history for group layouts...too much work
+		if(!isset($_REQUEST['grpLayout']))
         $buttons [] = array ( 'id' => 'historyDefault' , 'name' => 'historyDefault',  'text' => translate ( 'LBL_RESTORE_DEFAULT' ) , 'actionScript' => $restoreAction ) ;
 
         $smarty->assign ( 'buttons', $this->_buildImageButtons ( $buttons ) ) ;

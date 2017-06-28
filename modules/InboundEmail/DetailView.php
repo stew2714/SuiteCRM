@@ -303,4 +303,13 @@ else if( $focus->is_personal == '1')
 
 $xtpl->parse('main');
 $xtpl->out('main');
+
+/* BEGIN - SECURITY GROUPS */ 
+if (isset($sugar_config['securitysuite_inbound_email']) && $sugar_config['securitysuite_inbound_email'] == true) {
+    require_once('include/SubPanel/SubPanelTiles.php');
+    $subpanel = new SubPanelTiles($focus, 'InboundEmail');
+    echo $subpanel->display();
+}
+/* END - SECURITY GROUPS */
+
 ?>

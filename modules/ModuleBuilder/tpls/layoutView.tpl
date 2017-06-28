@@ -236,6 +236,9 @@
 {/foreach}
 <input type='hidden' name="sync_detail_and_edit" value='{$syncDetailEditViews}'>
 <!-- BEGIN SUGARCRM flav=ent ONLY -->
+{* BEGIN - SECURITY GROUPS *}
+<input type='hidden' name='grpLayout' value='{$grpLayout}'>
+{* END - SECURITY GROUPS *}
 {if $fromPortal}
     <input type='hidden' name='PORTAL' value='1'>
 {/if}

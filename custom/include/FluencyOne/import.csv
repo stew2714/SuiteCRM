@@ -1,14 +1,6 @@
 column,Do not create,
-"   ownerid varchar(18) NOT NULL,", ,assigned_user_id
-"   isdeleted bool NOT NULL,",,deleted
-"   createddate timestamp NOT NULL,", ,date_entered
-"   createdbyid varchar(18) NOT NULL,", ,created_by
-"   lastmodifieddate timestamp NOT NULL,",,date_modified
-"   lastmodifiedbyid varchar(18) NOT NULL,", ,modified_user_id
-"   systemmodstamp timestamp NOT NULL,",x,not going to use
-"   lastactivitydate timestamp,",,lastactivitydate_c
-"   lastvieweddate timestamp,",x,
-"   lastreferenceddate timestamp,",x,
+"   sf_id_c varchar(18),",,
+"   lastactivitydate_c timestamp,",,
 "   account_232534532__c varchar(18),",,
 "   annual_outpatient_days__c real,",,
 "   beds__c real,",,
