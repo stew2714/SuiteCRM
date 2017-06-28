@@ -43,10 +43,17 @@
 }
 
 global $mod_strings, $app_strings, $sugar_config;
+
+
+if(ACLController::checkAccess('AOR_Reports', 'edit', true))$module_menu[]=Array("index.php?module=AOR_Reports&action=EditView&return_module=AOR_Reports&return_action=DetailView", $mod_strings['LNK_NEW_AOR_REPORT_RECORD'],"Create", 'AOR_Reports');
+if(ACLController::checkAccess('AOR_Reports', 'list', true))$module_menu[]=Array("index.php?module=AOR_Reports&action=index&return_module=AOR_Reports&return_action=DetailView", $mod_strings['LNK_AOR_REPORTS_LIST'],"List", 'AOR_Reports');
+if(ACLController::checkAccess('AOR_Reports', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=AOR_Reports&return_module=AOR_Reports&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'AOR_Reports');
+
+
  
 if(ACLController::checkAccess('AOR_MatrixReporting', 'edit', true)){
     $module_menu[]=array('index.php?module=AOR_MatrixReporting&action=EditView&return_module=AOR_MatrixReporting&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'AOR_MatrixReporting');
 }
 if(ACLController::checkAccess('AOR_MatrixReporting', 'list', true)){
-    $module_menu[]=array('index.php?module=AOR_MatrixReporting&action=index&return_module=AOR_MatrixReporting&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'AOR_MatrixReporting');
+    $module_menu[]=array('index.php?module=AOR_MatrixReporting&action=index&return_module=AOR_MatrixReporting&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'AOR_MatrixReporting');
 }

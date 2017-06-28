@@ -66,6 +66,14 @@ array (
             'label' => 'LBL_ASSIGNED_SECURITY_GROUP',
           ),
         ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_requested_c',
+            'label' => 'LBL_DATE_REQUESTED_C',
+          ),
+        ),
       ),
     ),
   ),
