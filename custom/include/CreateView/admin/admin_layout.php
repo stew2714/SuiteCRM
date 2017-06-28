@@ -13,16 +13,29 @@
  * Time: 14:51
  */
 //  header("Content-Type:text/plain");
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+require_once ('modules/ModuleBuilder/parsers/ModuleBuilderParser.php');
+
 
 $module = "AOS_Contracts";
-$team = $_REQUEST['security_group_layout'];
+if($_REQUEST['security_group_layout']){
+    $team = $_REQUEST['security_group_layout'];
+}else{
+    echo json_encode(array(""));
+    die();
+}
 
 $buildViews = new buildViews($module, $team);
-$buildViews->buildCombinedEditView($module, $team);
+$result1 = $buildViews->buildCombinedDetailView($team, 'EditView', 'create');
+$result2 = $buildViews->buildCombinedDetailView($team, 'DetailView', 'detailCombined');
 
-require_once ('modules/ModuleBuilder/parsers/ModuleBuilderParser.php');
+if($result1 == "Done" && $result2 == "Done"){
+    echo json_encode(array("message" => $result1, 'field_list' => "" ));
+}else{
+    echo json_encode(array("message" => "Failed", 'field_list' => "" ));
+
+}
 
 class buildViews{
 
@@ -31,8 +44,8 @@ class buildViews{
 
 
 	public function __construct($module, $team) {
-	$this->module = $module;
-	$this->team = $team;
+	    $this->module = $module;
+	    $this->team = $team;
 	}
 
 	public function fetchModules(){
@@ -41,7 +54,7 @@ class buildViews{
 		return $modules;
 	}
 
-	public function getLayoutDefs($modules, $team = "default",  $view = "editviewdefs"){
+	public function getLayoutDefs($modules, $team = "default",  $view){
 		$moduleTab = array();
 		foreach($modules as $moduleKey => $modTab){
 			if($moduleKey != ""){
@@ -68,128 +81,52 @@ class buildViews{
 		}
 		return $finalArray;
 	}
-	public function buildCombinedDetailView($team){
+
+	public function fetchDefs($module, $view){
+	    $metadata = strtolower($view) . "defs.php";
+        $file = "modules/{$module}/metadata/{$metadata}";
+	    if(get_custom_file_if_exists($file)){
+            require_once ($file);
+	        return $viewdefs[ $module ][ $view ]['templateMeta'];
+	    }
+    }
+	public function buildCombinedDetailView($team, $view = "EditView", $newView){
 		$modules = $this->fetchModules();
-		$this->getLayoutDefs($modules, $team, $view);
+        $finalArray = $this->getLayoutDefs($modules, $team, $view);
+        $viewdefs['templateMeta'] = $this->fetchDefs($this->module, $view);
+        $viewdefs['panels'] = $finalArray;
 
+        $file = $this->fetchFile($team, $newView);
+
+        $file_result = $this->_writeToFile($file,
+                                           ucfirst($newView) . "View",
+                                           $this->module,
+                                           $viewdefs,
+                                           $variables);
+
+        return $file_result;
 	}
+    public function fetchFile($team, $newView){
+	    $newView = strtolower($newView);
+        if(isset($team) && !empty($team) && $team != "default" ){
+            $file = "custom/modules/{$this->module}/metadata/" . $team ."/{$newView}viewdefs.php";
+            //cache
+            $cache_file = "cache/modules/{$this->module}/metadata/" . $team ."/{$newView}viewdefs.php";
+        }else{
+            if($team == "default"){
+                $file = "custom/modules/{$this->module}/metadata/{$newView}viewdefs.php";
+                $cache_file = "cache/modules/{$this->module}/metadata/{$newView}viewdefs.php";
+            }
+        }
 
-	public function buildCombinedEditView($module, $team){
+        if(!empty($file)) {
+            if (file_exists($cache_file)) {
+                unlink($cache_file);
+            }
+        }
 
-		$modules = $this->fetchModules($module);
-
-		$moduleTab = array();
-		foreach($modules as $moduleKey => $modTab){
-			if($moduleKey != ""){
-				$moduleKey = $moduleKey . "_";
-			}
-			$defs = $this->get_view("editviewdefs", $modTab['module'], $team);
-			if($defs['tabdefs'] != null){
-				foreach($defs['tabdefs'] as $key => $value){
-					$moduleTab[strtoupper($moduleKey) . $key ] = $value;
-				}
-			}
-			$tempModule = $this->opp_update_fields($defs['layout'], $moduleKey);
-			foreach($tempModule as $first_key =>  $panel){
-				$tempModule[$moduleKey . $first_key] = $panel;
-				if($moduleKey != ""){
-					unset($tempModule[$first_key]);
-				}
-			}
-			$finalDefs[$modTab['module']] = $tempModule;
-		}
-
-		$finalArray = array();
-		foreach($finalDefs as $array){
-			$finalArray = array_merge($array, $finalArray);
-		}
-
-
-	//***** STOP HERE ********/
-		$viewdefs=
-			array (
-				'templateMeta' =>
-					array (
-						'maxColumns' => '2',
-						'widths' =>
-							array (
-								0 =>
-									array (
-										'label' => '10',
-										'field' => '30',
-									),
-								1 =>
-									array (
-										'label' => '10',
-										'field' => '30',
-									),
-							),
-						'useTabs' => true,
-						'syncDetailEditViews' => false,
-						'tabDefs' => $moduleTab
-					),
-			);
-
-
-
-
-
-		$viewdefs['panels'] = $finalArray;
-		if(isset($team) && !empty($team) && $team != "default" ){
-			$file = "custom/modules/{$module}/metadata/" . $team ."/createviewdefs.php";
-			//cache
-			$cache_file = "cache/modules/{$module}/metadata/" . $team ."/createviewdefs.php";
-		}else{
-			if($team == "default"){
-				$file = "custom/modules/{$module}/metadata/createviewdefs.php";
-				$cache_file = "cache/modules/{$module}/metadata/createviewdefs.php";
-			}
-		}
-
-		if(!empty($file)) {
-			if(file_exists($cache_file)){
-				unlink($cache_file);
-			}
-			$file_result = $this->_writeToFile($file, 'CreateView', $module, $viewdefs, $variables);
-			$file_result = $this->_writeToFile("custom/modules/AOS_Contracts/metadata/detailcombinedviewdefs.php", 'DetailCombinedView',
-			                            $module,
-			                            $viewdefs,
-			                            $variables);
-
-		}else{
-			//must be none;
-			$file_result = "";
-			$html = "";
-		}
-
-		if($team == "default"){
-			echo json_encode(array("message" => $file_result, 'field_list' => "<br><br> <h2>Panel Settings for Wizard</h2> <br><br>" . $this->getLayout($array, $team) ));
-		}else{
-			//    $html = "<br><br> <h2>Panel Settings for Wizard</h2> <br><br>" . getLayout($array, $team);
-			//    echo json_encode(array("message" => $file_result, 'field_list' => $html));
-		}
-
-
-
-	}
-
-
-
-	/**
-	 *
-	 * @deprecated
-	 * @param $name
-	 * @param $cfg
-	 * @return array
-	 */
-	function getRegFieldOptions($name,$cfg){
-		if(!empty($cfg->config['create']['registration_fields'][$name])){
-			return $cfg->config['create']['registration_fields'][$name];
-		}
-		return array('registration'=>'','profile'=>'','enrollment'=>'');
-	}
-
-
+        return $file;
+    }
 	/**
 	 * gets the product type dropdown and will return it with or without the keys.
 	 * @param bool|false $keys
@@ -356,22 +293,22 @@ class buildViews{
 	 * @return mixed
 	 */
 	function get_view($viewDef, $module, $team){
-
+        $def = strtolower($viewDef) . "defs.php";
 		if(!empty($team) && $team != "default"){
-			$coreMetaPath = 'modules/' . $module . '/metadata/' . $team . '/' . $viewDef . '.php';
+			$coreMetaPath = 'modules/' . $module . '/metadata/' . $team . '/' . $def ;
 			if(file_exists('custom/' .$coreMetaPath )) {
 				$metadataFile = 'custom/' . $coreMetaPath;
 			}elseif(file_exists($coreMetaPath)){
 				$metadataFile = $coreMetaPath;
 			}else{
-				$metadataFile = 'custom/modules/' . $module . '/metadata/' . $viewDef . '.php';
+				$metadataFile = 'custom/modules/' . $module . '/metadata/' . $def;
 				if(file_exists('custom/' .$coreMetaPath )) {
 					$metadataFile = 'custom/' . $coreMetaPath;
 				}
 			}
 		}else{
 			if(!empty($team)){
-				$metadataFile = 'modules/' . $module .'/metadata/' . $viewDef . '.php';
+				$metadataFile = 'modules/' . $module .'/metadata/' . $def;
 			}
 			if(file_exists('custom/' .$metadataFile ) && !empty($metadataFile)) {
 				$metadataFile = 'custom/' . $metadataFile;
@@ -380,17 +317,10 @@ class buildViews{
 		$tabdefs = "";
 		if(!empty($metadataFile)){
 			require_once($metadataFile);
-			if($viewDef == "editviewdefs"){
-				$results = $viewdefs[$module]["EditView"]['panels'];
-				if($viewdefs[$module]['EditView']['templateMeta']['useTabs'] == true){
+				$results = $viewdefs[$module][ $viewDef ]['panels'];
+				if($viewdefs[$module][ $viewDef ]['templateMeta']['useTabs'] == true){
 					$tabdefs = $viewdefs[$module]['EditView']['templateMeta']['tabDefs'];
 				}
-			}else{
-				$results = $viewdefs[$module]["CreateView"]['panels'];
-				if($viewdefs[$module]['EditView']['templateMeta']['useTabs'] == true){
-					$tabdefs = $viewdefs[$module]['CreateView']['templateMeta']['tabDefs'];
-				}
-			}
 			//remove end
 			unset($results['END']);
 		}
@@ -436,6 +366,7 @@ class buildViews{
 				case 'detailview':
 				case 'quickcreate':
 				case 'createview':
+				case 'detailcombinedview':
 					$defs = array($view => $defs);
 					break;
 				default:

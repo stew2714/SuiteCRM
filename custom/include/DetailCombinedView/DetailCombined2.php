@@ -48,7 +48,7 @@ require_once('include/EditView/EditView2.php');
  */
 class DetailCombined2 extends EditView
 {
-    public $view = 'DetailView';
+    public $view = 'DetailCombinedView';
     public $defs;
     /**
      * DetailView constructor

@@ -98,7 +98,13 @@
         {{else}}
         <li role="presentation" class="hidden-xs">
             <a id="tab{{$tabCount}}" data-toggle="tab">
+                {{if $label|strpos:'LBL'===0}}
                 {sugar_translate label='{{$label}}' module='{{$module}}'}
+                {{else}}
+                {assign var=key value='{{$label|substr:0:3|lower}}'}
+                {assign var=placeHolder value='module'}
+                {sugar_translate label='{{$label|substr:4}}' module=$moduleListing[$key][$placeHolder]}
+                {{/if}}
             </a>
         </li>
         {{/if}}
@@ -261,7 +267,13 @@
                             <div class="panel-heading {{$panelHeadingCollapse}}">
                                 <a class="{{$collapsed}}" role="button" data-toggle="collapse" href="#{{$panelId}}" aria-expanded="false">
                                     <div class="col-xs-10 col-sm-11 col-md-11">
+                                        {{if $label|strpos:'LBL'===0}}
                                         {sugar_translate label='{{$label}}' module='{{$module}}'}
+                                        {{else}}
+                                        {assign var=key value='{{$label|substr:0:3|lower}}'}
+                                        {assign var=placeHolder value='module'}
+                                        {sugar_translate label='{{$label|substr:4}}' module=$moduleListing[$key][$placeHolder]}
+                                        {{/if}}
                                     </div>
                                 </a>
                             </div>
@@ -279,7 +291,7 @@
                         <div class="panel-heading {{$panelHeadingCollapse}}">
                             <a class="{{$collapsed}}" role="button" data-toggle="collapse" href="#{{$panelId}}" aria-expanded="false">
                                 <div class="col-xs-10 col-sm-11 col-md-11">
-                                    {sugar_translate label='{{$label}}' module='{{$module}}'}
+                                435345    {sugar_translate label='{{$label}}' module='{{$module}}'}
                                 </div>
                             </a>
 

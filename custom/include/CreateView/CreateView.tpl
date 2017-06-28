@@ -100,7 +100,8 @@
                 {sugar_translate label='{{$label}}' module='{{$module}}'}
               {{else}}
                 {assign var=key value='{{$label|substr:0:3|lower}}'}
-                {sugar_translate label='{{$label|substr:4}}' module=$moduleListing[$key]}
+                {assign var=placeHolder value='module'}
+                {sugar_translate label='{{$label|substr:4}}' module=$moduleListing[$key][$placeHolder]}
              {{/if}}
             </a>
         </li>
@@ -170,7 +171,13 @@
                 <div class="panel-heading {{$panelHeadingCollapse}}">
                     <a class="{{$collapsed}}" role="button" data-toggle="collapse-edit" aria-expanded="false">
                         <div class="col-xs-10 col-sm-11 col-md-11">
-                            {sugar_translate label='{{$label}}' module='{{$module}}'}
+                                  {{if $label|strpos:'LBL'===0}}
+                                    {sugar_translate label='{{$label}}' module='{{$module}}'}
+                                  {{else}}
+                                    {assign var=key value='{{$label|substr:0:3|lower}}'}
+                                    {assign var=placeHolder value='module'}
+                                    {sugar_translate label='{{$label|substr:4}}' module=$moduleListing[$key][$placeHolder]}
+                                 {{/if}}
                         </div>
                     </a>
 

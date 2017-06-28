@@ -98,10 +98,10 @@
                         {capture name="label" assign="label"}{{$colData.field.label}}{/capture}
                         {$label|strip_semicolon}:
                     {{elseif isset($colData.field.label)}}
-                        {capture name="label" assign="label"}{sugar_translate label='{{$colData.field.label}}' module='{{$module}}'}{/capture}
+                        {capture name="label" assign="label"}{sugar_translate label='{{$colData.field.label}}' module='{{$fields[$colData.field.name].moduleCore}}'}{/capture}
                         {$label|strip_semicolon}:
                     {{elseif isset($fields[$colData.field.name])}}
-                        {capture name="label" assign="label"}{sugar_translate label='{{$fields[$colData.field.name].vname}}' module='{{$module}}'}{/capture}
+                        {capture name="label" assign="label"}{sugar_translate label='{{$fields[$colData.field.name].vname}}' module='{{$fields[$colData.field.name].moduleCore}}'}{/capture}
                         {$label|strip_semicolon}:
                     {{else}}
                         &nbsp;
@@ -109,9 +109,9 @@
 
                     {{if isset($colData.field.popupHelp) || isset($fields[$colData.field.name]) && isset($fields[$colData.field.name].popupHelp) }}
                         {{if isset($colData.field.popupHelp) }}
-                            {capture name="popupText" assign="popupText"}{sugar_translate label="{{$colData.field.popupHelp}}" module="{{$module}}"}{/capture}
+                            {capture name="popupText" assign="popupText"}{sugar_translate label="{{$colData.field.popupHelp}}" module="{{$fields[$colData.field.name].moduleCore}}"}{/capture}
                         {{elseif isset($fields[$colData.field.name].popupHelp)}}
-                            {capture name="popupText" assign="popupText"}{sugar_translate label="{{$fields[$colData.field.name].popupHelp}}" module='{{$module}}'}{/capture}
+                            {capture name="popupText" assign="popupText"}{sugar_translate label="{{$fields[$colData.field.name].popupHelp}}" module='{{$fields[$colData.field.name].moduleCore}}'}{/capture}
                         {{/if}}
                         {sugar_help text=$popupText WIDTH=400}
                     {{/if}}
