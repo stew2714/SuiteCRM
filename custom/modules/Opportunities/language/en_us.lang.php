@@ -14,8 +14,6 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL11' => 'Commissions',
   'LBL_EDITVIEW_PANEL12' => 'System Information',
   'LBL_EDITVIEW_PANEL13' => 'New Panel 13',
-// created: 2017-06-09 15:38:53
-$mod_strings = array (
   'LBL_FIELD_TRACKING_HISTORY' => 'Field Tracking History',
   'AOS_Contracts' => 'Agreements',
 );
