@@ -79,7 +79,7 @@
         <tbody>
         <tr>
             {foreach from=$counts key=totalkey item=totalvalue}
-                <td>{$totalvalue}</td>
+                <td><b>{$totalvalue}</b></td>
             {/foreach}
         </tr>
         </tbody>

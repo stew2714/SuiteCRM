@@ -116,7 +116,26 @@ $dictionary['AOR_MatrixReporting'] = array(
                 'studio' => 'visible',
                 'dependency' => false,
             ),
-
+        'condition_lines' =>
+            array (
+                'required' => false,
+                'name' => 'condition_lines',
+                'vname' => 'LBL_CONDITION_LINES',
+                'type' => 'function',
+                'source' => 'non-db',
+                'massupdate' => 0,
+                'importable' => 'false',
+                'duplicate_merge' => 'disabled',
+                'duplicate_merge_dom_value' => 0,
+                'audited' => false,
+                'reportable' => false,
+                'function' =>
+                    array (
+                        'name' => 'display_condition_lines',
+                        'returns' => 'html',
+                        'include' => 'modules/AOMR_Conditions/conditionLines.php'
+                    ),
+            ),
 
             'fieldx1' =>
             array (
