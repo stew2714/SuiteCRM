@@ -62,6 +62,27 @@ class convertCSV
         }
     }
 
+
+    public function decodeModule($module){
+
+        switch($module){
+
+            case "a":
+                $module = "AOS_Contracts";
+                break;
+            case "p":
+                $module = "SA_Products";
+                break;
+            case "s":
+                $module = "SA_Services";
+                break;
+        }
+        return $module;
+    }
+
+
+
+
     public function cleanColumn($vardefs)
     {
         $vardef = array();
@@ -116,22 +137,7 @@ class convertCSV
         }
         return "";
     }
-    public function decodeModule($module){
 
-        switch($module){
-
-            case "a":
-                $module = "AOS_Contracts";
-                break;
-            case "p":
-                $module = "SA_Products";
-                break;
-            case "s":
-                $module = "SA_Services";
-                break;
-        }
-        return $module;
-    }
     public function cleanType($type)
     {
         $type = str_replace(array('(', ')'), ' ', $type);
@@ -232,9 +238,10 @@ class convertCSV
                 }
             }
             if (!$installed) {
+                echo "<b>Failed</b> : " . $field['name'] . "<br>";
                 $GLOBALS['log']->debug('Could not install custom field ' . $field['name'] . ' for module ' . $field['module'] . ': Module does not exist');
             } else {
-                echo "<code>" . print_r($field) . '</code>';
+                echo "Installed Field : <b>" . $field['name'] . "</b> into Module : <b>" . $field['module'] . "</b><br>";
             }
         }
     }
