@@ -220,11 +220,11 @@ class eloquaSyncAccounts
         $possibilities = array(
             'email_opt_out' => '100043',        // Email Opt Out
             'salutation' => '100017',           // Salutation
-            'annual_revenue' => '100047',       // Annual Revenue
-            'number_of_employees' => '100184',  // Number of Employees
-            'industry' => '100046',             // Industry
-            //'status' => '100048',             // Lead Status
-            //'rating' => '100081',             // Lead Rating Combined
+            'annual_revenue_c' => '100047',       // Annual Revenue
+            'number_of_employees_c' => '100184',  // Number of Employees
+            'industry_c' => '100046',             // Industry
+            //'status' => '100048',               // Lead Status
+            //'rating' => '100081',               // Lead Rating Combined
         );
 
         // Get the Key where there is a match in the array to the ID supplied to the function

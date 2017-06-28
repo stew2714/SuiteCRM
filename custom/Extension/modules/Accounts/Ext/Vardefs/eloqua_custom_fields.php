@@ -1,7 +1,7 @@
 <?php
 // Eloqua Record ID
-$dictionary['Account']['fields']['eloqua_id'] = array(
-    'name' => 'eloqua_id',
+$dictionary['Account']['fields']['eloqua_id_c'] = array(
+    'name' => 'eloqua_id_c',
     'vname' => 'LBL_ELOQUA_ID',
     'type' => 'int',
     'len' => 5,
@@ -9,8 +9,8 @@ $dictionary['Account']['fields']['eloqua_id'] = array(
     'reportable' => false,
 );
 
-$dictionary['Account']['fields']['rating'] = array (
-    'name' => 'rating',
+$dictionary['Account']['fields']['rating_c'] = array (
+    'name' => 'rating_c',
     'vname' => 'LBL_ELOQUA_ACCOUNT_RATING',
     'type' => 'varchar',
     'len' => '255',
