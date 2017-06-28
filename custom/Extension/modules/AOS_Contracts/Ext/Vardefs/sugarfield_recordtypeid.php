@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['name']='recordtypeid';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['default']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['len']='18';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['required']=false;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['options']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['help']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['comments']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['vname']='LBL_RECORDTYPEID';
+$dictionary['AOS_Contracts']['fields']['recordtypeid']['source']='custom_fields';
+
+ ?>

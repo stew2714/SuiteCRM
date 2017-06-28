@@ -42,9 +42,11 @@ require_once("ModuleInstall/ModuleInstaller.php");
 class convertCSV
 {
     var $module = "";
-    public function __construct($fileLocation, $module = "")
+    public function __construct($fileLocation, $source = 'custom_fields', $module = "")
     {
+        $this->exempt = array("id", "name");
         $this->module = $module;
+        $this->source = $source;
         $csv = new parseCSV();
         $csv->auto($fileLocation);
         $this->translateColumns($csv->data);
@@ -53,11 +55,10 @@ class convertCSV
     public function translateColumns($vardefs)
     {
         foreach ($vardefs as $vardef) {
-            $return = $this->cleanColumn($vardef);
-
-            echo '<pre>';
-            print_r($return);
-            echo '</pre>';
+            if($vardef['do no create'] == "X"){
+                continue;
+            }
+            $this->cleanColumn($vardef);
         }
     }
 
@@ -72,6 +73,10 @@ class convertCSV
 
         // Set the name for the new vardef
         $vardef['name'] = $columns[0];
+
+        if(!empty($vardefs['name'])){
+            $vardef['name'] = $vardefs['name'];
+        }
 
         // Run the type through the parsing function
         $type = $this->cleanType($columns[1]);
@@ -98,8 +103,14 @@ class convertCSV
         }elseif(!empty( $this->module ) ){
             $vardef['module'] = $this->module;
         }
+        //if source is set.
+        if(!empty($vardefs['source'])){
+            $vardef['source'] = $vardefs['source'];
+        }
 
-        if(!empty($vardef['module']) ) {
+
+
+        if(!empty($vardef['module']) && !in_array( $vardef['name'], $this->exempt ) ) {
             $result = $this->buildVardef($vardef);
             return $vardef;
         }
@@ -197,7 +208,7 @@ class convertCSV
                 if (!isset($field['enable_range_search'])) $field['enable_range_search'] = '';
                 if (!isset($field['len'])) $field['len'] = '255';
 
-                if (!isset($field['source'])) $field['source'] = 'custom_fields';
+                if (!isset($field['source'])) $field['source'] = $this->source;
 
                 //Merge contents of the sugar field extension if we copied one over
                 if (file_exists("custom/Extension/modules/{$field['module']}/Ext/Vardefs/sugarfield_{$field['name']}.php")) {
