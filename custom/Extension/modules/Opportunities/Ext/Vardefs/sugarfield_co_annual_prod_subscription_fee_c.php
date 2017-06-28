@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['name']='co_annual_prod_subscription_fee_c';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['default_value']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['default']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['display_default']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['len']='255';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['required']=false;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['type']='real';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['audited']=0;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['options']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['help']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['comments']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['importable']='true';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['ext2']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['ext4']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['ext3']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['vname']='LBL_CO_ANNUAL_PROD_SUBSCRIPTION_FEE_C';
+$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['source']='custom_fields';
+
+ ?>

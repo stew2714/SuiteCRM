@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['term_length_unit_c']['name']='term_length_unit_c';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['default_value']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['default']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['display_default']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['len']='1300';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['required']=false;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['type']='text';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['audited']=0;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['options']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['help']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['comments']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['importable']='true';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['ext2']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['ext4']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['ext3']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['term_length_unit_c']['vname']='LBL_TERM_LENGTH_UNIT_C';
+$dictionary['Opportunity']['fields']['term_length_unit_c']['source']='custom_fields';
+
+ ?>

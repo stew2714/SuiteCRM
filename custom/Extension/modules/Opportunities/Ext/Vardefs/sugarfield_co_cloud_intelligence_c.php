@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['name']='co_cloud_intelligence_c';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['default_value']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['default']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['display_default']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['len']='255';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['required']=false;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['type']='real';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['audited']=0;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['options']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['help']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['comments']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['importable']='true';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['ext2']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['ext4']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['ext3']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['vname']='LBL_CO_CLOUD_INTELLIGENCE_C';
+$dictionary['Opportunity']['fields']['co_cloud_intelligence_c']['source']='custom_fields';
+
+ ?>

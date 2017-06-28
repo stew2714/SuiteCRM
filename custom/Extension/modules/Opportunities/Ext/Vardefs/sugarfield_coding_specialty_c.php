@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['coding_specialty_c']['name']='coding_specialty_c';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['default_value']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['default']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['display_default']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['len']='255';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['required']=false;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['type']='text';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['audited']=0;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['options']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['help']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['comments']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['importable']='true';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['ext2']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['ext4']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['ext3']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['coding_specialty_c']['vname']='LBL_CODING_SPECIALTY_C';
+$dictionary['Opportunity']['fields']['coding_specialty_c']['source']='custom_fields';
+
+ ?>

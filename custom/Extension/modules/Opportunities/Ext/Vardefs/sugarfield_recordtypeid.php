@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['recordtypeid']['name']='recordtypeid';
+$dictionary['Opportunity']['fields']['recordtypeid']['default_value']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['default']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['display_default']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['len']='18';
+$dictionary['Opportunity']['fields']['recordtypeid']['required']=false;
+$dictionary['Opportunity']['fields']['recordtypeid']['type']='varchar';
+$dictionary['Opportunity']['fields']['recordtypeid']['audited']=0;
+$dictionary['Opportunity']['fields']['recordtypeid']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['recordtypeid']['massupdate']=0;
+$dictionary['Opportunity']['fields']['recordtypeid']['options']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['help']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['comments']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['importable']='true';
+$dictionary['Opportunity']['fields']['recordtypeid']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['recordtypeid']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['merge_filter']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['reportable']=true;
+$dictionary['Opportunity']['fields']['recordtypeid']['ext2']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['ext4']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['ext3']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['recordtypeid']['unified_search']=0;
+$dictionary['Opportunity']['fields']['recordtypeid']['full_text_search']='';
+$dictionary['Opportunity']['fields']['recordtypeid']['vname']='LBL_RECORDTYPEID';
+$dictionary['Opportunity']['fields']['recordtypeid']['source']='custom_fields';
+
+ ?>

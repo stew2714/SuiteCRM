@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['lead_rating_c']['name']='lead_rating_c';
+$dictionary['Opportunity']['fields']['lead_rating_c']['default_value']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['default']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['display_default']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['len']='255';
+$dictionary['Opportunity']['fields']['lead_rating_c']['required']=false;
+$dictionary['Opportunity']['fields']['lead_rating_c']['type']='text';
+$dictionary['Opportunity']['fields']['lead_rating_c']['audited']=0;
+$dictionary['Opportunity']['fields']['lead_rating_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['lead_rating_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['lead_rating_c']['options']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['help']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['comments']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['importable']='true';
+$dictionary['Opportunity']['fields']['lead_rating_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['lead_rating_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['lead_rating_c']['ext2']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['ext4']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['ext3']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['lead_rating_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['lead_rating_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['lead_rating_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['lead_rating_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['lead_rating_c']['vname']='LBL_LEAD_RATING_C';
+$dictionary['Opportunity']['fields']['lead_rating_c']['source']='custom_fields';
+
+ ?>
