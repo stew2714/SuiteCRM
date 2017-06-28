@@ -24,7 +24,7 @@ $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['ext3']='';
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['full_text_search']='';
-$dictionary['AOS_Contracts']['fields']['recordtypeid_c']['vname']='LBL_RECORDTYPEID';
+$dictionary['AOS_Contracts']['fields']['recordtypeid_c']['vname']='LBL_RECORDTYPEID_C';
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['source']='custom_fields';
 
  ?>

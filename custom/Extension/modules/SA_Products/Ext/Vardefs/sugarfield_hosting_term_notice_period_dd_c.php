@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['name']='hosting_term_notice_period_dd_c';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['default_value']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['default']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['display_default']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['len']='255';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['required']=false;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['type']='text';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['audited']=0;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['options']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['help']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['comments']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['importable']='true';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['ext2']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['ext4']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['ext3']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['rows']=NULL;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['cols']=NULL;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['vname']='LBL_HOSTING_TERM_NOTICE_PERIOD_DD_C';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['source']='custom_fields';
+
+ ?>

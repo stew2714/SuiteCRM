@@ -82,18 +82,35 @@ class buildViews{
 		return $finalArray;
 	}
 
-	public function fetchDefs($module, $view){
-	    $metadata = strtolower($view) . "defs.php";
-        $file = "modules/{$module}/metadata/{$metadata}";
-	    if(get_custom_file_if_exists($file)){
-            require_once ($file);
-	        return $viewdefs[ $module ][ $view ]['templateMeta'];
-	    }
+	public function fetchDefs($view, $module){
+	    if(!is_array($module)){
+	       $module = array("module" => $module );
+        }
+        foreach($module as $key => $single) {
+	        if($key == ""){
+	            $key = 0;
+            }
+            $metadata = strtolower($view) . "defs.php";
+            $file = get_custom_file_if_exists("modules/{$single['module']}/metadata/{$metadata}");
+            if (file_exists($file)) {
+                include($file);
+
+                $returnData[ $key ] = $viewdefs[$single['module']][$view]['templateMeta'];
+            }
+        }
+
+//        $returningData = $returnData[ 0 ];
+//	    unset($returnData['0']);
+//	    foreach($returnData as $view){
+//            $returningData = array_merge($returningData['tabDefs'], $view['']);
+//        }
+
+        return $returningData;
     }
 	public function buildCombinedDetailView($team, $view = "EditView", $newView){
 		$modules = $this->fetchModules();
         $finalArray = $this->getLayoutDefs($modules, $team, $view);
-        $viewdefs['templateMeta'] = $this->fetchDefs($this->module, $view);
+        $viewdefs['templateMeta'] = $this->fetchDefs($view, $modules);
         $viewdefs['panels'] = $finalArray;
 
         $file = $this->fetchFile($team, $newView);

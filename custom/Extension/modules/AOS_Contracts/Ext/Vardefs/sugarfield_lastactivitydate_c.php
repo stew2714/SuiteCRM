@@ -25,7 +25,7 @@ $dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['labelValue']=NULL;
 $dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['full_text_search']='';
 $dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['enable_range_search']='';
-$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['vname']='LBL_LASTACTIVITYDATE';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['vname']='LBL_LASTACTIVITYDATE_C';
 $dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['source']='custom_fields';
 
  ?>

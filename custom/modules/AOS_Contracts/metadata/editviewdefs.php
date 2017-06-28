@@ -141,6 +141,17 @@ array (
             'name' => 'requested_user_id',
             'label' => 'LBL_REQUESTED_USER_ID',
           ),
+          1 => 
+          array (
+            'name' => 'aos_contracts_sa_products_1_name',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aos_contracts_sa_services_1_name',
+          ),
         ),
       ),
       'lbl_line_items' => 
