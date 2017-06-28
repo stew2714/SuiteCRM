@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['new_am_region_c']['name']='new_am_region_c';
+$dictionary['Opportunity']['fields']['new_am_region_c']['default_value']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['default']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['display_default']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['len']='255';
+$dictionary['Opportunity']['fields']['new_am_region_c']['required']=false;
+$dictionary['Opportunity']['fields']['new_am_region_c']['type']='text';
+$dictionary['Opportunity']['fields']['new_am_region_c']['audited']=0;
+$dictionary['Opportunity']['fields']['new_am_region_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['new_am_region_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['new_am_region_c']['options']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['help']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['comments']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['importable']='true';
+$dictionary['Opportunity']['fields']['new_am_region_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['new_am_region_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['new_am_region_c']['ext2']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['ext4']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['ext3']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['new_am_region_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['new_am_region_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['new_am_region_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['new_am_region_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['new_am_region_c']['vname']='LBL_NEW_AM_REGION_C';
+$dictionary['Opportunity']['fields']['new_am_region_c']['source']='custom_fields';
+
+ ?>

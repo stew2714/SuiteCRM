@@ -41,6 +41,7 @@
 $dictionary['sa_Tracking_History'] = array(
     'table'              => 'sa_tracking_history',
     'audited'            => true,
+    'custom_fields' => true,
     'inline_edit'        => true,
     'duplicate_merge'    => true,
     'fields'             => array(
@@ -72,6 +73,20 @@ $dictionary['sa_Tracking_History'] = array(
             'reportable' => false,
             'comment'    => 'ID of item indicated by parent_type',
             'studio'     => array('searchview' => false),
+        ),
+        'sf_id_c' => array(
+            'name'       => 'sf_id_c',
+            'vname'      => 'LBL_SF_ID',
+            'type'       => 'varchar',
+            'comment'    => '',
+            'source'     => 'custom_fields',
+        ),
+        'sf_parent_id_c' => array(
+            'name'       => 'sf_parent_id_c',
+            'vname'      => 'LBL_SF_PARENT_ID',
+            'type'       => 'varchar',
+            'comment'    => '',
+            'source'     => 'custom_fields',
         ),
 
         'parent_type' => array(

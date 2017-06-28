@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['forecastcategoryname']['name']='forecastcategoryname';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['default_value']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['default']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['display_default']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['len']='40';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['required']=false;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['type']='varchar';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['audited']=0;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['massupdate']=0;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['options']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['help']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['comments']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['importable']='true';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['merge_filter']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['reportable']=true;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['ext2']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['ext4']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['ext3']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['unified_search']=0;
+$dictionary['Opportunity']['fields']['forecastcategoryname']['full_text_search']='';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['vname']='LBL_FORECASTCATEGORYNAME';
+$dictionary['Opportunity']['fields']['forecastcategoryname']['source']='custom_fields';
+
+ ?>

@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['name']='marketing_category_opp_c';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['default_value']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['default']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['display_default']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['len']='1300';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['required']=false;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['type']='text';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['audited']=0;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['options']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['help']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['comments']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['importable']='true';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['ext2']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['ext4']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['ext3']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['vname']='LBL_MARKETING_CATEGORY_OPP_C';
+$dictionary['Opportunity']['fields']['marketing_category_opp_c']['source']='custom_fields';
+
+ ?>
