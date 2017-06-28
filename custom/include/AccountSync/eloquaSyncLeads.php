@@ -113,7 +113,7 @@ class eloquaSyncLeads
         // Build information for the new Lead entry
         $lead = BeanFactory::newBean('Leads');
         $lead->salutation = $contact->title;
-        $lead->eloqua_id = $contact->id;
+        $lead->eloqua_id_c = $contact->id;
         $lead->first_name = $contact->firstName;
         $lead->last_name = $contact->lastName;
         $lead->email_address = $contact->emailAddress;
@@ -131,7 +131,7 @@ class eloquaSyncLeads
         $lead->primary_address_state = $contact->province;
         $lead->phone_work = $contact->businessPhone;
         $lead->primary_address_country = $contact->country;
-        $lead->eloqua_country = $contact->countrty;
+        $lead->eloqua_country_c = $contact->countrty;
         $lead->primary_address_postalcode = $contact->postalCode;
 
         $custom_fields_container = array();
@@ -162,12 +162,12 @@ class eloquaSyncLeads
     {
         // Fetch Existing Eloqua Contacts
         $bean = BeanFactory::getBean('Leads');
-        $clause = "leads.eloqua_id = " . $contact->id;
+        $clause = "leads.eloqua_id_c = " . $contact->id;
         $leads = $bean->get_full_list('', $clause);
 
         foreach ($leads as $current_lead) {
             $current_lead->salutation = $contact->title;
-            $current_lead->eloqua_id = $contact->id;
+            $current_lead->eloqua_id_c = $contact->id;
             $current_lead->first_name = $contact->firstName;
             $current_lead->last_name = $contact->lastName;
             $current_lead->email_address = $contact->emailAddress;
@@ -218,13 +218,13 @@ class eloquaSyncLeads
         // Current Custom Fields to their ID
         // Lead Status & Rating commented out according to document
         $possibilities = array(
-            'email_opt_out' => '100043',        // Email Opt Out
-            'salutation' => '100017',           // Salutation
-            'annual_revenue__c' => '100047',       // Annual Revenue
-            'number_of_employees' => '100184',  // Number of Employees
-            'industry' => '100046',             // Industry
+            'email_opt_out' => '100043',          // Email Opt Out
+            'salutation' => '100017',             // Salutation
+            'annual_revenue_c' => '100047',       // Annual Revenue
+            'number_of_employees_c' => '100184',  // Number of Employees
+            'industry_c' => '100046',             // Industry
             //'status' => '100048',               // Lead Status
-            //'rating' => '100081',               // Lead Rating Combined
+            //'rating_c' => '100081',               // Lead Rating Combined
         );
 
         // Get the Key where there is a match in the array to the ID supplied to the function

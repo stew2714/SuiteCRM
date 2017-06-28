@@ -1,7 +1,7 @@
 <?php
 // Eloqua Record ID
 $dictionary['Lead']['fields']['eloqua_id_c'] = array(
-    'name' => 'eloqua_id',
+    'name' => 'eloqua_id_c',
     'vname' => 'LBL_ELOQUA_ID',
     'type' => 'int',
     'len' => 5,
@@ -12,7 +12,7 @@ $dictionary['Lead']['fields']['eloqua_id_c'] = array(
 
 // Annual Revenue Field
 $dictionary['Lead']['fields']['annual_revenue_c'] = array(
-    'name' => 'annual_revenue',
+    'name' => 'annual_revenue_c',
     'vname' => 'LBL_ANNUAL_REVENUE',
     'type' => 'int',
     'len' => 99,
@@ -23,7 +23,7 @@ $dictionary['Lead']['fields']['annual_revenue_c'] = array(
 
 // Number of Employees
 $dictionary['Lead']['fields']['number_of_employees_c'] = array(
-    'name' => 'number_of_employees',
+    'name' => 'number_of_employees_c',
     'vname' => 'LBL_NUMBER_OF_EMPLOYEES',
     'type' => 'int',
     'len' => 5,
@@ -34,7 +34,7 @@ $dictionary['Lead']['fields']['number_of_employees_c'] = array(
 
 // Industry Select, Options are from Eloqua Instance
 $dictionary['Lead']['fields']['industry_c'] = array(
-    'name' => 'industry',
+    'name' => 'industry_c',
     'vname' => 'LBL_INDUSTRY',
     'type' => 'enum',
     'massupdate' => 0,
@@ -59,7 +59,7 @@ $dictionary['Lead']['fields']['industry_c'] = array(
 );
 
 $dictionary['Lead']['fields']['rating_c'] = array (
-    'name' => 'rating',
+    'name' => 'rating_c',
     'vname' => 'LBL_ELOQUA_LEAD_RATING',
     'type' => 'varchar',
     'len' => '255',
