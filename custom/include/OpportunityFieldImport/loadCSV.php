@@ -39,4 +39,4 @@
 
 require_once('custom/include/OpportunityFieldImport/convertCSV.php');
 
-$csv = new convertCSV('custom/include/OpportunityFieldImport/OppFields.csv', "Opportunities");
+$csv = new convertCSV('custom/include/OpportunityFieldImport/import.csv', "Opportunities");
