@@ -44,7 +44,7 @@ class convertCSV
     var $module = "";
     public function __construct($fileLocation, $source = 'custom_fields', $module = "")
     {
-        $this->exempt = array("id", "name");
+        $this->exempt = array("id", "name", "id_c");
         $this->module = $module;
         $this->source = $source;
         $csv = new parseCSV();
@@ -266,6 +266,12 @@ class convertCSV
         if (!isset($to_save['vname'])) {
             $to_save['vname'] = $to_save['label'];
             unset($to_save['label']);
+        }
+        $file = "custom/Extension/modules/{$field->module}/Ext/Vardefs/enableCustomFields.php";
+        if($GLOBALS["dictionary"][$bean_name]['custom_fields'] == false && !file_exists($file)){
+            $itemVarDef = "<?php\n // Vardefs from Fields_meta_data table - created: \n";
+            $itemVarDef .= ' $dictionary["' . $bean_name .'"]["custom_fields"] = true;';
+            file_put_contents($file, $itemVarDef , FILE_APPEND | LOCK_EX);
         }
 
         $this->writeVardefExtension($bean_name, $field, $to_save);
