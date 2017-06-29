@@ -343,11 +343,12 @@ class DetailCombined2 extends EditView
 			}
 		}
 
-		$this->view = 'CreateView';
+		$this->view = 'DetailCombinedView';
 	}
 	protected function getTemplateHandler()
 	{
 		return new CustomTemplateHandler();
 	}
+
 }
 ?>

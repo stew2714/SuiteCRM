@@ -38,7 +38,6 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 *}
-
 {{sugar_include type="smarty" file=$headerTpl}}
 {sugar_include include=$includes}
 <div class="detail-view">

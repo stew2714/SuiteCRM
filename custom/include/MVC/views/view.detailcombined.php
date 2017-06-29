@@ -113,6 +113,7 @@ class ViewDetailCombined extends SugarView
             sugar_die($GLOBALS['app_strings']['ERROR_NO_RECORD']);
         }
         $this->dv->process();
+        $this->dv->defs['templateMeta']['form']['headerTpl'] = get_custom_file_if_exists("include/DetailCombinedView/header.tpl");
         echo $this->dv->display();
     }
 }
