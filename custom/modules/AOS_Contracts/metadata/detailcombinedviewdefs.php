@@ -4,7 +4,107 @@ $viewdefs = array (
   array (
     'DetailCombinedView' => 
     array (
-      'templateMeta' => NULL,
+      'templateMeta' => 
+      array (
+        'form' => 
+        array (
+          'buttons' => 
+          array (
+            0 => 'EDIT',
+            1 => 'DUPLICATE',
+            2 => 'DELETE',
+            3 => 'FIND_DUPLICATES',
+            4 => 
+            array (
+              'customCode' => '<input type="button" class="button" onClick="showPopup(\'pdf\');" value="{$MOD.LBL_PRINT_AS_PDF}">',
+            ),
+            5 => 
+            array (
+              'customCode' => '<input type="button" class="button" onClick="showPopup(\'emailpdf\');" value="{$MOD.LBL_EMAIL_PDF}">',
+            ),
+            6 => 
+            array (
+              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="sendToLegal" value="Send to Legal Queue">{/if}',
+            ),
+            7 => 
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
+            ),
+            8 => 
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="returnToRequester" value="Return to Requester">{/if}',
+            ),
+            9 => 
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="redlineReview" value="M*Modal Redline Review">{/if}',
+            ),
+            10 => 
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="informCommOps" value="Send for Signatures">{/if}',
+            ),
+            11 => 
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="Submit to Comm Ops">{/if}',
+            ),
+            12 => 
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
+            ),
+          ),
+          'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
+        ),
+        'maxColumns' => '2',
+        'includes' => 
+        array (
+          0 => 
+          array (
+            'file' => 'custom/modules/AOS_Contracts/js/DetailView.js',
+          ),
+        ),
+        'widths' => 
+        array (
+          0 => 
+          array (
+            'label' => '10',
+            'field' => '30',
+          ),
+          1 => 
+          array (
+            'label' => '10',
+            'field' => '30',
+          ),
+        ),
+        'useTabs' => true,
+        'syncDetailEditViews' => true,
+        'tabDefs' => 
+        array (
+          'DEFAULT' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+          'LBL_LINE_ITEMS' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+          'LBL_PANEL_ASSIGNMENT' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+          'ACC_DEFAULT' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+          'CON_DEFAULT' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+        ),
+      ),
       'panels' => 
       array (
         'default' => 

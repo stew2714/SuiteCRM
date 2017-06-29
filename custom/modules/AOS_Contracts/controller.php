@@ -43,9 +43,17 @@ class AOS_ContractsController extends SugarController
     {
         $this->view = "create";
     }
+    public function action_EditView()
+    {
+        $this->view = "create";
+    }
+    public function action_DetailView()
+    {
+        $this->view = "detailcombined";
+    }
+
     public function action_DetailCombinedView()
     {
-    	echo 'test';
         $this->view = "detailcombined";
     }
 

@@ -4,7 +4,52 @@ $viewdefs = array (
   array (
     'CreateView' => 
     array (
-      'templateMeta' => NULL,
+      'templateMeta' => 
+      array (
+        'form' => 
+        array (
+          'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
+        ),
+        'maxColumns' => '2',
+        'widths' => 
+        array (
+          0 => 
+          array (
+            'label' => '10',
+            'field' => '30',
+          ),
+          1 => 
+          array (
+            'label' => '10',
+            'field' => '30',
+          ),
+        ),
+        'useTabs' => true,
+        'syncDetailEditViews' => false,
+        'tabDefs' => 
+        array (
+          'DEFAULT' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+          'LBL_LINE_ITEMS' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+          'ACC_DEFAULT' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+          'CON_DEFAULT' => 
+          array (
+            'newTab' => true,
+            'panelDefault' => 'expanded',
+          ),
+        ),
+      ),
       'panels' => 
       array (
         'default' => 

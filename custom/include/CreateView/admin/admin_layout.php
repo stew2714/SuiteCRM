@@ -98,12 +98,14 @@ class buildViews{
                 $returnData[ $key ] = $viewdefs[$single['module']][$view]['templateMeta'];
             }
         }
-
-//        $returningData = $returnData[ 0 ];
-//	    unset($returnData['0']);
-//	    foreach($returnData as $view){
-//            $returningData = array_merge($returningData['tabDefs'], $view['']);
-//        }
+        //$returningData['tabDefs'] = array_merge($returningData['tabDefs'], $view['tabDefs']);
+        $returningData = $returnData[ 0 ];
+	    unset($returnData['0']);
+	    foreach($returnData as $parent => $view){
+	        foreach($view['tabDefs'] as $key =>  $defs){
+                $returningData['tabDefs'][ strtoupper($parent) . "_" .$key ] = $defs;
+            }
+        }
 
         return $returningData;
     }
