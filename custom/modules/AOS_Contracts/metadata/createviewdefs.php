@@ -9,6 +9,14 @@ $viewdefs = array (
         'form' => 
         array (
           'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
+          'buttons' => 
+          array (
+            'SAVE' => 
+            array (
+              'customCode' => '<input title="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}"                     accessKey="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_KEY}"                     class="button" 					 onclick="var _form = document.getElementById(\'CreateView\'); _form.action.value=\'Save\'; if(check_form(\'CreateView\'))SUGAR.ajaxUI.submitForm(_form);return false;";                     type="submit"                     name="button"                     value="{$APP.LBL_SAVE_BUTTON_LABEL}">',
+            ),
+            'CANCEL' => 'CANCEL',
+          ),
         ),
         'maxColumns' => '2',
         'widths' => 
@@ -29,11 +37,6 @@ $viewdefs = array (
         'tabDefs' => 
         array (
           'DEFAULT' => 
-          array (
-            'newTab' => true,
-            'panelDefault' => 'expanded',
-          ),
-          'LBL_LINE_ITEMS' => 
           array (
             'newTab' => true,
             'panelDefault' => 'expanded',
@@ -116,105 +119,6 @@ $viewdefs = array (
           7 => 
           array (
             0 => 'description',
-          ),
-          8 => 
-          array (
-            0 => 
-            array (
-              'name' => 'requested_user_id',
-              'label' => 'LBL_REQUESTED_USER_ID',
-            ),
-            1 => 'aos_contracts_sa_products_1_name',
-          ),
-          9 => 
-          array (
-            0 => 
-            array (
-              'name' => 'aos_contracts_sa_services_1_name',
-            ),
-          ),
-        ),
-        'lbl_line_items' => 
-        array (
-          0 => 
-          array (
-            0 => 
-            array (
-              'name' => 'currency_id',
-              'studio' => 'visible',
-              'label' => 'LBL_CURRENCY',
-            ),
-          ),
-          1 => 
-          array (
-            0 => 
-            array (
-              'name' => 'line_items',
-              'label' => 'LBL_LINE_ITEMS',
-            ),
-          ),
-          2 => 
-          array (
-            0 => 
-            array (
-              'name' => 'total_amt',
-              'label' => 'LBL_TOTAL_AMT',
-            ),
-          ),
-          3 => 
-          array (
-            0 => 
-            array (
-              'name' => 'discount_amount',
-              'label' => 'LBL_DISCOUNT_AMOUNT',
-            ),
-          ),
-          4 => 
-          array (
-            0 => 
-            array (
-              'name' => 'subtotal_amount',
-              'label' => 'LBL_SUBTOTAL_AMOUNT',
-            ),
-          ),
-          5 => 
-          array (
-            0 => 
-            array (
-              'name' => 'shipping_amount',
-              'label' => 'LBL_SHIPPING_AMOUNT',
-              'displayParams' => 
-              array (
-                'field' => 
-                array (
-                  'onblur' => 'calculateTotal(\'lineItems\');',
-                ),
-              ),
-            ),
-          ),
-          6 => 
-          array (
-            0 => 
-            array (
-              'name' => 'shipping_tax_amt',
-              'label' => 'LBL_SHIPPING_TAX_AMT',
-            ),
-          ),
-          7 => 
-          array (
-            0 => 
-            array (
-              'name' => 'tax_amount',
-              'label' => 'LBL_TAX_AMOUNT',
-            ),
-          ),
-          8 => 
-          array (
-            0 => 
-            array (
-              'name' => 'total_amount',
-              'label' => 'LBL_GRAND_TOTAL',
-            ),
           ),
         ),
         'con_default' => 
@@ -532,7 +436,6 @@ $viewdefs = array (
           35 => 
           array (
             0 => 'con_description',
-            1 => 'con_aos_contracts_sa_products_1_name',
           ),
         ),
         'acc_default' => 
@@ -545,7 +448,6 @@ $viewdefs = array (
           1 => 
           array (
             0 => 'acc_description',
-            1 => 'acc_aos_contracts_sa_services_1_name',
           ),
           2 => 
           array (

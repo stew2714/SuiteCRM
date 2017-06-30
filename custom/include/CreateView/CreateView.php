@@ -9,7 +9,6 @@ require_once('include/EditView/EditView2.php');
 require_once('custom/include/TemplateHandler/TemplateHandler.php');
 
 class CreateView extends EditView {
-
     public $view = 'CreateView';
 
     /**
@@ -165,7 +164,7 @@ class CreateView extends EditView {
                 $this->fieldDefs[$name] = (!empty($this->fieldDefs[$name]) && !empty($this->fieldDefs[$name]['value']))
                     ? array_merge($this->focus->field_defs[$name], $this->fieldDefs[$name])
                     : $this->focus->field_defs[$name];
-                $this->fieldDefs[$name]['module'] = $this->focus->module_name;
+                //$this->fieldDefs[$name]['module'] = $this->focus->module_name;
                 $this->fieldDefs[$name]['moduleCore'] = $this->focus->module_name;
                 foreach (array("formula", "default", "comments", "help") as $toEscape)
                 {
@@ -175,12 +174,13 @@ class CreateView extends EditView {
                     }
                 }
 
-                if (isset($this->fieldDefs[$name]['options']) && isset($app_list_strings[$this->fieldDefs[$name]['options']]))
-                {
-                    if(isset($GLOBALS['sugar_config']['enable_autocomplete']) && $GLOBALS['sugar_config']['enable_autocomplete'] == true)
-                    {
+                if (isset($this->fieldDefs[$name]['options']) && isset($app_list_strings[$this->fieldDefs[$name]['options']])) {
+                    if (isset($GLOBALS['sugar_config']['enable_autocomplete']) &&
+                        $GLOBALS['sugar_config']['enable_autocomplete'] == true
+                    ) {
                         $this->fieldDefs[$name]['autocomplete'] = true;
-                        $this->fieldDefs[$name]['autocomplete_options'] = $this->fieldDefs[$name]['options']; // we need the name for autocomplete
+                        $this->fieldDefs[$name]['autocomplete_options'] =
+                            $this->fieldDefs[$name]['options']; // we need the name for autocomplete
                     } else {
                         $this->fieldDefs[$name]['autocomplete'] = false;
                     }
@@ -299,6 +299,9 @@ class CreateView extends EditView {
                         $arr['options'] = array_merge(array($arr['default_empty'] => $arr['default_empty']), $arr['options']);
                     }
 
+                    if($arr['type'] == "relate" && !empty($arr['id_name'])){
+                        $arr['id_name'] = $prefix . $arr['id_name'];
+                    }
                     $arr['name'] = $prefix . $arr['name'];
 
 

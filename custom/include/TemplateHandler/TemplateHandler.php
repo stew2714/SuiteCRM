@@ -1,5 +1,6 @@
 <?php
 require_once('include/TemplateHandler/TemplateHandler.php');
+require_once('custom/include/javascript/javascript.php');
 
 class CustomTemplateHandler extends TemplateHandler {
 
@@ -96,16 +97,19 @@ class CustomTemplateHandler extends TemplateHandler {
 
             //Create a base class with field_name_map property
             $sugarbean = new stdClass;
+            $defs = $this->buildFieldMap($module, $defs);
             $sugarbean->field_name_map = $defs;
             $sugarbean->module_dir = $module;
 
-            $javascript = new javascript();
+            $javascript = new customJavascript();
             $view = $view == 'QuickCreate' ? "QuickCreate_{$module}" : $view;
             $javascript->setFormName($view);
 
             $javascript->setSugarBean($sugarbean);
-            if ($view != "ConvertLead")
-                $javascript->addAllFields('', null,true);
+
+            if ($view != "ConvertLead") {
+                $javascript->addAllFields('', null, true);
+            }
 
             $validatedFields = array();
             $javascript->addToValidateBinaryDependency('assigned_user_name', 'alpha', $javascript->buildStringToTranslateInSmarty('ERR_SQS_NO_MATCH_FIELD').': '.$javascript->buildStringToTranslateInSmarty('LBL_ASSIGNED_TO'), 'false', '', 'assigned_user_id');
@@ -168,5 +172,51 @@ class CustomTemplateHandler extends TemplateHandler {
         $this->ss->right_delimiter = '}';
     }
 
+    public function buildFieldMap($module, $defs)
+    {
+        global $app_list_strings;
+        $relatedModules = $app_list_strings['CreateViewRelatedModule'][$module];
+        foreach ($relatedModules as $product => $value) {
+            if ($product == '') {
+                continue;
+            }
+
+            $prefix = $product . '_';
+            $mod = BeanFactory::getBean($value['module']);
+            foreach ($mod->field_defs as $name => $arr) {
+
+                if (isset($arr['options']) && isset($app_list_strings[$arr['options']])) {
+                    if (isset($GLOBALS['sugar_config']['enable_autocomplete']) &&
+                        $GLOBALS['sugar_config']['enable_autocomplete'] == true
+                    ) {
+                        $arr['autocomplete'] = true;
+                        $arr['autocomplete_options'] = $arr['options']; // we need the name for autocomplete
+                    } else {
+                        $arr['autocomplete'] = false;
+                    }
+                    // Bug 57472 - $arr['autocomplete_options' was set too late, it didn't retrieve the list's name, but the list itself (the developper comment show us that developper expected to retrieve list's name and not the options array)
+                    $arr['options'] = $app_list_strings[$arr['options']];
+                }
+
+                if (isset($arr['options']) &&
+                    is_array($arr['options']) &&
+                    isset($arr['default_empty']) &&
+                    !isset($arr['options'][$arr['default_empty']])
+                ) {
+                    $arr['options'] =
+                        array_merge(array($arr['default_empty'] => $arr['default_empty']), $arr['options']);
+                }
+
+                $arr['name'] = $prefix . $arr['name'];
+
+                if ($this->fieldDefs[$prefix . $name] != null) {
+                    $arr = array_merge($defs[$prefix . $name], $arr);
+                }
+                $defs[$prefix . $name] = $arr;
+                $defs[$prefix . $name]['moduleCore'] = $mod->module_name;
+            }
+        }
+        return $defs;
+    }
 }
 ?>

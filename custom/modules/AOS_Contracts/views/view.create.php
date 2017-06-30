@@ -56,7 +56,6 @@ class AOS_ContractsViewCreate extends ViewCreate
 	    $this->loadRelated();
         parent::display();
 
-        echo "<script src='custom/modules/Leads/lead_create_view.js'></script>";
     }
 
 	public function loadRelated(){
@@ -67,10 +66,9 @@ class AOS_ContractsViewCreate extends ViewCreate
 			if(isset($this->bean->{$related['relationship']}) && !empty($this->bean->{$related['relationship']})){
 				$related = BeanFactory::getBean($related['module'], $this->bean->{$related['relationship']});
 			}
-			foreach($related->field_defs as $name => $defs){
-				$this->bean->{$prefix . '_' . $name} = $related->{$name};
-			}
-
+			foreach($related->field_defs as $name => $defs) {
+                $this->bean->{$prefix . '_' . $name} = $related->{$name};
+            }
 		}
 	}
 

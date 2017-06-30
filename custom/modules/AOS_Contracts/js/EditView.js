@@ -6,10 +6,10 @@ $(document).ready(function() {
         if (typeof recordID === "undefined" || recordID === null || recordID == ""){
             promptWindow();
         } else {
-            var _form = document.getElementById('EditView');
+            var _form = document.getElementById('CreateView');
             _form.action.value='Save';
 
-            if(check_form('EditView')){
+            if(check_form('CreateView')){
                 SUGAR.ajaxUI.submitForm(_form);
                 return false;
             }

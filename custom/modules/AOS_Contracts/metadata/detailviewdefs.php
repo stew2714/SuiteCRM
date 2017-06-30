@@ -83,11 +83,6 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_LINE_ITEMS' => 
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_PANEL_ASSIGNMENT' => 
         array (
           'newTab' => true,
@@ -187,93 +182,6 @@ array (
         7 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'aos_contracts_sa_products_1_name',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'aos_contracts_sa_services_1_name',
-          ),
-        ),
-      ),
-      'lbl_line_items' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'currency_id',
-            'studio' => 'visible',
-            'label' => 'LBL_CURRENCY',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'line_items',
-            'label' => 'LBL_LINE_ITEMS',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'total_amt',
-            'label' => 'LBL_TOTAL_AMT',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'discount_amount',
-            'label' => 'LBL_DISCOUNT_AMOUNT',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'subtotal_amount',
-            'label' => 'LBL_SUBTOTAL_AMOUNT',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_amount',
-            'label' => 'LBL_SHIPPING_AMOUNT',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_tax_amt',
-            'label' => 'LBL_SHIPPING_TAX_AMT',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'tax_amount',
-            'label' => 'LBL_TAX_AMOUNT',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'total_amount',
-            'label' => 'LBL_GRAND_TOTAL',
-          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 

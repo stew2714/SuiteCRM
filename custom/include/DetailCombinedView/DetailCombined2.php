@@ -190,7 +190,7 @@ class DetailCombined2 extends EditView
 				$this->fieldDefs[$name] = (!empty($this->fieldDefs[$name]) && !empty($this->fieldDefs[$name]['value']))
 					? array_merge($this->focus->field_defs[$name], $this->fieldDefs[$name])
 					: $this->focus->field_defs[$name];
-				$this->fieldDefs[$name]['module'] = $this->focus->module_name;
+				//$this->fieldDefs[$name]['module'] = $this->focus->module_name;
 				$this->fieldDefs[$name]['moduleCore'] = $this->focus->module_name;
 				foreach (array("formula", "default", "comments", "help") as $toEscape)
 				{
@@ -306,7 +306,7 @@ class DetailCombined2 extends EditView
 				if($product == '') continue;
 
 				$prefix = $product . '_';
-				$mod = BeanFactory::getBean($value);
+				$mod = BeanFactory::getBean($value['module']);
 				foreach ($mod->field_defs as $name => $arr) {
 
 					if (isset($arr['options']) && isset($app_list_strings[$arr['options']])) {

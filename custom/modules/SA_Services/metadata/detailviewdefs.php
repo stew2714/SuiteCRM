@@ -52,10 +52,6 @@ array (
         1 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'aos_contracts_sa_services_1_name',
-          ),
         ),
         2 => 
         array (

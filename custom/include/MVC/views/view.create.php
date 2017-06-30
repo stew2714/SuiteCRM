@@ -71,12 +71,18 @@ class ViewCreate extends SugarView{
 				    $arr['options'] = array_merge(array($arr['default_empty'] => $arr['default_empty']), $arr['options']);
 			    }
 
-			    $arr['name'] = $prefix . $arr['name'];
+                if($arr['type'] == "relate" && !empty($arr['id_name'])){
+                    $arr['id_name'] = $prefix . $arr['id_name'];
+                }
 
+			    $arr['name'] = $prefix . $arr['name'];
 
 			    $this->bean->field_defs[$prefix . $name] = $arr;
 			    $this->bean->field_defs[$prefix . $name]['moduleCore'] = $mod->module_name;
 		    }
+
+
+
 	    }
 
 

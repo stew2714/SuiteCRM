@@ -113,6 +113,16 @@ class buildViews{
 		$modules = $this->fetchModules();
         $finalArray = $this->getLayoutDefs($modules, $team, $view);
         $viewdefs['templateMeta'] = $this->fetchDefs($view, $modules);
+        if(!isset($viewdefs['templateMeta']['form']['buttons']) ){
+            $viewdefs['templateMeta']['form']['buttons']['SAVE'] = array('customCode'=>'<input title="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}" ' .
+                                                                                               '                    accessKey="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_KEY}" ' .
+                                                                                               '                    class="button" ' .
+                                                                                               '					 onclick="var _form = document.getElementById(\'CreateView\'); _form.action.value=\'Save\'; if(check_form(\'CreateView\'))SUGAR.ajaxUI.submitForm(_form);return false;"; ' .
+                                                                                               '                    type="submit" ' .
+                                                                                               '                    name="button" ' .
+                                                                                               '                    value="{$APP.LBL_SAVE_BUTTON_LABEL}">');
+            $viewdefs['templateMeta']['form']['buttons']['CANCEL'] = 'CANCEL';
+        }
         $viewdefs['panels'] = $finalArray;
 
         $file = $this->fetchFile($team, $newView);
