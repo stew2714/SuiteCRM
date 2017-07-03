@@ -155,7 +155,7 @@ array (
             'name' => 'tip_source_c',
             'label' => 'LBL_TIP_SOURCE_C',
           ),
-          1 => 'probability',
+          1 => 'sales_stage',
         ),
         8 => 
         array (
@@ -164,11 +164,7 @@ array (
             'name' => 'partner_c',
             'label' => 'LBL_PARTNER_C',
           ),
-          1 => 
-          array (
-            'name' => 'confidence_level_c',
-            'label' => 'LBL_CONFIDENCE_LEVEL_C',
-          ),
+          1 => 'probability',
         ),
         9 => 
         array (
@@ -177,7 +173,11 @@ array (
             'name' => 'rfp_required_c',
             'label' => 'LBL_RFP_REQUIRED_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'confidence_level_c',
+            'label' => 'LBL_CONFIDENCE_LEVEL_C',
+          ),
         ),
         10 => 
         array (
