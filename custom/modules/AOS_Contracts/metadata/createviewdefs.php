@@ -1383,14 +1383,6 @@ $viewdefs = array (
           array (
             0 => 'description',
           ),
-          149 => 
-          array (
-            0 => 
-            array (
-              'name' => 'requested_user_id',
-              'label' => 'LBL_REQUESTED_USER_ID',
-            ),
-          ),
         ),
         'con_default' => 
         array (
