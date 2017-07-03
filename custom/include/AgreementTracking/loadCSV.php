@@ -39,4 +39,4 @@
 
 require_once('custom/include/AgreementTracking/convertCSV.php');
 
-$csv = new convertCSV('custom/include/AgreementTracking/vardefs.csv');
+$csv = new convertCSV('custom/include/AgreementTracking/import.csv');

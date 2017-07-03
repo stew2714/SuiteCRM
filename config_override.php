@@ -35,4 +35,7 @@ $sugar_config['stack_trace_errors'] = false;
 $sugar_config['developerMode'] = true;
 $sugar_config['CommOps'] = '628f3c09-51d4-f65c-2afb-5936d572f62e';
 $sugar_config['Sales'] = '8cc7213b-1d28-12bc-7d6d-5936d546d416';
+$sugar_config['Legal'] = 'bb1bfe1b-1913-3110-e87f-594a9edcebea';
+$sugar_config['Implementations'] = '2d00d5a1-496f-125a-654a-594cecaa1678';
+
 /***CONFIGURATOR***/

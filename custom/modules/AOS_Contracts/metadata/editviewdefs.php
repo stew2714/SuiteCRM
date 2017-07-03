@@ -6,6 +6,10 @@ array (
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -30,11 +34,6 @@ array (
           'panelDefault' => 'expanded',
         ),
         'LBL_LINE_ITEMS' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL1' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -130,11 +129,18 @@ array (
             'name' => 'company_signed_date',
             'label' => 'LBL_COMPANY_SIGNED_DATE',
           ),
-          1 => '',
         ),
         7 => 
         array (
           0 => 'description',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'requested_user_id',
+            'label' => 'LBL_REQUESTED_USER_ID',
+          ),
         ),
       ),
       'lbl_line_items' => 
@@ -158,17 +164,13 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-        ),
-        3 => 
-        array (
           0 => 
           array (
             'name' => 'total_amt',
             'label' => 'LBL_TOTAL_AMT',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -176,7 +178,7 @@ array (
             'label' => 'LBL_DISCOUNT_AMOUNT',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -184,7 +186,7 @@ array (
             'label' => 'LBL_SUBTOTAL_AMOUNT',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -199,7 +201,7 @@ array (
             ),
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -207,7 +209,7 @@ array (
             'label' => 'LBL_SHIPPING_TAX_AMT',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -215,39 +217,12 @@ array (
             'label' => 'LBL_TAX_AMOUNT',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
             'name' => 'total_amount',
             'label' => 'LBL_GRAND_TOTAL',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'apttus_primary_contact_c',
-            'label' => 'LBL_APTTUS_PRIMARY_CONTACT_C',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'facility_contact_e_mail_address_billing_c',
-            'label' => 'LBL_FACILITY_CONTACT_E_MAIL_ADDRESS_BILLING_C',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'facility_contact_title_c',
-            'label' => 'LBL_FACILITY_CONTACT_TITLE_C',
           ),
         ),
       ),
