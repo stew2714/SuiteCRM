@@ -73,7 +73,7 @@ class UsersViewDetail extends ViewDetail {
          *  taken from parent::preDisplay by change the template file.
          */
         $metadataFile = $this->getMetaDataFile();
-        $this->dv = new DetailView2();
+        $this->dv = new DetailCombined2();
         $this->dv->ss =&  $this->ss;
         $this->dv->setup($this->module, $this->bean, $metadataFile, get_custom_file_if_exists('modules/Users/tpls/DetailView.tpl'));
         /****/

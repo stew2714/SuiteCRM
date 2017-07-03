@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['name']='coding_global_permissions_c';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['default_value']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['default']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['display_default']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['len']='255';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['required']=false;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['type']='text';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['audited']=0;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['options']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['help']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['comments']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['importable']='true';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['ext2']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['ext4']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['ext3']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['rows']=NULL;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['cols']=NULL;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['vname']='LBL_CODING_GLOBAL_PERMISSIONS_C';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['source']='custom_fields';
+
+ ?>

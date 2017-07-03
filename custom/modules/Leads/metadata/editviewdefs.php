@@ -35,27 +35,22 @@ array (
         ),
       ),
       'javascript' => '<script type="text/javascript" language="Javascript">function copyAddressRight(form)  {ldelim} form.alt_address_street.value = form.primary_address_street.value;form.alt_address_city.value = form.primary_address_city.value;form.alt_address_state.value = form.primary_address_state.value;form.alt_address_postalcode.value = form.primary_address_postalcode.value;form.alt_address_country.value = form.primary_address_country.value;return true; {rdelim} function copyAddressLeft(form)  {ldelim} form.primary_address_street.value =form.alt_address_street.value;form.primary_address_city.value = form.alt_address_city.value;form.primary_address_state.value = form.alt_address_state.value;form.primary_address_postalcode.value =form.alt_address_postalcode.value;form.primary_address_country.value = form.alt_address_country.value;return true; {rdelim} </script>',
-      'useTabs' => false,
+      'useTabs' => true,
       'tabDefs' => 
       array (
         'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ASSIGNMENT' => 
         array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -141,15 +136,10 @@ array (
       array (
         0 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        1 => 
-        array (
           0 => 'status',
           1 => 'lead_source',
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -160,12 +150,12 @@ array (
             'name' => 'lead_source_description',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 'opportunity_amount',
           1 => 'refered_by',
         ),
-        4 => 
+        3 => 
         array (
           0 => 'campaign_name',
         ),
@@ -178,42 +168,6 @@ array (
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'annual_revenue_c',
-            'studio' => 'visible',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'eloqua_lead_rating_c',
-            'label' => 'LBL_ELOQUA_LEAD_RATING_C',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'industry',
-            'studio' => 'visible',
-            'label' => 'LBL_INDUSTRY',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'number_of_employees',
-            'label' => 'LBL_NUMBER_OF_EMPLOYEES',
           ),
         ),
       ),
