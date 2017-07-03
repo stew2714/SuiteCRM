@@ -72,4 +72,5 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_PRODUCTS_SUBPANEL_TITLE' => 'Agreements Products',
   'LBL_NEW_FORM_TITLE' => 'New Agreements Products',
+  'DEFAULT' => 'PRODUCTS',
 );
