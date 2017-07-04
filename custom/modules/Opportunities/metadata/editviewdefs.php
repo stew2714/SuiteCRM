@@ -19,7 +19,7 @@ array (
           'field' => '30',
         ),
       ),
-      'javascript' => '{$PROBABILITY_SCRIPT} {$LOCK_FILES}',
+      'javascript' => '{$PROBABILITY_SCRIPT} {$LOCK_FILES} {$BEAN_DATA}',
       'useTabs' => false,
       'tabDefs' => 
       array (
@@ -96,7 +96,10 @@ array (
           array (
             'name' => 'name',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'date_closed',
+          ),
         ),
         1 => 
         array (

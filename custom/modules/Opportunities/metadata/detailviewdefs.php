@@ -102,7 +102,7 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => '',
+          1 => 'date_closed',
         ),
         1 => 
         array (

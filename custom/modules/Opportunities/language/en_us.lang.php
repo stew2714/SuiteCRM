@@ -14,4 +14,16 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL11' => 'Commissions',
   'LBL_EDITVIEW_PANEL12' => 'System Information',
   'LBL_EDITVIEW_PANEL13' => 'New Panel 13',
+
+
+
+  'LBL_YOU_CANNOT_CHANGE_THE_CLOSE_DATE' => 'You cannot change the close date of something that closed in a previous month',
+  'LBL_ONLY_RVPS' => 'Only RVPs and above can change the forecasting category, please bring it to your manager\'s attention if you want to make this change.',
+  'LBL_YOU_CANNOT_USE_ENCODER' => 'You cannot use encoder description unless "other" is selected for encoder',
+  'LBL_ENTER_TERM_LENGTH' => 'You must enter a term length for SW Maintenance Term Length (MM) .',
+  'LBL_ENTER_TERM_LENGTH_LICENSE' => 'You must enter a term length for License Term Length (MM) .',
+  'LBL_A_ENTRY_IS_REQUIRED_IN_THE_WIN_LOSS' => 'An entry is required in the Win/Loss Description field when Other is selected as the primary reason.',
+
+
+
 );
