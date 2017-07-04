@@ -6,7 +6,7 @@ $sugar_config['default_module_favicon'] = false;
 $sugar_config['dashlet_auto_refresh_min'] = '30';
 $sugar_config['enable_action_menu'] = true;
 $sugar_config['stack_trace_errors'] = false;
-$sugar_config['developerMode'] = false;
+$sugar_config['developerMode'] = true;
 $sugar_config['securitysuite_inbound_email'] = false;
 $sugar_config['js_custom_version'] = '';
 $sugar_config['passwordsetting']['SystemGeneratedPasswordON'] = '';
@@ -26,16 +26,14 @@ $sugar_config['verify_client_ip'] = false;
 $sugar_config['aod']['enable_aod'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['addAjaxBannedModules'][1] = 'Accounts';
+$sugar_config['addAjaxBannedModules'][2] = 'AOS_Contracts';
 $sugar_config['eloqua_company'] = 'MModalIncSandbox';
 $sugar_config['eloqua_username'] = 'Kieran.Monaghan';
 $sugar_config['eloqua_password'] = 'SalesAgility01';
-$sugar_config['default_module_favicon'] = false;
-$sugar_config['dashlet_auto_refresh_min'] = '30';
-$sugar_config['stack_trace_errors'] = false;
-$sugar_config['developerMode'] = true;
 $sugar_config['CommOps'] = '9d8e99e1-3f4f-a849-1200-5936c3de3e2f';
 $sugar_config['Sales'] = 'ce0b4da2-dbfa-a4d3-3d4f-5936d499f0df';
 $sugar_config['Legal'] = 'bb1bfe1b-1913-3110-e87f-594a9edcebea';
+$sugar_config['disable_persistent_connections'] = false;
 $sugar_config['Implementations'] = '2d00d5a1-496f-125a-654a-594cecaa1678';
 
 /***CONFIGURATOR***/

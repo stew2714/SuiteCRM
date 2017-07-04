@@ -1,0 +1,31 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['name']='product_maintenance_and_support_effectiv_c';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['default_value']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['default']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['display_default']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['len']='255';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['required']=false;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['type']='date';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['audited']=0;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['options']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['help']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['comments']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['importable']='true';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['ext2']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['ext4']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['ext3']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['enable_range_search']='';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['vname']='LBL_PRODUCT_MAINTENANCE_AND_SUPPORT_EFFECTIV_C';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['source']='custom_fields';
+
+ ?>

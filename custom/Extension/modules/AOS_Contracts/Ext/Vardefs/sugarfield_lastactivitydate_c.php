@@ -1,0 +1,31 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['name']='lastactivitydate_c';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['type']='date';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['vname']='LBL_LASTACTIVITYDATE_C';
+$dictionary['AOS_Contracts']['fields']['lastactivitydate_c']['source']='custom_fields';
+
+ ?>

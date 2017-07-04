@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['name']='maintenance_and_support_termination_prio_c';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['default_value']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['default']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['display_default']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['len']='255';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['required']=false;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['type']='bool';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['audited']=0;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['options']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['help']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['comments']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['importable']='true';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['ext2']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['ext4']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['ext3']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['vname']='LBL_MAINTENANCE_AND_SUPPORT_TERMINATION_PRIO_C';
+$dictionary['SA_Products']['fields']['maintenance_and_support_termination_prio_c']['source']='custom_fields';
+
+ ?>

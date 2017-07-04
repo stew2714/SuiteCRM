@@ -39,6 +39,44 @@
 
 class AOS_ContractsController extends SugarController
 {
+    public function action_CreateView()
+    {
+        $this->view = "create";
+    }
+    public function action_EditView()
+    {
+        $this->view = "create";
+    }
+    public function action_DetailView()
+    {
+        $this->view = "detailcombined";
+    }
+
+    public function action_DetailCombinedView()
+    {
+        $this->view = "detailcombined";
+    }
+
+    public function action_save(){
+        global $app_list_strings;
+        $related = $app_list_strings['CreateViewRelatedModule'][ $this->module ];
+
+        foreach($related as $key => $relationship){
+            $bean = BeanFactory::getBean($relationship['module']);
+
+            foreach($_REQUEST as $key2 => $field){
+                if(substr($key2, 0, 3) == $key){
+                    $tmp = substr($key2, 4);
+                    $bean->{$tmp} = $_REQUEST[ $key2 ];
+                }
+            }
+            $bean->save();
+            $this->bean->{$relationship['relationship']} = $bean->id;
+        }
+        parent::action_save();
+
+    }
+
     public function action_accept()
     {
         global $current_user, $sugar_config;

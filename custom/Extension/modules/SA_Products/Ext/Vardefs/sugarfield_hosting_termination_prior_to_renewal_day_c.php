@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['name']='hosting_termination_prior_to_renewal_day_c';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['default_value']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['default']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['display_default']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['len']='255';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['required']=false;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['type']='text';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['audited']=0;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['options']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['help']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['comments']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['importable']='true';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['ext2']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['ext4']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['ext3']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['rows']=NULL;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['cols']=NULL;
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['vname']='LBL_HOSTING_TERMINATION_PRIOR_TO_RENEWAL_DAY_C';
+$dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c']['source']='custom_fields';
+
+ ?>

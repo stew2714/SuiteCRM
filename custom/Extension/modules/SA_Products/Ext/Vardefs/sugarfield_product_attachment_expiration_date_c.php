@@ -1,0 +1,31 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['name']='product_attachment_expiration_date_c';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['default_value']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['default']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['display_default']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['len']='255';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['required']=false;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['type']='date';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['audited']=0;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['options']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['help']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['comments']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['importable']='true';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['ext2']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['ext4']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['ext3']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['enable_range_search']='';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['vname']='LBL_PRODUCT_ATTACHMENT_EXPIRATION_DATE_C';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['source']='custom_fields';
+
+ ?>
