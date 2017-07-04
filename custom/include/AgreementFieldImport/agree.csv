@@ -1,0 +1,463 @@
+column,do no create,name,custom,module 
+"   id varchar(18) NOT NULL,",,sf_id_c,,a
+"   ownerid varchar(18) NOT NULL,",X,,,
+"   isdeleted bool NOT NULL,",X,,,
+"   name varchar(80),",X,,,
+"   recordtypeid varchar(18),", ,recordtypeid_c,,a
+"   createddate date NOT NULL,",X,,,
+"   createdbyid varchar(18) NOT NULL,",X,,,
+"   lastmodifieddate date NOT NULL,",X,,,
+"   lastmodifiedbyid varchar(18) NOT NULL,",X,,,
+"   systemmodstamp date NOT NULL,",X,,,
+"   lastactivitydate date,",,lastactivitydate_c,,a
+"   lastvieweddate date,",X,,,
+"   lastreferenceddate date,",X,,,
+"   apttus__account_search_field__c varchar(255),",,,,a
+"   apttus__account__c varchar(18),",,,,a
+"   apttus__activated_by__c varchar(18),",,,,a
+"   apttus__activated_date__c date,",,,,a
+"   apttus__agreement_category__c varchar(255),",,,,a
+"   apttus__agreement_number__c varchar(8),",,,,a
+"   apttus__amendment_effective_date__c date,",,,,a
+"   apttus__auto_renew_consent__c bool NOT NULL,",,,,a
+"   apttus__auto_renew_term_months__c numeric(19),",,,,a
+"   apttus__auto_renewal_terms__c text,",,,,a
+"   apttus__auto_renewal__c bool NOT NULL,",,,,a
+"   apttus__business_hours__c varchar(18),",,,,a
+"   apttus__company_signed_by__c varchar(18),",,,,a
+"   apttus__company_signed_date__c date,",,,,a
+"   apttus__company_signed_title__c varchar(80),",,,,a
+"   apttus__contract_duration_days__c numeric(19),",,,,a
+"   apttus__contract_end_date__c date,",,,,a
+"   apttus__contract_number__c varchar(30) NOT NULL,",,,,a
+"   apttus__contract_start_date__c date,",,,,a
+"   apttus__contracted_days__c numeric(19),",,,,a
+"   apttus__description__c text,",,,,a
+"   apttus__executed_copy_mailed_out_date__c date,",,,,a
+"   apttus__ff_agreement_number__c varchar(1300),",,,,a
+"   apttus__ff_amend__c varchar(1300),",,,,a
+"   apttus__ff_cancel_request__c varchar(1300),",,,,a
+"   apttus__ff_execute__c varchar(1300),",,,,a
+"   apttus__ff_expire__c varchar(1300),",,,,a
+"   apttus__ff_generate_protected_agreement__c varchar(1300),",,,,a
+"   apttus__ff_generate_supporting_document__c varchar(1300),",,,,a
+"   apttus__ff_generate_unprotected_agreement__c varchar(1300),",,,,a
+"   apttus__ff_regenerate_agreement__c varchar(1300),",,,,a
+"   apttus__ff_renew__c varchar(1300),",,,,a
+"   apttus__ff_return_to_requestor__c varchar(1300),",,,,a
+"   apttus__ff_send_to_other_party_for_review__c varchar(1300),",,,,a
+"   apttus__ff_send_to_other_party_for_signatures__c varchar(1300),",,,,a
+"   apttus__ff_send_to_third_party__c varchar(1300),",,,,a
+"   apttus__ff_submit_for_changes__c varchar(1300),",,,,a
+"   apttus__ff_submit_request__c varchar(1300),",,,,a
+"   apttus__ff_terminate__c varchar(1300),",,,,a
+"   apttus__ff_view_draft_contract__c varchar(1300),",,,,a
+"   apttus__ff_view_final_contract__c varchar(1300),",,,,a
+"   apttus__import_offline_document__c varchar(1300),",,,,a
+"   apttus__initiatetermination__c varchar(1300),",,,,a
+"   apttus__initiation_type__c varchar(255),",,,,a
+"   apttus__internal_renewal_notification_days__c numeric(19),",,,,a
+"   apttus__internal_renewal_start_date__c date,",,,,a
+"   apttus__is_system_update__c bool NOT NULL,",,,,a
+"   apttus__non_standard_legal_language__c bool NOT NULL,",,,,a
+"   apttus__other_party_returned_date__c date,",,,,a
+"   apttus__other_party_sent_date__c date,",,,,a
+"   apttus__other_party_signed_by_unlisted__c varchar(255),",,,,a
+"   apttus__other_party_signed_by__c varchar(18),",,,,a
+"   apttus__other_party_signed_date__c date,",,,,a
+"   apttus__other_party_signed_title__c varchar(80),",,,,a
+"   apttus__outstanding_days__c numeric(19),",,,,a
+"   apttus__owner_expiration_notice__c varchar(255),",,,,a
+"   apttus__parent_agreement__c varchar(18),",,,,a
+"   apttus__perpetual__c bool NOT NULL,",,,,a
+"   apttus__primary_contact__c varchar(18),",,,,a
+"   apttus__related_opportunity__c varchar(18),",,,,a
+"   apttus__remaining_contracted_days__c numeric(19),",,,,a
+"   apttus__renewal_notice_date__c date,",,,,a
+"   apttus__renewal_notice_days__c numeric(19),",,,,a
+"   apttus__request_date__c date,",,,,a
+"   apttus__requestor__c varchar(18),",,,,a
+"   apttus__retentiondate__c date,",,,,a
+"   apttus__retentionpolicyid__c varchar(18),",,,,a
+"   apttus__risk_rating__c numeric(19),",,,,a
+"   apttus__source__c varchar(255),",,,,a
+"   apttus__special_terms__c text,",,,,a
+"   apttus__status_category__c varchar(255),",,,,a
+"   apttus__status__c varchar(255),",,,,a
+"   apttus__submit_request_mode__c varchar(255),",,,,a
+"   apttus__subtype__c varchar(255),",,,,a
+"   apttus__term_months__c numeric(19),",,,,a
+"   apttus__terminationcomments__c varchar(1024),",,,,a
+"   apttus__termination_date__c date,",,,,a
+"   apttus__termination_notice_days__c numeric(19),",,,,a
+"   apttus__termination_notice_issue_date__c date,",,,,a
+"   apttus__total_contract_value__c numeric(19),",,,,a
+"   apttus__version_number__c numeric(19),",,,,a
+"   apttus__version__c numeric(19),",,,,a
+"   apttus__workflow_trigger_created_from_clone__c bool NOT NULL,",,,,a
+"   apttus__workflow_trigger_viewed_final__c bool NOT NULL,",,,,a
+"   activate__c varchar(1300),",,,,a
+"   agreement_chevron__c varchar(1300),",,,,a
+"   amendment_number__c numeric(19),",,,,a
+"   apts_request_date__c date,",,,,a
+"   arbitration__c bool NOT NULL,",,,,a
+"   assignment_permitted__c varchar(255),",,,,a
+"   probability__c varchar(1300),",,,,a
+"   baa_template_source__c varchar(255),",,,,a
+"   cac_services__c bool NOT NULL,",,,,p
+"   cia_annual_increase__c varchar(255),",,,,a
+"   cia_auto_renew__c bool NOT NULL,",,,,a
+"   cia_effective_date__c date,",,,,a
+"   cia_expiration_date__c date,",,,,a
+"   cia_renewal_start_date__c date,",,,,a
+"   cia_renewal_term_months__c numeric(19),",,,,a
+"   cia_term_months__c numeric(19),",,,,a
+"   cia_termination_prior_to_renewal_days__c varchar(255),",,,,a
+"   cia_termination_prior_to_renewal__c varchar(255),",,,,a
+"   chevron__c varchar(1300),",,,,a
+"   client_agreement_number__c varchar(20),",,,,a
+"   client_responsibl_for_collection_cost__c bool NOT NULL,",,,,a
+"   codingt_renewal_notice_days__c numeric(19),",,,,s
+"   coding_attachment_number__c numeric(19),",,,,s
+"   coding_auto_renew__c bool NOT NULL,",,,,s
+"   coding_billing__c varchar(255),",,,,s
+"   coding_commitment__c varchar(255),",,,,s
+"   coding_effective_date__c date,",,,,s
+"   coding_estimated_billing__c bool NOT NULL,",,,,s
+"   coding_evergreen__c bool NOT NULL,",,,,s
+"   coding_expiration_date__c date,",,,,s
+"   coding_implementation_training_fees__c varchar(255),",,,,s
+"   coding_pricing_category_rate__c numeric(19),",,,,s
+"   coding_pricing_increase__c varchar(255),",,,,s
+"   coding_pricing__c text,",,,,s
+"   coding_renewal_consent__c bool NOT NULL,",,,,s
+"   coding_renewal_notification_period_dd__c numeric(19),",,,,s
+"   coding_renewal_start_date__c date,",,,,s
+"   coding_renewal_term_months__c numeric(19),",,,,s
+"   coding_renewal_terms__c text,",,,,s
+"   coding_revenue__c numeric(19),",,,,s
+"   coding_sow_date__c date,",,,,s
+"   coding_sow_version__c numeric(19),",,,,s
+"   coding_term_months__c numeric(19),",,,,s
+"   coding_termination_prior_to_renewal_days__c varchar(255),",,,,s
+"   coding_termination_prior_to_renewal__c bool NOT NULL,",,,,s
+"   coding_term_for_convenience_notice_dd__c numeric(19),",,,,s
+"   coding_termination_for_convenience__c bool NOT NULL,",,,,s
+"   confidence_level__c numeric(19),",,,,a
+"   confidentiality_default_cure_period__c varchar(255),",,,,a
+"   confidentiality_language__c bool NOT NULL,",,,,a
+"   courior_tracking_number__c varchar(255),",,,,a
+"   dispute_notice_period__c varchar(255),",,,,a
+"   estimated_billing__c bool NOT NULL,",,,,a
+"   estimated_fft_existing_volume__c numeric(19),",,,,s
+"   estimated_fft_new_volume__c numeric(19),",,,,s
+"   estimated_tos_existing_volume__c numeric(19),",,,,s
+"   estimated_tos_new_volume__c numeric(19),",,,,s
+"   extended_adt_retention__c varchar(255),",,,,a
+"   extended_report_retention__c bool NOT NULL,",,,,a
+"   extended_voice_retention__c varchar(255),",,,,a
+"   fft_attachment_number__c numeric(19),",,,,s
+"   fft_auto_renew__c bool NOT NULL,",,,,s
+"   fft_billing__c varchar(255),",,,,s
+"   fft_volume_guarantee__c varchar(255),",,,,s
+"   fft_effective_date__c date,",,,,s
+"   fft_evergreen__c bool NOT NULL,",,,,s
+"   fft_expiration_date__c date,",,,,s
+"   fft_implementation_training_fees__c varchar(255),",,,,s
+"   fft_pricing_category_rate__c numeric(19),",,,,s
+"   fft_pricing_category_uom__c varchar(255),",,,,s
+"   requires_po__c bool NOT NULL,",,,,a
+"   fft_pricing_increase__c varchar(255),",,,,s
+"   fft_pricing_other__c text,",,,,s
+"   fft_renewal_consent__c bool NOT NULL,",,,,s
+"   fft_renewal_notice_days__c numeric(19),",,,,s
+"   fft_renewal_notification_period_dd__c numeric(19),",,,,s
+"   fft_renewal_start_date__c date,",,,,s
+"   fft_renewal_term_months__c numeric(19),",,,,s
+"   fft_renewal_terms__c text,",,,,s
+"   fft_revenue__c numeric(19),",,,,s
+"   fft_sow_date__c date,",,,,s
+"   fft_sow_version__c numeric(19),",,,,s
+"   fft_shipping__c varchar(255),",,,,s
+"   fft_term_months__c numeric(19),",,,,s
+"   fft_termination_prior_to_renewal_days__c varchar(255),",,,,s
+"   fft_termination_prior_to_renewal__c bool NOT NULL,",,,,s
+"   fft_term_for_convenience_notice_dd__c numeric(19),",,,,s
+"   fft_termination_for_convenience__c bool NOT NULL,",,,,s
+"   facility_address__c varchar(80),",,,,a
+"   facility_billing_address__c varchar(80),",,,,a
+"   facility_billing_name__c varchar(255),",,,,a
+"   facility_city_state_zip_code_billing__c varchar(255),",,,,a
+"   facility_city_state_and_zip_code_billin__c varchar(80),",,,,a
+"   facility_city_state_and_zip_code__c varchar(80),",,,,a
+"   facility_contact_e_mail_address_billing__c varchar(80),",,,,a
+"   facility_contact_e_mail_address__c varchar(80),",,,,a
+"   facility_contact_e_mail_billing__c varchar(80),",,,,a
+"   facility_contact_name_billing__c varchar(255),",,,,a
+"   facility_contact_name__c varchar(255),",,,,a
+"   facility_contact_phone_number_billing__c numeric(19),",,,,a
+"   facility_contact_phone_number__c numeric(19),",,,,a
+"   facility_contact_title_billing__c varchar(255),",,,,a
+"   facility_contact_title__c varchar(255),",,,,a
+"   facility_name__c varchar(255),",,,,a
+"   favored_nation_language__c bool NOT NULL,",,,,a
+"   federal_agency__c bool NOT NULL,",,,,a
+"   fluency_for_coding_platform__c bool NOT NULL,",,,,p
+"   gma_attachment_effective_date__c date,",,,,a
+"   gma_attachment_number__c numeric(19),",,,,a
+"   gma_expiration_date__c date,",,,,a
+"   gma_renewal_term_months__c numeric(19),",,,,a
+"   gma_service_level__c varchar(4099),",,,,a
+"   gma_termination_prior_to_renewal__c bool NOT NULL,",,,,a
+"   gpo_affiliation_verified__c bool NOT NULL,",,,,a
+"   status_category_text__c varchar(1300),",,,,a
+"   gpo_idn__c varchar(255),",,,,a
+"   gp_quotes_received__c bool NOT NULL,",,,,a
+"   global_permissions__c varchar(255),",,,,a
+"   global_permitted__c bool NOT NULL,",,,,a
+"   governing_law_state__c varchar(255),",,,,a
+"   grace_period__c varchar(255),",,,,a
+"   hardware_gma__c bool NOT NULL,",,,,p
+"   hardware_pricing_discount__c bool NOT NULL,",,,,p
+"   hire_client_mt_s__c bool NOT NULL,",,,,a
+"   hosting_auto_renew__c bool NOT NULL,",,,,p
+"   hosting_effective_date__c date,",,,,p
+"   hosting_expiration_date__c date,",,,,p
+"   hosting_renewal_start_date__c date,",,,,p
+"   hosting_renewal_term_months__c numeric(19),",,,,p
+"   hosting_term_months__c numeric(19),",,,,p
+"   hosting_termination_prior_to_renewal_day__c varchar(255),",,,,p
+"   hosting_term_notice_period_dd__c varchar(255),",,,,p
+"   name_of_product__c varchar(4099),",,,,p
+"   implementation_and_training_discount__c bool NOT NULL,",,,,s
+"   attachment_to_master__c varchar(255),",,,,a
+"   decimalellectual_property_general_informatio__c varchar(255),",,,,a
+"   decimalerest_on_late_payments__c varchar(255),",,,,a
+"   legacy_agreement_number__c varchar(20),",,,,a
+"   legal_entity__c varchar(255),",,,,a
+"   legal_notices__c varchar(4099),",,,,a
+"   limitation_of_liability__c bool NOT NULL,",,,,a
+"   limited_liability_cap__c varchar(255),",,,,a
+"   m_modal_travel_living_policy__c bool NOT NULL,",,,,a
+"   gma_annual_increase__c varchar(255),",,,,a
+"   maintenance_and_support_attachment_effec__c date,",,,,p
+"   maintenance_and_support_attachment_expir__c date,",,,,p
+"   maintenance_and_support_attachment_numbe__c numeric(19),",,,,p
+"   maintenance_and_support_auto_renew__c bool NOT NULL,",,,,p
+"   master_general_notes__c text,",,,,a
+"   maintenance_and_support_renewal_term_mon__c numeric(19),",,,,p
+"   maintenance_and_support_sow_date__c date,",,,,p
+"   maintenance_and_support_sow_version__c numeric(19),",,,,p
+"   maintenance_and_support_term_years__c numeric(19),",,,,p
+"   maintenance_and_support_termination_prio__c bool NOT NULL,",,,,p
+"   maintenance_and_support_year_1__c varchar(255),",,,,p
+"   maintenance_and_support_year_2__c numeric(19),",,,,p
+"   maintenance_and_support_year_3__c numeric(19),",,,,p
+"   material_default_cure_period__c varchar(255),",,,,a
+"   mutual_default__c bool NOT NULL,",,,,a
+"   agreement_summary__c text,",,,,a
+"   number_of_mt_s_for_hire__c numeric(19),",,,,s
+"   other_transcription_platform__c varchar(255),",,,,s
+"   ownership_group_expiration_notice__c varchar(255),",,,,a
+"   ownership_group__c varchar(255),",,,,a
+"   passive_adaptation_type__c varchar(255),",,,,a
+"   passive_adaptation__c bool NOT NULL,",,,,a
+"   payment_terms_start_from__c varchar(255),",,,,a
+"   payment_terms__c varchar(255),",,,,a
+"   payment_type__c varchar(4099),",,,,a
+"   primary_contact_address__c varchar(1300),",,,,a
+"   primary_contact_phone_number__c varchar(1300),",,,,a
+"   product_attachment_effective_date__c date,",,,,p
+"   product_attachment_expiration_date__c date,",,,,p
+"   product_attachment_number__c numeric(19),",,,,p
+"   product_billing__c varchar(255),",,,,p
+"   product_cia__c bool NOT NULL,",,,,p
+"   product_gma_annual_increase__c varchar(255),",,,,p
+"   product_gma_auto_renew__c bool NOT NULL,",,,,p
+"   product_gma_effective_date__c date,",,,,p
+"   product_gma_expiration_date__c date,",,,,p
+"   product_gma_renewal_start_date__c date,",,,,p
+"   product_gma_renewal_term_months__c numeric(19),",,,,p
+"   product_gma_renewal_term__c numeric(19),",,,,p
+"   product_gma_service_level__c varchar(4099),",,,,p
+"   product_gma_term_months__c numeric(19),",,,,p
+"   product_gma_termination_period_dd__c numeric(19),",,,,p
+"   product_gma_termination_prior_to_ren_pic__c varchar(255),",,,,p
+"   product_hosted__c bool NOT NULL,",,,,p
+"   product_maintenance_and_support_auto_ren__c bool NOT NULL,",,,,p
+"   product_maintenance_and_support_effectiv__c date,",,,,p
+"   product_maintenance_and_support_expirati__c date,",,,,p
+"   product_maintenance_and_support_service__c varchar(255),",,,,p
+"   product_maintenance_and_support_term_mo__c numeric(19),",,,,p
+"   product_perpetual__c bool NOT NULL,",,,,p
+"   product_sow_date__c date,",,,,p
+"   product_sow_version__c numeric(19),",,,,p
+"   product_term_months__c numeric(19),",,,,p
+"   progress_bar__c varchar(1300),",,,,a
+"   purchase_order_language__c bool NOT NULL,",,,,a
+"   qa_penalty_standard__c bool NOT NULL,",,,,a
+"   late_fees__c bool NOT NULL,",,,,a
+"   qa_program__c bool NOT NULL,",,,,a
+"   region__c varchar(255),",,,,a
+"   request_date__c date,",,,,a
+"   right_to_dispute_waiver__c bool NOT NULL,",,,,a
+"   right_to_dispute__c bool NOT NULL,",,,,a
+"   stat_report_tat__c numeric(19),",,,,a
+"   service_or_product_warranty__c varchar(255),",,,,s
+"   shipping__c varchar(255),",,,,a
+"   software_maintenance_and_support__c bool NOT NULL,",,,,p
+"   software_pricing_discount__c bool NOT NULL,",,,,p
+"   suspend_services_notice_period__c varchar(255),",,,,a
+"   suspend_services__c bool NOT NULL,",,,,a
+"   tat_credit_details__c text,",,,,s
+"   tat_credit_standard__c bool NOT NULL,",,,,s
+"   tat_credits__c bool NOT NULL,",,,,s
+"   tos_attachment_number__c numeric(19),",,,,s
+"   tos_auto_renew__c bool NOT NULL,",,,,s
+"   tos_billing__c varchar(255),",,,,s
+"   tos_commitment__c varchar(255),",,,,s
+"   tos_effective_date__c date,",,,,s
+"   tos_evergreen__c bool NOT NULL,",,,,s
+"   tos_expiration_date__c date,",,,,s
+"   tos_price_book_rate__c bool NOT NULL,",,,,s
+"   tos_pricing_category_rate__c numeric(19),",,,,s
+"   tos_pricing_category_uom__c varchar(255),",,,,s
+"   tos_pricing_category__c varchar(4099),",,,,s
+"   tos_pricing_increase__c varchar(255),",,,,s
+"   tos_pricing_other__c text,",,,,s
+"   tos_renewal_consent__c bool NOT NULL,",,,,s
+"   tos_renewal_notification_period_dd__c numeric(19),",,,,s
+"   tos_renewal_start_date__c date,",,,,s
+"   tos_renewal_term_mm__c numeric(19),",,,,s
+"   tos_renewal_terms__c text,",,,,s
+"   tos_revenue__c numeric(19),",,,,s
+"   tos_term_mm__c numeric(19),",,,,s
+"   tos_term_for_convenience_notice_dd__c numeric(19),",,,,s
+"   tos_termination_prior_to_renewal_days__c varchar(255),",,,,s
+"   tos_termination_prior_to_renewal__c bool NOT NULL,",,,,s
+"   tos_termination_for_convenience_notice__c numeric(19),",,,,s
+"   tos_termination_for_convenience__c bool NOT NULL,",,,,s
+"   tax_exempt__c bool NOT NULL,",,,,a
+"   termination_for_default__c bool NOT NULL,",,,,a
+"   transcription_platform__c varchar(255),",,,,s
+"   travel_living_fees__c bool NOT NULL,",,,,a
+"   type_of_product_services__c varchar(4099),",,,,a
+"   type_of_request__c varchar(4099),",,,,a
+"   ucid__c varchar(5),",,,,a
+"   union_mt_s__c bool NOT NULL,",,,,s
+"   use_of_data_continuous_improvement__c varchar(255),",,,,a
+"   volume_guarantee__c varchar(255),",,,,s
+"   qa_penalty_details__c varchar(2000),",,,,s
+"   fft_pricing_category__c varchar(4099),",,,,s
+"   gpo_affiliation__c varchar(18),",,,,a
+"   included_optional_system_components__c varchar(4099),",,,,a
+"   idn_affiliation__c varchar(18),",,,,a
+"   maintenance_and_support_product__c varchar(4099),",,,,a
+"   sent_to_comm_ops__c date,",,,,a
+"   tos_general_notes__c text,",,,,s
+"   fft_general_notes__c text,",,,,s
+"   coding_general_notes__c text,",,,,p
+"   product_general_notes__c text,",,,,p
+"   maintenance_general_notes__c text,",,,,p
+"   enhanced_data_use_rights_language__c varchar(255),",,,,a
+"   time_in_pipeline__c numeric(19),",,,,a
+"   apttus__allowableoutputformats__c varchar(4099),",,,,a
+"   apttus__isinternalreview__c bool NOT NULL,",,,,a
+"   apttus__islocked__c bool NOT NULL,",,,,a
+"   apttus__latestdocid__c varchar(255),",,,,a
+"   comm_ops_age__c numeric(19),",,,,a
+"   date_submitted_to_comm_ops__c date,",,,,a
+"   total_time_with_comm_ops__c numeric(19),",,,,a
+"   forecasting_category__c varchar(1300),",,,,a
+"   stage__c varchar(1300),",,,,a
+"   submit_to_comm_ops__c varchar(1300),",,,,a
+"   ts_request_accepted__c date,",,,,a
+"   ts_author_contract__c date,",,,,a
+"   ts_mmodal_redline_review__c date,",,,,a
+"   ts_client_redline_review__c date,",,,,a
+"   ts_partially_executed_received__c date,",,,,a
+"   ts_submitted_to_comm_ops__c date,",,,,a
+"   ts_client_inital_review__c date,",,,,a
+"   awaiting_information_detail__c varchar(255),",,,,a
+"   cancellation_reason__c varchar(255),",,,,a
+"   baa_attachment_number__c numeric(19),",,,,a
+"   coding_global_permissions__c varchar(255),",,,,p
+"   coding_global_permitted__c bool NOT NULL,",,,,p
+"   gma_termination_prior_to_renewal_days__c numeric(19),",,,,a
+"   submitted_to_opr_days__c numeric(19),",,,,a
+"   request_to_comm_ops_days__c numeric(19),",,,,a
+"   ff_fix_send_to_other_party_for_review__c varchar(1300),",,,,p
+"   ff_fix_send_to_other_party_signatures__c varchar(1300),",,,,p
+"   general_terms_and_conditions__c varchar(255),",,,,a
+"   t_c_version__c date,",,,,a
+"   tos_term_for_convenience__c varchar(255),",,,,s
+"   fft_term_for_convenience__c varchar(255),",,,,s
+"   coding_term_for_convenience__c varchar(255),",,,,p
+"   product_term_for_convenience__c varchar(255),",,,,p
+"   product_term_for_convenien__c numeric(19),",,,,p
+"   tos_price_increase_during_initial_term__c bool NOT NULL,",,,,s
+"   product_billing_terms__c bool NOT NULL,",,,,p
+"   product_price_increase__c varchar(255),",,,,p
+"   dq_paymentterms__c numeric(19),",,,,a
+"   cia_pricing_discount__c bool NOT NULL,",,,,a
+"   gma_pricing_discount__c bool NOT NULL,",,,,a
+"   product_subscription_auto_renewal__c bool NOT NULL,",,,,p
+"   strategic_deal__c bool NOT NULL,",,,,a
+"   strategic_deal_description__c varchar(255),",,,,a
+"   dq_strategicdeal__c numeric(19),",,,,a
+"   dq_tos_term_mm__c numeric(19),",,,,a
+"   dq_tos_term_for_convenience__c numeric(19),",,,,a
+"   dq_tos_term_for_convenience_notice_dd__c numeric(19),",,,,a
+"   dq_tos_commitment__c numeric(19),",,,,a
+"   dq_volume_guarantee__c numeric(19),",,,,a
+"   dq_global_permitted__c numeric(19),",,,,a
+"   dq_tos_price_incr_during_initial_term__c numeric(19),",,,,a
+"   dq_coding_term_months__c numeric(19),",,,,a
+"   dq_tos_price_increase__c numeric(19),",,,,a
+"   dq_coding_term_for_convenience__c numeric(19),",,,,a
+"   dq_coding_term_for_conv_notice_dd__c numeric(19),",,,,a
+"   dq_coding_commitment__c numeric(19),",,,,a
+"   dq_coding_global_permitted__c numeric(19),",,,,a
+"   dq_coding_price_increase__c numeric(19),",,,,a
+"   dq_general_terms_and_conditions__c numeric(19),",,,,a
+"   tos_price_book_rate_v2__c varchar(255),",,,,s
+"   dq_tos_price_book_rate__c numeric(19),",,,,a
+"   coding_price_book_rate__c varchar(255),",,,,p
+"   dq_coding_price_book_rate__c numeric(19),",,,,a
+"   dq_payment_type__c numeric(19),",,,,a
+"   dq_product_gma_term_months__c numeric(19),",,,,a
+"   dq_support_term_for_convenience__c numeric(19),",,,,a
+"   dq_cap_support_term_for_conv_notice_dd__c numeric(19),",,,,a
+"   dq_cap_gma_pricing_discount__c numeric(19),",,,,a
+"   dq_cap_cia_pricing_discount__c numeric(19),",,,,a
+"   dq_f1_tos_term_for_conv__c numeric(19),",,,,a
+"   dq_f1_tos_term_mm__c numeric(19),",,,,a
+"   dq_f1_tos_term_for_conv_notice_dd__c numeric(19),",,,,a
+"   dq_f1_support_term_for_conv__c numeric(19),",,,,a
+"   dq_f1_tos_commitment__c numeric(19),",,,,a
+"   dq_f1_global_permitted__c numeric(19),",,,,a
+"   software_pricing_discount_picklist__c varchar(255),",,,,a
+"   dq_f1_software_pricing_discount__c numeric(19),",,,,a
+"   dq_f1_standard_prod_billing_terms__c numeric(19),",,,,a
+"   dq_f1_prod_pricing_incr__c numeric(19),",,,,a
+"   dq_cap_software_pricing_disc__c numeric(19),",,,,a
+"   dq_cap_professional_services_discount__c numeric(19),",,,,a
+"   dq_standard_prod_billing_terms__c numeric(19),",,,,a
+"   dq_subs_prod_term_months__c numeric(19),",,,,a
+"   dq_subs_prod_subs_auto_renewal__c numeric(19),",,,,a
+"   dq_subs_support_term_for_conv__c numeric(19),",,,,a
+"   dq_subs_prod_term_for_conv_notice_dd__c numeric(19),",,,,a
+"   dq_subs_software_pricing_discount__c numeric(19),",,,,a
+"   dq_subs_professional_services_discount__c numeric(19),",,,,a
+"   dq_subs_cia_pricing_discount__c numeric(19),",,,,a
+"   dq_subs_standard_prod_billing_terms__c numeric(19),",,,,a
+"   dq_subs_prod_pricing_incr__c numeric(19),",,,,a
+"   dq_coding_total__c numeric(19),",,,,a
+"   dq_cap_total__c numeric(19),",,,,a
+"   dq_subs_total__c numeric(19),",,,,a
+"   dq_tos_total__c numeric(19),",,,,a
+"   dq_payment_total__c numeric(19),",,,,a
+"   dq_f1_total__c numeric(19),",,,,a
+   dq_total__c numeric(19),,,,a
+),,,,
+!!!,,,,

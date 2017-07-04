@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['name']='fft_volume_guarantee_c';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['default_value']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['default']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['display_default']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['len']='255';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['required']=false;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['type']='text';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['audited']=0;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['massupdate']=0;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['options']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['help']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['comments']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['importable']='true';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['duplicate_merge']=0;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['merge_filter']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['ext2']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['ext4']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['ext3']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['labelValue']=NULL;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['unified_search']=0;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['full_text_search']='';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['rows']=NULL;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['cols']=NULL;
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['vname']='LBL_FFT_VOLUME_GUARANTEE_C';
+$dictionary['SA_Services']['fields']['fft_volume_guarantee_c']['source']='custom_fields';
+
+ ?>

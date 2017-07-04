@@ -42,8 +42,8 @@ class AgreementStatusManager
 {
     public function StatusClosed($bean, $event, $arg)
     {
-        // If it's a new record (on creation), assign the record to the Legal team.
         if ($bean->status == 'Closed') {
+            global $sugar_config;
             $bean->assigned_user_id = '';
             $bean->assigned_security_group_id = $sugar_config['Implementations'];
         }
