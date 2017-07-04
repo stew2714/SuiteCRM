@@ -42,9 +42,8 @@ class AgreementStatusManager
 {
     public function StatusClosed($bean, $event, $arg)
     {
-        global $sugar_config;
-
         if ($bean->status == 'Closed') {
+            global $sugar_config;
             $bean->assigned_user_id = '';
             $bean->assigned_security_group_id = $sugar_config['Implementations'];
         }
