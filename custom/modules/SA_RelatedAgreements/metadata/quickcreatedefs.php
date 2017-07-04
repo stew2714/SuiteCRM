@@ -2,7 +2,7 @@
 $module_name = 'SA_RelatedAgreements';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -43,29 +43,15 @@ array (
           0 => 
           array (
             'name' => 'aos_contracts_sa_relatedagreements_2_name',
+            'label' => 'LBL_AOS_CONTRACTS_SA_RELATEDAGREEMENTS_2_FROM_AOS_CONTRACTS_TITLE',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'relationship_from_type_c',
-            'label' => 'LBL_RELATIONSHIP_FROM_TYPE',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'aos_contracts_sa_relatedagreements_1_name',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'relationship_to_type_c',
-            'label' => 'LBL_RELATIONSHIP_TO_TYPE',
+            'label' => 'LBL_AOS_CONTRACTS_SA_RELATEDAGREEMENTS_1_FROM_AOS_CONTRACTS_TITLE',
           ),
         ),
       ),

@@ -10,3 +10,15 @@ $app_list_strings['contract_status_list']['Sent for Signatures'] = 'Sent for Sig
 $app_list_strings['contract_status_list']['Submitted for Comm Ops Processing'] = 'Submitted for Comm Ops Processing';
 $app_list_strings['contract_status_list']['Contracts Pending Clearance'] = 'Contracts Pending Clearance';
 $app_list_strings['contract_status_list']['Closed'] = 'Closed';
+
+$app_list_strings['agreement_relationship_options']['Related NDA Is'] = 'Related NDA Is';
+$app_list_strings['agreement_relationship_options']['Is NDA For'] = 'Is NDA For';
+$app_list_strings['agreement_relationship_options']['Is Master Of'] = 'Is Master Of';
+$app_list_strings['agreement_relationship_options']['Is Child Of'] = 'Is Child Of';
+$app_list_strings['agreement_relationship_options']['Is Related Contract'] = 'Is Related Contract';
+$app_list_strings['agreement_relationship_options']['Is SOW Of'] = 'Is SOW Of';
+$app_list_strings['agreement_relationship_options']['Is Amendment For'] = 'Is Amendment For';
+$app_list_strings['agreement_relationship_options']['Is Amended By'] = 'Is Amended By';
+$app_list_strings['agreement_relationship_options']['Is Superceded By'] = 'Is Superceded By';
+$app_list_strings['agreement_relationship_options']['Is Renewal For'] = 'Is Renewal For';
+$app_list_strings['agreement_relationship_options']['Is Renewal By'] = 'Is Renewal By';
