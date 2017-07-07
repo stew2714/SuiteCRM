@@ -160,7 +160,7 @@ $(document).ready(function() {
 
     // Send to Comm Ops
     $("#submitToCommOps").click(function(){
-        var url = "index.php?module=AOS_Contracts&action=sendToCommOps";
+        var url = "index.php?module=AOS_Contracts&action=assignToCommOps";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
