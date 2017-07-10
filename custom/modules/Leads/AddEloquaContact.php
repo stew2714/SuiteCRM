@@ -122,7 +122,7 @@ class EloquaContact
         $fieldValues[9] = new fieldValues;
         $fieldValues[9]->type = "FieldValue";
         $fieldValues[9]->id = "100196"; // Rating
-        $fieldValues[9]->value = $bean->rating;
+        $fieldValues[9]->value = $bean->rating_c;
 
         $contact->fieldValues = $fieldValues;
 
