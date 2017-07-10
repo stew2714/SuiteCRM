@@ -126,13 +126,13 @@ class EloquaContact
 
         $contact->fieldValues = $fieldValues;
 
-        if (empty($bean->eloqua_id)) {
+        if (empty($bean->eloqua_id_c)) {
             // Send the new contact information to the Eloqua Instance
             $response = $client->post('data/contact', $contact);
 
             // The ID of the Contact that's been pushed into Eloqua (saved into the CRM for reference later)
             $contactId = $response->id;
-            $bean->eloqua_id = $contactId;
+            $bean->eloqua_id_c = $contactId;
         } else {
             // The ID of the Eloqua record you're updating
             $contact->id = $bean->eloqua_id_c;

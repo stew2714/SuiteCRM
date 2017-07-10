@@ -203,7 +203,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'industry',
+            'name' => 'industry_c',
             'studio' => 'visible',
             'label' => 'LBL_INDUSTRY',
           ),
@@ -212,7 +212,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'number_of_employees',
+            'name' => 'number_of_employees_c',
             'label' => 'LBL_NUMBER_OF_EMPLOYEES',
           ),
         ),
