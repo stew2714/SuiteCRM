@@ -92,7 +92,7 @@ class EloquaAccount
         $fieldValues[3] = new fieldValues;
         $fieldValues[3]->type = "FieldValue";
         $fieldValues[3]->id = "100183"; // Account Rating
-        $fieldValues[3]->value = $bean->rating;
+        $fieldValues[3]->value = $bean->rating_c;
 
         $fieldValues[4] = new fieldValues;
         $fieldValues[4]->type = "FieldValue";
@@ -127,19 +127,19 @@ class EloquaAccount
 
         $account->fieldValues = $fieldValues;
 
-        if (empty($bean->eloqua_id) || $bean->eloqua_id == "0") {
+        if (empty($bean->eloqua_id_c) || $bean->eloqua_id_c == "0") {
             // Send the new contact information to the Eloqua Instance
             $response = $client->post('data/account', $account);
 
             // The ID of the Contact that's been pushed into Eloqua (saved into the CRM for reference later)
             $accountId = $response->id;
-            $bean->eloqua_id = $accountId;
+            $bean->eloqua_id_c = $accountId;
         } else {
             // The ID of the Eloqua record you're updating
-            $account->id = $bean->eloqua_id;
+            $account->id = $bean->eloqua_id_c;
 
             // Send the updated information to the Eloqua Instance
-            $response = $client->put('data/account/' . $bean->eloqua_id, $account);
+            $response = $client->put('data/account/' . $bean->eloqua_id_c, $account);
         }
     }
 
