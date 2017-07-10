@@ -97,12 +97,12 @@ class EloquaContact
         $fieldValues[4] = new fieldValues;
         $fieldValues[4]->type = "FieldValue";
         $fieldValues[4]->id = "100184"; // Number of Employees
-        $fieldValues[4]->value = $bean->number_of_employees;
+        $fieldValues[4]->value = $bean->number_of_employees_c;
 
         $fieldValues[5] = new fieldValues;
         $fieldValues[5]->type = "FieldValue";
         $fieldValues[5]->id = "100046"; // Industry
-        $fieldValues[5]->value = $bean->industry;
+        $fieldValues[5]->value = $bean->industry_c;
 
         $fieldValues[6] = new fieldValues;
         $fieldValues[6]->type = "FieldValue";
