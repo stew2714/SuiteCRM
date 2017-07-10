@@ -135,10 +135,10 @@ class EloquaContact
             $bean->eloqua_id = $contactId;
         } else {
             // The ID of the Eloqua record you're updating
-            $contact->id = $bean->eloqua_id;
+            $contact->id = $bean->eloqua_id_c;
 
             // Send the updated information to the Eloqua Instance
-            $response = $client->put('data/contact/' . $bean->eloqua_id, $contact);
+            $response = $client->put('data/contact/' . $bean->eloqua_id_c, $contact);
         }
     }
 
