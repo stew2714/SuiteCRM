@@ -348,7 +348,14 @@ eoq;
 
         foreach($QCModules as $module) {
             $seed = SugarModule::get($module)->loadBean();
+
+//BEGIN - SECURITY GROUPS - create rights
+/**  
             if ( ( $seed instanceOf SugarBean ) && $seed->ACLAccess('edit') ) {
+*/
+            if ( ( $seed instanceOf SugarBean ) && $seed->ACLAccess('create') ) {
+//END - SECURITY GROUPS - create rights
+
                 $QCAvailableModules[] = $module;
             }
         }
@@ -2764,8 +2771,15 @@ eoq;
 		    //Retrieve the related IE accounts.
             $relatedIEAccounts = $ie->retrieveByGroupFolderId($singleGroup['id']);
 
+            /* BEGIN - SECURITY GROUPS */
+            /**
             if(count($relatedIEAccounts) == 0)
                 $server_url = $app_strings['LBL_EMAIL_MULT_GROUP_FOLDER_ACCOUNTS_EMPTY'];
+            */
+            if(count($relatedIEAccounts) == 0) {
+            	continue;
+            }
+            /* END - SECURITY GROUPS */
             else if(count($relatedIEAccounts) == 1)
             {
                 if($relatedIEAccounts[0]->status != 'Active' || $relatedIEAccounts[0]->mailbox_type == 'bounce')

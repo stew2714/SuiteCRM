@@ -165,6 +165,16 @@ class SearchForm
                     'displayDiv' => 'display:none',);
             }
         }
+
+        /* BEGIN - SECURITY GROUPS */ 
+        //this could probably be in a different location...but we have to edit this file anyway
+        $this->searchFields['securitygroup'] = array(
+                    'query_type' => 'default',
+                    'operator' => 'subquery',
+                    'subquery' => 'SELECT record_id FROM securitygroups_records WHERE securitygroups_records.deleted=0 AND securitygroups_records.module=\''.$this->module.'\' AND securitygroups_records.securitygroup_id IN ',
+                    'db_field' => array('id'),
+                );  
+        /* END - SECURITY GROUPS */
     }
 
     function display($header = true)
@@ -823,6 +833,10 @@ class SearchForm
 
         //rrs check for team_id
 
+        /* BEGIN - SECURITY GROUPS - additional-users */ 
+        $my_items_only = false;
+        /* END - SECURITY GROUPS - additional-users */  
+
         foreach ((array)$this->searchFields as $field => $parms) {
             $customField = false;
             // Jenny - Bug 7462: We need a type check here to avoid database errors
@@ -984,6 +998,10 @@ class SearchForm
                         global $current_user;
                         $field_value = $db->quote($current_user->id);
                         $operator = '=';
+
+                        /* BEGIN - SECURITY GROUPS - additional-users */ 
+                        $my_items_only = true;
+                        /* END - SECURITY GROUPS - additional-users */  
                     }
                 } elseif (!empty($parms['closed_values']) && is_array($parms['closed_values'])) {
                     if ($parms['value'] == false) {
@@ -1171,6 +1189,19 @@ class SearchForm
                                     }
                                 }
                                 $sq = $parms['subquery'];
+
+                                 /* BEGIN - SECURITY GROUPS */ 
+                                 //handle special case to search by groups
+                                 if($field == 'securitygroup') {
+                                    $selectCol = ' * ';
+                                     //use the select column in the subquery if it exists
+                                    if(!empty($parms['subquery'])){
+                                        $selectCol = $this->getSelectCol($parms['subquery']);
+                                    }
+                                    $where .= "{$db_field} $in (select $selectCol from ({$parms['subquery']} (".$db->quoted($field_value).")) {$field}_derived)";
+                                 } else
+                                 /* END - SECURITY GROUPS */ 
+
                                 if (is_array($sq)) {
                                     $and_or = ' AND ';
                                     if (isset($sq['OR'])) {
@@ -1260,6 +1291,15 @@ class SearchForm
                                 $where .= $db_field . ' in (' . $field_value . ')';
                                 break;
                             case '=':
+                                /* BEGIN - SECURITY GROUPS - additional-users */ 
+                                if($my_items_only == true)
+                                {
+                                    require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
+                                    $my_items = SecurityGroupAdditionalUser::getMyItems($this->seed,$db_field . " = ".$db->quoteType($type, $field_value));
+                                    $where .= $my_items;
+                                }
+                                else
+                                /* END - SECURITY GROUPS - additional-users */  
                                 if ($type == 'bool' && $field_value == 0) {
                                     $where .= "($db_field = 0 OR $db_field IS NULL)";
                                 } else {
@@ -1380,6 +1420,28 @@ class SearchForm
         } elseif (file_exists('modules/' . $module . '/metadata/metafiles.php')) {
             require('modules/' . $module . '/metadata/metafiles.php');
         }
+
+        /* BEGIN - SECURITY GROUPS */ 
+        //get group ids of current user and check to see if a layout exists for that group
+        global $current_user;
+        require_once('modules/SecurityGroups/SecurityGroup.php');
+        $groupList = SecurityGroup::getUserSecurityGroups($current_user->id);
+        //reorder by precedence....
+
+        foreach($groupList as $groupItem) {
+            $GLOBALS['log']->debug("Looking for: ".'custom/modules/' . $module . '/metadata/'.$groupItem['id'].'/searchdefs.php');
+            if(file_exists('custom/modules/' . $module . '/metadata/'.$groupItem['id'].'/searchdefs.php')){
+                $_SESSION['groupLayout'] = $groupItem['id'];
+                $metadataFile = 'custom/modules/' . $module . '/metadata/'.$groupItem['id'].'/searchdefs.php';
+            }           
+        }
+
+        if(isset($metadataFile)){
+            $foundViewDefs = true;
+            require_once($metadataFile);
+        }
+        else
+        /* END - SECURITY GROUPS */  
 
         if (file_exists('custom/modules/' . $module . '/metadata/searchdefs.php')) {
             require('custom/modules/' . $module . '/metadata/searchdefs.php');

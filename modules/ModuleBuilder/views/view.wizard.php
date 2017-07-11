@@ -126,6 +126,21 @@ class ModuleBuilderViewWizard extends SugarView
 			switch ( $this->view )
 			{
 				case 'layouts':
+					/* BEGIN - SECURITY GROUPS */ 
+					$groupLayout = "";
+					if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+					$groupName = "Default";
+					if(!isset($groupLayout) || empty($groupLayout)) {
+						$groupLayout = "";
+					} else {
+						//Get group name for display
+						require_once('modules/SecurityGroups/SecurityGroup.php');
+						$groupFocus = new SecurityGroup();
+						$groupFocus->retrieve($groupLayout);
+						$groupName = $groupFocus->name;
+						$this->ajax->addCrumb($groupName,"");
+					}
+					/* END - SECURITY GROUPS */
 					//Studio Select Layout page
 					$this->buttons = $module->getLayouts() ;
 					$this->title = $module->name . " " . translate('LBL_LAYOUTS') ;
@@ -145,6 +160,21 @@ class ModuleBuilderViewWizard extends SugarView
 					break;
 
 				case 'search':
+					/* BEGIN - SECURITY GROUPS */ 
+					$groupLayout = "";
+					if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+					$groupName = "Default";
+					if(!isset($groupLayout) || empty($groupLayout)) {
+						$groupLayout = "";
+					} else {
+						//Get group name for display
+						require_once('modules/SecurityGroups/SecurityGroup.php');
+						$groupFocus = new SecurityGroup();
+						$groupFocus->retrieve($groupLayout);
+						$groupName = $groupFocus->name;
+						$this->ajax->addCrumb($groupName,"");
+					}
+					/* END - SECURITY GROUPS */ 
 					//Studio Select Search Layout page.
 					$this->buttons = $module->getSearch() ;
 					$this->title = $module->name . " " . translate('LBL_FILTER');
@@ -155,6 +185,21 @@ class ModuleBuilderViewWizard extends SugarView
 					break;
 
 				case 'dashlet':
+					/* BEGIN - SECURITY GROUPS */ 
+					$groupLayout = "";
+					if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+					$groupName = "Default";
+					if(!isset($groupLayout) || empty($groupLayout)) {
+						$groupLayout = "";
+					} else {
+						//Get group name for display
+						require_once('modules/SecurityGroups/SecurityGroup.php');
+						$groupFocus = new SecurityGroup();
+						$groupFocus->retrieve($groupLayout);
+						$groupName = $groupFocus->name;
+						$this->ajax->addCrumb($groupName,"");
+					}
+					/* END - SECURITY GROUPS */ 
 					$this->generateStudioDashletButtons();
 					$this->title = $this->editModule ." " .translate('LBL_DASHLET');
 					$this->question = translate( 'LBL_QUESTION_DASHLET' ) ;
@@ -164,6 +209,21 @@ class ModuleBuilderViewWizard extends SugarView
 					break;
 				
 				case 'popup':
+					/* BEGIN - SECURITY GROUPS */ 
+					$groupLayout = "";
+					if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+					$groupName = "Default";
+					if(!isset($groupLayout) || empty($groupLayout)) {
+						$groupLayout = "";
+					} else {
+						//Get group name for display
+						require_once('modules/SecurityGroups/SecurityGroup.php');
+						$groupFocus = new SecurityGroup();
+						$groupFocus->retrieve($groupLayout);
+						$groupName = $groupFocus->name;
+						$this->ajax->addCrumb($groupName,"");
+					}
+					/* END - SECURITY GROUPS */ 
 					$this->generateStudioPopupButtons();
 					$this->title = $this->editModule ." " .translate('LBL_POPUP');
 					$this->question = translate( 'LBL_QUESTION_POPUP' ) ;
@@ -326,14 +386,36 @@ class ModuleBuilderViewWizard extends SugarView
 	
 	function generateStudioDashletButtons() 
 	{
+		/* BEGIN - SECURITY GROUPS */ 
+		/**
 		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_DASHLETLISTVIEW' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=dashlet&view_module={$this->editModule}", 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_DASHLETLISTVIEW'], 'imageName'=>'ListView', 'help'=>'DashletListViewBtn');
 		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_DASHLETSEARCHVIEW' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=dashletsearch&view_module={$this->editModule}", 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_DASHLETSEARCHVIEW'], 'imageName'=>'BasicSearch','help'=> 'DashletSearchViewBtn');
+		*/
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		$groupLayoutParams = "";
+		if(!empty($groupLayout)) { $groupLayoutParams = "&grpLayout=".$groupLayout; }
+		
+		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_DASHLETLISTVIEW' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=dashlet&view_module={$this->editModule}" . $groupLayoutParams, 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_DASHLETLISTVIEW'], 'imageName'=>'ListView', 'help'=>'DashletListViewBtn');
+		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_DASHLETSEARCHVIEW' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=dashletsearch&view_module={$this->editModule}" . $groupLayoutParams, 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_DASHLETSEARCHVIEW'], 'imageName'=>'BasicSearch','help'=> 'DashletSearchViewBtn');
+		/* END - SECURITY GROUPS */ 
 	}
 	
 	function generateStudioPopupButtons()
 	{
+		/* BEGIN - SECURITY GROUPS */ 
+		/**
 		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_POPUPLISTVIEW' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=popuplist&view_module={$this->editModule}", 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_POPUPLISTVIEW'], 'imageName'=>'ListView', 'help'=>'PopupListViewBtn');
 		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_POPUPSEARCH' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=popupsearch&view_module={$this->editModule}", 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_POPUPSEARCH'], 'imageName'=>'BasicSearch','help'=> 'PopupSearchViewBtn');
+		*/
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		$groupLayoutParams = "";
+		if(!empty($groupLayout)) { $groupLayoutParams = "&grpLayout=".$groupLayout; }
+		
+		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_POPUPLISTVIEW' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=popuplist&view_module={$this->editModule}" . $groupLayoutParams, 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_POPUPLISTVIEW'], 'imageName'=>'ListView', 'help'=>'PopupListViewBtn');
+		$this->buttons [ $GLOBALS [ 'mod_strings' ][ 'LBL_POPUPSEARCH' ] ] = array('action'=> "module=ModuleBuilder&action=editLayout&view=popupsearch&view_module={$this->editModule}" . $groupLayoutParams, 'imageTitle'=> $GLOBALS ['mod_strings']['LBL_POPUPSEARCH'], 'imageName'=>'BasicSearch','help'=> 'PopupSearchViewBtn');
+		/* END - SECURITY GROUPS */ 
 	}
 	
 	function generateMBSearchButtons()

@@ -72,4 +72,11 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_LEGAL_VENDORS_SUBPANEL_TITLE' => 'Legal Vendor Contracts',
   'LBL_NEW_FORM_TITLE' => 'New Legal Vendor Contracts',
+  'LBL_AGE' => 'Age',
+  'LBL_TIME_TO_COMPLETE' => 'Time to Complete',
+  'LBL_LAST_ACTIVITY_DATE' => 'Last Activity Date',
+  'LBL_INITITAL_REQUEST_DATE' => 'Initital Request Date',
+  'LBL_DESCRIPTION_DOCUMENT_TYPE' => 'Description Document Type',
+  'LBL_VENDOR_NAME' => 'Vendor Name',
+  'LBL_REQUESTOR' => 'Requestor',
 );

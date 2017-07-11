@@ -12,5 +12,4 @@ $mod_strings['LBL_ADDLAYOUTDONE'] = 'Layout gespeichert';
 $mod_strings['LBL_REMOVELAYOUTDONE'] = 'Layout entfernt';
 $mod_strings['LBL_REMOVE_CONFIRM'] = 'Sind Sie sicher?';
 $mod_strings['help']['studioWizard']['addLayoutHelp'] = "Um ein spezielles Layout für eine Berechtigungsgruppe zu erstellen, wählen Sie die Gruppe und ein Layout als Ausgangspunkt für Ihre Anpassung";
-
-?>
+$mod_strings['LBL_ADD_GROUP_LAYOUT'] = 'In einer Berechtigungsgruppe Layout';

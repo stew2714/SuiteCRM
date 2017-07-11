@@ -80,13 +80,11 @@ $mod_strings = array (
   'LBL_HOOKUP_CONFIRM_PART2' => ". Continue?",
   
   'LBL_GROUP_SELECT' => 'Seleccionar los grupos deben tener acceso a este registro',
-  'LBL_ERROR_DUPLICATE' => 'Debido a un posible duplicado detectado por SuiteCRM usted tendrá que agregar manualmente los grupos de seguridad de su registro recién creado.',
+  'LBL_ERROR_DUPLICATE' => 'Debido a un posible duplicado detectado por Sugar usted tendrá que agregar manualmente los grupos de seguridad de su registro recién creado.',
 
   'LBL_INBOUND_EMAIL' => 'Cuenta de correo electrónico entrante',
   'LBL_INBOUND_EMAIL_DESC' => 'Sólo permitir el acceso a una cuenta de correo electrónico si el usuario pertenece a un grupo que se asigna a la cuenta de correo.',  
   'LBL_PRIMARY_GROUP' => 'Grupo Principal',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED' => 'Calendario compartido - Ocultar restringido',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED_DESC' => 'Mostrar sólo los artículos en el calendario compartido que el usuario tiene permiso para hacerlo. Déjelo sin marcar si los usuarios necesitan ver cuando otros usuarios están ocupados.',
 );
-
-$mod_strings['LBL_ALL_MODULES'] = 'Todos';
-
-?>

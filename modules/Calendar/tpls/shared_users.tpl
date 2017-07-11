@@ -131,7 +131,27 @@
 
 
 								<table cellpadding="0" cellspacing="3" border="0" align="center" width="100%">
+{*
+/** BEGIN - SECURITY GROUPS */
+*}
+{*
 									<tr><th valign="top" align="center" colspan="2">{$MOD.LBL_SELECT_USERS}</th></tr>
+*}
+									<tr><th valign="top" align="center" colspan="3">{$MOD.LBL_SELECT_USERS}</th></tr>
+									<tr><td valign="top"></td><td valign="top">
+										<table cellpadding="1" cellspacing="1" border="0" class="edit view" align="center">
+											<tr>
+												<td valign="top" nowrap=""><b>{$MOD.LBL_SECURITYGROUPS}:</b></td>
+												<td valign="top" id="shared_ids_td">
+													<select id="securitygroup_id" name="securitygroup_id" onchange="this.form.edit_shared.value=1; this.form.submit();" size="8">{$securitygroups_options}</select>
+												</td>
+											</tr>
+										</table>
+									</td>
+									</tr>
+{*
+/** END - SECURITY GROUPS */
+*}
 									<tr><td valign="top"></td><td valign="top">
 											<table cellpadding="1" cellspacing="1" border="0" class="edit view" align="center">
 												<tr>

@@ -734,6 +734,121 @@ class ModuleBuilderController extends SugarController
         $this->view = 'wizard' ;
     }
 
+    /* BEGIN - SECURITY GROUPS */ 
+    function action_addLayout ()
+    {
+        $this->view = 'addlayout' ;
+    }
+    
+	/**
+	 * Layouts   --->    click for page with "Add Layout For...newline....SecurityGroup [Select ^]   Copy From [Default ^]
+	 * 	Default
+	 * 		Edit
+	 * 		Detail
+	 * 		List
+	 * 		Quick Create
+	 * 		Search
+	 * 			Basic
+	 * 			Advanced
+	 * 	(these are all saved in custom/modules/.../metadata)
+	 * 	Support
+	 * 		Edit
+	 * 		Detail
+	 * 		List
+	 * 		Quick Create
+	 * 		Search
+	 * 			Basic
+	 * 			Advanced
+	 * 	(save these in custom/modules/.../metadata/_GUID_/)	
+	 */
+    function action_saveGroupLayout ()
+    {
+    	$create_for = $_REQUEST['securitygroup']; //the guid of the security group
+    	$copy_from = $_REQUEST['copy_layout'];
+    	$module = $_REQUEST['view_module'];
+    	
+    	if(empty($create_for)) return; 
+   
+		require_once('include/dir_inc.php'); 	
+        //$GLOBALS['log']->fatal("saving group layout for mod: $module for $create_for and from: $copy_from");
+        //create destination dir
+        $destDirectory = "custom/modules/".$module."/metadata/".$create_for."/";
+        $GLOBALS['log']->debug("make dir: $destDirectory" );
+        mkdir_recursive( $destDirectory ) ;
+        
+        //copy from source to new 
+		$baseDirectory = "modules/{$module}/metadata/";
+		if($copy_from != "Default") {
+			$baseDirectory .= $copy_from."/";
+		}
+		$viewArray = array("detailView","editView","listView","quickCreate","search");
+        foreach ( $viewArray as $view)
+        {
+
+			//$view = "detailView";
+			$file = $baseDirectory . strtolower($view) . "defs.php";
+			$destFile = $destDirectory. strtolower($view). "defs.php";
+			$customFile = "custom/" . $file;
+			$sourceFile = $file; //the default layout in the modules directory
+
+			if(is_file($customFile)) {
+				$sourceFile = $customFile; //use custom dir file if exists
+			} else if (! is_file($sourceFile)) {
+				// if we don't have ANY defined metadata then improvise as best we can
+				if (strtolower($view) == 'quickcreate')
+				{
+					// special handling for quickcreates - base the quickcreate on the editview if no quickcreatedef exists
+					$sourceFile = $baseDirectory."editviewdefs.php";
+					if (is_file("custom/" . $sourceFile))
+					{
+						$sourceFile = "custom/" . $sourceFile;
+					}
+				}
+				else //else no metadata for this module and view so ignore...
+				{
+					//continue;
+					$sourceFile = "";
+				}
+			}
+			if(!empty($sourceFile)) {
+				$GLOBALS['log']->debug("Copying Layouts....\n	From: $sourceFile\n	To: $destFile");
+				//copy_recursive( $sourceFile, $destFile );
+				if(copy( $sourceFile, $destFile )) {
+					$GLOBALS['log']->debug("Copy Successful");
+				} else {
+					$GLOBALS['log']->debug("Copy Failed");
+				}
+			}
+		} //end for each view
+		
+
+        $this->view = 'addlayoutdone';	
+
+    }    
+    
+    function action_removeGroupLayoutPrompt()
+    {
+		$this->view = 'removegrouplayoutprompt';	  
+    } 
+    
+    function action_removeGroupLayoutConfirm()
+    {
+		//do the deal...make sure to clear the cache as well
+		$securitygroup_id = $_REQUEST['grpLayout'];
+		$view_module = $_REQUEST['view_module'];
+		if(!isset($securitygroup_id) || !isset($view_module)) return;
+		
+		//delete custom/modules/MOD/grouplayout/***, cache/modules/MOD/grouplayout/***
+		require_once('include/dir_inc.php');
+		rmdir_recursive('custom/modules/'.$view_module .'/metadata/' . $securitygroup_id);
+		
+		$remove_dir = 'cache/modules/'.$view_module .'/' . $securitygroup_id;
+		if(file_exists($remove_dir)) rmdir_recursive($remove_dir);
+
+        $this->view = 'removelayoutdone';			
+    }
+    /* END - SECURITY GROUPS */ 
+
     /**
      * Receive a layout through $_REQUEST and save it out to the working files directory
      * Expects a series of $_REQUEST parameters all in the format $_REQUEST['slot-panel#-slot#-property']=value
@@ -912,6 +1027,18 @@ class ModuleBuilderController extends SugarController
             $key = in_array($_REQUEST['column'], $valid_columns) ? $_REQUEST['column'] : 'name';
             $val = array('key'=>$key, 'direction'=>$direction);
             $current_user->setPreference('fieldsTableColumn', getJSONobj()->encode($val), 0, 'ModuleBuilder');
+        }
+    }
+
+    function action_getModuleFields ()
+    {
+        if(isset($_REQUEST['current_module']) && $_REQUEST['current_module'] !== '') {
+            $current_module = $_REQUEST['current_module'];
+            $bean = BeanFactory::getBean($current_module);
+            $field_defs = $bean->getFieldDefinitions();
+            $keys = array_keys($field_defs);
+
+            echo json_encode($keys);
         }
     }
 

@@ -87,6 +87,22 @@ class ViewSearchView extends ViewListView
  		$smarty->assign ( 'view', $this->editLayout ) ;
  		$smarty->assign ( 'helpName', 'searchViewEditor' ) ;
  		$smarty->assign ( 'helpDefault', 'modify' ) ;
+		/* BEGIN - SECURITY GROUPS */ 
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		global $groupName;
+		$groupName = "Default";
+		if(!isset($groupLayout) || empty($groupLayout)) {
+			$groupLayout = "";
+		} else {
+			//Get group name for display
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			$groupFocus = new SecurityGroup();
+			$groupFocus->retrieve($groupLayout);
+			$groupName = $groupFocus->name;
+		}
+        $smarty->assign ( 'grpLayout', $groupLayout ) ;
+		/* END - SECURITY GROUPS */ 
 
  		if ($preview)
  		{
@@ -126,6 +142,10 @@ class ViewSearchView extends ViewListView
  			$ajax->addCrumb ( translate ( 'LBL_STUDIO', 'ModuleBuilder' ), 'ModuleBuilder.main("studio")' ) ;
  			$ajax->addCrumb ( $this->translatedEditModule, 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&view_module=' . $this->editModule . '")'  ) ;
  			$ajax->addCrumb ( translate ( $layoutLabel, 'ModuleBuilder' ), 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&view='.$layoutView.'&view_module=' . $this->editModule . '")'  ) ;
+			/* BEGIN - SECURITY GROUPS */ 
+			global $groupName;
+			$ajax->addCrumb ( translate ( $groupName ), '' ) ;
+			/* END - SECURITY GROUPS */  			
  			if ( $layoutLabel == 'LBL_LAYOUTS' ) $ajax->addCrumb ( translate ( 'LBL_SEARCH_FORMS', 'ModuleBuilder' ), 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&view=search&view_module=' .$this->editModule . '")' ) ;
  			$ajax->addCrumb ( translate ( $searchLabel, 'ModuleBuilder' ), ''  ) ;
  		}

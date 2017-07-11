@@ -56,12 +56,22 @@ array (
             ),
             'label' => 'LBL_ENTRY_ID',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'category_c',
+            'comment' => '',
+            'label' => 'LBL_CATEGORY',
+          ),
         ),
         1 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'agreement_c',
+            'comment' => '',
+            'label' => 'LBL_AGREEMENT',
+          ),
         ),
         2 => 
         array (
@@ -71,19 +81,15 @@ array (
             'comment' => '',
             'label' => 'LBL_CATEGORY',
           ),
-          1 => 
-          array (
-            'name' => 'date_timesheet',
-            'comment' => '',
-            'label' => 'LBL_DATE_TIMESHEET',
-          ),
+          1 => 'assigned_user_name',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'hours_timesheet',
-            'label' => 'LBL_HOURS_TIMESHEETS',
+            'name' => 'date_timesheet',
+            'comment' => '',
+            'label' => 'LBL_DATE_TIMESHEET',
           ),
           1 => '',
         ),
@@ -91,32 +97,66 @@ array (
         array (
           0 => 
           array (
-            'name' => 'additional_notes',
+            'name' => 'date_c',
             'comment' => '',
+            'label' => 'LBL_DATE',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'lastactivitydate_c',
+            'comment' => '',
+            'label' => 'LBL_LAST_ACTIVITY_DATE',
+          ),
         ),
         5 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'hours_c',
+            'label' => 'LBL_HOURS',
+          ),
+          1 => 
+          array (
+            'name' => 'date2_c',
+            'comment' => '',
+            'label' => 'LBL_DATE2',
+          ),
         ),
         6 => 
+        array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'additional_notes_c',
+            'comment' => '',
+            'label' => 'LBL_ADDITIONAL_NOTES',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'additional_notes',
+            'comment' => '',
+          ),
+        ),
+        8 => 
         array (
           0 => 
           array (
             'name' => 'modified_by_name',
             'label' => 'LBL_MODIFIED_NAME',
           ),
-          1 => 'date_modified',
-        ),
-        7 => 
-        array (
-          0 => 'date_entered',
           1 => 
           array (
             'name' => 'created_by_name',
             'label' => 'LBL_CREATED',
           ),
+        ),
+        9 => 
+        array (
+          0 => 'date_modified',
+          1 => 'date_entered',
         ),
       ),
     ),

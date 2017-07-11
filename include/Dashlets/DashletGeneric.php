@@ -337,6 +337,21 @@ class DashletGeneric extends Dashlet {
                             $widgetDef['link'] = $this->seedBean->$widgetLink->getRelationshipObject()->name;
                         }
                         // No break - run through the default handler
+                    /* BEGIN - SECURITY GROUPS */
+                    case 'enum':
+                        if($name == 'securitygroup' && is_array($params) && !empty($params))
+                        {
+                            global $db;
+                            $arr = array ();
+                            foreach ($params as $value) {
+                                $arr[] = $db->quoted($value);
+                            }
+                            $str = implode(",", $arr);
+                            $this_condition = $widgetDef['table_alias'].".id IN (select record_id from (SELECT record_id FROM securitygroups_records WHERE securitygroups_records.deleted=0 AND securitygroups_records.module='".$this->seedBean->module_dir."' AND securitygroups_records.securitygroup_id IN  (".$str.")) ".$name."_derived)";
+                            array_push($returnArray, $this_condition);
+                            break;
+                        }
+                    /* END - SECURITY GROUPS */    
                     default:
                         $widgetDef['input_name0'] = $params;
                         if(is_array($params) && !empty($params)) { // handle array query
@@ -351,13 +366,46 @@ class DashletGeneric extends Dashlet {
             }
         }
 
+        /* BEGIN - SECURITY GROUPS - additional-users */ 
+        /**
         if($this->myItemsOnly) array_push($returnArray, $this->seedBean->table_name . '.' . "assigned_user_id = '" . $current_user->id . "'");
+        */
+        if($this->myItemsOnly)
+        {
+            require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
+            $addt_where = SecurityGroupAdditionalUser::getAdditionalOwnerWhere($this,$user_id,$this->seedBean->table_name . '.' . "assigned_user_id = '" . $current_user->id . "' ",$this->seedBean-->table_name);
+        }
+        /* END - SECURITY GROUPS - additional-users */  
 
         return $returnArray;
     }
 
 	protected function loadCustomMetadata()
 	{
+
+ 		/* BEGIN - SECURITY GROUPS */ 		
+		$customMetadate = "";
+		if(empty($_SESSION['groupLayout'])) {
+			//get group ids of current user and check to see if a layout exists for that group
+			global $current_user;
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			$groupList = SecurityGroup::getUserSecurityGroups($current_user->id);
+			//reorder by precedence....
+		
+			foreach($groupList as $groupItem) {
+				if(file_exists('custom/modules/' . $this->seedBean->module_dir . '/metadata/'.$groupItem['id'].'/dashletviewdefs.php')){
+					$_SESSION['groupLayout'] = $groupItem['id'];
+					$customMetadate = 'custom/modules/' . $this->seedBean->module_dir . '/metadata/'.$groupItem['id'].'/dashletviewdefs.php';
+					break;
+				}			
+			}
+		} else {
+			if(file_exists('custom/modules/' . $this->seedBean->module_dir . '/metadata/'.$_SESSION['groupLayout'].'/dashletviewdefs.php')){
+				$customMetadate = 'custom/modules/' . $this->seedBean->module_dir . '/metadata/'.$_SESSION['groupLayout'].'/dashletviewdefs.php';
+			}		
+		}
+ 		if(empty($customMetadate))
+ 		/* END - SECURITY GROUPS */ 
     	$customMetadate = 'custom/modules/'.$this->seedBean->module_dir.'/metadata/dashletviewdefs.php';
     	if ( file_exists ( $customMetadate )){
     		require($customMetadate);
