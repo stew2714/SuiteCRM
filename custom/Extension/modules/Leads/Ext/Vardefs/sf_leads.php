@@ -283,3 +283,34 @@ $dictionary['Lead']['fields']['zba_ss_c'] = array (
     'len' => '3',
     'source' => 'custom_fields',
 );
+
+$dictionary['Lead']['fields']['sf_id_c'] = array (
+    'name' => 'sf_id_c',
+    'vname' => 'LBL_SF_ID_C',
+    'type' => 'varchar',
+    'len' => '18',
+    'source' => 'custom_fields',
+);
+
+
+$dictionary['Lead']['fields']['company_c'] = array (
+    'name' => 'company_c',
+    'vname' => 'LBL_COMPANY_C',
+    'type' => 'varchar',
+    'len' => '255',
+    'source' => 'custom_fields',
+);
+
+$dictionary['Lead']['fields']['converteddate_c'] = array (
+    'name' => 'converteddate_c',
+    'vname' => 'LBL_CONVERTEDDATE_C',
+    'type' => 'date',
+    'source' => 'custom_fields',
+);
+
+$dictionary['Lead']['fields']['lastactivitydate_c'] = array (
+    'name' => 'lastactivitydate_c',
+    'vname' => 'LBL_LASTACTIVITYDATE_C',
+    'type' => 'date',
+    'source' => 'custom_fields',
+);

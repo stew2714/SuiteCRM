@@ -26,7 +26,6 @@ $dictionary['Lead']['fields']['number_of_employees_c'] = array(
     'name' => 'number_of_employees_c',
     'vname' => 'LBL_NUMBER_OF_EMPLOYEES',
     'type' => 'int',
-    'len' => 5,
     'default' => 0,
     'reportable' => false,
     'source' => 'custom_fields',
@@ -62,7 +61,7 @@ $dictionary['Lead']['fields']['rating_c'] = array (
     'name' => 'rating_c',
     'vname' => 'LBL_ELOQUA_LEAD_RATING',
     'type' => 'varchar',
-    'len' => '255',
+    'len' => '40',
     'source' => 'custom_fields',
 );
 
