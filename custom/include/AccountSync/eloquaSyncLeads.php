@@ -131,7 +131,7 @@ class eloquaSyncLeads
         $lead->primary_address_state = $contact->province;
         $lead->phone_work = $contact->businessPhone;
         $lead->primary_address_country = $contact->country;
-        $lead->eloqua_country_c = $contact->countrty;
+        $lead->eloqua_country_c = $contact->country;
         $lead->primary_address_postalcode = $contact->postalCode;
 
         $custom_fields_container = array();
