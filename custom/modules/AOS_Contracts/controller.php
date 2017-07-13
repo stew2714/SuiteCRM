@@ -115,14 +115,14 @@ class AOS_ContractsController extends SugarController
 
     public function action_returnToRequester()
     {
-        global $current_user, $sugar_config;
+        global $current_user, $sugar_config, $timedate;
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->assigned_security_group_id_c = $sugar_config['Sales'];
             $bean->assigned_user_id = $bean->requested_user_id_c;
             $bean->status = "Request";
-            $bean->date_requested_c = '';
+            $bean->request_date_c = $timedate->nowDb();
             $bean->save();
             echo "success";
             die();
