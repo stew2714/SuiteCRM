@@ -47,7 +47,7 @@ class RequesterManagement
             global $current_user, $sugar_config, $timedate;
             $bean->requested_user_id_c = $current_user->id;
             $bean->status = 'Submitted Request';
-            $bean->date_requested_c = $timedate->nowDb();
+            $bean->request_date_c = $timedate->nowDb();
             $bean->assigned_user_id = '';
             $bean->assigned_security_group_id_c = $sugar_config['Legal'];
         }
