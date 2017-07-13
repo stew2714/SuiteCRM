@@ -3,7 +3,7 @@
 require_once('include/MVC/View/views/view.list.php');
 require_once('modules/Accounts/AccountsListViewSmarty.php');
 
-class sa_Fluency_OneViewList extends ViewList
+class AOS_ContractsViewList extends ViewList
 {
     public function preDisplay()
     {
