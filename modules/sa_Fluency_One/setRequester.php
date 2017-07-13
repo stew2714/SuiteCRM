@@ -46,7 +46,7 @@ class RequesterManagement
         if (empty($bean->id)) {
             global $current_user, $sugar_config;
 
-            $bean->requested_user_id = $current_user->id;
+            $bean->requested_user_id_c = $current_user->id;
             $bean->assigned_security_group_id = $sugar_config['Sales'];
         }
     }
