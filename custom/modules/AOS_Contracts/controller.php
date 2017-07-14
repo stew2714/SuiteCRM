@@ -158,7 +158,7 @@ class AOS_ContractsController extends SugarController
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->status = 'M*Modal Redline Review';
-            $bean->ts_mmodal_redline_review = $timedate->nowDb();
+            $bean->ts_mmodal_redline_review_c = $timedate->nowDb();
             $bean->save();
             echo "success";
             die();
