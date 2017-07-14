@@ -1947,12 +1947,20 @@ array (
         ),
         147 => 
         array (
-          0 => '',
-          1 => '',
+          0 => 'description',
         ),
         148 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'requested_user_id_c',
+            'label' => 'LBL_REQUESTED_USER_ID',
+          ),
+          1 => 
+          array (
+            'name' => 'volume_guarantee_c',
+            'label' => 'LBL_VOLUME_GUARANTEE_C',
+          ),
         ),
       ),
     ),
