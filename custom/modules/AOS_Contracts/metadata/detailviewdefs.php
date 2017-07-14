@@ -28,11 +28,11 @@ array (
           ),
           7 => 
           array (
-            'customCode' => '<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">',
+            'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
           ),
           8 => 
           array (
-            'customCode' => '<input type="button" class="button" id="returnToRequester" value="Return to Requester">',
+            'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="returnToRequester" value="Return to Requester">{/if}',
           ),
           9 => 
           array (
@@ -56,7 +56,7 @@ array (
           ),
           14 => 
           array (
-            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUST}">{/if}',
+            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUEST}">{/if}',
           ),
         ),
         'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',

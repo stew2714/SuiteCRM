@@ -50,6 +50,14 @@ $viewdefs = array (
             array (
               'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
             ),
+          13 =>
+              array (
+                  'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
+              ),
+          14 =>
+              array (
+                  'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUEST}">{/if}',
+              ),
           ),
           'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
         ),
