@@ -28,11 +28,11 @@ array (
           ),
           7 => 
           array (
-            'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
+            'customCode' => '<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">',
           ),
           8 => 
           array (
-            'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="returnToRequester" value="Return to Requester">{/if}',
+            'customCode' => '<input type="button" class="button" id="returnToRequester" value="Return to Requester">',
           ),
           9 => 
           array (
