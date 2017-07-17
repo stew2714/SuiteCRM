@@ -58,21 +58,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'category',
-            'comment' => '',
-            'label' => 'LBL_CATEGORY',
-          ),
-          1 => 
-          array (
-            'name' => 'date_timesheet',
-            'comment' => '',
-            'label' => 'LBL_DATE_TIMESHEET',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'date_c',
             'comment' => '',
             'label' => 'LBL_DATE',
@@ -84,7 +69,7 @@ array (
             'label' => 'LBL_LAST_ACTIVITY_DATE',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -98,7 +83,7 @@ array (
             'label' => 'LBL_DATE2',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 'description',
           1 => 
@@ -108,7 +93,7 @@ array (
             'label' => 'LBL_ADDITIONAL_NOTES',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
