@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['hardware_gma_c']['name']='hardware_gma_c';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['default_value']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['default']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['display_default']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['len']='255';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['required']=false;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['type']='bool';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['audited']=0;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['options']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['help']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['comments']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['importable']='true';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['ext2']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['ext4']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['ext3']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['hardware_gma_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['vname']='LBL_HARDWARE_GMA_C';
+$dictionary['SA_Products']['fields']['hardware_gma_c']['source']='custom_fields';
+
+ ?>

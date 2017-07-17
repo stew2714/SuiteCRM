@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['name']='facility_city_state_and_zip_code_billin_c';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['len']='80';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['vname']='LBL_FACILITY_CITY_STATE_AND_ZIP_CODE_BILLIN_C';
+$dictionary['AOS_Contracts']['fields']['facility_city_state_and_zip_code_billin_c']['source']='custom_fields';
+
+ ?>

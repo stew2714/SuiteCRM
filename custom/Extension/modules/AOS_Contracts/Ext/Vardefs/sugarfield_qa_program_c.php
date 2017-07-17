@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['name']='qa_program_c';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['type']='bool';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['vname']='LBL_QA_PROGRAM_C';
+$dictionary['AOS_Contracts']['fields']['qa_program_c']['source']='custom_fields';
+
+ ?>
