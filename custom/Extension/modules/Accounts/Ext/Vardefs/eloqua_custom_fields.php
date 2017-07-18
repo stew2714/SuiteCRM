@@ -7,6 +7,7 @@ $dictionary['Account']['fields']['eloqua_id_c'] = array(
     'len' => 5,
     'default' => 0,
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 $dictionary['Account']['fields']['rating_c'] = array (
@@ -14,6 +15,7 @@ $dictionary['Account']['fields']['rating_c'] = array (
     'vname' => 'LBL_ELOQUA_ACCOUNT_RATING',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Account']['fields']['owner_sales_person'] = array(
@@ -21,6 +23,7 @@ $dictionary['Account']['fields']['owner_sales_person'] = array(
     'vname' => 'LBL_OWNER_SALES_PERSON',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Account']['fields']['ownership'] = array(
@@ -28,6 +31,7 @@ $dictionary['Account']['fields']['ownership'] = array(
     'vname' => 'LBL_OWNERSHIP',
     'type' => 'varchar',
     'len'  => '40',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Account']['fields']['billing_address_country']['type']='enum';

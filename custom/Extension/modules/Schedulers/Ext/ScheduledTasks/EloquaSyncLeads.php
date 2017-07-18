@@ -33,7 +33,7 @@ function EloquaSyncLeads() {
     return true;
 }
 
-function EloquaSyncAccount() {
+function EloquaSyncAccounts() {
     $sync = new eloquaSyncAccounts();
     $sync->getAccounts();
     return true;

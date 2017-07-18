@@ -1,8 +1,6 @@
 $(document).ready(function() {
     // Accept Request as a Legal Team User
     $("#acceptRequestLegal").click(function(){
-        console.log('assigned');
-
         var url = "index.php?module=AOS_Contracts&action=accept";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
@@ -16,10 +14,35 @@ $(document).ready(function() {
         var response = query.responseText;
 
         if (response === "success") {
-            $("#modal-title").text("Sent Successfully");
+            $("#modal-title").text("Accepted Successfully");
             $("#modal-content").text("This record has been successfully assigned to your account.");
         } else {
-            $("#modal-title").text("Sending Failed");
+            $("#modal-title").text("Accepting Failed");
+            $("#modal-content").text("There was a problem assigning this record to yourself. Please try again. If the problem persists please contact your System Administrator.");
+        }
+
+        $('#modal-dialog').modal("toggle");
+    });
+
+    // Accept Request as a Comms Op User
+    $("#acceptRequestCommsOps").click(function(){
+        var url = "index.php?module=AOS_Contracts&action=acceptCommOps";
+        var data = {record:$('[name=record]').val()};
+        var query = $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                return data;
+            }
+        });
+        var response = query.responseText;
+
+        if (response === "success") {
+            $("#modal-title").text("Accepted Successfully");
+            $("#modal-content").text("This record has been successfully assigned to your account.");
+        } else {
+            $("#modal-title").text("Accepting Failed");
             $("#modal-content").text("There was a problem assigning this record to yourself. Please try again. If the problem persists please contact your System Administrator.");
         }
 
@@ -137,7 +160,31 @@ $(document).ready(function() {
 
     // Send to Comm Ops
     $("#submitToCommOps").click(function(){
-        var url = "index.php?module=AOS_Contracts&action=sendToCommOps";
+        var url = "index.php?module=AOS_Contracts&action=assignToCommOps";
+        var data = {record:$('[name=record]').val()};
+        var query = $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            success: function(data){
+                return data;
+            }
+        });
+        var response = query.responseText;
+
+        if (response === "success") {
+            $("#modal-title").text("Sent Successfully");
+            $("#modal-content").text("This record has been successfully sent over to the Comm Ops Queue.");
+        } else {
+            $("#modal-title").text("Sending Failed");
+            $("#modal-content").text("There was a problem sending this record to the Comm Ops Queue as there was no record ID passed to the operation. If the problem persists please contact your System Administrator.");
+        }
+        $('#modal-dialog').modal("toggle");
+    });
+
+    // Activate Request
+    $("#activateRequest").click(function(){
+        var url = "index.php?module=AOS_Contracts&action=activateRequest";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",

@@ -88,12 +88,12 @@ class eloquaSyncLeads
 
         // Fetch Existing Eloqua Contacts
         $bean = BeanFactory::getBean('Leads');
-        $clause = "leads.eloqua_id != 0";
+        $clause = "leads_cstm.eloqua_id_c != 0";
         $current_leads = $bean->get_full_list('', $clause);
 
         // Loop through existing Eloqua Contacts in the CRM and put them in an Array for Comparison
         foreach ($current_leads as $lead) {
-            $existing_eloqua_contacts[] = $lead->eloqua_id;
+            $existing_eloqua_contacts[] = $lead->eloqua_id_c;
         }
 
         // Loop through the fetched Eloqua Contacts from the API and see if they exist in the system
@@ -177,7 +177,7 @@ class eloquaSyncLeads
     {
         // Fetch Existing Eloqua Contacts
         $bean = BeanFactory::getBean('Leads');
-        $clause = "leads.eloqua_id_c = " . $contact->id;
+        $clause = "leads_cstm.eloqua_id_c = " . $contact->id;
         $leads = $bean->get_full_list('', $clause);
 
         $verified_scores = array(

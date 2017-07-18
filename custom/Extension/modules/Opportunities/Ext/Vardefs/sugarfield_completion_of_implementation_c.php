@@ -6,7 +6,7 @@ $dictionary['Opportunity']['fields']['completion_of_implementation_c']['default'
 $dictionary['Opportunity']['fields']['completion_of_implementation_c']['display_default']='';
 $dictionary['Opportunity']['fields']['completion_of_implementation_c']['len']='255';
 $dictionary['Opportunity']['fields']['completion_of_implementation_c']['required']=false;
-$dictionary['Opportunity']['fields']['completion_of_implementation_c']['type']='timestamp';
+$dictionary['Opportunity']['fields']['completion_of_implementation_c']['type']='date';
 $dictionary['Opportunity']['fields']['completion_of_implementation_c']['audited']=0;
 $dictionary['Opportunity']['fields']['completion_of_implementation_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['completion_of_implementation_c']['massupdate']=0;

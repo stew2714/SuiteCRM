@@ -97,12 +97,12 @@ class EloquaContact
         $fieldValues[4] = new fieldValues;
         $fieldValues[4]->type = "FieldValue";
         $fieldValues[4]->id = "100184"; // Number of Employees
-        $fieldValues[4]->value = $bean->number_of_employees;
+        $fieldValues[4]->value = $bean->number_of_employees_c;
 
         $fieldValues[5] = new fieldValues;
         $fieldValues[5]->type = "FieldValue";
         $fieldValues[5]->id = "100046"; // Industry
-        $fieldValues[5]->value = $bean->industry;
+        $fieldValues[5]->value = $bean->industry_c;
 
         $fieldValues[6] = new fieldValues;
         $fieldValues[6]->type = "FieldValue";
@@ -122,23 +122,23 @@ class EloquaContact
         $fieldValues[9] = new fieldValues;
         $fieldValues[9]->type = "FieldValue";
         $fieldValues[9]->id = "100196"; // Rating
-        $fieldValues[9]->value = $bean->rating;
+        $fieldValues[9]->value = $bean->rating_c;
 
         $contact->fieldValues = $fieldValues;
 
-        if (empty($bean->eloqua_id)) {
+        if (empty($bean->eloqua_id_c)) {
             // Send the new contact information to the Eloqua Instance
             $response = $client->post('data/contact', $contact);
 
             // The ID of the Contact that's been pushed into Eloqua (saved into the CRM for reference later)
             $contactId = $response->id;
-            $bean->eloqua_id = $contactId;
+            $bean->eloqua_id_c = $contactId;
         } else {
             // The ID of the Eloqua record you're updating
-            $contact->id = $bean->eloqua_id;
+            $contact->id = $bean->eloqua_id_c;
 
             // Send the updated information to the Eloqua Instance
-            $response = $client->put('data/contact/' . $bean->eloqua_id, $contact);
+            $response = $client->put('data/contact/' . $bean->eloqua_id_c, $contact);
         }
     }
 

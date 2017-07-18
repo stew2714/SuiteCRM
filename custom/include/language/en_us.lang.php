@@ -21,3 +21,5 @@ $GLOBALS['app_list_strings']['pdf_template_type_dom']=array (
   'Leads' => 'Leads',
   'SA_Assignments' => 'Assignments',
 );
+$app_list_strings['moduleList']['AOS_Contracts']='Agreements';
+$app_list_strings['moduleListSingular']['AOS_Contracts']='Agreement';

@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['name']='tos_pricing_category_c';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['len']='4099';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['cols']=NULL;
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['vname']='LBL_TOS_PRICING_CATEGORY_C';
+$dictionary['AOS_Contracts']['fields']['tos_pricing_category_c']['source']='custom_fields';
+
+ ?>
