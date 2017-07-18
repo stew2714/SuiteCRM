@@ -135,27 +135,66 @@ $(document).ready(function() {
 
     // Comm Ops Email Template
     $("#informCommOps").click(function(){
+      $("#tab-actions").removeClass("open");
+
+      var contactId = "a07c8072-e192-c306-f893-592d7dbe2e5e";
+      var recordId = "a07c8072-e192-c306-f893-592d7dbe2e5e";
+      var name = "Krista Abbas";
+      var email = "kid22@example.it";
+
+      SUGAR.quickCompose.init({
+        "fullComposeUrl": "contact_id=" + contactId + "\u0026" +
+                            "parent_type=Contacts\u0026" +
+                            "parent_id=" + recordId + "\u0026" +
+                            "parent_name=" + name + "\u0026" +
+                            "to_addrs_ids=" + contactId + "\u0026" +
+                            "to_addrs_names=" + name + "\u0026" +
+                            "to_addrs_emails="+  email +"\u0026" +
+                            "to_email_addrs=" + email +
+                            "return_module=AOS_Contracts\u0026" +
+                            "return_action=DetailView\u0026" +
+                            "return_id=" + recordId,
+        "composePackage": {
+          "contact_id": contactId,
+          "parent_type": "Contacts",
+          "parent_id": contactId,
+          "parent_name": name,
+          "to_addrs_ids": contactId,
+          "to_addrs_names": name,
+          "to_addrs_emails": email,
+          "to_email_addrs": name + " \u003C" +email + "\u003E",
+          "return_module": "AOS_Contracts",
+          "return_action": "DetailView",
+          "return_id": recordId
+        }
+      });
+
+      $("table#composeHeaderTable0 button:first-child" ).unbind("click").removeAttr("onclick").click(function(e) {
+        e.preventDefault();
+        SUGAR.email2.composeLayout.sendEmail(0, false);
         var url = "index.php?module=AOS_Contracts&action=informCommOps";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
-            dataType: "json",
-            url: url,
-            data: data,
-            success: function(data){
-                return data;
-            }
+          dataType: "json",
+          url: url,
+          data: data,
+          success: function(data){
+            return data;
+          }
         });
         var response = query.responseText;
 
         if (response === "success") {
-            $("#modal-title").text("Successfully sent for Signatures");
-            $("#modal-content").text("This record has been successfully sent off for signatures.");
+          $("#modal-title").text("Successfully sent for Signatures");
+          $("#modal-content").text("This record has been successfully sent off for signatures.");
         } else {
-            $("#modal-title").text("Sending Failed");
-            $("#modal-content").text("There was a problem sending this record for Signatures. If the problem persists please contact your System Administrator.");
+          $("#modal-title").text("Sending Failed");
+          $("#modal-content").text("There was a problem sending this record for Signatures. If the problem persists please contact your System Administrator.");
         }
+      });
 
-        $('#modal-dialog').modal("toggle");
+
+       // $('#modal-dialog').modal("toggle");
     });
 
     // Send to Comm Ops
