@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['name']='forecast_month_num_c';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['default_value']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['default']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['display_default']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['len']='1300';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['required']=false;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['type']='text';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['audited']=0;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['options']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['help']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['comments']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['importable']='true';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['ext2']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['ext4']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['ext3']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['vname']='LBL_FORECAST_MONTH_NUM_C';
+$dictionary['Opportunity']['fields']['forecast_month_num_c']['source']='custom_fields';
+
+ ?>

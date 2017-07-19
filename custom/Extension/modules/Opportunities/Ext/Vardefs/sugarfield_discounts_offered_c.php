@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['discounts_offered_c']['name']='discounts_offered_c';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['default_value']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['default']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['display_default']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['len']='75';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['required']=false;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['audited']=0;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['options']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['help']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['comments']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['importable']='true';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['ext2']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['ext4']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['ext3']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['discounts_offered_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['vname']='LBL_DISCOUNTS_OFFERED_C';
+$dictionary['Opportunity']['fields']['discounts_offered_c']['source']='custom_fields';
+
+ ?>

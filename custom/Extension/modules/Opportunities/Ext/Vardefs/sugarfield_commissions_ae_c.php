@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['commissions_ae_c']['name']='commissions_ae_c';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['default_value']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['default']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['display_default']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['len']='255';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['required']=false;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['type']='real';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['audited']=0;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['options']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['help']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['comments']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['importable']='true';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['ext2']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['ext4']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['ext3']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['commissions_ae_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['vname']='LBL_COMMISSIONS_AE_C';
+$dictionary['Opportunity']['fields']['commissions_ae_c']['source']='custom_fields';
+
+ ?>

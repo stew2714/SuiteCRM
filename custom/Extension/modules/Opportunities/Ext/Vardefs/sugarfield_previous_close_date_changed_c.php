@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['name']='previous_close_date_changed_c';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['default_value']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['default']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['display_default']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['len']='255';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['required']=false;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['type']='timestamp';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['audited']=0;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['options']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['help']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['comments']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['importable']='true';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['ext2']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['ext4']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['ext3']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['vname']='LBL_PREVIOUS_CLOSE_DATE_CHANGED_C';
+$dictionary['Opportunity']['fields']['previous_close_date_changed_c']['source']='custom_fields';
+
+ ?>

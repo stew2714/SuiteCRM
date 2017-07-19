@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['name']='implementation_timeframe_c';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['default_value']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['default']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['display_default']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['len']='255';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['required']=false;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['type']='text';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['audited']=0;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['options']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['help']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['comments']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['importable']='true';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['ext2']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['ext4']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['ext3']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['vname']='LBL_IMPLEMENTATION_TIMEFRAME_C';
+$dictionary['Opportunity']['fields']['implementation_timeframe_c']['source']='custom_fields';
+
+ ?>
