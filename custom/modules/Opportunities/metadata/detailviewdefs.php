@@ -111,7 +111,11 @@ array (
             'name' => 'short_id_c',
             'label' => 'LBL_SHORT_ID_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'sf_id_c',
+            'label' => 'LBL_SF_ID_C',
+          ),
         ),
         2 => 
         array (

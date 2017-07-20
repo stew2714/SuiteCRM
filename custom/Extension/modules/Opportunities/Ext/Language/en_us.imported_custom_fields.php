@@ -1367,3 +1367,4 @@ $mod_strings['LBL_BEFORE_RAD_TRANS_VOLUME_C'] = 'Before Rad Trans Volume';
 $mod_strings['LBL_BEFORE_RAD_EDIT_VOLUME_C'] = 'Before Rad Edit Volume';
 $mod_strings['LBL_AFTER_RAD_TRANS_VOLUME_C'] = 'After Rad Trans Volume';
 $mod_strings['LBL_AFTER_RAD_EDIT_VOLUME_C'] = 'After Rad Edit Volume';
+$mod_strings['LBL_SF_ID_C'] = 'SalesForce ID';
