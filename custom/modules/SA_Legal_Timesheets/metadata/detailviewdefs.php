@@ -46,7 +46,16 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'entry_id',
+            'comment' => 'Visual unique identifier',
+            'studio' => 
+            array (
+              'quickcreate' => false,
+            ),
+            'label' => 'LBL_ENTRY_ID',
+          ),
           1 => 
           array (
             'name' => 'category_c',
@@ -56,15 +65,34 @@ array (
         ),
         1 => 
         array (
-          0 => 
+          0 => 'name',
+          1 => 
           array (
             'name' => 'agreement_c',
             'comment' => '',
             'label' => 'LBL_AGREEMENT',
           ),
-          1 => 'assigned_user_name',
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'category',
+            'comment' => '',
+            'label' => 'LBL_CATEGORY',
+          ),
+          1 => 'assigned_user_name',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_timesheet',
+            'comment' => '',
+            'label' => 'LBL_DATE_TIMESHEET',
+          ),
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -79,7 +107,7 @@ array (
             'label' => 'LBL_LAST_ACTIVITY_DATE',
           ),
         ),
-        3 => 
+        5 => 
         array (
           0 => 
           array (
@@ -93,7 +121,7 @@ array (
             'label' => 'LBL_DATE2',
           ),
         ),
-        4 => 
+        6 => 
         array (
           0 => 'description',
           1 => 
@@ -101,6 +129,43 @@ array (
             'name' => 'additional_notes_c',
             'comment' => '',
             'label' => 'LBL_ADDITIONAL_NOTES',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'additional_notes',
+            'comment' => '',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 'date_modified',
+          1 => 'date_entered',
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
+          ),
+          1 => 
+          array (
+            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
           ),
         ),
       ),

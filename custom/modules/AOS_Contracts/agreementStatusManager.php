@@ -45,7 +45,7 @@ class AgreementStatusManager
         if ($bean->status == 'Closed') {
             global $sugar_config;
             $bean->assigned_user_id = '';
-            $bean->assigned_security_group_id_c = $sugar_config['Implementations'];
+            $bean->assigned_security_group_id = $sugar_config['Implementations'];
         }
     }
 }

@@ -83,7 +83,7 @@ class AOS_ContractsController extends SugarController
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id_c = $sugar_config['Legal'];
+            $bean->assigned_security_group_id = $sugar_config['Legal'];
             $bean->assigned_user_id = $current_user->id;
             $bean->status = "Accepted";
             $bean->save();
@@ -97,11 +97,11 @@ class AOS_ContractsController extends SugarController
 
     public function action_acceptCommOps()
     {
-        global $current_user, $current_date, $sugar_config;
+        global $current_date, $sugar_config;
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id_c = $sugar_config['CommOps'];
+            $bean->assigned_security_group_id = $sugar_config['CommOps'];
             $bean->assigned_user_id = $current_user->id;
             $bean->status = "Contracts Pending Clearance";
             $bean->save();
@@ -115,14 +115,14 @@ class AOS_ContractsController extends SugarController
 
     public function action_returnToRequester()
     {
-        global $current_user, $sugar_config, $timedate;
+        global $current_user, $sugar_config;
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id_c = $sugar_config['Sales'];
-            $bean->assigned_user_id = $bean->requested_user_id_c;
+            $bean->assigned_security_group_id = $sugar_config['Sales'];
+            $bean->assigned_user_id = $bean->requested_user_id;
             $bean->status = "Request";
-            $bean->request_date_c = $timedate->nowDb();
+            $bean->date_requested_c = '';
             $bean->save();
             echo "success";
             die();
@@ -138,9 +138,9 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id_c = $sugar_config['Legal'];
+            $bean->assigned_security_group_id = $sugar_config['Legal'];
             $bean->assigned_user_id = '';
-            $bean->requested_user_id_c = $current_user->id;
+            $bean->requested_user_id = $current_user->id;
             $bean->date_requested_c = $timedate->nowDb();
             $bean->save();
             echo "success";
@@ -158,7 +158,7 @@ class AOS_ContractsController extends SugarController
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->status = 'M*Modal Redline Review';
-            $bean->ts_mmodal_redline_review_c = $timedate->nowDb();
+            $bean->ts_mmodal_redline_review = $timedate->nowDb();
             $bean->save();
             echo "success";
             die();
@@ -190,7 +190,7 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id_c = $sugar_config['CommOps'];
+            $bean->assigned_security_group_id = $sugar_config['CommOps'];
             $bean->assigned_user_id = '';
             $bean->status = "Submitted for Comm Ops Processing";
             $bean->save();

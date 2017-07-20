@@ -1,5 +1,5 @@
 <?php
-$entry_point_registry['convertFluencyOneCSVgetConfig'] = array(
-    'file' => 'custom/include/FluencyOne/loadCSV.php',
+$entry_point_registry['convertCSVgetConfig'] = array(
+    'file' => 'custom/include/AgreementTracking/loadCSV.php',
     'auth' => false
 );

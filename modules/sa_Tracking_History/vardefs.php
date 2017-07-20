@@ -44,6 +44,7 @@ $dictionary['sa_Tracking_History'] = array(
     'custom_fields' => true,
     'inline_edit'        => true,
     'duplicate_merge'    => true,
+    'custom_fields' => true,
     'fields'             => array(
         'field'     => array(
             'required'                  => false,

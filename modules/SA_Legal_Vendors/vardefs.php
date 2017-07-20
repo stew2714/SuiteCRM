@@ -41,6 +41,7 @@
 $dictionary['SA_Legal_Vendors'] = array(
     'table' => 'sa_legal_vendors',
     'audited' => true,
+    'custom_fields' => true,
     'inline_edit' => true,
     'duplicate_merge' => true,
     'indices' => array ('vendor_contract_id' => array('name' =>'vendor_contract_idk', 'type' =>'unique',
@@ -197,13 +198,13 @@ $dictionary['SA_Legal_Vendors'] = array(
             'len' => 50,
             'source' => 'custom_fields',
         ),
-    ),
+),
     'relationships' => array (
-    ),
+),
     'optimistic_locking' => true,
     'unified_search' => true,
 );
 if (!class_exists('VardefManager')) {
-    require_once('include/SugarObjects/VardefManager.php');
+        require_once('include/SugarObjects/VardefManager.php');
 }
 VardefManager::createVardef('SA_Legal_Vendors', 'SA_Legal_Vendors', array('basic','assignable','security_groups'));
