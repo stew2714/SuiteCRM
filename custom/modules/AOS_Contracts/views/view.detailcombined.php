@@ -51,9 +51,9 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         }
         //add custom fields to work with email compose setup.
         $contact  = BeanFactory::getBean("Contacts", $this->bean->contact_id);
-        $html = '<input type="text" name="" id="hidden_contactId" value="' . $contact->id . '">';
-        $html .= '<input type="text" name="" id="hidden_contactName" value="' . $contact->full_name . '">';
-        $html .= '<input type="text" name="" id="hidden_email" value="' . $contact->email1 . '">';
+        $html = '<input type="hidden" name="" id="hidden_contactId" value="' . $contact->id . '">';
+        $html .= '<input type="hidden" name="" id="hidden_contactName" value="' . $contact->full_name . '">';
+        $html .= '<input type="hidden" name="" id="hidden_email" value="' . $contact->email1 . '">';
 
         $this->ss->assign('REQUIREDFIELDS', $html);
         parent::display();
