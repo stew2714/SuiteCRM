@@ -1,5 +1,5 @@
 <?php
-// created: 2017-07-17 14:06:24
+// created: 2017-07-18 08:18:04
 $dictionary["AOS_Contracts"]["fields"]["aos_contracts_sa_legal_timesheets_1"] = array (
   'name' => 'aos_contracts_sa_legal_timesheets_1',
   'type' => 'link',

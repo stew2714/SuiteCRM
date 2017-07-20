@@ -96,7 +96,7 @@ array (
           array (
             'name' => 'name',
           ),
-          1 => '',
+          1 => 'sales_stage',
         ),
         1 => 
         array (
@@ -105,7 +105,10 @@ array (
             'name' => 'short_id_c',
             'label' => 'LBL_SHORT_ID_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'date_closed',
+          ),
         ),
         2 => 
         array (

@@ -1,5 +1,5 @@
 <?php
-// created: 2017-07-17 14:06:24
+// created: 2017-07-18 08:18:04
 $dictionary["aos_contracts_sa_legal_timesheets_1"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => true,
