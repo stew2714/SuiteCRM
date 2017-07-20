@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['name']='rolling_quarters_c';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['default_value']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['default']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['display_default']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['len']='255';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['required']=false;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['type']='real';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['audited']=0;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['options']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['help']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['comments']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['importable']='true';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['ext2']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['ext4']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['ext3']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['vname']='LBL_ROLLING_QUARTERS_C';
+$dictionary['Opportunity']['fields']['rolling_quarters_c']['source']='custom_fields';
+
+ ?>

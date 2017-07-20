@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['name']='number_of_licenses_c';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['default_value']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['default']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['display_default']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['len']='255';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['required']=false;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['type']='real';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['audited']=0;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['options']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['help']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['comments']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['importable']='true';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['ext2']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['ext4']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['ext3']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['vname']='LBL_NUMBER_OF_LICENSES_C';
+$dictionary['Opportunity']['fields']['number_of_licenses_c']['source']='custom_fields';
+
+ ?>

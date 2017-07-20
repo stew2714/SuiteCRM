@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['conversion_status_c']['name']='conversion_status_c';
+$dictionary['Opportunity']['fields']['conversion_status_c']['default_value']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['default']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['display_default']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['len']='1300';
+$dictionary['Opportunity']['fields']['conversion_status_c']['required']=false;
+$dictionary['Opportunity']['fields']['conversion_status_c']['type']='text';
+$dictionary['Opportunity']['fields']['conversion_status_c']['audited']=0;
+$dictionary['Opportunity']['fields']['conversion_status_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['conversion_status_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['conversion_status_c']['options']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['help']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['comments']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['importable']='true';
+$dictionary['Opportunity']['fields']['conversion_status_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['conversion_status_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['conversion_status_c']['ext2']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['ext4']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['ext3']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['conversion_status_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['conversion_status_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['conversion_status_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['conversion_status_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['conversion_status_c']['vname']='LBL_CONVERSION_STATUS_C';
+$dictionary['Opportunity']['fields']['conversion_status_c']['source']='custom_fields';
+
+ ?>

@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['age_c']['name']='age_c';
+$dictionary['Opportunity']['fields']['age_c']['default_value']='';
+$dictionary['Opportunity']['fields']['age_c']['default']='';
+$dictionary['Opportunity']['fields']['age_c']['display_default']='';
+$dictionary['Opportunity']['fields']['age_c']['len']='255';
+$dictionary['Opportunity']['fields']['age_c']['required']=false;
+$dictionary['Opportunity']['fields']['age_c']['type']='real';
+$dictionary['Opportunity']['fields']['age_c']['audited']=0;
+$dictionary['Opportunity']['fields']['age_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['age_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['age_c']['options']='';
+$dictionary['Opportunity']['fields']['age_c']['help']='';
+$dictionary['Opportunity']['fields']['age_c']['comments']='';
+$dictionary['Opportunity']['fields']['age_c']['importable']='true';
+$dictionary['Opportunity']['fields']['age_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['age_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['age_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['age_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['age_c']['ext2']='';
+$dictionary['Opportunity']['fields']['age_c']['ext4']='';
+$dictionary['Opportunity']['fields']['age_c']['ext3']='';
+$dictionary['Opportunity']['fields']['age_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['age_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['age_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['age_c']['vname']='LBL_AGE_C';
+$dictionary['Opportunity']['fields']['age_c']['source']='custom_fields';
+
+ ?>

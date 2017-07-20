@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['name']='budgeted_pricedown_percent_c';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['default_value']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['default']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['display_default']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['len']='255';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['required']=false;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['type']='real';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['audited']=0;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['options']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['help']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['comments']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['importable']='true';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['ext2']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['ext4']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['ext3']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['vname']='LBL_BUDGETED_PRICEDOWN_PERCENT_C';
+$dictionary['Opportunity']['fields']['budgeted_pricedown_percent_c']['source']='custom_fields';
+
+ ?>

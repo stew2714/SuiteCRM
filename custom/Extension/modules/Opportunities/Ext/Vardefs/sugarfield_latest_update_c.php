@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['latest_update_c']['name']='latest_update_c';
+$dictionary['Opportunity']['fields']['latest_update_c']['default_value']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['default']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['display_default']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['len']='255';
+$dictionary['Opportunity']['fields']['latest_update_c']['required']=false;
+$dictionary['Opportunity']['fields']['latest_update_c']['type']='text';
+$dictionary['Opportunity']['fields']['latest_update_c']['audited']=0;
+$dictionary['Opportunity']['fields']['latest_update_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['latest_update_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['latest_update_c']['options']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['help']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['comments']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['importable']='true';
+$dictionary['Opportunity']['fields']['latest_update_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['latest_update_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['latest_update_c']['ext2']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['ext4']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['ext3']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['latest_update_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['latest_update_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['latest_update_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['latest_update_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['latest_update_c']['vname']='LBL_LATEST_UPDATE_C';
+$dictionary['Opportunity']['fields']['latest_update_c']['source']='custom_fields';
+
+ ?>

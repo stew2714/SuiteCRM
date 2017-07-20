@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['create_month_c']['name']='create_month_c';
+$dictionary['Opportunity']['fields']['create_month_c']['default_value']='';
+$dictionary['Opportunity']['fields']['create_month_c']['default']='';
+$dictionary['Opportunity']['fields']['create_month_c']['display_default']='';
+$dictionary['Opportunity']['fields']['create_month_c']['len']='255';
+$dictionary['Opportunity']['fields']['create_month_c']['required']=false;
+$dictionary['Opportunity']['fields']['create_month_c']['type']='timestamp';
+$dictionary['Opportunity']['fields']['create_month_c']['audited']=0;
+$dictionary['Opportunity']['fields']['create_month_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['create_month_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['create_month_c']['options']='';
+$dictionary['Opportunity']['fields']['create_month_c']['help']='';
+$dictionary['Opportunity']['fields']['create_month_c']['comments']='';
+$dictionary['Opportunity']['fields']['create_month_c']['importable']='true';
+$dictionary['Opportunity']['fields']['create_month_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['create_month_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['create_month_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['create_month_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['create_month_c']['ext2']='';
+$dictionary['Opportunity']['fields']['create_month_c']['ext4']='';
+$dictionary['Opportunity']['fields']['create_month_c']['ext3']='';
+$dictionary['Opportunity']['fields']['create_month_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['create_month_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['create_month_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['create_month_c']['vname']='LBL_CREATE_MONTH_C';
+$dictionary['Opportunity']['fields']['create_month_c']['source']='custom_fields';
+
+ ?>

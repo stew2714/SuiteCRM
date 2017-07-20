@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['name']='pricedown_amount_c';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['default_value']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['default']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['display_default']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['len']='255';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['required']=false;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['type']='real';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['audited']=0;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['options']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['help']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['comments']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['importable']='true';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['ext2']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['ext4']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['ext3']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['vname']='LBL_PRICEDOWN_AMOUNT_C';
+$dictionary['Opportunity']['fields']['pricedown_amount_c']['source']='custom_fields';
+
+ ?>

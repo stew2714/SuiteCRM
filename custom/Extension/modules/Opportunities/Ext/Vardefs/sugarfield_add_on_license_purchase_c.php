@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['name']='add_on_license_purchase_c';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['default_value']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['default']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['display_default']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['len']='255';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['required']=false;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['type']='bool';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['audited']=0;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['options']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['help']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['comments']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['importable']='true';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['ext2']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['ext4']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['ext3']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['vname']='LBL_ADD_ON_LICENSE_PURCHASE_C';
+$dictionary['Opportunity']['fields']['add_on_license_purchase_c']['source']='custom_fields';
+
+ ?>
