@@ -137,10 +137,10 @@ $(document).ready(function() {
     $("#informCommOps").click(function(){
       $("#tab-actions").removeClass("open");
 
-      var contactId = "a07c8072-e192-c306-f893-592d7dbe2e5e";
-      var recordId = "a07c8072-e192-c306-f893-592d7dbe2e5e";
-      var name = "Krista Abbas";
-      var email = "kid22@example.it";
+      var contactId = $("#hidden_contactId").val();
+      var recordId = $("#formDetailView [name='record']").val();
+      var name = $("#hidden_contactName").val();
+      var email = $("#hidden_email").val();;
 
       SUGAR.quickCompose.init({
         "fullComposeUrl": "contact_id=" + contactId + "\u0026" +
@@ -168,33 +168,34 @@ $(document).ready(function() {
           "return_id": recordId
         }
       });
+            SUGAR.util.doWhen("SUGAR.quickCompose.frameLoaded == true && $('table#composeHeaderTable0 button:first-child').attr('onclick')", function(){
+            $("table#composeHeaderTable0 button:first-child" ).unbind("click").removeAttr("onclick").click(function(e) {
+                e.preventDefault();
+                var url = "index.php?module=AOS_Contracts&action=informCommOps";
+                var data = {record:$('[name=record]').val()};
+                var query = $.ajax({
+                    dataType: "json",
+                    url: url,
+                    data: data,
+                    success: function(data){
+                        return data;
+                    }
+                });
+                var response = query.responseText;
 
-      $("table#composeHeaderTable0 button:first-child" ).unbind("click").removeAttr("onclick").click(function(e) {
-        e.preventDefault();
-        SUGAR.email2.composeLayout.sendEmail(0, false);
-        var url = "index.php?module=AOS_Contracts&action=informCommOps";
-        var data = {record:$('[name=record]').val()};
-        var query = $.ajax({
-          dataType: "json",
-          url: url,
-          data: data,
-          success: function(data){
-            return data;
-          }
-        });
-        var response = query.responseText;
-
-        if (response === "success") {
-          $("#modal-title").text("Successfully sent for Signatures");
-          $("#modal-content").text("This record has been successfully sent off for signatures.");
-        } else {
-          $("#modal-title").text("Sending Failed");
-          $("#modal-content").text("There was a problem sending this record for Signatures. If the problem persists please contact your System Administrator.");
-        }
-      });
+                if (response === "success") {
+                    // $("#modal-title").text("Successfully sent for Signatures");
+                    // $("#modal-content").text("This record has been successfully sent off for signatures.");
+                    SUGAR.email2.composeLayout.sendEmail(0, false);
+                } else {
+                    $("#modal-title").text("Sending Failed");
+                    $("#modal-content").text("There was a problem sending this record for Signatures. If the problem persists please contact your System Administrator.");
+                }
+            });
+        })
 
 
-       // $('#modal-dialog').modal("toggle");
+
     });
 
     // Send to Comm Ops
