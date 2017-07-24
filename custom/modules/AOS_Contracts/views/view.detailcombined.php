@@ -49,7 +49,13 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         if (array_key_exists($sugar_config['Sales'],$groups) || is_admin($current_user)) {
             $this->ss->assign('SALES_TEAM', true);
         }
+        //add custom fields to work with email compose setup.
+        $contact  = BeanFactory::getBean("Contacts", $this->bean->contact_id);
+        $html = '<input type="hidden" name="" id="hidden_contactId" value="' . $contact->id . '">';
+        $html .= '<input type="hidden" name="" id="hidden_contactName" value="' . $contact->full_name . '">';
+        $html .= '<input type="hidden" name="" id="hidden_email" value="' . $contact->email1 . '">';
 
+        $this->ss->assign('REQUIREDFIELDS', $html);
         parent::display();
 
     }

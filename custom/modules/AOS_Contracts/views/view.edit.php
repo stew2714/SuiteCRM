@@ -8,17 +8,6 @@ class AOS_ContractsViewEdit extends ViewEdit {
         parent::__construct();
     }
 
-    function preDisplay()
-    {
-        global $current_user;
-
-        if (!is_admin($current_user)) {
-            $this->bean->field_defs['assigned_user_id']['readonly'] = true;
-        }
-
-        parent::preDisplay();
-    }
-
     function display(){
         echo '<link rel="stylesheet" href="custom/modules/AOS_Contracts/css/modal.css">';
         echo '<script src="custom/modules/AOS_Contracts/js/EditView.js" />';

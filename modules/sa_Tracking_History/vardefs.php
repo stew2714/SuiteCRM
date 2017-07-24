@@ -44,6 +44,7 @@ $dictionary['sa_Tracking_History'] = array(
     'custom_fields' => true,
     'inline_edit'        => true,
     'duplicate_merge'    => true,
+    'custom_fields' => true,
     'fields'             => array(
         'field'     => array(
             'required'                  => false,
@@ -189,6 +190,15 @@ $dictionary['sa_Tracking_History'] = array(
             'lhs_key'           => 'parent_id',
             'rhs_module'        => 'Opportunities',
             'rhs_table'         => 'opportunities',
+            'rhs_key'           => 'id',
+            'relationship_type' => 'one-to-many',
+        ),
+        'fieldtrackinghistory_agreements' => array(
+            'lhs_module'        => 'sa_Tracking_History',
+            'lhs_table'         => 'sa_tracking_history',
+            'lhs_key'           => 'parent_id',
+            'rhs_module'        => 'AOS_Contracts',
+            'rhs_table'         => 'aos_contracts',
             'rhs_key'           => 'id',
             'relationship_type' => 'one-to-many',
         ),

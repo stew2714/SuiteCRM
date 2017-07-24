@@ -42,10 +42,11 @@ $dictionary['SA_Legal_Timesheets'] = array(
     'table' => 'sa_legal_timesheets',
     'audited' => true,
     'inline_edit' => true,
+    'custom_fields' => true,
     'duplicate_merge' => true,
     'indices' => array ('entry_id' => array('name' =>'entry_idk', 'type' =>'unique', 'fields'=>array('entry_id') ) ),
 
-    'fields' => array (
+'fields' => array (
         'entry_id' => array (
             'name' => 'entry_id',
             'vname' => 'LBL_ENTRY_ID',
@@ -69,7 +70,7 @@ $dictionary['SA_Legal_Timesheets'] = array(
             'len' => 255,
             'source' => 'custom_fields',
             'comment' => '',
-        ),
+            ),
         'date_c' => array(
             'name' => 'date_c',
             'vname' => 'LBL_DATE',
@@ -149,9 +150,9 @@ $dictionary['SA_Legal_Timesheets'] = array(
             'comment' => '',
             'source' => 'custom_fields',
         ),
-    ),
+),
     'relationships' => array (
-    ),
+),
     'optimistic_locking' => true,
     'unified_search' => true,
 );
@@ -160,6 +161,6 @@ $dictionary["Account"]['indices']['entry_id']=array('name' =>'entry_idk', 'type'
 
 
 if (!class_exists('VardefManager')) {
-    require_once('include/SugarObjects/VardefManager.php');
+        require_once('include/SugarObjects/VardefManager.php');
 }
 VardefManager::createVardef('SA_Legal_Timesheets', 'SA_Legal_Timesheets', array('basic','assignable','security_groups'));
