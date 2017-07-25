@@ -26,6 +26,10 @@ $mod_strings = array (
   'LBL_CONFIDENCE_LEVEL_MUST_BE_SELECTED' => 'Confidence Level must be selected for any opportunity closing in the next 12 months',
   'LBL_PLEASE_SELECT_EHR' => 'Please select the EHR that the account uses.',
   'LBL_ENTRY_REQUIRED_IN_CHANGES' => 'An entry is required in the Changes Next Time field when the Opportunity is Closed - Lost.',
+  'LBL_MUST_FILL_IN_PARTNER_FIELD' => 'Must fill in partner field, please select "none" if no partner is involved',
+  'LBL_ENTRY_REQUIRED_IN_LATEST_UPDATE' => 'An entry is required in the Latest Update field when the Probability is >= 50%, Total Amount is >= $500K, or Close Date or Stage have been changed.',
+  'LBL_ENTRY_REQUIRED_IN_LOSS_LEARNING' => 'An entry is required in the Loss Learning field when the Opportunity is Closed - Lost.',
+  'LBL_ENTRY_REQUIRED_PRODUCT_SERVICES' => 'An entry is required in the Product/Service field for all Opportunities.',
 
 
 

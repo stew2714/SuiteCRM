@@ -149,7 +149,7 @@ $( document ).ready(function() {
     }
     //Item 17
     //Item 18
-    if (document.getElementById("recordtypeid").indexOf("CBay") ||
+    if (document.getElementById("recordtypeid").indexOf("CBay") !== -1 ||
         $("sales_stage").val() == "Closed - Lost" &&
         $("#changes_next_time_c").val() == ""
     ) {
@@ -159,9 +159,48 @@ $( document ).ready(function() {
     //Item 19
     //Item 20
     //Item 21
+    if (
+      $("recordtypeid").val() == "Standard Opportunity" &&
+      $("#latest_update__c").val() == "" &&
+      ($("#probability").val() >=  "0.5" ||
+        $("#implementation_Cost_c").val() +
+        $("#HWSW_Cost__c").val() +
+        $("#Annual_MQ_Services_Estimate__c").val() +
+        $("#Other_Cost__c").val() >= 500000 ||
+      $("#date_closed").val() != beanData.date_closed )
+    ) {
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ENTRY_REQUIRED_IN_LATEST_UPDATE'));
+      return false
+    }
     //Item 22
+    if (
+      document.getElementById("recordtypeid").indexOf("CBay") == -1 &&
+        $("#sales_stage").val() == "Closed - Lost" &&
+        $("#lessons_learned_c").val() == ""
+    ) {
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ENTRY_REQUIRED_IN_LOSS_LEARNING'));
+      return false
+    }
     //Item 23
+    if (
+      document.getElementById("recordtypeid").indexOf("Standard") == -1 &&
+      $("#probability").val() >= "0.2" &&
+      $("#probability").val() <= "1.0" &&
+      $("#partner__c").val() == ""
+    ) {
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_MUST_FILL_IN_PARTNER_FIELD'));
+      return false
+    }
     //Item 24
+    if (
+      (document.getElementById("recordtypeid").indexOf("CBay") == -1 ||
+      document.getElementById("recordtypeid").indexOf("Partner") == -1 ) &&
+      $("#recordtypeid").val() != "Lead Stage Opportunity" &&
+      $("#product_c").val() == ""
+    ) {
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ENTRY_REQUIRED_PRODUCT_SERVICES'));
+      return false
+    }
     //Item 25 - Require_Win_Loss_Desc_When_Other
       if (
           document.getElementById("recordtypeid").indexOf("CBay") == -1 &&
