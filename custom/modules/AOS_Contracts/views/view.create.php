@@ -52,8 +52,14 @@ class AOS_ContractsViewCreate extends ViewCreate
  	}
 
     public function display(){
+	    global $current_user;
 
-	    $this->loadRelated();
+ 	    $this->loadRelated();
+
+        if(!is_admin($current_user)) {
+            echo '<script type="text/javascript" src="custom/modules/AOS_Contracts/js/AdminEditOnly.js"></script>';
+        }
+
         parent::display();
 
     }
