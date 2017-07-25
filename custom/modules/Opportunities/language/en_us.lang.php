@@ -23,6 +23,9 @@ $mod_strings = array (
   'LBL_ENTER_TERM_LENGTH' => 'You must enter a term length for SW Maintenance Term Length (MM) .',
   'LBL_ENTER_TERM_LENGTH_LICENSE' => 'You must enter a term length for License Term Length (MM) .',
   'LBL_A_ENTRY_IS_REQUIRED_IN_THE_WIN_LOSS' => 'An entry is required in the Win/Loss Description field when Other is selected as the primary reason.',
+  'LBL_CONFIDENCE_LEVEL_MUST_BE_SELECTED' => 'Confidence Level must be selected for any opportunity closing in the next 12 months',
+  'LBL_PLEASE_SELECT_EHR' => 'Please select the EHR that the account uses.',
+  'LBL_ENTRY_REQUIRED_IN_CHANGES' => 'An entry is required in the Changes Next Time field when the Opportunity is Closed - Lost.',
 
 
 

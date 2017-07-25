@@ -61,11 +61,45 @@ $( document ).ready(function() {
       return false
     }
     //Item 7
+    var dateNow = new Date();
+    dateNow.setDate(dateNow.getDate() + 365);
+    var dateclosed = Date.parse( document.getElementById("date_closed").value )
+    if(
+      (document.getElementById("recordtypeid").indexOf("Lead") == -1 &&
+       document.getElementById("recordtypeid").indexOf("CBay") == -1 &&
+       document.getElementById("recordtypeid").indexOf("Partner") == -1
+      ) &&
+      dateclosed < dateNow &&
+      (
+       $("#sales_stage").val() != "Closed - Inactive" &&
+       $("#sales_stage").val() != "Closed - Lost"
+      ) &&
+      (
+       $("#confidence_level_c").val() != "High" &&
+       $("#confidence_level_c").val() != "Medium" &&
+       $("#confidence_level_c").val() != "Low" &&
+       $("#confidence_level_c").val() != "Won" &&
+       $("#confidence_level_c").val() != "Lost" )
+    ){
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_CONFIDENCE_LEVEL_MUST_BE_SELECTED'));
+      return false
+    }
     //Item 8
       //duplicate record...
     //Item 9
+
     //Item 10
     //Item 11
+    if(
+      document.getElementById("recordtypeid").indexOf("Standard") == -1  &&
+      $("#probability").val() >= "0.2" &&
+      $("#probability").val() <= "1.0" &&
+      $("#emr2_c").val() == "" &&
+      $("#new_am_region_c").val() != "Imaging"
+    ){
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_PLEASE_SELECT_EHR'));
+      return false
+    }
     //Item 12
     //Item 13
     //Item 14
@@ -115,6 +149,13 @@ $( document ).ready(function() {
     }
     //Item 17
     //Item 18
+    if (document.getElementById("recordtypeid").indexOf("CBay") ||
+        $("sales_stage").val() == "Closed - Lost" &&
+        $("#changes_next_time_c").val() == ""
+    ) {
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ENTRY_REQUIRED_IN_CHANGES'));
+      return false
+    }
     //Item 19
     //Item 20
     //Item 21
@@ -122,7 +163,11 @@ $( document ).ready(function() {
     //Item 23
     //Item 24
     //Item 25 - Require_Win_Loss_Desc_When_Other
-      if ( $("#primary_reason_for_winloss_c").val() == "Other" &&  $("#winloss_description_c").val() == "" ) { //@todo add record type ?
+      if (
+          document.getElementById("recordtypeid").indexOf("CBay") == -1 &&
+          $("#primary_reason_for_winloss_c").val() == "Other" &&
+          $("#winloss_description_c").val() == ""
+        ) {
         alert(SUGAR.language.get(module_sugar_grp1, 'LBL_A_ENTRY_IS_REQUIRED_IN_THE_WIN_LOSS'));
         return false
       }
