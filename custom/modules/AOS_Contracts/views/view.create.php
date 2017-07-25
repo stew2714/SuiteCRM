@@ -53,6 +53,7 @@ class AOS_ContractsViewCreate extends ViewCreate
 
     public function display(){
 
+ 	    $this->populateRelatedFields();
         echo '<link rel="stylesheet" href="custom/modules/AOS_Contracts/css/modal.css">';
         echo '<script src="custom/modules/AOS_Contracts/js/EditView.js" />';
 
@@ -74,7 +75,12 @@ class AOS_ContractsViewCreate extends ViewCreate
         parent::display();
 
     }
-
+    public function populateRelatedFields(){
+        if($_REQUEST['parent_type'] == "Opportunities" && !empty($_REQUEST['parent_id']) && empty($this->bean->opportunity_id ) ) {
+            $this->bean->opportunity_id = $_REQUEST['parent_id'];
+            $this->bean->opportunity = $_REQUEST['opportunity_name'];
+        }
+    }
 	public function loadRelated(){
 		global $app_list_strings;
 
