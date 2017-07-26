@@ -148,6 +148,13 @@ array (
             'name' => 'sa_legal_vendors_activities_1_meetings_name',
           ),
         ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aos_contracts_activities_1_meetings_name',
+          ),
+        ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (

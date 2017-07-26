@@ -52,18 +52,35 @@ class AOS_ContractsViewCreate extends ViewCreate
  	}
 
     public function display(){
-	    global $current_user;
 
- 	    $this->loadRelated();
+ 	    $this->populateRelatedFields();
+        echo '<link rel="stylesheet" href="custom/modules/AOS_Contracts/css/modal.css">';
+        echo '<script src="custom/modules/AOS_Contracts/js/EditView.js" />';
 
-        if(!is_admin($current_user)) {
-            echo '<script type="text/javascript" src="custom/modules/AOS_Contracts/js/AdminEditOnly.js"></script>';
-        }
+        global $current_user, $sugar_config;
 
+        $lockScript = '<script type="text/javascript" src="custom/modules/AOS_Contracts/js/Validation.js"></script>';
+        //define so nothing breaks
+
+        //we get the security groups so we can get all groups the current user is linked to.
+        $secGroups = BeanFactory::getBean("SecurityGroups");
+        $groups = $secGroups->getUserSecurityGroups($current_user->id);
+
+        $this->ss->assign('LOCK_FILES', $lockScript);
+        $tmpArray = $this->beanToArray();
+        $this->ss->assign('BEAN_DATA', "<script>var beanData = JSON.parse('" . json_encode($tmpArray) . "'); </script>");
+
+
+        $this->loadRelated();
         parent::display();
 
     }
-
+    public function populateRelatedFields(){
+        if($_REQUEST['parent_type'] == "Opportunities" && !empty($_REQUEST['parent_id']) && empty($this->bean->opportunity_id ) ) {
+            $this->bean->opportunity_id = $_REQUEST['parent_id'];
+            $this->bean->opportunity = $_REQUEST['opportunity_name'];
+        }
+    }
 	public function loadRelated(){
 		global $app_list_strings;
 
@@ -77,5 +94,30 @@ class AOS_ContractsViewCreate extends ViewCreate
             }
 		}
 	}
+
+
+    function beanToArray(){
+        global $timedate, $current_user;
+        $tmpArray = $this->bean->toArray();
+        $tmpArray['today_month'] = date('m');
+        if($this->bean->previous_close_date_c != ""){
+            $tmpDate = $timedate->fromString($this->bean->previous_close_date_c);
+            $month = $tmpDate->format("m");
+            $tmpArray['previous_date_month'] = $month;
+        }
+        $user = $current_user->toArray();
+        $tmpArray['current_user'] = $user;
+        $secGroups = new SecurityGroup();
+        $groups = $secGroups->getUserSecurityGroups($current_user->id);
+        $i = 0;
+        foreach($groups as $key => $group){
+            $groups[$i] = $group['name'];
+            unset($groups[$key]);
+            $i++;
+        }
+        $tmpArray['current_user']['roles'] = $groups;
+        return $tmpArray;
+    }
+
 
 }
