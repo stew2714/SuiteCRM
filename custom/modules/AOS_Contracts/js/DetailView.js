@@ -189,8 +189,8 @@ $(document).ready(function() {
 
               SUGAR.util.doWhen("document.getElementById('htmleditor0_toolbar1') != undefined && document.getElementById('htmleditor0_toolbar1').style != undefined ", function() {
 
-                $("#email_template0").val("eed93bb0-cb0d-dc5a-16a0-592d7d93a260");
-                SUGAR.email2.composeLayout.processResult(0, "eed93bb0-cb0d-dc5a-16a0-592d7d93a260");
+                $("#email_template0").val( $("#hidden_email_template").val() );
+                SUGAR.email2.composeLayout.processResult(0, $("#hidden_email_template").val() );
               });
               //
 

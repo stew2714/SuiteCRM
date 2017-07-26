@@ -183,6 +183,10 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           array (
             'name' => 'sa_legal_vendors_activities_1_meetings_name',
           ),
+          1 => 
+          array (
+            'name' => 'aos_contracts_activities_1_meetings_name',
+          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 

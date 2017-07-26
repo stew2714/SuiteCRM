@@ -101,6 +101,13 @@ function deleteAttachmentCallBack(text)
             'name' => 'sa_legal_vendors_activities_1_notes_name',
           ),
         ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aos_contracts_activities_1_notes_name',
+          ),
+        ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (

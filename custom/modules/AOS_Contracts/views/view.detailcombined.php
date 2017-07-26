@@ -54,6 +54,7 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         $html = '<input type="hidden" name="" id="hidden_contactId" value="' . $contact->id . '">';
         $html .= '<input type="hidden" name="" id="hidden_contactName" value="' . $contact->full_name . '">';
         $html .= '<input type="hidden" name="" id="hidden_email" value="' . $contact->email1 . '">';
+        $html .= '<input type="hidden" name="" id="hidden_email_template" value="' . $GLOBALS['sugar_config']['AgreementsEmailTemplate'] . '">';
 
         $this->ss->assign('REQUIREDFIELDS', $html);
         parent::display();
