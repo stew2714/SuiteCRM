@@ -14,3 +14,4 @@
 
 
 {$REQUIREDFIELDS}
+{$mod_strings}
