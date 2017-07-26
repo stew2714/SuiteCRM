@@ -14,4 +14,4 @@
 
 
 {$REQUIREDFIELDS}
-{$mod_strings}
+<script>{$mod_strings}</script>
