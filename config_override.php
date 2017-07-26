@@ -26,4 +26,13 @@ $sugar_config['aod']['enable_aod'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['addAjaxBannedModules'][1] = 'Accounts';
 $sugar_config['AgreementsEmailTemplate'] = 'efa77cb1-819d-2a0a-0b78-597850cb15ef';
+$sugar_config['eloqua_company'] = 'MModalIncSandbox';
+$sugar_config['eloqua_username'] = 'Kieran.Monaghan';
+$sugar_config['eloqua_password'] = 'SalesAgility01';
+$sugar_config['CommOps'] = '628f3c09-51d4-f65c-2afb-5936d572f62e';
+$sugar_config['Sales'] = '8cc7213b-1d28-12bc-7d6d-5936d546d416';
+$sugar_config['Legal'] = '628f3c09-51d4-f65c-2afb-5936d572f62e';
+$sugar_config['disable_persistent_connections'] = false;
+$sugar_config['Implementations'] = '90d40376-027d-a8f7-7cd3-593fb7ce674f';
+
 /***CONFIGURATOR***/
