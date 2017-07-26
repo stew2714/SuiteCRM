@@ -56,9 +56,13 @@ class ViewDetailCombined extends SugarView
      * @var DetailCombined2 object
      */
     public $dv;
+    function __construct()
+    {
+        $this->ViewDetailCombined();
+        parent::__construct();
+    }
 
-	function ViewDetailCombined(){
-		$this->options['show_subpanels'] = true;
+    function ViewDetailCombined(){
 		parent::SugarView();
 	}
     /**
@@ -66,6 +70,7 @@ class ViewDetailCombined extends SugarView
      */
     public function preDisplay()
     {
+        $this->options['show_subpanels'] = true;
     	global $app_list_strings;
  	    $metadataFile = $this->getMetaDataFile();
  	    $this->dv = new DetailCombined2();

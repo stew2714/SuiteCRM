@@ -169,7 +169,32 @@ $(document).ready(function() {
         }
       });
             SUGAR.util.doWhen("SUGAR.quickCompose.frameLoaded == true && $('table#composeHeaderTable0 button:first-child').attr('onclick')", function(){
-            $("table#composeHeaderTable0 button:first-child" ).unbind("click").removeAttr("onclick").click(function(e) {
+
+
+              //SUGAR.email2.composeLayout.applyEmailTemplate('0', $("#email_template0").val() );
+
+
+              //bug #20680
+              var box_title = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_SHOW_TITLE;
+              var box_msg = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_SHOW_MSG;
+              var box_none_msg = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_CLEAR_MSG;
+
+              //bug #6224
+              var to_addr = document.getElementById('addressTO0');
+              if (to_addr.value.search(/[^;,]{6,}[;,][^;,]{6,}/) != -1)
+              {
+                box_title = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_WARNING_TITLE;
+                box_msg = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_MULTIPLE_RECIPIENTS + '<br /><br />' + box_msg;
+              }
+
+              SUGAR.util.doWhen("document.getElementById('htmleditor0_toolbar1') != undefined && document.getElementById('htmleditor0_toolbar1').style != undefined ", function() {
+
+                $("#email_template0").val("eed93bb0-cb0d-dc5a-16a0-592d7d93a260");
+                SUGAR.email2.composeLayout.processResult(0, "eed93bb0-cb0d-dc5a-16a0-592d7d93a260");
+              });
+              //
+
+              $("table#composeHeaderTable0 button:first-child" ).unbind("click").removeAttr("onclick").click(function(e) {
                 e.preventDefault();
                 var url = "index.php?module=AOS_Contracts&action=informCommOps";
                 var data = {record:$('[name=record]').val()};
