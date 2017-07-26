@@ -176,13 +176,7 @@ $GLOBALS['app_list_strings']['contact_assoc_list']=array (
   'CDIC' => 'CDI Collaborate',
   'CDI' => 'CDI Assess',
 );
-$GLOBALS['app_list_strings']['record_type_display']=array (
-  '' => '',
-  'Accounts' => 'Account',
-  'Cases' => 'Case',
-  'Contacts' => 'Contacts',
-  'Tasks' => 'Task',
-);
+
 $GLOBALS['app_list_strings']['record_type_display_notes']=array (
   'Accounts' => 'Account',
   'Calls' => 'Call',
