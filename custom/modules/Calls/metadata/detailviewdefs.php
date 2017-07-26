@@ -188,6 +188,10 @@ array (
           array (
             'name' => 'sa_legal_vendors_activities_1_calls_name',
           ),
+          1 => 
+          array (
+            'name' => 'aos_contracts_activities_1_calls_name',
+          ),
         ),
       ),
     ),
