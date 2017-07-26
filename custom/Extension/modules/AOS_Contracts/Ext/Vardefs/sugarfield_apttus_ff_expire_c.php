@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['name']='apttus_ff_expire_c';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['len']='1300';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['rows']=NULL;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['cols']=NULL;
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['vname']='LBL_APTTUS_FF_EXPIRE_C';
+$dictionary['AOS_Contracts']['fields']['apttus_ff_expire_c']['source']='custom_fields';
+
+ ?>
