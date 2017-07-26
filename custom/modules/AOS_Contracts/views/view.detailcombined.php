@@ -51,12 +51,34 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         }
         //add custom fields to work with email compose setup.
         $contact  = BeanFactory::getBean("Contacts", $this->bean->contact_id);
-        $html = '<input type="hidden" name="" id="hidden_contactId" value="' . $contact->id . '">';
-        $html .= '<input type="hidden" name="" id="hidden_contactName" value="' . $contact->full_name . '">';
-        $html .= '<input type="hidden" name="" id="hidden_email" value="' . $contact->email1 . '">';
+        $html = '<input type="hidden" name="" id="hidden_Id" value="' . $this->bean->id . '">';
+        $html .= '<input type="hidden" name="" id="hidden_module" value="' . $this->bean->module_name . '">';
+        $html .= '<input type="hidden" name="" id="hidden_Name" value="' . $this->bean->name . '">';
+        $html .= '<input type="hidden" name="" id="hidden_email" value="">';
         $html .= '<input type="hidden" name="" id="hidden_email_template" value="' . $GLOBALS['sugar_config']['AgreementsEmailTemplate'] . '">';
 
         $this->ss->assign('REQUIREDFIELDS', $html);
+
+
+        $email_mod_strings = return_module_language($current_language,'Emails');
+        $modStrings = "var mod_strings = new Object();\n";
+        foreach($email_mod_strings as $k => $v) {
+            $v = str_replace("'", "\'", $v);
+            $modStrings .= "mod_strings.{$k} = '{$v}';\n";
+        }
+        $lang .= "\n\n{$modStrings}\n";
+
+        //Grab the Inboundemail language pack
+        $ieModStrings = "var ie_mod_strings = new Object();\n";
+        $ie_mod_strings = return_module_language($current_language,'InboundEmail');
+        foreach($ie_mod_strings as $k => $v) {
+            $v = str_replace("'", "\'", $v);
+            $ieModStrings .= "ie_mod_strings.{$k} = '{$v}';\n";
+        }
+        $lang .= "\n\n{$ieModStrings}\n";
+
+
+        $this->ss->assign('mod_strings', 	$lang );
         parent::display();
 
     }

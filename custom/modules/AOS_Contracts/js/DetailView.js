@@ -137,32 +137,29 @@ $(document).ready(function() {
     $("#informCommOps").click(function(){
       $("#tab-actions").removeClass("open");
 
-      var contactId = $("#hidden_contactId").val();
+      var hId = $("#hidden_Id").val();
+      var hModule = $("#hidden_module").val();
       var recordId = $("#formDetailView [name='record']").val();
-      var name = $("#hidden_contactName").val();
+      var name = $("#hidden_Name").val();
       var email = $("#hidden_email").val();;
 
       SUGAR.quickCompose.init({
-        "fullComposeUrl": "contact_id=" + contactId + "\u0026" +
-                            "parent_type=Contacts\u0026" +
+        "fullComposeUrl": "contact_id=" + hId + "\u0026" +
+                            "parent_type=" +  hModule + "\u0026" +
                             "parent_id=" + recordId + "\u0026" +
                             "parent_name=" + name + "\u0026" +
-                            "to_addrs_ids=" + contactId + "\u0026" +
-                            "to_addrs_names=" + name + "\u0026" +
-                            "to_addrs_emails="+  email +"\u0026" +
-                            "to_email_addrs=" + email +
                             "return_module=AOS_Contracts\u0026" +
                             "return_action=DetailView\u0026" +
                             "return_id=" + recordId,
         "composePackage": {
-          "contact_id": contactId,
-          "parent_type": "Contacts",
-          "parent_id": contactId,
+          "contact_id": "",
+          "parent_type": hModule,
+          "parent_id": hId,
           "parent_name": name,
-          "to_addrs_ids": contactId,
-          "to_addrs_names": name,
-          "to_addrs_emails": email,
-          "to_email_addrs": name + " \u003C" +email + "\u003E",
+          "to_addrs_ids": "",
+          "to_addrs_names": "",
+          "to_addrs_emails": "",
+          "to_email_addrs": "",
           "return_module": "AOS_Contracts",
           "return_action": "DetailView",
           "return_id": recordId
@@ -172,7 +169,6 @@ $(document).ready(function() {
 
 
               //SUGAR.email2.composeLayout.applyEmailTemplate('0', $("#email_template0").val() );
-
 
               //bug #20680
               var box_title = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_SHOW_TITLE;
@@ -186,14 +182,12 @@ $(document).ready(function() {
                 box_title = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_WARNING_TITLE;
                 box_msg = mod_strings.LBL_EMAILTEMPLATE_MESSAGE_MULTIPLE_RECIPIENTS + '<br /><br />' + box_msg;
               }
-
               SUGAR.util.doWhen("document.getElementById('htmleditor0_toolbar1') != undefined && document.getElementById('htmleditor0_toolbar1').style != undefined ", function() {
 
                 $("#email_template0").val( $("#hidden_email_template").val() );
                 SUGAR.email2.composeLayout.processResult(0, $("#hidden_email_template").val() );
               });
               //
-
               $("table#composeHeaderTable0 button:first-child" ).unbind("click").removeAttr("onclick").click(function(e) {
                 e.preventDefault();
                 var url = "index.php?module=AOS_Contracts&action=informCommOps";

@@ -60,7 +60,7 @@ $viewdefs = array (
             ),
           ),
           'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
-
+          'javascript' => '{$REQUIREDFIELDS}',
         ),
         'maxColumns' => '2',
         'includes' => 

@@ -1393,7 +1393,6 @@ $viewdefs = array (
           0 => 
           array (
             0 => 'con_name',
-            1 => 'con_assigned_user_name',
           ),
           1 => 
           array (
@@ -1710,7 +1709,6 @@ $viewdefs = array (
           0 => 
           array (
             0 => 'acc_name',
-            1 => 'acc_assigned_user_name',
           ),
           1 => 
           array (
