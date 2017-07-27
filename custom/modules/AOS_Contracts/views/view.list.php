@@ -3,8 +3,6 @@
 require_once('include/MVC/View/views/view.list.php');
 require_once('modules/Accounts/AccountsListViewSmarty.php');
 
-require_once('include/MVC/View/views/view.list.php');
-
 class AOS_ContractsViewList extends ViewList
 {
     public function preDisplay()
@@ -35,9 +33,9 @@ class AOS_ContractsViewList extends ViewList
                 $group_ids = "''";
             }
 
-            $this->where .= "(aos_contracts.assigned_user_id = '$current_user->id') OR ";
-            $this->where .= "(aos_contracts_cstm.requested_user_id_c = '$current_user->id') OR ";
-            $this->where .= "(aos_contracts_cstm.assigned_security_group_id_c IN ($group_ids))";
+            $this->where .= "(sa_fluency_one.assigned_user_id = '$current_user->id') OR ";
+            $this->where .= "(sa_fluency_one.requested_user_id = '$current_user->id') OR ";
+            $this->where .= "(sa_fluency_one.assigned_security_group_id IN ($group_ids))";
         }
 
         parent::preDisplay();
