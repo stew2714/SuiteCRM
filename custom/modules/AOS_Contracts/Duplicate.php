@@ -5,53 +5,43 @@
  * Date: 26/07/17
  * Time: 09:49
  */
+require_once 'include/SugarQueue/SugarJobQueue.php';
 
 class duplicate {
 
+    /**
+     * @param $bean
+     * @param $event
+     * @param $arguments
+     *
+     * - add a scheduler job here to delay the copy of files so the user does not see the delay on the page saving.
+     *
+     */
 
-
-    function activities($bean, $event, $arguments){
-        //we need to fetch all the relating history+activities.
-        if(isset($bean->opportunity_id) && !empty($bean->opportunity_id)) {
+    function activities($bean, $event, $arguments)
+    {
+        $date = new DateTime();
+        $bean->retrieve($bean->id);
+        if($bean->date_entered == $bean->date_modified && isset($bean->opportunity_id) && !empty($bean->opportunity_id)
+        ) {
             $rel = "documents";
             $opportunityBean = BeanFactory::getBean("Opportunities", $bean->opportunity_id);
             $opportunityBean->load_relationship($rel);
             $related = $opportunityBean->{$rel}->getBeans();
-            foreach ($related as $relatedBean) {
-                $toBeRelated = BeanFactory::getBean("Documents");
-                foreach ($toBeRelated->field_defs as $field => $defs) {
-                    if ($field != "id" && !empty($relatedBean->{$field})) {
-                        $toBeRelated->{$field} = $relatedBean->{$field};
-                    }
-                }
 
-                $id = create_guid();
-
-                //get revisions.
-                $relatedBean->load_relationship("revisions");
-                $revisions = $relatedBean->revisions->getBeans();
-                foreach($revisions as $revision){
-                    $documentRevision = BeanFactory::getBean("DocumentRevisions");
-                    foreach ($documentRevision->field_defs as $field => $defs) {
-                        if ($field != "id" && !empty($revision->{$field})) {
-                            $documentRevision->{$field} = $revision->{$field};
-                        }
-
-                        if($field == "id" && $toBeRelated->document_revision_id == $revision->{$field}){
-                            $revisionId = $revision->{$field};
-                        }
-
-                    }
-                    $documentRevision->document_id = $id;
-                    $documentRevision->save();
-                }
-
-                $toBeRelated->id = $id;
-                $toBeRelated->new_with_id = true;
-                $toBeRelated->document_revision_id = $revisionId;
-                $toBeRelated->aos_contracts_documents_1aos_contracts_ida = $bean->id;
-                $toBeRelated->save();
+            if (0 !== count($related)) {
+                $job = new SchedulersJob();
+                $job->name = "Scheduled Document Copy - {$bean->name} on {$date->format('c')}";
+                $job->data = $bean->id;
+                $job->target = "class::copyFiles";
+                $job->assigned_user_id = 1;
+                $jq = new SugarJobQueue();
+                $jq->submitJob($job);
             }
         }
     }
+
+
+
+
 }
