@@ -49,7 +49,7 @@ class RequesterManagement
             $bean->status = 'In Queue';
             $bean->date_requested_c = $timedate->nowDb();
             $bean->assigned_user_id = '';
-            $bean->assigned_security_group_id_c = $sugar_config['Sales'];
+            $bean->assigned_security_group_id = $sugar_config['Sales'];
         }
     }
 }
