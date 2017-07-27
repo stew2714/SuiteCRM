@@ -128,6 +128,13 @@ array (
             'name' => 'sa_assignments_documents_1_name',
           ),
         ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aos_contracts_documents_1_name',
+          ),
+        ),
       ),
     ),
   ),
