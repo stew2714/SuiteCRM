@@ -118,7 +118,7 @@ class SharedSecurityRules extends Basic
     function checkRules(&$module,$view ){
         $moduleBean = clone $module;
         $moduleBean->retrieve($module->id);
-        if(empty($moduleBean->id)){
+        if(empty($moduleBean->id) || $moduleBean->id == "[SELECT_ID_LIST]"){
             return true;
         }
         global $current_user;
@@ -143,7 +143,10 @@ class SharedSecurityRules extends Basic
                         $rule->load_relationship($rel);
                         $conditions = $rule->{$rel}->getBeans();
                         foreach($conditions as $condition){
-                            if($moduleBean->{$condition->field} == $condition->value ) {
+                            if( $condition->value_type == "Field" && isset($moduleBean->{$condition->value}) && !empty($moduleBean->{$condition->value}) ){
+                                $condition->value = $moduleBean->{$condition->value};
+                            }
+                            if($this->checkOperator($moduleBean->{$condition->field}, $condition->value, $condition->operator) ) {
                                 if (!$this->findAccess($view,$action->parameters['accesslevel'][$key]) ) {
                                     $result = false;
                                 }
@@ -158,7 +161,42 @@ class SharedSecurityRules extends Basic
         }
         return $result;
     }
+    private function checkOperator($rowField, $field, $operator){
+        switch ($operator) {
+            case "Equal_To":
+                if ($rowField == $field) {
+                    return true;
+                }
+                break;
+            case "Not_Equal_To":
+                if ($rowField !== $field) {
+                    return true;
+                }
+                break;
+            case "Starts_With":
+                if (substr($rowField, 0, strlen($field)) === $field) {
+                    return true;
+                }
+                break;
+            case "Ends_With":
+                if (substr($rowField, -strlen($field)) === $field) {
+                    return true;
+                }
+                break;
+            case "Contains":
+                if (strpos($rowField, $field) !== false) {
+                    return true;
+                }
+                break;
+             case "is_null":
+                 if($rowField == null || $rowField == ""){
+                    return true;
+                 }
+                 break;
+            }
 
+        return false;
+    }
     private function findAccess($view, $item ){
         if (stripos($item,$view) !== false){
             return true;
