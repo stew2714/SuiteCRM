@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['validation_comments_c']['name']='validation_comments_c';
+$dictionary['Opportunity']['fields']['validation_comments_c']['default_value']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['default']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['display_default']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['len']='255';
+$dictionary['Opportunity']['fields']['validation_comments_c']['required']=false;
+$dictionary['Opportunity']['fields']['validation_comments_c']['type']='text';
+$dictionary['Opportunity']['fields']['validation_comments_c']['audited']=0;
+$dictionary['Opportunity']['fields']['validation_comments_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['validation_comments_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['validation_comments_c']['options']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['help']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['comments']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['importable']='true';
+$dictionary['Opportunity']['fields']['validation_comments_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['validation_comments_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['validation_comments_c']['ext2']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['ext4']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['ext3']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['validation_comments_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['validation_comments_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['validation_comments_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['validation_comments_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['validation_comments_c']['vname']='LBL_VALIDATION_COMMENTS_C';
+$dictionary['Opportunity']['fields']['validation_comments_c']['source']='custom_fields';
+
+ ?>

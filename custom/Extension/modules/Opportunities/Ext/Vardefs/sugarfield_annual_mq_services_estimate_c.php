@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['name']='annual_mq_services_estimate_c';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['default_value']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['default']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['display_default']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['len']='255';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['required']=false;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['type']='real';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['audited']=0;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['options']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['help']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['comments']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['importable']='true';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['ext2']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['ext4']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['ext3']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['vname']='LBL_ANNUAL_MQ_SERVICES_ESTIMATE_C';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['source']='custom_fields';
+
+ ?>

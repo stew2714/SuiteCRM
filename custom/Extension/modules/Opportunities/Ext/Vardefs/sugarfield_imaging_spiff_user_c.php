@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['name']='imaging_spiff_user_c';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['default_value']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['default']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['display_default']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['len']='18';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['required']=false;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['audited']=0;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['options']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['help']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['comments']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['importable']='true';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['ext2']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['ext4']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['ext3']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['vname']='LBL_IMAGING_SPIFF_USER_C';
+$dictionary['Opportunity']['fields']['imaging_spiff_user_c']['source']='custom_fields';
+
+ ?>

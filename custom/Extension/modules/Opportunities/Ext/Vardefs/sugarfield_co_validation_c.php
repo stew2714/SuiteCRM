@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['co_validation_c']['name']='co_validation_c';
+$dictionary['Opportunity']['fields']['co_validation_c']['default_value']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['default']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['display_default']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['len']='255';
+$dictionary['Opportunity']['fields']['co_validation_c']['required']=false;
+$dictionary['Opportunity']['fields']['co_validation_c']['type']='text';
+$dictionary['Opportunity']['fields']['co_validation_c']['audited']=0;
+$dictionary['Opportunity']['fields']['co_validation_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['co_validation_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['co_validation_c']['options']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['help']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['comments']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['importable']='true';
+$dictionary['Opportunity']['fields']['co_validation_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['co_validation_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['co_validation_c']['ext2']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['ext4']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['ext3']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['co_validation_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['co_validation_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['co_validation_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['co_validation_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['co_validation_c']['vname']='LBL_CO_VALIDATION_C';
+$dictionary['Opportunity']['fields']['co_validation_c']['source']='custom_fields';
+
+ ?>

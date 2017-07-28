@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['name']='license_term_length_mm_c';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['default_value']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['default']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['display_default']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['len']='255';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['required']=false;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['type']='real';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['audited']=0;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['options']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['help']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['comments']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['importable']='true';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['ext2']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['ext4']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['ext3']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['vname']='LBL_LICENSE_TERM_LENGTH_MM_C';
+$dictionary['Opportunity']['fields']['license_term_length_mm_c']['source']='custom_fields';
+
+ ?>

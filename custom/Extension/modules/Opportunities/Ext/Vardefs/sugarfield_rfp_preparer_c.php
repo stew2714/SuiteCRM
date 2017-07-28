@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['name']='rfp_preparer_c';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['default_value']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['default']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['display_default']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['len']='255';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['required']=false;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['type']='text';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['audited']=0;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['options']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['help']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['comments']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['importable']='true';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['ext2']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['ext4']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['ext3']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['vname']='LBL_RFP_PREPARER_C';
+$dictionary['Opportunity']['fields']['rfp_preparer_c']['source']='custom_fields';
+
+ ?>
