@@ -126,7 +126,7 @@ class SharedSecurityRules extends Basic
         $results = $bean->get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_name}'");
         $result = true;
         foreach($results as $rule){
-            $rel = "sa_sharedsecurityrulesactions";
+            $rel = "sharedsecurityrulesactions";
             $rule->load_relationship($rel);
             $actions = $rule->{$rel}->getBeans();
             foreach($actions as $action){
@@ -139,7 +139,7 @@ class SharedSecurityRules extends Basic
                        $current_user->id ==  $action->parameters['email'][$key])
                     {
                         //we have found a possible record to check against.
-                        $rel = "sa_sharedsecurityrulesfields";
+                        $rel = "sharedsecurityrulesfields";
                         $rule->load_relationship($rel);
                         $conditions = $rule->{$rel}->getBeans();
                         foreach($conditions as $condition){

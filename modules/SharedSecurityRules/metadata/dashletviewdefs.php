@@ -44,7 +44,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 
 global $current_user;
 
-$dashletData['SA_SharedSecurityRulesDashlet']['searchFields'] = array(
+$dashletData['SharedSecurityRulesDashlet']['searchFields'] = array(
     'date_entered' => array('default' => ''),
     'date_modified' => array('default' => ''),
     'assigned_user_id' => array(
@@ -52,7 +52,7 @@ $dashletData['SA_SharedSecurityRulesDashlet']['searchFields'] = array(
         'default' => $current_user->name
     )
 );
-$dashletData['SA_SharedSecurityRulesDashlet']['columns'] = array(
+$dashletData['SharedSecurityRulesDashlet']['columns'] = array(
     'name' => array(
         'width' => '40',
         'label' => 'LBL_LIST_NAME',

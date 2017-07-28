@@ -38,13 +38,13 @@ class SharedSecurityRulesController extends SugarController {
             die;
         }
 
-        if(file_exists('custom/modules/SA_SharedSecurityRulesActions/actions/'.$action_name.'.php')){
+        if(file_exists('custom/modules/SharedSecurityRulesActions/actions/'.$action_name.'.php')){
 
-            require_once('custom/modules/SA_SharedSecurityRulesActions/actions/'.$action_name.'.php');
+            require_once('custom/modules/SharedSecurityRulesActions/actions/'.$action_name.'.php');
 
-        } else if(file_exists('modules/SA_SharedSecurityRulesActions/actions/'.$action_name.'.php')){
+        } else if(file_exists('modules/SharedSecurityRulesActions/actions/'.$action_name.'.php')){
 
-            require_once('modules/SA_SharedSecurityRulesActions/actions/'.$action_name.'.php');
+            require_once('modules/SharedSecurityRulesActions/actions/'.$action_name.'.php');
 
         } else {
             echo '';
@@ -60,7 +60,7 @@ class SharedSecurityRulesController extends SugarController {
         $params = array();
         if(isset($_REQUEST['id'])){
             require_once('modules/AOW_Actions/AOW_Action.php');
-            $aow_action = new SA_SharedSecurityRulesActions();
+            $aow_action = new SharedSecurityRulesActions();
             $aow_action->retrieve($_REQUEST['id']);
             $id = $aow_action->id;
             $params = unserialize(base64_decode($aow_action->parameters));

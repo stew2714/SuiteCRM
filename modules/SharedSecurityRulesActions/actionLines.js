@@ -137,5 +137,5 @@ function getView(ln, id){
     var action = document.getElementById('aow_actions_action' + ln).value;
     var module = document.getElementById('flow_module').value;
 
-    var connectionObject = YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SA_SharedSecurityRules&action=getAction&id="+id+"&aow_action="+action+"&line="+ln+"&aow_module="+module,callback);
+    var connectionObject = YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getAction&id="+id+"&aow_action="+action+"&line="+ln+"&aow_module="+module,callback);
 }

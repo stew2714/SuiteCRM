@@ -33,7 +33,7 @@ class actionSendEmail extends actionBase {
     }
 
     function loadJS(){
-        return array('modules/SA_SharedSecurityRulesActions/actions/actionSendEmail.js');
+        return array('modules/SharedSecurityRulesActions/actions/actionSendEmail.js');
     }
 
     function edit_display($line,SugarBean $bean = null, $params = array()){

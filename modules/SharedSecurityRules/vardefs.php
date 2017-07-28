@@ -108,7 +108,7 @@ $dictionary['SharedSecurityRules'] = array(
                     array(
                         'name' => 'display_condition_lines',
                         'returns' => 'html',
-                        'include' => 'modules/SA_SharedSecurityRulesFields/fieldsLines.php'
+                        'include' => 'modules/SharedSecurityRulesFields/fieldsLines.php'
                     ),
             ),
         'action_lines' =>
@@ -129,15 +129,15 @@ $dictionary['SharedSecurityRules'] = array(
                     array(
                         'name' => 'display_action_lines',
                         'returns' => 'html',
-                        'include' => 'modules/SA_SharedSecurityRulesActions/actionLines.php'
+                        'include' => 'modules/SharedSecurityRulesActions/actionLines.php'
                     ),
             ),
         'sharedsecurityrulesactions' =>
             array(
                 'name' => 'sharedsecurityrulesactions',
                 'type' => 'link',
-                'relationship' => 'sharedsecurityrules_sa_sharedsecurityrulesactions',
-                'module' => 'A_SharedSecurityRulesActions',
+                'relationship' => 'sharedsecurityrules_sharedsecurityrulesactions',
+                'module' => 'SharedSecurityRulesActions',
                 'bean_name' => 'sharedsecurityrulesactions',
                 'source' => 'non-db',
             ),
@@ -163,7 +163,7 @@ $dictionary['SharedSecurityRules'] = array(
                 'rhs_key' => 'sa_shared_security_rules_id',
                 'relationship_type' => 'one-to-many',
             ),
-        'sharedsecurityrules__sharedsecurityrulesfields' =>
+        'sharedsecurityrules_sharedsecurityrulesfields' =>
             array(
                 'lhs_module' => 'SharedSecurityRules',
                 'lhs_table' => 'sharedsecurityrules',

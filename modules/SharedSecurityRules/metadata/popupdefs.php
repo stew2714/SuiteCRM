@@ -42,9 +42,9 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'SA_SharedSecurityRules';
-$object_name = 'SA_SharedSecurityRules';
-$_module_name = 'sa_sharedsecurityrules';
+$module_name = 'SharedSecurityRules';
+$object_name = 'SharedSecurityRules';
+$_module_name = 'sharedsecurityrules';
 $popupMeta = array(
     'moduleMain' => $module_name,
     'varName' => $object_name,

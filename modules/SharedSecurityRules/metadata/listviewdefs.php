@@ -42,7 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'SA_SharedSecurityRules';
+$module_name = 'SharedSecurityRules';
 $listViewDefs[$module_name] = array(
     'NAME' => array(
         'width' => '32',

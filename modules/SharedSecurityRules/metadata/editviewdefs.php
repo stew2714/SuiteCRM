@@ -1,5 +1,5 @@
 <?php
-$module_name = 'SA_SharedSecurityRules';
+$module_name = 'SharedSecurityRules';
 $viewdefs [$module_name] =
     array (
         'EditView' =>
