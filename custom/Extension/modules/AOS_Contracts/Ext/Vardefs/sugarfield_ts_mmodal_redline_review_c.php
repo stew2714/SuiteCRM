@@ -1,5 +1,5 @@
 <?php
- // Vardefs from Fields_meta_data table - created: 
+// Vardefs from Fields_meta_data table - created:
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['name']='ts_mmodal_redline_review_c';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['default_value']='';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['default']='';
@@ -29,4 +29,4 @@ $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['enable_ran
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['vname']='LBL_TS_MMODAL_REDLINE_REVIEW_C';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['source']='custom_fields';
 
- ?>
+?>
