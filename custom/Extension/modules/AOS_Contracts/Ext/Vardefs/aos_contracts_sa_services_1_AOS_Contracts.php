@@ -7,7 +7,7 @@ $dictionary["AOS_Contracts"]["fields"]["aos_contracts_sa_services_1"] = array (
   'source' => 'non-db',
   'module' => 'SA_Services',
   'bean_name' => 'SA_Services',
-  'vname' => 'LBL_AOS_CONTRACTS_SA_SERVICES_1_FROM_SA_SERVICES_TITLE',
+  'vname' => 'LBL_AOS_CONTRACTS_SA_SERVICES_1_FROM_SA_SEcontracRVICES_TITLE',
   'id_name' => 'aos_contracts_sa_services_1sa_services_idb',
 );
 $dictionary["AOS_Contracts"]["fields"]["aos_contracts_sa_services_1_name"] = array (

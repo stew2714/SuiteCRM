@@ -27,4 +27,4 @@ $dictionary['AOS_Contracts']['fields']['record_type_id_c']['full_text_search']='
 $dictionary['AOS_Contracts']['fields']['record_type_id_c']['vname']='LBL_RECORD_TYPE_ID';
 $dictionary['AOS_Contracts']['fields']['record_type_id_c']['source']='custom_fields';
 
- ?>
+?>
