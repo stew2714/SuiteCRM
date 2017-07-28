@@ -1,5 +1,5 @@
 <?php
-// Vardefs from Fields_meta_data table - created:
+ // Vardefs from Fields_meta_data table - created: 
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['name']='ts_mmodal_redline_review_c';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['default_value']='';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['default']='';
@@ -7,7 +7,6 @@ $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['display_de
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['required']=false;
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['type']='datetimecombo';
-$dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['dbType']='datetime';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['massupdate']=0;
@@ -26,7 +25,8 @@ $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['labelValue
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['full_text_search']='';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['dbType']='datetime';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['vname']='LBL_TS_MMODAL_REDLINE_REVIEW_C';
 $dictionary['AOS_Contracts']['fields']['ts_mmodal_redline_review_c']['source']='custom_fields';
 
-?>
+ ?>

@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['type']='date';
+$dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['type']='datetimecombo';
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['massupdate']=0;
@@ -25,6 +25,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['labelValue']=N
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['full_text_search']='';
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['dbType']='datetime';
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['vname']='LBL_APTTUS_RETENTIONDATE_C';
 $dictionary['AOS_Contracts']['fields']['apttus_retentiondate_c']['source']='custom_fields';
 

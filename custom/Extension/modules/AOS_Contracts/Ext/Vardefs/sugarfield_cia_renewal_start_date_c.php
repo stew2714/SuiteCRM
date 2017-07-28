@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['default']=''
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['type']='date';
+$dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['type']='datetimecombo';
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['massupdate']=0;
@@ -25,6 +25,7 @@ $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['labelValue']
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['full_text_search']='';
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['dbType']='datetime';
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['vname']='LBL_CIA_RENEWAL_START_DATE_C';
 $dictionary['AOS_Contracts']['fields']['cia_renewal_start_date_c']['source']='custom_fields';
 

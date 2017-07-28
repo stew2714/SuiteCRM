@@ -141,6 +141,8 @@ class convertCSV
     public function cleanType($type)
     {
         $type = str_replace(array('(', ')'), ' ', $type);
+        $type = str_replace(',', '', $type);
+
         $type_array = explode(" ", $type);
 
         for ($i = 0; $i < count($type_array); $i++) {
@@ -164,6 +166,10 @@ class convertCSV
             $type = "float";
         } elseif ($type == "varchar" && $length >= 255) {
             $type = "text";
+        } elseif ($type == "timestamp") {
+            $type = "datetime";
+        } elseif ($type == "date") {
+            $type = "datetime";
         }
 
         return $type;
