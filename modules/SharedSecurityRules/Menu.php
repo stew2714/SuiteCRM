@@ -38,21 +38,15 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+ if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
-
-$app_list_strings['moduleList']['SharedSecurityRulesFields'] = 'Shared Security Rules Fields';
-$app_list_strings['moduleList']['SharedSecurityRules'] = 'Shared Security Rules';
-$app_list_strings['moduleList']['SharedSecurityRulesActions'] = 'Shared Security Rules Actions';
-
-$app_list_strings['sa_status_list']['Active'] = 'Active';
-$app_list_strings['sa_status_list']['Inactive'] = 'Inactive';
-
-//$app_list_strings['sharedGroupRule'][''] = '--none--';
-$app_list_strings['sharedGroupRule']['view'] = 'View Only';
-$app_list_strings['sharedGroupRule']['view_edit'] = 'View & Edit';
-$app_list_strings['sharedGroupRule']['view_edit_delete'] = 'View, Edit & Delete';
-
-
-$app_list_strings['shared_email_type_list'][''] = '';
-$app_list_strings['shared_email_type_list']['Specify User'] = 'User';
-$app_list_strings['shared_email_type_list']['Users'] = 'Users';
+global $mod_strings, $app_strings, $sugar_config;
+ 
+if(ACLController::checkAccess('SharedSecurityRules', 'edit', true)){
+    $module_menu[]=array('index.php?module=SharedSecurityRules&action=EditView&return_module=SharedSecurityRules&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'SharedSecurityRules');
+}
+if(ACLController::checkAccess('SharedSecurityRules', 'list', true)){
+    $module_menu[]=array('index.php?module=SharedSecurityRules&action=index&return_module=SharedSecurityRules&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'SharedSecurityRules');
+}

@@ -38,21 +38,9 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+$aow_actions_list[] = 'SendEmail';
 
 
-$app_list_strings['moduleList']['SharedSecurityRulesFields'] = 'Shared Security Rules Fields';
-$app_list_strings['moduleList']['SharedSecurityRules'] = 'Shared Security Rules';
-$app_list_strings['moduleList']['SharedSecurityRulesActions'] = 'Shared Security Rules Actions';
-
-$app_list_strings['sa_status_list']['Active'] = 'Active';
-$app_list_strings['sa_status_list']['Inactive'] = 'Inactive';
-
-//$app_list_strings['sharedGroupRule'][''] = '--none--';
-$app_list_strings['sharedGroupRule']['view'] = 'View Only';
-$app_list_strings['sharedGroupRule']['view_edit'] = 'View & Edit';
-$app_list_strings['sharedGroupRule']['view_edit_delete'] = 'View, Edit & Delete';
-
-
-$app_list_strings['shared_email_type_list'][''] = '';
-$app_list_strings['shared_email_type_list']['Specify User'] = 'User';
-$app_list_strings['shared_email_type_list']['Users'] = 'Users';
+if (file_exists('custom/modules/SharedSecurityRulesActions/Ext/Actions/actions.ext.php')) {
+    require('custom/modules/SharedSecurityRulesActions/Ext/Actions/actions.ext.php');
+}
