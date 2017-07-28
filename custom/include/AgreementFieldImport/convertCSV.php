@@ -207,6 +207,12 @@ class convertCSV
                 if (!isset($field['action'])) $field['action'] = '';
                 if (!isset($field['visibility_grid'])) $field['visibility_grid'] = '';
                 if (!isset($field['comments'])) $field['comments'] = '';
+
+                if (($field['type'] == "datetime")){
+                    $field['type'] = 'datetimecombo';
+                    $field['dbType'] = 'datetime';
+                }
+
                 if (!isset($field['duplicate_merge_dom_value'])) $field['duplicate_merge_dom_value'] = '';
 
                 if (!isset($field['default_value'])) $field['default_value'] = '';
@@ -254,7 +260,9 @@ class convertCSV
 
         $to_save = array();
         $base_field = get_widget($field->type);
-
+        if(isset($field->dbType)){
+            $field->vardef_map['dbType'] = "dbType";
+        }
         foreach ($field->vardef_map as $property => $fmd_col) {
             $to_save[$property] = is_string($field->$property) ? htmlspecialchars_decode($field->$property, ENT_QUOTES) : $field->$property;
         }
