@@ -141,6 +141,8 @@ class convertCSV
     public function cleanType($type)
     {
         $type = str_replace(array('(', ')'), ' ', $type);
+        $type = str_replace(',', '', $type);
+
         $type_array = explode(" ", $type);
 
         for ($i = 0; $i < count($type_array); $i++) {
@@ -164,6 +166,10 @@ class convertCSV
             $type = "float";
         } elseif ($type == "varchar" && $length >= 255) {
             $type = "text";
+        } elseif ($type == "timestamp") {
+            $type = "datetime";
+        } elseif ($type == "date") {
+            $type = "datetime";
         }
 
         return $type;
@@ -207,6 +213,12 @@ class convertCSV
                 if (!isset($field['action'])) $field['action'] = '';
                 if (!isset($field['visibility_grid'])) $field['visibility_grid'] = '';
                 if (!isset($field['comments'])) $field['comments'] = '';
+
+                if (($field['type'] == "datetime")){
+                    $field['type'] = 'datetimecombo';
+                    $field['dbType'] = 'datetime';
+                }
+
                 if (!isset($field['duplicate_merge_dom_value'])) $field['duplicate_merge_dom_value'] = '';
 
                 if (!isset($field['default_value'])) $field['default_value'] = '';
@@ -254,7 +266,9 @@ class convertCSV
 
         $to_save = array();
         $base_field = get_widget($field->type);
-
+        if(isset($field->dbType)){
+            $field->vardef_map['dbType'] = "dbType";
+        }
         foreach ($field->vardef_map as $property => $fmd_col) {
             $to_save[$property] = is_string($field->$property) ? htmlspecialchars_decode($field->$property, ENT_QUOTES) : $field->$property;
         }

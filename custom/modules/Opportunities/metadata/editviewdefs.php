@@ -19,7 +19,7 @@ array (
           'field' => '30',
         ),
       ),
-      'javascript' => '{$PROBABILITY_SCRIPT} {$LOCK_FILES}',
+      'javascript' => '{$PROBABILITY_SCRIPT} {$LOCK_FILES} {$BEAN_DATA}',
       'useTabs' => false,
       'tabDefs' => 
       array (
@@ -94,11 +94,23 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
+            'name' => 'recordtypeid',
+            'label' => 'LBL_RECORDTYPEID',
           ),
           1 => 'sales_stage',
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'name',
+          ),
+          1 => 
+          array (
+            'name' => 'date_closed',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -110,7 +122,7 @@ array (
             'name' => 'date_closed',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 'account_name',
           1 => 
@@ -119,7 +131,7 @@ array (
             'label' => 'LBL_INSIDE_SALES_AE_C',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => '',
           1 => 
@@ -128,7 +140,7 @@ array (
             'label' => 'LBL_CHANNEL_REP_C',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -137,12 +149,12 @@ array (
           ),
           1 => '',
         ),
-        5 => 
+        6 => 
         array (
           0 => '',
           1 => '',
         ),
-        6 => 
+        7 => 
         array (
           0 => '',
           1 => 
@@ -151,21 +163,30 @@ array (
             'label' => 'LBL_SALES_LEADERSHIP_C',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
             'name' => 'tip_source_c',
             'label' => 'LBL_TIP_SOURCE_C',
           ),
-          1 => 'probability',
+          1 => 'sales_stage',
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
             'name' => 'partner_c',
             'label' => 'LBL_PARTNER_C',
+          ),
+          1 => 'probability',
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'rfp_required_c',
+            'label' => 'LBL_RFP_REQUIRED_C',
           ),
           1 => 
           array (
@@ -173,16 +194,7 @@ array (
             'label' => 'LBL_CONFIDENCE_LEVEL_C',
           ),
         ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'rfp_required_c',
-            'label' => 'LBL_RFP_REQUIRED_C',
-          ),
-          1 => '',
-        ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -195,7 +207,7 @@ array (
             'label' => 'LBL_FORECASTING_CATEGORY_C',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -208,7 +220,7 @@ array (
             'label' => 'LBL_BANKRUPTCY_HOLD1_C',
           ),
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
@@ -221,7 +233,7 @@ array (
             'label' => 'LBL_VENDOR_OF_CHOICE_C',
           ),
         ),
-        13 => 
+        14 => 
         array (
           0 => 
           array (
@@ -230,7 +242,7 @@ array (
           ),
           1 => '',
         ),
-        14 => 
+        15 => 
         array (
           0 => 
           array (
@@ -239,7 +251,7 @@ array (
           ),
           1 => '',
         ),
-        15 => 
+        16 => 
         array (
           0 => 
           array (
@@ -248,7 +260,7 @@ array (
           ),
           1 => '',
         ),
-        16 => 
+        17 => 
         array (
           0 => 
           array (
@@ -257,7 +269,7 @@ array (
           ),
           1 => '',
         ),
-        17 => 
+        18 => 
         array (
           0 => 
           array (
@@ -266,7 +278,7 @@ array (
           ),
           1 => '',
         ),
-        18 => 
+        19 => 
         array (
           0 => 
           array (
@@ -275,7 +287,7 @@ array (
           ),
           1 => '',
         ),
-        19 => 
+        20 => 
         array (
           0 => 
           array (

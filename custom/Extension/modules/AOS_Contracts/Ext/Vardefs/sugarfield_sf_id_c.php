@@ -1,10 +1,10 @@
 <?php
-// Vardefs from Fields_meta_data table - created:
+ // Vardefs from Fields_meta_data table - created: 
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['name']='sf_id_c';
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['default_value']='';
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['default']='';
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['display_default']='';
-$dictionary['AOS_Contracts']['fields']['sf_id_c']['len']='40';
+$dictionary['AOS_Contracts']['fields']['sf_id_c']['len']='18';
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['required']=false;
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['type']='varchar';
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['audited']=0;
@@ -27,4 +27,4 @@ $dictionary['AOS_Contracts']['fields']['sf_id_c']['full_text_search']='';
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['vname']='LBL_SF_ID_C';
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['source']='custom_fields';
 
-?>
+ ?>

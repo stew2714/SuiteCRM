@@ -34,3 +34,9 @@ $app_list_strings['sales_stage_dom'] = array(
     'Closed Inactive' => 'Closed Inactive',
     'Closed Nurturing' => 'Closed Nurturing',
 );
+
+$app_list_strings['record_type_dom'] = array(
+    'Lead' => 'Lead',
+    'CBay' => 'CBay',
+    'Partner' => 'Partner',
+);
