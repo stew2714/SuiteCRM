@@ -72,4 +72,12 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_SHAREDSECURITYRULESFIELDS_SUBPANEL_TITLE' => 'Shared Security Rules Fields',
   'LBL_NEW_FORM_TITLE' => 'New Shared Security Rules Fields',
+  'LBL_MODULE_PATH' => 'Module',
+  'LBL_FIELD' => 'Field',
+  'LBL_OPERATOR' => 'Operator',
+  'LBL_VALUE_TYPE' => 'Type',
+  'LBL_VALUE' => 'Value',
+  'LBL_ORDER' => 'Order',
+  'LBL_CONDITION_OPERATOR' => 'Condition Operator',
+
 );

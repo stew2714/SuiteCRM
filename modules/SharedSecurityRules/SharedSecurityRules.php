@@ -115,6 +115,12 @@ class SharedSecurityRules extends Basic
         $action->save_lines($_POST, $this, 'aow_actions_');
     }
 
+    /**
+     * @param $module
+     * @param $view
+     *
+     * @return bool
+     */
     function checkRules(&$module,$view ){
         $moduleBean = clone $module;
         $moduleBean->retrieve($module->id);
@@ -135,25 +141,44 @@ class SharedSecurityRules extends Basic
                 }
                 $result = true;
                 foreach($action->parameters['email_target_type'] as $key =>  $targetType){
-                    if($targetType == "Specify User" &&
-                       $current_user->id ==  $action->parameters['email'][$key])
-                    {
-                        //we have found a possible record to check against.
-                        $rel = "sharedsecurityrulesfields";
-                        $rule->load_relationship($rel);
-                        $conditions = $rule->{$rel}->getBeans();
-                        foreach($conditions as $condition){
-                            if( $condition->value_type == "Field" && isset($moduleBean->{$condition->value}) && !empty($moduleBean->{$condition->value}) ){
-                                $condition->value = $moduleBean->{$condition->value};
-                            }
-                            if($this->checkOperator($moduleBean->{$condition->field}, $condition->value, $condition->operator) ) {
-                                if (!$this->findAccess($view,$action->parameters['accesslevel'][$key]) ) {
-                                    $result = false;
-                                }
+                    if($targetType == "Users" && $action->parameters['email'][ $key ]['0'] == "role"){
+                        $role = BeanFactory::getBean("ACLRoles", $action->parameters['email'][ $key ]['2'] );
+                        if($role->load_relationship("users")){
+                            $userList = $role->users->getBeans();
+                            if(key_exists($current_user->id, $userList)){
+                                $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
                             }else{
                                 return true;
                             }
                         }
+                    }elseif($targetType == "Users" && $action->parameters['email'][ $key ]['0'] == "security_group"){
+                        $secGroups = BeanFactory::getBean("SecurityGroups", $action->parameters['email'][ $key ]['1'] );
+                        if(!empty($action->parameters['email'][ $key ]['2'])){
+                            $role = BeanFactory::getBean("ACLRoles", $action->parameters['email'][ $key ]['2'] );
+                            if($role->load_relationship("users")){
+                                $userList = $role->users->getBeans();
+                                if(key_exists($current_user->id, $userList)){
+                                    $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
+                                }else{
+                                    return true;
+                                }
+                            }
+                        }else {
+                            if ($secGroups->load_relationship("users")) {
+                                $userList = $secGroups->users->getBeans();
+                                if (key_exists($current_user->id, $userList)) {
+                                    $result = $this->checkConditions($rule, $moduleBean, $view, $action, $key, $result);
+                                } else {
+                                    return true;
+                                }
+                            }
+                        }
+                    }elseif( ($targetType == "Specify User" && $current_user->id ==
+                                                                $action->parameters['email'][$key]) ||
+                        ($targetType == "Users" && in_array("all", $action->parameters['email'][$key]) ) )
+                    {
+                        //we have found a possible record to check against.
+                        $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
                     }
                 }
 
@@ -161,6 +186,53 @@ class SharedSecurityRules extends Basic
         }
         return $result;
     }
+
+    /**
+     * @param $rule
+     * @param $moduleBean
+     * @param $view
+     * @param $action
+     * @param $key
+     * @param bool $result
+     *
+     * @return bool
+     */
+    private function checkConditions($rule, $moduleBean,$view,$action,$key,  $result = true){
+        $rel = "sharedsecurityrulesfields";
+        $rule->load_relationship($rel);
+        $conditions = $rule->{$rel}->getBeans();
+        if(count($conditions) != 0) {
+            foreach ($conditions as $condition) {
+                if ($condition->value_type == "Field" &&
+                    isset($moduleBean->{$condition->value}) &&
+                    !empty($moduleBean->{$condition->value})) {
+                    $condition->value = $moduleBean->{$condition->value};
+                }
+                if ($this->checkOperator(
+                    $moduleBean->{$condition->field},
+                    $condition->value,
+                    $condition->operator
+                )) {
+                    if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                        $result = false;
+                    }
+                } else {
+                    return true;
+                }
+            }
+        }elseif (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+            $result = false;
+        }
+        return $result;
+    }
+
+    /**
+     * @param $rowField
+     * @param $field
+     * @param $operator
+     *
+     * @return bool
+     */
     private function checkOperator($rowField, $field, $operator){
         switch ($operator) {
             case "Equal_To":
@@ -197,6 +269,13 @@ class SharedSecurityRules extends Basic
 
         return false;
     }
+
+    /**
+     * @param $view
+     * @param $item
+     *
+     * @return bool
+     */
     private function findAccess($view, $item ){
         if (stripos($item,$view) !== false){
             return true;

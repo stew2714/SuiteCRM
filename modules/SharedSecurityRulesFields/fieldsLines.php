@@ -29,7 +29,7 @@ function display_condition_lines($focus, $field, $value, $view){
 
     $html = '';
 
-    if (!is_file('cache/jsLanguage/AOW_Conditions/' . $GLOBALS['current_language'] . '.js')) {
+    if (!is_file('cache/jsLanguage/SharedSecurityRulesFields/' . $GLOBALS['current_language'] . '.js')) {
         require_once ('include/language/jsLanguage.php');
         jsLanguage::createModuleStringsCache('SharedSecurityRulesFields', $GLOBALS['current_language']);
     }
@@ -37,7 +37,7 @@ function display_condition_lines($focus, $field, $value, $view){
 
     if($view == 'EditView'){
 
-        $html .= '<script src="modules/AOW_Conditions/conditionLines.js"></script>';
+        $html .= '<script src="modules/SharedSecurityRulesFields/conditionLines.js"></script>';
         $html .= "<table border='0' cellspacing='4' width='100%' id='conditionLines'></table>";
 
         $html .= "<div style='padding-top: 10px; padding-bottom:10px;'>";

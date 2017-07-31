@@ -227,23 +227,23 @@ function insertConditionHeader(){
 
     var b=x.insertCell(1);
     b.style.color="rgb(0,0,0)";
-    b.innerHTML=SUGAR.language.get('AOW_Conditions', 'LBL_MODULE_PATH');
+    b.innerHTML=SUGAR.language.get('SharedSecurityRulesFields', 'LBL_MODULE_PATH');
 
     var c=x.insertCell(2);
     c.style.color="rgb(0,0,0)";
-    c.innerHTML=SUGAR.language.get('AOW_Conditions', 'LBL_FIELD');
+    c.innerHTML=SUGAR.language.get('SharedSecurityRulesFields', 'LBL_FIELD');
 
     var d=x.insertCell(3);
     d.style.color="rgb(0,0,0)";
-    d.innerHTML=SUGAR.language.get('AOW_Conditions', 'LBL_OPERATOR');
+    d.innerHTML=SUGAR.language.get('SharedSecurityRulesFields', 'LBL_OPERATOR');
 
     var e=x.insertCell(4);
     e.style.color="rgb(0,0,0)";
-    e.innerHTML=SUGAR.language.get('AOW_Conditions', 'LBL_VALUE_TYPE');
+    e.innerHTML=SUGAR.language.get('SharedSecurityRulesFields', 'LBL_VALUE_TYPE');
 
     var f=x.insertCell(5);
     f.style.color="rgb(0,0,0)";
-    f.innerHTML=SUGAR.language.get('AOW_Conditions', 'LBL_VALUE');
+    f.innerHTML=SUGAR.language.get('SharedSecurityRulesFields', 'LBL_VALUE');
 }
 
 function insertConditionLine(){

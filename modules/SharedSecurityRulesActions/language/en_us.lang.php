@@ -72,4 +72,7 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_SHAREDSECURITYRULESACTIONS_SUBPANEL_TITLE' => 'Shared Security Rules Actions',
   'LBL_NEW_FORM_TITLE' => 'New Shared Security Rules Actions',
+  'LBL_ACCESSLEVEL' => 'Access Level',
+  'LBL_SELECT_ACTION' => 'Action',
+  'LBL_OPTIONS' => 'Options',
 );

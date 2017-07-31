@@ -38,7 +38,7 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$aow_actions_list[] = 'SendEmail';
+$aow_actions_list[] = 'AccessLevel';
 
 
 if (file_exists('custom/modules/SharedSecurityRulesActions/Ext/Actions/actions.ext.php')) {

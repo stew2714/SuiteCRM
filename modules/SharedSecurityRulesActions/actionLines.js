@@ -81,12 +81,12 @@ function insertActionLine(){
     var a1 = x.insertCell(0);
     a1.scope="row";
     a1.setAttribute("field", "action");
-    a1.innerHTML= "<label>"+ SUGAR.language.get('AOW_Actions', 'LBL_SELECT_ACTION') +":</label><select name='aow_actions_action[" + actln + "]' id='aow_actions_action" + actln + "' onchange='getView(" + actln + ");'>"+ app_list_actions +"</select>";
+    a1.innerHTML= "<label>"+ SUGAR.language.get('SharedSecurityRulesActions', 'LBL_SELECT_ACTION') +":</label><select name='aow_actions_action[" + actln + "]' id='aow_actions_action" + actln + "' onchange='getView(" + actln + ");'>"+ app_list_actions +"</select>";
 
     var b1 = x.insertCell(1);
     b1.scope="row";
     b1.setAttribute("field", "name");
-    b1.innerHTML= "<label>"+SUGAR.language.get('AOW_Actions', 'LBL_NAME')+":</label><input name='aow_actions_name[" + actln + "]' id='aow_actions_name" + actln + "' type='text'>";
+    b1.innerHTML= "<label>"+SUGAR.language.get('SharedSecurityRulesActions', 'LBL_NAME')+":</label><input name='aow_actions_name[" + actln + "]' id='aow_actions_name" + actln + "' type='text'>";
 
     var c1 = x.insertCell(2);
     c1.scope="row";
