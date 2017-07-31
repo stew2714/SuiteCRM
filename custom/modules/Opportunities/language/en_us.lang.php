@@ -33,4 +33,6 @@ $mod_strings = array (
 
 
 
+  'LBL_FIELD_TRACKING_HISTORY' => 'Field Tracking History',
+  'AOS_Contracts' => 'Agreements',
 );
