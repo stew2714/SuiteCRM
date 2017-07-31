@@ -50,7 +50,8 @@ class customOpportunitiesViewEdit extends OpportunitiesViewEdit
  	public function display(){
  	    global $current_user, $sugar_config;
 
-        $lockScript = ''; //define so nothing breaks
+        $lockScript = '<script type="text/javascript" src="custom/modules/Opportunities/js/Validation.js"></script>';
+        //define so nothing breaks
 
         //we get the security groups so we can get all groups the current user is linked to.
         $secGroups = BeanFactory::getBean("SecurityGroups");
@@ -60,12 +61,36 @@ class customOpportunitiesViewEdit extends OpportunitiesViewEdit
         // for editing.
  	    if( !is_admin($current_user) && key_exists($sugar_config['Sales'], $groups) && !key_exists
             ($sugar_config['CommOps'], $groups) ) {
-            $lockScript = '<script type="text/javascript" src="custom/modules/Opportunities/js/EditView.js"></script>';
+            $lockScript .= '<script type="text/javascript" src="custom/modules/Opportunities/js/EditView.js"></script>';
         }
         $this->ss->assign('LOCK_FILES', $lockScript);
+ 	    $tmpArray = $this->beanToArray();
+        $this->ss->assign('BEAN_DATA', "<script>var beanData = JSON.parse('" . json_encode($tmpArray) . "'); </script>");
 
         parent::display();
 
+    }
+    function beanToArray(){
+ 	    global $timedate, $current_user;
+        $tmpArray = $this->bean->toArray();
+        $tmpArray['today_month'] = date('m');
+        if($this->bean->previous_close_date_c != ""){
+            $tmpDate = $timedate->fromString($this->bean->previous_close_date_c);
+            $month = $tmpDate->format("m");
+            $tmpArray['previous_date_month'] = $month;
+        }
+        $user = $current_user->toArray();
+        $tmpArray['current_user'] = $user;
+        $secGroups = new SecurityGroup();
+        $groups = $secGroups->getUserSecurityGroups($current_user->id);
+        $i = 0;
+        foreach($groups as $key => $group){
+            $groups[$i] = $group['name'];
+            unset($groups[$key]);
+            $i++;
+        }
+        $tmpArray['current_user']['roles'] = $groups;
+        return $tmpArray;
     }
 
 }

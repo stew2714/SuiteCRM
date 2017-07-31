@@ -34,8 +34,8 @@ class AOS_ContractsViewList extends ViewList
             }
 
             $this->where .= "(aos_contracts.assigned_user_id = '$current_user->id') OR ";
-            $this->where .= "(aos_contracts_cstm.requested_user_id_c = '$current_user->id') OR ";
-            $this->where .= "(aos_contracts_cstm.assigned_security_group_id_c IN ($group_ids))";
+            $this->where .= "(aos_contracts_cstm.requested_user_id = '$current_user->id') OR ";
+            $this->where .= "(aos_contracts_cstm.assigned_security_group_id IN ($group_ids))";
         }
 
         parent::preDisplay();
