@@ -1,15 +1,11 @@
 <?php
-
-if (!defined('sugarEntry')) {
-    define('sugarEntry', true);
-}
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2016 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -42,11 +38,21 @@ if (!defined('sugarEntry')) {
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-include 'include/MVC/preDispatch.php';
-$startTime = microtime(true);
-require_once 'include/entryPoint.php';
-ob_start();
-require_once 'include/MVC/SugarApplication.php';
-$app = new SugarApplication();
-$app->startSession();
-$app->execute();
+
+
+$app_list_strings['moduleList']['SharedSecurityRulesFields'] = 'Shared Security Rules Fields';
+$app_list_strings['moduleList']['SharedSecurityRules'] = 'Shared Security Rules';
+$app_list_strings['moduleList']['SharedSecurityRulesActions'] = 'Shared Security Rules Actions';
+
+$app_list_strings['sa_status_list']['Active'] = 'Active';
+$app_list_strings['sa_status_list']['Inactive'] = 'Inactive';
+
+//$app_list_strings['sharedGroupRule'][''] = '--none--';
+$app_list_strings['sharedGroupRule']['view'] = 'View Only';
+$app_list_strings['sharedGroupRule']['view_edit'] = 'View & Edit';
+$app_list_strings['sharedGroupRule']['view_edit_delete'] = 'View, Edit & Delete';
+
+
+$app_list_strings['shared_email_type_list'][''] = '';
+$app_list_strings['shared_email_type_list']['Specify User'] = 'User';
+$app_list_strings['shared_email_type_list']['Users'] = 'Users';
