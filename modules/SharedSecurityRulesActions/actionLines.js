@@ -41,7 +41,7 @@ function showActions(){
 
 function loadActionLine(action){
 
-    var prefix = 'aow_actions_';
+    var prefix = 'shared_rules_actions_';
     var ln = 0;
 
     ln = insertActionLine();
@@ -61,17 +61,17 @@ function insertActionLine(){
     var app_list_actions=document.getElementById("app_list_actions").value;
 
     var tableBody = document.createElement("tr");
-    tableBody.id = "aow_actions_group_body"+actln;
+    tableBody.id = "shared_rules_actions_group_body"+actln;
     document.getElementById('actionLines').appendChild(tableBody);
 
     var a=tableBody.insertCell(0);
     var table = document.createElement("table");
-    table.id = "aow_actions_table" + actln;
+    table.id = "shared_rules_actions_table" + actln;
     table.className = "action-table";
     a.appendChild(table);
 
     tablebody = document.createElement("tbody");
-    tablebody.id = "aow_actions_body" + actln;
+    tablebody.id = "shared_rules_actions_body" + actln;
     table.appendChild(tablebody);
 
 
@@ -81,18 +81,18 @@ function insertActionLine(){
     var a1 = x.insertCell(0);
     a1.scope="row";
     a1.setAttribute("field", "action");
-    a1.innerHTML= "<label>"+ SUGAR.language.get('SharedSecurityRulesActions', 'LBL_SELECT_ACTION') +":</label><select name='aow_actions_action[" + actln + "]' id='aow_actions_action" + actln + "' onchange='getView(" + actln + ");'>"+ app_list_actions +"</select>";
+    a1.innerHTML= "<label>"+ SUGAR.language.get('shared_rules_actions', 'LBL_SELECT_ACTION') +":</label><select name='shared_rules_actions_action[" + actln + "]' id='shared_rules_actions_action" + actln + "' onchange='getView(" + actln + ");'>"+ app_list_actions +"</select>";
 
     var b1 = x.insertCell(1);
     b1.scope="row";
     b1.setAttribute("field", "name");
-    b1.innerHTML= "<label>"+SUGAR.language.get('SharedSecurityRulesActions', 'LBL_NAME')+":</label><input name='aow_actions_name[" + actln + "]' id='aow_actions_name" + actln + "' type='text'>";
+    b1.innerHTML= "<label>"+SUGAR.language.get('shared_rules_actions', 'LBL_NAME')+":</label><input name='shared_rules_actions_name[" + actln + "]' id='shared_rules_actions_name" + actln + "' type='text'>";
 
     var c1 = x.insertCell(2);
     c1.scope="row";
     c1.setAttribute("field", "delete");
-  c1.innerHTML = "<span class='delete-btn'><a style='cursor: pointer;' id='aow_actions_delete_line" + actln + "' tabindex='116' onclick='markActionLineDeleted(" + actln + ")' class='btn btn-danger'><img src='themes/"+SUGAR.themes.theme_name+"/images/id-ff-clear.png' alt='X'></a></span>";
-    c1.innerHTML += "<input type='hidden' name='aow_actions_deleted[" + actln + "]' id='aow_actions_deleted" + actln + "' value='0'><input type='hidden' name='aow_actions_id[" + actln + "]' id='aow_actions_id" + actln + "' value=''>";
+  c1.innerHTML = "<span class='delete-btn'><a style='cursor: pointer;' id='shared_rules_actions_delete_line" + actln + "' tabindex='116' onclick='markActionLineDeleted(" + actln + ")' class='btn btn-danger'><img src='themes/"+SUGAR.themes.theme_name+"/images/id-ff-clear.png' alt='X'></a></span>";
+    c1.innerHTML += "<input type='hidden' name='shared_rules_actions_deleted[" + actln + "]' id='shared_rules_actions_deleted" + actln + "' value='0'><input type='hidden' name='shared_rules_actions_id[" + actln + "]' id='shared_rules_actions_id" + actln + "' value=''>";
 
 
     var y = tablebody.insertRow(-1);
@@ -114,9 +114,9 @@ function insertActionLine(){
 function markActionLineDeleted(ln){
 
     // collapse line; update deleted value
-    document.getElementById('aow_actions_group_body' + ln).style.display = 'none';
-    document.getElementById('aow_actions_deleted' + ln).value = '1';
-    document.getElementById('aow_actions_delete_line' + ln).onclick = '';
+    document.getElementById('shared_rules_actions_group_body' + ln).style.display = 'none';
+    document.getElementById('shared_rules_actions_deleted' + ln).value = '1';
+    document.getElementById('shared_rules_actions_delete_line' + ln).onclick = '';
 
     actln_count--;
 }
@@ -134,7 +134,7 @@ function getView(ln, id){
         }
     };
 
-    var action = document.getElementById('aow_actions_action' + ln).value;
+    var action = document.getElementById('shared_rules_actions_action' + ln).value;
     var module = document.getElementById('flow_module').value;
 
     var connectionObject = YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getAction&id="+id+"&aow_action="+action+"&line="+ln+"&aow_module="+module,callback);

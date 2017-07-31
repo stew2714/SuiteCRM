@@ -39,12 +39,12 @@
  */
 
 
-class SharedSecurityRulesFields extends Basic
+class SharedSecurityRulesConditions extends Basic
 {
     public $new_schema = true;
-    public $module_dir = 'SharedSecurityRulesFields';
-    public $object_name = 'SharedSecurityRulesFields';
-    public $table_name = 'sharedsecurityrulesfields';
+    public $module_dir = 'SharedSecurityRulesConditions';
+    public $object_name = 'SharedSecurityRulesConditions';
+    public $table_name = 'sharedsecurityrulesconditions';
     public $importable = false;
 
     public $id;
@@ -86,7 +86,7 @@ class SharedSecurityRulesFields extends Basic
             if ($post_data[$key . 'deleted'][$i] == 1) {
                 $this->mark_deleted($post_data[$key . 'id'][$i]);
             } else {
-                $condition = new SharedSecurityRulesFields();
+                $condition = new SharedSecurityRulesConditions();
                 foreach ($this->field_defs as $field_def) {
                     $field_name = $field_def['name'];
                     if (isset($post_data[$key . $field_name][$i])) {

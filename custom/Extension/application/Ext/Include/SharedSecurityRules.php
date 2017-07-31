@@ -1,8 +1,8 @@
 <?php 
  //WARNING: The contents of this file are auto-generated
-$beanList['SharedSecurityRulesFields'] = 'SharedSecurityRulesFields';
-$beanFiles['SharedSecurityRulesFields'] = 'modules/SharedSecurityRulesFields/SharedSecurityRulesFields.php';
-$moduleList[] = 'SharedSecurityRulesFields';
+$beanList['SharedSecurityRulesConditions'] = 'SharedSecurityRulesConditions';
+$beanFiles['SharedSecurityRulesConditions'] = 'modules/SharedSecurityRulesConditions/SharedSecurityRulesConditions.php';
+$moduleList[] = 'SharedSecurityRulesConditions';
 $beanList['SharedSecurityRules'] = 'SharedSecurityRules';
 $beanFiles['SharedSecurityRules'] = 'modules/SharedSecurityRules/SharedSecurityRules.php';
 $moduleList[] = 'SharedSecurityRules';

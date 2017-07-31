@@ -29,15 +29,15 @@ function display_condition_lines($focus, $field, $value, $view){
 
     $html = '';
 
-    if (!is_file('cache/jsLanguage/SharedSecurityRulesFields/' . $GLOBALS['current_language'] . '.js')) {
+    if (!is_file('cache/jsLanguage/SharedSecurityRulesConditions/' . $GLOBALS['current_language'] . '.js')) {
         require_once ('include/language/jsLanguage.php');
-        jsLanguage::createModuleStringsCache('SharedSecurityRulesFields', $GLOBALS['current_language']);
+        jsLanguage::createModuleStringsCache('SharedSecurityRulesConditions', $GLOBALS['current_language']);
     }
-    $html .= '<script src="cache/jsLanguage/SharedSecurityRulesFields/'. $GLOBALS['current_language'] . '.js"></script>';
+    $html .= '<script src="cache/jsLanguage/SharedSecurityRulesConditions/'. $GLOBALS['current_language'] . '.js"></script>';
 
     if($view == 'EditView'){
 
-        $html .= '<script src="modules/SharedSecurityRulesFields/conditionLines.js"></script>';
+        $html .= '<script src="modules/SharedSecurityRulesConditions/conditionLines.js"></script>';
         $html .= "<table border='0' cellspacing='4' width='100%' id='conditionLines'></table>";
 
         $html .= "<div style='padding-top: 10px; padding-bottom:10px;'>";
@@ -52,12 +52,12 @@ function display_condition_lines($focus, $field, $value, $view){
             $html .= "flow_module = \"".$focus->flow_module."\";";
             $html .= "document.getElementById('btn_ConditionLine').disabled = '';";
             if($focus->id != ''){
-                $sql = "SELECT id FROM sharedsecurityrulesfields WHERE sa_shared_sec_rules_id = '".$focus->id."' AND deleted = 0 ORDER BY 
+                $sql = "SELECT id FROM sharedsecurityrulesconditions WHERE sa_shared_sec_rules_id = '".$focus->id."' AND deleted = 0 ORDER BY 
 condition_order ASC";
                 $result = $focus->db->query($sql);
 
                 while ($row = $focus->db->fetchByAssoc($result)) {
-                    $condition_name = new SharedSecurityRulesFields();
+                    $condition_name = new SharedSecurityRulesConditions();
                     $condition_name->retrieve($row['id']);
                     $condition_name->module_path = unserialize(base64_decode($condition_name->module_path));
                     if($condition_name->module_path == '')$condition_name->module_path = $focus->flow_module;
@@ -75,7 +75,7 @@ condition_order ASC";
 
     }
     else if($view == 'DetailView'){
-        $html .= '<script src="modules/SharedSecurityRulesFields/conditionLines.js"></script>';
+        $html .= '<script src="modules/SharedSecurityRulesConditions/conditionLines.js"></script>';
         $html .= "<table border='0' cellspacing='0' width='100%' id='conditionLines'></table>";
 
 
@@ -84,11 +84,11 @@ condition_order ASC";
             $html .= "<script>";
             $html .= "flow_rel_modules = \"".trim(preg_replace('/\s+/', ' ', getModuleRelationships($focus->flow_module)))."\";";
             $html .= "flow_module = \"".$focus->flow_module."\";";
-            $sql = "SELECT id FROM sharedsecurityrulesfields WHERE sa_shared_sec_rules_id = '".$focus->id."' AND deleted = 0 ORDER BY condition_order ASC";
+            $sql = "SELECT id FROM sharedsecurityrulesconditions WHERE sa_shared_sec_rules_id = '".$focus->id."' AND deleted = 0 ORDER BY condition_order ASC";
             $result = $focus->db->query($sql);
 
             while ($row = $focus->db->fetchByAssoc($result)) {
-                $condition_name = new SharedSecurityRulesFields();
+                $condition_name = new SharedSecurityRulesConditions();
                 $condition_name->retrieve($row['id']);
                 $condition_name->module_path = unserialize(base64_decode($condition_name->module_path));
                 if(empty($condition_name->module_path))$condition_name->module_path[0] = $focus->flow_module;

@@ -108,7 +108,7 @@ $dictionary['SharedSecurityRules'] = array(
                     array(
                         'name' => 'display_condition_lines',
                         'returns' => 'html',
-                        'include' => 'modules/SharedSecurityRulesFields/fieldsLines.php'
+                        'include' => 'modules/SharedSecurityRulesConditions/fieldsLines.php'
                     ),
             ),
         'action_lines' =>
@@ -141,13 +141,13 @@ $dictionary['SharedSecurityRules'] = array(
                 'bean_name' => 'sharedsecurityrulesactions',
                 'source' => 'non-db',
             ),
-        'sharedsecurityrulesfields' =>
+        'sharedsecurityrulesconditions' =>
             array(
-                'name' => 'sharedsecurityrulesfields',
+                'name' => 'sharedsecurityrulesconditions',
                 'type' => 'link',
-                'relationship' => 'sharedsecurityrules_sharedsecurityrulesfields',
-                'module' => 'SharedSecurityRulesFields',
-                'bean_name' => 'sharedsecurityrulesfields',
+                'relationship' => 'sharedsecurityrules_sharedsecurityrulesconditions',
+                'module' => 'SharedSecurityRulesConditions',
+                'bean_name' => 'sharedsecurityrulesconditions',
                 'source' => 'non-db',
             ),
 
@@ -163,13 +163,13 @@ $dictionary['SharedSecurityRules'] = array(
                 'rhs_key' => 'sa_shared_security_rules_id',
                 'relationship_type' => 'one-to-many',
             ),
-        'sharedsecurityrules_sharedsecurityrulesfields' =>
+        'sharedsecurityrules_sharedsecurityrulesconditions' =>
             array(
                 'lhs_module' => 'SharedSecurityRules',
                 'lhs_table' => 'sharedsecurityrules',
                 'lhs_key' => 'id',
-                'rhs_module' => 'SharedSecurityRulesFields',
-                'rhs_table' => 'sharedsecurityrulesfields',
+                'rhs_module' => 'SharedSecurityRulesConditions',
+                'rhs_table' => 'sharedsecurityrulesconditions',
                 'rhs_key' => 'sa_shared_sec_rules_id',
                 'relationship_type' => 'one-to-many',
             ),

@@ -106,13 +106,13 @@ class SharedSecurityRules extends Basic
 
         parent::save($check_notify);
 
-        require_once('modules/SharedSecurityRulesFields/SharedSecurityRulesFields.php');
-        $condition = new SharedSecurityRulesFields();
-        $condition->save_lines($_POST, $this, 'aow_conditions_');
+        require_once('modules/SharedSecurityRulesConditions/SharedSecurityRulesConditions.php');
+        $condition = new SharedSecurityRulesConditions();
+        $condition->save_lines($_POST, $this, 'shared_rules_conditions_');
 
         require_once('modules/SharedSecurityRulesActions/SharedSecurityRulesActions.php');
         $action = new SharedSecurityRulesActions();
-        $action->save_lines($_POST, $this, 'aow_actions_');
+        $action->save_lines($_POST, $this, 'shared_rules_actions_');
     }
 
     /**
@@ -173,8 +173,7 @@ class SharedSecurityRules extends Basic
                                 }
                             }
                         }
-                    }elseif( ($targetType == "Specify User" && $current_user->id ==
-                                                                $action->parameters['email'][$key]) ||
+                    }elseif( ($targetType == "Specify User" && $current_user->id ==  $action->parameters['email'][$key]) ||
                         ($targetType == "Users" && in_array("all", $action->parameters['email'][$key]) ) )
                     {
                         //we have found a possible record to check against.
@@ -198,7 +197,7 @@ class SharedSecurityRules extends Basic
      * @return bool
      */
     private function checkConditions($rule, $moduleBean,$view,$action,$key,  $result = true){
-        $rel = "sharedsecurityrulesfields";
+        $rel = "sharedsecurityrulesconditions";
         $rule->load_relationship($rel);
         $conditions = $rule->{$rel}->getBeans();
         if(count($conditions) != 0) {

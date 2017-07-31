@@ -38,8 +38,8 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$dictionary['SharedSecurityRulesFields'] = array(
-    'table' => 'sharedsecurityrulesfields',
+$dictionary['SharedSecurityRulesConditions'] = array(
+    'table' => 'sharedsecurityrulesconditions',
     'audited' => true,
     'inline_edit' => true,
     'duplicate_merge' => true,
@@ -183,4 +183,4 @@ $dictionary['SharedSecurityRulesFields'] = array(
 if (!class_exists('VardefManager')) {
         require_once('include/SugarObjects/VardefManager.php');
 }
-VardefManager::createVardef('SharedSecurityRulesFields', 'SharedSecurityRulesFields', array('basic','assignable','security_groups'));
+VardefManager::createVardef('SharedSecurityRulesConditions', 'SharedSecurityRulesConditions', array('basic','assignable','security_groups'));

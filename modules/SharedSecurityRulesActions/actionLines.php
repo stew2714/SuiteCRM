@@ -106,7 +106,7 @@ function display_action_lines(SugarBean $focus, $field, $value, $view){
             $action_name = new SharedSecurityRulesActions();
             $action_name->retrieve($row['id']);
 
-            $html .= "<tr><td>". $action_name->action_order ."</td><td>".$action_name->name."</td><td>". translate('LBL_'.strtoupper($action_name->action),'AOW_Actions')."</td></tr>";
+            $html .= "<tr><td>". $action_name->action_order ."</td><td>".$action_name->name."</td><td>". translate('LBL_'.strtoupper($action_name->action),'SharedSecurityRulesActions')."</td></tr>";
         }
         $html .= "</table>";
     }

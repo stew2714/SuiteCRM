@@ -25,7 +25,7 @@ var currentln;
 var emailln = new Array();
 
 function show_edit_template_link(field, ln) {
-    var field1 = document.getElementById('aow_actions_edit_template_link' + ln);
+    var field1 = document.getElementById('shared_rules_actions_edit_template_link' + ln);
 
     if (field.selectedIndex == 0) {
         field1.style.visibility = "hidden";
@@ -39,7 +39,7 @@ function refresh_email_template_list(template_id, template_name) {
 }
 
 function refresh_template_list(template_id, template_name, ln) {
-    var field = document.getElementById('aow_actions_param_email_template' + ln);
+    var field = document.getElementById('shared_rules_actions_param_email_template' + ln);
     var bfound = 0;
     for (var i = 0; i < field.options.length; i++) {
         if (field.options[i].value == template_id) {
@@ -60,7 +60,7 @@ function refresh_template_list(template_id, template_name, ln) {
     }
 
     //enable the edit button.
-    var field1 = document.getElementById('aow_actions_edit_template_link' + ln);
+    var field1 = document.getElementById('shared_rules_actions_edit_template_link' + ln);
     field1.style.visibility = "visible";
 }
 
@@ -81,7 +81,7 @@ function open_email_template_form(ln) {
 
 function edit_email_template_form(ln) {
     currentln = ln;
-    var field = document.getElementById('aow_actions_param_email_template' + ln);
+    var field = document.getElementById('shared_rules_actions_param_email_template' + ln);
     URL = "index.php?module=EmailTemplates&action=EditView&inboundEmail=1&return_module=AOW_WorkFlow&base_module=AOW_WorkFlow";
     if (field.options[field.selectedIndex].value != 'undefined') {
         URL += "&record=" + field.options[field.selectedIndex].value;
@@ -114,7 +114,7 @@ function show_emailField(ln, cln, value){
     if (typeof value === 'undefined') { value = ''; }
 
     flow_module = document.getElementById('flow_module').value;
-    var aow_emailtype = document.getElementById('aow_actions_param'+ln+'_email_target_type'+cln).value;
+    var aow_emailtype = document.getElementById('shared_rules_actions_param'+ln+'_email_target_type'+cln).value;
     if(aow_emailtype != ''){
         var callback = {
             success: function(result) {
@@ -127,7 +127,7 @@ function show_emailField(ln, cln, value){
             }
         }
 
-        var aow_field_name = "aow_actions_param["+ln+"][email]["+cln+"]";
+        var aow_field_name = "shared_rules_actions_param["+ln+"][email]["+cln+"]";
 
         YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getEmailField&aow_module="+flow_module+"&aow_newfieldname="+aow_field_name+"&aow_type="+aow_emailtype+"&aow_value="+value,callback);
     }
@@ -138,8 +138,8 @@ function show_emailField(ln, cln, value){
 
 function load_emailline(ln, to, type, value){
     cln = add_emailLine(ln);
-    document.getElementById("aow_actions_param"+ln+"_accesslevel"+cln).value = to;
-    document.getElementById("aow_actions_param"+ln+"_email_target_type"+cln).value = type;
+    document.getElementById("shared_rules_actions_param"+ln+"_accesslevel"+cln).value = to;
+    document.getElementById("shared_rules_actions_param"+ln+"_email_target_type"+cln).value = type;
     show_emailField(ln, cln, value);
 }
 
@@ -161,9 +161,9 @@ function add_emailLine(ln){
     var a = x.insertCell(0);
     a.innerHTML = "<button type='button' id='emailLine"+ln+"_delete" + emailln[ln]+"' class='button' value='Remove Line' tabindex='116' onclick='clear_emailLine(" + ln + ",this);'><img src='themes/default/images/id-ff-remove-nobg.png' alt='Remove Line'></button> ";
 
-    a.innerHTML += "<select tabindex='116' name='aow_actions_param["+ln+"][accesslevel]["+emailln[ln]+"]' id='aow_actions_param"+ln+"_accesslevel"+emailln[ln]+"'>" + sharedGroupRules + "</select> ";
+    a.innerHTML += "<select tabindex='116' name='shared_rules_actions_param["+ln+"][accesslevel]["+emailln[ln]+"]' id='shared_rules_actions_param"+ln+"_accesslevel"+emailln[ln]+"'>" + sharedGroupRules + "</select> ";
 
-    a.innerHTML += "<select tabindex='116' name='aow_actions_param["+ln+"][email_target_type]["+emailln[ln]+"]' id='aow_actions_param"+ln+"_email_target_type"+emailln[ln]+"' onchange='show_emailField(" + ln + "," + emailln[ln] + ");'>" + aow_email_type_list + "</select> ";
+    a.innerHTML += "<select tabindex='116' name='shared_rules_actions_param["+ln+"][email_target_type]["+emailln[ln]+"]' id='shared_rules_actions_param"+ln+"_email_target_type"+emailln[ln]+"' onchange='show_emailField(" + ln + "," + emailln[ln] + ");'>" + aow_email_type_list + "</select> ";
 
     a.innerHTML += "<span id='emailLine"+ln+"_field"+emailln[ln]+"'></span>";
 
@@ -203,22 +203,22 @@ function showElem(id){
 }
 
 function targetTypeChanged(ln){
-    var elem = document.getElementById("aow_actions_param_email_target_type"+ln);
+    var elem = document.getElementById("shared_rules_actions_param_email_target_type"+ln);
     if(elem.value === 'Email Address'){
-        showElem("aow_actions_param_email"+ln);
-        hideElem("aow_actions_param_email_target"+ln);
-        hideElem("aow_actions_email_user_span"+ln);
+        showElem("shared_rules_actions_param_email"+ln);
+        hideElem("shared_rules_actions_param_email_target"+ln);
+        hideElem("shared_rules_actions_email_user_span"+ln);
     }else if(elem.value === 'Specify User'){
-        hideElem("aow_actions_param_email"+ln);
-        hideElem("aow_actions_param_email_target"+ln);
-        showElem("aow_actions_email_user_span"+ln);
+        hideElem("shared_rules_actions_param_email"+ln);
+        hideElem("shared_rules_actions_param_email_target"+ln);
+        showElem("shared_rules_actions_email_user_span"+ln);
     }else if(elem.value === 'Related Field'){
-        hideElem("aow_actions_param_email"+ln);
-        showElem("aow_actions_param_email_target"+ln);
-        hideElem("aow_actions_email_user_span"+ln);
+        hideElem("shared_rules_actions_param_email"+ln);
+        showElem("shared_rules_actions_param_email_target"+ln);
+        hideElem("shared_rules_actions_email_user_span"+ln);
     }else if(elem.value === 'Record Email'){
-        hideElem("aow_actions_param_email"+ln);
-        hideElem("aow_actions_param_email_target"+ln);
-        hideElem("aow_actions_email_user_span"+ln);
+        hideElem("shared_rules_actions_param_email"+ln);
+        hideElem("shared_rules_actions_param_email_target"+ln);
+        hideElem("shared_rules_actions_email_user_span"+ln);
     }
 }
