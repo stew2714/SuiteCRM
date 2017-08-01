@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['ic_yes_c']['name']='ic_yes_c';
+$dictionary['Opportunity']['fields']['ic_yes_c']['default_value']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['default']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['display_default']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['len']='10';
+$dictionary['Opportunity']['fields']['ic_yes_c']['required']=false;
+$dictionary['Opportunity']['fields']['ic_yes_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['ic_yes_c']['audited']=0;
+$dictionary['Opportunity']['fields']['ic_yes_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['ic_yes_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['ic_yes_c']['options']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['help']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['comments']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['importable']='true';
+$dictionary['Opportunity']['fields']['ic_yes_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['ic_yes_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['ic_yes_c']['ext2']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['ext4']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['ext3']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['ic_yes_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['ic_yes_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['ic_yes_c']['vname']='LBL_IC_YES_C';
+$dictionary['Opportunity']['fields']['ic_yes_c']['source']='custom_fields';
+
+ ?>

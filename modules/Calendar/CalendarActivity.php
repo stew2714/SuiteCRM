@@ -249,10 +249,14 @@ class CalendarActivity
                     if (isset($seen_ids[$focusBean->id])) {
                         continue;
                     }
-                    $in_group = SecurityGroup::groupHasAccess($key, $focusBean->id, 'list');
-                    $show_as_busy = !ACLController::checkAccess($key, 'list', $current_user->id === $user_id, 'module',
-                        $in_group);
-                    $focusBean->show_as_busy = $show_as_busy;
+
+					/* BEGIN - SECURITY GROUPS */
+					//Show as busy if current user is not in a group associated to the record
+					require_once("modules/SecurityGroups/SecurityGroup.php");
+					$in_group = SecurityGroup::groupHasAccess($key,$focusBean->id,'list');
+					$show_as_busy = !(ACLController::checkAccess($key, 'list', $current_user->id == $user_id,'module', $in_group));
+					$focusBean->show_as_busy = $show_as_busy;
+					/* END - SECURITY GROUPS */
 
                     $seen_ids[$focusBean->id] = 1;
                     $act = new CalendarActivity($focusBean);

@@ -67,8 +67,15 @@ global $theme;
 
 $GLOBALS['log']->info("EmailMarketing Edit View");
 $xtpl=new XTemplate ('modules/EmailMarketing/EditView.html');
+//BEGIN - SECURITY GROUPS - create rights
+/**  
 if(!ACLController::checkAccess('EmailTemplates', 'edit', true)){
+*/
+if(!ACLController::checkAccess('EmailTemplates', 'create', true)){
 	unset($mod_strings['LBL_CREATE_EMAIL_TEMPLATE']);
+}
+//END - SECURITY GROUPS - create rights
+if(!ACLController::checkAccess('EmailTemplates', 'edit', true)){
 	unset($mod_strings['LBL_EDIT_EMAIL_TEMPLATE']);
 }
 $xtpl->assign("MOD", $mod_strings);

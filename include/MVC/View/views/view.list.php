@@ -90,8 +90,29 @@ class ViewList extends SugarView
     function listViewPrepare()
     {
         $module = $GLOBALS['module'];
-
+        /* BEGIN - SECURITY GROUPS */ 
+        $metadataFile = null;
+        $foundViewDefs = false;
+        if(empty($_SESSION['groupLayout'])) {
+            //get primary group id of current user and check to see if a layout exists for that group
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            $primary_group_id = SecurityGroup::getPrimaryGroupID();
+            if(!empty($primary_group_id) && file_exists('custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/listviewdefs.php')){
+                $_SESSION['groupLayout'] = $primary_group_id;
+                $metadataFile = 'custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/listviewdefs.php';
+            }       
+        } else {
+            if(file_exists('custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/listviewdefs.php')){
+                $metadataFile = 'custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/listviewdefs.php';
+            }       
+        }
+        if(isset($metadataFile)){
+            $foundViewDefs = true;
+        }
+        else {
         $metadataFile = $this->getMetaDataFile();
+        }
+        /* END - SECURITY GROUPS */ 
 
         if (!file_exists($metadataFile))
             sugar_die($GLOBALS['app_strings']['LBL_NO_ACTION']);
@@ -180,7 +201,17 @@ class ViewList extends SugarView
 
         if (isset($this->options['show_title']) && $this->options['show_title']) {
             $moduleName = isset($this->seed->module_dir) ? $this->seed->module_dir : $GLOBALS['mod_strings']['LBL_MODULE_NAME'];
+
+//BEGIN - SECURITY GROUPS - create rights
+/**  
             echo $this->getModuleTitle(true);
+*/
+            $show_create_link = true;
+            if(ACLController::moduleSupportsACL($this->seed->module_dir) && !ACLController::checkAccess($this->seed->module_dir, 'create', true)){
+                $show_create_link = false;
+            }
+            echo $this->getModuleTitle($show_create_link);
+//END - SECURITY GROUPS - create rights
         }
     }
 

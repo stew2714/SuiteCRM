@@ -94,31 +94,6 @@ class EloquaAccount
         $fieldValues[3]->id = "100183"; // Account Rating
         $fieldValues[3]->value = $bean->rating;
 
-        $fieldValues[4] = new fieldValues;
-        $fieldValues[4]->type = "FieldValue";
-        $fieldValues[4]->id = "100198"; // Annual Revenue
-        $fieldValues[4]->value = $bean->annual_revenue;
-
-        $fieldValues[5] = new fieldValues;
-        $fieldValues[5]->type = "FieldValue";
-        $fieldValues[5]->id = "100199"; // Industry
-        $fieldValues[5]->value = $bean->industry;
-
-        $fieldValues[6] = new fieldValues;
-        $fieldValues[6]->type = "FieldValue";
-        $fieldValues[6]->id = "100200"; // Owner/SalesPerson
-        $fieldValues[6]->value = "";
-
-        $fieldValues[7] = new fieldValues;
-        $fieldValues[7]->type = "FieldValue";
-        $fieldValues[7]->id = "100201"; // Ownership
-        $fieldValues[7]->value = "";
-
-        $fieldValues[7] = new fieldValues;
-        $fieldValues[7]->type = "FieldValue";
-        $fieldValues[7]->id = "100202"; // Type
-        $fieldValues[7]->value = "";
-
         // Currently Broken??? Breaks when trying to write info into it.
         //$fieldValues[4] = new fieldValues;
         //$fieldValues[4]->type = "FieldValue";

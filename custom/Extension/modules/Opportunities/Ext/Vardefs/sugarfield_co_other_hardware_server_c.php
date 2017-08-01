@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['name']='co_other_hardware_server_c';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['default_value']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['default']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['display_default']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['len']='255';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['required']=false;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['type']='real';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['audited']=0;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['options']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['help']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['comments']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['importable']='true';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['ext2']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['ext4']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['ext3']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['vname']='LBL_CO_OTHER_HARDWARE_SERVER_C';
+$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['source']='custom_fields';
+
+ ?>

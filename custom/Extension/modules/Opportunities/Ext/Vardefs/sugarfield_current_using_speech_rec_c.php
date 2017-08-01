@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['name']='current_using_speech_rec_c';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['default_value']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['default']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['display_default']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['len']='10';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['required']=false;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['audited']=0;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['options']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['help']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['comments']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['importable']='true';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['ext2']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['ext4']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['ext3']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['vname']='LBL_CURRENT_USING_SPEECH_REC_C';
+$dictionary['Opportunity']['fields']['current_using_speech_rec_c']['source']='custom_fields';
+
+ ?>

@@ -4,6 +4,7 @@ $dictionary['Lead']['fields']['lead_source_most_recent_c'] = array (
     'vname' => 'LBL_LEAD_SOURCE_MOST_RECENT_C',
     'type' => 'varchar',
     'len' => '50',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['crm_c'] = array (
@@ -11,12 +12,14 @@ $dictionary['Lead']['fields']['crm_c'] = array (
     'vname' => 'LBL_CRM_C',
     'type' => 'varchar',
     'len' => '60',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['target_decision_date_c'] = array (
     'name' => 'target_decision_date_c',
     'vname' => 'LBL_TARGET_DECISION_DATE_C',
     'type' => 'date',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['product_interest_c'] = array (
@@ -24,6 +27,7 @@ $dictionary['Lead']['fields']['product_interest_c'] = array (
     'vname' => 'LBL_PRODUCT_INTEREST_C',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['lead_rating_c'] = array (
@@ -31,6 +35,7 @@ $dictionary['Lead']['fields']['lead_rating_c'] = array (
     'vname' => 'LBL_LEAD_RATING_C',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['eloqua_lead_rating_c'] = array (
@@ -38,6 +43,7 @@ $dictionary['Lead']['fields']['eloqua_lead_rating_c'] = array (
     'vname' => 'LBL_ELOQUA_LEAD_RATING_C',
     'type' => 'varchar',
     'len' => '50',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['latitude_c'] = array (
@@ -46,6 +52,7 @@ $dictionary['Lead']['fields']['latitude_c'] = array (
     'type' => 'float',
     'default' => 0,
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['longitude_c'] = array (
@@ -54,6 +61,7 @@ $dictionary['Lead']['fields']['longitude_c'] = array (
     'type' => 'float',
     'default' => '0',
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['geostatus_c'] = array (
@@ -63,6 +71,7 @@ $dictionary['Lead']['fields']['geostatus_c'] = array (
     'len' => '255',
     'default' => 0,
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['primary_campaign_c'] = array (
@@ -70,6 +79,7 @@ $dictionary['Lead']['fields']['primary_campaign_c'] = array (
     'vname' => 'LBL_PRIMARY_CAMPAIGN_C',
     'type' => 'varchar',
     'len' => '50',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['primary_business_focus_c'] = array (
@@ -77,6 +87,7 @@ $dictionary['Lead']['fields']['primary_business_focus_c'] = array (
     'vname' => 'LBL_PRIMARY_BUSINESS_FOCUS_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['number_of_healthcare_customers_c'] = array (
@@ -84,12 +95,14 @@ $dictionary['Lead']['fields']['number_of_healthcare_customers_c'] = array (
     'vname' => 'LBL_NUMBER_OF_HEALTHCARE_CUSTOMERS_C',
     'type' => 'varchar',
     'len' => '30',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['annual_revenue_c'] = array (
     'name' => 'annual_revenue_c',
     'vname' => 'LBL_ANNUAL_REVENUE_C',
     'type' => 'float',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['years_in_business_c'] = array (
@@ -97,6 +110,7 @@ $dictionary['Lead']['fields']['years_in_business_c'] = array (
     'vname' => 'LBL_YEARS_IN_BUSINESS_C',
     'type' => 'varchar',
     'len' => '30',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['geographic_region_served_c'] = array (
@@ -104,6 +118,7 @@ $dictionary['Lead']['fields']['geographic_region_served_c'] = array (
     'vname' => 'LBL_GEOGRAPHIC_REGION_SERVED_C',
     'type' => 'varchar',
     'len' => '30',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['partnership_strategy_c'] = array (
@@ -111,6 +126,7 @@ $dictionary['Lead']['fields']['partnership_strategy_c'] = array (
     'vname' => 'LBL_PARTNERSHIP_STRATEGY_C',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['current_client_opps_c'] = array (
@@ -118,12 +134,14 @@ $dictionary['Lead']['fields']['current_client_opps_c'] = array (
     'vname' => 'LBL_CURRENT_CLIENT_OPPS_C',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['ctct21_opted_out_by_ctct_c'] = array (
     'name' => 'ctct21_opted_out_by_ctct_c',
     'vname' => 'LBL_CTCT21_OPTED_OUT_BY_CTCT_C',
     'type' => 'bool',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['date_requested_c'] = array (
@@ -131,6 +149,7 @@ $dictionary['Lead']['fields']['date_requested_c'] = array (
     'vname' => 'LBL_DATE_REQUESTED_C',
     'type' => 'varchar',
     'len' => '50',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['time_requested_c'] = array (
@@ -138,6 +157,7 @@ $dictionary['Lead']['fields']['time_requested_c'] = array (
     'vname' => 'LBL_TIME_REQUESTED_C',
     'type' => 'varchar',
     'len' => '255',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['current_ehr_c'] = array (
@@ -145,6 +165,7 @@ $dictionary['Lead']['fields']['current_ehr_c'] = array (
     'vname' => 'LBL_CURRENT_EHR_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['currently_using_speech_rec_c'] = array (
@@ -152,6 +173,7 @@ $dictionary['Lead']['fields']['currently_using_speech_rec_c'] = array (
     'vname' => 'LBL_CURRENTLY_USING_SPEECH_REC_C',
     'type' => 'varchar',
     'len' => '10',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['lead_group_c'] = array (
@@ -159,12 +181,14 @@ $dictionary['Lead']['fields']['lead_group_c'] = array (
     'vname' => 'LBL_LEAD_GROUP_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['number_of_doctors_c'] = array (
     'name' => 'number_of_doctors_c',
     'vname' => 'LBL_NUMBER_OF_DOCTORS_C',
     'type' => 'float',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['timeframe_for_purchase_c'] = array (
@@ -172,6 +196,7 @@ $dictionary['Lead']['fields']['timeframe_for_purchase_c'] = array (
     'vname' => 'LBL_TIMEFRAME_FOR_PURCHASE_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['directions_c'] = array (
@@ -179,6 +204,7 @@ $dictionary['Lead']['fields']['directions_c'] = array (
     'vname' => 'LBL_DIRECTIONS_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['channel_c'] = array (
@@ -186,6 +212,7 @@ $dictionary['Lead']['fields']['channel_c'] = array (
     'vname' => 'LBL_CHANNEL_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['preferred_follow_up_c'] = array (
@@ -193,6 +220,7 @@ $dictionary['Lead']['fields']['preferred_follow_up_c'] = array (
     'vname' => 'LBL_PREFERRED_FOLLOW_UP_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['ehr_vendor_c'] = array (
@@ -200,6 +228,7 @@ $dictionary['Lead']['fields']['ehr_vendor_c'] = array (
     'vname' => 'LBL_EHR_VENDOR_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['bucket_c'] = array (
@@ -207,18 +236,21 @@ $dictionary['Lead']['fields']['bucket_c'] = array (
     'vname' => 'LBL_BUCKET_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['swipe_date_c'] = array (
     'name' => 'swipe_date_c',
     'vname' => 'LBL_SWIPE_DATE_C',
     'type' => 'date',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['leads_to_delete_c'] = array (
     'name' => 'leads_to_delete_c',
     'vname' => 'LBL_LEADS_TO_DELETE_C',
     'type' => 'bool',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['SEM_LS_C'] = array (
@@ -226,6 +258,7 @@ $dictionary['Lead']['fields']['SEM_LS_C'] = array (
     'vname' => 'LBL_SEM_LS_C',
     'type' => 'varchar',
     'len'  => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['GPO_C'] = array (
@@ -233,12 +266,14 @@ $dictionary['Lead']['fields']['GPO_C'] = array (
     'vname' => 'LBL_GPO_C',
     'type' => 'varchar',
     'len' => '100',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['vip_account_c'] = array (
     'name' => 'vip_account_c',
     'vname' => 'LBL_VIP_ACCOUNT_C',
     'type' => 'bool',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['zba_ss_c'] = array (
@@ -246,4 +281,36 @@ $dictionary['Lead']['fields']['zba_ss_c'] = array (
     'vname' => 'LBL_ZBA_SS_C',
     'type' => 'varchar',
     'len' => '3',
+    'source' => 'custom_fields',
+);
+
+$dictionary['Lead']['fields']['sf_id_c'] = array (
+    'name' => 'sf_id_c',
+    'vname' => 'LBL_SF_ID_C',
+    'type' => 'varchar',
+    'len' => '18',
+    'source' => 'custom_fields',
+);
+
+
+$dictionary['Lead']['fields']['company_c'] = array (
+    'name' => 'company_c',
+    'vname' => 'LBL_COMPANY_C',
+    'type' => 'varchar',
+    'len' => '255',
+    'source' => 'custom_fields',
+);
+
+$dictionary['Lead']['fields']['converteddate_c'] = array (
+    'name' => 'converteddate_c',
+    'vname' => 'LBL_CONVERTEDDATE_C',
+    'type' => 'date',
+    'source' => 'custom_fields',
+);
+
+$dictionary['Lead']['fields']['lastactivitydate_c'] = array (
+    'name' => 'lastactivitydate_c',
+    'vname' => 'LBL_LASTACTIVITYDATE_C',
+    'type' => 'date',
+    'source' => 'custom_fields',
 );

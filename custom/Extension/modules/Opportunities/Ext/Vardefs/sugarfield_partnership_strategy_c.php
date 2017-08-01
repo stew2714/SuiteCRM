@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['name']='partnership_strategy_c';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['default_value']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['default']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['display_default']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['len']='255';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['required']=false;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['type']='text';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['audited']=0;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['options']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['help']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['comments']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['importable']='true';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['ext2']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['ext4']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['ext3']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['rows']=NULL;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['cols']=NULL;
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['vname']='LBL_PARTNERSHIP_STRATEGY_C';
+$dictionary['Opportunity']['fields']['partnership_strategy_c']['source']='custom_fields';
+
+ ?>

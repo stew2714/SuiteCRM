@@ -87,4 +87,6 @@ $mod_strings = array (
   'LNK_NEW_AOR_REPORT_RECORD' => "Create Report",
   'LNK_AOR_REPORTS_LIST' => "View Reports",
 
+  'LBL_ADD_CONDITION' => "Add Condition",
+
 );

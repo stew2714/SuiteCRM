@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['name']='blank_agreed_go_live_c';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['default_value']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['default']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['display_default']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['len']='255';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['required']=false;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['type']='timestamp';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['audited']=0;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['massupdate']=0;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['options']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['help']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['comments']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['importable']='true';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['duplicate_merge']=0;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['duplicate_merge_dom_value']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['merge_filter']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['ext2']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['ext4']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['ext3']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['labelValue']=NULL;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['unified_search']=0;
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['full_text_search']='';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['vname']='LBL_BLANK_AGREED_GO_LIVE_C';
+$dictionary['Opportunity']['fields']['blank_agreed_go_live_c']['source']='custom_fields';
+
+ ?>

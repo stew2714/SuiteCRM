@@ -1,34 +1,39 @@
 <?php
 // Eloqua Record ID
-$dictionary['Lead']['fields']['eloqua_id'] = array(
-    'name' => 'eloqua_id',
+$dictionary['Lead']['fields']['eloqua_id_c'] = array(
+    'name' => 'eloqua_id_c',
     'vname' => 'LBL_ELOQUA_ID',
     'type' => 'int',
     'len' => 5,
     'default' => 0,
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 // Annual Revenue Field
-$dictionary['Lead']['fields']['annual_revenue_c'] = array (
+$dictionary['Lead']['fields']['annual_revenue_c'] = array(
     'name' => 'annual_revenue_c',
-    'vname' => 'LBL_ANNUAL_REVENUE_C',
-    'type' => 'float',
+    'vname' => 'LBL_ANNUAL_REVENUE',
+    'type' => 'int',
+    'len' => 99,
+    'default' => 0,
+    'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 // Number of Employees
-$dictionary['Lead']['fields']['number_of_employees'] = array(
-    'name' => 'number_of_employees',
+$dictionary['Lead']['fields']['number_of_employees_c'] = array(
+    'name' => 'number_of_employees_c',
     'vname' => 'LBL_NUMBER_OF_EMPLOYEES',
     'type' => 'int',
-    'len' => 5,
     'default' => 0,
     'reportable' => false,
+    'source' => 'custom_fields',
 );
 
 // Industry Select, Options are from Eloqua Instance
-$dictionary['Lead']['fields']['industry'] = array(
-    'name' => 'industry',
+$dictionary['Lead']['fields']['industry_c'] = array(
+    'name' => 'industry_c',
     'vname' => 'LBL_INDUSTRY',
     'type' => 'enum',
     'massupdate' => 0,
@@ -49,14 +54,15 @@ $dictionary['Lead']['fields']['industry'] = array(
     'studio' => 'visible',
     'dependency' => false,
     'inline_edit' => false,
+    'source' => 'custom_fields',
 );
 
-// Industry Select, Options are from Eloqua Instance
-$dictionary['Lead']['fields']['rating'] = array(
-    'name' => 'industry',
-    'vname' => 'LBL_RATING',
+$dictionary['Lead']['fields']['rating_c'] = array (
+    'name' => 'rating_c',
+    'vname' => 'LBL_ELOQUA_LEAD_RATING',
     'type' => 'varchar',
     'len' => '40',
+    'source' => 'custom_fields',
 );
 
 $dictionary['Lead']['fields']['primary_address_country']['type']='enum';

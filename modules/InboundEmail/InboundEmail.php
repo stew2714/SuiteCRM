@@ -4863,6 +4863,19 @@ eoq;
 	 */
 	function retrieveByGroupFolderId($groupFolderId) {
 		$q = 'SELECT id FROM inbound_email WHERE groupfolder_id = \''.$groupFolderId.'\' AND deleted = 0 ';
+
+		/* BEGIN - SECURITY GROUPS */
+		global $sugar_config;
+		//if you want to allow admins access to all then add !is_admin($current_user) as an and condition
+		if(isset($sugar_config['securitysuite_inbound_email'])
+			&& $sugar_config['securitysuite_inbound_email'] == true
+		) {
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			global $current_user;
+			$group_where = SecurityGroup::getGroupWhere($this->table_name,$this->module_dir,$current_user->id);
+			$q .= " AND (".$group_where.") ";
+		}
+		/* END - SECURITY GROUPS */
 		$r = $this->db->query($q, true);
 
 		$beans = array();
@@ -4890,7 +4903,18 @@ eoq;
         // hence the awkward or check -- rbacon
 		$q = "SELECT inbound_email.id FROM inbound_email {$teamJoin} WHERE is_personal = 0 AND (groupfolder_id is null OR groupfolder_id = '') AND mailbox_type not like 'bounce' AND inbound_email.deleted = 0 AND status = 'Active' ";
 
-
+		/* BEGIN - SECURITY GROUPS */
+		global $sugar_config;
+		//if you want to allow admins access to all then add !is_admin($current_user) as an and condition
+		if(isset($sugar_config['securitysuite_inbound_email'])
+			&& $sugar_config['securitysuite_inbound_email'] == true
+		) {
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			global $current_user;
+			$group_where = SecurityGroup::getGroupWhere($this->table_name,$this->module_dir,$current_user->id);
+			$q .= " AND (".$group_where.") ";
+		}
+		/* END - SECURITY GROUPS */
 
 		$r = $this->db->query($q, true);
 
@@ -4928,7 +4952,19 @@ eoq;
 
 
 		$q = "SELECT DISTINCT inbound_email.id FROM inbound_email {$teamJoin} WHERE is_personal = 0 AND mailbox_type not like 'bounce' AND status = 'Active' AND inbound_email.deleted = 0 ";
-
+		/* BEGIN - SECURITY GROUPS */
+		global $sugar_config;
+		//if you want to allow admins access to all then add !is_admin($current_user) as an and condition
+		if(isset($sugar_config['securitysuite_inbound_email'])
+			&& $sugar_config['securitysuite_inbound_email'] == true
+		) {
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			global $current_user;
+			$group_where = SecurityGroup::getGroupWhere($this->table_name,$this->module_dir,$current_user->id);
+			$q .= " AND (".$group_where.") ";
+		}
+		/* END - SECURITY GROUPS */
+		
 		$r = $this->db->query($q, true);
 
 		while($a = $this->db->fetchByAssoc($r)) {

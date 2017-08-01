@@ -34,11 +34,6 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
     ),
     'panels' => 
@@ -130,11 +125,15 @@ array (
             'name' => 'company_signed_date',
             'label' => 'LBL_COMPANY_SIGNED_DATE',
           ),
-          1 => '',
         ),
         7 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'c1_cust_contacts1_aos_contracts_name',
+            'label' => 'LBL_C1_CUST_CONTACTS1_AOS_CONTRACTS_FROM_C1_CUST_CONTACTS1_TITLE',
+          ),
         ),
       ),
       'lbl_line_items' => 
@@ -155,10 +154,6 @@ array (
             'name' => 'line_items',
             'label' => 'LBL_LINE_ITEMS',
           ),
-        ),
-        2 => 
-        array (
-          0 => '',
         ),
         3 => 
         array (
@@ -221,33 +216,6 @@ array (
           array (
             'name' => 'total_amount',
             'label' => 'LBL_GRAND_TOTAL',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'apttus_primary_contact_c',
-            'label' => 'LBL_APTTUS_PRIMARY_CONTACT_C',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'facility_contact_e_mail_address_billing_c',
-            'label' => 'LBL_FACILITY_CONTACT_E_MAIL_ADDRESS_BILLING_C',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'facility_contact_title_c',
-            'label' => 'LBL_FACILITY_CONTACT_TITLE_C',
           ),
         ),
       ),

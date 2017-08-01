@@ -37,41 +37,65 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'category_c',
+            'comment' => '',
+            'label' => 'LBL_CATEGORY',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'category',
+            'name' => 'agreement_c',
             'comment' => '',
-            'label' => 'LBL_CATEGORY',
+            'label' => 'LBL_AGREEMENT',
           ),
-          1 => '',
+          1 => 'assigned_user_name',
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'date_timesheet',
+            'name' => 'date_c',
             'comment' => '',
-            'label' => 'LBL_DATE_TIMESHEET',
+            'label' => 'LBL_DATE',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'lastactivitydate_c',
+            'comment' => '',
+            'label' => 'LBL_LAST_ACTIVITY_DATE',
+          ),
         ),
         3 => 
         array (
-          0 => 'description',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'hours_c',
+            'label' => 'LBL_HOURS',
+          ),
+          1 => 
+          array (
+            'name' => 'date2_c',
+            'comment' => '',
+            'label' => 'LBL_DATE2',
+          ),
         ),
         4 => 
         array (
-          0 => 
-          array (
-            'name' => 'hours_timesheet',
-            'label' => 'LBL_HOURS_TIMESHEETS',
-          ),
+          0 => 'description',
           1 => 
+          array (
+            'name' => 'additional_notes_c',
+            'comment' => '',
+            'label' => 'LBL_ADDITIONAL_NOTES',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
           array (
             'name' => 'additional_notes',
             'comment' => '',

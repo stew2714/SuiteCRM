@@ -214,6 +214,41 @@ class SugarWidgetFieldEnum extends SugarWidgetReportField
     public function displayInput($layout_def) {
         global $app_list_strings;
 
+ 		/* BEGIN - SECURITY GROUPS */ 	
+		//add support for functions in Sugar. Code snippet mimics SearchForm2.php
+        if(isset($layout_def['function']) && $layout_def['name'] == 'securitygroup') { //eggsurplus: only doing for our field to be extra safe
+
+        	$layout_def['type']='multienum';
+
+   	 		if(is_array($layout_def['function'])) {
+   	 		   $layout_def['function']['preserveFunctionValue']=true;
+   	 		}
+
+   	 		$function = $layout_def['function'];
+
+   			if(is_array($function) && isset($function['name'])){
+   				$function_name = $layout_def['function']['name'];
+   			}else{
+   				$function_name = $layout_def['function'];
+   			}
+
+			if(!empty($layout_def['function']['returns']) && $layout_def['function']['returns'] == 'html'){
+				if(!empty($layout_def['function']['include'])){
+						require_once($layout_def['function']['include']);
+				}
+				$value = call_user_func($function_name, $this->seed, $name, $value, $this->view);
+				$layout_def['value'] = $value;
+			}else{
+				if(!isset($function['params']) || !is_array($function['params'])) {
+					$layout_def['options'] = call_user_func($function_name, $this->seed, $name, $value, $this->view);
+				} else {
+					$layout_def['options'] = call_user_func_array($function_name, $function['params']);
+				}
+				$ops = $layout_def['options']; //eggsurplus: added to set for below
+			}
+   	 	} else
+ 		/* END - SECURITY GROUPS */ 
+
         if(!empty($layout_def['remove_blank']) && $layout_def['remove_blank']) {
             if ( isset($layout_def['options']) &&  is_array($layout_def['options']) ) {
                 $ops = $layout_def['options'];

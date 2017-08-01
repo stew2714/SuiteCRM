@@ -88,12 +88,12 @@ class eloquaSyncAccounts
 
         // Fetch Existing Eloqua Contacts
         $bean = BeanFactory::getBean('Accounts');
-        $clause = "accounts.eloqua_id != 0";
+        $clause = "accounts_cstm.eloqua_id_c != 0";
         $current_accounts = $bean->get_full_list('', $clause);
 
         // Loop through existing Eloqua Contacts in the CRM and put them in an Array for Comparison
         foreach ($current_accounts as $account) {
-            $existing_eloqua_accounts[] = $account->eloqua_id;
+            $existing_eloqua_accounts[] = $account->eloqua_id_c;
         }
 
         // Loop through the fetched Eloqua Contacts from the API and see if they exist in the system
@@ -101,7 +101,7 @@ class eloquaSyncAccounts
             if (!in_array($account->id, $existing_eloqua_accounts)) {
                 $results[] = $this->addAccountToCRM($account);
             } elseif (in_array($account->id, $existing_eloqua_accounts)) {
-                $results[] = $this->updateContactInCRM($account);
+                $results[] = $this->updateAccountInCRM($account);
             }
         }
 
@@ -113,7 +113,7 @@ class eloquaSyncAccounts
         // Build information for the new Lead entry
         $account = BeanFactory::newBean('Accounts');
         $account->salutation = $contact->title;
-        $account->eloqua_id = $contact->id;
+        $account->eloqua_id_c = $contact->id;
         $account->first_name = $contact->firstName;
         $account->last_name = $contact->lastName;
         $account->email_address = $contact->emailAddress;
@@ -131,7 +131,7 @@ class eloquaSyncAccounts
         $account->primary_address_state = $contact->province;
         $account->phone_work = $contact->businessPhone;
         $account->primary_address_country = $contact->country;
-        $account->eloqua_country = $contact->countrty;
+        $account->eloqua_country_c = $contact->countrty;
         $account->primary_address_postalcode = $contact->postalCode;
 
         $custom_fields_container = array();
@@ -158,16 +158,16 @@ class eloquaSyncAccounts
         return $account;
     }
 
-    public function updateContactInCRM($contact)
+    public function updateAccountInCRM($contact)
     {
         // Fetch Existing Eloqua Contacts
         $bean = BeanFactory::getBean('Accounts');
-        $clause = "accounts.eloqua_id = " . $contact->id;
+        $clause = "accounts_cstm.eloqua_id_c = " . $contact->id;
         $accounts = $bean->get_full_list('', $clause);
 
         foreach ($accounts as $current_account) {
             $current_account->salutation = $contact->title;
-            $current_account->eloqua_id = $contact->id;
+            $current_account->eloqua_id_c = $contact->id;
             $current_account->first_name = $contact->firstName;
             $current_account->last_name = $contact->lastName;
             $current_account->email_address = $contact->emailAddress;
@@ -184,8 +184,8 @@ class eloquaSyncAccounts
             $current_account->primary_address_city = $contact->city;
             $current_account->primary_address_state = $contact->province;
             $current_account->phone_work = $contact->businessPhone;
-            $current_account->primary_address_country = $contact->country;
-            $current_account->eloqua_country = $contact->countrty;
+            $current_account->primary_address_country= $contact->country;
+            $current_account->eloqua_country = $contact->country;
             $current_account->primary_address_postalcode = $contact->postalCode;
 
             $custom_fields_container = array();
@@ -220,11 +220,11 @@ class eloquaSyncAccounts
         $possibilities = array(
             'email_opt_out' => '100043',        // Email Opt Out
             'salutation' => '100017',           // Salutation
-            'annual_revenue' => '100047',       // Annual Revenue
-            'number_of_employees' => '100184',  // Number of Employees
-            'industry' => '100046',             // Industry
-            //'status' => '100048',             // Lead Status
-            //'rating' => '100081',             // Lead Rating Combined
+            'annual_revenue_c' => '100047',       // Annual Revenue
+            'number_of_employees_c' => '100184',  // Number of Employees
+            'industry_c' => '100046',             // Industry
+            //'status' => '100048',               // Lead Status
+            //'rating' => '100081',               // Lead Rating Combined
         );
 
         // Get the Key where there is a match in the array to the ID supplied to the function

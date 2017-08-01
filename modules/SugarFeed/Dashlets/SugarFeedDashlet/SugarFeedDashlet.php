@@ -249,6 +249,56 @@ var $selectedCategories = array();
 
 			$where .= $module_limiter;
 
+            /* BEGIN - SECURITY GROUPS */
+            global $dictionary;
+            $all_modules = array_merge($regular_modules,$owner_modules);
+            if(!is_admin($GLOBALS['current_user']) && count($all_modules) > 0)
+            {
+                $securitygroup_where = ' AND ( ';
+                $first = true;
+                foreach($all_modules as $module)
+                {
+                    if(!$first)
+                    {
+                        $securitygroup_where .= ' OR ';
+                    }
+                    $first = false;
+                    if($module == 'UserFeed')
+                    {
+                        $securitygroup_where .= " (sugarfeed.related_module = 'UserFeed') ";
+                        continue; //special case for UserFeed
+                    }
+                    $securitygroup_where .= " (sugarfeed.related_module = '".$module."' ";
+                    //assume any module from this point on supports ACL
+                    if(ACLController::requireSecurityGroup($module, 'list'))
+                    {
+                        $mod_bean = BeanFactory::getBean($module);
+
+                        $securitygroup_where .= " AND
+        (
+            '".$current_user->id."' = (select assigned_user_id from ".$mod_bean->table_name." where id = sugarfeed.related_id)
+        OR  EXISTS (SELECT  1
+                  FROM    securitygroups secg
+                          INNER JOIN securitygroups_users secu 
+                            ON secg.id = secu.securitygroup_id 
+                               AND secu.deleted = 0 
+                               AND secu.user_id = '".$current_user->id."'
+                          INNER JOIN securitygroups_records secr 
+                            ON secg.id = secr.securitygroup_id 
+                               AND secr.deleted = 0 
+                               AND secr.module = '".$module."'
+                       WHERE   secr.record_id = sugarfeed.related_id
+                               AND secg.deleted = 0)
+        ) ";
+                    }
+                    $securitygroup_where .= ' ) ';
+                }
+                $securitygroup_where .= ' ) ';
+
+                $where .= $securitygroup_where;
+            }
+            /* END - SECURITY GROUPS */
+
             $this->lvs->setup($this->seedBean, $this->displayTpl, $where , $lvsParams, 0, $this->displayRows,
                               array('name',
                                     'description',
@@ -493,6 +543,11 @@ enableQS(false);
         preg_match_all('/\[(\w+)\:/', $listview, $alt_modules);
 
         //now process each token to create the proper url and image tags in feed, leaving a string for the alt to be replaced in next step
+        /* BEGIN - SECURITY GROUPS */
+        //hide links for those that shouldn't have one
+        $listview = preg_replace('/\[(\w+)\:([\w\-\d]*)\:([^\]]*)\]\[HIDELINK\]/', '$3', $listview);
+        /* END - SECURITY GROUPS */ 
+
 		$listview = preg_replace('/\[(\w+)\:([\w\-\d]*)\:([^\]]*)\]/', '<a href="index.php?module=$1&action=DetailView&record=$2"><img src="themes/default/images/$1.gif" border=0 REPLACE_ALT>$3</a>', $listview); /*SKIP_IMAGE_TAG*/
 
 

@@ -82,10 +82,11 @@ $mod_strings = array (
   'LBL_HOOKUP_CONFIRM_PART2' => ". Vuoi continuare?",
   
   'LBL_GROUP_SELECT' => 'Seleziona quali gruppi devono avere accesso a questo record',
-  'LBL_ERROR_DUPLICATE' => 'A causa di un possibile duplicato trovato da SuiteCRM dovrai aggiungere manualmente Gruppi di Sicurezza al record creato.',
+  'LBL_ERROR_DUPLICATE' => 'A causa di un possibile duplicato trovato da SugarCRM dovrai aggiungere manualmente Gruppi di Sicurezza al record creato.',
 
   'LBL_INBOUND_EMAIL' => 'Email in Ingresso',
   'LBL_INBOUND_EMAIL_DESC' => "Permetti l'accesso all'account email solo se l'utente appartiene ad un gruppo associato a quell'account.",
   'LBL_PRIMARY_GROUP' => 'Gruppo Primario',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED' => 'Calendario condiviso - Nascondi ristretta',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED_DESC' => 'Mostra elementi solo sul calendario condiviso che l\'utente ha diritto a. Lasciare deselezionata se gli utenti hanno bisogno di vedere quando altri utenti sono occupati.',
 );
-?>

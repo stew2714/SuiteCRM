@@ -107,21 +107,36 @@ class LayoutManager
 				'title'=>'LBL_NEW_BUTTON_TITLE',
 				'access_key'=>'LBL_NEW_BUTTON_KEY',
 				'form_value'=>'LBL_NEW_BUTTON_LABEL',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
             'SugarWidgetSubPanelTopButtonQuickCreate' => array(
                 'widget_class'=>'SugarWidgetSubPanelTopButtonQuickCreate',
                 'title'=>'LBL_NEW_BUTTON_TITLE',
                 'access_key'=>'LBL_NEW_BUTTON_KEY',
                 'form_value'=>'LBL_NEW_BUTTON_LABEL',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
                 'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
             ),
             'SugarWidgetSubPanelTopCreateLeadNameButton' => array(
                 'widget_class'=>'SugarWidgetSubPanelTopCreateLeadNameButton',
                 'title'=>'LBL_NEW_BUTTON_TITLE',
                 'access_key'=>'LBL_NEW_BUTTON_KEY',
                 'form_value'=>'LBL_NEW_BUTTON_LABEL',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
                 'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
             ),
 			'SugarWidgetSubPanelTopScheduleMeetingButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopScheduleMeetingButton',
@@ -129,7 +144,12 @@ class LayoutManager
 				'title'=>'LBL_NEW_BUTTON_TITLE',
 				'access_key'=>'LBL_NEW_BUTTON_KEY',
 				'form_value'=>'LNK_NEW_MEETING',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 			'SugarWidgetSubPanelTopScheduleCallButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopScheduleCallButton',
@@ -137,7 +157,12 @@ class LayoutManager
 				'title'=>'LBL_NEW_BUTTON_TITLE',
 				'access_key'=>'LBL_NEW_BUTTON_KEY',
 				'form_value'=>'LNK_NEW_CALL',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 			'SugarWidgetSubPanelTopCreateTaskButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopCreateTaskButton',
@@ -145,7 +170,12 @@ class LayoutManager
 				'title'=>'LBL_NEW_BUTTON_TITLE',
 				'access_key'=>'LBL_NEW_BUTTON_KEY',
 				'form_value'=>'LNK_NEW_TASK',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 			'SugarWidgetSubPanelTopCreateNoteButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopCreateNoteButton',
@@ -153,7 +183,12 @@ class LayoutManager
 				'title'=>'LBL_NEW_BUTTON_TITLE',
 				'access_key'=>'LBL_NEW_BUTTON_KEY',
 				'form_value'=>'LNK_NEW_NOTE',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 			'SugarWidgetSubPanelTopCreateContactAccountButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopButton',
@@ -169,7 +204,12 @@ class LayoutManager
 					'primary_address_postalcode' => 'shipping_address_postalcode',
 					'to_email_addrs' => 'email1'
 					),
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 			'SugarWidgetSubPanelTopCreateContact' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopButton',
@@ -181,7 +221,12 @@ class LayoutManager
         			'account_id' => 'account_id',
 					'account_name' => 'account_name',
 				),
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 			'SugarWidgetSubPanelTopCreateRevisionButton'=> array(
 				'widget_class'=>'SugarWidgetSubPanelTopButton',
@@ -196,7 +241,12 @@ class LayoutManager
 					'document_filename' => 'filename',
         			'document_revision_id' => 'document_revision_id',
 				),
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 
 			'SugarWidgetSubPanelTopCreateDirectReport' => array(
@@ -209,7 +259,12 @@ class LayoutManager
         			'reports_to_name' => 'name',
 					'reports_to_id' => 'id',
 				),
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 			),
 			'SugarWidgetSubPanelTopSelectFromReportButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopSelectReportsButton',
@@ -217,7 +272,12 @@ class LayoutManager
 				'title'=>'LBL_SELECT_REPORTS_BUTTON_LABEL',
 				'access_key'=>'LBL_SELECT_BUTTON_KEY',
 				'form_value'=>'LBL_SELECT_REPORTS_BUTTON_LABEL',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 				'add_to_passthru_data'=>array (
 					'return_type'=>'report',
 				)
@@ -228,7 +288,12 @@ class LayoutManager
                 'title'=>'LBL_NEW_BUTTON_TITLE',
                 'access_key'=>'LBL_NEW_BUTTON_KEY',
                 'form_value'=>'LBL_NEW_BUTTON_LABEL',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
                 'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
             ),
 			'SugarWidgetSubPanelAddToProspectListButton' => array(
 				'widget_class'=>'SugarWidgetSubPanelTopSelectButton',
@@ -236,7 +301,12 @@ class LayoutManager
 				'title'=>'LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL',
 				'access_key'=>'LBL_ADD_TO_PROSPECT_LIST_BUTTON_KEY',
 				'form_value'=>'LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL',
+                //BEGIN - SECURITY GROUPS - create rights
+                /**
 				'ACL'=>'edit',
+                */
+                'ACL'=>'create',
+                //END - SECURITY GROUPS - create rights
 				'add_to_passthru_data'=>array (
 					'return_type'=>'addtoprospectlist',
 					'parent_module'=>'ProspectLists',

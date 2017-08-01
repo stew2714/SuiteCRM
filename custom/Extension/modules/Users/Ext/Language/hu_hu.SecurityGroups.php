@@ -1,9 +1,5 @@
 ﻿<?php
 
-$mod_strings = array_merge($mod_strings,
-	array(
-		 'LBL_LIST_NONINHERITABLE' => "Nem Örökölhető",
-         'LBL_PRIMARY_GROUP' => "elsodleges csoport",
-	)
-);
-?>
+$mod_strings['LBL_LIST_NONINHERITABLE'] = "Nem Örökölhető";
+$mod_strings['LBL_PRIMARY_GROUP'] = "Elsődleges csoport";
+

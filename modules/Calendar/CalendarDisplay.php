@@ -667,7 +667,56 @@ class CalendarDisplay {
 			if(!empty($_REQUEST['edit_shared'])){
 				$ss->assign("edit_shared",true);
 			}
+
+			/** BEGIN - SECURITY GROUPS */
+			if(!empty($securitygroup) && !isset($_REQUEST['securitygroup_id'])) {
+				$securitygroup_id = $securitygroup;
+			}
+			elseif(isset($_REQUEST['securitygroup_id'])) {
+				$securitygroup_id = $_REQUEST['securitygroup_id'];
+				$current_user->setPreference('securitygroup_id', $_REQUEST['securitygroup_id']);
+			} else {
+				$securitygroup_id = '';
+			}
+
+			if(empty($_SESSION['securitygroup_id'])) {
+				$_SESSION['securitygroup_id'] = "";
+			}
+			global $current_user;
+			require_once("modules/SecurityGroups/SecurityGroup.php");
+			$group_array[""] = ""; //for --None-- option
+			
+			if(is_admin($current_user)) {
+				$securitygroups = SecurityGroup::getAllSecurityGroups();
+				foreach($securitygroups as $group) {
+					$group_array[$group['id']] = $group['name'];
+				}
+			} else {
+				$securitygroups = SecurityGroup::getUserSecurityGroups($current_user->id);
+				foreach($securitygroups as $group) {
+					$group_array[$group['id']] = $group['name'];
+				}
+			}
+
+			$ss->assign("securitygroups_options",get_select_options_with_id($group_array, $securitygroup_id));
+			
+			if(!empty($securitygroup_id)) {
+				require_once('modules/SecurityGroups/SecurityGroup.php');
+				$securitygroup = new SecurityGroup();
+				$securitygroup->retrieve($securitygroup_id);
+				$users_array = $securitygroup->getMembers();
+				$user_ids = array();
+				foreach($users_array as $user) {
+					$user_ids[$user['id']] = ($GLOBALS['sugar_config']['use_real_names'] == true ? $user['first_name'].' '.$user['last_name'] : $user['user_name']);
+				}
+				$ss->assign("users_options",get_select_options_with_id($user_ids, $this->cal->shared_ids));
+			} else {
+			//Original code below that should be the same
+
 			$ss->assign("users_options",get_select_options_with_id(get_user_array(false), $this->cal->shared_ids));
+			}
+			/** END - SECURITY GROUPS */
+
 			$tpl = get_custom_file_if_exists("modules/Calendar/tpls/shared_users.tpl");
 			echo $ss->fetch($tpl);
 	}

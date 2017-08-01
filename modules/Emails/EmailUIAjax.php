@@ -314,7 +314,12 @@ if (!defined('sugarEntry') || !sugarEntry){
     case "getQuickCreateForm":
     	$GLOBALS['log']->debug("********** EMAIL 2.0 - Asynchronous - at: getQuickCreateForm");
         if(isset($_REQUEST['qc_module']) && !empty($_REQUEST['qc_module'])) {
+//BEGIN - SECURITY GROUPS - create rights
+/**  
         	if (!ACLController::checkAccess($_REQUEST['qc_module'],'edit', true)) {
+*/
+            if (!ACLController::checkAccess($_REQUEST['qc_module'],'create', true)) {
+//END - SECURITY GROUPS - create rights
         		echo trim($json->encode(array('html' => translate('LBL_NO_ACCESS', 'ACL')), true));
         		break;
         	}
