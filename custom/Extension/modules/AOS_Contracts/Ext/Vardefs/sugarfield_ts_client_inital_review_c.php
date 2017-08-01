@@ -6,7 +6,7 @@ $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['default']='
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['required']=false;
-$dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['type']='date';
+$dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['type']='datetimecombo';
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['massupdate']=0;
@@ -25,6 +25,7 @@ $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['labelValue'
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['unified_search']=0;
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['full_text_search']='';
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['dbType']='datetime';
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['vname']='LBL_TS_CLIENT_INITAL_REVIEW_C';
 $dictionary['AOS_Contracts']['fields']['ts_client_inital_review_c']['source']='custom_fields';
 

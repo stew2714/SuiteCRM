@@ -91,7 +91,6 @@ array (
             'comment' => '',
             'label' => 'LBL_DATE_TIMESHEET',
           ),
-          1 => '',
         ),
         4 => 
         array (
@@ -157,6 +156,17 @@ array (
         array (
           0 => 'date_modified',
           1 => 'date_entered',
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
+          ),
+          1 => 
+          array (
+            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
+          ),
         ),
       ),
     ),

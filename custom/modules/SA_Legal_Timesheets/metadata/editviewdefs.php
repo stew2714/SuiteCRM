@@ -100,6 +100,17 @@ array (
             'name' => 'additional_notes',
             'comment' => '',
           ),
+          1 => 
+          array (
+            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
+          ),
         ),
       ),
     ),

@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['name_of_product_c']['name']='name_of_product_c';
+$dictionary['SA_Products']['fields']['name_of_product_c']['default_value']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['default']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['display_default']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['len']='4099';
+$dictionary['SA_Products']['fields']['name_of_product_c']['required']=false;
+$dictionary['SA_Products']['fields']['name_of_product_c']['type']='text';
+$dictionary['SA_Products']['fields']['name_of_product_c']['audited']=0;
+$dictionary['SA_Products']['fields']['name_of_product_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['name_of_product_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['name_of_product_c']['options']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['help']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['comments']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['importable']='true';
+$dictionary['SA_Products']['fields']['name_of_product_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['name_of_product_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['name_of_product_c']['ext2']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['ext4']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['ext3']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['name_of_product_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['name_of_product_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['name_of_product_c']['rows']=NULL;
+$dictionary['SA_Products']['fields']['name_of_product_c']['cols']=NULL;
+$dictionary['SA_Products']['fields']['name_of_product_c']['vname']='LBL_NAME_OF_PRODUCT_C';
+$dictionary['SA_Products']['fields']['name_of_product_c']['source']='custom_fields';
+
+ ?>

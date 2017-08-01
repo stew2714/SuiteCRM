@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['name']='tos_pricing_other_c';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['default_value']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['default']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['display_default']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['len']='255';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['required']=false;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['audited']=0;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['massupdate']=0;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['options']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['help']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['comments']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['importable']='true';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['duplicate_merge']=0;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['merge_filter']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['ext2']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['ext4']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['ext3']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['labelValue']=NULL;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['unified_search']=0;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['full_text_search']='';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['rows']=NULL;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['cols']=NULL;
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['vname']='LBL_TOS_PRICING_OTHER_C';
+$dictionary['SA_Services']['fields']['tos_pricing_other_c']['source']='custom_fields';
+
+ ?>
