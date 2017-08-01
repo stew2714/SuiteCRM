@@ -136,8 +136,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'c1_cust_contacts1_tasks_name',
-            'label' => 'LBL_C1_CUST_CONTACTS1_TASKS_FROM_C1_CUST_CONTACTS1_TITLE',
+            'name' => 'aos_contracts_activities_1_tasks_name',
           ),
         ),
       ),

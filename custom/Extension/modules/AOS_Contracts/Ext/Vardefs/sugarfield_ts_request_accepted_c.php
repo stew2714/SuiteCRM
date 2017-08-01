@@ -1,0 +1,32 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['name']='ts_request_accepted_c';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['default_value']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['default']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['display_default']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['required']=false;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['type']='datetimecombo';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['audited']=0;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['massupdate']=0;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['options']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['help']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['comments']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['duplicate_merge']=0;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['duplicate_merge_dom_value']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['merge_filter']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['ext2']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['ext4']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['ext3']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['labelValue']=NULL;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['unified_search']=0;
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['full_text_search']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['enable_range_search']='';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['dbType']='datetime';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['vname']='LBL_TS_REQUEST_ACCEPTED_C';
+$dictionary['AOS_Contracts']['fields']['ts_request_accepted_c']['source']='custom_fields';
+
+ ?>

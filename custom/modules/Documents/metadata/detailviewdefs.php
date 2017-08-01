@@ -98,9 +98,6 @@ array (
           0 => 'category_id',
           1 => 'subcategory_id',
         ),
-        5 => 
-        array (
-        ),
         6 => 
         array (
           0 => 'related_doc_name',
@@ -110,12 +107,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'sa_legal_timesheets_documents_1_name',
+            'name' => 'aos_contracts_documents_1_name',
           ),
         ),
       ),

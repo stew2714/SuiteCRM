@@ -1,0 +1,30 @@
+<?php
+ // Vardefs from Fields_meta_data table - created: 
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['name']='coding_global_permitted_c';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['default_value']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['default']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['display_default']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['len']='255';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['required']=false;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['type']='bool';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['audited']=0;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['massupdate']=0;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['options']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['help']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['comments']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['importable']='true';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['duplicate_merge']=0;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['duplicate_merge_dom_value']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['merge_filter']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['ext2']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['ext4']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['ext3']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['labelValue']=NULL;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['unified_search']=0;
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['full_text_search']='';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['vname']='LBL_CODING_GLOBAL_PERMITTED_C';
+$dictionary['SA_Products']['fields']['coding_global_permitted_c']['source']='custom_fields';
+
+ ?>
