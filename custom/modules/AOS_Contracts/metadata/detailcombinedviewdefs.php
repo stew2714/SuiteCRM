@@ -115,7 +115,12 @@ $viewdefs = array (
           ),
           1 => 
           array (
-            1 => 'contact',
+            0 => 
+            array (
+              'name' => 'contact',
+              'studio' => 'visible',
+              'label' => 'LBL_CONTACT',
+            ),
           ),
           2 => 
           array (
@@ -1429,9 +1434,6 @@ $viewdefs = array (
               'name' => 'use_of_data_continuous_improvement_c',
               'label' => 'LBL_USE_OF_DATA_CONTINUOUS_IMPROVEMENT_C',
             ),
-          ),
-          148 => 
-          array (
           ),
           149 => 
           array (
