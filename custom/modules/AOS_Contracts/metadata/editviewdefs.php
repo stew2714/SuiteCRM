@@ -26,6 +26,7 @@ array (
       ),
       'useTabs' => true,
       'syncDetailEditViews' => false,
+      'javascript' => '{$LOCK_FILES} {$BEAN_DATA}',
       'tabDefs' => 
       array (
         'DEFAULT' => 
