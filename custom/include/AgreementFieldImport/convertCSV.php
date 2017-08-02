@@ -41,7 +41,12 @@ require_once("ModuleInstall/ModuleInstaller.php");
 
 class convertCSV
 {
+    var $version = "V0.1";
+    var $oneFile = true;
     var $module = "";
+    var $source =  "";
+    var $exempt = array();
+
     public function __construct($fileLocation, $source = 'custom_fields', $module = "")
     {
         $this->exempt = array("id", "name", "id_c");
@@ -128,6 +133,32 @@ class convertCSV
         if(!empty($vardefs['source'])){
             $vardef['source'] = $vardefs['source'];
         }
+
+
+        //lets do a clean.
+
+//        id
+//        name
+//        vname
+//        comments
+//        help
+//        custom_module
+//        type
+//        len
+//        required
+//        default_value
+//        audited
+//        massupdate
+//        duplicate_merge
+//        reportable
+//        importable
+//        ext1
+//        ext2
+//        ext3
+//        ext4
+
+
+
 
 
 
@@ -295,12 +326,30 @@ class convertCSV
     {
         //Hack for the broken cases module
         $vBean = $bean_name == "aCase" ? "Case" : $bean_name;
-        $file_loc = "custom/Extension/modules/{$field->module}/Ext/Vardefs/sugarfield_{$field->name}.php";
-        $language_loc = "custom/Extension/modules/{$field->module}/Ext/Language/en_us.imported_custom_fields.php";
-        $language_out = "";
+        if($this->oneFile == true){
+            $file_loc = "custom/Extension/modules/{$field->module}/Ext/Vardefs/customFields.php";
 
-        $out = "<?php\n // Vardefs from Fields_meta_data table - created: \n";
+        }else{
+            $file_loc = "custom/Extension/modules/{$field->module}/Ext/Vardefs/sugarfield_{$field->name}.php";
+        }
+
+        $out = "<?php\n // Vardefs Creator {$this->version}: \n";
         //$out =  "<?php\n // Vardefs from Fields_meta_data table - created: " . date('Y-m-d H:i:s') . "\n";
+
+        if(file_exists($file_loc)){
+            include($file_loc);
+            foreach ($dictionary[ $vBean ]['fields'] as $property => $defs) {
+                $out .= "\n\n // Vardef Created : {$property} \n\n";
+                foreach($defs as $key =>  $item){
+                    $out .= override_value_to_string_recursive(array($vBean, "fields", $defs['name'], $key), "dictionary", $item) . "\n";
+                }
+            }
+        }
+        $languageLocation = "custom/Extension/modules/{$field->module}/Ext/Language/en_us.imported_custom_fields.php";
+        include($languageLocation);
+
+
+
 
         foreach ($def_override as $property => $val) {
             $out .= override_value_to_string_recursive(array($vBean, "fields", $field->name, $property), "dictionary", $val) . "\n";
@@ -309,11 +358,16 @@ class convertCSV
         $out .= override_value_to_string_recursive(array($vBean, "fields", $field->name, "source"), "dictionary", $field->source) . "\n";
         $out .= "\n ?>";
 
-        if (!file_exists($language_loc)) {
-            $language_out .= "<?php \n";
-        }
+        if(!isset($mod_strings[ $field->vname])){
+            $language_out = "";
 
-        $language_out .= "\$mod_strings['$field->vname'] = '$field->label_english';\n";
+            if (!file_exists($languageLocation)) {
+                $language_out .= "<?php \n";
+            }
+
+            $language_out .= "\$mod_strings['$field->vname'] = '$field->label_english';\n";
+            file_put_contents($languageLocation, $language_out , FILE_APPEND | LOCK_EX);
+        }
 
         if (!file_exists("custom/Extension/modules/{$field->module}/Ext/Vardefs")) {
             mkdir_recursive("custom/Extension/modules/{$field->module}/Ext/Vardefs");
@@ -324,7 +378,7 @@ class convertCSV
         }
 
 
-        file_put_contents($language_loc, $language_out , FILE_APPEND | LOCK_EX);
+
 
         if ($fh = @sugar_fopen($file_loc, 'w')) {
             fputs($fh, $out);
