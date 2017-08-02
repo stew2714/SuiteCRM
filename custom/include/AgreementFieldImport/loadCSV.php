@@ -40,3 +40,5 @@
 require_once('custom/include/AgreementFieldImport/convertCSV.php');
 
 $csv = new convertCSV('custom/include/AgreementFieldImport/agree.csv');
+$csv->oneFile = true;
+$csv->import();

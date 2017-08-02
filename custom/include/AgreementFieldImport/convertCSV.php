@@ -1,39 +1,45 @@
 <?php
 /*********************************************************************************
- * SugarCRM Community Edition is a customer relationship management program developed by
- * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ * Import Script for fields from a single CSV.
  *
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Affero General Public License version 3 as published by the
- * Free Software Foundation with the addition of the following permission added
- * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
- * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
  *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
- * details.
+ * Importing from a CSV this script will not handle the following fields in the CSV.
+ * Anything that is added as custom work (bottom of the script) will be taken
+ * above the items below.
  *
- * You should have received a copy of the GNU Affero General Public License along with
- * this program; if not, see http://www.gnu.org/licenses or write to the Free
- * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
- * 02110-1301 USA.
+ * name
+ * vname
+ * comments
+ * help
+ * module
+ * type
+ * len
+ * required
+ * default_value
+ * audited
+ * massupdate
+ * duplicate_merge
+ * reportable
+ * importable
+ * source
+ * label
  *
- * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
- * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
+ * OneFile - default is false, it will import all fields into one file rather
+ * than separate ones. it will however check the studio file to see if this
+ * field has settings to be included.
  *
- * The interactive user interfaces in modified source and object code versions
- * of this program must display Appropriate Legal Notices, as required under
- * Section 5 of the GNU Affero General Public License version 3.
+ * module - if this is set and not set in the csv it will import all
+ * fields into this module, if it is set for the field then it will
+ * ignore this value
  *
- * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "Powered by
- * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
- * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ * exempt - array of fields which will not be changed by the
+ * importer even if given in the CSV.
+ *
+ *
+ *
+ * Todo
+ *
+ * 1 - Add support for changing labels using import script.
  ********************************************************************************/
 
 require_once('include/parsecsv.lib.php');
@@ -41,184 +47,135 @@ require_once("ModuleInstall/ModuleInstaller.php");
 
 class convertCSV
 {
-    var $version = "V0.1";
-    var $oneFile = true;
+    static $version = "V0.1";
+    var $oneFile = false;
     var $module = "";
-    var $source =  "";
-    var $exempt = array();
+    var $source = "custom_fields";
+    var $exempt = array("id", "name", "id_c");
+    var $csv = "";
 
-    public function __construct($fileLocation, $source = 'custom_fields', $module = "")
+    /**
+     *
+     * convertCSV constructor.
+     * @param $fileLocation
+     */
+    public function __construct($fileLocation)
     {
-        $this->exempt = array("id", "name", "id_c");
-        $this->module = $module;
-        $this->source = $source;
-        $csv = new parseCSV();
-        $csv->auto($fileLocation);
-        $this->translateColumns($csv->data);
+        $this->fileLocation = $fileLocation;
+        $this->csv = new parseCSV();
+        $this->csv->auto($this->fileLocation);
     }
 
-    public function translateColumns($vardefs)
+    /**
+     * Kick off the import of fields.
+     *
+     */
+    public function import()
     {
-        foreach ($vardefs as $vardef) {
-            if($vardef['do no create'] == "X"){
-                continue;
-            }
+        foreach ($this->csv->data as $vardef) {
             $this->cleanColumn($vardef);
         }
     }
 
-
-    public function decodeModule($module){
-
-        switch($module){
-
-            case "a":
-                $module = "AOS_Contracts";
-                break;
-            case "p":
-                $module = "SA_Products";
-                break;
-            case "s":
-                $module = "SA_Services";
-                break;
-        }
-        return $module;
-    }
-
-
-
-
+    /**
+     * Clean Columns and try and place the settings into the array, call custom function for developers.
+     *
+     * @param $vardefs
+     * @return array|bool|string
+     */
     public function cleanColumn($vardefs)
     {
-        $vardef = array();
-        $columns = trim($vardefs['column']);
-        $columns = explode(" ", $columns);
 
-        // Replace double underscores with single underscores (salesforce conversion)
-        $columns[0] = preg_replace('/[_]+/', '_', $columns[0]);
-
-        // Set the name for the new vardef
-        $vardef['name'] = $columns[0];
-
-        if(!empty($vardefs['name'])){
+        $vardef = $this->customClean($vardefs);
+        if($vardef == false){
+            return '';
+        }
+        //lets do a clean.
+        if (!empty($vardefs['name'])) {
             $vardef['name'] = $vardefs['name'];
         }
-
-        // Run the type through the parsing function
-        $type = $this->cleanType($columns[1]);
-
-        // Associate the Type
-        if (isset($type[0]) && !empty($type[0])) {
-            $vardef['type'] = $type[0];
+        if (!empty($vardefs['vname'])) {
+            $vardef['vname'] = $vardefs['vname'];
+        } else {
+            // Guess the label.
+            $vardef['vname'] = "LBL_" . strtoupper($vardef['name']);
         }
-
-        // Associate the Length
-        if (isset($type[1]) && !empty($type[1])) {
-            $vardef['len'] = $type[1];
+        if (!empty($vardefs['comments'])) {
+            $vardef['comments'] = $vardefs['comments'];
         }
-
-        // Associate the Label Reference
-        $vardef['vname'] = "LBL_" . strtoupper($vardef['name']);
-
-        // Generate the Label for English
-        $vardef['label_english'] = $this->makeLabel($vardef['name']);
-
-        // Module Name
-        if(!empty( $vardefs['module'] )){
+        if (!empty($vardefs['help'])) {
+            $vardef['help'] = $vardefs['help'];
+        }
+        if (!empty($vardefs['module'])) {
             $vardef['module'] = $this->decodeModule($vardefs['module']);
-        }elseif(!empty( $this->module ) ){
+        } elseif (!empty($this->module)) {
             $vardef['module'] = $this->module;
         }
-        //if source is set.
-        if(!empty($vardefs['source'])){
+        if (!empty($vardefs['type'])) {
+            $vardef['type'] = $vardefs['type'];
+        }
+        if (!empty($vardefs['len'])) {
+            $vardef['len'] = $vardefs['len'];
+        }
+        if (!empty($vardefs['required'])) {
+            $vardef['required'] = $vardefs['required'];
+        }
+        if (!empty($vardefs['default_value'])) {
+            $vardef['default_value'] = $vardefs['default_value'];
+        }
+        if (!empty($vardefs['audited'])) {
+            $vardef['audited'] = $vardefs['audited'];
+        }
+        if (!empty($vardefs['massupdate'])) {
+            $vardef['massupdate'] = $vardefs['massupdate'];
+        }
+        if (!empty($vardefs['duplicate_merge'])) {
+            $vardef['duplicate_merge'] = $vardefs['duplicate_merge'];
+        }
+        if (!empty($vardefs['reportable'])) {
+            $vardef['reportable'] = $vardefs['reportable'];
+        }
+        if (!empty($vardefs['importable'])) {
+            $vardef['importable'] = $vardefs['importable'];
+        }
+        if (!empty($vardefs['source'])) {
             $vardef['source'] = $vardefs['source'];
         }
 
+        if ($vardefs['label']) {
+            $vardef['label_english'] = $vardefs['label'];
+        } else {
+            // Generate best guess label from field.
+            $vardef['label_english'] = $this->makeLabel($vardef['name']);
+        }
 
-        //lets do a clean.
-
-//        id
-//        name
-//        vname
-//        comments
-//        help
-//        custom_module
-//        type
-//        len
-//        required
-//        default_value
-//        audited
-//        massupdate
-//        duplicate_merge
-//        reportable
-//        importable
-//        ext1
-//        ext2
-//        ext3
-//        ext4
-
-
-
-
-
-
-        if(!empty($vardef['module']) && !in_array( $vardef['name'], $this->exempt ) ) {
-            $result = $this->buildVardef($vardef);
+        if (!empty($vardef['module']) && !in_array($vardef['name'], $this->exempt)) {
+            $result = $this->install_custom_fields(array($vardef));
             return $vardef;
         }
         return "";
     }
 
-    public function cleanType($type)
-    {
-        $type = str_replace(array('(', ')'), ' ', $type);
-        $type = str_replace(',', '', $type);
 
-        $type_array = explode(" ", $type);
-
-        for ($i = 0; $i < count($type_array); $i++) {
-            if ($i == 0) {
-                $type_array[0] = $this->convertTypeName($type_array[0],$type_array[1]);
-            }
-
-            $type_array[$i] = preg_replace('/[^A-Za-z0-9\-]/', '', $type_array[$i]);
-        }
-
-        $type_array = array_filter($type_array);
-
-        return $type_array;
-    }
-
-    public function convertTypeName($type,$length)
-    {
-        if ($type == "numeric") {
-            $type = "int";
-        } elseif ($type == "real") {
-            $type = "float";
-        } elseif ($type == "varchar" && $length >= 255) {
-            $type = "text";
-        } elseif ($type == "timestamp") {
-            $type = "datetime";
-        } elseif ($type == "date") {
-            $type = "datetime";
-        }
-
-        return $type;
-    }
-
+    /**
+     *
+     * Take a best guess at creating the label.
+     * @param $name
+     * @return string
+     */
     function makeLabel($name)
     {
         $label = ucwords(str_replace("_", " ", $name));
-        return $label;
+        $label = rtrim($label, 'C');
+        return trim($label);
     }
 
-    public function buildVardef($vardef)
-    {
-        $result = $this->install_custom_fields(array($vardef));
-
-        return $result;
-    }
-
+    /**
+     *
+     * Fill in the missing gaps of the vardef entries.
+     *
+     * @param $fields
+     */
     public function install_custom_fields($fields)
     {
         global $beanList, $beanFiles;
@@ -245,7 +202,7 @@ class convertCSV
                 if (!isset($field['visibility_grid'])) $field['visibility_grid'] = '';
                 if (!isset($field['comments'])) $field['comments'] = '';
 
-                if (($field['type'] == "datetime")){
+                if (($field['type'] == "datetime")) {
                     $field['type'] = 'datetimecombo';
                     $field['dbType'] = 'datetime';
                 }
@@ -277,6 +234,8 @@ class convertCSV
                     $fieldObject->populateFromRow($field);
                     //$mod->custom_fields->use_existing_labels =  true;
                     //$mod->custom_fields->addFieldObject($fieldObject);
+                    //$fieldObject = array_filter($fieldObject, function($v){return array_filter($v) == array();});;
+                    $fieldObject = (object)array_filter((array)$fieldObject);
                     $this->saveExtendedAttributes($fieldObject);
                 }
             }
@@ -289,6 +248,12 @@ class convertCSV
         }
     }
 
+    /**
+     *
+     * filter the vardefs and make sure that the module in question is ready to accept new custom fields.
+     *
+     * @param $field
+     */
     public function saveExtendedAttributes($field)
     {
         require_once('modules/ModuleBuilder/parsers/StandardField.php');
@@ -297,13 +262,14 @@ class convertCSV
 
         $to_save = array();
         $base_field = get_widget($field->type);
-        if(isset($field->dbType)){
+        if (isset($field->dbType)) {
             $field->vardef_map['dbType'] = "dbType";
         }
         foreach ($field->vardef_map as $property => $fmd_col) {
-            $to_save[$property] = is_string($field->$property) ? htmlspecialchars_decode($field->$property, ENT_QUOTES) : $field->$property;
+            if (!empty($field->$property)) {
+                $to_save[$property] = is_string($field->$property) ? htmlspecialchars_decode($field->$property, ENT_QUOTES) : $field->$property;
+            }
         }
-
         $bean_name = $beanList[$field->module];
 
         // Fix for missing labels in studio.
@@ -313,42 +279,49 @@ class convertCSV
             unset($to_save['label']);
         }
         $file = "custom/Extension/modules/{$field->module}/Ext/Vardefs/enableCustomFields.php";
-        if($GLOBALS["dictionary"][$bean_name]['custom_fields'] == false && !file_exists($file)){
+        if ($GLOBALS["dictionary"][$bean_name]['custom_fields'] == false && $this->source == "custom_fields" && !file_exists($file)) {
             $itemVarDef = "<?php\n // Vardefs from Fields_meta_data table - created: \n";
-            $itemVarDef .= ' $dictionary["' . $bean_name .'"]["custom_fields"] = true;';
-            file_put_contents($file, $itemVarDef , FILE_APPEND | LOCK_EX);
+            $itemVarDef .= ' $dictionary["' . $bean_name . '"]["custom_fields"] = true;';
+            file_put_contents($file, $itemVarDef, FILE_APPEND | LOCK_EX);
         }
 
         $this->writeVardefExtension($bean_name, $field, $to_save);
     }
 
+    /**
+     *
+     * Write the vardefExtension out the the files.
+     *
+     * @param $bean_name
+     * @param $field
+     * @param $def_override
+     * @return bool
+     */
     public function writeVardefExtension($bean_name, $field, $def_override)
     {
         //Hack for the broken cases module
         $vBean = $bean_name == "aCase" ? "Case" : $bean_name;
-        if($this->oneFile == true){
+        if ($this->oneFile == true) {
             $file_loc = "custom/Extension/modules/{$field->module}/Ext/Vardefs/customFields.php";
 
-        }else{
+        } else {
             $file_loc = "custom/Extension/modules/{$field->module}/Ext/Vardefs/sugarfield_{$field->name}.php";
         }
 
         $out = "<?php\n // Vardefs Creator {$this->version}: \n";
         //$out =  "<?php\n // Vardefs from Fields_meta_data table - created: " . date('Y-m-d H:i:s') . "\n";
 
-        if(file_exists($file_loc)){
+        if (file_exists($file_loc)) {
             include($file_loc);
-            foreach ($dictionary[ $vBean ]['fields'] as $property => $defs) {
+            foreach ($dictionary[$vBean]['fields'] as $property => $defs) {
                 $out .= "\n\n // Vardef Created : {$property} \n\n";
-                foreach($defs as $key =>  $item){
+                foreach ($defs as $key => $item) {
                     $out .= override_value_to_string_recursive(array($vBean, "fields", $defs['name'], $key), "dictionary", $item) . "\n";
                 }
             }
         }
         $languageLocation = "custom/Extension/modules/{$field->module}/Ext/Language/en_us.imported_custom_fields.php";
         include($languageLocation);
-
-
 
 
         foreach ($def_override as $property => $val) {
@@ -358,7 +331,7 @@ class convertCSV
         $out .= override_value_to_string_recursive(array($vBean, "fields", $field->name, "source"), "dictionary", $field->source) . "\n";
         $out .= "\n ?>";
 
-        if(!isset($mod_strings[ $field->vname])){
+        if (!isset($mod_strings[$field->vname])) {
             $language_out = "";
 
             if (!file_exists($languageLocation)) {
@@ -366,7 +339,10 @@ class convertCSV
             }
 
             $language_out .= "\$mod_strings['$field->vname'] = '$field->label_english';\n";
-            file_put_contents($languageLocation, $language_out , FILE_APPEND | LOCK_EX);
+            file_put_contents($languageLocation, $language_out, FILE_APPEND | LOCK_EX);
+        }else{
+            //@todo 1
+            //requires loading the mod_strings and changing the label.
         }
 
         if (!file_exists("custom/Extension/modules/{$field->module}/Ext/Vardefs")) {
@@ -378,8 +354,6 @@ class convertCSV
         }
 
 
-
-
         if ($fh = @sugar_fopen($file_loc, 'w')) {
             fputs($fh, $out);
             fclose($fh);
@@ -388,5 +362,101 @@ class convertCSV
         } else {
             return false;
         }
+    }
+
+
+    /*****
+     *
+     * Custom Code added below for MModal field Import.
+     *
+     *
+     * @param $vardefs
+     * @return array|bool
+     */
+
+
+
+    public function customClean($vardefs){
+        if ($vardefs['do no create'] == "X") {
+            return false;
+        }
+        $vardef = array();
+        $columns = trim($vardefs['column']);
+        $columns = explode(" ", $columns);
+
+        // Replace double underscores with single underscores (salesforce conversion)
+        $columns[0] = preg_replace('/[_]+/', '_', $columns[0]);
+        // Set the name for the new vardef
+        $vardef['name'] = $columns[0];
+        // Run the type through the parsing function
+        $type = $this->cleanType($columns[1]);
+        // Associate the Type
+        if (isset($type[0]) && !empty($type[0])) {
+            $vardef['type'] = $type[0];
+        }
+        // Associate the Length
+        if (isset($type[1]) && !empty($type[1])) {
+            $vardef['len'] = $type[1];
+        }
+        return $vardef;
+    }
+
+    public function cleanType($type)
+    {
+        $type = str_replace(array('(', ')'), ' ', $type);
+        $type = str_replace(',', '', $type);
+
+        $type_array = explode(" ", $type);
+
+        for ($i = 0; $i < count($type_array); $i++) {
+            if ($i == 0) {
+                $type_array[0] = $this->convertTypeName($type_array[0], $type_array[1]);
+            }
+
+            $type_array[$i] = preg_replace('/[^A-Za-z0-9\-]/', '', $type_array[$i]);
+        }
+
+        $type_array = array_filter($type_array);
+
+        return $type_array;
+    }
+
+
+
+    public function convertTypeName($type, $length)
+    {
+        if ($type == "numeric") {
+            $type = "int";
+        } elseif ($type == "real") {
+            $type = "float";
+        } elseif ($type == "varchar" && $length >= 255) {
+            $type = "text";
+        } elseif ($type == "timestamp") {
+            $type = "datetime";
+        } elseif ($type == "date") {
+            $type = "datetime";
+        }
+
+        return $type;
+    }
+
+
+
+    public function decodeModule($module)
+    {
+
+        switch ($module) {
+
+            case "a":
+                $module = "AOS_Contracts";
+                break;
+            case "p":
+                $module = "SA_Products";
+                break;
+            case "s":
+                $module = "SA_Services";
+                break;
+        }
+        return $module;
     }
 }
