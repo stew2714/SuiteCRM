@@ -120,6 +120,7 @@ class buildViews{
                                                                                                '					 onclick="var _form = document.getElementById(\'CreateView\'); _form.action.value=\'Save\'; if(check_form(\'CreateView\'))SUGAR.ajaxUI.submitForm(_form);return false;"; ' .
                                                                                                '                    type="submit" ' .
                                                                                                '                    name="button" ' .
+                                                                                               '                    id="SAVE"     ' .
                                                                                                '                    value="{$APP.LBL_SAVE_BUTTON_LABEL}">');
             $viewdefs['templateMeta']['form']['buttons']['CANCEL'] = 'CANCEL';
         }
@@ -141,16 +142,21 @@ class buildViews{
             $file = "custom/modules/{$this->module}/metadata/" . $team ."/{$newView}viewdefs.php";
             //cache
             $cache_file = "cache/modules/{$this->module}/metadata/" . $team ."/{$newView}viewdefs.php";
+            $cache_file2 = "cache/themes/SuiteP/modules/{$this->module}/" . $team ."/{$newView}viewdefs.php";
         }else{
             if($team == "default"){
                 $file = "custom/modules/{$this->module}/metadata/{$newView}viewdefs.php";
                 $cache_file = "cache/modules/{$this->module}/metadata/{$newView}viewdefs.php";
+                $cache_file2 = "cache/themes/SuiteP/modules/{$this->module}/{$newView}viewdefs.php";
             }
         }
 
         if(!empty($file)) {
             if (file_exists($cache_file)) {
                 unlink($cache_file);
+            }
+            if (file_exists($cache_file2)) {
+                unlink($cache_file2);
             }
         }
 
