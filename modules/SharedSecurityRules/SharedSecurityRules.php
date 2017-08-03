@@ -199,25 +199,66 @@ class SharedSecurityRules extends Basic
     private function checkConditions($rule, $moduleBean,$view,$action,$key,  $result = true){
         $rel = "sharedsecurityrulesconditions";
         $rule->load_relationship($rel);
+        $related = "";
         $conditions = $rule->{$rel}->getBeans();
         if(count($conditions) != 0) {
             foreach ($conditions as $condition) {
-                if ($condition->value_type == "Field" &&
+                if(unserialize(base64_decode($condition->module_path)) != false) {
+                    $condition->module_path = unserialize(base64_decode($condition->module_path));
+                }
+                    if ($condition->module_path[0] != $rule->flow_module) {
+                        foreach ($condition->module_path as $rel) {
+                            if (empty($rel)) {
+                                continue;
+                            }
+//                            require_once("modules/AOW_WorkFlow/aow_utils.php");
+//                            $field_module = getRelatedModule($rule->flow_module, $rel);
+                            $moduleBean->load_relationship($rel);
+                            $related = $moduleBean->$rel->getBeans();
+                        }
+                    }
+
+
+                if(count($related) != 0){
+                    foreach($related as $record){
+                        if($moduleBean->field_defs[ $condition->field ]['type'] == "relate"){
+                            $condition->field = $moduleBean->field_defs[ $condition->field ]['id_name'];
+                        }
+                        if ($condition->value_type == "Field" &&
+                            isset($record->{$condition->field}) &&
+                            !empty($record->{$condition->field})) {
+                            $condition->value = $record->{$condition->field};
+                        }
+                        if ($this->checkOperator(
+                            $record->{$condition->field},
+                            $condition->value,
+                            $condition->operator
+                        )) {
+                            if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                                $result = false;
+                            }
+                        } else {
+                            return true;
+                        }
+                    }
+                }elseif ($condition->value_type == "Field" &&
                     isset($moduleBean->{$condition->value}) &&
                     !empty($moduleBean->{$condition->value})) {
                     $condition->value = $moduleBean->{$condition->value};
-                }
-                if ($this->checkOperator(
-                    $moduleBean->{$condition->field},
-                    $condition->value,
-                    $condition->operator
-                )) {
-                    if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
-                        $result = false;
+
+                    if ($this->checkOperator(
+                        $moduleBean->{$condition->field},
+                        $condition->value,
+                        $condition->operator
+                    )) {
+                        if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                            $result = false;
+                        }
+                    } else {
+                        return true;
                     }
-                } else {
-                    return true;
                 }
+
             }
         }elseif (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
             $result = false;
