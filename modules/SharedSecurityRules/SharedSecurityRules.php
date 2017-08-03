@@ -224,6 +224,12 @@ class SharedSecurityRules extends Basic
                         if($moduleBean->field_defs[ $condition->field ]['type'] == "relate"){
                             $condition->field = $moduleBean->field_defs[ $condition->field ]['id_name'];
                         }
+                        if($condition->field == "currentUser"){
+                            global $current_user;
+                            $condition->field = "Field";
+                            $condition->value = $current_user->id;
+
+                        }
                         if ($condition->value_type == "Field" &&
                             isset($record->{$condition->field}) &&
                             !empty($record->{$condition->field})) {
