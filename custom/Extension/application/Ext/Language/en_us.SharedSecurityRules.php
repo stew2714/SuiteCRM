@@ -57,6 +57,10 @@ $app_list_strings['shared_email_type_list'][''] = '';
 $app_list_strings['shared_email_type_list']['Specify User'] = 'User';
 $app_list_strings['shared_email_type_list']['Users'] = 'Users';
 
+$app_list_strings['run_when_dom']['When True'] = 'When True';
+$app_list_strings['run_when_dom']['Once True'] = 'Once True';
+
+
 
 $app_list_strings['aow_condition_type_list']['Value'] = 'Value';
 $app_list_strings['aow_condition_type_list']['Field'] = 'Field';
