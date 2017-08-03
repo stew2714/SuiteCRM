@@ -73,4 +73,129 @@ class SharedSecurityRulesController extends SugarController {
         echo $action->edit_display($line,$bean,$params);
         die;
     }
+
+    protected function action_getModuleFieldType()
+    {
+        if(isset($_REQUEST['rel_field']) &&  $_REQUEST['rel_field'] != ''){
+            $rel_module = getRelatedModule($_REQUEST['aow_module'],$_REQUEST['rel_field']);
+        } else {
+            $rel_module = $_REQUEST['aow_module'];
+        }
+        $module = $_REQUEST['aow_module'];
+        $fieldname = $_REQUEST['aow_fieldname'];
+        $aow_field = $_REQUEST['aow_newfieldname'];
+
+        if(isset($_REQUEST['view'])) $view = $_REQUEST['view'];
+        else $view= 'EditView';
+
+        if(isset($_REQUEST['aow_value'])) $value = $_REQUEST['aow_value'];
+        else $value = '';
+
+        switch($_REQUEST['aow_type']) {
+            case 'Field':
+                if(isset($_REQUEST['alt_module']) && $_REQUEST['alt_module'] != '') $module = $_REQUEST['alt_module'];
+                if($view == 'EditView'){
+                    echo "<select type='text'  name='$aow_field' id='$aow_field ' title='' tabindex='116'>". getModuleFields($module, $view, $value, getValidFieldsTypes($module, $fieldname)) ."</select>";
+                }else{
+                    echo getModuleFields($module, $view, $value);
+                }
+                break;
+            case 'Any_Change';
+            case 'currentUser';
+                echo '';
+                break;
+            case 'Date':
+                echo getDateField($module, $aow_field, $view, $value, false);
+                break;
+            case 'Multi':
+                echo getModuleField($rel_module,$fieldname, $aow_field, $view, $value,'multienum');
+                break;
+            case 'SecurityGroup':
+                $module = 'Accounts';
+                $fieldname = 'SecurityGroups';
+            case 'Value':
+            default:
+                echo getModuleField($rel_module,$fieldname, $aow_field, $view, $value );
+                break;
+        }
+        die;
+
+    }
+
+
+    protected function action_getFieldTypeOptions(){
+
+        global $app_list_strings, $beanFiles, $beanList;
+
+        if(isset($_REQUEST['rel_field']) &&  $_REQUEST['rel_field'] != ''){
+            $module = getRelatedModule($_REQUEST['aow_module'],$_REQUEST['rel_field']);
+        } else {
+            $module = $_REQUEST['aow_module'];
+        }
+        $fieldname = $_REQUEST['aow_fieldname'];
+        $aow_field = $_REQUEST['aow_newfieldname'];
+
+        if(isset($_REQUEST['view'])) $view = $_REQUEST['view'];
+        else $view= 'EditView';
+
+        if(isset($_REQUEST['aow_value'])) $value = $_REQUEST['aow_value'];
+        else $value = '';
+
+
+        require_once($beanFiles[$beanList[$module]]);
+        $focus = new $beanList[$module];
+        $vardef = $focus->getFieldDefinition($fieldname);
+
+        switch($vardef['type']) {
+            case 'double':
+            case 'decimal':
+            case 'float':
+            case 'currency':
+                $valid_opp = array('Value','Field','Any_Change');
+                break;
+            case 'uint':
+            case 'ulong':
+            case 'long':
+            case 'short':
+            case 'tinyint':
+            case 'int':
+                $valid_opp = array('Value','Field','Any_Change');
+                break;
+            case 'date':
+            case 'datetime':
+            case 'datetimecombo':
+                $valid_opp = array('Value','Field','Any_Change','Date');
+                break;
+            case 'enum':
+            case 'dynamicenum':
+            case 'multienum':
+                $valid_opp = array('Value','Field','Any_Change', 'Multi');
+                break;
+            case 'relate':
+            case 'id':
+                $valid_opp = array('Value','Field','Any_Change', 'SecurityGroup', 'currentUser');
+                break;
+            default:
+                $valid_opp = array('Value','Field','Any_Change');
+                break;
+        }
+
+        if(!file_exists('modules/SecurityGroups/SecurityGroup.php')){
+            unset($app_list_strings['aow_condition_type_list']['SecurityGroup']);
+        }
+        foreach($app_list_strings['aow_condition_type_list'] as $key => $keyValue){
+            if(!in_array($key, $valid_opp)){
+                unset($app_list_strings['aow_condition_type_list'][$key]);
+            }
+        }
+
+        if($view == 'EditView'){
+            echo "<select type='text'  name='$aow_field' id='$aow_field' title='' tabindex='116'>". get_select_options_with_id($app_list_strings['aow_condition_type_list'], $value) ."</select>";
+        }else{
+            echo $app_list_strings['aow_condition_type_list'][$value];
+        }
+        die;
+
+    }
+
 }

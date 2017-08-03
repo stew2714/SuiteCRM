@@ -168,8 +168,8 @@ function showModuleField(ln, operator_value, type_value, field_value){
         var aow_field_name = "shared_rules_conditions_value["+ln+"]";
 
         YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getModuleOperatorField&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_operator_name+"&aow_value="+operator_value+"&rel_field="+rel_field,callback);
-        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getFieldTypeOptions&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_type_name+"&aow_value="+type_value+"&rel_field="+rel_field,callback2);
-        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+field_value+"&aow_type="+type_value+"&rel_field="+rel_field,callback3);
+        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getFieldTypeOptions&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_type_name+"&aow_value="+type_value+"&rel_field="+rel_field,callback2);
+        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+field_value+"&aow_type="+type_value+"&rel_field="+rel_field,callback3);
 
     } else {
         document.getElementById('shared_rules_conditions_operatorInput'+ln).innerHTML = ''
@@ -177,7 +177,7 @@ function showModuleField(ln, operator_value, type_value, field_value){
         document.getElementById('shared_rules_conditions_fieldInput'+ln).innerHTML = '';
     }
 
-    if(operator_value == 'is_null'){
+    if(operator_value == 'is_null' ){
         hideElem('shared_rules_conditions_fieldTypeInput' + ln);
         hideElem('shared_rules_conditions_fieldInput' + ln);
     } else {
@@ -205,7 +205,7 @@ function showModuleFieldType(ln, value){
     var type_value = document.getElementById("shared_rules_conditions_value_type["+ln+"]").value;
     var aow_field_name = "shared_rules_conditions_value["+ln+"]";
 
-    YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+value+"&aow_type="+type_value+"&rel_field="+rel_field,callback);
+    YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+value+"&aow_type="+type_value+"&rel_field="+rel_field,callback);
 
 }
 
