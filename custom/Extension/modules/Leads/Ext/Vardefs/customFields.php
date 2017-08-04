@@ -2,91 +2,103 @@
  // Vardefs Creator V0.1: 
 
 
- // Vardef Created : company 
+ // Vardef Created : sf_id_c 
 
-$dictionary['Lead']['fields']['company']['name']='company';
-$dictionary['Lead']['fields']['company']['len']='255';
-$dictionary['Lead']['fields']['company']['type']='text';
-$dictionary['Lead']['fields']['company']['inline_edit']=1;
-$dictionary['Lead']['fields']['company']['importable']='true';
-$dictionary['Lead']['fields']['company']['reportable']=true;
-$dictionary['Lead']['fields']['company']['vname']='LBL_COMPANY';
-$dictionary['Lead']['fields']['company']['source']='custom_fields';
-
-
- // Vardef Created : industry 
-
-$dictionary['Lead']['fields']['industry']['name']='industry';
-$dictionary['Lead']['fields']['industry']['len']='40';
-$dictionary['Lead']['fields']['industry']['type']='varchar';
-$dictionary['Lead']['fields']['industry']['inline_edit']=1;
-$dictionary['Lead']['fields']['industry']['importable']='true';
-$dictionary['Lead']['fields']['industry']['reportable']=true;
-$dictionary['Lead']['fields']['industry']['vname']='LBL_INDUSTRY';
-$dictionary['Lead']['fields']['industry']['source']='custom_fields';
+$dictionary['Lead']['fields']['sf_id_c']['name']='sf_id_c';
+$dictionary['Lead']['fields']['sf_id_c']['len']='18';
+$dictionary['Lead']['fields']['sf_id_c']['type']='varchar';
+$dictionary['Lead']['fields']['sf_id_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['sf_id_c']['importable']='true';
+$dictionary['Lead']['fields']['sf_id_c']['reportable']=true;
+$dictionary['Lead']['fields']['sf_id_c']['vname']='LBL_SF_ID_C';
+$dictionary['Lead']['fields']['sf_id_c']['source']='custom_fields';
 
 
- // Vardef Created : rating 
+ // Vardef Created : company_c 
 
-$dictionary['Lead']['fields']['rating']['name']='rating';
-$dictionary['Lead']['fields']['rating']['len']='40';
-$dictionary['Lead']['fields']['rating']['type']='varchar';
-$dictionary['Lead']['fields']['rating']['inline_edit']=1;
-$dictionary['Lead']['fields']['rating']['importable']='true';
-$dictionary['Lead']['fields']['rating']['reportable']=true;
-$dictionary['Lead']['fields']['rating']['vname']='LBL_RATING';
-$dictionary['Lead']['fields']['rating']['source']='custom_fields';
-
-
- // Vardef Created : annualrevenue 
-
-$dictionary['Lead']['fields']['annualrevenue']['name']='annualrevenue';
-$dictionary['Lead']['fields']['annualrevenue']['len']='255';
-$dictionary['Lead']['fields']['annualrevenue']['type']='float';
-$dictionary['Lead']['fields']['annualrevenue']['inline_edit']=1;
-$dictionary['Lead']['fields']['annualrevenue']['importable']='true';
-$dictionary['Lead']['fields']['annualrevenue']['reportable']=true;
-$dictionary['Lead']['fields']['annualrevenue']['precision']='8';
-$dictionary['Lead']['fields']['annualrevenue']['vname']='LBL_ANNUALREVENUE';
-$dictionary['Lead']['fields']['annualrevenue']['source']='custom_fields';
+$dictionary['Lead']['fields']['company_c']['name']='company_c';
+$dictionary['Lead']['fields']['company_c']['len']='255';
+$dictionary['Lead']['fields']['company_c']['type']='text';
+$dictionary['Lead']['fields']['company_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['company_c']['importable']='true';
+$dictionary['Lead']['fields']['company_c']['reportable']=true;
+$dictionary['Lead']['fields']['company_c']['vname']='LBL_COMPANY_C';
+$dictionary['Lead']['fields']['company_c']['source']='custom_fields';
 
 
- // Vardef Created : numberofemployees 
+ // Vardef Created : industry_c 
 
-$dictionary['Lead']['fields']['numberofemployees']['name']='numberofemployees';
-$dictionary['Lead']['fields']['numberofemployees']['len']='255';
-$dictionary['Lead']['fields']['numberofemployees']['type']='int';
-$dictionary['Lead']['fields']['numberofemployees']['inline_edit']=1;
-$dictionary['Lead']['fields']['numberofemployees']['importable']='true';
-$dictionary['Lead']['fields']['numberofemployees']['reportable']=true;
-$dictionary['Lead']['fields']['numberofemployees']['vname']='LBL_NUMBEROFEMPLOYEES';
-$dictionary['Lead']['fields']['numberofemployees']['source']='custom_fields';
-
-
- // Vardef Created : converteddate 
-
-$dictionary['Lead']['fields']['converteddate']['name']='converteddate';
-$dictionary['Lead']['fields']['converteddate']['len']='255';
-$dictionary['Lead']['fields']['converteddate']['type']='datetimecombo';
-$dictionary['Lead']['fields']['converteddate']['inline_edit']=1;
-$dictionary['Lead']['fields']['converteddate']['importable']='true';
-$dictionary['Lead']['fields']['converteddate']['reportable']=true;
-$dictionary['Lead']['fields']['converteddate']['dbType']='datetime';
-$dictionary['Lead']['fields']['converteddate']['vname']='LBL_CONVERTEDDATE';
-$dictionary['Lead']['fields']['converteddate']['source']='custom_fields';
+$dictionary['Lead']['fields']['industry_c']['name']='industry_c';
+$dictionary['Lead']['fields']['industry_c']['len']='40';
+$dictionary['Lead']['fields']['industry_c']['type']='varchar';
+$dictionary['Lead']['fields']['industry_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['industry_c']['importable']='true';
+$dictionary['Lead']['fields']['industry_c']['reportable']=true;
+$dictionary['Lead']['fields']['industry_c']['vname']='LBL_INDUSTRY_C';
+$dictionary['Lead']['fields']['industry_c']['source']='custom_fields';
 
 
- // Vardef Created : lastactivitydate 
+ // Vardef Created : rating_c 
 
-$dictionary['Lead']['fields']['lastactivitydate']['name']='lastactivitydate';
-$dictionary['Lead']['fields']['lastactivitydate']['len']='255';
-$dictionary['Lead']['fields']['lastactivitydate']['type']='datetimecombo';
-$dictionary['Lead']['fields']['lastactivitydate']['inline_edit']=1;
-$dictionary['Lead']['fields']['lastactivitydate']['importable']='true';
-$dictionary['Lead']['fields']['lastactivitydate']['reportable']=true;
-$dictionary['Lead']['fields']['lastactivitydate']['dbType']='datetime';
-$dictionary['Lead']['fields']['lastactivitydate']['vname']='LBL_LASTACTIVITYDATE';
-$dictionary['Lead']['fields']['lastactivitydate']['source']='custom_fields';
+$dictionary['Lead']['fields']['rating_c']['name']='rating_c';
+$dictionary['Lead']['fields']['rating_c']['len']='40';
+$dictionary['Lead']['fields']['rating_c']['type']='varchar';
+$dictionary['Lead']['fields']['rating_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['rating_c']['importable']='true';
+$dictionary['Lead']['fields']['rating_c']['reportable']=true;
+$dictionary['Lead']['fields']['rating_c']['vname']='LBL_RATING_C';
+$dictionary['Lead']['fields']['rating_c']['source']='custom_fields';
+
+
+ // Vardef Created : annual_revenue_c 
+
+$dictionary['Lead']['fields']['annual_revenue_c']['name']='annual_revenue_c';
+$dictionary['Lead']['fields']['annual_revenue_c']['len']='30';
+$dictionary['Lead']['fields']['annual_revenue_c']['type']='varchar';
+$dictionary['Lead']['fields']['annual_revenue_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['annual_revenue_c']['importable']='true';
+$dictionary['Lead']['fields']['annual_revenue_c']['reportable']=true;
+$dictionary['Lead']['fields']['annual_revenue_c']['precision']='8';
+$dictionary['Lead']['fields']['annual_revenue_c']['vname']='LBL_ANNUAL_REVENUE_C';
+$dictionary['Lead']['fields']['annual_revenue_c']['source']='custom_fields';
+
+
+ // Vardef Created : numberofemployees_c 
+
+$dictionary['Lead']['fields']['numberofemployees_c']['name']='numberofemployees_c';
+$dictionary['Lead']['fields']['numberofemployees_c']['len']='255';
+$dictionary['Lead']['fields']['numberofemployees_c']['type']='int';
+$dictionary['Lead']['fields']['numberofemployees_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['numberofemployees_c']['importable']='true';
+$dictionary['Lead']['fields']['numberofemployees_c']['reportable']=true;
+$dictionary['Lead']['fields']['numberofemployees_c']['vname']='LBL_NUMBEROFEMPLOYEES_C';
+$dictionary['Lead']['fields']['numberofemployees_c']['source']='custom_fields';
+
+
+ // Vardef Created : converteddate_c 
+
+$dictionary['Lead']['fields']['converteddate_c']['name']='converteddate_c';
+$dictionary['Lead']['fields']['converteddate_c']['len']='255';
+$dictionary['Lead']['fields']['converteddate_c']['type']='datetimecombo';
+$dictionary['Lead']['fields']['converteddate_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['converteddate_c']['importable']='true';
+$dictionary['Lead']['fields']['converteddate_c']['reportable']=true;
+$dictionary['Lead']['fields']['converteddate_c']['dbType']='datetime';
+$dictionary['Lead']['fields']['converteddate_c']['vname']='LBL_CONVERTEDDATE_C';
+$dictionary['Lead']['fields']['converteddate_c']['source']='custom_fields';
+
+
+ // Vardef Created : lastactivitydate_c 
+
+$dictionary['Lead']['fields']['lastactivitydate_c']['name']='lastactivitydate_c';
+$dictionary['Lead']['fields']['lastactivitydate_c']['len']='255';
+$dictionary['Lead']['fields']['lastactivitydate_c']['type']='datetimecombo';
+$dictionary['Lead']['fields']['lastactivitydate_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['lastactivitydate_c']['importable']='true';
+$dictionary['Lead']['fields']['lastactivitydate_c']['reportable']=true;
+$dictionary['Lead']['fields']['lastactivitydate_c']['dbType']='datetime';
+$dictionary['Lead']['fields']['lastactivitydate_c']['vname']='LBL_LASTACTIVITYDATE_C';
+$dictionary['Lead']['fields']['lastactivitydate_c']['source']='custom_fields';
 
 
  // Vardef Created : eloqua_lead_rating_c 
@@ -234,18 +246,6 @@ $dictionary['Lead']['fields']['number_of_healthcare_customers_c']['importable']=
 $dictionary['Lead']['fields']['number_of_healthcare_customers_c']['reportable']=true;
 $dictionary['Lead']['fields']['number_of_healthcare_customers_c']['vname']='LBL_NUMBER_OF_HEALTHCARE_CUSTOMERS_C';
 $dictionary['Lead']['fields']['number_of_healthcare_customers_c']['source']='custom_fields';
-
-
- // Vardef Created : annual_revenue_c 
-
-$dictionary['Lead']['fields']['annual_revenue_c']['name']='annual_revenue_c';
-$dictionary['Lead']['fields']['annual_revenue_c']['len']='30';
-$dictionary['Lead']['fields']['annual_revenue_c']['type']='varchar';
-$dictionary['Lead']['fields']['annual_revenue_c']['inline_edit']=1;
-$dictionary['Lead']['fields']['annual_revenue_c']['importable']='true';
-$dictionary['Lead']['fields']['annual_revenue_c']['reportable']=true;
-$dictionary['Lead']['fields']['annual_revenue_c']['vname']='LBL_ANNUAL_REVENUE_C';
-$dictionary['Lead']['fields']['annual_revenue_c']['source']='custom_fields';
 
 
  // Vardef Created : years_in_business_c 

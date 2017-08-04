@@ -94,6 +94,11 @@ class convertCSV
         if (isset($vardefs['name']) && !empty($vardefs['name'])) {
             $vardef['name'] = $vardefs['name'];
         }
+        //now we have vardef name
+        if(substr($vardef['name'], -2) !== "_c" && $this->source == "custom_fields"){
+            $vardef['name'] .= "_c";
+        }
+
         if (isset($vardefs['vname']) && !empty($vardefs['vname'])) {
             $vardef['vname'] = $vardefs['vname'];
         } else {

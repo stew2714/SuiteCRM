@@ -1,4 +1,4 @@
-column,do no create,name,custom,module 
+column,do no create,name,type,module 
 "   id varchar(18) NOT NULL,",,sf_id_c,,a
 "   ownerid varchar(18) NOT NULL,",X,,,
 "   isdeleted bool NOT NULL,",X,,,
