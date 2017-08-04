@@ -146,6 +146,9 @@ class convertCSV
         if (isset($vardefs['source']) && !empty($vardefs['source']) ) {
             $vardef['source'] = $vardefs['source'];
         }
+        if (isset($vardefs['options']) && !empty($vardefs['options']) ) {
+            $vardef['options'] = $vardefs['options'];
+        }
 
         if (isset($vardefs['label']) && !empty($vardefs['label'])) {
             $vardef['label_english'] = $vardefs['label'];

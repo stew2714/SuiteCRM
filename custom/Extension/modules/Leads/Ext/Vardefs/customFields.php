@@ -512,6 +512,18 @@ $dictionary['Lead']['fields']['vip_account_c']['importable']='true';
 $dictionary['Lead']['fields']['vip_account_c']['reportable']=true;
 $dictionary['Lead']['fields']['vip_account_c']['vname']='LBL_VIP_ACCOUNT_C';
 $dictionary['Lead']['fields']['vip_account_c']['source']='custom_fields';
+
+
+ // Vardef Created : zba_ss_c 
+
+$dictionary['Lead']['fields']['zba_ss_c']['name']='zba_ss_c';
+$dictionary['Lead']['fields']['zba_ss_c']['len']='3';
+$dictionary['Lead']['fields']['zba_ss_c']['type']='varchar';
+$dictionary['Lead']['fields']['zba_ss_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['zba_ss_c']['importable']='true';
+$dictionary['Lead']['fields']['zba_ss_c']['reportable']=true;
+$dictionary['Lead']['fields']['zba_ss_c']['vname']='LBL_ZBA_SS_C';
+$dictionary['Lead']['fields']['zba_ss_c']['source']='custom_fields';
 $dictionary['Lead']['fields']['zba_ss_c']['name']='zba_ss_c';
 $dictionary['Lead']['fields']['zba_ss_c']['len']='3';
 $dictionary['Lead']['fields']['zba_ss_c']['type']='varchar';
