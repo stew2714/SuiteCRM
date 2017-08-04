@@ -37,6 +37,9 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-require_once('custom/include/Leads/convertCSV.php');
+require_once('custom/include/convertCSV.php');
 
 $csv = new convertCSV('custom/include/Leads/import.csv');
+$csv->oneFile = true;
+$csv->module = "Leads";
+$csv->import();
