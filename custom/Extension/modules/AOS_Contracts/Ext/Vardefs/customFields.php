@@ -3417,6 +3417,18 @@ $dictionary['AOS_Contracts']['fields']['dq_f1_total_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['dq_f1_total_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['dq_f1_total_c']['vname']='LBL_DQ_F1_TOTAL_C';
 $dictionary['AOS_Contracts']['fields']['dq_f1_total_c']['source']='custom_fields';
+
+
+ // Vardef Created : dq_total_c 
+
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['name']='dq_total_c';
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['len']='19';
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['type']='int';
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['vname']='LBL_DQ_TOTAL_C';
+$dictionary['AOS_Contracts']['fields']['dq_total_c']['source']='custom_fields';
 $dictionary['AOS_Contracts']['fields']['dq_total_c']['name']='dq_total_c';
 $dictionary['AOS_Contracts']['fields']['dq_total_c']['len']='19';
 $dictionary['AOS_Contracts']['fields']['dq_total_c']['type']='int';

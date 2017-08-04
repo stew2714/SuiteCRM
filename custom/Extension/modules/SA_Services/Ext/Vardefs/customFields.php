@@ -1199,6 +1199,18 @@ $dictionary['SA_Services']['fields']['tos_price_increase_during_initial_term_c']
 $dictionary['SA_Services']['fields']['tos_price_increase_during_initial_term_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_price_increase_during_initial_term_c']['vname']='LBL_TOS_PRICE_INCREASE_DURING_INITIAL_TERM_C';
 $dictionary['SA_Services']['fields']['tos_price_increase_during_initial_term_c']['source']='custom_fields';
+
+
+ // Vardef Created : tos_price_book_rate_v2_c 
+
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['name']='tos_price_book_rate_v2_c';
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['len']='255';
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['importable']='true';
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['vname']='LBL_TOS_PRICE_BOOK_RATE_V2_C';
+$dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['source']='custom_fields';
 $dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['name']='tos_price_book_rate_v2_c';
 $dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['len']='255';
 $dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['type']='text';
