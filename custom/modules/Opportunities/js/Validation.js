@@ -1,9 +1,7 @@
 /**
  * Created by ian on 04/07/17.
  */
-/**
- * Created by ian on 03/07/17.
- */
+
 function checkArray(item, array){
   $.each(array, function( index, value ) {
     if(value.includes(item) ){
@@ -103,6 +101,16 @@ $( document ).ready(function() {
     //Item 12
     //Item 13
     //Item 14
+    if ( document.getElementById("recordtypeid").indexOf("Standard") != -1 && $("#probability").val() == "0.5"
+      ){
+      addToValidate('EditView',"accounts_opportunities_2_name",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_BE_INCUMBENT'));
+    }else{
+      if( checkValidate("EditView", "accounts_opportunities_2_name")){
+        removeFromValidate("EditView","accounts_opportunities_2_name" )
+      }
+    }
+
+
     //Item 15 - No_change_for_closed_opps
     if ( beanData.sales_stage == $("#sales_stage").val() &&
           $("#probability").val() == "1" &&
@@ -157,7 +165,18 @@ $( document ).ready(function() {
       return false
     }
     //Item 19
-    //Item 20
+    //Item 20 - Probability > 0.1 && ISBLANK(TEXT(Global_Use_Probability_Percent__c)) && CONTAINS( Product__r.Name, "TOS") && NOT( OR( CONTAINS($RecordType.Name, "CBay"), CONTAINS($RecordType.Name, "Renewal")))
+    if ( $("#probability").val() >= "0.1" &&  $("#global_use_probability_percent_c").val() == "" &&
+      ( document.getElementById("product_c").indexOf("TOS") != -1 && ( document.getElementById("recordtypeid").indexOf("CBay") == -1 && document.getElementById("recordtypeid").indexOf("Renewal") == -1 )
+    ) ){
+      addToValidate('EditView',"ilp_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_BE_SELECTED_WHEN_STAGE'));
+    }else{
+      if( checkValidate("EditView", "ilp_c")){
+        removeFromValidate("EditView","ilp_c" )
+      }
+    }
+
+
     //Item 21
     if (
       $("recordtypeid").val() == "Standard Opportunity" &&
@@ -210,8 +229,15 @@ $( document ).ready(function() {
         alert(SUGAR.language.get(module_sugar_grp1, 'LBL_A_ENTRY_IS_REQUIRED_IN_THE_WIN_LOSS'));
         return false
       }
-    //Item 26 - Require_winner_when_lost
-
+    //Item 26 - Require_winner_when_lost ----- AND( ISPICKVAL( StageName, "Closed - Lost"), Winner__r.Name ="",$RecordType.Name = "Standard Opportunity")
+    if ( $("#sales_stage").val() == "Closed Lost" &&  $("#recordtypeid").val() == "Standard Opportunity" ) {
+      accounts_opportunities_1_name
+      addToValidate('EditView',"accounts_opportunities_1_name",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_WHEN_CLOSED_LOST_WINNER_REQUIRED'));
+    }else{
+        if( checkValidate("EditView", "accounts_opportunities_1_name")){
+          removeFromValidate("EditView","accounts_opportunities_1_name" )
+        }
+    }
     //Item 27 - Required_License_Term_Length
     if ( $("#license_type_c").val() == "term" &&  $("#license_term_length_mm_c").val() == "" ) {
       alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ENTER_TERM_LENGTH_LICENSE'));
