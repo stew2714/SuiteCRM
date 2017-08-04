@@ -33,7 +33,8 @@ $mod_strings = array (
   'LBL_WHEN_CLOSED_LOST_WINNER_REQUIRED' => 'You must identify the winner for lost opportunities',
   'LBL_MUST_BE_SELECTED_WHEN_STAGE' => 'ILP Probability % must be selected when Opportunity Stage/Probability is 50% or greater.',
   'LBL_MUST_BE_INCUMBENT' => 'You must select an incumbent',
-  'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
+  'LBL_COMPANY_SIGNED_BY' => 'Please fill data in "Company Signed By"',
+  'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'Please enter the number of licenses in the cost component section',
 
 
 

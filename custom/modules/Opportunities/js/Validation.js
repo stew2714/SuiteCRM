@@ -63,9 +63,9 @@ $( document ).ready(function() {
     dateNow.setDate(dateNow.getDate() + 365);
     var dateclosed = Date.parse( document.getElementById("date_closed").value )
     if(
-      (document.getElementById("recordtypeid").indexOf("Lead") == -1 &&
-       document.getElementById("recordtypeid").indexOf("CBay") == -1 &&
-       document.getElementById("recordtypeid").indexOf("Partner") == -1
+      (document.getElementById("recordtypeid").value == "Lead" &&
+       document.getElementById("recordtypeid").value == "CBay" &&
+       document.getElementById("recordtypeid").value == "Partner"
       ) &&
       dateclosed < dateNow &&
       (
@@ -89,7 +89,7 @@ $( document ).ready(function() {
     //Item 10
     //Item 11
     if(
-      document.getElementById("recordtypeid").indexOf("Standard") == -1  &&
+      document.getElementById("recordtypeid").value == "Standard"  &&
       $("#probability").val() >= "0.2" &&
       $("#probability").val() <= "1.0" &&
       $("#emr2_c").val() == "" &&
@@ -101,7 +101,7 @@ $( document ).ready(function() {
     //Item 12
     //Item 13
     //Item 14
-    if ( document.getElementById("recordtypeid").indexOf("Standard") != -1 && $("#probability").val() == "0.5"
+    if ( document.getElementById("recordtypeid").value != "Standard" && $("#probability").val() == "0.5"
       ){
       addToValidate('EditView',"accounts_opportunities_2_name",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_BE_INCUMBENT'));
     }else{
@@ -155,9 +155,9 @@ $( document ).ready(function() {
       alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CANNOT_USE_ENCODER'));
       return false
     }
-    //Item 17
+    //Item 17 - CONTAINS( Product__r.Name,"Fluency Direct") && (Number_of_Licenses__c < 1)
     //Item 18
-    if (document.getElementById("recordtypeid").indexOf("CBay") !== -1 ||
+    if (document.getElementById("recordtypeid").value != "CBay" ||
         $("sales_stage").val() == "Closed - Lost" &&
         $("#changes_next_time_c").val() == ""
     ) {
@@ -167,7 +167,7 @@ $( document ).ready(function() {
     //Item 19
     //Item 20 - Probability > 0.1 && ISBLANK(TEXT(Global_Use_Probability_Percent__c)) && CONTAINS( Product__r.Name, "TOS") && NOT( OR( CONTAINS($RecordType.Name, "CBay"), CONTAINS($RecordType.Name, "Renewal")))
     if ( $("#probability").val() >= "0.1" &&  $("#global_use_probability_percent_c").val() == "" &&
-      ( document.getElementById("product_c").indexOf("TOS") != -1 && ( document.getElementById("recordtypeid").indexOf("CBay") == -1 && document.getElementById("recordtypeid").indexOf("Renewal") == -1 )
+      ( document.getElementById("product_c").value != "TOS" && ( document.getElementById("recordtypeid").value == "CBay" && document.getElementById("recordtypeid").value == "Renewal")
     ) ){
       addToValidate('EditView',"ilp_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_BE_SELECTED_WHEN_STAGE'));
     }else{
@@ -193,7 +193,7 @@ $( document ).ready(function() {
     }
     //Item 22
     if (
-      document.getElementById("recordtypeid").indexOf("CBay") == -1 &&
+      document.getElementById("recordtypeid").value == "CBay" &&
         $("#sales_stage").val() == "Closed - Lost" &&
         $("#lessons_learned_c").val() == ""
     ) {
@@ -202,7 +202,7 @@ $( document ).ready(function() {
     }
     //Item 23
     if (
-      document.getElementById("recordtypeid").indexOf("Standard") == -1 &&
+      document.getElementById("recordtypeid").value == "Standard" &&
       $("#probability").val() >= "0.2" &&
       $("#probability").val() <= "1.0" &&
       $("#partner__c").val() == ""
@@ -212,8 +212,8 @@ $( document ).ready(function() {
     }
     //Item 24
     if (
-      (document.getElementById("recordtypeid").indexOf("CBay") == -1 ||
-      document.getElementById("recordtypeid").indexOf("Partner") == -1 ) &&
+      (document.getElementById("recordtypeid").value == "CBay" ||
+      document.getElementById("recordtypeid").value == "Partner") &&
       $("#recordtypeid").val() != "Lead Stage Opportunity" &&
       $("#product_c").val() == ""
     ) {
@@ -222,7 +222,7 @@ $( document ).ready(function() {
     }
     //Item 25 - Require_Win_Loss_Desc_When_Other
       if (
-          document.getElementById("recordtypeid").indexOf("CBay") == -1 &&
+          document.getElementById("recordtypeid").value == ("CBay") &&
           $("#primary_reason_for_winloss_c").val() == "Other" &&
           $("#winloss_description_c").val() == ""
         ) {
