@@ -52,7 +52,7 @@ array (
           ),
           13 =>
           array (
-            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUEST}">{/if}',
+            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="Activate">{/if}',
           ),
         ),
         'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
