@@ -34,5 +34,6 @@ $sugar_config['Sales'] = '8cc7213b-1d28-12bc-7d6d-5936d546d416';
 $sugar_config['Legal'] = 'b9ebaa1a-0517-b790-70b0-593fb7aef326';
 $sugar_config['disable_persistent_connections'] = false;
 $sugar_config['Implementations'] = '90d40376-027d-a8f7-7cd3-593fb7ce674f';
+$sugar_config['resource_management']['special_query_modules'][5] = 'AOS_Contracts';
 
 /***CONFIGURATOR***/
