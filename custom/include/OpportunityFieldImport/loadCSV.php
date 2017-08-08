@@ -37,6 +37,9 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-require_once('custom/include/OpportunityFieldImport/convertCSV.php');
+require_once('custom/include/convertCSV.php');
 
-$csv = new convertCSV('custom/include/OpportunityFieldImport/import.csv', "Opportunities");
+$csv = new convertCSV('custom/include/OpportunityFieldImport/import.csv');
+$csv->module = "Opportunities";
+$csv->oneFile = true;
+$csv->import();

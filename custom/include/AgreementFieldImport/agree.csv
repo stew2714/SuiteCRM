@@ -1,4 +1,4 @@
-column,do no create,name,custom,module 
+column,do no create,name,type,module 
 "   id varchar(18) NOT NULL,",,sf_id_c,,a
 "   ownerid varchar(18) NOT NULL,",X,,,
 "   isdeleted bool NOT NULL,",X,,,
@@ -445,7 +445,6 @@ column,do no create,name,custom,module
 "   dq_standard_prod_billing_terms__c numeric(19),",,,,a
 "   dq_subs_prod_term_months__c numeric(19),",,,,a
 "   dq_subs_prod_subs_auto_renewal__c numeric(19),",,,,a
-"   dq_subs_support_term_for_conv__c numeric(19),",,,,a
 "   dq_subs_prod_term_for_conv_notice_dd__c numeric(19),",,,,a
 "   dq_subs_software_pricing_discount__c numeric(19),",,,,a
 "   dq_subs_professional_services_discount__c numeric(19),",,,,a
@@ -459,5 +458,29 @@ column,do no create,name,custom,module
 "   dq_payment_total__c numeric(19),",,,,a
 "   dq_f1_total__c numeric(19),",,,,a
    dq_total__c numeric(19),,,,a
-),,,,
-!!!,,,,
+baa_effective_date__c date,,,,a
+dq_subs_product_term_for_conv__c real,,,,a
+type_of_scribing__c text,,,,a
+virtual_sciribing_renewal_start_date__c date,,,,s
+virtual_scribing_auto_renew__c bool,,,,s
+virtual_scribing_billing__c text,,,,s
+virtual_scribing_commitment__c text,,,,s
+virtual_scribing_doc__c text,,,,s
+virtual_scribing_effective_date__c date,,,,s
+virtual_scribing_evergreen__c bool,,,,s
+virtual_scribing_expiration_date__c date,,,,s
+virtual_scribing_general_notes__c text,,,,s
+virtual_scribing_global_permissions__c text,,,,s
+virtual_scribing_global_permitted__c bool,,,,s
+virtual_scribing_minimum_hours_language__c bool,,,,s
+virtual_scribing_price_book_rate__c text,,,,s
+virtual_scribing_pricing__c text,,,,s
+virtual_scribing_pricing_increase__c text,,,,s
+virtual_scribing_renewal_term_mm__c real,,,,s
+virtual_scribing_renewal_terms__c text,,,,s
+virtual_scribing_revenue__c real,,,,s
+virtual_scribing_term_for_convenience__c text,,,,s
+virtual_scribing_term_mm__c real,,,,s
+virtual_scribing_term_prior_to_renewal__c bool,,,,s
+vs_term_for_conv_notice_dd__c real,,,,s
+vs_term_prior_to_renewal_dd__c real,,,,s

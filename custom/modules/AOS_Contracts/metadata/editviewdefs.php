@@ -26,6 +26,7 @@ array (
       ),
       'useTabs' => true,
       'syncDetailEditViews' => false,
+      'javascript' => '{$LOCK_FILES} {$BEAN_DATA}',
       'tabDefs' => 
       array (
         'DEFAULT' => 
@@ -51,8 +52,7 @@ array (
         ),
         1 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'contact',
             'studio' => 'visible',
@@ -1953,12 +1953,6 @@ array (
             'name' => 'use_of_data_continuous_improvement_c',
             'label' => 'LBL_USE_OF_DATA_CONTINUOUS_IMPROVEMENT_C',
           ),
-          1 => '',
-        ),
-        148 => 
-        array (
-          0 => '',
-          1 => '',
         ),
         149 => 
         array (

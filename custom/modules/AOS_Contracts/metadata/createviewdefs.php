@@ -13,7 +13,7 @@ $viewdefs = array (
           array (
             'SAVE' => 
             array (
-              'customCode' => '<input title="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}"                     accessKey="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_KEY}"                     class="button" 					 onclick="var _form = document.getElementById(\'CreateView\'); _form.action.value=\'Save\'; if(check_form(\'CreateView\'))SUGAR.ajaxUI.submitForm(_form);return false;";                     type="submit"                     name="button"                     value="{$APP.LBL_SAVE_BUTTON_LABEL}">',
+              'customCode' => '<input title="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}"                     accessKey="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_KEY}"                     class="button" 					 onclick="var _form = document.getElementById(\'CreateView\'); _form.action.value=\'Save\'; if(check_form(\'CreateView\'))SUGAR.ajaxUI.submitForm(_form);return false;";                     type="submit"                     name="button"                     id="SAVE"                         value="{$APP.LBL_SAVE_BUTTON_LABEL}">',
             ),
             'CANCEL' => 'CANCEL',
           ),
@@ -34,6 +34,7 @@ $viewdefs = array (
         ),
         'useTabs' => true,
         'syncDetailEditViews' => false,
+        'javascript' => '{$LOCK_FILES} {$BEAN_DATA}',
         'tabDefs' => 
         array (
           'DEFAULT' => 
@@ -64,7 +65,12 @@ $viewdefs = array (
           ),
           1 => 
           array (
-            1 => 'contact',
+            0 => 
+            array (
+              'name' => 'contact',
+              'studio' => 'visible',
+              'label' => 'LBL_CONTACT',
+            ),
           ),
           2 => 
           array (
@@ -1379,9 +1385,6 @@ $viewdefs = array (
               'name' => 'use_of_data_continuous_improvement_c',
               'label' => 'LBL_USE_OF_DATA_CONTINUOUS_IMPROVEMENT_C',
             ),
-          ),
-          148 => 
-          array (
           ),
           149 => 
           array (
