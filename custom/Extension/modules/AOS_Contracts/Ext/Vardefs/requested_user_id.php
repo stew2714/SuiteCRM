@@ -1,12 +1,17 @@
 <?php
 // Vardefs from Fields_meta_data table - created:
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['name']='requested_user_id';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['rname'] = 'user_name';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['id_name'] = 'requested_user_id';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['group'] = 'requested_user_id';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['default_value']='';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['default']='';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['display_default']='';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['len']='36';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['required']=false;
-$dictionary['AOS_Contracts']['fields']['requested_user_id']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['type']='relate';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['table']='users';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['module']='Users';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['audited']=0;
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['massupdate']=0;
@@ -18,6 +23,11 @@ $dictionary['AOS_Contracts']['fields']['requested_user_id']['duplicate_merge']=0
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['duplicate_merge_dom_value']='';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['merge_filter']='';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['isnull']=false;
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['dbType']='id';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['audited']=true;
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['comment']='User ID assigned to record';
+$dictionary['AOS_Contracts']['fields']['requested_user_id']['duplicate_merge']='disabled';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['ext2']='';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['ext4']='';
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['ext3']='';
@@ -28,4 +38,15 @@ $dictionary['AOS_Contracts']['fields']['requested_user_id']['rows']=NULL;
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['cols']=NULL;
 $dictionary['AOS_Contracts']['fields']['requested_user_id']['vname']='LBL_REQUESTED_USER_ID';
 //$dictionary['AOS_Contracts']['fields']['requested_user_id']['source']='custom_fields';
+
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['name']='requested_user_name';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['vname']='LBL_ASSIGNED_TO_NAME';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['rname']='user_name';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['type']='relate';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['reportable']=false;
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['source']='non-db';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['table']='users';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['id_name']='requested_user_id';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['module']='Users';
+$dictionary['AOS_Contracts']['fields']['requested_user_name']['duplicate_merge']='disabled';
 ?>
