@@ -1482,6 +1482,10 @@ $dictionary['SA_Services']['fields']['vs_term_for_conv_notice_dd_c']['reportable
 $dictionary['SA_Services']['fields']['vs_term_for_conv_notice_dd_c']['precision']='8';
 $dictionary['SA_Services']['fields']['vs_term_for_conv_notice_dd_c']['vname']='LBL_VS_TERM_FOR_CONV_NOTICE_DD_C';
 $dictionary['SA_Services']['fields']['vs_term_for_conv_notice_dd_c']['source']='custom_fields';
+
+
+ // Vardef Created : vs_term_prior_to_renewal_dd_c 
+
 $dictionary['SA_Services']['fields']['vs_term_prior_to_renewal_dd_c']['name']='vs_term_prior_to_renewal_dd_c';
 $dictionary['SA_Services']['fields']['vs_term_prior_to_renewal_dd_c']['len']='255';
 $dictionary['SA_Services']['fields']['vs_term_prior_to_renewal_dd_c']['type']='float';
@@ -1491,5 +1495,13 @@ $dictionary['SA_Services']['fields']['vs_term_prior_to_renewal_dd_c']['reportabl
 $dictionary['SA_Services']['fields']['vs_term_prior_to_renewal_dd_c']['precision']='8';
 $dictionary['SA_Services']['fields']['vs_term_prior_to_renewal_dd_c']['vname']='LBL_VS_TERM_PRIOR_TO_RENEWAL_DD_C';
 $dictionary['SA_Services']['fields']['vs_term_prior_to_renewal_dd_c']['source']='custom_fields';
+$dictionary['SA_Services']['fields']['sf_id_c']['name']='sf_id_c';
+$dictionary['SA_Services']['fields']['sf_id_c']['len']='18';
+$dictionary['SA_Services']['fields']['sf_id_c']['type']='varchar';
+$dictionary['SA_Services']['fields']['sf_id_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['sf_id_c']['importable']='true';
+$dictionary['SA_Services']['fields']['sf_id_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['sf_id_c']['vname']='LBL_SF_ID_C';
+$dictionary['SA_Services']['fields']['sf_id_c']['source']='custom_fields';
 
  ?>

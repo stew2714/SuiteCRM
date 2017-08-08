@@ -806,6 +806,10 @@ $dictionary['SA_Products']['fields']['product_subscription_auto_renewal_c']['imp
 $dictionary['SA_Products']['fields']['product_subscription_auto_renewal_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['product_subscription_auto_renewal_c']['vname']='LBL_PRODUCT_SUBSCRIPTION_AUTO_RENEWAL_C';
 $dictionary['SA_Products']['fields']['product_subscription_auto_renewal_c']['source']='custom_fields';
+
+
+ // Vardef Created : coding_price_book_rate_c 
+
 $dictionary['SA_Products']['fields']['coding_price_book_rate_c']['name']='coding_price_book_rate_c';
 $dictionary['SA_Products']['fields']['coding_price_book_rate_c']['len']='255';
 $dictionary['SA_Products']['fields']['coding_price_book_rate_c']['type']='text';
@@ -814,5 +818,13 @@ $dictionary['SA_Products']['fields']['coding_price_book_rate_c']['importable']='
 $dictionary['SA_Products']['fields']['coding_price_book_rate_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['coding_price_book_rate_c']['vname']='LBL_CODING_PRICE_BOOK_RATE_C';
 $dictionary['SA_Products']['fields']['coding_price_book_rate_c']['source']='custom_fields';
+$dictionary['SA_Products']['fields']['sf_id_c']['name']='sf_id_c';
+$dictionary['SA_Products']['fields']['sf_id_c']['len']='18';
+$dictionary['SA_Products']['fields']['sf_id_c']['type']='varchar';
+$dictionary['SA_Products']['fields']['sf_id_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['sf_id_c']['importable']='true';
+$dictionary['SA_Products']['fields']['sf_id_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['sf_id_c']['vname']='LBL_SF_ID_C';
+$dictionary['SA_Products']['fields']['sf_id_c']['source']='custom_fields';
 
  ?>

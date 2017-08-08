@@ -2422,3 +2422,4 @@ $mod_strings['LBL_VIRTUAL_SCRIBING_TERM_MM_C'] = 'Virtual Scribing Term Mm';
 $mod_strings['LBL_VIRTUAL_SCRIBING_TERM_PRIOR_TO_RENEWAL_C'] = 'Virtual Scribing Term Prior To Renewal';
 $mod_strings['LBL_VS_TERM_FOR_CONV_NOTICE_DD_C'] = 'Vs Term For Conv Notice Dd';
 $mod_strings['LBL_VS_TERM_PRIOR_TO_RENEWAL_DD_C'] = 'Vs Term Prior To Renewal Dd';
+$mod_strings['LBL_SF_ID_C'] = 'Sf Id';

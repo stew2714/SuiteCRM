@@ -3443,6 +3443,18 @@ $dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['repor
 $dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['precision']='8';
 $dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['vname']='LBL_DQ_SUBS_PRODUCT_TERM_FOR_CONV_C';
 $dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['source']='custom_fields';
+
+
+ // Vardef Created : type_of_scribing_c 
+
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['name']='type_of_scribing_c';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['vname']='LBL_TYPE_OF_SCRIBING_C';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['source']='custom_fields';
 $dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['name']='type_of_scribing_c';
 $dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['type']='text';
