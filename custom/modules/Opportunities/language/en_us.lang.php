@@ -35,6 +35,10 @@ $mod_strings = array (
   'LBL_MUST_BE_INCUMBENT' => 'You must select an incumbent',
   'LBL_COMPANY_SIGNED_BY' => 'Please fill data in "Company Signed By"',
   'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'Please enter the number of licenses in the cost component section',
+  'LBL_MUST_FILL_TERM_LENGTH' => 'You must fill in the term length before you can validate',
+  'LBL_FTE_MUST_BE_FILLED_IN' => 'You must fill in the FTE (labor type) on coding services opps',
+  'LBL_ENCODER_REQUIRED_FOR_CODING_OPPS' => 'Please Select The Encoder in the pricing component section',
+  'LBL_REQUIRE_ILP_PROBABILITY_TO_BE_0_OR_100' => 'Global Use % must be 0 or 100 when Opportunity is Closed - Won. Please select the appropriate value.',
 
 
 
