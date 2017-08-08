@@ -123,7 +123,7 @@ class SharedSecurityRules extends Basic
      */
     function checkRules(&$module,$view ){
         $moduleBean = clone $module;
-        $moduleBean->retrieve($module->id);
+        //$moduleBean->retrieve($module->id);
         if(empty($moduleBean->id) || $moduleBean->id == "[SELECT_ID_LIST]"){
             return true;
         }
