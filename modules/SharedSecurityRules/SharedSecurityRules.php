@@ -122,7 +122,16 @@ class SharedSecurityRules extends Basic
      * @return bool
      */
     function checkRules(&$module,$view ){
-        $moduleBean = clone $module;
+//        $moduleBean = clone $module;
+
+        $class = get_class($module);
+        $moduleBean = new $class();
+        if (!empty($module->fetched_row) && !empty($module->fetched_row['id']) && !empty($module->fetched_row['assigned_user_id']) && !empty($module->fetched_row['created_by'])) {
+            $moduleBean->populateFromRow($module->fetched_row);
+        } else {
+            $moduleBean->retrieve($module->id);
+        }
+
         //shared$moduleBean->retrieve($module->id);
 
         if(empty($moduleBean->id) || $moduleBean->id == "[SELECT_ID_LIST]"){

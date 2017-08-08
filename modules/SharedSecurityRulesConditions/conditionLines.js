@@ -309,7 +309,8 @@ function insertConditionLine(){
     if(conditionOperator == "") {
       var callback3 = {
         success: function (result) {
-          console.log(result.responseText);
+          viewStyle = '';
+          if(action_sugar_grp1 == 'EditView'){viewStyle = 'display:none';}else{viewStyle = '';}
           conditionOperator = result.responseText;
           c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
 
