@@ -14,50 +14,46 @@ $viewdefs = array (
             1 => 'DUPLICATE',
             2 => 'DELETE',
             3 => 'FIND_DUPLICATES',
-            4 => 
-            array (
-              'customCode' => '<input type="button" class="button" onClick="showPopup(\'pdf\');" value="{$MOD.LBL_PRINT_AS_PDF}">',
-            ),
-            5 => 
-            array (
-              'customCode' => '<input type="button" class="button" onClick="showPopup(\'emailpdf\');" value="{$MOD.LBL_EMAIL_PDF}">',
-            ),
-            6 => 
-            array (
-              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="sendToLegal" value="Send to Legal Queue">{/if}',
-            ),
-            7 => 
-            array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
-            ),
-            8 => 
-            array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="returnToRequester" value="Return to Requester">{/if}',
-            ),
-            9 => 
-            array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="redlineReview" value="M*Modal Redline Review">{/if}',
-            ),
-            10 => 
-            array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="informCommOps" value="Send for Signatures">{/if}',
-            ),
-            11 => 
-            array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="Submit to Comm Ops">{/if}',
-            ),
-            12 => 
-            array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
-            ),
-            13 => 
-            array (
-              'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
-            ),
-            14 => 
-            array (
-              'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUST}">{/if}',
-            ),
+            4 =>
+              array (
+                  'customCode' => '<input type="button" class="button" onClick="showPopup(\'pdf\');" value="{$MOD.LBL_PRINT_AS_PDF}">',
+              ),
+            5 =>
+              array (
+                  'customCode' => '<input type="button" class="button" onClick="showPopup(\'emailpdf\');" value="{$MOD.LBL_EMAIL_PDF}">',
+              ),
+            6 =>
+              array (
+                  'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="sendToLegal" value="{$MOD.LBL_BUTTON_SEND_TO_LEGAL_QUEUE}">{/if}',
+              ),
+            7 =>
+              array (
+                  'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="{$MOD.LBL_BUTTON_ACCEPT_LEGAL_REQUEST}">{/if}',
+              ),
+            8 =>
+              array (
+                  'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="returnToRequester" value="{$MOD.LBL_BUTTON_RETURN_TO_REQUESTER}">{/if}',
+              ),
+            9 =>
+              array (
+                  'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="redlineReview" value="{$MOD.LBL_BUTTON_MMODAL_RED_LINE_REVIEW}">{/if}',
+              ),
+            10 =>
+              array (
+                  'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="informCommOps" value="{$MOD.LBL_BUTTON_SEND_FOR_SIGNATURES}">{/if}',
+              ),
+            11 =>
+              array (
+                  'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="{$MOD.LBL_BUTTON_SUBMIT_TO_COMM_OPS}">{/if}',
+              ),
+            12 =>
+              array (
+                  'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
+              ),
+            13 =>
+              array (
+                  'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="Activate">{/if}',
+              ),
           ),
           'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
           'javascript' => '{$REQUIREDFIELDS}',
@@ -115,7 +111,12 @@ $viewdefs = array (
           ),
           1 => 
           array (
-            1 => 'contact',
+            0 => 
+            array (
+              'name' => 'contact',
+              'studio' => 'visible',
+              'label' => 'LBL_CONTACT',
+            ),
           ),
           2 => 
           array (
@@ -1429,9 +1430,6 @@ $viewdefs = array (
               'name' => 'use_of_data_continuous_improvement_c',
               'label' => 'LBL_USE_OF_DATA_CONTINUOUS_IMPROVEMENT_C',
             ),
-          ),
-          148 => 
-          array (
           ),
           149 => 
           array (

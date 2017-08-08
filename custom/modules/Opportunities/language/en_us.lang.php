@@ -30,6 +30,11 @@ $mod_strings = array (
   'LBL_ENTRY_REQUIRED_IN_LATEST_UPDATE' => 'An entry is required in the Latest Update field when the Probability is >= 50%, Total Amount is >= $500K, or Close Date or Stage have been changed.',
   'LBL_ENTRY_REQUIRED_IN_LOSS_LEARNING' => 'An entry is required in the Loss Learning field when the Opportunity is Closed - Lost.',
   'LBL_ENTRY_REQUIRED_PRODUCT_SERVICES' => 'An entry is required in the Product/Service field for all Opportunities.',
+  'LBL_WHEN_CLOSED_LOST_WINNER_REQUIRED' => 'You must identify the winner for lost opportunities',
+  'LBL_MUST_BE_SELECTED_WHEN_STAGE' => 'ILP Probability % must be selected when Opportunity Stage/Probability is 50% or greater.',
+  'LBL_MUST_BE_INCUMBENT' => 'You must select an incumbent',
+  'LBL_COMPANY_SIGNED_BY' => 'Please fill data in "Company Signed By"',
+  'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'Please enter the number of licenses in the cost component section',
 
 
 
