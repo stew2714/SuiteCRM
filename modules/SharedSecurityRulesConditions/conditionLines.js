@@ -25,7 +25,10 @@
 var condln = 0;
 var condln_count = 0;
 var flow_fields =  new Array();
+var conditionOperator =  "";
 var flow_module = '';
+
+
 
 document.getElementById('flow_module').addEventListener("change", showModuleFields, false);
 
@@ -244,6 +247,10 @@ function insertConditionHeader(){
     var f=x.insertCell(5);
     f.style.color="rgb(0,0,0)";
     f.innerHTML=SUGAR.language.get('SharedSecurityRulesConditions', 'LBL_VALUE');
+
+    var f=x.insertCell(6);
+    f.style.color="rgb(0,0,0)";
+    f.innerHTML=SUGAR.language.get('SharedSecurityRulesConditions', 'LBL_OPERATOR');
 }
 
 function insertConditionLine(){
@@ -295,7 +302,27 @@ function insertConditionLine(){
     var f = x.insertCell(5);
     f.id='shared_rules_conditions_fieldInput'+condln;
 
-    condln++;
+    var c = x.insertCell(6);
+    var viewStyle = '';
+    if(action_sugar_grp1 == 'EditView'){viewStyle = '';}
+
+    if(conditionOperator == "") {
+      var callback3 = {
+        success: function (result) {
+          console.log(result.responseText);
+          conditionOperator = result.responseText;
+          c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
+
+        }
+      }
+
+      YAHOO.util.Connect.asyncRequest("GET", "index.php?module=SharedSecurityRules&action=getModuleDropDowns&dropdown=condition_operator", callback3);
+    }else{
+      c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
+    }
+
+
+  condln++;
     condln_count++;
 
     $('.edit-view-field #conditionLines').find('tbody').last().find('select').change(function () {
