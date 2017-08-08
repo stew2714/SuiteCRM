@@ -1386,9 +1386,18 @@ $viewdefs = array (
               'label' => 'LBL_USE_OF_DATA_CONTINUOUS_IMPROVEMENT_C',
             ),
           ),
-          149 => 
+          148 => 
           array (
             0 => 'description',
+          ),
+          149 => 
+          array (
+            0 => 
+            array (
+              'name' => 'requested_user_id',
+              'studio' => 'visible',
+              'label' => 'LBL_REQUESTED_USER_ID',
+            ),
           ),
         ),
         'con_default' => 
