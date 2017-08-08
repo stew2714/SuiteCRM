@@ -42,12 +42,13 @@ $dictionary['Lead']['fields']['industry_c']['source']='custom_fields';
 
 $dictionary['Lead']['fields']['rating_c']['name']='rating_c';
 $dictionary['Lead']['fields']['rating_c']['len']='40';
-$dictionary['Lead']['fields']['rating_c']['type']='varchar';
+$dictionary['Lead']['fields']['rating_c']['type']='enum';
 $dictionary['Lead']['fields']['rating_c']['inline_edit']=1;
 $dictionary['Lead']['fields']['rating_c']['importable']='true';
 $dictionary['Lead']['fields']['rating_c']['reportable']=true;
 $dictionary['Lead']['fields']['rating_c']['vname']='LBL_RATING_C';
 $dictionary['Lead']['fields']['rating_c']['source']='custom_fields';
+$dictionary['Lead']['fields']['rating_c']['options']='sales_probability_dom';
 
 
  // Vardef Created : annual_revenue_c 
