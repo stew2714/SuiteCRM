@@ -45,7 +45,7 @@ class RequesterManagement
         // If it's a new record (on creation), assign the record to the Legal team.
         if ($bean->date_entered == $bean->date_modified) {
             global $current_user, $sugar_config, $timedate;
-            $bean->user_id_2 = $current_user->id;
+            $bean->user_id2 = $current_user->id;
             $bean->status = 'In Queue';
             $bean->date_requested_c = $timedate->nowDb();
             $bean->assigned_user_id = '';
