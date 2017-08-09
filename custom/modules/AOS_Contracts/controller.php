@@ -192,7 +192,7 @@ class AOS_ContractsController extends SugarController
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->assigned_security_group_id = $sugar_config['CommOps'];
-            $bean->assigned_user_id = '';
+            $bean->assigned_user_id = $current_user->id;
             $bean->status = "Submitted for Comm Ops Processing";
             $bean->save();
             echo "success";
