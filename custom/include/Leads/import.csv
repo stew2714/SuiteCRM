@@ -26,7 +26,7 @@ column,do no create,name,type,options
 "   leadsource varchar(40),",X,,,
 "   status varchar(40) NOT NULL,",X,,,
 "   industry varchar(40),",,industry_c,,
-"   rating varchar(40),",,rating_c,,
+"   rating varchar(40),",,rating_c,enum,sales_probability_dom
 "   annualrevenue real,",,annual_revenue_c,,
 "   numberofemployees int,",,numberofemployees_c,,
 "   ownerid varchar(18) NOT NULL,",X,,,

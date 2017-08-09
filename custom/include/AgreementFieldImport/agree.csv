@@ -484,3 +484,5 @@ virtual_scribing_term_mm__c real,,,,s
 virtual_scribing_term_prior_to_renewal__c bool,,,,s
 vs_term_for_conv_notice_dd__c real,,,,s
 vs_term_prior_to_renewal_dd__c real,,,,s
+sf_id_c varchar(18) NOT NULL,,,,s
+sf_id_c varchar(18) NOT NULL,,,,p

@@ -3263,18 +3263,6 @@ $dictionary['AOS_Contracts']['fields']['dq_subs_prod_subs_auto_renewal_c']['vnam
 $dictionary['AOS_Contracts']['fields']['dq_subs_prod_subs_auto_renewal_c']['source']='custom_fields';
 
 
- // Vardef Created : dq_subs_support_term_for_conv_c 
-
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['name']='dq_subs_support_term_for_conv_c';
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['len']='19';
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['type']='int';
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['importable']='true';
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['vname']='LBL_DQ_SUBS_SUPPORT_TERM_FOR_CONV_C';
-$dictionary['AOS_Contracts']['fields']['dq_subs_support_term_for_conv_c']['source']='custom_fields';
-
-
  // Vardef Created : dq_subs_prod_term_for_conv_notice_dd_c 
 
 $dictionary['AOS_Contracts']['fields']['dq_subs_prod_term_for_conv_notice_dd_c']['name']='dq_subs_prod_term_for_conv_notice_dd_c';
@@ -3429,13 +3417,51 @@ $dictionary['AOS_Contracts']['fields']['dq_total_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['dq_total_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['dq_total_c']['vname']='LBL_DQ_TOTAL_C';
 $dictionary['AOS_Contracts']['fields']['dq_total_c']['source']='custom_fields';
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['name']='dq_total_c';
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['len']='19';
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['type']='int';
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['importable']='true';
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['vname']='LBL_DQ_TOTAL_C';
-$dictionary['AOS_Contracts']['fields']['dq_total_c']['source']='custom_fields';
+
+
+ // Vardef Created : baa_effective_date_c 
+
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['name']='baa_effective_date_c';
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['type']='datetimecombo';
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['dbType']='datetime';
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['vname']='LBL_BAA_EFFECTIVE_DATE_C';
+$dictionary['AOS_Contracts']['fields']['baa_effective_date_c']['source']='custom_fields';
+
+
+ // Vardef Created : dq_subs_product_term_for_conv_c 
+
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['name']='dq_subs_product_term_for_conv_c';
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['type']='float';
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['precision']='8';
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['vname']='LBL_DQ_SUBS_PRODUCT_TERM_FOR_CONV_C';
+$dictionary['AOS_Contracts']['fields']['dq_subs_product_term_for_conv_c']['source']='custom_fields';
+
+
+ // Vardef Created : type_of_scribing_c 
+
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['name']='type_of_scribing_c';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['vname']='LBL_TYPE_OF_SCRIBING_C';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['source']='custom_fields';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['name']='type_of_scribing_c';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['vname']='LBL_TYPE_OF_SCRIBING_C';
+$dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['source']='custom_fields';
 
  ?>
