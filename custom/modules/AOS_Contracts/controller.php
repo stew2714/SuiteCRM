@@ -97,7 +97,7 @@ class AOS_ContractsController extends SugarController
 
     public function action_acceptCommOps()
     {
-        global $current_date, $sugar_config;
+        global $current_user, $current_date, $sugar_config;
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
