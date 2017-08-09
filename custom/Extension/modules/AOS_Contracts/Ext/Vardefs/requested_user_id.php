@@ -1,5 +1,5 @@
 <?php
-$dictionary['AOS_Contracts']['fields']['user_id_2'] = array(
+$dictionary['AOS_Contracts']['fields']['user_id2'] = array(
     'inline_edit' => 1,
     'required' => false,
     'name' => 'user_id2',
@@ -45,7 +45,7 @@ $dictionary['AOS_Contracts']['fields']['requested_user_id'] = array (
     'merge_filter' => 'disabled',
     'len' => '255',
     'size' => '20',
-    'id_name' => 'user_id2_c',
+    'id_name' => 'user_id2',
     'ext2' => 'Users',
     'module' => 'Users',
     'rname' => 'name',
