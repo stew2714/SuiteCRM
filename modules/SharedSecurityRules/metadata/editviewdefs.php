@@ -59,7 +59,10 @@ $viewdefs [$module_name] =
                                             ),
                                         1 => 'status',
                                     ),
-                                2 =>
+                                2 => array(
+                                   0 => 'run'
+                                ),
+                                3 =>
                                     array (
                                         0 => 'description',
                                     ),

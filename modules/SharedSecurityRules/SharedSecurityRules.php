@@ -122,8 +122,18 @@ class SharedSecurityRules extends Basic
      * @return bool
      */
     function checkRules(&$module,$view ){
-        $moduleBean = clone $module;
-        //$moduleBean->retrieve($module->id);
+//        $moduleBean = clone $module;
+
+        $class = get_class($module);
+        $moduleBean = new $class();
+        if (!empty($module->fetched_row) && !empty($module->fetched_row['id']) && !empty($module->fetched_row['assigned_user_id']) && !empty($module->fetched_row['created_by'])) {
+            $moduleBean->populateFromRow($module->fetched_row);
+        } else {
+            $moduleBean->retrieve($module->id);
+        }
+
+        //shared$moduleBean->retrieve($module->id);
+
         if(empty($moduleBean->id) || $moduleBean->id == "[SELECT_ID_LIST]"){
             return true;
         }
@@ -199,25 +209,85 @@ class SharedSecurityRules extends Basic
     private function checkConditions($rule, $moduleBean,$view,$action,$key,  $result = true){
         $rel = "sharedsecurityrulesconditions";
         $rule->load_relationship($rel);
-        $conditions = $rule->{$rel}->getBeans();
+        $related = false;
+        $conditions = $rule->{$rel}->getBeans(array('order_by' => 'condition_order ASC' )); //@todo
+        // reorder by condition_order
         if(count($conditions) != 0) {
             foreach ($conditions as $condition) {
-                if ($condition->value_type == "Field" &&
-                    isset($moduleBean->{$condition->value}) &&
-                    !empty($moduleBean->{$condition->value})) {
-                    $condition->value = $moduleBean->{$condition->value};
+                if(unserialize(base64_decode($condition->module_path)) != false) {
+                    $condition->module_path = unserialize(base64_decode($condition->module_path));
                 }
-                if ($this->checkOperator(
-                    $moduleBean->{$condition->field},
-                    $condition->value,
-                    $condition->operator
-                )) {
-                    if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
-                        $result = false;
+                    if ($condition->module_path[0] != $rule->flow_module) {
+                        foreach ($condition->module_path as $rel) {
+                            if (empty($rel)) {
+                                continue;
+                            }
+                            $moduleBean->load_relationship($rel);
+                            $related = $moduleBean->$rel->getBeans();
+                        }
                     }
-                } else {
-                    return true;
+
+
+                if($related !== false){
+                    foreach($related as $record){
+                        if($moduleBean->field_defs[ $condition->field ]['type'] == "relate"){
+                            $condition->field = $moduleBean->field_defs[ $condition->field ]['id_name'];
+                        }
+                        if($condition->field == "currentUser"){
+                            global $current_user;
+                            $condition->field = "Field";
+                            $condition->value = $current_user->id;
+
+                        }
+                        if ($condition->value_type == "Field" &&
+                            isset($record->{$condition->field}) &&
+                            !empty($record->{$condition->field})) {
+                            $condition->value = $record->{$condition->field};
+                        }
+                        if ($this->checkOperator(
+                            $record->{$condition->field},
+                            $condition->value,
+                            $condition->operator
+                        )) {
+                            if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                                $result = false;
+                            }
+                        } else {
+                            if($condition->condition_operator !== "OR" && $result != false) {
+                                return true;
+                            }
+                        }
+                    }
+                }else{
+                    //check and see if it is pointed at a field rather than a value.
+                    if ($condition->value_type == "Field" &&
+                        isset($moduleBean->{$condition->value}) &&
+                        !empty($moduleBean->{$condition->value})) {
+                        $condition->value = $moduleBean->{$condition->value};
+                    }
+                        if ($this->checkOperator(
+                            $moduleBean->{$condition->field},
+                            $condition->value,
+                            $condition->operator
+                        )) {
+                            if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                                $result = false;
+                            }
+                        } else {
+                            if($rule->run == "Once True"){
+                                if ($this->checkHistory($moduleBean,$condition->field, $condition->value) ) {
+                                    if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                                        $result = false;
+                                    }
+                                }
+                            }else{
+                                if($condition->condition_operator !== "OR" && $result != false){
+                                    return true;
+                                }
+                            }
+                        }
                 }
+
             }
         }elseif (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
             $result = false;
@@ -225,6 +295,22 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
+    public function checkHistory($module, $field, $value){
+        global $db;
+        if($module->field_defs[ $field ]['audited'] == true ){
+            $value = $db->quote($value);
+            $field = $db->quote($field);
+
+            $sql = "SELECT * FROM {$module->table_name}_audit WHERE field_name = '{$field}' AND (before_value_string = '{$value}'
+                    OR after_value_string = '{$value}' )";
+            $results = $db->getOne($sql);
+            if($results !== false){
+                return true;
+            }
+        }
+        return false;
+
+    }
     /**
      * @param $rowField
      * @param $field
