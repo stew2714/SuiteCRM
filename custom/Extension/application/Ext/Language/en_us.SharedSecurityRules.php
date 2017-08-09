@@ -56,3 +56,16 @@ $app_list_strings['sharedGroupRule']['view_edit_delete'] = 'View, Edit & Delete'
 $app_list_strings['shared_email_type_list'][''] = '';
 $app_list_strings['shared_email_type_list']['Specify User'] = 'User';
 $app_list_strings['shared_email_type_list']['Users'] = 'Users';
+
+$app_list_strings['run_when_dom']['When True'] = 'Evaluate On Save';
+$app_list_strings['run_when_dom']['Once True'] = 'Perpetual - (Field must be audited)';
+
+
+
+$app_list_strings['aow_condition_type_list']['Value'] = 'Value';
+$app_list_strings['aow_condition_type_list']['Field'] = 'Field';
+$app_list_strings['aow_condition_type_list']['Any_Change'] = 'Any Change';
+$app_list_strings['aow_condition_type_list']['SecurityGroup'] = 'In SecurityGroup';
+$app_list_strings['aow_condition_type_list']['currentUser'] = 'Current Logged in User';
+$app_list_strings['aow_condition_type_list']['Date'] = 'Date';
+$app_list_strings['aow_condition_type_list']['Multi'] = 'One of';

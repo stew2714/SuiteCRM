@@ -81,4 +81,5 @@ $mod_strings = array (
   'LBL_ADD_ACTION' => 'Add Action',
   'LBL_EDITVIEW_PANEL1' => 'Actions',
   'LBL_EDITVIEW_PANEL2' => 'Conditions',
+  'LBL_RUN_WHEN' => 'Run',
 );

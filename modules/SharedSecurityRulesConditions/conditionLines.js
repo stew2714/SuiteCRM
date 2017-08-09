@@ -27,6 +27,8 @@ var condln_count = 0;
 var flow_fields =  new Array();
 var flow_module = '';
 
+
+
 document.getElementById('flow_module').addEventListener("change", showModuleFields, false);
 
 function loadConditionLine(condition){
@@ -44,6 +46,9 @@ function loadConditionLine(condition){
 
     var select_field = document.getElementById('shared_rules_conditions_field'+ln);
     document.getElementById('shared_rules_conditions_field_label'+ln).innerHTML = select_field.options[select_field.selectedIndex].text;
+
+    var condition_operator = document.getElementById('shared_rules_conditions_condition_operator'+ln);
+    document.getElementById('shared_rules_conditions_condition_operator_label'+ln).innerHTML = condition_operator.options[condition_operator.selectedIndex].text;
 
     var select_field2 = document.getElementById('shared_rules_conditions_module_path'+ln);
     document.getElementById('shared_rules_conditions_module_path_label'+ln).innerHTML = select_field2.options[select_field2.selectedIndex].text;
@@ -129,6 +134,7 @@ function showModuleField(ln, operator_value, type_value, field_value){
 
     var rel_field = document.getElementById('shared_rules_conditions_module_path'+ln).value;
     var aow_field = document.getElementById('shared_rules_conditions_field'+ln).value;
+    console.log(aow_field);
     if(aow_field != ''){
 
         var callback = {
@@ -168,8 +174,8 @@ function showModuleField(ln, operator_value, type_value, field_value){
         var aow_field_name = "shared_rules_conditions_value["+ln+"]";
 
         YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getModuleOperatorField&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_operator_name+"&aow_value="+operator_value+"&rel_field="+rel_field,callback);
-        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getFieldTypeOptions&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_type_name+"&aow_value="+type_value+"&rel_field="+rel_field,callback2);
-        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+field_value+"&aow_type="+type_value+"&rel_field="+rel_field,callback3);
+        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getFieldTypeOptions&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_type_name+"&aow_value="+type_value+"&rel_field="+rel_field,callback2);
+        YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+field_value+"&aow_type="+type_value+"&rel_field="+rel_field,callback3);
 
     } else {
         document.getElementById('shared_rules_conditions_operatorInput'+ln).innerHTML = ''
@@ -177,7 +183,7 @@ function showModuleField(ln, operator_value, type_value, field_value){
         document.getElementById('shared_rules_conditions_fieldInput'+ln).innerHTML = '';
     }
 
-    if(operator_value == 'is_null'){
+    if(operator_value == 'is_null' ){
         hideElem('shared_rules_conditions_fieldTypeInput' + ln);
         hideElem('shared_rules_conditions_fieldInput' + ln);
     } else {
@@ -205,7 +211,7 @@ function showModuleFieldType(ln, value){
     var type_value = document.getElementById("shared_rules_conditions_value_type["+ln+"]").value;
     var aow_field_name = "shared_rules_conditions_value["+ln+"]";
 
-    YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+value+"&aow_type="+type_value+"&rel_field="+rel_field,callback);
+    YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+value+"&aow_type="+type_value+"&rel_field="+rel_field,callback);
 
 }
 
@@ -244,6 +250,10 @@ function insertConditionHeader(){
     var f=x.insertCell(5);
     f.style.color="rgb(0,0,0)";
     f.innerHTML=SUGAR.language.get('SharedSecurityRulesConditions', 'LBL_VALUE');
+
+    var f=x.insertCell(6);
+    f.style.color="rgb(0,0,0)";
+    f.innerHTML=SUGAR.language.get('SharedSecurityRulesConditions', 'LBL_OPERATOR');
 }
 
 function insertConditionLine(){
@@ -294,6 +304,17 @@ function insertConditionLine(){
 
     var f = x.insertCell(5);
     f.id='shared_rules_conditions_fieldInput'+condln;
+
+    var c = x.insertCell(6);
+    var viewStyle = '';
+    if(action_sugar_grp1 == 'EditView'){viewStyle = '';}
+
+
+  var viewStyle = 'display:none';
+  if(action_sugar_grp1 == 'EditView'){viewStyle = '';}
+  c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
+  if(action_sugar_grp1 == 'EditView'){viewStyle = 'display:none';}else{viewStyle = '';}
+  c.innerHTML += "<span style='"+viewStyle+"' id='shared_rules_conditions_condition_operator_label" + condln + "' ></span>";
 
     condln++;
     condln_count++;
