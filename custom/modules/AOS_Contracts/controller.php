@@ -97,7 +97,7 @@ class AOS_ContractsController extends SugarController
 
     public function action_acceptCommOps()
     {
-        global $current_date, $sugar_config;
+        global $current_user, $current_date, $sugar_config;
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
@@ -142,6 +142,7 @@ class AOS_ContractsController extends SugarController
             $bean->assigned_user_id = '';
             $bean->user_id2 = $current_user->id;
             $bean->date_requested_c = $timedate->nowDb();
+            $bean->status = 'In Queue';
             $bean->save();
             echo "success";
             die();
