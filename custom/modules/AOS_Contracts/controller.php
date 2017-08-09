@@ -142,6 +142,7 @@ class AOS_ContractsController extends SugarController
             $bean->assigned_user_id = '';
             $bean->user_id2 = $current_user->id;
             $bean->date_requested_c = $timedate->nowDb();
+            $bean->status = 'In Queue';
             $bean->save();
             echo "success";
             die();
