@@ -22,7 +22,7 @@ class duplicate {
     {
         $date = new DateTime();
         $bean->retrieve($bean->id);
-        $documents = $bean->load_relationship("documents")->getBeans();
+        //$documents = $bean->load_relationship("documents")->getBeans();
         if($bean->date_entered == $bean->date_modified || count($documents) < 1
         ) {
             $rel = "documents";
