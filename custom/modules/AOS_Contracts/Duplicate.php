@@ -22,7 +22,11 @@ class duplicate {
     {
         $date = new DateTime();
         $bean->retrieve($bean->id);
-        if($bean->date_entered == $bean->date_modified && isset($bean->opportunity_id) && !empty($bean->opportunity_id)
+        $documents = 0;
+        if($bean->load_relationship("documents") ){
+            $documents =$bean->documents->getBeans();
+        }
+        if($bean->date_entered == $bean->date_modified || count($documents) < 1
         ) {
             $rel = "documents";
             $opportunityBean = BeanFactory::getBean("Opportunities", $bean->opportunity_id);
