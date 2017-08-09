@@ -39,6 +39,7 @@
 
 require_once('custom/include/convertCSV.php');
 
-$csv = new convertCSV('custom/include/AgreementFieldImport/agree.csv');
+$csv = new convertCSV('custom/include/AgreementFieldImport/example.csv');
 $csv->oneFile = true;
+$csv->update = false;
 $csv->import();

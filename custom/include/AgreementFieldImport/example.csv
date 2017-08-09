@@ -1,0 +1,3 @@
+column,do no create,name,custom,module ,related module,,type,id_name
+,,user_id2,,a,,,id,
+,,requested_user_id,,a,Users,,relate,user_id2
