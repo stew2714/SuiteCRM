@@ -200,11 +200,5 @@ class SharedSecurityRulesController extends SugarController {
         die;
 
     }
-    protected function action_getModuleDropDowns(){
-        $dropdown = get_select_options_with_id(array("AND" => "AND", "OR" => "OR"), "AND");
-
-        echo $dropdown;
-        die();
-    }
 
 }

@@ -210,7 +210,8 @@ class SharedSecurityRules extends Basic
         $rel = "sharedsecurityrulesconditions";
         $rule->load_relationship($rel);
         $related = false;
-        $conditions = $rule->{$rel}->getBeans();
+        $conditions = $rule->{$rel}->getBeans(array('order_by' => 'condition_order ASC' )); //@todo
+        // reorder by condition_order
         if(count($conditions) != 0) {
             foreach ($conditions as $condition) {
                 if(unserialize(base64_decode($condition->module_path)) != false) {
@@ -278,7 +279,9 @@ class SharedSecurityRules extends Basic
                                     }
                                 }
                             }else{
-                                return true;
+                                if($condition->condition_operator !== "OR" && $result != false){
+                                    return true;
+                                }
                             }
                         }
                 }

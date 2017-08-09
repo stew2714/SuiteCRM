@@ -25,7 +25,6 @@
 var condln = 0;
 var condln_count = 0;
 var flow_fields =  new Array();
-var conditionOperator =  "";
 var flow_module = '';
 
 
@@ -47,6 +46,9 @@ function loadConditionLine(condition){
 
     var select_field = document.getElementById('shared_rules_conditions_field'+ln);
     document.getElementById('shared_rules_conditions_field_label'+ln).innerHTML = select_field.options[select_field.selectedIndex].text;
+
+    var condition_operator = document.getElementById('shared_rules_conditions_condition_operator'+ln);
+    document.getElementById('shared_rules_conditions_condition_operator_label'+ln).innerHTML = condition_operator.options[condition_operator.selectedIndex].text;
 
     var select_field2 = document.getElementById('shared_rules_conditions_module_path'+ln);
     document.getElementById('shared_rules_conditions_module_path_label'+ln).innerHTML = select_field2.options[select_field2.selectedIndex].text;
@@ -132,6 +134,7 @@ function showModuleField(ln, operator_value, type_value, field_value){
 
     var rel_field = document.getElementById('shared_rules_conditions_module_path'+ln).value;
     var aow_field = document.getElementById('shared_rules_conditions_field'+ln).value;
+    console.log(aow_field);
     if(aow_field != ''){
 
         var callback = {
@@ -306,24 +309,14 @@ function insertConditionLine(){
     var viewStyle = '';
     if(action_sugar_grp1 == 'EditView'){viewStyle = '';}
 
-    if(conditionOperator == "") {
-      var callback3 = {
-        success: function (result) {
-          viewStyle = '';
-          if(action_sugar_grp1 == 'EditView'){viewStyle = 'display:none';}else{viewStyle = '';}
-          conditionOperator = result.responseText;
-          c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
 
-        }
-      }
+  var viewStyle = 'display:none';
+  if(action_sugar_grp1 == 'EditView'){viewStyle = '';}
+  c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
+  if(action_sugar_grp1 == 'EditView'){viewStyle = 'display:none';}else{viewStyle = '';}
+  c.innerHTML += "<span style='"+viewStyle+"' id='shared_rules_conditions_condition_operator_label" + condln + "' ></span>";
 
-      YAHOO.util.Connect.asyncRequest("GET", "index.php?module=SharedSecurityRules&action=getModuleDropDowns&dropdown=condition_operator", callback3);
-    }else{
-      c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
-    }
-
-
-  condln++;
+    condln++;
     condln_count++;
 
     $('.edit-view-field #conditionLines').find('tbody').last().find('select').change(function () {

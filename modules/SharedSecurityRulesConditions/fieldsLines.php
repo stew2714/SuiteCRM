@@ -50,6 +50,8 @@ function display_condition_lines($focus, $field, $value, $view){
             $html .= "<script>";
             $html .= "flow_rel_modules = \"".trim(preg_replace('/\s+/', ' ', getModuleRelationships($focus->flow_module)))."\";";
             $html .= "flow_module = \"".$focus->flow_module."\";";
+            $html .= "conditionOperator = \"". trim(preg_replace('/\s+/', ' ',get_select_options_with_id(array("AND" => "AND", "OR" => "OR"),"AND")))
+                     . "\";";
             $html .= "document.getElementById('btn_ConditionLine').disabled = '';";
             if($focus->id != ''){
                 $sql = "SELECT id FROM sharedsecurityrulesconditions WHERE sa_shared_sec_rules_id = '".$focus->id."' AND deleted = 0 ORDER BY 
@@ -93,6 +95,8 @@ condition_order ASC";
                 $condition_name->module_path = unserialize(base64_decode($condition_name->module_path));
                 if(empty($condition_name->module_path))$condition_name->module_path[0] = $focus->flow_module;
                 $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields(getRelatedModule($focus->flow_module,$condition_name->module_path[0]))))."\";";
+                $html .= "conditionOperator = \"". trim(preg_replace('/\s+/', ' ',get_select_options_with_id(array("AND" => "AND", "OR" => "OR"),"AND")))
+                         . "\";";
                 if($condition_name->value_type == 'Date'){
                     $condition_name->value = unserialize(base64_decode($condition_name->value));
                 }
