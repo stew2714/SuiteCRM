@@ -47,9 +47,10 @@ require_once("ModuleInstall/ModuleInstaller.php");
 
 class convertCSV
 {
-    private $version = "V0.1";
+    static $version = "V0.2";
     var $oneFile = false;
     var $module = "";
+    var $update = true;
     var $source = "custom_fields";
     var $exempt = array("id", "name", "id_c");
     var $csv = "";
@@ -72,6 +73,7 @@ class convertCSV
      */
     public function import()
     {
+
         foreach ($this->csv->data as $vardef) {
             $this->cleanColumn($vardef);
         }
@@ -91,72 +93,82 @@ class convertCSV
             return '';
         }
         //lets do a clean.
-        if (isset($vardefs['name']) && !empty($vardefs['name'])) {
+        if (!empty($vardefs['name'])) {
             $vardef['name'] = $vardefs['name'];
         }
-        //now we have vardef name
-        if(substr($vardef['name'], -2) !== "_c" && $this->source == "custom_fields"){
-            $vardef['name'] .= "_c";
-        }
-
-        if (isset($vardefs['vname']) && !empty($vardefs['vname'])) {
+        if (!empty($vardefs['vname'])) {
             $vardef['vname'] = $vardefs['vname'];
         } else {
             // Guess the label.
             $vardef['vname'] = "LBL_" . strtoupper($vardef['name']);
         }
-        if (isset($vardefs['comments']) && !empty($vardefs['comments'])) {
+        if (!empty($vardefs['comments'])) {
             $vardef['comments'] = $vardefs['comments'];
         }
-        if (isset($vardefs['help']) && !empty($vardefs['help'])) {
+        if (!empty($vardefs['help'])) {
             $vardef['help'] = $vardefs['help'];
         }
-        if (isset($vardefs['module']) && !empty($vardefs['module'])) {
+        if (!empty($vardefs['module'])) {
             $vardef['module'] = $this->decodeModule($vardefs['module']);
         } elseif (!empty($this->module)) {
             $vardef['module'] = $this->module;
         }
-        if (isset($vardefs['type']) && !empty($vardefs['type'])) {
+        if (!empty($vardefs['type'])) {
             $vardef['type'] = $vardefs['type'];
         }
-        if (isset($vardefs['len']) && !empty($vardefs['len'])) {
+        if (!empty($vardefs['len'])) {
             $vardef['len'] = $vardefs['len'];
         }
-        if (isset($vardefs['required']) && !empty($vardefs['required'])) {
+        if (!empty($vardefs['required'])) {
             $vardef['required'] = $vardefs['required'];
         }
-        if (isset($vardefs['default_value']) && !empty($vardefs['default_value'])) {
+        if (!empty($vardefs['default_value'])) {
             $vardef['default_value'] = $vardefs['default_value'];
         }
-        if (isset($vardefs['audited']) && !empty($vardefs['audited'])) {
+        if (!empty($vardefs['audited'])) {
             $vardef['audited'] = $vardefs['audited'];
         }
-        if (isset($vardefs['massupdate']) && !empty($vardefs['massupdate'])) {
+        if (!empty($vardefs['massupdate'])) {
             $vardef['massupdate'] = $vardefs['massupdate'];
         }
-        if (isset($vardefs['duplicate_merge']) && !empty($vardefs['duplicate_merge'])) {
+        if (!empty($vardefs['duplicate_merge'])) {
             $vardef['duplicate_merge'] = $vardefs['duplicate_merge'];
         }
-        if (isset($vardefs['reportable']) && !empty($vardefs['reportable'])) {
+        if (!empty($vardefs['reportable'])) {
             $vardef['reportable'] = $vardefs['reportable'];
         }
-        if (isset($vardefs['importable']) && !empty($vardefs['importable'])) {
+        if (!empty($vardefs['importable'])) {
             $vardef['importable'] = $vardefs['importable'];
         }
-        if (isset($vardefs['source']) && !empty($vardefs['source']) ) {
+        if (!empty($vardefs['source'])) {
             $vardef['source'] = $vardefs['source'];
         }
-        if (isset($vardefs['options']) && !empty($vardefs['options']) ) {
-            $vardef['options'] = $vardefs['options'];
+        if (!empty($vardefs['related module'])) {
+            $vardef['related_module'] = $vardefs['related module'];
+            $vardef['ext2'] =  $vardefs['related module'];
+        }
+        if (!empty($vardefs['id'])) {
+            $vardef['id'] = $vardefs['id'];
         }
 
-        if (isset($vardefs['label']) && !empty($vardefs['label'])) {
+        if ($vardefs['label']) {
             $vardef['label_english'] = $vardefs['label'];
         } else {
             // Generate best guess label from field.
             $vardef['label_english'] = $this->makeLabel($vardef['name']);
         }
 
+        if( $vardefs['type'] == "relate" ){
+            $vardef['studio'] = 'visible';
+            $vardef['source'] = 'non-db';
+
+        }
+        if($vardefs['type'] == "id" || $vardefs['type'] == "relate"  ){
+            $vardef['id'] = $vardef['module'] . $vardef['name'];
+        }
+        if( !empty($vardefs['id_name']) ){
+            $vardef['id_name'] = $vardefs['id_name'];
+        }
         if (!empty($vardef['module']) && !in_array($vardef['name'], $this->exempt)) {
             $result = $this->install_custom_fields(array($vardef));
             return $vardef;
@@ -270,14 +282,19 @@ class convertCSV
 
         $to_save = array();
         $base_field = get_widget($field->type);
-        if (isset($field->dbType)) {
-            $field->vardef_map['dbType'] = "dbType";
-        }
+        $field->vardef_map['dbType'] = "dbType";
+        $field->vardef_map['id'] = "id";
+        $field->vardef_map['module'] = "module";
+        $field->vardef_map['studio'] = "studio";
+        $field->vardef_map['id_name'] = "id_name";
+        $field->vardef_map['related_module'] = "related_module";
+
         foreach ($field->vardef_map as $property => $fmd_col) {
             if (!empty($field->$property)) {
                 $to_save[$property] = is_string($field->$property) ? htmlspecialchars_decode($field->$property, ENT_QUOTES) : $field->$property;
             }
         }
+
         $bean_name = $beanList[$field->module];
 
         // Fix for missing labels in studio.
@@ -319,12 +336,22 @@ class convertCSV
         $out = "<?php\n // Vardefs Creator {$this->version}: \n";
         //$out =  "<?php\n // Vardefs from Fields_meta_data table - created: " . date('Y-m-d H:i:s') . "\n";
 
+
+        if(isset($def_override['related_module']) && !empty($def_override['related_module'])){
+            $field->module = $def_override['related_module'];
+            $def_override['module'] = $def_override['related_module'];
+            unset($field->related_module);
+            unset($def_override['related_module']);
+        }
+
         if (file_exists($file_loc)) {
             include($file_loc);
             foreach ($dictionary[$vBean]['fields'] as $property => $defs) {
                 $out .= "\n\n // Vardef Created : {$property} \n\n";
                 foreach ($defs as $key => $item) {
-                    $out .= override_value_to_string_recursive(array($vBean, "fields", $defs['name'], $key), "dictionary", $item) . "\n";
+                    if($defs['name'] != $field->name && $this->update == true){
+                        $out .= override_value_to_string_recursive(array($vBean, "fields", $defs['name'], $key), "dictionary", $item) . "\n";
+                    }
                 }
             }
         }
@@ -361,7 +388,6 @@ class convertCSV
             mkdir_recursive("custom/Extension/modules/{$field->module}/Ext/Language");
         }
 
-
         if ($fh = @sugar_fopen($file_loc, 'w')) {
             fputs($fh, $out);
             fclose($fh);
@@ -385,7 +411,7 @@ class convertCSV
 
 
     public function customClean($vardefs){
-        if (isset($vardefs['do no create']) && $vardefs['do no create'] == "X") {
+        if ($vardefs['do no create'] == "X") {
             return false;
         }
         $vardef = array();
