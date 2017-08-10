@@ -23,8 +23,8 @@ class duplicate {
         $date = new DateTime();
         $bean->retrieve($bean->id);
         $documents = 0;
-        if($bean->load_relationship("documents") ){
-            $documents =$bean->documents->getBeans();
+        if($bean->load_relationship("aos_contracts_documents_1") ){
+            $documents =$bean->aos_contracts_documents_1->getBeans();
         }
         if($bean->date_entered == $bean->date_modified || count($documents) < 1
         ) {

@@ -17,7 +17,10 @@ class copyFiles implements RunnableSchedulerJob
     {
         $bean = BeanFactory::getBean("AOS_Contracts", $data);
         //we need to fetch all the relating Documents.
-        $documents = $bean->load_relationship("documents")->getBeans();
+        $documents = 0;
+        if( $bean->load_relationship("aos_contracts_documents_1") ){
+            $documents = $bean->aos_contracts_documents_1->getBeans();
+        }
         if( count($documents) < 1 ) { //if there is no documents then copy them over.
             $rel = "documents";
             $opportunityBean = BeanFactory::getBean("Opportunities", $bean->opportunity_id);
