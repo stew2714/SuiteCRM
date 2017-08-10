@@ -48,9 +48,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'agreement_c',
-            'comment' => '',
-            'label' => 'LBL_AGREEMENT',
+            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
           ),
           1 => 'assigned_user_name',
         ),
@@ -100,16 +98,52 @@ array (
             'name' => 'additional_notes',
             'comment' => '',
           ),
-          1 => 
-          array (
-            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
-          ),
         ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'aos_contracts_sa_legal_timesheets_1_name',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
