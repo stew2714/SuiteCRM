@@ -38,6 +38,8 @@ function display_condition_lines($focus, $field, $value, $view){
     if($view == 'EditView'){
 
         $html .= '<script src="modules/SharedSecurityRulesConditions/conditionLines.js"></script>';
+        $html .= "<script>conditionOperator = \"". trim(preg_replace('/\s+/', ' ',get_select_options_with_id(array("AND" => "AND", "OR" => "OR"),"AND")))
+                 . "\";</script>";
         $html .= "<table border='0' cellspacing='4' width='100%' id='conditionLines'></table>";
 
         $html .= "<div style='padding-top: 10px; padding-bottom:10px;'>";
@@ -50,8 +52,7 @@ function display_condition_lines($focus, $field, $value, $view){
             $html .= "<script>";
             $html .= "flow_rel_modules = \"".trim(preg_replace('/\s+/', ' ', getModuleRelationships($focus->flow_module)))."\";";
             $html .= "flow_module = \"".$focus->flow_module."\";";
-            $html .= "conditionOperator = \"". trim(preg_replace('/\s+/', ' ',get_select_options_with_id(array("AND" => "AND", "OR" => "OR"),"AND")))
-                     . "\";";
+
             $html .= "document.getElementById('btn_ConditionLine').disabled = '';";
             if($focus->id != ''){
                 $sql = "SELECT id FROM sharedsecurityrulesconditions WHERE sa_shared_sec_rules_id = '".$focus->id."' AND deleted = 0 ORDER BY 
