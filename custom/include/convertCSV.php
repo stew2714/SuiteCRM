@@ -352,7 +352,7 @@ class convertCSV
             foreach ($dictionary[$vBean]['fields'] as $property => $defs) {
                 $out .= "\n\n // Vardef Created : {$property} \n\n";
                 foreach ($defs as $key => $item) {
-                    if($defs['name'] != $field->name && $this->update == true){
+                    if($defs['name'] != $field->name){
                         $out .= override_value_to_string_recursive(array($vBean, "fields", $defs['name'], $key), "dictionary", $item) . "\n";
                     }
                 }

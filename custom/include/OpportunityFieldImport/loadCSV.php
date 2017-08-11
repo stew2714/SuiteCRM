@@ -42,5 +42,5 @@ require_once('custom/include/convertCSV.php');
 $csv = new convertCSV('custom/include/OpportunityFieldImport/import.csv');
 $csv->module = "Opportunities";
 $csv->oneFile = true;
-$csv->update = true;
+$csv->update = false;
 $csv->import();
