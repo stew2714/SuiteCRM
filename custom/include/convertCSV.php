@@ -143,6 +143,9 @@ class convertCSV
         if (!empty($vardefs['source'])) {
             $vardef['source'] = $vardefs['source'];
         }
+        if (!empty($vardefs['options'])) {
+            $vardef['options'] = $vardefs['options'];
+        }
         if (!empty($vardefs['related module'])) {
             $vardef['related_module'] = $vardefs['related module'];
             $vardef['ext2'] =  $vardefs['related module'];

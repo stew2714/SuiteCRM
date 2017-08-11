@@ -42,4 +42,5 @@ require_once('custom/include/convertCSV.php');
 $csv = new convertCSV('custom/include/FluencyOne/import.csv');
 $csv->module = "sa_Fluency_One";
 $csv->oneFile = true;
+$csv->update = true;
 $csv->import();

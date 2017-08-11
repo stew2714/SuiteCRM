@@ -42,4 +42,5 @@ require_once('custom/include/convertCSV.php');
 $csv = new convertCSV('custom/include/Leads/import.csv');
 $csv->oneFile = true;
 $csv->module = "Leads";
+$csv->update = true;
 $csv->import();
