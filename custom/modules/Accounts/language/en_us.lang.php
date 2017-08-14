@@ -18,4 +18,5 @@ $mod_strings = array (
   'LBL_BILLING_ADDRESS_STREET' => 'Street',
   'LBL_BILLING_ADDRESS_STATE' => 'State',
   'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
+  'LBL_PLEASE_CONTACT' => 'Please contact Kevin Bradley in order to move an account to new ownership',
 );
