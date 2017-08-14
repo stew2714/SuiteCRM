@@ -97,7 +97,7 @@ array (
             'name' => 'recordtypeid_c',
             'label' => 'LBL_RECORDTYPEID',
           ),
-          1 => '',
+          1 => 'sales_stage',
         ),
         1 => 
         array (
@@ -119,8 +119,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'sf_id_c',
-            'label' => 'LBL_SF_ID_C',
+            'name' => 'date_closed',
           ),
         ),
         3 => 
@@ -307,7 +306,11 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'product_c',
+            'label' => 'LBL_PRODUCT_C',
+          ),
         ),
         1 => 
         array (

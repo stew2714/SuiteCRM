@@ -34,13 +34,13 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' =>
-          array (
-              0 =>
-                  array (
-                      'file' => 'custom/modules/Leads/js/Validation.js',
-                  ),
-          ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Leads/js/Validation.js',
+        ),
+      ),
       'javascript' => '<script type="text/javascript" language="Javascript">function copyAddressRight(form)  {ldelim} form.alt_address_street.value = form.primary_address_street.value;form.alt_address_city.value = form.primary_address_city.value;form.alt_address_state.value = form.primary_address_state.value;form.alt_address_postalcode.value = form.primary_address_postalcode.value;form.alt_address_country.value = form.primary_address_country.value;return true; {rdelim} function copyAddressLeft(form)  {ldelim} form.primary_address_street.value =form.alt_address_street.value;form.primary_address_city.value = form.alt_address_city.value;form.primary_address_state.value = form.alt_address_state.value;form.primary_address_postalcode.value =form.alt_address_postalcode.value;form.primary_address_country.value = form.alt_address_country.value;return true; {rdelim} </script>',
       'useTabs' => false,
       'tabDefs' => 
@@ -186,6 +186,16 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'addwords_c',
+            'label' => 'LBL_ADDWORDS',
+          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
