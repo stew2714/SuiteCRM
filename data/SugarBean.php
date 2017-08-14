@@ -1252,11 +1252,19 @@ class SugarBean
             if ($this->fetched_row['assigned_user_id'] == $user_id) {
                 return true;
             }
+            /* BEGIN - SECURITY GROUPS - additional-users */ 
+            require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
+            return SecurityGroupAdditionalUser::isAdditionalOwner($this,$user_id);
+            /* END - SECURITY GROUPS - additional-users */  
             return false;
         } elseif (isset($this->assigned_user_id)) {
             if ($this->assigned_user_id == $user_id) {
                 return true;
             }
+            /* BEGIN - SECURITY GROUPS - additional-users */ 
+            require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
+            return SecurityGroupAdditionalUser::isAdditionalOwner($this,$user_id);
+            /* END - SECURITY GROUPS - additional-users */  
             return false;
         } else {
             //other wise if there is a created_by that is the owner
@@ -1264,6 +1272,10 @@ class SugarBean
                 return true;
             }
         }
+        /* BEGIN - SECURITY GROUPS - additional-users */ 
+        require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
+        return SecurityGroupAdditionalUser::isAdditionalOwner($this,$user_id);
+        /* END - SECURITY GROUPS - additional-users */  
         return false;
     }
 
@@ -2887,12 +2899,26 @@ class SugarBean
      */
     public function getOwnerWhere($user_id)
     {
+        /* BEGIN - SECURITY GROUPS - additional-users */ 
+        /**
         if (isset($this->field_defs['assigned_user_id'])) {
             return " $this->table_name.assigned_user_id ='$user_id' ";
         }
         if (isset($this->field_defs['created_by'])) {
             return " $this->table_name.created_by ='$user_id' ";
         }
+        */
+        if(isset($this->field_defs['assigned_user_id']))
+        {
+            require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
+            return SecurityGroupAdditionalUser::getAdditionalOwnerWhere($this,$user_id," $this->table_name.assigned_user_id ='$user_id' ",$this->table_name);
+        }
+        if(isset($this->field_defs['created_by']))
+        {
+            require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
+            return SecurityGroupAdditionalUser::getAdditionalOwnerWhere($this,$user_id," $this->table_name.created_by ='$user_id' ",$this->table_name);
+        }
+        /* END - SECURITY GROUPS - additional-users */  
         return '';
     }
 
@@ -4849,6 +4875,30 @@ class SugarBean
         $class = get_class($template);
 
         $disable_security_flag = $template->disable_row_level_security;
+
+        //BEGIN - SECURITY GROUPS - sub-admins
+        require_once('modules/SecurityGroups/SecurityGroup.php');
+        $current_plan = SecurityGroup::get_current_plan();
+        if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+        {
+            global $current_user;
+            if($disable_security_flag == false && !empty($current_user->id) &&
+                (is_admin($current_user) ||
+                    (
+                        $this->bean_implements('ACL') && 
+                        (ACLAction::getUserAccessLevel($current_user->id,$this->module_dir, 'access') == ACL_ALLOW_ENABLED && 
+                            (ACLAction::getUserAccessLevel($current_user->id, $this->module_dir, 'admin') == ACL_ALLOW_ADMIN || 
+                            ACLAction::getUserAccessLevel($current_user->id, $this->module_dir, 'admin') == ACL_ALLOW_ADMIN_DEV
+                            )
+                        )
+                    )
+                )
+            ) {
+                $disable_security_flag = true;
+            }
+        }
+        //END - SECURITY GROUPS
+
         while ($row = $db->fetchByAssoc($result)) {
             if (!$isFirstTime) {
                 $template = new $class();
@@ -5307,6 +5357,32 @@ class SugarBean
         if ($current_user->isAdmin() || !$this->bean_implements('ACL')) {
             return true;
         }
+
+        //BEGIN - SECURITY GROUPS - sub-admins
+        require_once('modules/SecurityGroups/SecurityGroup.php');
+        $current_plan = SecurityGroup::get_current_plan();
+        if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+        {
+            //only allow edit rights to Employees if own record
+            if($this->module_dir == 'Employees' && $view == 'EditView' && (empty($this->id) || $this->id != $current_user->id))
+            {
+                return false;
+            }
+            if(!empty($current_user->id) &&
+                (
+                    $this->bean_implements('ACL') && 
+                    (ACLAction::getUserAccessLevel($current_user->id,$this->module_dir, 'access') == ACL_ALLOW_ENABLED && 
+                        (ACLAction::getUserAccessLevel($current_user->id, $this->module_dir, 'admin') == ACL_ALLOW_ADMIN || 
+                        ACLAction::getUserAccessLevel($current_user->id, $this->module_dir, 'admin') == ACL_ALLOW_ADMIN_DEV
+                        )
+                    )
+                )
+            ) {
+                return true;
+            }
+        }
+        //END - SECURITY GROUPS
+
         $view = strtolower($view);
         switch ($view) {
             case 'list':

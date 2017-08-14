@@ -60,7 +60,13 @@ class SugarWidgetSubPanelTopCreateLeadNameButton extends SugarWidgetSubPanelTopB
 		//$accesskey = $app_strings['LBL_NEW_BUTTON_KEY'];
 		$value = $app_strings['LBL_NEW_BUTTON_LABEL'];
 		$this->module = 'Leads';
+
+        //BEGIN - SECURITY GROUPS - create rights
+        /**
 		if( ACLController::moduleSupportsACL($defines['module'])  && !ACLController::checkAccess($defines['module'], 'edit', true)){
+        */
+        if( ACLController::moduleSupportsACL($defines['module'])  && !ACLController::checkAccess($defines['module'], 'create', true)){
+        //END - SECURITY GROUPS - create rights
 			$button = "<input title='$title'class='button' type='button' name='button' value='  $value  ' disabled/>\n";
 			return $button;
 		}

@@ -34,6 +34,13 @@ array (
           'field' => '30',
         ),
       ),
+      'includes' =>
+          array (
+              0 =>
+                  array (
+                      'file' => 'custom/modules/Leads/js/Validation.js',
+                  ),
+          ),
       'javascript' => '<script type="text/javascript" language="Javascript">function copyAddressRight(form)  {ldelim} form.alt_address_street.value = form.primary_address_street.value;form.alt_address_city.value = form.primary_address_city.value;form.alt_address_state.value = form.primary_address_state.value;form.alt_address_postalcode.value = form.primary_address_postalcode.value;form.alt_address_country.value = form.primary_address_country.value;return true; {rdelim} function copyAddressLeft(form)  {ldelim} form.primary_address_street.value =form.alt_address_street.value;form.primary_address_city.value = form.alt_address_city.value;form.primary_address_state.value = form.alt_address_state.value;form.primary_address_postalcode.value =form.alt_address_postalcode.value;form.primary_address_country.value = form.alt_address_country.value;return true; {rdelim} </script>',
       'useTabs' => false,
       'tabDefs' => 
@@ -135,21 +142,21 @@ array (
         7 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'c1_cust_contacts1_leads_name',
+            'label' => 'LBL_C1_CUST_CONTACTS1_LEADS_FROM_C1_CUST_CONTACTS1_TITLE',
+          ),
         ),
       ),
       'LBL_PANEL_ADVANCED' => 
       array (
         0 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        1 => 
-        array (
           0 => 'status',
           1 => 'lead_source',
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -160,12 +167,12 @@ array (
             'name' => 'lead_source_description',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 'opportunity_amount',
           1 => 'refered_by',
         ),
-        4 => 
+        3 => 
         array (
           0 => 'campaign_name',
         ),
@@ -187,16 +194,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'annual_revenue_c',
-            'studio' => 'visible',
+            'name' => 'annual_revenue',
+            'label' => 'LBL_ANNUAL_REVENUE',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'eloqua_lead_rating_c',
-            'label' => 'LBL_ELOQUA_LEAD_RATING_C',
+            'name' => 'rating',
+            'studio' => 'visible',
+            'label' => 'LBL_ELOQUA_LEAD_RATING',
           ),
         ),
         2 => 

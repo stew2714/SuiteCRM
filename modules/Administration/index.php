@@ -51,11 +51,31 @@ global $current_language;
 global $current_user;
 global $sugar_flavor;
 
-
+//BEGIN - SECURITY GROUPS - sub-admins
+/**
 if (!is_admin($current_user) && !is_admin_for_any_module($current_user))
 {
    sugar_die("Unauthorized access to administration.");
 }
+*/
+require_once('modules/SecurityGroups/SecurityGroup.php');
+$current_plan = SecurityGroup::get_current_plan();
+if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+{
+    if (!$current_user->isDeveloperForAnyModule())
+    {
+       sugar_die("Unauthorized access to administration.");
+    }
+}
+else
+{
+    //original
+    if (!is_admin($current_user) && !is_admin_for_any_module($current_user))
+    {
+       sugar_die("Unauthorized access to administration.");
+    }
+}
+//END - SECURITY GROUPS
 
 echo getClassicModuleTitle(translate('LBL_MODULE_NAME','Administration'),
                       array(translate('LBL_MODULE_NAME','Administration')), false);

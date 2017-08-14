@@ -154,7 +154,13 @@ class StudioModule
     	$sources = array (	translate('LBL_LABELS') => array ( 'action' => "module=ModuleBuilder&action=editLabels&view_module={$this->module}" , 'imageTitle' => 'Labels' , 'help' => 'labelsBtn' ) ,
         					translate('LBL_FIELDS') => array ( 'action' => "module=ModuleBuilder&action=modulefields&view_package=studio&view_module={$this->module}" , 'imageTitle' => 'Fields' , 'help' => 'fieldsBtn'  ) ,
         					translate('LBL_RELATIONSHIPS') => array ( 'action' => "get_tpl=true&module=ModuleBuilder&action=relationships&view_module={$this->module}" , 'imageTitle' => 'Relationships' , 'help' => 'relationshipsBtn' ) ,
+
+							/* BEGIN - SECURITY GROUPS */         					
+							/*
         					translate('LBL_LAYOUTS') => array ( 'children' => 'getLayouts' , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn' ) ,
+							*/
+							translate('LBL_LAYOUTS') => array ( 'children' => 'getGroupLayouts' , 'action' => "module=ModuleBuilder&action=addlayout&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn' ) ,
+							/* END - SECURITY GROUPS */ 
         					translate('LBL_SUBPANELS') => array ( 'children' => 'getSubpanels' , 'action' => "module=ModuleBuilder&action=wizard&view=subpanels&view_module={$this->module}" , 'imageTitle' => 'Subpanels' , 'help' => 'subpanelsBtn' ) ) ;
 
         $nodes = array () ;
@@ -206,29 +212,55 @@ class StudioModule
             $views [ 'quickcreatedefs' ] = array ( 'name' => translate('LBL_QUICKCREATE') , 'type' => MB_QUICKCREATE , 'image' => 'QuickCreate' ) ;
 
         $layouts = array ( ) ;
+		/* BEGIN - SECURITY GROUPS */ 
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		$groupLayoutParams = "";
+		if(!empty($groupLayout)) { $groupLayoutParams = "&grpLayout=".$groupLayout; }
+		/* END - SECURITY GROUPS */ 
         foreach ( $views as $def )
         {
             $view = !empty($def['view']) ? $def['view'] : $def['type'];
+        	//SECURITY GROUPS - added $groupLayoutParams to the end of the action url
+            /*
             $layouts [ $def['name'] ] = array ( 'name' => $def['name'] , 'action' => "module=ModuleBuilder&action=editLayout&view={$view}&view_module={$this->module}" , 'imageTitle' => $def['image'] , 'help' => "viewBtn{$def['type']}" , 'size' => '48' ) ;
+            */
+			$layouts [ $def['name'] ] = array ( 'name' => $def['name'] , 'action' => "module=ModuleBuilder&action=editLayout&view={$view}&view_module={$this->module}".$groupLayoutParams , 'imageTitle' => $def['image'] , 'help' => "viewBtn{$def['type']}" , 'size' => '48' ) ;
         }
 
         if($this->isValidDashletModule($this->module)){
 			$dashlets = array( );
+        	//SECURITY GROUPS - added $groupLayoutParams to the end of the action url
+	        /*
 	        $dashlets [] = array('name' => translate('LBL_DASHLETLISTVIEW') , 'type' => 'dashlet' , 'action' => 'module=ModuleBuilder&action=editLayout&view=dashlet&view_module=' . $this->module );
 			$dashlets [] = array('name' => translate('LBL_DASHLETSEARCHVIEW') , 'type' => 'dashletsearch' , 'action' => 'module=ModuleBuilder&action=editLayout&view=dashletsearch&view_module=' . $this->module );
 			$layouts [ translate('LBL_DASHLET') ] = array ( 'name' => translate('LBL_DASHLET') , 'type' => 'Folder', 'children' => $dashlets,  'imageTitle' => 'Dashlet',  'action' => 'module=ModuleBuilder&action=wizard&view=dashlet&view_module=' . $this->module);        	
+			*/
+	        $dashlets [] = array('name' => translate('LBL_DASHLETLISTVIEW') , 'type' => 'dashlet' , 'action' => 'module=ModuleBuilder&action=editLayout&view=dashlet&view_module=' . $this->module .$groupLayoutParams );
+	        $dashlets [] = array('name' => translate('LBL_DASHLETSEARCHVIEW') , 'type' => 'dashletsearch' , 'action' => 'module=ModuleBuilder&action=editLayout&view=dashletsearch&view_module=' . $this->module .$groupLayoutParams );
+	        $layouts [ translate('LBL_DASHLET') ] = array ( 'name' => translate('LBL_DASHLET') , 'type' => 'Folder', 'children' => $dashlets,  'imageTitle' => 'Dashlet',  'action' => 'module=ModuleBuilder&action=wizard&view=dashlet&view_module=' . $this->module.$groupLayoutParams );        	
         }
 		
         //For popup tree node
         $popups = array( );
+        //SECURITY GROUPS - added $groupLayoutParams to the end of the action url
+        /*
         $popups [] = array('name' => translate('LBL_POPUPLISTVIEW') , 'type' => 'popuplistview' , 'action' => 'module=ModuleBuilder&action=editLayout&view=popuplist&view_module=' . $this->module );
 		$popups [] = array('name' => translate('LBL_POPUPSEARCH') , 'type' => 'popupsearch' , 'action' => 'module=ModuleBuilder&action=editLayout&view=popupsearch&view_module=' . $this->module );
 		$layouts [ translate('LBL_POPUP') ] = array ( 'name' => translate('LBL_POPUP') , 'type' => 'Folder', 'children' => $popups, 'imageTitle' => 'Popup', 'action' => 'module=ModuleBuilder&action=wizard&view=popup&view_module=' . $this->module);  
+		*/
+		$popups [] = array('name' => translate('LBL_POPUPLISTVIEW') , 'type' => 'popuplistview' , 'action' => 'module=ModuleBuilder&action=editLayout&view=popuplist&view_module=' . $this->module .$groupLayoutParams );
+		$popups [] = array('name' => translate('LBL_POPUPSEARCH') , 'type' => 'popupsearch' , 'action' => 'module=ModuleBuilder&action=editLayout&view=popupsearch&view_module=' . $this->module .$groupLayoutParams );
+		$layouts [ translate('LBL_POPUP') ] = array ( 'name' => translate('LBL_POPUP') , 'type' => 'Folder', 'children' => $popups, 'imageTitle' => 'Popup', 'action' => 'module=ModuleBuilder&action=wizard&view=popup&view_module=' . $this->module.$groupLayoutParams );  
 			
         $nodes = $this->getSearch () ;
         if ( !empty ( $nodes ) )
         {
+        	//SECURITY GROUPS - added $groupLayoutParams to the end of the action url
+			/*
         	$layouts [ translate('LBL_FILTER') ] = array ( 'name' => translate('LBL_FILTER') , 'type' => 'Folder' , 'children' => $nodes , 'action' => "module=ModuleBuilder&action=wizard&view=search&view_module={$this->module}" , 'imageTitle' => 'BasicSearch' , 'help' => 'searchBtn' , 'size' => '48') ;
+			*/
+        	$layouts [ translate('LBL_FILTER') ] = array ( 'name' => translate('LBL_FILTER') , 'type' => 'Folder' , 'children' => $nodes , 'action' => "module=ModuleBuilder&action=wizard&view=search&view_module={$this->module}".$groupLayoutParams , 'imageTitle' => 'BasicSearch' , 'help' => 'searchBtn' , 'size' => '48') ;
         }
 
     	return $layouts ;
@@ -249,10 +281,107 @@ class StudioModule
 	}
 	
 
+	/* BEGIN - SECURITY GROUPS */ 
+    function getGroupLayouts()
+    {
+    	$views = $this->getViews();
+
+        // Now add in the QuickCreates - quickcreatedefs can be created by Studio from editviewdefs if they are absent, so just add them in regardless of whether the quickcreatedefs file exists
+
+        $hideQuickCreateForModules = array ( 'kbdocuments' , 'projecttask' , 
+            'campaigns'
+            ) ;
+        // Some modules should not have a QuickCreate form at all, so do not add them to the list
+        if (! in_array ( strtolower ( $this->module ), $hideQuickCreateForModules ))
+            $views [ 'quickcreatedefs' ] = array ( 'name' => translate('LBL_QUICKCREATE') , 'type' => MB_QUICKCREATE , 'image' => 'QuickCreate' ) ;
+
+
+            //$defaultLayout [] = array ( 'name' => translate('LBL_DEFAULT') , 'type' => 'Folder' , 'children' => $layouts , 'action' => 'module=ModuleBuilder&action=wizard&layouts=1&view_module=' . $this->module ) ;
+//$layout_nodes[] = array ( 'name' => translate($groupFocus->name) , 'type' => 'Folder' , 'children' => $group_layouts , 'action' => 'module=ModuleBuilder&action=wizard&layouts=1&view_module=' . $this->module . "&grpLayout=".$groupFocus->id ) ;
+									
+							//translate('LBL_LAYOUTS') => array ( 'children' => 'getLayouts' , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn' ) ,
+			$defaultLayout [] = array ( 'name' => translate('LBL_DEFAULT') , 'type' => 'Folder', 'children' => $this->getLayouts() , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn') ;
+			$layout_nodes = array();
+			$layout_nodes = $defaultLayout;
+    		//get security group nodes...in metadata directory in a folder named with the guid of the security group
+        	$custDirectory = "custom/modules/".$this->module."/metadata/";
+    		if(is_dir($custDirectory)) {		
+    			require_once('modules/SecurityGroups/SecurityGroup.php');
+				$groupFocus = new SecurityGroup();
+				$d = dir($custDirectory);
+				while( $f = $d->read() ) {
+					if( $f == "." || $f == ".." ){
+						continue;
+					}
+
+					if( is_dir( "$custDirectory/$f" ) ) {
+						//see if $f is a guid for a security group
+						$groupFocus = new SecurityGroup();
+						$groupFocus->retrieve($f);
+						if(!empty($groupFocus->id) && isset($groupFocus->id)) {
+							//found existing group layout...create node
+							$GLOBALS['log']->debug("Found Security Group Layout for: ".$groupFocus->name);
+							
+							$group_layouts = array ( ) ;
+							//remove group layout option
+							$group_layouts[] = array('name'=> translate('LBL_REMOVE_LAYOUT'), 'action' => "module=ModuleBuilder&action=removeGroupLayoutPrompt&view_module={$this->module}". "&grpLayout=".$groupFocus->id);
+        
+							foreach ( $views as $def )
+							{
+								$group_layouts [ $def['name'] ] = array ( 'name' => $def['name'] , 'action' => "module=ModuleBuilder&action=editLayout&view={$def['type']}&view_module={$this->module}&grpLayout=".$groupFocus->id , 'imageTitle' => $def['image'] , 'help' => "viewBtn{$def['type']}" , 'size' => '48' ) ;
+							}
+
+							if($this->isValidDashletModule($this->module)){
+								$dashlets = array( );
+								$dashlets [] = array('name' => translate('LBL_DASHLETLISTVIEW') , 'type' => 'dashlet' , 'action' => 'module=ModuleBuilder&action=editLayout&view=dashlet&view_module=' . $this->module . "&grpLayout=".$groupFocus->id);
+								$dashlets [] = array('name' => translate('LBL_DASHLETSEARCHVIEW') , 'type' => 'dashletsearch' , 'action' => 'module=ModuleBuilder&action=editLayout&view=dashletsearch&view_module=' . $this->module . "&grpLayout=".$groupFocus->id);
+								$group_layouts [ translate('LBL_DASHLET') ] = array ( 'name' => translate('LBL_DASHLET') , 'type' => 'Folder', 'children' => $dashlets,  'imageTitle' => 'Dashlet',  'action' => 'module=ModuleBuilder&action=wizard&view=dashlet&view_module=' . $this->module. "&grpLayout=".$groupFocus->id);        	
+							}
+
+							//For popup tree node
+							$popups = array( );
+							$popups [] = array('name' => translate('LBL_POPUPLISTVIEW') , 'type' => 'popuplistview' , 'action' => 'module=ModuleBuilder&action=editLayout&view=popuplist&view_module=' . $this->module . "&grpLayout=".$groupFocus->id);
+							$popups [] = array('name' => translate('LBL_POPUPSEARCH') , 'type' => 'popupsearch' , 'action' => 'module=ModuleBuilder&action=editLayout&view=popupsearch&view_module=' . $this->module . "&grpLayout=".$groupFocus->id);
+							$group_layouts [ translate('LBL_POPUP') ] = array ( 'name' => translate('LBL_POPUP') , 'type' => 'Folder', 'children' => $popups, 'imageTitle' => 'Popup',  'imageName' => 'icon_Popup.gif', 'action' => 'module=ModuleBuilder&action=wizard&view=popup&view_module=' . $this->module. "&grpLayout=".$groupFocus->id);  
+							
+							$nodes = $this->getSearch ($groupFocus->id) ;
+							if ( !empty ( $nodes ) )
+							{
+								$group_layouts [ translate('LBL_SEARCH') ] = array ( 'name' => translate('LBL_SEARCH') , 'type' => 'Folder' , 'children' => $nodes , 'action' => "module=ModuleBuilder&action=wizard&view=search&view_module={$this->module}&grpLayout=".$groupFocus->id , 'imageTitle' => 'SearchForm' , 'help' => 'searchBtn' , 'size' => '48') ;
+							}
+							
+							$layout_nodes[] = array ( 'name' => translate($groupFocus->name) , 'type' => 'Folder' , 'children' => $group_layouts , 'action' => 'module=ModuleBuilder&action=wizard&&view=layouts&view_module=' . $this->module . "&grpLayout=".$groupFocus->id ) ;
+						}
+					}
+
+
+				} //end while files/dirs
+    		} //end if directory exists
+    		
+    		//$layouts [ translate('LBL_LAYOUTS') ] = array ( 'name' => translate('LBL_LAYOUTS') , 'type' => 'Folder' , 'children' => $layout_nodes , 'action' => "module=ModuleBuilder&action=addlayout&layouts=1&view_module={$this->module}") ;
+        
+
+    		//$nodes [ 'children' ] [] = array ( 'name' => translate('LBL_LAYOUTS') , 'type' => 'Folder' , 'children' => $layout_nodes , 'action' => 'module=ModuleBuilder&action=addlayout&layouts=1&view_module=' . $this->module ) ;
+        
+
+    	return $layout_nodes ;
+
+    }
+	/* END - SECURITY GROUPS */ 
+
+	/* BEGIN - SECURITY GROUPS */ 
+/**
     function getSearch ()
+*/
+    function getSearch ($groupLayout='')
     {
 		require_once ('modules/ModuleBuilder/parsers/views/SearchViewMetaDataParser.php') ;
 
+		if(!empty($_REQUEST['grpLayout'])) { $groupLayout = $_REQUEST['grpLayout']; }
+		$groupLayoutParams = "";
+		if(!empty($groupLayout)) {
+			$groupLayoutParams = "&grpLayout=".$groupLayout;	
+		}
 		$nodes = array () ;
         foreach ( array ( MB_BASICSEARCH => 'LBL_BASIC_SEARCH' , MB_ADVANCEDSEARCH => 'LBL_ADVANCED_SEARCH' ) as $view => $label )
         {
@@ -267,7 +396,11 @@ class StudioModule
 				}else{
 					$name = str_replace ( ' ', '', $title ) ;
 				}
+        		//SECURITY GROUPS - added $groupLayoutParams to the end of the action url
+				/*
             	$nodes [ $title ] = array ( 'name' => $title , 'action' => "module=ModuleBuilder&action=editLayout&view={$view}&view_module={$this->module}" , 'imageTitle' => $title , 'imageName' => $name , 'help' => "{$name}Btn" , 'size' => '48' ) ;
+				*/
+            	$nodes [ $title ] = array ( 'name' => $title , 'action' => "module=ModuleBuilder&action=editLayout&view={$view}&view_module={$this->module}".$groupLayoutParams , 'imageTitle' => $title , 'imageName' => $name , 'help' => "{$name}Btn" , 'size' => '48' ) ;
         	}
         	catch ( Exception $e )
         	{
@@ -277,6 +410,7 @@ class StudioModule
 
         return $nodes ;
     }
+	/* END - SECURITY GROUPS */ 
 
     /*
      * Return an object containing all the relationships participated in by this module

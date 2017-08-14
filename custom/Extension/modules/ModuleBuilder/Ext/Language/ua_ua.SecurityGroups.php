@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 $mod_strings['LBL_DEFAULT'] = 'По замовчуванню';
 $mod_strings['LBL_ADD_LAYOUT'] = 'Додати макет';
@@ -12,5 +12,5 @@ $mod_strings['LBL_ADDLAYOUTDONE'] = 'Збереженний макет';
 $mod_strings['LBL_REMOVELAYOUTDONE'] = 'видалений макет';
 $mod_strings['LBL_REMOVE_CONFIRM'] = 'Ви дійсно впевнені?';
 $mod_strings['help']['studioWizard']['addLayoutHelp'] = "Для створення макету Групи користувачів виберіть відповідну Групу і макет для копіювання.";
+$mod_strings['LBL_ADD_GROUP_LAYOUT'] = 'Додати макет групи безпеки';
 
-?>

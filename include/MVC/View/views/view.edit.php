@@ -76,7 +76,30 @@ require_once('include/EditView/EditView2.php');
      */
     public function preDisplay()
     {
+        /* BEGIN - SECURITY GROUPS */ 
+        $metadataFile = null;
+        $foundViewDefs = false;
+        if(empty($_SESSION['groupLayout'])) {
+            //get primary group id of current user and check to see if a layout exists for that group
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            $primary_group_id = SecurityGroup::getPrimaryGroupID();
+            if(!empty($primary_group_id) && file_exists('custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/editviewdefs.php')){
+                $_SESSION['groupLayout'] = $primary_group_id;
+                $metadataFile = 'custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/editviewdefs.php';
+            }       
+        } else {
+            if(file_exists('custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/editviewdefs.php')){
+                $metadataFile = 'custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/editviewdefs.php';
+            }       
+        }
+        
+        if(isset($metadataFile)){
+            $foundViewDefs = true;
+        }
+        else {  
         $metadataFile = $this->getMetaDataFile();
+        }
+        /* END - SECURITY GROUPS */  
         $this->ev = $this->getEditView();
         $this->ev->ss =& $this->ss;
         $this->ev->setup($this->module, $this->bean, $metadataFile, get_custom_file_if_exists('include/EditView/EditView.tpl'));

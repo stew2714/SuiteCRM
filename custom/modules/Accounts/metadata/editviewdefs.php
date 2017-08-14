@@ -33,6 +33,10 @@ array (
         array (
           'file' => 'modules/Accounts/Account.js',
         ),
+        1 =>
+        array (
+          'file' => 'custom/modules/Accounts/js/Validation.js',
+        ),
       ),
       'useTabs' => false,
       'tabDefs' => 
@@ -43,6 +47,11 @@ array (
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -66,17 +75,17 @@ array (
           ),
           1 => 
           array (
-            'name' => 'website',
-            'type' => 'link',
-            'label' => 'LBL_WEBSITE',
+            'name' => 'phone_office',
+            'label' => 'LBL_PHONE_OFFICE',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'phone_office',
-            'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'website',
+            'type' => 'link',
+            'label' => 'LBL_WEBSITE',
           ),
           1 => 
           array (
@@ -91,12 +100,6 @@ array (
             'name' => 'email1',
             'studio' => 'false',
             'label' => 'LBL_EMAIL',
-          ),
-          1 => 
-          array (
-            'name' => 'facility_type_dd_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FACILITY_TYPE_DD',
           ),
         ),
         3 => 
@@ -133,22 +136,16 @@ array (
         array (
           0 => 
           array (
-            'name' => 'himss_id_c',
-            'label' => 'LBL_HIMSS_ID',
-          ),
-          1 => 
-          array (
-            'name' => 'defintive_id_c',
-            'label' => 'LBL_DEFINTIVE_ID',
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
           ),
         ),
         5 => 
         array (
-          0 => 'parent_name',
-          1 => 
+          0 => 
           array (
-            'name' => 'ucid_c',
-            'label' => 'LBL_UCID',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
       ),
@@ -162,10 +159,26 @@ array (
         1 => 
         array (
           0 => 'annual_revenue',
-          1 => 
+          1 => 'employees',
+        ),
+        2 => 
+        array (
+          0 => 'parent_name',
+        ),
+        3 => 
+        array (
+          0 => 'campaign_name',
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'rating',
+            'comment' => 'An arbitrary rating for this company for use in comparisons with others',
+            'label' => 'LBL_RATING',
           ),
         ),
       ),

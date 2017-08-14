@@ -1,4 +1,5 @@
 <?php
+// created: 2016-08-23 21:18:25
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'New Panel 1',
@@ -17,6 +18,7 @@ $mod_strings = array (
   'LBL_BILLING_ADDRESS_STREET' => 'Street',
   'LBL_BILLING_ADDRESS_STATE' => 'State',
   'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
+  'LBL_PLEASE_CONTACT' => 'Please contact Kevin Bradley in order to move an account to new ownership',
   'LBL_EDITVIEW_PANEL1' => 'Eloqua Fields',
-  'AOS_Contracts' => 'Agreements',
+  'LBL_ENTRY_REQUIRED_IN_CHANGES' => 'An entry is required in the Top 10 Prospecting Reason field when the Top 10 Prospecting flag is set.',
 );

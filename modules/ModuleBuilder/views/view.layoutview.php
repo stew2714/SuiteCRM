@@ -126,6 +126,21 @@ class ViewLayoutView extends SugarView
         {
             $smarty->assign ( $image, SugarThemeRegistry::current()->getImage($file,'',null,null,'.gif',$file) ) ;
         }
+		/* BEGIN - SECURITY GROUPS */ 
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		$groupName = "Default";
+		if(!isset($groupLayout) || empty($groupLayout)) {
+			$groupLayout = "";
+		} else {
+			//Get group name for display
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			$groupFocus = new SecurityGroup();
+			$groupFocus->retrieve($groupLayout);
+			$groupName = $groupFocus->name;
+		}
+        $smarty->assign ( 'grpLayout', $groupLayout ) ;
+		/* END - SECURITY GROUPS */ 
 
         $requiredFields = implode($parser->getRequiredFields () , ',');
         $slashedRequiredFields = addslashes($requiredFields);
@@ -304,6 +319,9 @@ class ViewLayoutView extends SugarView
             $ajax->addCrumb ( translate ( 'LBL_STUDIO', 'ModuleBuilder' ), 'ModuleBuilder.main("studio")' ) ;
             $ajax->addCrumb ( $this->translatedEditModule, 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&view_module=' . $this->editModule . '")' ) ;
             $ajax->addCrumb ( translate ( $layoutLabel, 'ModuleBuilder' ), 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&view='.$layoutView.'&view_module=' . $this->editModule . '")' ) ;
+			/* BEGIN - SECURITY GROUPS */ 
+			$ajax->addCrumb ( translate ( $groupName ), '' ) ;
+			/* END - SECURITY GROUPS */             
             $ajax->addCrumb ( $translatedViewType, '' ) ;
         }
 

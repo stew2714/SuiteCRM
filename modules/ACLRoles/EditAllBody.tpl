@@ -114,8 +114,9 @@ Not ideal but it'll work since it's the only way to get that info without editin
 	{/literal}
 {foreach from=$CATEGORIES item="TYPES" key="CATEGORY_NAME"}
 
-
+{* BEGIN - SECURITY GROUPS - sub-admins
 	{if $APP_LIST.moduleList[$CATEGORY_NAME]!='Users'}
+//END - SECURITY GROUPS *}
 
 	<TR id="ACLEditView_Access_{$CATEGORY_NAME}">
 	<td nowrap width='1%' id="ACLEditView_Access_{$CATEGORY_NAME}_category"><b>
@@ -135,7 +136,12 @@ Not ideal but it'll work since it's the only way to get that info without editin
 					<td nowrap width='{$TDWIDTH}%' style="text-align: center;" id="ACLEditView_Access_{$CATEGORY_NAME}_{$ACTION_NAME}">
 					<div  style="display: none" id="{$ACTION.id}">
 					{if $APP_LIST.moduleList[$CATEGORY_NAME]==$APP_LIST.moduleList.Users && $ACTION_LABEL != $MOD.LBL_ACTION_ADMIN}
+{* BEGIN - SECURITY GROUPS : Add class='{$ACTION_NAME}' *}
+{*
 					<select DISABLED name='act_guid{$ACTION.id}' id = 'act_guid{$ACTION.id}' onblur="document.getElementById('{$ACTION.id}link').innerHTML=this.options[this.selectedIndex].text; aclviewer.toggleDisplay('{$ACTION.id}');" >
+*}
+					<select class='{$ACTION_NAME}' name='act_guid{$ACTION.id}' id='act_guid{$ACTION.id}' onblur="document.getElementById('{$ACTION.id}link').innerHTML=this.options[this.selectedIndex].text; aclviewer.toggleDisplay('{$ACTION.id}');" >
+{* END - SECURITY GROUPS *}
                     {html_options options=$ACTION.accessOptions selected=$ACTION.aclaccess }
                     </select>
 					{else}
@@ -143,7 +149,7 @@ Not ideal but it'll work since it's the only way to get that info without editin
 {*
 					<select name='act_guid{$ACTION.id}' id = 'act_guid{$ACTION.id}' onblur="document.getElementById('{$ACTION.id}link').innerHTML=this.options[this.selectedIndex].text; aclviewer.toggleDisplay('{$ACTION.id}');" >
 *}
-					<select class='{$ACTION_NAME}' name='act_guid{$ACTION.id}' id = 'act_guid{$ACTION.id}' onblur="document.getElementById('{$ACTION.id}link').innerHTML=this.options[this.selectedIndex].text; aclviewer.toggleDisplay('{$ACTION.id}');" >
+					<select class='{$ACTION_NAME}' name='act_guid{$ACTION.id}' id='act_guid{$ACTION.id}' onblur="document.getElementById('{$ACTION.id}link').innerHTML=this.options[this.selectedIndex].text; aclviewer.toggleDisplay('{$ACTION.id}');" >
 {* END - SECURITY GROUPS *}
 					{html_options options=$ACTION.accessOptions selected=$ACTION.aclaccess }
 					</select>
@@ -167,9 +173,9 @@ Not ideal but it'll work since it's the only way to get that info without editin
 	{/foreach}
 	</TR>
 
-
+{* BEGIN - SECURITY GROUPS - sub-admins
     {/if}
-
+//END - SECURITY GROUPS *}
 
 {foreachelse}
     <tr> <td colspan="2">No Actions Defined</td></tr>

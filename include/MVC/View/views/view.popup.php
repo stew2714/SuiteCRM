@@ -70,6 +70,48 @@ class ViewPopup extends SugarView{
 
 		if(isset($_REQUEST['metadata']) && strpos($_REQUEST['metadata'], "..") !== false)
 			die("Directory navigation attack denied.");
+        /* BEGIN - SECURITY GROUPS */ 
+        $listviewMetadataFile = "";
+        $popupviewMetadataFile = "";
+        $searchviewMetadataFile = "";
+        
+        if(empty($_SESSION['groupLayout'])) {
+            //get primary group id of current user and check to see if a layout exists for that group
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            $primary_group_id = SecurityGroup::getPrimaryGroupID();
+            if(!empty($primary_group_id) && file_exists('custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/popupdefs.php')){
+                $_SESSION['groupLayout'] = $primary_group_id;
+                $popupviewMetadataFile = 'custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/popupdefs.php';
+                
+                $GLOBALS['log']->debug("Looking for: ".'custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/listviewdefs.php');
+                if(file_exists('custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/listviewdefs.php')){
+                    $listviewMetadataFile = 'custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/listviewdefs.php';
+                }
+                $GLOBALS['log']->debug("Looking for: ".'custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/searchdefs.php');
+                if(file_exists('custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/searchdefs.php')){
+                    $searchviewMetadataFile = 'custom/modules/' . $this->module . '/metadata/'.$primary_group_id.'/searchdefs.php';
+                }
+            }
+        } else {
+            if(file_exists('custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/popupdefs.php')){
+                $popupviewMetadataFile = 'custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/popupdefs.php';
+
+                if(file_exists('custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/listviewdefs.php')){
+                    $listviewMetadataFile = 'custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/listviewdefs.php';
+                }
+                if(file_exists('custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/searchdefs.php')){
+                    $searchviewMetadataFile = 'custom/modules/' . $this->module . '/metadata/'.$_SESSION['groupLayout'].'/searchdefs.php';
+                }
+            }   
+        }
+        /* END - SECURITY GROUPS */     
+        
+        /* BEGIN - SECURITY GROUPS */ 
+        if(!empty($popupviewMetadataFile)){
+            require_once($popupviewMetadataFile);
+        }
+        else
+        /* END - SECURITY GROUPS */ 
         if (!empty($_REQUEST['metadata']) && $_REQUEST['metadata'] != 'undefined'
             && file_exists('custom/modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php')) {
             require 'custom/modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php';
@@ -91,6 +133,10 @@ class ViewPopup extends SugarView{
 	    		//otherwise include the file
 	    		require_once($popupMeta['listviewdefs']);
 	    	}
+        /* BEGIN - SECURITY GROUPS */ 
+        }elseif(!empty($listviewMetadataFile)) {
+            require_once($listviewMetadataFile);
+        /* END - SECURITY GROUPS */ 
 	    }elseif(file_exists('custom/modules/' . $this->module . '/metadata/listviewdefs.php')){
 			require_once('custom/modules/' . $this->module . '/metadata/listviewdefs.php');
 		}elseif(file_exists('modules/' . $this->module . '/metadata/listviewdefs.php')){
@@ -107,6 +153,10 @@ class ViewPopup extends SugarView{
 	    		//otherwise include the file
 	    		require_once($popupMeta['searchdefs']);
 	    	}
+        /* BEGIN - SECURITY GROUPS */ 
+        }else if(empty($searchdefs) && !empty($searchviewMetadataFile)){
+            require_once($searchviewMetadataFile);
+        /* END - SECURITY GROUPS */ 
 	    }else if(empty($searchdefs) && file_exists('custom/modules/'.$this->module.'/metadata/searchdefs.php')){
 			require_once('custom/modules/'.$this->module.'/metadata/searchdefs.php');
 		}else if(empty($searchdefs) && file_exists('modules/'.$this->module.'/metadata/searchdefs.php')){

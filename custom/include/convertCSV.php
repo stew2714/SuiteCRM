@@ -47,7 +47,7 @@ require_once("ModuleInstall/ModuleInstaller.php");
 
 class convertCSV
 {
-    static $version = "V0.1";
+    static $version = "V0.2";
     var $oneFile = false;
     var $module = "";
     var $update = true;
@@ -143,11 +143,14 @@ class convertCSV
         if (!empty($vardefs['source'])) {
             $vardef['source'] = $vardefs['source'];
         }
+        if (!empty($vardefs['options'])) {
+            $vardef['options'] = $vardefs['options'];
+        }
         if (!empty($vardefs['related module'])) {
             $vardef['related_module'] = $vardefs['related module'];
             $vardef['ext2'] =  $vardefs['related module'];
         }
-       if (!empty($vardefs['id'])) {
+        if (!empty($vardefs['id'])) {
             $vardef['id'] = $vardefs['id'];
         }
 
@@ -349,7 +352,7 @@ class convertCSV
             foreach ($dictionary[$vBean]['fields'] as $property => $defs) {
                 $out .= "\n\n // Vardef Created : {$property} \n\n";
                 foreach ($defs as $key => $item) {
-                    if($defs['name'] != $field->name || $this->update == true){
+                    if($defs['name'] != $field->name){
                         $out .= override_value_to_string_recursive(array($vBean, "fields", $defs['name'], $key), "dictionary", $item) . "\n";
                     }
                 }
@@ -387,7 +390,6 @@ class convertCSV
         if (!file_exists("custom/Extension/modules/{$field->module}/Ext/Language")) {
             mkdir_recursive("custom/Extension/modules/{$field->module}/Ext/Language");
         }
-
 
         if ($fh = @sugar_fopen($file_loc, 'w')) {
             fputs($fh, $out);

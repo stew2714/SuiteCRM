@@ -57,9 +57,9 @@
 </TR>
 {foreach from=$CATEGORIES item="TYPES" key="CATEGORY_NAME"}
 
-
+{* BEGIN - SECURITY GROUPS - sub-admins
     {if $APP_LIST.moduleList[$CATEGORY_NAME]!='Users'}
-
+//END - SECURITY GROUPS *}
 
 	<TR>
 	{if $APP_LIST.moduleList[$CATEGORY_NAME]=='Users'}
@@ -85,9 +85,9 @@
 	{/foreach}
 	</TR>
 
-
+{* BEGIN - SECURITY GROUPS - sub-admins
     {/if}
-
+//END - SECURITY GROUPS *}
 
 {foreachelse}
 	<tr> <td colspan="2">No Actions</td></tr>

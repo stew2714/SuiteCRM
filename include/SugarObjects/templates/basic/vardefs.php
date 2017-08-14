@@ -160,6 +160,49 @@ $vardefs = array(
             'reportable' => false,
             'comment' => 'Record deletion indicator'
         ),
+    /* BEGIN - SECURITY GROUPS */ 
+      'securitygroup' =>
+      array (
+        'name' => 'securitygroup',
+        'vname' => 'LBL_SECURITYGROUP',
+        'type' => 'enum',
+        'source' => 'non-db',
+        'function' => 'getUserSecurityGroups',
+        'default' => '0',
+        'sortable' => false,
+        'reportable'=>false,
+        'comment' => 'Used for adding to the search forms',
+        'massupdate' => false,
+        'unified_search' => false,
+        'importable' => 'false',
+        'readonly' => true,
+        'studio' => array('visible' => false, 'listview' => false, 'searchview'=>true, 'detailview'=>false, 'editview'=>false, 'formula' => false, 'related' => false, 'basic_search' => true, 'advanced_search' => true, 'popuplist' => false, 'popupsearch' => true, 'dashletsearch' => true, 'dashlet' => false),
+      ),  
+      'securitygroup_display' =>
+      array (
+        'name' => 'securitygroup_display',
+        'vname' => 'LBL_SECURITYGROUP',
+        'type' => 'function',
+        'function_name'=>'getRecordSecurityGroups',
+        'function_params'=> array('id'),
+        'source'=>'non-db',
+        'function' => array(
+          'name' => 'getRecordSecurityGroups',
+          'returns' => 'html',
+          'onListView' => true,
+        ),
+        //custom_type may be the key for list view
+        'custom_type' => 'securitygroup',
+        'sortable' => false,
+        'reportable'=>false,
+        'comment' => 'Used for adding to the list, detail, and edit views',
+        'massupdate' => false,
+        'unified_search' => false,
+        'importable' => 'false',
+        'readonly' => true,
+        'studio' => array('visible' => false, 'listview' => true, 'searchview'=>false, 'detailview'=>true, 'editview'=>true, 'formula' => false, 'related' => false, 'basic_search' => false, 'advanced_search' => false, 'popuplist' => true, 'popupsearch' => false, 'dashletsearch' => false, 'dashlet' => false),
+      ),
+    /* END - SECURITY GROUPS */      
 
         /////////////////RELATIONSHIP LINKS////////////////////////////
         'created_by_link' => array(

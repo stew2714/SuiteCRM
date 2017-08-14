@@ -83,5 +83,6 @@ $mod_strings = array (
   'LBL_INBOUND_EMAIL' => 'Conta de e-mail de entrada',
   'LBL_INBOUND_EMAIL_DESC' => 'Só permitir o acesso a uma conta de e-mail se o usuário pertence a um grupo que é atribuído à conta de correio.',
   'LBL_PRIMARY_GROUP' => 'Grupo Principal',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED' => 'Calendário Compartilhado - Ocultar Restrita',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED_DESC' => 'Mostrar apenas itens no calendário compartilhado que o usuário tem direitos. Deixe desmarcada se os usuários precisam ver quando outros usuários estão ocupados.',
 );
-?>

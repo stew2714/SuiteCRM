@@ -1607,3 +1607,4 @@ $mod_strings['LBL_PRODUCT_BILLING_TERMS_C'] = 'Product Billing Terms C';
 $mod_strings['LBL_PRODUCT_PRICE_INCREASE_C'] = 'Product Price Increase C';
 $mod_strings['LBL_PRODUCT_SUBSCRIPTION_AUTO_RENEWAL_C'] = 'Product Subscription Auto Renewal C';
 $mod_strings['LBL_CODING_PRICE_BOOK_RATE_C'] = 'Coding Price Book Rate C';
+$mod_strings['LBL_SF_ID_C'] = 'Sf Id';

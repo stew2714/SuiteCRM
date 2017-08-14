@@ -1463,6 +1463,23 @@ EOQ;
                 ) {
                 $myModules[] = $module;
             }
+			//BEGIN - SECURITY GROUPS - sub-admins
+            else if (
+            	isset($actions[$module][$key]['admin']['aclaccess']) &&
+            	(
+                	($actions[$module][$key]['admin']['aclaccess'] == ACL_ALLOW_ADMIN_DEV) ||
+                	($isAdmin && $actions[$module][$key]['admin']['aclaccess'] == ACL_ALLOW_ADMIN) ||
+                	($isDev && $actions[$module][$key]['admin']['aclaccess'] == ACL_ALLOW_DEV)
+                )
+            ) {
+		        require_once('modules/SecurityGroups/SecurityGroup.php');
+		        $current_plan = SecurityGroup::get_current_plan();
+		        if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+		        {
+	                $myModules[] = $module;
+	            }
+            }
+			//END - SECURITY GROUPS
         }
 
         return $myModules;
@@ -1492,6 +1509,18 @@ EOQ;
         if ($this->isAdmin()) {
             return true;
         }
+
+        //BEGIN - SECURITY GROUPS - sub-admins
+        require_once('modules/SecurityGroups/SecurityGroup.php');
+        $current_plan = SecurityGroup::get_current_plan();
+        if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+        {
+	        if (count($this->getDeveloperModules()) > 0) {
+	            return true;
+	        }
+	    }
+        //END - SECURITY GROUPS
+
         return false;
     }
     /**

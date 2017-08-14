@@ -49,9 +49,39 @@ function build_related_list_by_user_id($bean, $user_id,$where) {
         if (!empty($where)) {
             $auto_where .= $where . ' AND ';
         }
-
+        /* BEGIN - SECURITY GROUPS */
+        /**
         $auto_where .= " {$bean->rel_users_table}.{$bean_id_name}={$bean->table_name}.id AND {$bean->rel_users_table}.user_id='{$user_id}' AND {$bean->table_name}.deleted=0 AND {$bean->rel_users_table}.deleted=0";
+        */
+        $auto_where .= " {$bean->rel_users_table}.{$bean_id_name}={$bean->table_name}.id AND {$bean->table_name}.deleted=0 AND {$bean->rel_users_table}.deleted=0";
 
+        $cal_view = $_REQUEST['view'];
+        global $current_user, $sugar_config;
+        // If they shouldn't see non-group records for another user...even if displayed as busy
+        if(
+            !empty($cal_view) && ($cal_view == 'shared' || $cal_view == 'sharedWeek' || $cal_view == 'sharedMonth')
+            && !empty($sugar_config['securitysuite_shared_calendar_hide_restricted']) && $sugar_config['securitysuite_shared_calendar_hide_restricted'] == true
+            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
+        )
+        {
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
+            $auto_where .= " AND ({$bean->rel_users_table}.user_id='{$user_id}' and ".$group_where.") ";
+        } 
+        else if(
+            !empty($sugar_config['securitysuite_show_group_events']) && $sugar_config['securitysuite_show_group_events'] == true
+            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
+        )
+        {
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
+            $auto_where .= " AND ({$bean->rel_users_table}.user_id='{$user_id}' OR ".$group_where.") ";
+        }
+        else
+        {
+            $auto_where .= " AND {$bean->rel_users_table}.user_id='{$user_id}' ";
+        }
+        /* END - SECURITY GROUPS */
 
         $query = $select . $auto_where;
 
@@ -97,7 +127,39 @@ function build_related_list_by_user_id($bean, $user_id,$where) {
             $auto_where .= $where . ' AND ';
         }
 
+        /* BEGIN - SECURITY GROUPS */
+        /**
         $auto_where .= " {$bean->table_name}.assigned_user_id='{$user_id}' AND {$bean->table_name}.deleted=0 ";
+        */
+        $auto_where .= " {$bean->table_name}.deleted=0 ";
+
+        $cal_view = $_REQUEST['view'];
+        global $current_user, $sugar_config;
+        // If they shouldn't see non-group records for another user...even if displayed as busy
+        if(
+            !empty($cal_view) && ($cal_view == 'shared' || $cal_view == 'sharedWeek' || $cal_view == 'sharedMonth')
+            && !empty($sugar_config['securitysuite_shared_calendar_hide_restricted']) && $sugar_config['securitysuite_shared_calendar_hide_restricted'] == true
+            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
+        )
+        {
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
+            $auto_where .= " AND ({$bean->table_name}.assigned_user_id='{$user_id}' and ".$group_where.") ";
+        } 
+        else if(
+            !empty($sugar_config['securitysuite_show_group_events']) && $sugar_config['securitysuite_show_group_events'] == true
+            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
+        )
+        {
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
+            $auto_where .= " AND ({$bean->table_name}.assigned_user_id='{$user_id}' OR ".$group_where.") ";
+        }
+        else
+        {
+            $auto_where .= " AND {$bean->table_name}.assigned_user_id='{$user_id}' ";
+        }
+        /* END - SECURITY GROUPS */
 
 
         $query = $select . $auto_where;

@@ -37,6 +37,10 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-require_once('custom/include/FluencyOne/convertCSV.php');
+require_once('custom/include/convertCSV.php');
 
 $csv = new convertCSV('custom/include/FluencyOne/import.csv');
+$csv->module = "sa_Fluency_One";
+$csv->oneFile = true;
+$csv->update = false;
+$csv->import();

@@ -47,8 +47,14 @@ global $mod_strings;
 // Each index of module_menu must be an array of:
 // the link url, display text for the link, and the icon name.
 
+//BEGIN - SECURITY GROUPS - create rights
+/**  
 if(ACLController::checkAccess('Project', 'edit', true))$module_menu[] = array("index.php?module=Project&action=EditView&return_module=Project&return_action=DetailView",
 	$mod_strings['LNK_NEW_PROJECT'], 'Create');
+*/
+if(ACLController::checkAccess('Project', 'create', true))$module_menu[] = array("index.php?module=Project&action=EditView&return_module=Project&return_action=DetailView",
+    $mod_strings['LNK_NEW_PROJECT'], 'Create');
+//END - SECURITY GROUPS - create rights
 if(ACLController::checkAccess('Project', 'list', true))$module_menu[] = array('index.php?module=Project&action=index',
 	$mod_strings['LNK_PROJECT_LIST'], 'List');
     /*

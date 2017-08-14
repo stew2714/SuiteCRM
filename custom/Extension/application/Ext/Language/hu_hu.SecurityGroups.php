@@ -4,5 +4,7 @@ $app_list_strings["moduleList"]["SecurityGroups"] = 'Biztonsági Csoportok Kezel
 $app_strings['LBL_LOGIN_AS'] = "Belépés mint ";
 $app_strings['LBL_LOGOUT_AS'] = "Kilépés mint ";
 $app_strings['LBL_SECURITYGROUP'] = 'Biztonsági Csoportok';
+$app_strings['LBL_ADDITIONALUSERS'] = 'Additional Assigned User(s)';
+$app_strings['LBL_SECURITYSUITE_PRIVATE'] = 'Make Private';
 
 ?>

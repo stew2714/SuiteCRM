@@ -247,6 +247,24 @@ EOD;
             $query .= "AND opportunities.lead_source IN ('".implode("','",$this->pbls_lead_sources)."') ";
         else
             $query .= "AND opportunities.lead_source IN ('".implode("','",array_keys($GLOBALS['app_list_strings']['lead_source_dom']))."') ";
+        /* BEGIN - SECURITY GROUPS */
+        //this dashlet lives in the Home module so we will need to load a placeholder bean to look up permissions
+        //this logic mimics SugarBean->create_new_list_query()
+        $report_bean = BeanFactory::getBean('Opportunities');
+        global $current_user, $sugar_config;
+        if($report_bean->bean_implements('ACL') && ACLController::requireSecurityGroup($report_bean->module_dir, 'list') )
+        {
+            require_once('modules/SecurityGroups/SecurityGroup.php');
+            global $current_user;
+            $owner_where = $report_bean->getOwnerWhere($current_user->id);
+            $group_where = SecurityGroup::getGroupWhere($report_bean->table_name,$report_bean->module_dir,$current_user->id);
+            if(!empty($owner_where)){
+                $query .= " AND (".  $owner_where." or ".$group_where.") ";
+            } else {
+                $query .= ' AND '.  $group_where;
+            }
+        }
+        /* END - SECURITY GROUPS */
         $query .= "GROUP BY lead_source ORDER BY total DESC";
 
         return $query;

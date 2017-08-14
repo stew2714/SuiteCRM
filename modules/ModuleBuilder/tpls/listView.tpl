@@ -55,6 +55,9 @@ studiotabs.reset();
 <input type='hidden' name='subpanelLabel' value='{$subpanelLabel}'>
 <input type='hidden' name='local' value='{$local}'>
 <input type='hidden' name='view_module' value='{$view_module}'>
+{* BEGIN - SECURITY GROUPS *}
+<input type='hidden' name='grpLayout' value='{$grpLayout}'>
+{* END - SECURITY GROUPS *}
 {if $fromPortal}
     <input type='hidden' name='PORTAL' value='1'>
 {/if}

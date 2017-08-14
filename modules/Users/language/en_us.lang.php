@@ -605,4 +605,8 @@ $mod_strings = array(
     'LBL_PASSWORD_MIS_MATCH' => 'mis-match',
 ); // END STRINGS DEFS
 
+//BEGIN - SECURITY GROUPS - sub-admins
+$mod_strings['LBL_USER_NAME_FOR_ROLE'] = 'Users/Security Groups/Roles';
+//END - SECURITY GROUPS
+
 ?>
