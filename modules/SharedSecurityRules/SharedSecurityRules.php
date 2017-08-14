@@ -271,8 +271,12 @@ class SharedSecurityRules extends Basic
                             $condition->operator
                         )) {
                             if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                                if($condition->condition_operator == "OR"){
+                                    return false;
+                                }
                                 $result = false;
                             }
+
                         } else {
                             if($rule->run == "Once True"){
                                 if ($this->checkHistory($moduleBean,$condition->field, $condition->value) ) {
@@ -281,7 +285,7 @@ class SharedSecurityRules extends Basic
                                     }
                                 }
                             }else{
-                                if($condition->condition_operator !== "OR" && $result != false){
+                                if( $condition->condition_operator == "AND" ){
                                     return true;
                                 }
                             }
