@@ -52,6 +52,10 @@ $viewdefs[$module_name]['EditView'] = array(
                     array(
                         'file' => 'modules/sa_Fluency_One/css/modalStyling.css',
                     ),
+                1 =>
+                    array(
+                        'file' => 'modules/sa_Fluency_One/js/Validation.js',
+                    ),
             ),
     ),
 

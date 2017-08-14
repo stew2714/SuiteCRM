@@ -20,4 +20,5 @@ $mod_strings = array (
   'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
   'LBL_PLEASE_CONTACT' => 'Please contact Kevin Bradley in order to move an account to new ownership',
   'LBL_EDITVIEW_PANEL1' => 'Eloqua Fields',
+  'LBL_ENTRY_REQUIRED_IN_CHANGES' => 'An entry is required in the Top 10 Prospecting Reason field when the Top 10 Prospecting flag is set.',
 );
