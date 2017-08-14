@@ -57,9 +57,9 @@ $( document ).ready(function() {
     dateNow.setDate(dateNow.getDate() + 365);
     var dateclosed = Date.parse( document.getElementById("date_closed").value );
     if(
-      (document.getElementById("recordtypeid").value == "Lead" ||
-        document.getElementById("recordtypeid").value == "CBay" ||
-        document.getElementById("recordtypeid").value == "Partner"
+      (document.getElementById("recordtypeid_c").value == "Lead" ||
+        document.getElementById("recordtypeid_c").value == "CBay" ||
+        document.getElementById("recordtypeid_c").value == "Partner"
       ) &&
       dateclosed < dateNow &&
       (
@@ -86,7 +86,7 @@ $( document ).ready(function() {
         document.getElementById("product_c").value == "FFCT" ||
         document.getElementById("product_c").value == "COS"
       ) &&
-      document.getElementById("recordtypeid").value == "Partner" &&
+      document.getElementById("recordtypeid_c").value == "Partner" &&
       document.getElementById("encoder_c").value == ""){
       addToValidate('EditView',"encoder_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_ENCODER_REQUIRED_FOR_CODING_OPPS'));
     }else{
@@ -108,7 +108,7 @@ $( document ).ready(function() {
     }
     //Item 11
     if(
-      ( $("#recordtypeid").length && document.getElementById("recordtypeid").value == "Standard" )  &&
+      ( $("#recordtypeid_c").length && document.getElementById("recordtypeid_c").value == "Standard" )  &&
       ($("#probability").length &&$("#probability").val() >= "0.2") &&
       ($("#probability").length &&$("#probability").val() <= "1.0") &&
       ($("#emr2_c").length && $("#emr2_c").val() == "") &&
@@ -136,7 +136,7 @@ $( document ).ready(function() {
     }
     //Item 13
     //Item 14
-    if ( document.getElementById("recordtypeid").value != "Standard" && $("#probability").val() == "0.5"
+    if ( document.getElementById("recordtypeid_c").value != "Standard" && $("#probability").val() == "0.5"
     ){
       addToValidate('EditView',"incumbentx_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_BE_INCUMBENT'));
     }else{
@@ -208,7 +208,7 @@ $( document ).ready(function() {
     }
     //Item 18
     if (
-      document.getElementById("recordtypeid").value != "CBay" ||
+      document.getElementById("recordtypeid_c").value != "CBay" ||
       $("sales_stage").val() == "Closed Lost" &&
       $("#changes_next_time_c").val() == ""
     ) {
@@ -220,7 +220,7 @@ $( document ).ready(function() {
     }
     //Item 19 - AND( NOT( CONTAINS($RecordType.Name, "CBay") ) , ISPICKVAL( StageName, "Closed - Won"), NOT(ISPICKVAL(Global_Use_Probability_Percent__c, "0% - Global Service not presented")), NOT(ISPICKVAL(Global_Use_Probability_Percent__c, "100% - Customer will definitely use Global Services")), CONTAINS(Product__r.Name, "TOS") )
     if (
-      document.getElementById("recordtypeid").value != "CBay" &&
+      document.getElementById("recordtypeid_c").value != "CBay" &&
       document.getElementById("sales_stage").value == "Closed Won" &&
         (
           document.getElementById("global_use_probability_percent_c").value != "0% - Global Service not presented" ||
@@ -238,8 +238,8 @@ $( document ).ready(function() {
       (
         document.getElementById("product_c").value != "TOS" &&
         (
-          document.getElementById("recordtypeid").value == "CBay" &&
-          document.getElementById("recordtypeid").value == "Renewal"
+          document.getElementById("recordtypeid_c").value == "CBay" &&
+          document.getElementById("recordtypeid_c").value == "Renewal"
         )
       )
     ){
@@ -253,7 +253,7 @@ $( document ).ready(function() {
 
     //Item 21
     if (
-      $("recordtypeid").val() == "Standard Opportunity" &&
+      $("recordtypeid_c").val() == "Standard Opportunity" &&
       $("#latest_update__c").val() == "" &&
       ($("#probability").val() >=  "0.5" ||
         $("#implementation_Cost_c").val() +
@@ -271,7 +271,7 @@ $( document ).ready(function() {
 
     //Item 22
     if (
-      document.getElementById("recordtypeid").value == "CBay" &&
+      document.getElementById("recordtypeid_c").value == "CBay" &&
       $("#sales_stage").val() == "Closed - Lost" &&
       $("#lessons_learned_c").val() == ""
     ) {
@@ -283,7 +283,7 @@ $( document ).ready(function() {
     }
     //Item 23
     if (
-      document.getElementById("recordtypeid").value == "Standard" &&
+      document.getElementById("recordtypeid_c").value == "Standard" &&
       $("#probability").val() >= "0.2" &&
       $("#probability").val() <= "1.0" &&
       $("#partner__c").val() == ""
@@ -296,9 +296,9 @@ $( document ).ready(function() {
     }
     //Item 24
     if (
-      (document.getElementById("recordtypeid").value == "CBay" ||
-        document.getElementById("recordtypeid").value == "Partner") &&
-      $("#recordtypeid").val() != "Lead Stage Opportunity" &&
+      (document.getElementById("recordtypeid_c").value == "CBay" ||
+        document.getElementById("recordtypeid_c").value == "Partner") &&
+      $("#recordtypeid_c").val() != "Lead Stage Opportunity" &&
       $("#product_c").val() == ""
     ) {
       addToValidate('EditView',"product_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_ENTRY_REQUIRED_PRODUCT_SERVICES'));
@@ -309,7 +309,7 @@ $( document ).ready(function() {
     }
     //Item 25 - Require_Win_Loss_Desc_When_Other
     if (
-      document.getElementById("recordtypeid").value == ("CBay") &&
+      document.getElementById("recordtypeid_c").value == ("CBay") &&
       $("#primary_reason_for_winloss_c").val() == "Other" &&
       $("#winloss_description_c").val() == ""
     ) {
@@ -320,7 +320,7 @@ $( document ).ready(function() {
       }
     }
     //Item 26 - Require_winner_when_lost ----- AND( ISPICKVAL( StageName, "Closed - Lost"), Winner__r.Name ="",$RecordType.Name = "Standard Opportunity")
-    if ( $("#sales_stage").val() == "Closed Lost" &&  $("#recordtypeid").val() == "Standard Opportunity" ) {
+    if ( $("#sales_stage").val() == "Closed Lost" &&  $("#recordtypeid_c").val() == "Standard Opportunity" ) {
       accounts_opportunities_1_name
       addToValidate('EditView',"accounts_opportunities_1_name",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_WHEN_CLOSED_LOST_WINNER_REQUIRED'));
     }else{
