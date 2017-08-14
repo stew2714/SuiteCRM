@@ -2,18 +2,6 @@
  * Created by ian on 04/07/17.
  */
 
-
-function checkArray(item, array){
-  $.each(array, function( index, value ) {
-    if(value.includes(item) ){
-      console.log( index + ": " + value );
-      return true;
-    }
-  });
-  return false;
-}
-
-
 $( document ).ready(function() {
   /******* get the first version of the field ************/
   var assigned_to = $("#assigned_user_id").val();
@@ -38,11 +26,23 @@ $( document ).ready(function() {
   });
 
   function checkRules() {
-    //Item 5 - Cannot_change_forecasting
+    //Item 3
     if (assigned_to != $("#assigned_user_id").val() && assigned_to != "" ) {
       alert(SUGAR.language.get(module_sugar_grp1, 'LBL_PLEASE_CONTACT'));
       return false //must be outside of validate array.
     }
+    //item 4
+    if (
+      $("#top_10_prospecting_c").length &&
+      $("#top_10_prospecting_c").val() != ""
+    ) {
+      addToValidate('EditView',"top_10_prospecting_reason_c",'datetime',true,SUGAR.language.get('Accounts', 'LBL_ENTRY_REQUIRED_IN_CHANGES'));
+    }else{
+      if( checkValidate("EditView", "top_10_prospecting_reason_c")){
+        removeFromValidate("EditView","top_10_prospecting_reason_c" );
+      }
+    }
+
     return true;
   }
 
