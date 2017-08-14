@@ -67,6 +67,22 @@ if (
 'linkinfo' => array($app_strings['LBL_ADMIN'] => 'index.php?module=Administration&action=index'),
 'submenu' => ''
 );
+
+//BEGIN - SECURITY GROUPS - sub-admins
+else if ($current_user->isDeveloperForAnyModule())
+{
+    require_once('modules/SecurityGroups/SecurityGroup.php');
+    $current_plan = SecurityGroup::get_current_plan();
+    if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+    {
+		$global_control_links['admin'] = array(
+			'linkinfo' => array($app_strings['LBL_ADMIN'] => 'index.php?module=Administration&action=index'),
+			'submenu' => ''
+		);
+	}
+}
+//END - SECURITY GROUPS
+
 $global_control_links['training'] = array(
 'linkinfo' => array($app_strings['LBL_TRAINING'] => 'javascript:void(window.open(\'http://suitecrm.com/forum/index\'))'),
 'submenu' => ''

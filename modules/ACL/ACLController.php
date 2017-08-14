@@ -69,6 +69,18 @@ class ACLController {
 			*/
 			return ACLAction::userHasAccess($current_user->id, 'Calls', $action,$type, $is_owner, $in_group) || ACLAction::userHasAccess($current_user->id, 'Meetings', $action,'module', $is_owner, $in_group) || ACLAction::userHasAccess($current_user->id, 'Tasks', $action,'module', $is_owner, $in_group)|| ACLAction::userHasAccess($current_user->id, 'Emails', $action,'module', $is_owner, $in_group)|| ACLAction::userHasAccess($current_user->id, 'Notes', $action,'module', $is_owner, $in_group);
 		}
+
+		//BEGIN - SECURITY GROUPS - sub-admins
+        if ($category == 'Employees') {
+	        require_once('modules/SecurityGroups/SecurityGroup.php');
+	        $current_plan = SecurityGroup::get_current_plan();
+	        if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
+	        {
+	            return ACLAction::userHasAccess($current_user->id, 'Users', $action, $type, $is_owner);
+	        }
+        }
+        //END - SECURITY GROUPS
+
 		/**
 		return ACLAction::userHasAccess($current_user->id, $category, $action,$type, $is_owner);
 		*/

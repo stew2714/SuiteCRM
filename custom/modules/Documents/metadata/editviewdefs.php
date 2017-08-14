@@ -125,7 +125,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'sa_legal_timesheets_documents_1_name',
+            'name' => 'sa_assignments_documents_1_name',
           ),
         ),
         8 => 

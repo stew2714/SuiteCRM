@@ -47,17 +47,23 @@ class SugarWidgetSubPanelTopComposeEmailButton extends SugarWidgetSubPanelTopBut
 {
 	var $form_value = '';
     
-    public function getWidgetId()
+    public function getWidgetId($buttonSuffix = true)
     {
     	global $app_strings;
 		$this->form_value = $app_strings['LBL_COMPOSE_EMAIL_BUTTON_LABEL'];
     	return parent::getWidgetId();
     }
 
-	function display($defines)
+	function display($defines, $additionalFormFields = NULL, $nonbutton = false)
 	{
+        //BEGIN - SECURITY GROUPS - create rights
+        /**
 		if((ACLController::moduleSupportsACL($defines['module'])  && !ACLController::checkAccess($defines['module'], 'edit', true) ||
 			$defines['module'] == "Activities" & !ACLController::checkAccess("Emails", 'edit', true))){
+        */
+        if((ACLController::moduleSupportsACL($defines['module'])  && !ACLController::checkAccess($defines['module'], 'create', true) ||
+            $defines['module'] == "Activities" & !ACLController::checkAccess("Emails", 'create', true))){
+        //END - SECURITY GROUPS - create rights
 			$temp = '';
 			return $temp;
 		}

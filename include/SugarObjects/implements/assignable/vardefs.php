@@ -85,6 +85,34 @@ $vardefs = array(
     'id_name' => 'assigned_user_id',
     'table' => 'users',     
   ),
+    /* BEGIN - SECURITY GROUPS - additional-users */ 
+	'additionalusers' =>
+	array (
+		'name' => 'additionalusers',
+		'vname' => 'LBL_ADDITIONALUSERS',
+		'type' => 'additionalusers',
+		//'type' => 'function',
+		//'function_name'=>'getAdditionalUsers',
+		//'function_params'=> array('id'),
+		'source'=>'non-db',
+		'function' => array(
+			'name' => 'getAdditionalUsers',
+			'include' => 'modules/SecurityGroups/SecurityGroupAdditionalUser.php',
+			//'returns' => 'html',
+			//'onListView' => true,
+		),
+		//custom_type may be the key for list view
+		//'custom_type' => 'securitygroup',
+		'sortable' => false,
+		'reportable'=>false,
+		'comment' => 'Used for adding to the list, detail, and edit views',
+		'massupdate' => false,
+		'unified_search' => false,
+		'importable' => 'false',
+		//'readonly' => true,
+		'studio' => array('visible' => false, 'listview' => true, 'searchview'=>false, 'detailview'=>true, 'editview'=>true, 'formula' => false, 'related' => false, 'basic_search' => false, 'advanced_search' => false, 'popuplist' => true, 'popupsearch' => false, 'dashletsearch' => false, 'dashlet' => true),
+	),
+    /* END - SECURITY GROUPS - additional-users */  
 ),
 'relationships'=>array(
 	  strtolower($module).'_assigned_user' =>

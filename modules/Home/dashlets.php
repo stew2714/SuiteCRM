@@ -48,7 +48,7 @@ $defaultDashlets = array(
 						'MyCallsDashlet'=>'Calls',
 						'MyMeetingsDashlet'=>'Meetings',
 						'MyOpportunitiesDashlet'=>'Opportunities',
-						/*'MyAccountsDashlet'=>'Accounts',Stew 06/20/2016 My Accounts dashlet removed*/
+						'MyAccountsDashlet'=>'Accounts',
 						'MyLeadsDashlet'=>'Leads',
 						 );
 

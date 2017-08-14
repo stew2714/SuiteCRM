@@ -272,14 +272,7 @@ $(document).on('click', function (e) {
 
         if (!$(e.target).parents().is(".inlineEditActive, .cal_panel") && !$(e.target).hasClass("inlineEditActive")) {
             var output_value = loadFieldHTMLValue(field, id, module);
-
-            // Resolve issues with telephone number throwing exception.
-            if (/<[a-z][\s\S]*>/i.test(output_value)) {
-                var outputValueParse = $(output_value).text();
-            } else {
-                var outputValueParse = output_value;
-            }
-
+            var outputValueParse = $(output_value).text();
             var user_value = getInputValue(field, type);
 
             /**
@@ -438,10 +431,8 @@ function handleSave(field,id,module,type){
  */
 
 function setValueClose(value){
-    $.get('themes/SuiteR/images/inline_edit_icon.svg', function(data) {
-        // Fix for #3136 - replace new line characters with <br /> for html on close.
-        value = value.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
+    $.get('themes/SuiteR/images/inline_edit_icon.svg', function(data) {
         $(".inlineEditActive").html("");
         $(".inlineEditActive").html(value + '<div class="inlineEditIcon">' + inlineEditIcon + '</div>');
         $(".inlineEditActive").removeClass("inlineEditActive");

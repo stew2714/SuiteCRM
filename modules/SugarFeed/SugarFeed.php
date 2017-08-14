@@ -1,4 +1,4 @@
-<?PHP
+<?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
@@ -268,9 +268,9 @@ class SugarFeed extends Basic {
         }
         $text = strip_tags(from_html($text));
 		$text = '<b>{this.CREATED_BY}</b> ' . $text;
-		$feed->name = mb_substr($text, 0, 255, 'UTF-8');	
-		if(mb_strlen($text, 'UTF-8') > 255){
-			$feed->description = mb_substr($text, 255, 510, 'UTF-8');
+		$feed->name = substr($text, 0, 255);
+		if(strlen($text) > 255){
+			$feed->description = substr($text, 255, 510);
 		}
 
 		if ( $record_assigned_user_id === false ) {
@@ -365,15 +365,22 @@ class SugarFeed extends Basic {
 		if (ACLController::moduleSupportsACL($data['RELATED_MODULE'])) {
     		$in_group = 'not_set';
 			require_once("modules/SecurityGroups/SecurityGroup.php");
-			$in_group = SecurityGroup::groupHasAccess($data['RELATED_MODULE'],$data['RELATED_ID'],'list');
-			if(
-			 !ACLController::checkAccess($data['RELATED_MODULE'], 'view', $data['CREATED_BY'] == $GLOBALS['current_user']->id,'module', $in_group)
-			&& !ACLController::checkAccess($data['RELATED_MODULE'], 'list', $data['CREATED_BY'] == $GLOBALS['current_user']->id,'module', $in_group)
+			$in_group = SecurityGroup::groupHasAccess($data['RELATED_MODULE'],$data['RELATED_ID'],'list'); 
+            $is_owner = false;
 
-			){
-			$data['NAME'] = '';
-			return $data;
-			}
+            //need the real is_owner check
+            $mod_bean = BeanFactory::getBean($data['RELATED_MODULE'],$data['RELATED_ID']);
+            if(!empty($mod_bean) && !empty($mod_bean->id))
+            {
+                $is_owner = $mod_bean->isOwner($GLOBALS['current_user']->id);
+                //used by dashlet. We are already filtering the correct records so only determine if a link should show
+                if(!ACLController::checkAccess($data['RELATED_MODULE'], 'view', $is_owner,'module', $in_group))
+                {
+                    $data['NAME'] .= '[HIDELINK]';
+                    $GLOBALS['log']->fatal("hide link ".$data['RELATED_ID']);
+                }
+            }
+
 		}
         if(is_admin($GLOBALS['current_user']) || (isset($data['CREATED_BY']) && $data['CREATED_BY'] == $GLOBALS['current_user']->id) ) {
             $delete = ' - <a id="sugarFeedDeleteLink'.$data['ID'].'" href="#" onclick=\'SugarFeed.deleteFeed("'. $data['ID'] . '", "{this.id}"); return false;\'>'. $GLOBALS['app_strings']['LBL_DELETE_BUTTON_LABEL'].'</a>';

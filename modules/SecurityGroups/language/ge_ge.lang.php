@@ -82,10 +82,11 @@ $mod_strings = array (
   'LBL_HOOKUP_CONFIRM_PART2' => ". Continue?",
   
   'LBL_GROUP_SELECT' => 'Wählen Sie die Gruppen sollten Zugriff auf diesen Datensatz haben',
-  'LBL_ERROR_DUPLICATE' => 'Durch eine mögliche von SuiteCRM erkannt Duplikat müssen Sie manuell hinzufügen Security Groups, um Ihre neu erstellte Datensatz.',
+  'LBL_ERROR_DUPLICATE' => 'Durch eine mögliche von Sugar erkannt Duplikat müssen Sie manuell hinzufügen Security Groups, um Ihre neu erstellte Datensatz.',
   
   'LBL_INBOUND_EMAIL' => 'Inbound-Mail-Konto',
   'LBL_INBOUND_EMAIL_DESC' => 'Nur den Zugriff auf ein E-Mailkonto, wenn der Benutzer zu einer Gruppe gehört, die mit dem Mail-Konto zugewiesen ist.',
   'LBL_PRIMARY_GROUP' => 'Startseite Gruppen',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED' => 'Eingeschränkte ausblenden - Gemeinsamer Kalender',
+  'LBL_SHARED_CALENDAR_HIDE_RESTRICTED_DESC' => 'Nur Artikel zeigen auf der Gemeinschafts-Kalender, die der Benutzer die Rechte zu. Deaktiviert lassen, wenn die Benutzer benötigen, um zu sehen, wenn andere Benutzer sind damit beschäftigt.',
 );
-?>

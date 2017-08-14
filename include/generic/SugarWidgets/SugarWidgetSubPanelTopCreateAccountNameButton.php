@@ -45,12 +45,12 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 class SugarWidgetSubPanelTopCreateAccountNameButton extends SugarWidgetSubPanelTopButtonQuickCreate
 {
-    public function getWidgetId()
+    public function getWidgetId($buttonSuffix = true)
     {
         return parent::getWidgetId();
     }
 
-	function display($defines)
+	function display($defines, $additionalFormFields = NULL, $nonbutton = false)
 	{
 		global $app_strings;
 		global $currentModule;
@@ -59,7 +59,12 @@ class SugarWidgetSubPanelTopCreateAccountNameButton extends SugarWidgetSubPanelT
 		//$accesskey = $app_strings['LBL_NEW_BUTTON_KEY'];
 		$value = $app_strings['LBL_NEW_BUTTON_LABEL'];
 		$this->module = 'Contacts';
+        //BEGIN - SECURITY GROUPS - create rights
+        /**
 		if( ACLController::moduleSupportsACL($defines['module'])  && !ACLController::checkAccess($defines['module'], 'edit', true)){
+        */
+        if( ACLController::moduleSupportsACL($defines['module'])  && !ACLController::checkAccess($defines['module'], 'create', true)){
+        //END - SECURITY GROUPS - create rights
 			$button = "<input title='$title'class='button' type='button' name='button' value='  $value  ' disabled/>\n";
 			return $button;
 		}

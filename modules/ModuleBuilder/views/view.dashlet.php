@@ -95,6 +95,23 @@ class ViewDashlet extends ViewListView
         $parser = ParserFactory::getParser ( $this->editLayout, $this->editModule, $this->editPackage) ;
 
         $smarty = $this->constructSmarty ( $parser ) ;
+		/* BEGIN - SECURITY GROUPS */ 
+		$groupLayout = "";
+		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+		global $groupName;
+		$groupName = "Default";
+		if(!isset($groupLayout) || empty($groupLayout)) {
+			$groupLayout = "";
+		} else {
+			//Get group name for display
+			require_once('modules/SecurityGroups/SecurityGroup.php');
+			$groupFocus = new SecurityGroup();
+			$groupFocus->retrieve($groupLayout);
+			$groupName = $groupFocus->name;
+		}
+        $smarty->assign ( 'grpLayout', $groupLayout ) ;
+		/* END - SECURITY GROUPS */ 
+
         if ($preview)
         {
         	echo $smarty->fetch ( "modules/ModuleBuilder/tpls/Preview/listView.tpl" ) ;
@@ -124,6 +141,10 @@ class ViewDashlet extends ViewListView
         }else{
             $ajax->addCrumb ( translate($this->editModule), 'ModuleBuilder.getContent("module=ModuleBuilder&action=module&view_module=' . $this->editModule . '")' ) ;
             $ajax->addCrumb ( translate('LBL_LAYOUTS', 'ModuleBuilder'), 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&layouts=1&view_module=' . $this->editModule . '")');
+			/* BEGIN - SECURITY GROUPS */ 
+			global $groupName;
+			$ajax->addCrumb ( translate ( $groupName ), '' ) ;
+			/* END - SECURITY GROUPS */  	
             $ajax->addCrumb ( translate('LBL_DASHLET', 'ModuleBuilder'), 'ModuleBuilder.getContent("module=ModuleBuilder&action=wizard&view=dashlet&view_module=' . $this->editModule . '")' );
             $ViewLabel = ($this->editLayout == MB_DASHLET) ? 'LBL_DASHLETLISTVIEW' : 'LBL_DASHLETSEARCHVIEW';
             $ajax->addCrumb ( translate ($ViewLabel, 'ModuleBuilder' ), '' ) ;

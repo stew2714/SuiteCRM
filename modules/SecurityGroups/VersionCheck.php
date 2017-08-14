@@ -4,35 +4,52 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 class VersionCheck {
 
-	function version_check($event, $arguments)
-	{
-		global $current_user;
-	
-		require_once('include/utils.php');
-		if(is_admin($current_user) && empty($_REQUEST['to_pdf']) && empty($_REQUEST['sugar_body_only'])) {
-			//require_once('modules/SecurityGroups/SecurityGroup.php');
-			
-			//check to see if the securitysuite version
-			//matches the sugar version. If not then display an error messag
-			
-			global $sugar_config;
-			if(empty($sugar_config['securitysuite_version'])
-				|| $sugar_config['securitysuite_version'] != $sugar_config['sugar_version']
-			) {
-				$securitysuite_warning = "Warning! SecuritySuite no longer matches the version of Sugar that you are running. "
-					. "SecuritySuite will not work correctly until updated to ".$sugar_config['sugar_version'].". "
-					. "Upgrade now to  ";
-					
-				global $sugar_config;
-				$upgrade_url = "http://www.eggsurplus.com/version.php?version=".$sugar_config['sugar_version'];
-				$upgrade_text = "SecuritySuite for ".$sugar_config['sugar_version'];
-				$GLOBALS['log']->fatal($securitysuite_warning."<a href='$upgrade_url'>$upgrade_text</a>");
-				//echo $display_warning;
+    function version_check($event, $arguments)
+    {
+        global $current_user;
+    
+        require_once('include/utils.php');
+              
+        if(empty($_REQUEST['to_pdf']) && empty($_REQUEST['sugar_body_only'])
+            && (empty($_REQUEST['view']) || $_REQUEST['view'] != 'module')
+            && (empty($_REQUEST['action']) || $_REQUEST['action'] != 'license')
+        ) {
+            //if not validated then spit out errors and fall back to owner where clause
+            require_once('modules/SecurityGroups/license/SecuritySuiteOutfittersLicense.php');
+            $validate_license = SecuritySuiteOutfittersLicense::isValid('SecurityGroups');
+            if($validate_license !== true) {
+                if(is_admin($current_user)) {
+                    SugarApplication::appendErrorMessage('SecuritySuite is no longer active due to the following reason: '.$validate_license.' Group rights have been temporarily dropped to Owner rights.');
+                }
+                echo '<h2><p class="error">SecuritySuite is no longer active</p></h2><p class="error">Please renew your subscription or check your license configuration.</p>';
+            }
+        }
+        
+        if(is_admin($current_user) && empty($_REQUEST['to_pdf']) && empty($_REQUEST['sugar_body_only'])) {
+        
+            //require_once('modules/SecurityGroups/SecurityGroup.php');
+            
+            //check to see if the securitysuite version
+            //matches the sugar version. If not then display an error messag
+            
+            global $sugar_config;
+            if(empty($sugar_config['securitysuite_version'])
+                || $sugar_config['securitysuite_version'] != $sugar_config['sugar_version']
+            ) {
+                $securitysuite_warning = "Warning! SecuritySuite no longer matches the version of Sugar that you are running. "
+                    . "SecuritySuite will not work correctly until updated to ".$sugar_config['sugar_version'].". "
+                    . "Upgrade now to  ";
+                    
+                global $sugar_config;
+                $upgrade_url = "http://www.eggsurplus.com/version.php?version=".$sugar_config['sugar_version'];
+                $upgrade_text = "SecuritySuite for ".$sugar_config['sugar_version'];
+                $GLOBALS['log']->fatal($securitysuite_warning."<a href='$upgrade_url'>$upgrade_text</a>");
+                //echo $display_warning;
 
 
 ?>
 <script language="Javascript">
-				
+                
 
 var oNewP = document.createElement("div");
 oNewP.className = 'error';
@@ -50,10 +67,10 @@ document.body.insertBefore(oNewP, beforeMe);
 </script>
 <?php
 
-			}
-		
-		} //end if admin
-	} 
+            }
+        
+        } //end if admin
+    } 
 
 
 }

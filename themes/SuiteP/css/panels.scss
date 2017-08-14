@@ -390,7 +390,7 @@ div.sub-panel {
 
 
 .subpanelTabForm {
-  background-color: $main-bg;
+  background-color: $default-btn-color;
   color: #000000;
   border-color: #F08377;
 }
@@ -497,7 +497,7 @@ div.sub-panel {
 }
 
 .subpanelTabForm td {
-  padding: 15px 0;
+  padding: 15px;
 }
 
 table.subpanelTabForm td {

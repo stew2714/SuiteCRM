@@ -47,5 +47,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 
 global $mod_strings, $app_strings;
+//BEGIN - SECURITY GROUPS - create rights
+/**  
 if(ACLController::checkAccess('ProspectLists', 'edit', true))$module_menu[]=	Array("index.php?module=ProspectLists&action=EditView&return_module=ProspectLists&return_action=DetailView", $mod_strings['LNK_NEW_PROSPECT_LIST'],"Create");
+*/
+if(ACLController::checkAccess('ProspectLists', 'create', true))$module_menu[]=    Array("index.php?module=ProspectLists&action=EditView&return_module=ProspectLists&return_action=DetailView", $mod_strings['LNK_NEW_PROSPECT_LIST'],"Create");
+//END - SECURITY GROUPS - create rights
 if(ACLController::checkAccess('ProspectLists', 'list', true))$module_menu[]=	Array("index.php?module=ProspectLists&action=index&return_module=ProspectLists&return_action=index", $mod_strings['LNK_PROSPECT_LIST_LIST'],"List");

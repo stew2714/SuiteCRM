@@ -1,9 +1,5 @@
 <?php
 
-$mod_strings = array_merge($mod_strings,
-    array(
-         'LBL_LIST_NONINHERITABLE' => "Não Herdável",
-         'LBL_PRIMARY_GROUP' => "Grupo Principal",
-    )
-);
-?>
+$mod_strings['LBL_LIST_NONINHERITABLE'] = "Não Herdável";
+$mod_strings['LBL_PRIMARY_GROUP'] = "Grupo Principal";
+

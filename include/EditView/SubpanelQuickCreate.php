@@ -68,6 +68,28 @@ class SubpanelQuickCreate{
 		// locate the best viewdefs to use: 1. custom/module/quickcreatedefs.php 2. module/quickcreatedefs.php 3. custom/module/editviewdefs.php 4. module/editviewdefs.php
 		$base = 'modules/' . $module . '/metadata/';
 		$source = 'custom/' . $base . strtolower($view) . 'defs.php';
+		/* BEGIN - SECURITY GROUPS */ 
+		//get group ids of current user and check to see if a layout exists for that group
+		global $current_user;
+		require_once('modules/SecurityGroups/SecurityGroup.php');
+		$groupList = SecurityGroup::getUserSecurityGroups($current_user->id);
+		//reorder by precedence....
+		$foundViewDefs = false;
+
+		foreach($groupList as $groupItem) {
+			$GLOBALS['log']->debug("Looking for: ".'custom/modules/' . $module . '/metadata/'.$groupItem['id'].'/'.strtolower($view).'defs.php');
+			if(file_exists('custom/modules/' . $module . '/metadata/'.$groupItem['id'].'/'.strtolower($view).'defs.php')){
+				$_SESSION['groupLayout'] = $groupItem['id'];
+				$source = 'custom/modules/' . $module . '/metadata/'.$groupItem['id'].'/'.strtolower($view).'defs.php';
+				$foundViewDefs = true;
+			}			
+		}
+
+		if($foundViewDefs == true){
+			//just a way to avoid the if statement below...
+		}
+		else
+		/* END - SECURITY GROUPS */  
 		if (!file_exists( $source))
 		{
 			$source = $base . strtolower($view) . 'defs.php';
@@ -85,7 +107,6 @@ class SubpanelQuickCreate{
 
         $this->ev = $this->getEditView();
 		$this->ev->view = $this->viewType;
-		$this->ev->showVCRControl = false;
 		$this->ev->ss = new Sugar_Smarty();
 		//$_REQUEST['return_action'] = 'SubPanelViewer';
 

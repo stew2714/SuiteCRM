@@ -66,5 +66,14 @@ $mod_strings = array(
     'LBL_ACTION_ACCESS' => 'Access',
     'LBL_ACTION_ADMIN' => 'Access Type',
     'LBL_ACCESS_DEFAULT' => 'Not Set',
-)
+);
+
+//BEGIN - SECURITY GROUPS - sub-admins
+$mod_strings['LBL_ACCESS_ADMIN'] = 'Admin Rights';
+$mod_strings['LBL_ACCESS_DEV'] = 'Studio Rights';
+$mod_strings['LBL_ACCESS_ADMIN_DEV'] = 'Admin & Studio Rights';
+$mod_strings['LBL_ACTION_ADMIN'] = 'User Role Type';
+$mod_strings['LBL_USER_NAME_FOR_ROLE'] = 'Users/Security Groups/Roles';
+//END - SECURITY GROUPS
+
 ?>

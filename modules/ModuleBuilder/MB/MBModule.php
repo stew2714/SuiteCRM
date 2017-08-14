@@ -53,9 +53,15 @@ class MBModule
     public $path = '' ;
     public $implementable = array (
     'has_tab' => 'Navigation Tab' ) ;
+/* BEGIN - SECURITY GROUPS */
+ /** This causes the relationship to not be created correctly
     public $always_implement = array ( 'assignable' => 'Assignable', 'security_groups' => 'Security Groups' , 'acl' => 'Access Controls' , 'studio' => 'Studio Support' , 'audit' => 'Audit Table' ) ;
     public $iTemplate = array (
     'assignable', 'security_groups' ) ;
+*/
+    public $always_implement = array ( 'assignable' => 'Assignable' , 'acl' => 'Access Controls' , 'studio' => 'Studio Support' , 'audit' => 'Audit Table' ) ;
+    public $iTemplate = array ('assignable') ;
+    /* END - SECURITY GROUPS */
 
     public $config_md5 = null ;
 

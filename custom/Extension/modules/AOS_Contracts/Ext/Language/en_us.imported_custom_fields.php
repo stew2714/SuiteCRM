@@ -282,3 +282,6 @@ $mod_strings['LBL_DQ_TOS_TOTAL_C'] = 'Dq Tos Total C';
 $mod_strings['LBL_DQ_PAYMENT_TOTAL_C'] = 'Dq Payment Total C';
 $mod_strings['LBL_DQ_F1_TOTAL_C'] = 'Dq F1 Total C';
 $mod_strings['LBL_DQ_TOTAL_C'] = 'Dq Total C';
+$mod_strings['LBL_BAA_EFFECTIVE_DATE_C'] = 'Baa Effective Date';
+$mod_strings['LBL_DQ_SUBS_PRODUCT_TERM_FOR_CONV_C'] = 'Dq Subs Product Term For Conv';
+$mod_strings['LBL_TYPE_OF_SCRIBING_C'] = 'Type Of Scribing';

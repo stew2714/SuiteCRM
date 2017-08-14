@@ -47,7 +47,12 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 
 global $mod_strings,$app_strings;
+//BEGIN - SECURITY GROUPS - create rights
+/**  
 if(ACLController::checkAccess('Bugs', 'edit', true))
+*/
+if(ACLController::checkAccess('Bugs', 'create', true))
+//END - SECURITY GROUPS - create rights
 $module_menu [] =	Array("index.php?module=Bugs&action=EditView&return_module=Bugs&return_action=DetailView", $mod_strings['LNK_NEW_BUG'],"Create", 'Bugs');
 if(ACLController::checkAccess('Bugs', 'list', true))
 $module_menu [] =		Array("index.php?module=Bugs&action=index&return_module=Bugs&return_action=DetailView", $mod_strings['LNK_BUG_LIST'],"List", 'Bugs');

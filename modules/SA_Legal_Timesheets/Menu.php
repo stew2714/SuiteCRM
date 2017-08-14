@@ -48,5 +48,5 @@ if(ACLController::checkAccess('SA_Legal_Timesheets', 'edit', true)){
     $module_menu[]=array('index.php?module=SA_Legal_Timesheets&action=EditView&return_module=SA_Legal_Timesheets&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'SA_Legal_Timesheets');
 }
 if(ACLController::checkAccess('SA_Legal_Timesheets', 'list', true)){
-    $module_menu[]=array('index.php?module=SA_Legal_Timesheets&action=index&return_module=SA_Legal_Timesheets&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'SA_Legal_Timesheets');
+    $module_menu[]=array('index.php?module=SA_Legal_Timesheets&action=index&return_module=SA_Legal_Timesheets&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'SA_Legal_Timesheets');
 }

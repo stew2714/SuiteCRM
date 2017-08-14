@@ -106,6 +106,20 @@ class TemplateHandler {
             if(is_file($cacheDir . $e) && $end > 1 && substr($e, $end) == '.tpl'){
                 unlink($cacheDir . $e);
             }
+            /* BEGIN - SECURITY GROUPS */
+            //if formatted like a guid...
+            else if(is_dir($cacheDir .'/' . $e)) {
+    			require_once('modules/SecurityGroups/SecurityGroup.php');
+				//see if $f is a guid for a security group
+				$groupFocus = new SecurityGroup();
+				$groupFocus->retrieve($e);
+				if(!empty($groupFocus->id) && isset($groupFocus->id)) {
+            		//delete dir and contents...
+					require_once('include/dir_inc.php');
+					rmdir_recursive($cacheDir .'/' . $e);
+				}
+            }
+            /* END - SECURITY GROUPS */ 
         }
 
         /**
@@ -127,6 +141,20 @@ class TemplateHandler {
                 if(is_file($tplDir. $e) && $end > 1 && substr($e, $end) == '.tpl') {
                     unlink($tplDir . $e);
                 }
+                /* BEGIN - SECURITY GROUPS */
+                //if formatted like a guid...
+                else if(is_dir($tplDir .'/' . $e)) {
+                    require_once('modules/SecurityGroups/SecurityGroup.php');
+                    //see if $f is a guid for a security group
+                    $groupFocus = new SecurityGroup();
+                    $groupFocus->retrieve($e);
+                    if(!empty($groupFocus->id) && isset($groupFocus->id)) {
+                        //delete dir and contents...
+                        require_once('include/dir_inc.php');
+                        rmdir_recursive($tplDir .'/' . $e);
+                    }
+                }
+                /* END - SECURITY GROUPS */ 
             }
         }
     }
@@ -145,7 +173,17 @@ class TemplateHandler {
         global $theme;
 
         $this->loadSmarty();
+
+        /* BEGIN - SECURITY GROUPS */ 
+        $groupLayout = "";
+        if(isset($_SESSION['groupLayout']) && !empty($_SESSION['groupLayout'])) {
+        	$groupLayout = $_SESSION['groupLayout']."/"; //add group id after file name for cached versions
+        }
+		/**
         $cacheDir = create_cache_directory($this->themeDir.$theme.'/'.$this->templateDir. $module . '/');
+        */
+        $cacheDir = create_cache_directory($this->themeDir.$theme.'/'.$this->templateDir. $module . '/' . $groupLayout);
+        /* END - SECURITY GROUPS */ 
         $file = $cacheDir . $view . '.tpl';
         $string = '{* Create Date: ' . date('Y-m-d H:i:s') . "*}\n";
         $this->ss->left_delimiter = '{{';
@@ -297,7 +335,16 @@ class TemplateHandler {
             return false;
         }
         $view = $checkFormName ? $formName : $view;
+        /* BEGIN - SECURITY GROUPS */ 
+        $groupLayout = "";
+        if(isset($_SESSION['groupLayout']) && !empty($_SESSION['groupLayout'])) {
+        	$groupLayout = $_SESSION['groupLayout']."/"; //add group id after file name for cached versions
+        }
+		/**
         return file_exists($this->cacheDir.$this->themeDir.$theme.'/'.$this->templateDir . $module . '/' .$view . '.tpl');
+        */
+		return file_exists($this->cacheDir.$this->themeDir.$theme.'/'.$this->templateDir . $module . '/' . $groupLayout .$view . '.tpl');
+        /* END - SECURITY GROUPS */ 
     }
 
     /**
@@ -315,7 +362,17 @@ class TemplateHandler {
         if(!$this->checkTemplate($module, $view)) {
             $this->buildTemplate($module, $view, $tpl, $ajaxSave, $metaDataDefs);
         }
+        /* BEGIN - SECURITY GROUPS */ 
+        $groupLayout = "";
+        if(isset($_SESSION['groupLayout']) && !empty($_SESSION['groupLayout'])) {
+        	$groupLayout = $_SESSION['groupLayout']."/"; //add group id after file name for cached versions
+        }
+		/**
         $file = $this->cacheDir.$this->themeDir.$theme.'/'.$this->templateDir . $module . '/' . $view . '.tpl';
+        */
+		$file = $this->cacheDir.$this->themeDir.$theme.'/'.$this->templateDir . $module . '/' . $groupLayout . $view . '.tpl';
+        unset($_SESSION['groupLayout']);
+        /* END - SECURITY GROUPS */ 
         if(file_exists($file)) {
            return $this->ss->fetch($file);
         } else {
