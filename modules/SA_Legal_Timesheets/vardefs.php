@@ -134,15 +134,6 @@ $dictionary['SA_Legal_Timesheets'] = array(
             'cols' => 80,
             'source' => 'custom_fields',
         ),
-        'agreement_c' => array(
-            'name' => 'agreement_c',
-            'vname' => 'LBL_AGREEMENT',
-            'type' => 'text',
-            'comment' => '',
-            'rows' => 6,
-            'cols' => 80,
-            'source' => 'custom_fields',
-        ),
         'sf_id_c' => array(
             'name' => 'sf_id_c',
             'vname' => 'LBL_SF_ID',
