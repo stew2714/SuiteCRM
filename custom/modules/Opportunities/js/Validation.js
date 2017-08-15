@@ -231,7 +231,7 @@ $( document ).ready(function() {
       document.getElementById("recordtypeid_c").value != "CBay" &&
       document.getElementById("sales_stage").value == "Closed Won" &&
       (
-        document.getElementById("global_use_probability_percent_c").value != "0% - Global Service not presented" ||
+        document.getElementById("global_use_probability_percent_c").value != "0% - Global Service not presented" &&
         document.getElementById("global_use_probability_percent_c").value != "100% - Customer will definitely use Global Services"
       ) &&
       document.getElementById("product_c").value == "TOS"
