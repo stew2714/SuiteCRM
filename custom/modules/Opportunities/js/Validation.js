@@ -217,7 +217,7 @@ $( document ).ready(function() {
     //Item 18
     if (
       document.getElementById("recordtypeid_c").value != "CBay" &&
-      $("sales_stage").val() == "Closed Lost" &&
+      $("#sales_stage").val() == "Closed Lost" &&
       $("#changes_next_time_c").val() == ""
     ) {
       addToValidate('EditView',"changes_next_time_c",'datetime',true,SUGAR.language.get('Opportunities', 'LBL_ENTRY_REQUIRED_IN_CHANGES'));
