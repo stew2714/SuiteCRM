@@ -244,10 +244,10 @@ $( document ).ready(function() {
       $("#probability").val() >= "0.1" &&
       $("#global_use_probability_percent_c").val() == "" &&
       (
-        document.getElementById("product_c").value != "TOS" &&
+        document.getElementById("product_c").value == "TOS" &&
         (
-          document.getElementById("recordtypeid_c").value == "CBay" &&
-          document.getElementById("recordtypeid_c").value == "Renewal"
+          document.getElementById("recordtypeid_c").value != "CBay" &&
+          document.getElementById("recordtypeid_c").value != "Renewal"
         )
       )
     ){
