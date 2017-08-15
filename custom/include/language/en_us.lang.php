@@ -226,12 +226,3 @@ $GLOBALS['app_list_strings']['facility_type_list']=array (
   'SA' => 'Sub-Acute',
   'SC' => 'Surgery Center',
 );
-
-$GLOBALS['app_list_strings']['product_type']=array (
-  '' => '',
-  'FFCC' => 'Fluency for Coding Capital',
-  'FFCT' => 'Fluency for Coding Trans',
-  'COS' => 'Coding Services',
-  'TOS' => 'TOS',
-  'Sub' => 'Sub',
-);
