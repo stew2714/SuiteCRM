@@ -293,10 +293,10 @@ $( document ).ready(function() {
       $("#probability").val() <= "1.0" &&
       $("#partner_c").val() == ""
     ) {
-      addToValidate('EditView',"partner__c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_FILL_IN_PARTNER_FIELD'));
+      addToValidate('EditView',"partner_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_FILL_IN_PARTNER_FIELD'));
     }else{
-      if( checkValidate("EditView", "partner__c")){
-        removeFromValidate("EditView","partner__c" );
+      if( checkValidate("EditView", "partner_c")){
+        removeFromValidate("EditView","partner_c" );
       }
     }
     //Item 24
