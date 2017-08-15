@@ -77,25 +77,36 @@ array (
           'file' => 'modules/Leads/Lead.js',
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ASSIGNMENT' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -105,30 +116,77 @@ array (
         array (
           0 => 
           array (
-            'name' => 'full_name',
-            'label' => 'LBL_NAME',
+            'name' => 'first_name',
+            'comment' => 'First name of the contact',
+            'label' => 'LBL_FIRST_NAME',
           ),
-          1 => 'phone_work',
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
         1 => 
         array (
-          0 => 'title',
-          1 => 'phone_mobile',
+          0 => 
+          array (
+            'name' => 'last_name',
+            'comment' => 'Last name of the contact',
+            'label' => 'LBL_LAST_NAME',
+          ),
+          1 => 'status',
         ),
         2 => 
+        array (
+          0 => 'title',
+          1 => 
+          array (
+            'name' => 'lead_rating_c',
+            'label' => 'LBL_LEAD_RATING_C',
+          ),
+        ),
+        3 => 
         array (
           0 => 'department',
           1 => 'phone_fax',
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
-            'name' => 'account_name',
+            'name' => 'company_c',
+            'label' => 'LBL_COMPANY_C',
           ),
-          1 => 'website',
+          1 => 'phone_work',
         ),
-        4 => 
+        5 => 
+        array (
+          0 => 'website',
+          1 => 
+          array (
+            'name' => 'do_not_call',
+            'comment' => 'An indicator of whether contact can be called',
+            'label' => 'LBL_DO_NOT_CALL',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'primary_campaign_c',
+            'label' => 'LBL_PRIMARY_CAMPAIGN_C',
+          ),
+          1 => 'email1',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'directions_c',
+            'label' => 'LBL_DIRECTIONS_C',
+          ),
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -142,34 +200,126 @@ array (
           ),
           1 => 
           array (
-            'name' => 'alt_address_street',
-            'label' => 'LBL_ALTERNATE_ADDRESS',
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'alt',
-            ),
+            'name' => 'swipe_date_c',
+            'label' => 'LBL_SWIPE_DATE_C',
           ),
         ),
-        5 => 
-        array (
-          0 => 'email1',
-        ),
-        6 => 
-        array (
-          0 => 'description',
-        ),
-        7 => 
+        9 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'preferred_follow_up_c',
+            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
           ),
           1 => 
           array (
-            'name' => 'c1_cust_contacts1_leads_name',
-            'label' => 'LBL_C1_CUST_CONTACTS1_LEADS_FROM_C1_CUST_CONTACTS1_TITLE',
+            'name' => 'sem_ls_c',
+            'label' => 'LBL_SEM_LS_C',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'bucket_c',
+            'label' => 'LBL_BUCKET_C',
+          ),
+          1 => 
+          array (
+            'name' => 'eloqua_lead_rating_c',
+            'label' => 'LBL_ELOQUA_LEAD_RATING_C',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'crm_c',
+            'label' => 'LBL_CRM_C',
+          ),
+          1 => 
+          array (
+            'name' => 'vip_account_c',
+            'label' => 'LBL_VIP_ACCOUNT_C',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'gpo_c',
+            'label' => 'LBL_GPO_C',
+          ),
+        ),
+        13 => 
+        array (
+          0 => 
+          array (
+            'name' => 'zba_ss_c',
+            'label' => 'LBL_ZBA_SS_C',
+          ),
+        ),
+        14 => 
+        array (
+          0 => 
+          array (
+            'name' => 'facility_type',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE',
+          ),
+        ),
+        15 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
+        ),
+        16 => 
+        array (
+          0 => 
+          array (
+            'name' => 'g1_group_queue_leads_name',
           ),
         ),
       ),
@@ -177,25 +327,54 @@ array (
       array (
         0 => 
         array (
-          0 => 'status',
-          1 => 'lead_source',
+          0 => 
+          array (
+            'name' => 'number_of_doctors_c',
+            'label' => 'LBL_NUMBER_OF_DOCTORS_C',
+          ),
+          1 => 
+          array (
+            'name' => 'timeframe_for_purchase_c',
+            'label' => 'LBL_TIMEFRAME_FOR_PURCHASE_C',
+          ),
         ),
         1 => 
         array (
-          0 => 'status_description',
-          1 => 'lead_source_description',
+          0 => 
+          array (
+            'name' => 'number_of_employees_c',
+            'label' => 'LBL_NUMBER_OF_EMPLOYEES',
+          ),
+          1 => 
+          array (
+            'name' => 'target_decision_date_c',
+            'label' => 'LBL_TARGET_DECISION_DATE_C',
+          ),
         ),
         2 => 
         array (
-          0 => 'opportunity_amount',
-          1 => 'refered_by',
+          0 => 
+          array (
+            'name' => 'current_ehr_c',
+            'label' => 'LBL_CURRENT_EHR_C',
+          ),
+          1 => 
+          array (
+            'name' => 'product_interest_c',
+            'label' => 'LBL_PRODUCT_INTEREST_C',
+          ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'campaign_name',
-            'label' => 'LBL_CAMPAIGN',
+            'name' => 'currently_using_speech_rec_c',
+            'label' => 'LBL_CURRENTLY_USING_SPEECH_REC_C',
+          ),
+          1 => 
+          array (
+            'name' => 'annual_revenue_c',
+            'label' => 'LBL_ANNUAL_REVENUE_C',
           ),
         ),
       ),
@@ -205,15 +384,71 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_modified',
-            'label' => 'LBL_DATE_MODIFIED',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'name' => 'date_requested_c',
+            'label' => 'LBL_DATE_REQUESTED_C',
           ),
           1 => 
           array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'name' => 'time_requested_c',
+            'label' => 'LBL_TIME_REQUESTED_C',
           ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'annual_revenue',
+            'label' => 'LBL_ANNUAL_REVENUE',
+          ),
+          1 => 
+          array (
+            'name' => 'partnership_strategy_c',
+            'label' => 'LBL_PARTNERSHIP_STRATEGY_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'primary_business_focus_c',
+            'label' => 'LBL_PRIMARY_BUSINESS_FOCUS_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'number_of_healthcare_customers_c',
+            'label' => 'LBL_NUMBER_OF_HEALTHCARE_CUSTOMERS_C',
+          ),
+          1 => 
+          array (
+            'name' => 'geographic_region_served_c',
+            'label' => 'LBL_GEOGRAPHIC_REGION_SERVED_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'years_in_business_c',
+            'label' => 'LBL_YEARS_IN_BUSINESS_C',
+          ),
+          1 => 
+          array (
+            'name' => 'current_client_opps_c',
+            'label' => 'LBL_CURRENT_CLIENT_OPPS_C',
+          ),
+        ),
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 'description',
         ),
       ),
     ),

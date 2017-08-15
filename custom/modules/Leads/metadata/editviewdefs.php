@@ -58,7 +58,13 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -71,16 +77,25 @@ array (
             'name' => 'first_name',
             'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
           ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
         1 => 
         array (
           0 => 'last_name',
-          1 => 'phone_work',
+          1 => 'status',
         ),
         2 => 
         array (
           0 => 'title',
-          1 => 'phone_mobile',
+          1 => 
+          array (
+            'name' => 'lead_rating_c',
+            'label' => 'LBL_LEAD_RATING_C',
+          ),
         ),
         3 => 
         array (
@@ -91,14 +106,39 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_name',
-            'type' => 'varchar',
-            'validateDependency' => false,
-            'customCode' => '<input name="account_name" id="EditView_account_name" {if ($fields.converted.value == 1)}disabled="true"{/if} size="30" maxlength="255" type="text" value="{$fields.account_name.value}">',
+            'name' => 'company_c',
+            'label' => 'LBL_COMPANY_C',
           ),
-          1 => 'website',
+          1 => 'phone_work',
         ),
         5 => 
+        array (
+          0 => 'website',
+          1 => 
+          array (
+            'name' => 'do_not_call',
+            'comment' => 'An indicator of whether contact can be called',
+            'label' => 'LBL_DO_NOT_CALL',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'primary_campaign_c',
+            'label' => 'LBL_PRIMARY_CAMPAIGN_C',
+          ),
+          1 => 'email1',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'directions_c',
+            'label' => 'LBL_DIRECTIONS_C',
+          ),
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -115,30 +155,126 @@ array (
           ),
           1 => 
           array (
-            'name' => 'alt_address_street',
-            'hideLabel' => true,
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'alt',
-              'copy' => 'primary',
-              'rows' => 2,
-              'cols' => 30,
-              'maxlength' => 150,
-            ),
+            'name' => 'swipe_date_c',
+            'label' => 'LBL_SWIPE_DATE_C',
           ),
         ),
-        6 => 
+        9 => 
         array (
-          0 => 'email1',
-        ),
-        7 => 
-        array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'preferred_follow_up_c',
+            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
+          ),
           1 => 
           array (
-            'name' => 'c1_cust_contacts1_leads_name',
-            'label' => 'LBL_C1_CUST_CONTACTS1_LEADS_FROM_C1_CUST_CONTACTS1_TITLE',
+            'name' => 'sem_ls_c',
+            'label' => 'LBL_SEM_LS_C',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'bucket_c',
+            'label' => 'LBL_BUCKET_C',
+          ),
+          1 => 
+          array (
+            'name' => 'eloqua_lead_rating_c',
+            'label' => 'LBL_ELOQUA_LEAD_RATING_C',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'crm_c',
+            'label' => 'LBL_CRM_C',
+          ),
+          1 => 
+          array (
+            'name' => 'vip_account_c',
+            'label' => 'LBL_VIP_ACCOUNT_C',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'gpo_c',
+            'label' => 'LBL_GPO_C',
+          ),
+        ),
+        13 => 
+        array (
+          0 => 
+          array (
+            'name' => 'zba_ss_c',
+            'label' => 'LBL_ZBA_SS_C',
+          ),
+        ),
+        14 => 
+        array (
+          0 => 
+          array (
+            'name' => 'facility_type',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE',
+          ),
+        ),
+        15 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
+        ),
+        16 => 
+        array (
+          0 => 
+          array (
+            'name' => 'g1_group_queue_leads_name',
           ),
         ),
       ),
@@ -146,28 +282,55 @@ array (
       array (
         0 => 
         array (
-          0 => 'status',
-          1 => 'lead_source',
+          0 => 
+          array (
+            'name' => 'number_of_doctors_c',
+            'label' => 'LBL_NUMBER_OF_DOCTORS_C',
+          ),
+          1 => 
+          array (
+            'name' => 'timeframe_for_purchase_c',
+            'label' => 'LBL_TIMEFRAME_FOR_PURCHASE_C',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'status_description',
+            'name' => 'number_of_employees_c',
+            'label' => 'LBL_NUMBER_OF_EMPLOYEES',
           ),
           1 => 
           array (
-            'name' => 'lead_source_description',
+            'name' => 'target_decision_date_c',
+            'label' => 'LBL_TARGET_DECISION_DATE_C',
           ),
         ),
         2 => 
         array (
-          0 => 'opportunity_amount',
-          1 => 'refered_by',
+          0 => 
+          array (
+            'name' => 'current_ehr_c',
+            'label' => 'LBL_CURRENT_EHR_C',
+          ),
+          1 => 
+          array (
+            'name' => 'product_interest_c',
+            'label' => 'LBL_PRODUCT_INTEREST_C',
+          ),
         ),
         3 => 
         array (
-          0 => 'campaign_name',
+          0 => 
+          array (
+            'name' => 'currently_using_speech_rec_c',
+            'label' => 'LBL_CURRENTLY_USING_SPEECH_REC_C',
+          ),
+          1 => 
+          array (
+            'name' => 'annual_revenue_c',
+            'label' => 'LBL_ANNUAL_REVENUE_C',
+          ),
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
@@ -176,8 +339,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'date_requested_c',
+            'label' => 'LBL_DATE_REQUESTED_C',
+          ),
+          1 => 
+          array (
+            'name' => 'time_requested_c',
+            'label' => 'LBL_TIME_REQUESTED_C',
           ),
         ),
       ),
@@ -190,32 +358,52 @@ array (
             'name' => 'annual_revenue',
             'label' => 'LBL_ANNUAL_REVENUE',
           ),
+          1 => 
+          array (
+            'name' => 'partnership_strategy_c',
+            'label' => 'LBL_PARTNERSHIP_STRATEGY_C',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'rating',
-            'studio' => 'visible',
-            'label' => 'LBL_ELOQUA_LEAD_RATING',
+            'name' => 'primary_business_focus_c',
+            'label' => 'LBL_PRIMARY_BUSINESS_FOCUS_C',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'industry',
-            'studio' => 'visible',
-            'label' => 'LBL_INDUSTRY',
+            'name' => 'number_of_healthcare_customers_c',
+            'label' => 'LBL_NUMBER_OF_HEALTHCARE_CUSTOMERS_C',
+          ),
+          1 => 
+          array (
+            'name' => 'geographic_region_served_c',
+            'label' => 'LBL_GEOGRAPHIC_REGION_SERVED_C',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'number_of_employees',
-            'label' => 'LBL_NUMBER_OF_EMPLOYEES',
+            'name' => 'years_in_business_c',
+            'label' => 'LBL_YEARS_IN_BUSINESS_C',
           ),
+          1 => 
+          array (
+            'name' => 'current_client_opps_c',
+            'label' => 'LBL_CURRENT_CLIENT_OPPS_C',
+          ),
+        ),
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 'description',
         ),
       ),
     ),

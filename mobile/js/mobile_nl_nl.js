@@ -1,6 +1,6 @@
 var RES_YES_LABEL="Ja",
 RES_NO_LABEL="Nee",
-RES_UNAVAILABLE="Gebruik QuickCRM Mobile Pro voor meer opties",
+RES_UNAVAILABLE="Gebruik QuickCRM Mobile Full voor meer opties",
 RES_WRONG_PASWD='Verkeerde gebruikersnaam en wachtwoord',
 RES_REQUIRED_MSG='Verplicht veld',
 RES_INV_DATE_MSG='Ongeldig datumformaat (mm/dd/jjjj)',
@@ -87,13 +87,31 @@ var RES_DEF_LOCK='Stel wachtwoord in',
 	RES_HERE='Hier',
 	RES_DIST='Afstand';
 
-// FUTURE VERSIONS - NOT USED YET
-var RES_SCANCARD='Scan QR Code business card',
+var RES_QRCODE='QR Code',
+	RES_SAVE_COORD='Save Coördinaten',
+	RES_RENAME='Hernoem',
+	RES_NATIVE_CAL='Apparaat kalender',
+	RES_CAMERA='Camera',
+	RES_DOWNLOAD='Download',
+	RES_UPLOAD='Upload',
+	RES_DOWNLOAD_MSG='Dit zal de huidige Pictogrammen en Dashlets vervangen op uw homepage',
+	RES_ADDRESSBOOK='Adresboek',
+	RES_COPYADDRESSBOOK='Kopiëren naar Adresboek',
 	RES_COUNT='Number of',
 	RES_SUM='Sum',
 	RES_AVERAGE='Average',
 	RES_REMINDERS='Reminders',
-	RES_ROWS_PER_DASHLET="Regels per Dashlet";
-
+	RES_DIRECTIONS='Directions',
+	RES_PARTIAL_SEARCH='Gedeeltelijke woord zoeken',
+	RES_COLOR="Color",
+	RES_PAST="In het verleden",
+	RES_FUTURE="In de toekomst",
+	RES_FILTER = 'Filters',
+	RES_DAY="Dag",
+	RES_WEEK="Week",
+	RES_ROWS_PER_DASHLET="Regels per Dashlet",
+	RES_ROWS_PER_SUBPANEL="Regels per Subpanel",
+	RES_ADVANCED='Geavanceerd',
+	RES_CLEARCACHE='Maak cache leeg';
 // ADDRESS FORMAT
-var Addresses_Template= '$street<br/>$city, $state $postalcode<br/>$country';
+var Addresses_Template= '$street<br>$city, $state $postalcode<br>$country';
