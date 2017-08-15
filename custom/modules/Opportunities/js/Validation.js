@@ -291,7 +291,7 @@ $( document ).ready(function() {
       document.getElementById("recordtypeid_c").value == "Standard" &&
       $("#probability").val() >= "0.2" &&
       $("#probability").val() <= "1.0" &&
-      $("#partner__c").val() == ""
+      $("#partner_c").val() == ""
     ) {
       addToValidate('EditView',"partner__c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_FILL_IN_PARTNER_FIELD'));
     }else{
