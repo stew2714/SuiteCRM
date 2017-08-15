@@ -14,6 +14,7 @@ function checkArray(item, array){
 
 
 $( document ).ready(function() {
+  removeFromValidate("EditView","probability")
   /******* get the first version of the field ************/
 
   $("[id='SAVE']").unbind("click").removeAttr("onclick").click(function(e) {
@@ -96,7 +97,7 @@ $( document ).ready(function() {
     }
     //Item 10 - AND( Product__r.Name = "Coding Services",Probability > 0.5,TEXT(FTE__c) = "")
     if (document.getElementById("product_c").value == "COS" &&
-        document.getElementById("probability").value > 0.5 &&
+      document.getElementById("probability").value > 0.5 &&
       ($("#fte_c").length && document.getElementById("fte_c").value == "")
     )
     {
@@ -122,11 +123,11 @@ $( document ).ready(function() {
     }
     //Item 12 - AND(ISNULL(Term_Length_MM__c),ISPICKVAL(CO_Status__c, "Complete"), OR(CONTAINS(Product__r.Name,"TOS"), CONTAINS(Product__r.Name,"Sub")))
     if ( ($( "#term_length_mm_c" ).length && (document.getElementById("term_length_mm_c").value == null || document.getElementById("term_length_mm_c").value == ""  ) ) &&
-         ($( "#co_status_c" ).length && document.getElementById("co_status_c").value == "Complete") &&
-         (
-           ($( "#product_c" ).length && document.getElementById("product_c").value == "TOS") ||
-           ($( "#product_c" ).length && document.getElementById("product_c").value =="Sub")
-         )
+      ($( "#co_status_c" ).length && document.getElementById("co_status_c").value == "Complete") &&
+      (
+        ($( "#product_c" ).length && document.getElementById("product_c").value == "TOS") ||
+        ($( "#product_c" ).length && document.getElementById("product_c").value =="Sub")
+      )
     ){
       addToValidate('EditView',"term_length_mm_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_FILL_TERM_LENGTH'));
     }else{
@@ -187,8 +188,8 @@ $( document ).ready(function() {
     }
     //Item 16 - No_encoder_description_if_not_other
     if ( $("#encoder_c").val() == "Other" &&
-         $("#encoder_description_c").val() == ""
-       ) {
+      $("#encoder_description_c").val() == ""
+    ) {
       addToValidate('EditView',"encoder_description_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_YOU_CANNOT_USE_ENCODER'));
     }else{
       if( checkValidate("EditView", "encoder_description_c")){
@@ -197,9 +198,9 @@ $( document ).ready(function() {
     }
     //Item 17 - CONTAINS( Product__r.Name,"Fluency Direct") && (Number_of_Licenses__c < 1)
     if (
-        document.getElementById("product_c").value == "FD" &&
-        document.getElementById("number_of_licenses_c").value < 1
-       ){
+      document.getElementById("product_c").value == "FD" &&
+      document.getElementById("number_of_licenses_c").value < 1
+    ){
       addToValidateMoreThan('EditView',"number_of_licenses_c",'int',true,SUGAR.language.get('Opportunities', 'LBL_NUMBER_OF_LICENSES_REQUIRED'), 1);
     }else{
       if( checkValidate("EditView", "number_of_licenses_c")){
@@ -222,10 +223,10 @@ $( document ).ready(function() {
     if (
       document.getElementById("recordtypeid_c").value != "CBay" &&
       document.getElementById("sales_stage").value == "Closed Won" &&
-        (
-          document.getElementById("global_use_probability_percent_c").value != "0% - Global Service not presented" ||
-          document.getElementById("global_use_probability_percent_c").value != "100% - Customer will definitely use Global Services"
-        ) &&
+      (
+        document.getElementById("global_use_probability_percent_c").value != "0% - Global Service not presented" ||
+        document.getElementById("global_use_probability_percent_c").value != "100% - Customer will definitely use Global Services"
+      ) &&
       document.getElementById("product_c").value == "TOS"
     ){
       alert(SUGAR.language.get(module_sugar_grp1, 'LBL_REQUIRE_ILP_PROBABILITY_TO_BE_0_OR_100'));
