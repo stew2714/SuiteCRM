@@ -86,7 +86,7 @@ $( document ).ready(function() {
         document.getElementById("product_c").value == "FFCT" ||
         document.getElementById("product_c").value == "COS"
       ) &&
-      document.getElementById("recordtypeid_c").value == "Partner" &&
+      document.getElementById("recordtypeid_c").value == "Standard Opportunity" &&
       document.getElementById("encoder_c").value == ""){
       addToValidate('EditView',"encoder_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_ENCODER_REQUIRED_FOR_CODING_OPPS'));
     }else{
