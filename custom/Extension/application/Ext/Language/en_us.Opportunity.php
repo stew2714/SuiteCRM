@@ -39,4 +39,6 @@ $app_list_strings['record_type_dom'] = array(
     'Lead' => 'Lead',
     'CBay' => 'CBay',
     'Partner' => 'Partner',
+    'Partner' => 'Partner',
+    'Standard Opportunity' => 'Standard Opportunity',
 );
