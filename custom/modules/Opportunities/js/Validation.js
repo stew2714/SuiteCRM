@@ -261,8 +261,8 @@ $( document ).ready(function() {
 
     //Item 21
     if (
-      $("recordtypeid_c").val() == "Standard Opportunity" &&
-      $("#latest_update__c").val() == "" &&
+      $("#recordtypeid_c").val() == "Standard Opportunity" &&
+      $("#latest_update_c").val() == "" &&
       ($("#probability").val() >=  "0.5" ||
         $("#implementation_Cost_c").val() +
         $("#HWSW_Cost__c").val() +
@@ -270,11 +270,8 @@ $( document ).ready(function() {
         $("#Other_Cost__c").val() >= 500000 ||
         $("#date_closed").val() != beanData.date_closed )
     ) {
-      addToValidate('EditView',"latest_update__c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_ENTRY_REQUIRED_IN_LATEST_UPDATE'));
-    }else{
-      if( checkValidate("EditView", "latest_update__c")){
-        removeFromValidate("EditView","latest_update__c" );
-      }
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ENTRY_REQUIRED_IN_LATEST_UPDATE'));
+      return false
     }
 
     //Item 22
