@@ -80,6 +80,13 @@ $( document ).ready(function() {
         removeFromValidate("EditView", "confidence_level_c");
       }
     }
+    //item 8
+    if ( $("#encoder_c").val() != "Other" &&
+      $("#encoder_description_c").val() != ""
+    ) {
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CANNOT_USE_ENCODER'));
+      return false //must be outside of validate array.
+    }
 
     //Item 9 - AND( (Product__r.Name = "Fluency for Coding Capital" || Product__r.Name = "Fluency for Coding Trans" || Product__r.Name = "Coding Services"), $RecordType.Name = "Standard Opportunity", ISPICKVAL ( Encoder__c ,"") )
     if (
