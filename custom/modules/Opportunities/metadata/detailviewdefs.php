@@ -37,6 +37,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL13' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
           'newTab' => false,
@@ -342,6 +347,83 @@ array (
           ),
         ),
       ),
+      'lbl_editview_panel13' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr2_c',
+            'label' => 'LBL_EMR2_C',
+          ),
+          1 => 
+          array (
+            'name' => 'new_am_region_c',
+            'label' => 'LBL_NEW_AM_REGION_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'term_length_mm_c',
+            'label' => 'LBL_TERM_LENGTH_MM_C',
+          ),
+          1 => 
+          array (
+            'name' => 'specialist_c',
+            'label' => 'LBL_SPECIALIST_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'btl_c',
+            'label' => 'LBL_BTL_C',
+          ),
+          1 => 
+          array (
+            'name' => 'co_implementation_training_pro_serv_c',
+            'label' => 'LBL_CO_IMPLEMENTATION_TRAINING_PRO_SERV_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_1_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE',
+          ),
+          1 => 
+          array (
+            'name' => 'license_type_c',
+            'label' => 'LBL_LICENSE_TYPE_C',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'license_term_length_mm_c',
+            'label' => 'LBL_LICENSE_TERM_LENGTH_MM_C',
+          ),
+          1 => 
+          array (
+            'name' => 'sw_maintenance_term_length_mm_c',
+            'label' => 'LBL_SW_MAINTENANCE_TERM_LENGTH_MM_C',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'co_annual_prod_subscription_fee_c',
+            'label' => 'LBL_CO_ANNUAL_PROD_SUBSCRIPTION_FEE_C',
+          ),
+          1 => '',
+        ),
+      ),
       'lbl_editview_panel1' => 
       array (
         0 => 
@@ -364,7 +446,11 @@ array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'fte_c',
+            'label' => 'LBL_FTE_C',
+          ),
         ),
       ),
       'lbl_editview_panel3' => 
