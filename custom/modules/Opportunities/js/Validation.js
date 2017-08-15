@@ -216,7 +216,7 @@ $( document ).ready(function() {
     }
     //Item 18
     if (
-      document.getElementById("recordtypeid_c").value != "CBay" ||
+      document.getElementById("recordtypeid_c").value != "CBay" &&
       $("sales_stage").val() == "Closed Lost" &&
       $("#changes_next_time_c").val() == ""
     ) {
