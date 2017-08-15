@@ -14,6 +14,7 @@ function checkArray(item, array){
 
 
 $( document ).ready(function() {
+  removeFromValidate("EditView","probability")
   /******* get the first version of the field ************/
 
   $("[id='SAVE']").unbind("click").removeAttr("onclick").click(function(e) {
