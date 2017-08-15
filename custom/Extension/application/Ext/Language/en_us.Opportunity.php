@@ -43,7 +43,7 @@ $app_list_strings['record_type_dom'] = array(
     'Standard' => 'Standard',
 );
 
-$GLOBALS['app_list_strings']['product_type']=array (
+$app_list_strings['product_type']=array (
     '' => '',
     'FFCC' => 'Fluency for Coding Capital',
     'FFCT' => 'Fluency for Coding Trans',
