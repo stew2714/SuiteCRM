@@ -40,6 +40,7 @@ $mod_strings = array (
   'LBL_ENCODER_REQUIRED_FOR_CODING_OPPS' => 'Please Select The Encoder in the pricing component section',
   'LBL_REQUIRE_ILP_PROBABILITY_TO_BE_0_OR_100' => 'Global Use % must be 0 or 100 when Opportunity is Closed - Won. Please select the appropriate value.',
   'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'License is Required to be 1 or Greater',
+  'LBL_YOU_CAN_NOT_CHANGE' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
 
 
 
