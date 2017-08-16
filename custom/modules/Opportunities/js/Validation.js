@@ -144,7 +144,7 @@ $( document ).ready(function() {
     }
     //Item 13
     //Item 14
-    if ( document.getElementById("recordtypeid_c").value != "Standard" && $("#probability").val() == "0.5"
+    if ( document.getElementById("recordtypeid_c").value == "Standard" && $("#probability").val() != "0.5"
     ){
       addToValidate('EditView',"incumbentx_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_MUST_BE_INCUMBENT'));
     }else{
