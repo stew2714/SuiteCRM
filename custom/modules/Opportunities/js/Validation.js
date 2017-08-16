@@ -190,7 +190,7 @@ $( document ).ready(function() {
         beanData.current_user.last_name != "Roberts"
       )
     ) {
-      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CANNOT_USE_ENCODER'));
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CAN_NOT_CHANGE'));
       return false
     }
     //Item 16 - No_encoder_description_if_not_other
