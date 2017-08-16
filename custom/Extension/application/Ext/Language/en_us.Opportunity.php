@@ -41,6 +41,7 @@ $app_list_strings['record_type_dom'] = array(
     'Partner' => 'Partner',
     'Standard Opportunity' => 'Standard Opportunity',
     'Standard' => 'Standard',
+    'Renewal' => 'Renewal',
 );
 
 $app_list_strings['product_type']=array (
