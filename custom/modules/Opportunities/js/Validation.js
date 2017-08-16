@@ -84,7 +84,7 @@ $( document ).ready(function() {
     if ( $("#encoder_c").val() != "Other" &&
       $("#encoder_description_c").val() != ""
     ) {
-      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CANNOT_USE_ENCODER'));
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CANNOT_USE_ENCODER_DESC'));
       return false //must be outside of validate array.
     }
 
