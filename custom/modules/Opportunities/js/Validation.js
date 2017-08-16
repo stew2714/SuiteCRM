@@ -314,7 +314,7 @@ $( document ).ready(function() {
     }
     //Item 25 - Require_Win_Loss_Desc_When_Other
     if (
-      document.getElementById("recordtypeid_c").value == ("CBay") &&
+      document.getElementById("recordtypeid_c").value != ("CBay") &&
       $("#primary_reason_for_winloss_c").val() == "Other" &&
       $("#winloss_description_c").val() == ""
     ) {
