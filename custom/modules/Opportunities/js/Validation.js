@@ -276,8 +276,8 @@ $( document ).ready(function() {
 
     //Item 22
     if (
-      document.getElementById("recordtypeid_c").value == "CBay" &&
-      $("#sales_stage").val() == "Closed - Lost" &&
+      document.getElementById("recordtypeid_c").value != "CBay" &&
+      $("#sales_stage").val() == "Closed Lost" &&
       $("#lessons_learned_c").val() == ""
     ) {
       addToValidate('EditView',"lessons_learned_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_ENTRY_REQUIRED_IN_LOSS_LEARNING'));
