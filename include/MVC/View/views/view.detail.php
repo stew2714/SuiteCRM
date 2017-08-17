@@ -111,7 +111,15 @@ class ViewDetail extends SugarView
         else {      
         $metadataFile = $this->getMetaDataFile();
         }
-        /* END - SECURITY GROUPS */ 
+        /* END - SECURITY GROUPS */
+
+        /* START Layout Rules */
+            $bean = BeanFactory::getBean("LayoutRules");
+        $metadata =  $bean->fetchLayout($this->bean, $metadataFile,'detauklviewdefs');
+        $metadataFile = $metadata['file'];
+        $_SESSION['groupLayout'] = $metadata['id'];
+        /* END Layout Rules */
+
  	    $this->dv = new DetailView2();
  	    $this->dv->ss =&  $this->ss;
  	    $this->dv->setup($this->module, $this->bean, $metadataFile, get_custom_file_if_exists('include/DetailView/DetailView.tpl'));
