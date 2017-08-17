@@ -24,6 +24,7 @@
  */
 
 $app_list_strings['sales_stage_dom'] = array(
+    'New Opportunity' => 'New Opportunity',
     'Lead_Opportunity' => 'Lead Opportunity',
     'Discovery' => 'Discovery',
     'Qualification' => 'Qualification',
