@@ -115,7 +115,7 @@ class ViewDetail extends SugarView
 
         /* START Layout Rules */
             $bean = BeanFactory::getBean("LayoutRules");
-        $metadata =  $bean->fetchLayout($this->bean, $metadataFile,'detauklviewdefs');
+        $metadata =  $bean->fetchLayout($this->bean, $metadataFile,'detailviewdefs');
         $metadataFile = $metadata['file'];
         $_SESSION['groupLayout'] = $metadata['id'];
         /* END Layout Rules */

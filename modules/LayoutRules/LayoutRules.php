@@ -138,7 +138,7 @@ class LayoutRules extends Basic
             );
         if(count($layouts) > 0){
             foreach($layouts as $layout){
-                if($this->checkConditions() == true){
+                if($this->checkConditions($layout, $bean) == true){
                     $metadataArray['file'] = "custom/modules/{$bean->module_dir}/metadata/{$layout->layout_to_show}/{$action}.php";
                     $metadataArray['id'] = $layout->layout_to_show;
                 }
@@ -148,7 +148,11 @@ class LayoutRules extends Basic
 
         return $metadataArray;
     }
-    function checkConditions(){
+    function checkConditions($layout, $bean){
+        $rel = "layout_conditions";
+        if($layout->load_relationship($rel)) {
+            $layoutConditions = $layout->{$rel}->getBeans();
+        }
         return true;
     }
 	

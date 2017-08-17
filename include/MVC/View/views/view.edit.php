@@ -99,7 +99,15 @@ require_once('include/EditView/EditView2.php');
         else {  
         $metadataFile = $this->getMetaDataFile();
         }
-        /* END - SECURITY GROUPS */  
+        /* END - SECURITY GROUPS */
+
+        /* START Layout Rules */
+        $bean = BeanFactory::getBean("LayoutRules");
+        $metadata =  $bean->fetchLayout($this->bean, $metadataFile,'editviewdefs');
+        $metadataFile = $metadata['file'];
+        $_SESSION['groupLayout'] = $metadata['id'];
+        /* END Layout Rules */
+
         $this->ev = $this->getEditView();
         $this->ev->ss =& $this->ss;
         $this->ev->setup($this->module, $this->bean, $metadataFile, get_custom_file_if_exists('include/EditView/EditView.tpl'));

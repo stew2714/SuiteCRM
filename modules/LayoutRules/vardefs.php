@@ -134,7 +134,7 @@ $dictionary['LayoutRules'] = array(
                         'include' => 'modules/LayoutConditions/conditionLines.php'
                     ),
             ),
-        'aow_conditions' =>
+        'layout_conditions' =>
             array(
                 'name' => 'layout_conditions',
                 'type' => 'link',
@@ -145,13 +145,13 @@ $dictionary['LayoutRules'] = array(
             ),
 ),
     'relationships' => array (
-        'aow_workflow_aow_conditions' =>
+        'layout_rules_layout_conditions' =>
             array(
                 'lhs_module' => 'LayoutRules',
-                'lhs_table' => 'layout_rules',
+                'lhs_table' => 'layoutrules',
                 'lhs_key' => 'id',
                 'rhs_module' => 'LayoutConditions',
-                'rhs_table' => 'layout_conditions',
+                'rhs_table' => 'layoutconditions',
                 'rhs_key' => 'layout_rule_id',
                 'relationship_type' => 'one-to-many',
             ),
