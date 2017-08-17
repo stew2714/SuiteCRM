@@ -49,7 +49,9 @@ $( document ).ready(function() {
       return false //must be outside of validate array.
     }
     //Item 6 - close_date
-    if (beanData.date_closed != $("#date_closed").val() && (beanData.previous_date_month < beanData.today_month) && $("#probability").val() == '1') {
+    if (beanData.date_closed != $("#date_closed").val() &&
+      (beanData.previous_date_month < beanData.today_month) &&
+      $("#probability").val() == '1') {
       alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CANNOT_CHANGE_THE_CLOSE_DATE'));
       return false //must be outside of validate array.
     }
@@ -190,7 +192,7 @@ $( document ).ready(function() {
         beanData.current_user.last_name != "Roberts"
       )
     ) {
-      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CAN_NOT_CHANGE'));
+      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_YOU_CAN_NOT_CHANGE_KEY'));
       return false
     }
     //Item 16 - No_encoder_description_if_not_other
