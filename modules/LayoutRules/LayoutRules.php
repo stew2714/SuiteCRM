@@ -150,10 +150,25 @@ class LayoutRules extends Basic
     }
     function checkConditions($layout, $bean){
         $rel = "layout_conditions";
+        $result = false;
         if($layout->load_relationship($rel)) {
             $layoutConditions = $layout->{$rel}->getBeans();
+            foreach($layoutConditions as $condition){
+                switch ($condition->operator){
+                    case "Equal_To":
+                        if($condition->value_type == "Field"){
+                            $condition->value = $bean->{$condition->value};
+                        }
+                        if($condition->value == $bean->{$condition->field}){
+                            $result = true;
+                        }else{
+                            return false;
+                        }
+                        break;
+                }
+            }
         }
-        return true;
+        return $result;
     }
 	
 }

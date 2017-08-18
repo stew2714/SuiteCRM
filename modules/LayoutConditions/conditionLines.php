@@ -83,11 +83,11 @@ function display_condition_lines($focus, $field, $value, $view){
             $html .= "<script>";
             $html .= "flow_rel_modules = \"".trim(preg_replace('/\s+/', ' ', getModuleRelationships($focus->flow_module)))."\";";
             $html .= "flow_module = \"".$focus->flow_module."\";";
-            $sql = "SELECT id FROM aow_conditions WHERE aow_workflow_id = '".$focus->id."' AND deleted = 0 ORDER BY condition_order ASC";
+            $sql = "SELECT id FROM layoutconditions WHERE layout_rule_id = '".$focus->id."' AND deleted = 0 ORDER BY condition_order ASC";
             $result = $focus->db->query($sql);
 
             while ($row = $focus->db->fetchByAssoc($result)) {
-                $condition_name = new AOW_Condition();
+                $condition_name = new LayoutConditions();
                 $condition_name->retrieve($row['id']);
                 $condition_name->module_path = unserialize(base64_decode($condition_name->module_path));
                 if(empty($condition_name->module_path))$condition_name->module_path[0] = $focus->flow_module;
