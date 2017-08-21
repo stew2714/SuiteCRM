@@ -20,6 +20,17 @@ array (
           'field' => '30',
         ),
       ),
+      'includes' =>
+          array(
+              0 =>
+                  array(
+                      'file' => 'modules/sa_Fluency_One/css/modalStyling.css',
+                  ),
+              1 =>
+                  array(
+                      'file' => 'modules/sa_Fluency_One/js/Validation.js',
+                  ),
+          ),
       'useTabs' => false,
       'tabDefs' => 
       array (
