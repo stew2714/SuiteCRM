@@ -53,7 +53,7 @@ function checkRules(){
     return false;
   }
   //36 ----
-  if($("#apttus_perpetual_c").is(":checked")  && $("#apttus_contract_end_date_c_date").val() == ""
+  if($("#apttus_perpetual_c").is(":checked")  && $("#apttus_contract_end_date_c_date").val() != ""
   ){
     alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_ONE_CAN_BE_ENTERED'));
     return false;
