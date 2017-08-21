@@ -421,7 +421,85 @@ array (
             'name' => 'co_annual_prod_subscription_fee_c',
             'label' => 'LBL_CO_ANNUAL_PROD_SUBSCRIPTION_FEE_C',
           ),
+          1 => 
+          array (
+            'name' => 'previous_close_date_c',
+            'label' => 'LBL_PREVIOUS_CLOSE_DATE_C',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'renewal_value_c',
+            'label' => 'LBL_RENEWAL_VALUE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'new_cost_component_sum_c',
+            'label' => 'LBL_NEW_COST_COMPONENT_SUM_C',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'forecast_month_c',
+            'label' => 'LBL_FORECAST_MONTH_C',
+          ),
+          1 => 
+          array (
+            'name' => 'forecast_month_num_c',
+            'label' => 'LBL_FORECAST_MONTH_NUM_C',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'forecastcategory_c',
+            'label' => 'LBL_FORECASTCATEGORY_C',
+          ),
+          1 => 
+          array (
+            'name' => 'forecastcategoryname_c',
+            'label' => 'LBL_FORECASTCATEGORYNAME_C',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'forecasted_c',
+            'label' => 'LBL_FORECASTED_C',
+          ),
+          1 => 
+          array (
+            'name' => 'forecast_c',
+            'label' => 'LBL_FORECAST_C',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'previous_close_date_changed_c',
+            'label' => 'LBL_PREVIOUS_CLOSE_DATE_CHANGED_C',
+          ),
           1 => '',
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'proposal_or_above_c',
+            'label' => 'LBL_PROPOSAL_OR_ABOVE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'proposal_sent_date_c',
+            'label' => 'LBL_PROPOSAL_SENT_DATE_C',
+          ),
         ),
       ),
       'lbl_editview_panel1' => 

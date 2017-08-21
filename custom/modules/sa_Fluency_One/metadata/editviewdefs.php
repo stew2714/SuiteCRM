@@ -28,6 +28,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
     ),
     'panels' => 
@@ -72,6 +77,22 @@ array (
           array (
             'name' => 'date_requested_c',
             'label' => 'LBL_DATE_REQUESTED_C',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reason_for_not_a_good_fit_c',
+            'label' => 'LBL_REASON_FOR_NOT_A_GOOD_FIT_C',
+          ),
+          1 => 
+          array (
+            'name' => 'reason_customer_declined_c',
+            'label' => 'LBL_REASON_CUSTOMER_DECLINED_C',
           ),
         ),
       ),
