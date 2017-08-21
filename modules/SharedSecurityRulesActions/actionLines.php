@@ -34,7 +34,11 @@ function display_action_lines(SugarBean $focus, $field, $value, $view){
         jsLanguage::createModuleStringsCache('SharedSecurityRulesActions', $GLOBALS['current_language']);
     }
     $html .= '<script src="cache/jsLanguage/SharedSecurityRulesActions/'. $GLOBALS['current_language'] . '.js"></script>';
-
+    $html .= '<style>
+                    .sqsEnabled {
+                        width: 25%!important;
+                    }
+                    </style>';
     if($view == 'EditView'){
         $html .= '<script src="modules/SharedSecurityRulesActions/actionLines.js"></script>';
 
