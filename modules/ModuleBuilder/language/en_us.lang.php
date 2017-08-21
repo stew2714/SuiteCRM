@@ -689,6 +689,9 @@ $mod_strings = array(
     'LBL_HISTORY_TIMESTAMP' => 'TimeStamp',
     'LBL_HISTORY_TITLE' => ' history',
 
+    'LBL_LAYOUTRULES' => 'Layout Name:',
+    'LBL_LAYOUT_RULE_STATEMENT' => 'Please Enter new Layout Name:',
+    'LBL_REMOVE_CONFIRM_TITLE' => 'Remove Rule Layout',
 
     'LBL_ADD_LAYOUT' => 'Add Layout',
     'LBL_ADD_LAYOUTS' => 'Add Layout',
