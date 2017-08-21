@@ -103,6 +103,7 @@ $viewdefs [ $module_name ] =
                                 2 =>
                                 array(
                                     0 => 'layout_to_show',
+                                    1 => 'group_to_assign',
                                 ),
                                 3 =>
                                     array (

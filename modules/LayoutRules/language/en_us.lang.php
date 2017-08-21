@@ -74,4 +74,5 @@ $mod_strings = array (
   'LBL_CONDITION_LINES' => 'Conditions',
   'LBL_ADD_CONDITION' => 'Add Condition',
   'LBL_LAYOUT_TO_SHOW' => 'Layout To Show',
+  'LBL_GROUP_TO_ASSIGN' => 'Assign to Group',
 );

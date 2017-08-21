@@ -71,6 +71,7 @@ class LayoutRules extends Basic
         if($init) {
             $this->load_flow_beans();
             $this->loadLayouts();
+            $this->loadGroups();
         }
     }
 
@@ -116,6 +117,18 @@ class LayoutRules extends Basic
         }
         asort($app_list_strings['layout_list']);
     }
+    function loadGroups(){
+        global $beanList, $app_list_strings;
+
+        $app_list_strings['group_list'] = array("all" => "All");
+
+        $bean = BeanFactory::getBean("SecurityGroups");
+        $ssList = $bean->get_full_list();
+        foreach($ssList as $group){
+            $app_list_strings['group_list'][ $group->id ] = $group->name;
+        }
+        asort($app_list_strings['group_list']);
+    }
 
     function save($check_notify = FALSE){
         if (empty($this->id)){
@@ -149,6 +162,13 @@ class LayoutRules extends Basic
         return $metadataArray;
     }
     function checkConditions($layout, $bean){
+        global $current_user;
+
+//        $groups = "";
+//        if(){
+//            return true;
+//        }
+
         $rel = "layout_conditions";
         $result = false;
         if($layout->load_relationship($rel)) {
