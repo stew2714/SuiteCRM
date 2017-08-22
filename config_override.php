@@ -34,8 +34,8 @@ $sugar_config['resource_management']['special_query_modules'][5] = 'AOS_Contract
 $sugar_config['outfitters_licenses']['securitysuite'] = 'f93df3eccc7984f3e954fc223521f46a';
 
 // SECURITY GROUP IDS FOR QUEUES - DO NOT CHANGE THE VALUES.
-$sugar_config['CommOps'] = '9d8e99e1-3f4f-a849-1200-5936c3de3e2f';
-$sugar_config['Sales'] = 'ce0b4da2-dbfa-a4d3-3d4f-5936d499f0df';
-$sugar_config['Legal'] = '628f3c09-51d4-f65c-2afb-5936d572f62e';
-$sugar_config['Implementations'] = '2d00d5a1-496f-125a-654a-594cecaa1678';
+$sugar_config['CommOps'] = '628f3c09-51d4-f65c-2afb-5936d572f62e';
+$sugar_config['Sales'] = '8cc7213b-1d28-12bc-7d6d-5936d546d416';
+$sugar_config['Legal'] = 'b9ebaa1a-0517-b790-70b0-593fb7aef326';
+$sugar_config['Implementations'] = '90d40376-027d-a8f7-7cd3-593fb7ce674f';
 /***CONFIGURATOR***/
