@@ -16,3 +16,8 @@ $dictionary["Opportunity"]["fields"]["fieldtrackinghistory_opportunities"] = arr
     'vname' => 'LBL_FIELD_TRACKING_HISTORY',
 );
 
+$dictionary["Opportunity"]["fields"]["probability"]['type'] = 'float';
+$dictionary["Opportunity"]["fields"]["probability"]['precision'] = '2';
+$dictionary["Opportunity"]["fields"]["probability"]['len'] = '50';
+unset($dictionary["Opportunity"]["fields"]["probability"]['dbType']);
+

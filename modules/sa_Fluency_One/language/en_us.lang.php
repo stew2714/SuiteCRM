@@ -75,4 +75,5 @@ $mod_strings = array (
     'LBL_REQUEST_FLUENCYONE_PRICING' => 'Request FluencyOne Pricing',
     'LBL_ACCEPT' => 'Accept',
     'LBL_SA_FLUENCY_ONE_REQUESTER_USER_ID' => 'Requested User ID',
+    'LBL_CAN_NOT_HAVE_BOTH' => 'You cannot have both not a good fit and customer declines reasons populated',
 );

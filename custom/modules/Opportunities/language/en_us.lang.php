@@ -16,7 +16,8 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL13' => 'Description Information',
   'LBL_YOU_CANNOT_CHANGE_THE_CLOSE_DATE' => 'You cannot change the close date of something that closed in a previous month',
   'LBL_ONLY_RVPS' => 'Only RVPs and above can change the forecasting category, please bring it to your manager\'s attention if you want to make this change.',
-  'LBL_YOU_CANNOT_USE_ENCODER' => 'You cannot use encoder description unless "other" is selected for encoder',
+  'LBL_YOU_CANNOT_USE_ENCODER_DESC' => 'You cannot use encoder description unless "other" is selected for encoder',
+  'LBL_YOU_CANNOT_USE_ENCODER' => 'Must identify encoder in "Encoder Description" when other is selected',
   'LBL_ENTER_TERM_LENGTH' => 'You must enter a term length for SW Maintenance Term Length (MM) .',
   'LBL_ENTER_TERM_LENGTH_LICENSE' => 'You must enter a term length for License Term Length (MM) .',
   'LBL_A_ENTRY_IS_REQUIRED_IN_THE_WIN_LOSS' => 'An entry is required in the Win/Loss Description field when Other is selected as the primary reason.',
@@ -29,5 +30,20 @@ $mod_strings = array (
   'LBL_ENTRY_REQUIRED_PRODUCT_SERVICES' => 'An entry is required in the Product/Service field for all Opportunities.',
   'LBL_WHEN_CLOSED_LOST_WINNER_REQUIRED' => 'You must identify the winner for lost opportunities',
   'LBL_MUST_BE_SELECTED_WHEN_STAGE' => 'ILP Probability % must be selected when Opportunity Stage/Probability is 50% or greater.',
+  'LBL_MUST_BE_INCUMBENT' => 'You must select an incumbent',
+  'LBL_MUST_BE_INCUMBENT999' => 'Please fill data in "Company Signed By"',
+  'LBL_MUST_FILL_TERM_LENGTH' => 'You must fill in the term length before you can validate',
+  'LBL_FTE_MUST_BE_FILLED_IN' => 'You must fill in the FTE (labor type) on coding services opps',
+  'LBL_ENCODER_REQUIRED_FOR_CODING_OPPS' => 'Please Select The Encoder in the pricing component section',
+  'LBL_REQUIRE_ILP_PROBABILITY_TO_BE_0_OR_100' => 'Global Use % must be 0 or 100 when Opportunity is Closed - Won. Please select the appropriate value.',
+  'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'License is Required to be 1 or Greater',
+  'LBL_YOU_CAN_NOT_CHANGE_KEY' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
+
+
+
+
+
+
+
   'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
 );

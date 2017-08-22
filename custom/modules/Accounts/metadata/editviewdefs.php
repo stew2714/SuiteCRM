@@ -33,6 +33,10 @@ array (
         array (
           'file' => 'modules/Accounts/Account.js',
         ),
+        1 =>
+        array (
+          'file' => 'custom/modules/Accounts/js/Validation.js',
+        ),
       ),
       'useTabs' => false,
       'tabDefs' => 
