@@ -26,6 +26,7 @@
 
 require_once("modules/AOW_WorkFlow/aow_utils.php");
 require_once("modules/AOR_Reports/aor_utils.php");
+require_once("include/utils.php");
 require_once("custom/modules/AOR_Reports/matrixReportBuilder.php");
 
 class AOR_MatrixReportingController extends SugarController

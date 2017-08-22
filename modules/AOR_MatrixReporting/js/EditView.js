@@ -22,7 +22,7 @@ $( document ).ready(function() {
         $('#actionfield').find('option').remove().end().append(results);
       })
       .fail(function( jqxhr, textStatus, error ) {
-        console.log( "Request Failed: " + err );
+        console.log( "Request Failed: " + error );
       });
   }
 });
