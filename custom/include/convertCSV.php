@@ -358,7 +358,7 @@ class convertCSV
                 }
             }
         }
-        $languageLocation = "custom/Extension/modules/{$field->module}/Ext/Language/en_us.imported_custom_fields.php";
+        $languageLocation = "custom/Extension/modules/{$defs['module']}/Ext/Language/en_us.imported_custom_fields.php";
         include($languageLocation);
 
 
