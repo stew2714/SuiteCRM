@@ -262,3 +262,4 @@ $(document).ready(function() {ldelim}
     </script>
 
 {/literal}
+{sugar_getscript file="include/javascript/recordType.js"}

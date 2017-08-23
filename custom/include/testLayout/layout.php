@@ -6,4 +6,19 @@
  * Time: 14:33
  */
 
+require_once ("include/EditView/EditView2.php");
+require_once ("include/Sugar_Smarty.php");
+
+
+$Editview =  new EditView();
+$metadataFile = "custom/modules/Opportunities/metadata/editviewdefs.php";
+$bean = BeanFactory::getBean("Opportunities");
+$Editview->ss = new Sugar_Smarty();
+$Editview->setup($bean->module_name, $bean, $metadataFile, get_custom_file_if_exists('include/EditView/EditView.tpl'));
+
+$Editview->display($this->showTitle);
+
+
+
+
 echo json_encode(array("test"));

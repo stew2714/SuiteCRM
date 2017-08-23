@@ -108,7 +108,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'recordtypeid',
+            'name' => 'recordtypeid_c',
             'label' => 'LBL_RECORDTYPEID',
           ),
         ),
