@@ -158,7 +158,7 @@ $( document ).ready(function() {
 
     //Item 15 - No_change_for_closed_opps
     if ( beanData.sales_stage == $("#sales_stage").val() &&
-      $("#probability").val() == "1" &&
+      ($("#probability").val() == "1" ||$("#probability").val() == "1.00" ) &&
       ( beanData.hwsw_cost_c != $("#hwsw_cost_c").val() ||
         beanData.new_am_region_c != $("#new_am_region_c").val() ||
         beanData.annual_mq_services_estimate_c != $("#annual_mq_services_estimate_c").val() ||
