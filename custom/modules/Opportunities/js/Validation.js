@@ -167,7 +167,7 @@ $( document ).ready(function() {
         beanData.assigned_user_id != $("#assigned_user_id").val() ||
         beanData.specialist_c != $("#specialist_c").val() ||
         beanData.inside_sales_ae_c != $("#inside_sales_ae_c").val() ||
-        beanData.btl_c != $("#btl_c").val() ||
+        beanData.btl_c != $("#btl_c").is(":checked") ||
         beanData.co_implementation_training_pro_serv_c != $("#co_implementation_training_pro_serv_c").val() ||
         beanData.co_other_hardware_server_c != $("#co_other_hardware_server_c").val() ||
         beanData.co_speech_mics_c != $("#co_speech_mics_c").val() ||
