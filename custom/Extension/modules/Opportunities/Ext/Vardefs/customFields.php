@@ -2695,6 +2695,7 @@ $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['reportable']=t
 $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['precision']='8';
 $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['vname']='LBL_NEW_COST_COMPONENT_SUM_C';
 $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['source']='custom_fields';
+$dictionary['Opportunity']['fields']['new_cost_component_sum_c']['default']=0;
 
 
  // Vardef Created : validation_comments_c 
@@ -3425,6 +3426,7 @@ $dictionary['Opportunity']['fields']['renewal_value_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['renewal_value_c']['precision']='8';
 $dictionary['Opportunity']['fields']['renewal_value_c']['vname']='LBL_RENEWAL_VALUE_C';
 $dictionary['Opportunity']['fields']['renewal_value_c']['source']='custom_fields';
+$dictionary['Opportunity']['fields']['renewal_value_c']['default']=0;
 
 
  // Vardef Created : total_amount_hardware_c 

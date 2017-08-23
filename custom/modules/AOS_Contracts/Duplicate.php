@@ -21,7 +21,8 @@ class duplicate {
     function activities($bean, $event, $arguments)
     {
         $date = new DateTime();
-        $bean->retrieve($bean->id);
+        $class = get_class($bean);
+        $bean = new $class();
         if($bean->date_entered == $bean->date_modified && isset($bean->opportunity_id) && !empty($bean->opportunity_id)
         ) {
             $rel = "documents";
