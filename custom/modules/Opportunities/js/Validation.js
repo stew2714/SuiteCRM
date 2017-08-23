@@ -158,7 +158,7 @@ $( document ).ready(function() {
 
     //Item 15 - No_change_for_closed_opps
     if ( beanData.sales_stage == $("#sales_stage").val() &&
-      $("#probability").val() == "1" &&
+      ($("#probability").val() == "1" ||$("#probability").val() == "1.00" ) &&
       ( beanData.hwsw_cost_c != $("#hwsw_cost_c").val() ||
         beanData.new_am_region_c != $("#new_am_region_c").val() ||
         beanData.annual_mq_services_estimate_c != $("#annual_mq_services_estimate_c").val() ||
@@ -167,7 +167,7 @@ $( document ).ready(function() {
         beanData.assigned_user_id != $("#assigned_user_id").val() ||
         beanData.specialist_c != $("#specialist_c").val() ||
         beanData.inside_sales_ae_c != $("#inside_sales_ae_c").val() ||
-        beanData.btl_c != $("#btl_c").val() ||
+        beanData.btl_c != $("#btl_c").is(":checked") ||
         beanData.co_implementation_training_pro_serv_c != $("#co_implementation_training_pro_serv_c").val() ||
         beanData.co_other_hardware_server_c != $("#co_other_hardware_server_c").val() ||
         beanData.co_speech_mics_c != $("#co_speech_mics_c").val() ||

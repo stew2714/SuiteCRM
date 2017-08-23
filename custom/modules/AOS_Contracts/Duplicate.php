@@ -23,7 +23,15 @@ class duplicate {
         $date = new DateTime();
         $class = get_class($bean);
         $bean = new $class();
+<<<<<<< HEAD
         if($bean->date_entered == $bean->date_modified && isset($bean->opportunity_id) && !empty($bean->opportunity_id)
+=======
+        $documents = 0;
+        if($bean->load_relationship("aos_contracts_documents_1") ){
+            $documents =$bean->aos_contracts_documents_1->getBeans();
+        }
+        if($bean->date_entered == $bean->date_modified || count($documents) < 1
+>>>>>>> 066c87573ce809b564782621c66a98f04cd456ee
         ) {
             $rel = "documents";
             $opportunityBean = BeanFactory::getBean("Opportunities", $bean->opportunity_id);
