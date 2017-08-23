@@ -21,7 +21,8 @@ class duplicate {
     function activities($bean, $event, $arguments)
     {
         $date = new DateTime();
-        $bean->retrieve($bean->id);
+        $class = get_class($bean);
+        $bean = new $class();
         $documents = 0;
         if($bean->load_relationship("aos_contracts_documents_1") ){
             $documents =$bean->aos_contracts_documents_1->getBeans();
