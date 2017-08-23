@@ -6,10 +6,21 @@ $(function() {
 
   $( "#recordtypeid_c" ).click(function() {
 
-    $.getJSON( "index.php?entryPoint=testLayout", function( data ) {
-      console.log(data);
-      $("#pagecontent").html( data )
+    $.ajax({
+      dataType: "json",
+      url: "index.php?entryPoint=testLayout",
+      data: {
+        post_data: $('#EditView').serialize()
+      },
     })
+      .success(function( data ) {
+        console.log( "Data Saved: " + data );
+        $("#pagecontent").html( "test" + data['0'] )
+      });
+
+
   });
+
+
 
 });
