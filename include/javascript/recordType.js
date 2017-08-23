@@ -4,10 +4,12 @@ $(function() {
   //$("#EditView_tabs").html("t")
 
 
+  $( "#recordtypeid_c" ).click(function() {
 
-  $.getJSON( "index.php?entryPoint=testLayout", function( data ) {
-    console.log(data);
-    $("#EditView_tabs").html( data )
+    $.getJSON( "index.php?entryPoint=testLayout", function( data ) {
+      console.log(data);
+      $("#pagecontent").html( data )
+    })
   });
 
 });
