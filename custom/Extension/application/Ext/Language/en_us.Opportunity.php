@@ -24,6 +24,7 @@
  */
 
 $app_list_strings['sales_stage_dom'] = array(
+    'New Opportunity' => 'New Opportunity',
     'Lead_Opportunity' => 'Lead Opportunity',
     'Discovery' => 'Discovery',
     'Qualification' => 'Qualification',
@@ -39,4 +40,17 @@ $app_list_strings['record_type_dom'] = array(
     'Lead' => 'Lead',
     'CBay' => 'CBay',
     'Partner' => 'Partner',
+    'Standard Opportunity' => 'Standard Opportunity',
+    'Standard' => 'Standard',
+    'Renewal' => 'Renewal',
+);
+
+$app_list_strings['product_type']=array (
+    '' => '',
+    'FFCC' => 'Fluency for Coding Capital',
+    'FFCT' => 'Fluency for Coding Trans',
+    'COS' => 'Coding Services',
+    'TOS' => 'TOS',
+    'Sub' => 'Sub',
+    'FD' => 'Fluency Direct',
 );
