@@ -27,6 +27,8 @@ var condln_count = 0;
 var flow_fields =  new Array();
 var flow_module = '';
 
+
+
 document.getElementById('flow_module').addEventListener("change", showModuleFields, false);
 
 function loadConditionLine(condition){
@@ -44,6 +46,9 @@ function loadConditionLine(condition){
 
     var select_field = document.getElementById('shared_rules_conditions_field'+ln);
     document.getElementById('shared_rules_conditions_field_label'+ln).innerHTML = select_field.options[select_field.selectedIndex].text;
+
+    var condition_operator = document.getElementById('shared_rules_conditions_condition_operator'+ln);
+    document.getElementById('shared_rules_conditions_condition_operator_label'+ln).innerHTML = condition_operator.options[condition_operator.selectedIndex].text;
 
     var select_field2 = document.getElementById('shared_rules_conditions_module_path'+ln);
     document.getElementById('shared_rules_conditions_module_path_label'+ln).innerHTML = select_field2.options[select_field2.selectedIndex].text;
@@ -129,6 +134,7 @@ function showModuleField(ln, operator_value, type_value, field_value){
 
     var rel_field = document.getElementById('shared_rules_conditions_module_path'+ln).value;
     var aow_field = document.getElementById('shared_rules_conditions_field'+ln).value;
+    console.log(aow_field);
     if(aow_field != ''){
 
         var callback = {
@@ -244,6 +250,7 @@ function insertConditionHeader(){
     var f=x.insertCell(5);
     f.style.color="rgb(0,0,0)";
     f.innerHTML=SUGAR.language.get('SharedSecurityRulesConditions', 'LBL_VALUE');
+
     var f=x.insertCell(6);
     f.style.color="rgb(0,0,0)";
     f.innerHTML=SUGAR.language.get('SharedSecurityRulesConditions', 'LBL_OPERATOR');
@@ -298,17 +305,18 @@ function insertConditionLine(){
     var f = x.insertCell(5);
     f.id='shared_rules_conditions_fieldInput'+condln;
 
+    var c = x.insertCell(6);
+    var viewStyle = '';
+    if(action_sugar_grp1 == 'EditView'){viewStyle = '';}
 
-  var c = x.insertCell(6);
-  var viewStyle = 'display:none;';
+
+  var viewStyle = 'display:none';
   if(action_sugar_grp1 == 'EditView'){viewStyle = '';}
-  c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_conoperator["+ condln +"]' id='shared_rules_conditions_conoperator" + condln + "' value='' title='' tabindex='116'><option value=''></option><option value='OR'>OR</option><option value='AND'>AND</option></select>";
+  c.innerHTML = "<select style='"+viewStyle+"' name='shared_rules_conditions_condition_operator["+ condln +"]' id='shared_rules_conditions_condition_operator" + condln + "' value='' title='' tabindex='116'>" + conditionOperator + "</select>";
   if(action_sugar_grp1 == 'EditView'){viewStyle = 'display:none';}else{viewStyle = '';}
-  c.innerHTML += "<span style='"+viewStyle+"' id='shared_rules_conditions_conoperator_label" + condln + "' ></span>";
+  c.innerHTML += "<span style='"+viewStyle+"' id='shared_rules_conditions_condition_operator_label" + condln + "' ></span>";
 
-
-
-  condln++;
+    condln++;
     condln_count++;
 
     $('.edit-view-field #conditionLines').find('tbody').last().find('select').change(function () {
