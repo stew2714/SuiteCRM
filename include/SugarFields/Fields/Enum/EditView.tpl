@@ -38,7 +38,6 @@
  ********************************************************************************/
 
 *}
-123{{sugarvar key='options' string=true}}
 {html_options options={{sugarvar key='options' string=true}} }
 
 {if !isset($config.enable_autocomplete) || $config.enable_autocomplete==false}
