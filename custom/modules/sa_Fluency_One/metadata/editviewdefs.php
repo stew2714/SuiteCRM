@@ -20,17 +20,17 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' =>
-          array(
-              0 =>
-                  array(
-                      'file' => 'modules/sa_Fluency_One/css/modalStyling.css',
-                  ),
-              1 =>
-                  array(
-                      'file' => 'modules/sa_Fluency_One/js/Validation.js',
-                  ),
-          ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/sa_Fluency_One/css/modalStyling.css',
+        ),
+        1 => 
+        array (
+          'file' => 'modules/sa_Fluency_One/js/Validation.js',
+        ),
+      ),
       'useTabs' => false,
       'tabDefs' => 
       array (
@@ -154,8 +154,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'eb_elf_opp_c',
-            'label' => 'LBL_EB_ELF_OPP_C',
+            'name' => 'eb_elf_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EB_ELF_OPP_NAME_C',
           ),
         ),
         7 => 

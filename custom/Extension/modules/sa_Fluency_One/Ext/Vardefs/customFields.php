@@ -792,6 +792,19 @@ $dictionary['sa_Fluency_One']['fields']['eb_tos_opp_c']['vname']='LBL_EB_TOS_OPP
 $dictionary['sa_Fluency_One']['fields']['eb_tos_opp_c']['source']='custom_fields';
 
 
+ // Vardef Created : eb_tos_renewal_opp_c 
+
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['name']='eb_tos_renewal_opp_c';
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['vname']='LBL_EB_TOS_RENEWAL_OPP_C';
+$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['source']='custom_fields';
+
+
  // Vardef Created : Oneeb_elf_opp_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneeb_elf_opp_c']['name']='Oneeb_elf_opp_c';
@@ -821,19 +834,6 @@ $dictionary['sa_Fluency_One']['fields']['eb_elf_opp_name_c']['studio']='visible'
 $dictionary['sa_Fluency_One']['fields']['eb_elf_opp_name_c']['id_name']='Oneeb_elf_opp_c';
 $dictionary['sa_Fluency_One']['fields']['eb_elf_opp_name_c']['vname']='LBL_EB_ELF_OPP_NAME_C';
 $dictionary['sa_Fluency_One']['fields']['eb_elf_opp_name_c']['source']='non-db';
-
-
- // Vardef Created : eb_tos_renewal_opp_c 
-
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['name']='eb_tos_renewal_opp_c';
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['len']='18';
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['type']='varchar';
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['inline_edit']=1;
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['importable']='true';
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['reportable']=true;
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['module']='sa_Fluency_One';
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['vname']='LBL_EB_TOS_RENEWAL_OPP_C';
-$dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_c']['source']='custom_fields';
 
 
  // Vardef Created : key_contact_titles_c 
