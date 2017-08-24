@@ -285,7 +285,7 @@ class SharedSecurityRules extends Basic
                                     }
                                 }
                             }else{
-                                if( $condition->condition_operator == "AND" ){
+                                if( $condition->condition_operator !== "OR" && $result != false ){
                                     return true;
                                 }
                             }
