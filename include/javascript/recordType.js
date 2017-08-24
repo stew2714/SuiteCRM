@@ -17,6 +17,7 @@ $(function() {
       .success(function( data ) {
         console.log( "Data Saved: " + data );
         if(data['found'] == true){
+          console.log("change view found change");
           $("#pagecontent").html( data['layout'] )
         }
       });

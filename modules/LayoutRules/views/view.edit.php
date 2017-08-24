@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
@@ -37,25 +39,26 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-require_once ("include/utils.php");
-
-class LayoutRulesController extends SugarController
+class LayoutRulesViewEdit extends ViewEdit
 {
-        function action_loadLayouts(){
-            global $app_list_strings;
+ 	public function __construct()
+ 	{
+ 		parent::__construct();
+ 	}
 
-            $app_list_strings['layout_list'] = array("default" => "Default");
+ 	public function preDisplay()
+    {
+        global $app_list_strings;
 
-            $bean = BeanFactory::getBean("Layouts");
-            $layoutList = $bean->get_full_list("", "layouts.flow_module = '" . $_REQUEST['flow_module'] . "'");
-            foreach($layoutList as $layout){
-                $app_list_strings['layout_list'][ $layout->id ] = $layout->name;
-            }
-            asort($app_list_strings['layout_list']);
-            echo json_encode( get_select_options_with_id($app_list_strings['layout_list'], "") );
-            die();
+        $app_list_strings['layout_list'] = array("default" => "Default");
 
+        $bean = BeanFactory::getBean("Layouts");
+        $layoutList = $bean->get_full_list("", "layouts.flow_module = '" . $this->bean->flow_module . "'");
+        foreach($layoutList as $layout){
+               $app_list_strings['layout_list'][ $layout->id ] = $layout->name;
         }
+        asort($app_list_strings['layout_list']);
+        parent::preDisplay();
+    }
 
 }
-?>

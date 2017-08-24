@@ -8,6 +8,10 @@
 
 require_once ("include/EditView/EditView2.php");
 require_once ("include/Sugar_Smarty.php");
+
+global $current_user;
+
+
 $params = "";
 if(isset($_REQUEST['post_data']) && !empty($_REQUEST['post_data'])){
     parse_str($_REQUEST['post_data'], $params);
@@ -30,6 +34,7 @@ $layoutRules = BeanFactory::getBean("LayoutRules");
 $metadataFileArray = $layoutRules->fetchLayout($bean, $metadataFile, "editviewdefs");
 //if($metadataFile != $metadataFileArray['file']){
     $metadataFile = $metadataFileArray['file'];
+    $_SESSION['groupLayout'] = $metadataFileArray['id'];
     $Editview->ss = new Sugar_Smarty();
     $Editview->viewObject = (!empty($GLOBALS['current_view'])) ? $GLOBALS['current_view'] : new SugarView();
     $Editview->viewObject->module = "Opportunities";

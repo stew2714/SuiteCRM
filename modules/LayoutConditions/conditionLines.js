@@ -344,7 +344,7 @@ function loadLayouts(){
     },
   })
     .success(function( data ) {
-      console.log( "Data Saved: " + data );
+      $("#layout_to_show").html( data );
     });
 }
 function clearConditionLines(){

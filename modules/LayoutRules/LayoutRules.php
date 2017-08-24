@@ -70,7 +70,6 @@ class LayoutRules extends Basic
         global $app_list_strings;
         parent::__construct();
         if($init) {
-            $app_list_strings['layout_list'] = array("");
             $this->load_flow_beans();
             $this->loadGroups();
         }
@@ -132,6 +131,10 @@ class LayoutRules extends Basic
         $condition->save_lines($_POST, $this, 'aow_conditions_');
     }
     function fetchLayout($bean, $metadata, $action){
+        global $current_user;
+        $sgroups = BeanFactory::getBean("SecurityGroups");
+        $groups = $sgroups->getUserSecurityGroups($current_user->id);
+
         $metadataArray['file'] = $metadata;
         $metadataArray['id'] = '';
         $layouts =
@@ -141,7 +144,7 @@ class LayoutRules extends Basic
             );
         if(count($layouts) > 0){
             foreach($layouts as $layout){
-                if($this->checkConditions($layout, $bean) == true){
+                if(key_exists($layout->group_to_assign, $groups) && $this->checkConditions($layout, $bean) == true){
                     $metadataArray['file'] = "custom/modules/{$bean->module_dir}/metadata/{$layout->layout_to_show}/{$action}.php";
                     $metadataArray['id'] = $layout->layout_to_show;
                 }
