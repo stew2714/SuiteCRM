@@ -1,10 +1,11 @@
 // Shorthand for $( document ).ready()
 $(function() {
-  console.log( "ready!" );
-  //$("#EditView_tabs").html("t")
+  $( "#EditView input, #EditView select" ).blur(function() {
+    fetchLayout()
+  });
 
 
-  $( "#recordtypeid_c" ).click(function() {
+  function fetchLayout(){
 
     $.ajax({
       dataType: "json",
@@ -15,12 +16,11 @@ $(function() {
     })
       .success(function( data ) {
         console.log( "Data Saved: " + data );
-        $("#pagecontent").html( "test" + data['0'] )
+        if(data['found'] == true){
+          $("#pagecontent").html( data['layout'] )
+        }
       });
 
-
-  });
-
-
+  }
 
 });

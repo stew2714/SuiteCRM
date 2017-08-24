@@ -313,7 +313,8 @@ class StudioModule
 //$layout_nodes[] = array ( 'name' => translate($groupFocus->name) , 'type' => 'Folder' , 'children' => $group_layouts , 'action' => 'module=ModuleBuilder&action=wizard&layouts=1&view_module=' . $this->module . "&grpLayout=".$groupFocus->id ) ;
 									
 							//translate('LBL_LAYOUTS') => array ( 'children' => 'getLayouts' , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn' ) ,
-			$defaultLayout [] = array ( 'name' => translate('LBL_DEFAULT') , 'type' => 'Folder', 'children' => $this->getLayouts() , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn') ;
+            $defaultLayout [] = array ( 'name' => translate('LBL_CREATELAYOUT') , 'type' => 'link', 'action' => "module=ModuleBuilder&action=addlayoutrule&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn') ;
+            $defaultLayout [] = array ( 'name' => translate('LBL_DEFAULT') , 'type' => 'Folder', 'children' => $this->getLayouts() , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn') ;
 			$layout_nodes = array();
 			$layout_nodes = $defaultLayout;
     		//get security group nodes...in metadata directory in a folder named with the guid of the security group

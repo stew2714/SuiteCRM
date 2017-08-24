@@ -67,10 +67,11 @@ class LayoutRules extends Basic
     public $additionalusers;
 
     public function __construct($init=true){
+        global $app_list_strings;
         parent::__construct();
         if($init) {
+            $app_list_strings['layout_list'] = array("");
             $this->load_flow_beans();
-            $this->loadLayouts();
             $this->loadGroups();
         }
     }
@@ -105,18 +106,7 @@ class LayoutRules extends Basic
     }
 
 
-    function loadLayouts(){
-        global $beanList, $app_list_strings;
 
-        $app_list_strings['layout_list'] = array("default" => "Default");
-
-        $bean = BeanFactory::getBean("Layouts");
-        $layoutList = $bean->get_full_list();
-        foreach($layoutList as $layout){
-            $app_list_strings['layout_list'][ $layout->id ] = $layout->name;
-        }
-        asort($app_list_strings['layout_list']);
-    }
     function loadGroups(){
         global $beanList, $app_list_strings;
 

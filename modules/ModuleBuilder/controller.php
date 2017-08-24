@@ -750,6 +750,7 @@ class ModuleBuilderController extends SugarController
 
         $bean = BeanFactory::getBean("Layouts");
         $bean->name = $create_for;
+        $bean->flow_module = $module;
         $bean->save();
         if(empty($bean->id)) return;
 

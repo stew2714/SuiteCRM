@@ -60,6 +60,7 @@ function loadConditionLine(condition){
 
 function showModuleFields(){
 
+    loadLayouts();
     clearConditionLines();
 
     flow_module = document.getElementById('flow_module').value;
@@ -334,7 +335,18 @@ function markConditionLineDeleted(ln)
         document.getElementById('conditionLines_head').style.display = "none";
     }
 }
-
+function loadLayouts(){
+  $.ajax({
+    dataType: "json",
+    url: "index.php?module=LayoutRules&action=loadLayouts",
+    data: {
+      flow_module: $('#flow_module').val()
+    },
+  })
+    .success(function( data ) {
+      console.log( "Data Saved: " + data );
+    });
+}
 function clearConditionLines(){
 
     if(document.getElementById('conditionLines') != null){

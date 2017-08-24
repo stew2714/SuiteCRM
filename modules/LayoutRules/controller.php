@@ -1,11 +1,10 @@
 <?php
-/**
- *
+/*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- *
- * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -36,43 +35,27 @@
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- */
+ ********************************************************************************/
 
-$dictionary['Layouts'] = array(
-    'table' => 'layouts',
-    'audited' => true,
-    'inline_edit' => true,
-    'duplicate_merge' => true,
-    'fields' => array (
-        'flow_module' =>
-            array(
-                'required' => true,
-                'name' => 'flow_module',
-                'vname' => 'LBL_FLOW_MODULE',
-                'type' => 'varchar',
-                'massupdate' => 0,
-                'default' => '',
-                'comments' => '',
-                'help' => '',
-                'importable' => 'true',
-                'duplicate_merge' => 'disabled',
-                'duplicate_merge_dom_value' => '0',
-                'audited' => false,
-                'reportable' => true,
-                'unified_search' => false,
-                'merge_filter' => 'disabled',
-                'len' => 100,
-                'size' => '20',
-                'studio' => 'visible',
-                'dependency' => false,
-            ),
-),
-    'relationships' => array (
-),
-    'optimistic_locking' => true,
-    'unified_search' => true,
-);
-if (!class_exists('VardefManager')) {
-        require_once('include/SugarObjects/VardefManager.php');
+require_once ("include/utils.php");
+
+class LayoutRulesController extends SugarController
+{
+        function action_loadLayouts(){
+            global $app_list_strings;
+
+            $app_list_strings['layout_list'] = array("default" => "Default");
+
+            $bean = BeanFactory::getBean("Layouts");
+            $layoutList = $bean->retrieve_by_string_fields(array("flow_module" => $this->flow_module));
+            foreach($layoutList as $layout){
+                $app_list_strings['layout_list'][ $layout->id ] = $layout->name;
+            }
+            asort($app_list_strings['layout_list']);
+            echo get_select_options_with_id($app_list_strings['layout_list']);
+            echo get_select_options($app_list_strings['layout_list']);
+
+        }
+
 }
-VardefManager::createVardef('Layouts', 'Layouts', array('basic','assignable'));
+?>
