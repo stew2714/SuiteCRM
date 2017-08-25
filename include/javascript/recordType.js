@@ -1,34 +1,21 @@
-// Shorthand for $( document ).ready()
-// $(function() {
-
-function assignFields(recordtypeform)
-{
-  $("#" + recordtypeform + " input, #" + recordtypeform + " select").blur(function () {
+function assignFields(recordtypeform) {
+  $("#" + recordtypeform + " input, #" + recordtypeform + " select").change(function () {
     fetchLayout(recordtypeform)
   });
 }
 
-
-  function fetchLayout(recordtypeform){
-
-
-    console.log("test");
-    $.ajax({
-      dataType: "json",
-      url: "index.php?entryPoint=testLayout",
-      data: {
-        post_data: $('#' + recordtypeform ).serialize(),
-        this_view: recordtypeform
-      },
-    })
-      .success(function( data ) {
-        console.log( "Data Saved: " + data );
-        if(data['found'] == true){
-          console.log("change view found change" + data['div']);
-          $("#" + data['div'] ).html( data['layout'] )
-        }
-      });
-
-  }
-
-// });
+function fetchLayout(recordtypeform) {
+  $.ajax({
+    dataType: "json",
+    url: "index.php?entryPoint=testLayout",
+    data: {
+      post_data: $('#' + recordtypeform).serialize(),
+      this_view: recordtypeform
+    },
+  })
+    .success(function (data) {
+      if (data['found'] == true) {
+        $("#" + data['div']).html(data['layout'])
+      }
+    });
+}
