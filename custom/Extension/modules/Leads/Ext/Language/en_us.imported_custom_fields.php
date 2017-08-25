@@ -1,6 +1,6 @@
 <?php 
 $mod_strings['LBL_SF_ID_C'] = 'Sf Id';
-$mod_strings['LBL_COMPANY_C'] = 'Company';
+$mod_strings['LBL_COMPANY'] = 'Company';
 $mod_strings['LBL_INDUSTRY_C'] = 'Industry';
 $mod_strings['LBL_RATING_C'] = 'Rating';
 $mod_strings['LBL_ANNUAL_REVENUE_C'] = 'Annual Revenue';
@@ -42,4 +42,3 @@ $mod_strings['LBL_SEM_LS_C'] = 'SEM LS';
 $mod_strings['LBL_GPO_C'] = 'Gpo';
 $mod_strings['LBL_VIP_ACCOUNT_C'] = 'Vip Account';
 $mod_strings['LBL_ZBA_SS_C'] = 'Zba Ss';
-$mod_strings['LBL_COMPANY'] = 'Company';

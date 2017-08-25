@@ -173,8 +173,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'eb_elf_opp_c',
-            'label' => 'LBL_EB_ELF_OPP_C',
+            'name' => 'eb_elf_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EB_ELF_OPP_NAME_C',
           ),
         ),
         7 => 
