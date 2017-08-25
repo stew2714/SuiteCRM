@@ -142,19 +142,19 @@ class LayoutRules extends Basic
                 "",
                 "layoutrules.status = 'Active' AND layoutrules.flow_module = '{$bean->module_name}'"
             );
-        if(count($layouts) > 0){
-            foreach($layouts as $layout){
-                if( (key_exists($layout->group_to_assign, $groups) || $layout->group_to_assign == "all") &&
-                    $this->checkConditions($layout, $bean) == true){
-                    if($layout->layout_to_show == "default"){
+        if(count($layouts) > 0) {
+            foreach ($layouts as $layout) {
+                if ((key_exists($layout->group_to_assign, $groups) || $layout->group_to_assign == "all") &&
+                    $this->checkConditions($layout, $bean) == true) {
+                    if ($layout->layout_to_show == "default") {
                         $metadataArray['file'] = "custom/modules/{$bean->module_dir}/metadata/{$action}.php";
-                    }else{
-                        $metadataArray['file'] = "custom/modules/{$bean->module_dir}/metadata/{$layout->layout_to_show}/{$action}.php";
+                    } else {
+                        $metadataArray['file'] =
+                            "custom/modules/{$bean->module_dir}/metadata/{$layout->layout_to_show}/{$action}.php";
                     }
                     $metadataArray['id'] = $layout->layout_to_show;
                 }
             }
-
         }
 
         return $metadataArray;
@@ -188,5 +188,22 @@ class LayoutRules extends Basic
         }
         return $result;
     }
-	
+
+    function populateFromRequest($bean, $row)
+    {
+        foreach ($bean->field_defs as $field => $field_value) {
+            if (($field == 'user_preferences' && $bean->module_dir == 'Users') || ($field == 'internal' && $bean->module_dir == 'Cases')) {
+                continue;
+            }
+            if (isset($row[$field])) {
+                $bean->$field = $row[$field];
+                $owner = $field . '_owner';
+                if (!empty($row[$owner])) {
+                    $bean->$owner = $row[$owner];
+                }
+            }
+        }
+        return $bean;
+    }
+
 }

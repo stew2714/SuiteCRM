@@ -24,9 +24,8 @@ function assignFields(recordtypeform)
       .success(function( data ) {
         console.log( "Data Saved: " + data );
         if(data['found'] == true){
-          console.log("change view found change");
-          $("#subpanel_leads_newDiv").html( data['layout'] )
-          //$("#pagecontent").html( data['layout'] )
+          console.log("change view found change" + data['div']);
+          $("#" + data['div'] ).html( data['layout'] )
         }
       });
 
