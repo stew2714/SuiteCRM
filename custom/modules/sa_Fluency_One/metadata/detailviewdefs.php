@@ -116,8 +116,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'idn_c',
-            'label' => 'LBL_IDN_C',
+            'name' => 'idn_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_IDN_NAME_C',
           ),
           1 => 
           array (
@@ -147,8 +148,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'eb_tos_opp_c',
-            'label' => 'LBL_EB_TOS_OPP_C',
+            'name' => 'eb_tos_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EB_TOS_OPP_NAME_C',
           ),
         ),
         5 => 
@@ -160,8 +162,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'eb_tos_renewal_opp_c',
-            'label' => 'LBL_EB_TOS_RENEWAL_OPP_C',
+            'name' => 'eb_tos_renewal_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EB_TOS_RENEWAL_OPP_NAME_C',
           ),
         ),
         6 => 
@@ -522,10 +525,10 @@ array (
         array (
           0 => 
           array (
-            'name' => 'gpo_affiliation_c',
-            'label' => 'LBL_GPO_AFFILIATION_C',
+            'name' => 'gpo_affilitaion_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_GPO_AFFILITAION_NAME_C',
           ),
-          1 => '',
         ),
         15 => 
         array (

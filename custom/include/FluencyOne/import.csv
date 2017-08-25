@@ -21,8 +21,10 @@ column,Do not create,name,type,options,label,id_name,related module
 "   desired_term_lengton__c varchar(255),",,,,,,,
 "   estimate_asr_mix__c real,",,,,,,,
 "   estimated_global_mix__c real,",,,,,,,
-"   gpo_affiliation__c varchar(18),",,,,,,,
-"   idn__c varchar(18),",,,,,,,
+"   gpo_affiliation__c varchar(18),",,Onegpo_affiliation_c,id,,,,
+,,gpo_affilitaion_name_c,relate,,GPO,Onegpo_affiliation_c,Accounts
+"   idn__c varchar(18),",,Oneidn_c,id,,,,
+,,idn_name_c,relate,,IDN,Oneidn_c,Accounts
 "   if_yes_please_explain__c varchar(255),",,,,,,,
 "   inpatient_days__c real,",,,,,,,
 "   insource_total_amount__c real,",,,,,,,
@@ -39,9 +41,12 @@ column,Do not create,name,type,options,label,id_name,related module
 "   number_of_doctors__c real,",,,,,,,
 "   number_of_hospitals__c real,",,,,,,,
 "   number_of_credentialed_users__c real,",,,,,,,
-"   outsource_mtso_1__c varchar(18),",,,,,,,
-"   outsource_mtso_2__c varchar(18),",,,,,,,
-"   outsource_mtso_3__c varchar(18),",,,,,,,
+"   outsource_mtso_1__c varchar(18),",,Oneoutsource_mtso_1_c,id,,,,
+,,outsource_mtso_1_name_c,relate,,Outsource MTSO 1,Oneoutsource_mtso_1_c,Accounts
+"   outsource_mtso_2__c varchar(18),",,Oneoutsource_mtso_2_c,id,,,,
+,,outsource_mtso_2_name_c,relate,,Outsource MTSO 2,Oneoutsource_mtso_2_c,Accounts
+"   outsource_mtso_3__c varchar(18),",,Oneoutsource_mtso_3_c,id,,,,
+,,outsource_mtso_3_name_c,relate,,Outsource MTSO 3,Oneoutsource_mtso_3_c,Accounts
 "   request_submit_date__c timestamp,",,,,,,,
 "   status__c varchar(255),",,,,,,,
 "   status_of_ehr_rollout__c varchar(255),",,,,,,,
@@ -55,8 +60,10 @@ column,Do not create,name,type,options,label,id_name,related module
 "   proposed_elf_price__c real,",,,,,,,
 "   proposed_elf_discount__c real,",,,,,,,
 "   proposed_technology_discount__c real,",,,,,,,
-"   eb_tos_opp__c varchar(18),",,,,,F1 TOS/FFT Opp,,
-"   eb_tos_renewal_opp__c varchar(18),",,,,,F1 TOS/FFT Renewal Opp,,
+"   eb_tos_opp__c varchar(18),",,Oneeb_tos_opp_c,id,,,,
+,,eb_tos_opp_name_c,relate,,F1 TOS/FFT Opp,Oneeb_tos_opp_c,Accounts
+"   eb_tos_renewal_opp__c varchar(18),",,Oneeb_tos_renewal_opp_c,,,,,
+,,eb_tos_renewal_opp_name_c,relate,,F1 TOS/FFT Renewal Opp,Oneeb_tos_renewal_opp_c,Accounts
 "   eb_elf_opp__c varchar(18),",,Oneeb_elf_opp_c,id,,,,
 ,,eb_elf_opp_name_c,relate,,F1 ELF Opp,Oneeb_elf_opp_c,Accounts
 "   key_contact_titles__c varchar(150),",,,,,,,

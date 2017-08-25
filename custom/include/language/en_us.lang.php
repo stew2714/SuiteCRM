@@ -226,17 +226,6 @@ $GLOBALS['app_list_strings']['facility_type_list']=array (
   'SA' => 'Sub-Acute',
   'SC' => 'Surgery Center',
 );
-
-$GLOBALS['app_list_strings']['ae_region_list']=array (
-  'None' => 'None',
-);
-$GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
-  'None' => 'None',
-);
-$GLOBALS['app_list_strings']['lead_rating_dom']=array (
-  'None' => 'None',
-);
-
 $GLOBALS['app_list_strings']['partner_list_dom']=array (
   'None' => 'None',
 );
@@ -252,4 +241,37 @@ $GLOBALS['app_list_strings']['sales_forecast_cat_dom']=array (
 );
 $GLOBALS['app_list_strings']['bankruptcy_hold_dom']=array (
   'None' => 'None',
+);
+$app_list_strings['moduleList']['C1_Cust_Contacts1']='Cust_Contacts';
+$app_list_strings['moduleListSingular']['C1_Cust_Contacts1']='Cust_Contacts';
+$GLOBALS['app_list_strings']['ae_region_list']=array (
+  'None' => 'None',
+  'Canada' => 'Canada',
+  'Federal' => 'Federal',
+  'Imaging' => 'Imaging',
+  'Practices' => 'Practices',
+  'SS_North' => 'SS North',
+  'SS_South' => 'SS South',
+  'SS_West' => 'SS West',
+  'ZBA_North' => 'ZBA North',
+  'ZBA_South' => 'ZBA South',
+  'ZBA_West' => 'ZBA West',
+  'KA' => 'KA',
+);
+$GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
+  'None' => 'None',
+  'NonTop25' => 'Segment #1: Excellent Fit - Non-Top 25',
+  'Top25Exc' => 'Segment #2: Excellent Fit - Top 25',
+  'CHS' => 'Segment #3: CH',
+  'Top25GF' => 'Segment #4: Good Fit - Top 25',
+  'NonTop25GF' => 'Segment #5: Good Fit - Non-Top 25',
+  'NISSeg1' => 'Not in Segment (Segment 1)',
+  'NISSeg5' => 'Not In Segment (Segment 5)',
+  'NIS' => 'Not in Segment',
+  'ZBA' => 'ZBA',
+);
+$GLOBALS['app_list_strings']['lead_rating_dom']=array (
+  'None' => 'None',
+  'Hot' => 'Hot',
+  'Cold' => 'Cold',
 );
