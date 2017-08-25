@@ -262,4 +262,12 @@ $(document).ready(function() {ldelim}
     </script>
 
 {/literal}
+    {literal}
+    <script>
+
+      $(function(){
+      assignFields("{/literal}{{$form_name}}{literal}");
+      });
+    </script>
+    {/literal}
 {sugar_getscript file="include/javascript/recordType.js"}

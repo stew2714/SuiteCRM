@@ -144,7 +144,7 @@ class LayoutRules extends Basic
             );
         if(count($layouts) > 0){
             foreach($layouts as $layout){
-                if( (key_exists($layout->group_to_assign, $groups) || $layout->group_to_assign) &&
+                if( (key_exists($layout->group_to_assign, $groups) || $layout->group_to_assign == "all") &&
                     $this->checkConditions($layout, $bean) == true){
                     if($layout->layout_to_show == "default"){
                         $metadataArray['file'] = "custom/modules/{$bean->module_dir}/metadata/{$action}.php";
@@ -162,28 +162,28 @@ class LayoutRules extends Basic
     function checkConditions($layout, $bean){
         global $current_user;
 
-//        $groups = "";
-//        if(){
-//            return true;
-//        }
 
         $rel = "layout_conditions";
         $result = false;
         if($layout->load_relationship($rel)) {
             $layoutConditions = $layout->{$rel}->getBeans();
-            foreach($layoutConditions as $condition){
-                switch ($condition->operator){
-                    case "Equal_To":
-                        if($condition->value_type == "Field"){
-                            $condition->value = $bean->{$condition->value};
-                        }
-                        if($condition->value == $bean->{$condition->field}){
-                            $result = true;
-                        }else{
-                            return false;
-                        }
-                        break;
+            if(count($layoutConditions) > 0) {
+                foreach ($layoutConditions as $condition) {
+                    switch ($condition->operator) {
+                        case "Equal_To":
+                            if ($condition->value_type == "Field") {
+                                $condition->value = $bean->{$condition->value};
+                            }
+                            if ($condition->value == $bean->{$condition->field}) {
+                                $result = true;
+                            } else {
+                                return false;
+                            }
+                            break;
+                    }
                 }
+            }else{
+                return true;
             }
         }
         return $result;

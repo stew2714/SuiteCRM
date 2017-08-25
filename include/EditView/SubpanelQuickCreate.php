@@ -85,7 +85,21 @@ class SubpanelQuickCreate{
 			}			
 		}
 
-		if($foundViewDefs == true){
+        /* START Layout Rules */
+        $bean = BeanFactory::getBean("LayoutRules");
+        $subBean = BeanFactory::getBean($module);
+        $metadata =  $bean->fetchLayout($subBean, $source,'quickcreatedefs');
+        if($source != $metadata['file']){
+            $source = $metadata['file'];
+            $_SESSION['groupLayout'] = $metadata['id'];
+            $foundViewDefs = true;
+        }
+
+        /* END Layout Rules */
+
+
+
+        if($foundViewDefs == true){
 			//just a way to avoid the if statement below...
 		}
 		else

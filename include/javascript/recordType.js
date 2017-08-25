@@ -1,27 +1,35 @@
 // Shorthand for $( document ).ready()
-$(function() {
-  $( "#EditView input, #EditView select" ).blur(function() {
-    fetchLayout()
+// $(function() {
+
+function assignFields(recordtypeform)
+{
+  $("#" + recordtypeform + " input, #" + recordtypeform + " select").blur(function () {
+    fetchLayout(recordtypeform)
   });
+}
 
 
-  function fetchLayout(){
+  function fetchLayout(recordtypeform){
 
+
+    console.log("test");
     $.ajax({
       dataType: "json",
       url: "index.php?entryPoint=testLayout",
       data: {
-        post_data: $('#EditView').serialize()
+        post_data: $('#' + recordtypeform ).serialize(),
+        this_view: recordtypeform
       },
     })
       .success(function( data ) {
         console.log( "Data Saved: " + data );
         if(data['found'] == true){
           console.log("change view found change");
-          $("#pagecontent").html( data['layout'] )
+          $("#subpanel_leads_newDiv").html( data['layout'] )
+          //$("#pagecontent").html( data['layout'] )
         }
       });
 
   }
 
-});
+// });
