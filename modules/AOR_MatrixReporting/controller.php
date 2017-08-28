@@ -32,11 +32,10 @@ require_once("custom/modules/AOR_Reports/matrixReportBuilder.php");
 class AOR_MatrixReportingController extends SugarController
 {
     public function action_fielddefs(){
-        global $app_list_strings;
         $bean = BeanFactory::getBean($_REQUEST['moduletype']);
         $matrix = new matrixReportBuilder();
         $fields = $matrix->getFieldDefs($bean->field_defs, $_REQUEST['moduletype']);
-        echo get_select_options_with_id($fields);
+        echo get_select_options_with_id($fields, "");
         die();
     }
 
