@@ -26,6 +26,7 @@ $sugar_config['aod']['enable_aod'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['addAjaxBannedModules'][1] = 'Accounts';
 $sugar_config['addAjaxBannedModules'][53] = 'SecurityGroups';
+$sugar_config['addAjaxBannedModules'][54] = 'SecurityGroups';
 $sugar_config['AgreementsEmailTemplate'] = 'efa77cb1-819d-2a0a-0b78-597850cb15ef';
 $sugar_config['eloqua_company'] = 'MModalIncSandbox';
 $sugar_config['eloqua_username'] = 'Kieran.Monaghan';

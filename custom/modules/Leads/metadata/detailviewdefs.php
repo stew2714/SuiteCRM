@@ -154,8 +154,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'company_c',
-            'label' => 'LBL_COMPANY_C',
+            'name' => 'company',
+            'label' => 'LBL_COMPANY',
           ),
           1 => 'phone_work',
         ),

@@ -1,5 +1,5 @@
 <?php
-// created: 2016-06-20 20:08:35
+// created: 2017-08-25 12:37:07
 $mod_strings = array (
   'LBL_CONTACT_TYPE' => 'Contact Type',
   'LBL_OPERATIONAL' => 'Operational',
@@ -18,4 +18,5 @@ $mod_strings = array (
   'LBL_ACTIVE' => 'Active',
   'LBL_EDITVIEW_PANEL1' => 'Communication',
   'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
+  'LBL_ACCOUNTS_CONTACTS_1_FROM_ACCOUNTS_TITLE' => 'myAccounts',
 );
