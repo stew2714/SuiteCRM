@@ -23,7 +23,8 @@ if(isset($_REQUEST['post_data']) && !empty($_REQUEST['post_data'])){
 }
 $id = (isset($params['record']) && !empty($params['record'])) ? $params['record'] : "";
 
-if($params['module'] == "" || $params['module'] == "LayoutRules"){
+$array("LayoutRules", "AOR_Reports", "AOW_WorkFlow", "SharedSecurityRules");
+if($params['module'] == "" || in_array($params['module'], $array)){
     echo json_encode(array( "found" => false,  "layout" => "" ));
 }
 $metadataFile = "custom/modules/{$params['module']}/metadata/{$view}.php";
