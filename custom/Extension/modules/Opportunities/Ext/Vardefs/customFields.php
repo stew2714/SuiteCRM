@@ -27,7 +27,6 @@ $dictionary['Opportunity']['fields']['recordtypeid_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['recordtypeid_c']['vname']='LBL_RECORDTYPEID_C';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['source']='custom_fields';
 
-
  // Vardef Created : closed_c 
 
 $dictionary['Opportunity']['fields']['closed_c']['name']='closed_c';

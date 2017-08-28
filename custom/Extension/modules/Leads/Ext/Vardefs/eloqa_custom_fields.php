@@ -57,14 +57,6 @@ $dictionary['Lead']['fields']['industry_c'] = array(
     'source' => 'custom_fields',
 );
 
-$dictionary['Lead']['fields']['rating_c'] = array (
-    'name' => 'rating_c',
-    'vname' => 'LBL_ELOQUA_LEAD_RATING',
-    'type' => 'varchar',
-    'len' => '40',
-    'source' => 'custom_fields',
-);
-
 $dictionary['Lead']['fields']['primary_address_country']['type']='enum';
 $dictionary['Lead']['fields']['primary_address_country']['options']='eloqua_country_list';
 $dictionary['Lead']['fields']['alt_address_country']['type']='enum';

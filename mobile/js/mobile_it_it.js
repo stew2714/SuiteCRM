@@ -1,4 +1,4 @@
-var RES_YES_LABEL="Si",RES_NO_LABEL="No",RES_UNAVAILABLE="Acquista QuickCRM Mobile Pro per maggiori opzioni",
+var RES_YES_LABEL="Si",RES_NO_LABEL="No",RES_UNAVAILABLE="Acquista QuickCRM Mobile Full per maggiori opzioni",
 RES_WRONG_PASWD='Nome utente e password errati',
 RES_REQUIRED_MSG='Campo richiesto',
 RES_INV_DATE_MSG='Formato data invalido (dd/mm/yyyy)',
@@ -19,7 +19,7 @@ RES_OPT_CALL_MEET="Chiamate e riunioni",
 RES_OPT_FROM="# giorni prima (0 per nessun limite):",
 RES_OPT_TO="# giorni dopo (0 per nessun limite):",
 RES_DURATION_LABEL="Durata",
-RES_ADDRESS_LABEL="Indirizzo:",
+RES_ADDRESS_LABEL="Indirizzo",
 RES_DETAILS_LABEL="",
 RES_DO_NOT_CALL="*NOTA: Non chiamare questoo contatto.",
 RES_RELATED_TO_LABEL="Relativo a",
@@ -81,13 +81,33 @@ var RES_DEF_LOCK='Bloco passcode',
 	RES_HERE='ecco',
 	RES_DIST='Distanza';
 
+var	RES_ADDRESSBOOK='Rubrica',
+	RES_COPYADDRESSBOOK='Copia in Rubrica',
+	RES_DIRECTIONS='Indicazioni stradali';
+	RES_PARTIAL_SEARCH='Ricerca per parola parziale',
+	RES_COLOR="Color",
+	RES_PAST="In passato",
+	RES_FUTURE="In futuro",
+	RES_DAY="Giorno",
+	RES_WEEK="Settimana",
+	RES_FILTER = 'Filtri',
+	RES_ROWS_PER_DASHLET="Righe per Dashlet",
+	RES_ROWS_PER_SUBPANEL="Righe per Sottopannello";
 // FUTURE VERSIONS - NOT USED YET
-var RES_SCANCARD='Scanner Carte de visite QR Code',
+var RES_QRCODE='QR Code',
+	RES_SAVE_COORD='Salva coordinate',
+	RES_RENAME='Rinomina',
+	RES_NATIVE_CAL='Calendario del dispositivo',
+	RES_CAMERA='Macchina fotografica',
+	RES_DOWNLOAD='Download',
+	RES_UPLOAD='Carica',
+	RES_DOWNLOAD_MSG='Questo sostituirà icone e dashlet attuali sulla tua home page',
 	RES_COUNT='Nombre de',
 	RES_SUM='Somme',
 	RES_AVERAGE='Moyenne',
 	RES_REMINDERS='Rappels',
-	RES_ROWS_PER_DASHLET="Righe per Dashlet";
+	RES_ADVANCED='Opzioni avanzate',
+	RES_CLEARCACHE='Cancella cache';
 
 // ADDRESS FORMAT
-var Addresses_Template= '$street<br/>$city, $state $postalcode<br/>$country';
+var Addresses_Template= '$street<br>$city, $state $postalcode<br>$country';

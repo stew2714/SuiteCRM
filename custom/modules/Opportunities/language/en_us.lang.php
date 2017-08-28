@@ -1,5 +1,5 @@
 <?php
-// created: 2017-06-28 11:31:10
+// created: 2017-08-15 18:54:36
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -13,10 +13,7 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL10' => 'Additional Information',
   'LBL_EDITVIEW_PANEL11' => 'Commissions',
   'LBL_EDITVIEW_PANEL12' => 'System Information',
-  'LBL_EDITVIEW_PANEL13' => 'New Panel 13',
-
-
-
+  'LBL_EDITVIEW_PANEL13' => 'Description Information',
   'LBL_YOU_CANNOT_CHANGE_THE_CLOSE_DATE' => 'You cannot change the close date of something that closed in a previous month',
   'LBL_ONLY_RVPS' => 'Only RVPs and above can change the forecasting category, please bring it to your manager\'s attention if you want to make this change.',
   'LBL_YOU_CANNOT_USE_ENCODER_DESC' => 'You cannot use encoder description unless "other" is selected for encoder',
@@ -48,4 +45,5 @@ $mod_strings = array (
 
 
 
+  'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
 );

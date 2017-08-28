@@ -1,6 +1,6 @@
 var RES_YES_LABEL="Ja",
 RES_NO_LABEL="Nein",
-RES_UNAVAILABLE="Nutzen Sie QuickCRM Mobile Pro mit erweiterter Funktionalität",
+RES_UNAVAILABLE="Nutzen Sie QuickCRM Mobile Full mit erweiterter Funktionalität",
 RES_WRONG_PASWD='Ungültiger Benutzername oder Passwort',
 RES_REQUIRED_MSG='Benötigtes Feld',
 RES_INV_DATE_MSG='Ungültiges Datumsformat (mm/dd/yyyy)',
@@ -24,7 +24,7 @@ RES_OPT_CALL_MEET="Anrufe und Besuche",
 RES_OPT_FROM="# Tage vor (0 für keine Enschränkung):",
 RES_OPT_TO="# Tage nach (0 für keine Enschränkung):",
 RES_DURATION_LABEL="Dauer",
-RES_ADDRESS_LABEL="Adresse:",
+RES_ADDRESS_LABEL="Adresse",
 RES_DETAILS_LABEL="",
 RES_DO_NOT_CALL="*Anmerkung: Diesen Kontakt nicht anrufen.",
 RES_RELATED_TO_LABEL="Bezieht sich auf",
@@ -87,14 +87,35 @@ var RES_DEF_LOCK='Set Passcode',
 	RES_HERE='Hier',
 	RES_DIST='Entfernung';
 
-// FUTURE VERSIONS - NOT USED YET
-var RES_SCANCARD='Scan QR Code business card',
+
+
+var	RES_ADDRESSBOOK='Adressbuch',
+	RES_COPYADDRESSBOOK='Kopieren Adressbuch',
+	RES_DIRECTIONS='Route berechnen',
+	RES_PARTIAL_SEARCH='Teilwortsuche',
+	RES_COLOR="Color",
+	RES_PAST="In the past",
+	RES_FUTURE="In der Zukunft",
+	RES_DAY="Tag",
+	RES_WEEK="Woche",
+	RES_ROWS_PER_DASHLET="Zeile pro Dashlet",
+	RES_ROWS_PER_SUBPANEL="Zeile pro Subpanel";
+
+var RES_QRCODE='QR Code',
+	RES_SAVE_COORD='Speichern Koordinaten',
+	RES_RENAME='Umbenennen',
+	RES_NATIVE_CAL='Geräte Kalender',
+	RES_CAMERA='Kamera',
+	RES_DOWNLOAD='Herunterladen',
+	RES_UPLOAD='Hochladen',
+	RES_DOWNLOAD_MSG='Dies wird aktuelle Icons und Dashlets auf Ihrer Homepage zu ersetzen',
+	RES_FILTER = 'Filter',
 	RES_COUNT='Number of',
 	RES_SUM='Sum',
 	RES_AVERAGE='Average',
 	RES_REMINDERS='Reminders',
-	RES_ROWS_PER_DASHLET="Zeile pro Dashlet";
-
+	RES_ADVANCED='Erweitert',
+	RES_CLEARCACHE='Cache leeren';
 // ADRESSFORMAT
-var Addresses_Template= '$street<br/>$postalcode $city<br/>$state<br/>$country';
+var Addresses_Template= '$street<br>$postalcode $city<br>$state<br>$country';
 

@@ -69,6 +69,13 @@ if(isset($_REQUEST['do']) && $_REQUEST['do'] == 'save') {
 
 $emailTemplateList = get_bean_select_array(true,'SecurityGroup','name');
 $emailTemplateList['default'] = "Default";
+
+
+$bean = BeanFactory::getBean("Layouts");
+$list = $bean->get_full_list("", "layouts.flow_module = 'AOS_Contracts'");
+foreach($list as $record){
+    $emailTemplateList[ $record->id ] = $record->name;
+}
 $regEmailTemplateDropdown = get_select_options_with_id($emailTemplateList, "");
 $sugar_smarty->assign('SECURITYGROUP_LAYOUT', $regEmailTemplateDropdown);
 

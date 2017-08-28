@@ -184,10 +184,15 @@ class customAOR_ReportsController extends AOR_ReportsController
             }
         }
 
+        $onchange = "";
+        if($_REQUEST['m'] != "aomr"){
+           $onchange = "UpdatePreview(\"preview\");";
+        }
 
         $app_list_strings['aor_operator_list'];
         if ($view == 'EditView') {
-            echo "<select type='text' style='width:178px;' name='$aor_field' id='$aor_field' title='' onchange='UpdatePreview(\"preview\");' tabindex='116'>"
+            echo "<select type='text' style='width:178px;' name='{$aor_field}' id='{$aor_field}' title='' 
+            onchange='{$onchange}' tabindex='116'>"
                 . get_select_options_with_id($app_list_strings['aor_operator_list'], $value) . "</select>";
         } else {
             echo $app_list_strings['aor_operator_list'][$value];

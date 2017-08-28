@@ -1,4 +1,4 @@
-var RES_LANGUAGE='fr_FR',RES_YES_LABEL="Oui",RES_NO_LABEL="Non",RES_UNAVAILABLE="Plus d'options disponibles avec QuickCRM Mobile Pro.",
+var RES_LANGUAGE='fr_FR',RES_YES_LABEL="Oui",RES_NO_LABEL="Non",RES_UNAVAILABLE="Plus d'options disponibles avec QuickCRM Mobile Full.",
 RES_REQUIRED_MSG='Champ obligatoire',
 RES_WRONG_PASWD="Nom d'utilisateur ou mot de passe incorrect",
 RES_INV_DATE_MSG='format de date invalide (jj/mm/aaaa)',
@@ -18,8 +18,8 @@ RES_DETAILS_LABEL="",
 RES_MORE_INFORMATION_LABEL="Informations suppl&eacute;mentaires",
 RES_OTHER_LABEL="Autre";
 var RES_NAME_LABEL="Nom:",
-RES_ADDRESS_LABEL="Adresse:",
-RES_NO_DATA="Aucun",
+RES_ADDRESS_LABEL="Adresse",
+RES_NO_DATA="Aucun enregistrement",
 RES_OPT_CALL_MEET="Appels et Rendez-vous",
 RES_OPT_FROM="Jours précédents (0 pour aucune limite):",
 RES_OPT_TO="Jours suivants (0 pour aucune limite):",
@@ -56,7 +56,7 @@ var RES_SORTORDER='Ordre de tri';
 // V2.4
 var RES_CLEAR='Vider';
 var RES_HIDEEMPTY='Masquer vides';
-var RES_SUBPANELS='Sous-onglets';
+var RES_SUBPANELS='Sous-Panels';
 var RES_FILTEROLD='Filtre des anciennes données';
 var RES_MINDATE='Date Minimum';
 // V2.6
@@ -86,14 +86,33 @@ var RES_DEF_LOCK='Définir le code secret',
 	RES_DIST='Distance';
 
 // FUTURE VERSIONS - NOT USED YET
-var RES_SCANCARD='Scanner Carte de visite QR Code',
+var RES_QRCODE='QR Code',
+	RES_SAVE_COORD='Enregistrer Coordonnées',
+	RES_RENAME='Renommer',
+	RES_NATIVE_CAL='Calendrier du mobile',
+	RES_CAMERA='Prendre une photo',
+	RES_DOWNLOAD='Télécharger',
+	RES_UPLOAD='Uploader',
+	RES_DOWNLOAD_MSG='Cela remplacera les icônes et dashlets actuelles sur votre page d\'accueil',
+	RES_ADDRESSBOOK="Carnet d'adresses",
+	RES_COPYADDRESSBOOK="Copie au Carnet d'adresses",
+	RES_FILTER = 'Filtrer',
 	RES_COUNT='Nombre de',
 	RES_SUM='Somme',
 	RES_AVERAGE='Moyenne',
 	RES_REMINDERS='Rappels',
-	RES_ROWS_PER_DASHLET="Elements par Dashlet";
-
+	RES_DIRECTIONS='Itinéraire',
+	RES_PARTIAL_SEARCH='Recherche de mots partielle',
+	RES_COLOR="Couleur",
+	RES_PAST="Dans le passé",
+	RES_FUTURE="Dans le futur",
+	RES_DAY="Jour",
+	RES_WEEK="Semaine",
+	RES_ROWS_PER_DASHLET="Eléments par Dashlet",
+	RES_ROWS_PER_SUBPANEL="Eléments par Sous-panel",
+	RES_ADVANCED='Avancé',
+	RES_CLEARCACHE='Vider le cache';
 // ADDRESS FORMAT
-var Addresses_Template= '$street<br/>$postalcode $city<br/>$country';
+var Addresses_Template= '$street<br>$postalcode $city<br>$country';
 
 	

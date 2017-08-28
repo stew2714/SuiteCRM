@@ -85,7 +85,25 @@ class SubpanelQuickCreate{
 			}			
 		}
 
-		if($foundViewDefs == true){
+        /* START Layout Rules */
+        $bean = BeanFactory::getBean("LayoutRules");
+        $subBean = BeanFactory::getBean($module);
+        if(isset($_REQUEST['post_data']) && !empty($_REQUEST['post_data'])){
+            parse_str($_REQUEST['post_data'], $params);
+            $subBean = $bean->populateFromRequest($subBean, $params);
+        }
+        $metadata =  $bean->fetchLayout($subBean, $source,'quickcreatedefs');
+        if($source != $metadata['file']){
+            $source = $metadata['file'];
+            $_SESSION['groupLayout'] = $metadata['id'];
+            $foundViewDefs = true;
+        }
+
+        /* END Layout Rules */
+
+
+
+        if($foundViewDefs == true){
 			//just a way to avoid the if statement below...
 		}
 		else
@@ -107,13 +125,18 @@ class SubpanelQuickCreate{
 
         $this->ev = $this->getEditView();
 		$this->ev->view = $this->viewType;
+		$this->ev->showVCRControl = false;
 		$this->ev->ss = new Sugar_Smarty();
 		//$_REQUEST['return_action'] = 'SubPanelViewer';
 
-        $class = $GLOBALS['beanList'][$module];
-        $bean = new $class();
-        if(!empty($_REQUEST['record'])) {
-            $bean->retrieve($_REQUEST['record']);
+        if(!empty($subBean)) {
+            $bean = $subBean;
+        }else{
+            $class = $GLOBALS['beanList'][$module];
+            $bean = new $class();
+            if (!empty($_REQUEST['record'])) {
+                $bean->retrieve($_REQUEST['record']);
+            }
         }
 		$this->ev->setup($module, $bean, $source);
 		unset($bean);

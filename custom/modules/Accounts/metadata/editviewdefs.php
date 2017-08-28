@@ -147,6 +147,10 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
+          1 => 
+          array (
+            'name' => 'g1_group_queue_accounts_name',
+          ),
         ),
       ),
       'LBL_PANEL_ADVANCED' => 

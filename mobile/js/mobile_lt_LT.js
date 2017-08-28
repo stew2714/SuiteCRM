@@ -1,6 +1,6 @@
 var RES_YES_LABEL="Taip",
 RES_NO_LABEL="Ne",
-RES_UNAVAILABLE="Gauti daugiau funkcijų su QuickCRM Mobile Pro",
+RES_UNAVAILABLE="Gauti daugiau funkcijų su QuickCRM Mobile Full",
 RES_WRONG_PASWD='Neteisingai įvestas vartotojo vardas ar slaptažodis',
 RES_REQUIRED_MSG='Privalomas laukas',
 RES_INV_DATE_MSG='Neteisingas datos formatas (mm/dd/yyyy)',
@@ -24,7 +24,7 @@ RES_OPT_CALL_MEET="Skambučiai ir susitikimai",
 RES_OPT_FROM="# dienos iki (0 be limito):",
 RES_OPT_TO="# dienos po (0 be limito):",
 RES_DURATION_LABEL="Trukmė",
-RES_ADDRESS_LABEL="Adresas:",
+RES_ADDRESS_LABEL="Adresas",
 RES_DETAILS_LABEL="",
 RES_DO_NOT_CALL="*Pastaba: Neskambinti šiam kontaktui.",
 RES_RELATED_TO_LABEL="Susiję su",
@@ -91,9 +91,28 @@ var RES_DEF_LOCK='Nustatyti slaptažodį',
 var RES_DASHLET='Dashlet',
 	RES_ROWS_PER_DASHLET="Rows per Dashlet";
 
-// VERSION 3.4
-var RES_SCANCARD='Scan QR Code business card',
-	RES_REMINDERS='Reminders';
-	
+// VERSION 3.5
+var RES_QRCODE='QR Code',
+	RES_SAVE_COORD='Išsaugoti Koordinatės',
+	RES_RENAME='Rename',
+	RES_NATIVE_CAL='Device calendar',
+	RES_CAMERA='Camera',
+	RES_DOWNLOAD='Download',
+	RES_UPLOAD='Upload',
+	RES_DOWNLOAD_MSG='This will replace current Icons and Dashlets on your homepage',
+	RES_ADDRESSBOOK='adresų knyga',
+	RES_COPYADDRESSBOOK='Kopijuoti į adresų knygą',
+	RES_REMINDERS='Reminders',
+	RES_DIRECTIONS='Directions',
+	RES_PARTIAL_SEARCH='Dalinis žodis paiešką',
+	RES_COLOR="Color",
+	RES_PAST="In the past",
+	RES_FUTURE="In the future",
+	RES_DAY="Day",
+	RES_WEEK="Week",
+	RES_FILTER = 'Filters',
+	RES_ROWS_PER_SUBPANEL="Rows per Subpanel",
+	RES_ADVANCED='Sudėtingesnis',
+	RES_CLEARCACHE='Išvalyti kešą';	
 // ADDRESS FORMAT
-var Addresses_Template= '$street<br/>$city, $state $postalcode<br/>$country';
+var Addresses_Template= '$street<br>$city, $state $postalcode<br>$country';

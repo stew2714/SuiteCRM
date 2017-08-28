@@ -1,4 +1,4 @@
-var RES_YES_LABEL="Si",RES_NO_LABEL="No",RES_UNAVAILABLE="Mas opciones con QuickCRM Mobile Pro.",
+var RES_YES_LABEL="Si",RES_NO_LABEL="No",RES_UNAVAILABLE="Mas opciones con QuickCRM Mobile Full.",
 RES_WRONG_PASWD='usuario o password erróneo',
 RES_REQUIRED_MSG='Campo obligatorio',
 RES_INV_DATE_MSG='Formato de fecha no válido (dd/mm/yyyy)',
@@ -19,7 +19,7 @@ RES_OPT_CALL_MEET="Llamadas y reuniones",
 RES_OPT_FROM="#  días antes (0 para ver todo):",
 RES_OPT_TO="# días después (0 para ver todo):",
 RES_DURATION_LABEL="Duración",
-RES_ADDRESS_LABEL="Dirección:",
+RES_ADDRESS_LABEL="Dirección",
 RES_DETAILS_LABEL="",
 RES_DO_NOT_CALL="*NOTA: No llamar a este contacto.",
 RES_RELATED_TO_LABEL="Relativo a:",
@@ -81,14 +81,33 @@ var RES_DEF_LOCK='Establecer código',
 	RES_HERE='aquí',
 	RES_DIST='Distancia';
 	
-// FUTURE VERSIONS - NOT USED YET
-var RES_SCANCARD='Scan QR Code business card',
+
+var RES_QRCODE='Código QR',
+	RES_SAVE_COORD='Guardar Coordenadas',
+	RES_RENAME='Renombrar',
+	RES_NATIVE_CAL='Calendario del dispositivo',
+	RES_CAMERA='Cámara fotográfica',
+	RES_DOWNLOAD='Descargar',
+	RES_UPLOAD='Subir',
+	RES_DOWNLOAD_MSG='Esto reemplazará Iconos y Dashlets actuales en su página de inicio',
+	RES_ADDRESSBOOK='Libreta de direcciones',
+	RES_COPYADDRESSBOOK='Copia de la libreta de direcciones',
 	RES_COUNT='Number of',
 	RES_SUM='Sum',
 	RES_AVERAGE='Average',
 	RES_REMINDERS='Reminders',
-	RES_ROWS_PER_DASHLET="Elementos por Dashlet";
-
+	RES_DIRECTIONS='Cómo llegar',
+	RES_COLOR="Color",
+	RES_PAST="Antes",
+	RES_FUTURE="En el futuro",
+	RES_DAY="Día",
+	RES_WEEK="Semana",
+	RES_FILTER = 'Filtros',
+	RES_PARTIAL_SEARCH='Parcial de búsqueda de la palabra',
+	RES_ROWS_PER_DASHLET="Elementos por Dashlet",
+	RES_ROWS_PER_SUBPANEL="Elementos por Subpaneles",
+	RES_ADVANCED='Opciones avanzadas',
+	RES_CLEARCACHE='Borrar la caché';
 // ADDRESS FORMAT
-var Addresses_Template= '$street<br/>$postalcode $city<br/>$country';
+var Addresses_Template= '$street<br>$postalcode $city<br>$country';
 

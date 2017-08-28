@@ -8,4 +8,14 @@
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: POST,GET");
 header("Access-Control-Allow-Credentials: true");
-require_once('../../service/v4_1/rest.php');
+
+// fix for SugarCRM/SuiteCRM REST API generating notice 
+// with Declaration of SugarWebServiceUtilv4::get_data_list
+@ini_set('display_errors', '0');
+// end fix
+
+$rest_file = '../../service/quickcrm/rest.php';
+if (file_exists('../../custom/service/quickcrm/rest.php')){
+	$rest_file = '../../custom/service/quickcrm/rest.php';
+}
+require_once($rest_file);

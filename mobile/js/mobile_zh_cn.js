@@ -24,7 +24,7 @@ RES_OPT_CALL_MEET="致电及会议",
 RES_OPT_FROM="# 日之前 (0 为无上限):",
 RES_OPT_TO="# 日之后 (0 为无上限):",
 RES_DURATION_LABEL="持续时间",
-RES_ADDRESS_LABEL="地址:",
+RES_ADDRESS_LABEL="地址",
 RES_DETAILS_LABEL="",
 RES_DO_NOT_CALL="*备注: 请不要致电此联络人.",
 RES_RELATED_TO_LABEL="与之相关",
@@ -87,13 +87,32 @@ var RES_DEF_LOCK='请设定密码',
 	RES_HERE='这里',
 	RES_DIST='距离';
 
-// FUTURE VERSIONS - NOT USED YET
-var RES_SCANCARD='Scan QR Code business card',
+var RES_QRCODE='QR Code',
+	RES_SAVE_COORD='保存坐标',
+	RES_RENAME='重命名',
+	RES_NATIVE_CAL='设备日历',
+	RES_CAMERA='相机',
+	RES_DOWNLOAD='下载',
+	RES_UPLOAD='上传',
+	RES_DOWNLOAD_MSG='这将取代目前的图标和Dashlets在您的主页',
+	RES_ADDRESSBOOK='通讯录',
+	RES_COPYADDRESSBOOK='复制到地址簿',
 	RES_COUNT='Number of',
 	RES_SUM='Sum',
 	RES_AVERAGE='Average',
 	RES_REMINDERS='Reminders',
-	RES_ROWS_PER_DASHLET="Rows per Dashlet";
+	RES_DIRECTIONS='Directions',
+	RES_PARTIAL_SEARCH='Partial word search',
+	RES_COLOR="Color",
+	RES_PAST="In the past",
+	RES_FUTURE="In the future",
+	RES_DAY="日",
+	RES_WEEK="周",
+	RES_FILTER = '过滤器',
+	RES_ROWS_PER_DASHLET="Rows per Dashlet",
+	RES_ROWS_PER_SUBPANEL="Rows per Subpanel";
+	RES_ADVANCED='先进',
+	RES_CLEARCACHE='清除缓存';
 
 // ADDRESS FORMAT
-var Addresses_Template= '$street<br/>$city, $state $postalcode<br/>$country';
+var Addresses_Template= '$street<br>$city, $state $postalcode<br>$country';

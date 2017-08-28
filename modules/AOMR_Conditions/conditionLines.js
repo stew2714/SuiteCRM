@@ -167,7 +167,7 @@ function showModuleField(ln, operator_value, type_value, field_value){
     var aow_field_type_name = "aow_conditions_value_type["+ln+"]";
     var aow_field_name = "aow_conditions_value["+ln+"]";
 
-    YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getModuleOperatorField&view="+action_sugar_grp1+"&aor_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_operator_name+"&aow_value="+operator_value+"&rel_field="+rel_field,callback);
+    YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getModuleOperatorField&view="+action_sugar_grp1+"&aor_module="+flow_module+"&aow_fieldname="+aow_field+"&rel_field="+rel_field+"&aor_value=" + operator_value +"&m=aomr&aor_newfieldname="+aow_operator_name, callback);
     YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getFieldTypeOptions&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_type_name+"&aow_value="+type_value+"&rel_field="+rel_field,callback2);
     YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOW_WorkFlow&action=getModuleFieldType&view="+action_sugar_grp1+"&aow_module="+flow_module+"&aow_fieldname="+aow_field+"&aow_newfieldname="+aow_field_name+"&aow_value="+field_value+"&aow_type="+type_value+"&rel_field="+rel_field,callback3);
 

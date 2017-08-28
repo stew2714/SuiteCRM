@@ -38,7 +38,6 @@
  ********************************************************************************/
 
 *}
-
 {if !isset($config.enable_autocomplete) || $config.enable_autocomplete==false}
 	<select name="{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}" 
 	id="{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}" 
