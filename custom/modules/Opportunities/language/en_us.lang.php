@@ -31,6 +31,7 @@ $mod_strings = array (
   'LBL_WHEN_CLOSED_LOST_WINNER_REQUIRED' => 'You must identify the winner for lost opportunities',
   'LBL_MUST_BE_SELECTED_WHEN_STAGE' => 'ILP Probability % must be selected when Opportunity Stage/Probability is 50% or greater.',
   'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
+  'LBL_MUST_BE_INCUMBENT' => 'You must select an incumbent',
   'LBL_MUST_BE_INCUMBENT999' => 'Please fill data in "Company Signed By"',
   'LBL_MUST_FILL_TERM_LENGTH' => 'You must fill in the term length before you can validate',
   'LBL_FTE_MUST_BE_FILLED_IN' => 'You must fill in the FTE (labor type) on coding services opps',
@@ -39,4 +40,12 @@ $mod_strings = array (
   'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'License is Required to be 1 or Greater',
   'LBL_YOU_CAN_NOT_CHANGE_KEY' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
   'LBL_C1_CUST_CONTACTS1_OPPORTUNITIES_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
+
+
+
+
+
+
+
+  'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
 );

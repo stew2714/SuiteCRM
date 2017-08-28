@@ -160,7 +160,8 @@ class StudioModule
         					translate('LBL_LAYOUTS') => array ( 'children' => 'getLayouts' , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn' ) ,
 							*/
 							translate('LBL_LAYOUTS') => array ( 'children' => 'getGroupLayouts' , 'action' => "module=ModuleBuilder&action=addlayout&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn' ) ,
-							/* END - SECURITY GROUPS */ 
+							/* END - SECURITY GROUPS */
+
         					translate('LBL_SUBPANELS') => array ( 'children' => 'getSubpanels' , 'action' => "module=ModuleBuilder&action=wizard&view=subpanels&view_module={$this->module}" , 'imageTitle' => 'Subpanels' , 'help' => 'subpanelsBtn' ) ) ;
 
         $nodes = array () ;
@@ -212,7 +213,19 @@ class StudioModule
             $views [ 'quickcreatedefs' ] = array ( 'name' => translate('LBL_QUICKCREATE') , 'type' => MB_QUICKCREATE , 'image' => 'QuickCreate' ) ;
 
         $layouts = array ( ) ;
-		/* BEGIN - SECURITY GROUPS */ 
+        /* BEGIN - SECURITY GROUPS */
+        $groupLayout = "";
+        if(!empty($_REQUEST['grpLayout'])) {
+            $layout = BeanFactory::getBean("Layouts",$_REQUEST['grpLayout']);
+            if(!empty($layout->id)){
+                $layouts = $this->populateLayout($views);
+                return $layouts ;
+            }
+        }
+
+        /* END - SECURITY GROUPS */
+
+        /* BEGIN - SECURITY GROUPS */
 		$groupLayout = "";
 		if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
 		$groupLayoutParams = "";
@@ -300,7 +313,8 @@ class StudioModule
 //$layout_nodes[] = array ( 'name' => translate($groupFocus->name) , 'type' => 'Folder' , 'children' => $group_layouts , 'action' => 'module=ModuleBuilder&action=wizard&layouts=1&view_module=' . $this->module . "&grpLayout=".$groupFocus->id ) ;
 									
 							//translate('LBL_LAYOUTS') => array ( 'children' => 'getLayouts' , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn' ) ,
-			$defaultLayout [] = array ( 'name' => translate('LBL_DEFAULT') , 'type' => 'Folder', 'children' => $this->getLayouts() , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn') ;
+            $defaultLayout [] = array ( 'name' => translate('LBL_CREATELAYOUT') , 'type' => 'link', 'action' => "module=ModuleBuilder&action=addlayoutrule&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn') ;
+            $defaultLayout [] = array ( 'name' => translate('LBL_DEFAULT') , 'type' => 'Folder', 'children' => $this->getLayouts() , 'action' => "module=ModuleBuilder&action=wizard&view=layouts&view_module={$this->module}" , 'imageTitle' => 'Layouts' , 'help' => 'layoutsBtn') ;
 			$layout_nodes = array();
 			$layout_nodes = $defaultLayout;
     		//get security group nodes...in metadata directory in a folder named with the guid of the security group
@@ -318,6 +332,11 @@ class StudioModule
 						//see if $f is a guid for a security group
 						$groupFocus = new SecurityGroup();
 						$groupFocus->retrieve($f);
+						//if we dont find a securityGroup could it be a layout rule
+                        if( empty($groupFocus->id) ) {
+                            $layout_nodes[]  = $this->layoutRuleTree($views, $f);
+                            $layout_nodes = array_filter($layout_nodes);
+                        }
 						if(!empty($groupFocus->id) && isset($groupFocus->id)) {
 							//found existing group layout...create node
 							$GLOBALS['log']->debug("Found Security Group Layout for: ".$groupFocus->name);
@@ -368,6 +387,82 @@ class StudioModule
 
     }
 	/* END - SECURITY GROUPS */ 
+
+	/* START Layout Rules */
+function populateLayout($views){
+    $groupLayout = "";
+    if(!empty($_REQUEST['grpLayout'])) $groupLayout = $_REQUEST['grpLayout'];
+    $groupLayoutParams = "";
+    if(!empty($groupLayout)) { $groupLayoutParams = "&grpLayout=".$groupLayout; }
+    /* END - SECURITY GROUPS */
+    foreach ( $views as $def )
+    {
+        if($def['type'] == "listview"){
+            continue;
+        }
+        $view = !empty($def['view']) ? $def['view'] : $def['type'];
+        //SECURITY GROUPS - added $groupLayoutParams to the end of the action url
+        /*
+        $layouts [ $def['name'] ] = array ( 'name' => $def['name'] , 'action' => "module=ModuleBuilder&action=editLayout&view={$view}&view_module={$this->module}" , 'imageTitle' => $def['image'] , 'help' => "viewBtn{$def['type']}" , 'size' => '48' ) ;
+        */
+        $layouts [ $def['name'] ] = array ( 'name' => $def['name'] , 'action' => "module=ModuleBuilder&action=editLayout&view={$view}&view_module={$this->module}".$groupLayoutParams , 'imageTitle' => $def['image'] , 'help' => "viewBtn{$def['type']}" , 'size' => '48' ) ;
+    }
+
+
+    return $layouts;
+
+}
+    function layoutRuleTree($views, $f)
+    {
+        //pass in the views and remove any which we do not want.
+        $groupFocus = BeanFactory::getBean("Layouts", $f);
+        if(!isset($groupFocus->id) || empty($groupFocus->id) ){
+            return '';
+        }
+        //found existing group layout...create node
+        $GLOBALS['log']->debug("Found Layout Rule for: " . $groupFocus->name);
+
+        $group_layouts = array();
+        //remove group layout option
+        $group_layouts[] =
+            array(
+                'name'   => translate('LBL_REMOVE_LAYOUT'),
+                'action' => "module=ModuleBuilder&action=removeRuleLayoutPrompt&view_module={$this->module}" .
+                            "&grpLayout=" .
+                            $groupFocus->id
+            );
+
+        foreach ($views as $def) {
+            //remove listview from options.
+            if($def['type'] == "listview"){
+                continue;
+            }
+            $group_layouts [$def['name']] =
+                array(
+                    'name'       => $def['name'],
+                    'action'     => "module=ModuleBuilder&action=editLayout&view={$def['type']}&view_module={$this->module}&grpLayout=" .
+                                    $groupFocus->id,
+                    'imageTitle' => $def['image'],
+                    'help'       => "viewBtn{$def['type']}",
+                    'size'       => '48'
+                );
+        }
+
+        $layout_nodes =
+            array(
+                'name'     => translate($groupFocus->name),
+                'type'     => 'Folder',
+                'children' => $group_layouts,
+                'action'   => 'module=ModuleBuilder&action=wizard&&view=layouts&view_module=' .
+                              $this->module .
+                              "&grpLayout=" .
+                              $groupFocus->id
+            );
+
+        return $layout_nodes;
+    }
+	/* END Layout Rules */
+
 
 	/* BEGIN - SECURITY GROUPS */ 
 /**

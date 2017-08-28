@@ -44,6 +44,14 @@ class ViewCreate extends SugarView{
             $metadataFile = 'custom/modules/' . $this->module . '/metadata/createviewdefs.php';
         }
         /* END - SECURITY GROUPS */
+
+        /* START Layout Rules */
+        $bean = BeanFactory::getBean("LayoutRules");
+        $metadata =  $bean->fetchLayout($this->bean, $metadataFile,'createviewdefs');
+        $metadataFile = $metadata['file'];
+        $_SESSION['groupLayout'] = $metadata['id'];
+        /* END Layout Rules */
+
         $this->cv = $this->getCreateView();
 
 

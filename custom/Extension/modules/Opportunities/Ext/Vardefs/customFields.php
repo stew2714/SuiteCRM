@@ -22,15 +22,15 @@ $dictionary['Opportunity']['fields']['sf_id_c']['source']='custom_fields';
  // Vardef Created : recordtypeid_c 
 
 $dictionary['Opportunity']['fields']['recordtypeid_c']['name']='recordtypeid_c';
-$dictionary['Opportunity']['fields']['recordtypeid_c']['len']='18';
-$dictionary['Opportunity']['fields']['recordtypeid_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['recordtypeid_c']['len']='255';
+$dictionary['Opportunity']['fields']['recordtypeid_c']['type']='enum';
+$dictionary['Opportunity']['fields']['recordtypeid_c']['options']='record_type_dom';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['recordtypeid_c']['importable']='true';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['recordtypeid_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['vname']='LBL_RECORDTYPEID_C';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['source']='custom_fields';
-
 
  // Vardef Created : closed_c 
 
