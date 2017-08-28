@@ -10,7 +10,7 @@ $dictionary['Account']['fields']['sf_id_c']['len'] = '18';
 $dictionary['Account']['fields']['sf_id_c']['size'] = '20';
 $dictionary['Account']['fields']['sf_id_c']['required'] = false;
 $dictionary['Account']['fields']['sf_id_c']['comments'] = 'Auto-created entry for field sf_id_c';
-$dictionary['Account']['fields']['sf_id_c']['vname'] = 'Sf Id';
+$dictionary['Account']['fields']['sf_id_c']['vname'] = 'SF ID';
 $dictionary['Account']['fields']['sf_id_c']['source'] = 'custom_fields';
 
 // Field: recordtypeid_c
@@ -20,7 +20,7 @@ $dictionary['Account']['fields']['recordtypeid_c']['len'] = '18';
 $dictionary['Account']['fields']['recordtypeid_c']['size'] = '20';
 $dictionary['Account']['fields']['recordtypeid_c']['required'] = false;
 $dictionary['Account']['fields']['recordtypeid_c']['comments'] = 'Auto-created entry for field recordtypeid_c';
-$dictionary['Account']['fields']['recordtypeid_c']['vname'] = 'Recordtypeid';
+$dictionary['Account']['fields']['recordtypeid_c']['vname'] = 'Record Type';
 $dictionary['Account']['fields']['recordtypeid_c']['source'] = 'custom_fields';
 
 // Field: lastactivitydate_c
@@ -40,7 +40,7 @@ $dictionary['Account']['fields']['slx_account_id_c']['len'] = '20';
 $dictionary['Account']['fields']['slx_account_id_c']['size'] = '20';
 $dictionary['Account']['fields']['slx_account_id_c']['required'] = false;
 $dictionary['Account']['fields']['slx_account_id_c']['comments'] = 'Auto-created entry for field slx_account_id_c';
-$dictionary['Account']['fields']['slx_account_id_c']['vname'] = 'Slx Account Id';
+$dictionary['Account']['fields']['slx_account_id_c']['vname'] = 'SLX Account ID';
 $dictionary['Account']['fields']['slx_account_id_c']['source'] = 'custom_fields';
 
 // Field: ha_id_c
@@ -50,7 +50,7 @@ $dictionary['Account']['fields']['ha_id_c']['len'] = '40';
 $dictionary['Account']['fields']['ha_id_c']['size'] = '20';
 $dictionary['Account']['fields']['ha_id_c']['required'] = false;
 $dictionary['Account']['fields']['ha_id_c']['comments'] = 'Auto-created entry for field ha_id_c';
-$dictionary['Account']['fields']['ha_id_c']['vname'] = 'Ha Id';
+$dictionary['Account']['fields']['ha_id_c']['vname'] = 'HA ID';
 $dictionary['Account']['fields']['ha_id_c']['source'] = 'custom_fields';
 
 // Field: sales_region_c
@@ -90,7 +90,7 @@ $dictionary['Account']['fields']['mq_classification_c']['len'] = '255';
 $dictionary['Account']['fields']['mq_classification_c']['size'] = '20';
 $dictionary['Account']['fields']['mq_classification_c']['required'] = false;
 $dictionary['Account']['fields']['mq_classification_c']['comments'] = 'Auto-created entry for field mq_classification_c';
-$dictionary['Account']['fields']['mq_classification_c']['vname'] = 'Mq Classification';
+$dictionary['Account']['fields']['mq_classification_c']['vname'] = 'M*M Classification';
 $dictionary['Account']['fields']['mq_classification_c']['source'] = 'custom_fields';
 
 // Field: staffed_beds_c
@@ -120,7 +120,7 @@ $dictionary['Account']['fields']['mq_tos_revenue_c']['len'] = '19';
 $dictionary['Account']['fields']['mq_tos_revenue_c']['size'] = '20';
 $dictionary['Account']['fields']['mq_tos_revenue_c']['required'] = false;
 $dictionary['Account']['fields']['mq_tos_revenue_c']['comments'] = 'Auto-created entry for field mq_tos_revenue_c';
-$dictionary['Account']['fields']['mq_tos_revenue_c']['vname'] = 'Mq Tos Revenue';
+$dictionary['Account']['fields']['mq_tos_revenue_c']['vname'] = 'M*M TOS Revenue';
 $dictionary['Account']['fields']['mq_tos_revenue_c']['source'] = 'custom_fields';
 
 // Field: tos_opportunity_size_c
@@ -130,7 +130,7 @@ $dictionary['Account']['fields']['tos_opportunity_size_c']['len'] = '19';
 $dictionary['Account']['fields']['tos_opportunity_size_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_opportunity_size_c']['required'] = false;
 $dictionary['Account']['fields']['tos_opportunity_size_c']['comments'] = 'Auto-created entry for field tos_opportunity_size_c';
-$dictionary['Account']['fields']['tos_opportunity_size_c']['vname'] = 'Tos Opportunity Size';
+$dictionary['Account']['fields']['tos_opportunity_size_c']['vname'] = 'TOS Opportunity Size';
 $dictionary['Account']['fields']['tos_opportunity_size_c']['source'] = 'custom_fields';
 
 // Field: ucid_c
@@ -140,7 +140,7 @@ $dictionary['Account']['fields']['ucid_c']['len'] = '255';
 $dictionary['Account']['fields']['ucid_c']['size'] = '20';
 $dictionary['Account']['fields']['ucid_c']['required'] = false;
 $dictionary['Account']['fields']['ucid_c']['comments'] = 'Auto-created entry for field ucid_c';
-$dictionary['Account']['fields']['ucid_c']['vname'] = 'Ucid';
+$dictionary['Account']['fields']['ucid_c']['vname'] = 'UCID';
 $dictionary['Account']['fields']['ucid_c']['source'] = 'custom_fields';
 
 // Field: billians_id_c
@@ -150,7 +150,7 @@ $dictionary['Account']['fields']['billians_id_c']['len'] = '10';
 $dictionary['Account']['fields']['billians_id_c']['size'] = '20';
 $dictionary['Account']['fields']['billians_id_c']['required'] = false;
 $dictionary['Account']['fields']['billians_id_c']['comments'] = 'Auto-created entry for field billians_id_c';
-$dictionary['Account']['fields']['billians_id_c']['vname'] = 'Billians Id';
+$dictionary['Account']['fields']['billians_id_c']['vname'] = 'Billians ID';
 $dictionary['Account']['fields']['billians_id_c']['source'] = 'custom_fields';
 
 // Field: medicare_id_c
@@ -160,7 +160,7 @@ $dictionary['Account']['fields']['medicare_id_c']['len'] = '20';
 $dictionary['Account']['fields']['medicare_id_c']['size'] = '20';
 $dictionary['Account']['fields']['medicare_id_c']['required'] = false;
 $dictionary['Account']['fields']['medicare_id_c']['comments'] = 'Auto-created entry for field medicare_id_c';
-$dictionary['Account']['fields']['medicare_id_c']['vname'] = 'Medicare Id';
+$dictionary['Account']['fields']['medicare_id_c']['vname'] = 'Medicare ID';
 $dictionary['Account']['fields']['medicare_id_c']['source'] = 'custom_fields';
 
 // Field: primary_gpo_c
@@ -170,7 +170,7 @@ $dictionary['Account']['fields']['primary_gpo_c']['len'] = '18';
 $dictionary['Account']['fields']['primary_gpo_c']['size'] = '20';
 $dictionary['Account']['fields']['primary_gpo_c']['required'] = false;
 $dictionary['Account']['fields']['primary_gpo_c']['comments'] = 'Auto-created entry for field primary_gpo_c';
-$dictionary['Account']['fields']['primary_gpo_c']['vname'] = 'Primary Gpo';
+$dictionary['Account']['fields']['primary_gpo_c']['vname'] = 'Primary GPO';
 $dictionary['Account']['fields']['primary_gpo_c']['source'] = 'custom_fields';
 
 // Field: imaging_exam_volume_c
@@ -190,7 +190,7 @@ $dictionary['Account']['fields']['ehr_percent_c']['len'] = '255';
 $dictionary['Account']['fields']['ehr_percent_c']['size'] = '20';
 $dictionary['Account']['fields']['ehr_percent_c']['required'] = false;
 $dictionary['Account']['fields']['ehr_percent_c']['comments'] = 'Auto-created entry for field ehr_percent_c';
-$dictionary['Account']['fields']['ehr_percent_c']['vname'] = 'Ehr Percent';
+$dictionary['Account']['fields']['ehr_percent_c']['vname'] = 'EHR Percent';
 $dictionary['Account']['fields']['ehr_percent_c']['source'] = 'custom_fields';
 
 // Field: ehr_install_date_c
@@ -200,7 +200,7 @@ $dictionary['Account']['fields']['ehr_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['ehr_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['ehr_install_date_c']['required'] = false;
 $dictionary['Account']['fields']['ehr_install_date_c']['comments'] = 'Auto-created entry for field ehr_install_date_c';
-$dictionary['Account']['fields']['ehr_install_date_c']['vname'] = 'Ehr Install Date';
+$dictionary['Account']['fields']['ehr_install_date_c']['vname'] = 'EHR Install Date';
 $dictionary['Account']['fields']['ehr_install_date_c']['source'] = 'custom_fields';
 
 // Field: mtso_1_c
@@ -210,7 +210,7 @@ $dictionary['Account']['fields']['mtso_1_c']['len'] = '18';
 $dictionary['Account']['fields']['mtso_1_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_1_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_1_c']['comments'] = 'Auto-created entry for field mtso_1_c';
-$dictionary['Account']['fields']['mtso_1_c']['vname'] = 'Mtso 1';
+$dictionary['Account']['fields']['mtso_1_c']['vname'] = 'MTSO 1';
 $dictionary['Account']['fields']['mtso_1_c']['source'] = 'custom_fields';
 
 // Field: mtso_1_percent_c
@@ -220,7 +220,7 @@ $dictionary['Account']['fields']['mtso_1_percent_c']['len'] = '19';
 $dictionary['Account']['fields']['mtso_1_percent_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_1_percent_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_1_percent_c']['comments'] = 'Auto-created entry for field mtso_1_percent_c';
-$dictionary['Account']['fields']['mtso_1_percent_c']['vname'] = 'Mtso 1 Percent';
+$dictionary['Account']['fields']['mtso_1_percent_c']['vname'] = 'MTSO 1 Percent';
 $dictionary['Account']['fields']['mtso_1_percent_c']['source'] = 'custom_fields';
 
 // Field: mtso_2_c
@@ -230,7 +230,7 @@ $dictionary['Account']['fields']['mtso_2_c']['len'] = '18';
 $dictionary['Account']['fields']['mtso_2_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_2_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_2_c']['comments'] = 'Auto-created entry for field mtso_2_c';
-$dictionary['Account']['fields']['mtso_2_c']['vname'] = 'Mtso 2';
+$dictionary['Account']['fields']['mtso_2_c']['vname'] = 'MTSO 2';
 $dictionary['Account']['fields']['mtso_2_c']['source'] = 'custom_fields';
 
 // Field: mtso_2_percent_c
@@ -240,7 +240,7 @@ $dictionary['Account']['fields']['mtso_2_percent_c']['len'] = '19';
 $dictionary['Account']['fields']['mtso_2_percent_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_2_percent_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_2_percent_c']['comments'] = 'Auto-created entry for field mtso_2_percent_c';
-$dictionary['Account']['fields']['mtso_2_percent_c']['vname'] = 'Mtso 2 Percent';
+$dictionary['Account']['fields']['mtso_2_percent_c']['vname'] = 'MTSO 2 Percent';
 $dictionary['Account']['fields']['mtso_2_percent_c']['source'] = 'custom_fields';
 
 // Field: mtso_3_c
@@ -250,7 +250,7 @@ $dictionary['Account']['fields']['mtso_3_c']['len'] = '18';
 $dictionary['Account']['fields']['mtso_3_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_3_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_3_c']['comments'] = 'Auto-created entry for field mtso_3_c';
-$dictionary['Account']['fields']['mtso_3_c']['vname'] = 'Mtso 3';
+$dictionary['Account']['fields']['mtso_3_c']['vname'] = 'MTSO 3';
 $dictionary['Account']['fields']['mtso_3_c']['source'] = 'custom_fields';
 
 // Field: mtso_3_percent_c
@@ -260,7 +260,7 @@ $dictionary['Account']['fields']['mtso_3_percent_c']['len'] = '19';
 $dictionary['Account']['fields']['mtso_3_percent_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_3_percent_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_3_percent_c']['comments'] = 'Auto-created entry for field mtso_3_percent_c';
-$dictionary['Account']['fields']['mtso_3_percent_c']['vname'] = 'Mtso 3 Percent';
+$dictionary['Account']['fields']['mtso_3_percent_c']['vname'] = 'MTSO 3 Percent';
 $dictionary['Account']['fields']['mtso_3_percent_c']['source'] = 'custom_fields';
 
 // Field: tos_contract_expiration_date_c
@@ -270,7 +270,7 @@ $dictionary['Account']['fields']['tos_contract_expiration_date_c']['len'] = '';
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['required'] = false;
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['comments'] = 'Auto-created entry for field tos_contract_expiration_date_c';
-$dictionary['Account']['fields']['tos_contract_expiration_date_c']['vname'] = 'Tos Contract Expiration Date';
+$dictionary['Account']['fields']['tos_contract_expiration_date_c']['vname'] = 'TOS Contract Expiration Date';
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['source'] = 'custom_fields';
 
 // Field: tos_budget_start_date_c
@@ -280,7 +280,7 @@ $dictionary['Account']['fields']['tos_budget_start_date_c']['len'] = '';
 $dictionary['Account']['fields']['tos_budget_start_date_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_budget_start_date_c']['required'] = false;
 $dictionary['Account']['fields']['tos_budget_start_date_c']['comments'] = 'Auto-created entry for field tos_budget_start_date_c';
-$dictionary['Account']['fields']['tos_budget_start_date_c']['vname'] = 'Tos Budget Start Date';
+$dictionary['Account']['fields']['tos_budget_start_date_c']['vname'] = 'TOS Budget Start Date';
 $dictionary['Account']['fields']['tos_budget_start_date_c']['source'] = 'custom_fields';
 
 // Field: transcription_volumemonth_c
@@ -300,7 +300,7 @@ $dictionary['Account']['fields']['transcription_uom_c']['len'] = '255';
 $dictionary['Account']['fields']['transcription_uom_c']['size'] = '20';
 $dictionary['Account']['fields']['transcription_uom_c']['required'] = false;
 $dictionary['Account']['fields']['transcription_uom_c']['comments'] = 'Auto-created entry for field transcription_uom_c';
-$dictionary['Account']['fields']['transcription_uom_c']['vname'] = 'Transcription Uom';
+$dictionary['Account']['fields']['transcription_uom_c']['vname'] = 'Transcription UOM';
 $dictionary['Account']['fields']['transcription_uom_c']['source'] = 'custom_fields';
 
 // Field: number_of_dictators_c
@@ -320,7 +320,7 @@ $dictionary['Account']['fields']['number_of_mts_c']['len'] = '19';
 $dictionary['Account']['fields']['number_of_mts_c']['size'] = '20';
 $dictionary['Account']['fields']['number_of_mts_c']['required'] = false;
 $dictionary['Account']['fields']['number_of_mts_c']['comments'] = 'Auto-created entry for field number_of_mts_c';
-$dictionary['Account']['fields']['number_of_mts_c']['vname'] = 'Number Of Mts';
+$dictionary['Account']['fields']['number_of_mts_c']['vname'] = 'Number Of MTs';
 $dictionary['Account']['fields']['number_of_mts_c']['source'] = 'custom_fields';
 
 // Field: related_facilitities_c
@@ -330,7 +330,7 @@ $dictionary['Account']['fields']['related_facilitities_c']['len'] = '255';
 $dictionary['Account']['fields']['related_facilitities_c']['size'] = '20';
 $dictionary['Account']['fields']['related_facilitities_c']['required'] = false;
 $dictionary['Account']['fields']['related_facilitities_c']['comments'] = 'Auto-created entry for field related_facilitities_c';
-$dictionary['Account']['fields']['related_facilitities_c']['vname'] = 'Related Facilitities';
+$dictionary['Account']['fields']['related_facilitities_c']['vname'] = 'Related Facilities';
 $dictionary['Account']['fields']['related_facilitities_c']['source'] = 'custom_fields';
 
 // Field: operating_expense_c
@@ -440,7 +440,7 @@ $dictionary['Account']['fields']['him_speech_rec_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['required'] = false;
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['comments'] = 'Auto-created entry for field him_speech_rec_install_date_c';
-$dictionary['Account']['fields']['him_speech_rec_install_date_c']['vname'] = 'Him Speech Rec Install Date';
+$dictionary['Account']['fields']['him_speech_rec_install_date_c']['vname'] = 'HIM Speech Rec Install Date';
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['source'] = 'custom_fields';
 
 // Field: rad_speech_rec_system_c
@@ -470,7 +470,7 @@ $dictionary['Account']['fields']['ris_c']['len'] = '255';
 $dictionary['Account']['fields']['ris_c']['size'] = '20';
 $dictionary['Account']['fields']['ris_c']['required'] = false;
 $dictionary['Account']['fields']['ris_c']['comments'] = 'Auto-created entry for field ris_c';
-$dictionary['Account']['fields']['ris_c']['vname'] = 'Ris';
+$dictionary['Account']['fields']['ris_c']['vname'] = 'RIS';
 $dictionary['Account']['fields']['ris_c']['source'] = 'custom_fields';
 
 // Field: ris_install_date_c
@@ -480,7 +480,7 @@ $dictionary['Account']['fields']['ris_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['ris_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['ris_install_date_c']['required'] = false;
 $dictionary['Account']['fields']['ris_install_date_c']['comments'] = 'Auto-created entry for field ris_install_date_c';
-$dictionary['Account']['fields']['ris_install_date_c']['vname'] = 'Ris Install Date';
+$dictionary['Account']['fields']['ris_install_date_c']['vname'] = 'RIS Install Date';
 $dictionary['Account']['fields']['ris_install_date_c']['source'] = 'custom_fields';
 
 // Field: coding_system_c
@@ -589,7 +589,7 @@ $dictionary['Account']['fields']['mq_segmentation_c']['len'] = '255';
 $dictionary['Account']['fields']['mq_segmentation_c']['size'] = '20';
 $dictionary['Account']['fields']['mq_segmentation_c']['required'] = false;
 $dictionary['Account']['fields']['mq_segmentation_c']['comments'] = 'Auto-created entry for field mq_segmentation_c';
-$dictionary['Account']['fields']['mq_segmentation_c']['vname'] = 'Mq Segmentation';
+$dictionary['Account']['fields']['mq_segmentation_c']['vname'] = 'M*M Segmentation';
 $dictionary['Account']['fields']['mq_segmentation_c']['source'] = 'custom_fields';
 
 // Field: annual_healthcare_visits_c
@@ -618,7 +618,7 @@ $dictionary['Account']['fields']['kam_c']['type'] = 'bool';
 $dictionary['Account']['fields']['kam_c']['size'] = '20';
 $dictionary['Account']['fields']['kam_c']['required'] = false;
 $dictionary['Account']['fields']['kam_c']['comments'] = 'Auto-created entry for field kam_c';
-$dictionary['Account']['fields']['kam_c']['vname'] = 'Kam';
+$dictionary['Account']['fields']['kam_c']['vname'] = 'KAM';
 $dictionary['Account']['fields']['kam_c']['source'] = 'custom_fields';
 
 // Field: levers_dials_date_c
@@ -638,7 +638,7 @@ $dictionary['Account']['fields']['pacs_c']['len'] = '255';
 $dictionary['Account']['fields']['pacs_c']['size'] = '20';
 $dictionary['Account']['fields']['pacs_c']['required'] = false;
 $dictionary['Account']['fields']['pacs_c']['comments'] = 'Auto-created entry for field pacs_c';
-$dictionary['Account']['fields']['pacs_c']['vname'] = 'Pacs';
+$dictionary['Account']['fields']['pacs_c']['vname'] = 'PACS';
 $dictionary['Account']['fields']['pacs_c']['source'] = 'custom_fields';
 
 // Field: pacs_install_date_c
@@ -648,7 +648,7 @@ $dictionary['Account']['fields']['pacs_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['pacs_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['pacs_install_date_c']['required'] = false;
 $dictionary['Account']['fields']['pacs_install_date_c']['comments'] = 'Auto-created entry for field pacs_install_date_c';
-$dictionary['Account']['fields']['pacs_install_date_c']['vname'] = 'Pacs Install Date';
+$dictionary['Account']['fields']['pacs_install_date_c']['vname'] = 'PACS Install Date';
 $dictionary['Account']['fields']['pacs_install_date_c']['source'] = 'custom_fields';
 
 // Field: escription_campaign_c
@@ -745,7 +745,7 @@ $dictionary['Account']['fields']['sk_a_id_c']['len'] = '30';
 $dictionary['Account']['fields']['sk_a_id_c']['size'] = '20';
 $dictionary['Account']['fields']['sk_a_id_c']['required'] = false;
 $dictionary['Account']['fields']['sk_a_id_c']['comments'] = 'Auto-created entry for field sk_a_id_c';
-$dictionary['Account']['fields']['sk_a_id_c']['vname'] = 'Sk A Id';
+$dictionary['Account']['fields']['sk_a_id_c']['vname'] = 'SK A ID';
 $dictionary['Account']['fields']['sk_a_id_c']['source'] = 'custom_fields';
 
 // Field: sage_id_c
@@ -755,7 +755,7 @@ $dictionary['Account']['fields']['sage_id_c']['len'] = '30';
 $dictionary['Account']['fields']['sage_id_c']['size'] = '20';
 $dictionary['Account']['fields']['sage_id_c']['required'] = false;
 $dictionary['Account']['fields']['sage_id_c']['comments'] = 'Auto-created entry for field sage_id_c';
-$dictionary['Account']['fields']['sage_id_c']['vname'] = 'Sage Id';
+$dictionary['Account']['fields']['sage_id_c']['vname'] = 'Sage ID';
 $dictionary['Account']['fields']['sage_id_c']['source'] = 'custom_fields';
 
 // Field: account_disposition_c
@@ -793,7 +793,7 @@ $dictionary['Account']['fields']['idn_mailings_campaign_c']['type'] = 'bool';
 $dictionary['Account']['fields']['idn_mailings_campaign_c']['size'] = '20';
 $dictionary['Account']['fields']['idn_mailings_campaign_c']['required'] = false;
 $dictionary['Account']['fields']['idn_mailings_campaign_c']['comments'] = 'Auto-created entry for field idn_mailings_campaign_c';
-$dictionary['Account']['fields']['idn_mailings_campaign_c']['vname'] = 'Idn Mailings Campaign';
+$dictionary['Account']['fields']['idn_mailings_campaign_c']['vname'] = 'IDN Mailings Campaign';
 $dictionary['Account']['fields']['idn_mailings_campaign_c']['source'] = 'custom_fields';
 
 // Field: isr_prospecting_c
@@ -802,7 +802,7 @@ $dictionary['Account']['fields']['isr_prospecting_c']['type'] = 'bool';
 $dictionary['Account']['fields']['isr_prospecting_c']['size'] = '20';
 $dictionary['Account']['fields']['isr_prospecting_c']['required'] = false;
 $dictionary['Account']['fields']['isr_prospecting_c']['comments'] = 'Auto-created entry for field isr_prospecting_c';
-$dictionary['Account']['fields']['isr_prospecting_c']['vname'] = 'Isr Prospecting';
+$dictionary['Account']['fields']['isr_prospecting_c']['vname'] = 'ISR Prospecting';
 $dictionary['Account']['fields']['isr_prospecting_c']['source'] = 'custom_fields';
 
 // Field: tos_target_c
@@ -811,7 +811,7 @@ $dictionary['Account']['fields']['tos_target_c']['type'] = 'bool';
 $dictionary['Account']['fields']['tos_target_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_target_c']['required'] = false;
 $dictionary['Account']['fields']['tos_target_c']['comments'] = 'Auto-created entry for field tos_target_c';
-$dictionary['Account']['fields']['tos_target_c']['vname'] = 'Tos Target';
+$dictionary['Account']['fields']['tos_target_c']['vname'] = 'TOS Target';
 $dictionary['Account']['fields']['tos_target_c']['source'] = 'custom_fields';
 
 // Field: coding_service_target_c
@@ -829,7 +829,7 @@ $dictionary['Account']['fields']['dep_target_c']['type'] = 'bool';
 $dictionary['Account']['fields']['dep_target_c']['size'] = '20';
 $dictionary['Account']['fields']['dep_target_c']['required'] = false;
 $dictionary['Account']['fields']['dep_target_c']['comments'] = 'Auto-created entry for field dep_target_c';
-$dictionary['Account']['fields']['dep_target_c']['vname'] = 'Dep Target';
+$dictionary['Account']['fields']['dep_target_c']['vname'] = 'DEP Target';
 $dictionary['Account']['fields']['dep_target_c']['source'] = 'custom_fields';
 
 // Field: cac_target_c
@@ -838,7 +838,7 @@ $dictionary['Account']['fields']['cac_target_c']['type'] = 'bool';
 $dictionary['Account']['fields']['cac_target_c']['size'] = '20';
 $dictionary['Account']['fields']['cac_target_c']['required'] = false;
 $dictionary['Account']['fields']['cac_target_c']['comments'] = 'Auto-created entry for field cac_target_c';
-$dictionary['Account']['fields']['cac_target_c']['vname'] = 'Cac Target';
+$dictionary['Account']['fields']['cac_target_c']['vname'] = 'CAC Target';
 $dictionary['Account']['fields']['cac_target_c']['source'] = 'custom_fields';
 
 // Field: dqd_target_c
@@ -847,7 +847,7 @@ $dictionary['Account']['fields']['dqd_target_c']['type'] = 'bool';
 $dictionary['Account']['fields']['dqd_target_c']['size'] = '20';
 $dictionary['Account']['fields']['dqd_target_c']['required'] = false;
 $dictionary['Account']['fields']['dqd_target_c']['comments'] = 'Auto-created entry for field dqd_target_c';
-$dictionary['Account']['fields']['dqd_target_c']['vname'] = 'Dqd Target';
+$dictionary['Account']['fields']['dqd_target_c']['vname'] = 'DQD Target';
 $dictionary['Account']['fields']['dqd_target_c']['source'] = 'custom_fields';
 
 // Field: content_server_target_c
@@ -865,7 +865,7 @@ $dictionary['Account']['fields']['sqr_target_c']['type'] = 'bool';
 $dictionary['Account']['fields']['sqr_target_c']['size'] = '20';
 $dictionary['Account']['fields']['sqr_target_c']['required'] = false;
 $dictionary['Account']['fields']['sqr_target_c']['comments'] = 'Auto-created entry for field sqr_target_c';
-$dictionary['Account']['fields']['sqr_target_c']['vname'] = 'Sqr Target';
+$dictionary['Account']['fields']['sqr_target_c']['vname'] = 'SQR Target';
 $dictionary['Account']['fields']['sqr_target_c']['source'] = 'custom_fields';
 
 // Field: notifi_target_c
@@ -892,7 +892,7 @@ $dictionary['Account']['fields']['tos_customer_c']['type'] = 'bool';
 $dictionary['Account']['fields']['tos_customer_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_customer_c']['required'] = false;
 $dictionary['Account']['fields']['tos_customer_c']['comments'] = 'Auto-created entry for field tos_customer_c';
-$dictionary['Account']['fields']['tos_customer_c']['vname'] = 'Tos Customer';
+$dictionary['Account']['fields']['tos_customer_c']['vname'] = 'TOS Customer';
 $dictionary['Account']['fields']['tos_customer_c']['source'] = 'custom_fields';
 
 // Field: latitude_c
@@ -941,7 +941,7 @@ $dictionary['Account']['fields']['isr_rad_prospecting_c']['type'] = 'bool';
 $dictionary['Account']['fields']['isr_rad_prospecting_c']['size'] = '20';
 $dictionary['Account']['fields']['isr_rad_prospecting_c']['required'] = false;
 $dictionary['Account']['fields']['isr_rad_prospecting_c']['comments'] = 'Auto-created entry for field isr_rad_prospecting_c';
-$dictionary['Account']['fields']['isr_rad_prospecting_c']['vname'] = 'Isr Rad Prospecting';
+$dictionary['Account']['fields']['isr_rad_prospecting_c']['vname'] = 'ISR Rad Prospecting';
 $dictionary['Account']['fields']['isr_rad_prospecting_c']['source'] = 'custom_fields';
 
 // Field: fed_department_c
@@ -971,7 +971,7 @@ $dictionary['Account']['fields']['ehr_c']['len'] = '100';
 $dictionary['Account']['fields']['ehr_c']['size'] = '20';
 $dictionary['Account']['fields']['ehr_c']['required'] = false;
 $dictionary['Account']['fields']['ehr_c']['comments'] = 'Auto-created entry for field ehr_c';
-$dictionary['Account']['fields']['ehr_c']['vname'] = 'Ehr';
+$dictionary['Account']['fields']['ehr_c']['vname'] = 'EHR';
 $dictionary['Account']['fields']['ehr_c']['source'] = 'custom_fields';
 
 // Field: years_in_business_c
@@ -1000,7 +1000,7 @@ $dictionary['Account']['fields']['idn_affiliated_c']['type'] = 'bool';
 $dictionary['Account']['fields']['idn_affiliated_c']['size'] = '20';
 $dictionary['Account']['fields']['idn_affiliated_c']['required'] = false;
 $dictionary['Account']['fields']['idn_affiliated_c']['comments'] = 'Auto-created entry for field idn_affiliated_c';
-$dictionary['Account']['fields']['idn_affiliated_c']['vname'] = 'Idn Affiliated';
+$dictionary['Account']['fields']['idn_affiliated_c']['vname'] = 'IDN Affiliated';
 $dictionary['Account']['fields']['idn_affiliated_c']['source'] = 'custom_fields';
 
 // Field: deactivated_c
@@ -1029,7 +1029,7 @@ $dictionary['Account']['fields']['dh_id_c']['len'] = '40';
 $dictionary['Account']['fields']['dh_id_c']['size'] = '20';
 $dictionary['Account']['fields']['dh_id_c']['required'] = false;
 $dictionary['Account']['fields']['dh_id_c']['comments'] = 'Auto-created entry for field dh_id_c';
-$dictionary['Account']['fields']['dh_id_c']['vname'] = 'Dh Id';
+$dictionary['Account']['fields']['dh_id_c']['vname'] = 'DH Id';
 $dictionary['Account']['fields']['dh_id_c']['source'] = 'custom_fields';
 
 // Field: current_cdi_vendor_c
@@ -1039,7 +1039,7 @@ $dictionary['Account']['fields']['current_cdi_vendor_c']['len'] = '255';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['size'] = '20';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['required'] = false;
 $dictionary['Account']['fields']['current_cdi_vendor_c']['comments'] = 'Auto-created entry for field current_cdi_vendor_c';
-$dictionary['Account']['fields']['current_cdi_vendor_c']['vname'] = 'Current Cdi Vendor';
+$dictionary['Account']['fields']['current_cdi_vendor_c']['vname'] = 'Current CDI Vendor';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['source'] = 'custom_fields';
 
 // Field: cdi_buyer_c
@@ -1049,7 +1049,7 @@ $dictionary['Account']['fields']['cdi_buyer_c']['len'] = '50';
 $dictionary['Account']['fields']['cdi_buyer_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_buyer_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_buyer_c']['comments'] = 'Auto-created entry for field cdi_buyer_c';
-$dictionary['Account']['fields']['cdi_buyer_c']['vname'] = 'Cdi Buyer';
+$dictionary['Account']['fields']['cdi_buyer_c']['vname'] = 'CDI Buyer';
 $dictionary['Account']['fields']['cdi_buyer_c']['source'] = 'custom_fields';
 
 // Field: cdi_buyer_title_c
@@ -1059,7 +1059,7 @@ $dictionary['Account']['fields']['cdi_buyer_title_c']['len'] = '50';
 $dictionary['Account']['fields']['cdi_buyer_title_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_buyer_title_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_buyer_title_c']['comments'] = 'Auto-created entry for field cdi_buyer_title_c';
-$dictionary['Account']['fields']['cdi_buyer_title_c']['vname'] = 'Cdi Buyer Title';
+$dictionary['Account']['fields']['cdi_buyer_title_c']['vname'] = 'CDI Buyer Title';
 $dictionary['Account']['fields']['cdi_buyer_title_c']['source'] = 'custom_fields';
 
 // Field: cdi_status_c
@@ -1069,7 +1069,7 @@ $dictionary['Account']['fields']['cdi_status_c']['len'] = '255';
 $dictionary['Account']['fields']['cdi_status_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_status_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_status_c']['comments'] = 'Auto-created entry for field cdi_status_c';
-$dictionary['Account']['fields']['cdi_status_c']['vname'] = 'Cdi Status';
+$dictionary['Account']['fields']['cdi_status_c']['vname'] = 'CDI Status';
 $dictionary['Account']['fields']['cdi_status_c']['source'] = 'custom_fields';
 
 // Field: cdi_comments_c
@@ -1079,7 +1079,7 @@ $dictionary['Account']['fields']['cdi_comments_c']['len'] = '255';
 $dictionary['Account']['fields']['cdi_comments_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_comments_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_comments_c']['comments'] = 'Auto-created entry for field cdi_comments_c';
-$dictionary['Account']['fields']['cdi_comments_c']['vname'] = 'Cdi Comments';
+$dictionary['Account']['fields']['cdi_comments_c']['vname'] = 'CDI Comments';
 $dictionary['Account']['fields']['cdi_comments_c']['source'] = 'custom_fields';
 
 // Field: cdi_comment_date_c
@@ -1089,7 +1089,7 @@ $dictionary['Account']['fields']['cdi_comment_date_c']['len'] = '';
 $dictionary['Account']['fields']['cdi_comment_date_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_comment_date_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_comment_date_c']['comments'] = 'Auto-created entry for field cdi_comment_date_c';
-$dictionary['Account']['fields']['cdi_comment_date_c']['vname'] = 'Cdi Comment Date';
+$dictionary['Account']['fields']['cdi_comment_date_c']['vname'] = 'CDI Comment Date';
 $dictionary['Account']['fields']['cdi_comment_date_c']['source'] = 'custom_fields';
 
 // Field: cdi_target_c
@@ -1098,7 +1098,7 @@ $dictionary['Account']['fields']['cdi_target_c']['type'] = 'bool';
 $dictionary['Account']['fields']['cdi_target_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_target_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_target_c']['comments'] = 'Auto-created entry for field cdi_target_c';
-$dictionary['Account']['fields']['cdi_target_c']['vname'] = 'Cdi Target';
+$dictionary['Account']['fields']['cdi_target_c']['vname'] = 'CDI Target';
 $dictionary['Account']['fields']['cdi_target_c']['source'] = 'custom_fields';
 
 // Field: tos_rad_opp_size_c
@@ -1108,7 +1108,7 @@ $dictionary['Account']['fields']['tos_rad_opp_size_c']['len'] = '19';
 $dictionary['Account']['fields']['tos_rad_opp_size_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_rad_opp_size_c']['required'] = false;
 $dictionary['Account']['fields']['tos_rad_opp_size_c']['comments'] = 'Auto-created entry for field tos_rad_opp_size_c';
-$dictionary['Account']['fields']['tos_rad_opp_size_c']['vname'] = 'Tos Rad Opp Size';
+$dictionary['Account']['fields']['tos_rad_opp_size_c']['vname'] = 'TOS Rad Opp Size';
 $dictionary['Account']['fields']['tos_rad_opp_size_c']['source'] = 'custom_fields';
 
 // Field: fd_id_c
@@ -1118,7 +1118,7 @@ $dictionary['Account']['fields']['fd_id_c']['len'] = '6';
 $dictionary['Account']['fields']['fd_id_c']['size'] = '20';
 $dictionary['Account']['fields']['fd_id_c']['required'] = false;
 $dictionary['Account']['fields']['fd_id_c']['comments'] = 'Auto-created entry for field fd_id_c';
-$dictionary['Account']['fields']['fd_id_c']['vname'] = 'Fd Id';
+$dictionary['Account']['fields']['fd_id_c']['vname'] = 'FD ID';
 $dictionary['Account']['fields']['fd_id_c']['source'] = 'custom_fields';
 
 // Field: parent_owner_c
@@ -1137,7 +1137,7 @@ $dictionary['Account']['fields']['cdi_tos_check_c']['type'] = 'bool';
 $dictionary['Account']['fields']['cdi_tos_check_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_tos_check_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_tos_check_c']['comments'] = 'Auto-created entry for field cdi_tos_check_c';
-$dictionary['Account']['fields']['cdi_tos_check_c']['vname'] = 'Cdi Tos Check';
+$dictionary['Account']['fields']['cdi_tos_check_c']['vname'] = 'CDI TOS Check';
 $dictionary['Account']['fields']['cdi_tos_check_c']['source'] = 'custom_fields';
 
 // Field: parent_account_name_v2_c
@@ -1156,7 +1156,7 @@ $dictionary['Account']['fields']['cdi_target_w_fd_c']['type'] = 'bool';
 $dictionary['Account']['fields']['cdi_target_w_fd_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_target_w_fd_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_target_w_fd_c']['comments'] = 'Auto-created entry for field cdi_target_w_fd_c';
-$dictionary['Account']['fields']['cdi_target_w_fd_c']['vname'] = 'Cdi Target W Fd';
+$dictionary['Account']['fields']['cdi_target_w_fd_c']['vname'] = 'CDI Target W Fd';
 $dictionary['Account']['fields']['cdi_target_w_fd_c']['source'] = 'custom_fields';
 
 // Field: imaging_owner_c
@@ -1176,7 +1176,7 @@ $dictionary['Account']['fields']['it_region_c']['len'] = '100';
 $dictionary['Account']['fields']['it_region_c']['size'] = '20';
 $dictionary['Account']['fields']['it_region_c']['required'] = false;
 $dictionary['Account']['fields']['it_region_c']['comments'] = 'Auto-created entry for field it_region_c';
-$dictionary['Account']['fields']['it_region_c']['vname'] = 'It Region';
+$dictionary['Account']['fields']['it_region_c']['vname'] = 'IT Region';
 $dictionary['Account']['fields']['it_region_c']['source'] = 'custom_fields';
 
 // Field: pa_rad_c
@@ -1186,7 +1186,7 @@ $dictionary['Account']['fields']['pa_rad_c']['len'] = '20';
 $dictionary['Account']['fields']['pa_rad_c']['size'] = '20';
 $dictionary['Account']['fields']['pa_rad_c']['required'] = false;
 $dictionary['Account']['fields']['pa_rad_c']['comments'] = 'Auto-created entry for field pa_rad_c';
-$dictionary['Account']['fields']['pa_rad_c']['vname'] = 'Pa Rad';
+$dictionary['Account']['fields']['pa_rad_c']['vname'] = 'PA Rad';
 $dictionary['Account']['fields']['pa_rad_c']['source'] = 'custom_fields';
 
 // Field: rad_rep_c
@@ -1216,7 +1216,7 @@ $dictionary['Account']['fields']['ig_id_c']['len'] = '';
 $dictionary['Account']['fields']['ig_id_c']['size'] = '20';
 $dictionary['Account']['fields']['ig_id_c']['required'] = false;
 $dictionary['Account']['fields']['ig_id_c']['comments'] = 'Auto-created entry for field ig_id_c';
-$dictionary['Account']['fields']['ig_id_c']['vname'] = 'Ig Id';
+$dictionary['Account']['fields']['ig_id_c']['vname'] = 'IG Id';
 $dictionary['Account']['fields']['ig_id_c']['source'] = 'custom_fields';
 
 // Field: rad_campaign_c
@@ -1255,7 +1255,7 @@ $dictionary['Account']['fields']['pitt_id_c']['len'] = '20';
 $dictionary['Account']['fields']['pitt_id_c']['size'] = '20';
 $dictionary['Account']['fields']['pitt_id_c']['required'] = false;
 $dictionary['Account']['fields']['pitt_id_c']['comments'] = 'Auto-created entry for field pitt_id_c';
-$dictionary['Account']['fields']['pitt_id_c']['vname'] = 'Pitt Id';
+$dictionary['Account']['fields']['pitt_id_c']['vname'] = 'Pitt ID';
 $dictionary['Account']['fields']['pitt_id_c']['source'] = 'custom_fields';
 
 // Field: zba_sss_c
@@ -1265,7 +1265,7 @@ $dictionary['Account']['fields']['zba_sss_c']['len'] = '10';
 $dictionary['Account']['fields']['zba_sss_c']['size'] = '20';
 $dictionary['Account']['fields']['zba_sss_c']['required'] = false;
 $dictionary['Account']['fields']['zba_sss_c']['comments'] = 'Auto-created entry for field zba_sss_c';
-$dictionary['Account']['fields']['zba_sss_c']['vname'] = 'Zba Sss';
+$dictionary['Account']['fields']['zba_sss_c']['vname'] = 'ZBA SSS';
 $dictionary['Account']['fields']['zba_sss_c']['source'] = 'custom_fields';
 
 // Field: new_region_c
@@ -1304,7 +1304,7 @@ $dictionary['Account']['fields']['nih_rating_c']['len'] = '255';
 $dictionary['Account']['fields']['nih_rating_c']['size'] = '20';
 $dictionary['Account']['fields']['nih_rating_c']['required'] = false;
 $dictionary['Account']['fields']['nih_rating_c']['comments'] = 'Auto-created entry for field nih_rating_c';
-$dictionary['Account']['fields']['nih_rating_c']['vname'] = 'Nih Rating';
+$dictionary['Account']['fields']['nih_rating_c']['vname'] = 'NIH Rating';
 $dictionary['Account']['fields']['nih_rating_c']['source'] = 'custom_fields';
 
 // Field: id_c
@@ -1324,7 +1324,7 @@ $dictionary['Account']['fields']['crm_c']['len'] = '30';
 $dictionary['Account']['fields']['crm_c']['size'] = '20';
 $dictionary['Account']['fields']['crm_c']['required'] = false;
 $dictionary['Account']['fields']['crm_c']['comments'] = 'Auto-created entry for field crm_c';
-$dictionary['Account']['fields']['crm_c']['vname'] = 'Crm';
+$dictionary['Account']['fields']['crm_c']['vname'] = 'CRM';
 $dictionary['Account']['fields']['crm_c']['source'] = 'custom_fields';
 
 // Field: corporate_owner_name_c
@@ -1364,7 +1364,7 @@ $dictionary['Account']['fields']['ip_days_c']['len'] = '19';
 $dictionary['Account']['fields']['ip_days_c']['size'] = '20';
 $dictionary['Account']['fields']['ip_days_c']['required'] = false;
 $dictionary['Account']['fields']['ip_days_c']['comments'] = 'Auto-created entry for field ip_days_c';
-$dictionary['Account']['fields']['ip_days_c']['vname'] = 'Ip Days';
+$dictionary['Account']['fields']['ip_days_c']['vname'] = 'IP Days';
 $dictionary['Account']['fields']['ip_days_c']['source'] = 'custom_fields';
 
 // Field: op_visits_c
@@ -1374,7 +1374,7 @@ $dictionary['Account']['fields']['op_visits_c']['len'] = '19';
 $dictionary['Account']['fields']['op_visits_c']['size'] = '20';
 $dictionary['Account']['fields']['op_visits_c']['required'] = false;
 $dictionary['Account']['fields']['op_visits_c']['comments'] = 'Auto-created entry for field op_visits_c';
-$dictionary['Account']['fields']['op_visits_c']['vname'] = 'Op Visits';
+$dictionary['Account']['fields']['op_visits_c']['vname'] = 'OP Visits';
 $dictionary['Account']['fields']['op_visits_c']['source'] = 'custom_fields';
 
 // Field: parent_classification_c
@@ -1403,7 +1403,7 @@ $dictionary['Account']['fields']['est_2013_tos_rev_c']['len'] = '19';
 $dictionary['Account']['fields']['est_2013_tos_rev_c']['size'] = '20';
 $dictionary['Account']['fields']['est_2013_tos_rev_c']['required'] = false;
 $dictionary['Account']['fields']['est_2013_tos_rev_c']['comments'] = 'Auto-created entry for field est_2013_tos_rev_c';
-$dictionary['Account']['fields']['est_2013_tos_rev_c']['vname'] = 'Est 2013 Tos Rev';
+$dictionary['Account']['fields']['est_2013_tos_rev_c']['vname'] = 'Est 2013 TOS Rev';
 $dictionary['Account']['fields']['est_2013_tos_rev_c']['source'] = 'custom_fields';
 
 // Field: revenue_c
@@ -1571,7 +1571,7 @@ $dictionary['Account']['fields']['er_visits_c']['len'] = '19';
 $dictionary['Account']['fields']['er_visits_c']['size'] = '20';
 $dictionary['Account']['fields']['er_visits_c']['required'] = false;
 $dictionary['Account']['fields']['er_visits_c']['comments'] = 'Auto-created entry for field er_visits_c';
-$dictionary['Account']['fields']['er_visits_c']['vname'] = 'Er Visits';
+$dictionary['Account']['fields']['er_visits_c']['vname'] = 'ER Visits';
 $dictionary['Account']['fields']['er_visits_c']['source'] = 'custom_fields';
 
 // Field: number_of_physicians_c

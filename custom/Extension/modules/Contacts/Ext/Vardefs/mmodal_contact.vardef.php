@@ -207,7 +207,7 @@ $dictionary['Contact']['fields']['vip_account_c']['type'] = 'bool';
 $dictionary['Contact']['fields']['vip_account_c']['size'] = '20';
 $dictionary['Contact']['fields']['vip_account_c']['required'] = false;
 $dictionary['Contact']['fields']['vip_account_c']['comments'] = 'Auto-created entry for field vip_account_c';
-$dictionary['Contact']['fields']['vip_account_c']['vname'] = 'Vip Account';
+$dictionary['Contact']['fields']['vip_account_c']['vname'] = 'VIP Account';
 $dictionary['Contact']['fields']['vip_account_c']['source'] = 'custom_fields';
 
 ?>
