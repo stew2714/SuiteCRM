@@ -1,11 +1,12 @@
 <?php
-/**
- *
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+/*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- *
- * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -36,17 +37,28 @@
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- */
+ ********************************************************************************/
 
- if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
+class LayoutRulesViewDetail extends ViewDetail
+{
+ 	public function __construct()
+ 	{
+ 		parent::__construct();
+ 	}
 
-global $mod_strings, $app_strings, $sugar_config;
- 
-if(ACLController::checkAccess('Layouts', 'edit', true)){
-    $module_menu[]=array('index.php?module=Layouts&action=EditView&return_module=Layouts&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'Layouts');
-}
-if(ACLController::checkAccess('Layouts', 'list', true)){
-    $module_menu[]=array('index.php?module=Layouts&action=index&return_module=Layouts&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'Layouts');
+ 	public function preDisplay()
+    {
+        global $app_list_strings;
+
+        $app_list_strings['layout_list'] = array("default" => "Default");
+
+        $bean = BeanFactory::getBean("Layouts");
+        $layoutList = $bean->get_full_list("", "layouts.flow_module = '" . $this->bean->flow_module . "'");
+        foreach($layoutList as $layout){
+               $app_list_strings['layout_list'][ $layout->id ] = $layout->name;
+        }
+        asort($app_list_strings['layout_list']);
+        parent::preDisplay();
+    }
+
 }
