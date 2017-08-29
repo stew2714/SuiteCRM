@@ -284,6 +284,15 @@ array (
             'name' => 'g1_group_queue_leads_name',
           ),
         ),
+        17 => 
+        array (
+          0 => 
+          array (
+            'name' => 'addwords_c',
+            'label' => 'LBL_ADDWORDS',
+          ),
+          1 => '',
+        ),
       ),
       'LBL_PANEL_ADVANCED' => 
       array (

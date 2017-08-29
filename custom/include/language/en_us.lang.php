@@ -275,3 +275,85 @@ $GLOBALS['app_list_strings']['lead_rating_dom']=array (
   'Hot' => 'Hot',
   'Cold' => 'Cold',
 );
+$GLOBALS['app_list_strings']['acct_fed_agency_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_cdi_vendor_list']=array (
+  '' => '',
+  '3M' => '3M',
+  'Chartwise' => 'Chartwise',
+  'Claro' => 'Claro',
+  'Huron' => 'Huron',
+  'JATA' => 'JATA',
+  'Optum' => 'Optum',
+);
+$GLOBALS['app_list_strings']['acct_fed_dpmt_list']=array (
+  '' => '',
+  'DoD' => 'DoD',
+  'IHS' => 'IHS',
+  'VAMC' => 'VAMC',
+);
+$GLOBALS['app_list_strings']['acct_mm_segment_list']=array (
+  '' => '',
+  'Actively_Engaged' => 'Actively Engaged',
+  'High_Priority_Prospect' => 'High Priority Prospect',
+  'Inactive' => 'Inactive',
+  'Low_Priority_Prospect' => 'Low Priority Prospect',
+  'Partial_TOS_Customer' => 'Partial TOS Customer',
+  'Standard_Prospect' => 'Standard Prospect',
+  'Total_TOS_Customer' => 'Total TOS Customer',
+);
+$GLOBALS['app_list_strings']['acct_profit_list']=array (
+  '' => '',
+  'Profit' => 'For Profit',
+  'Non_Profit' => 'Not For Profit',
+);
+$GLOBALS['app_list_strings']['acct_tos_uom_list']=array (
+  '' => '',
+  '65Char_ASCII_w_HF' => '65-Char ASCII w/H&F',
+  '65Char_ASCII_wo_HF' => '65-Char ASCII w/o H&F',
+  '65Char_VBC_w_HF' => '65-Char VBC w/H&F',
+  '65Char_VBC_wo_HF' => '65-Char VBC w/o H&F',
+  'Reports' => 'Reports',
+  'Seconds_of_Dictation' => 'Seconds of Dictation',
+  'VBC_w_HF' => 'VBC w/H&F',
+  'VBC_wo_HF' => 'VBC w/o H&F',
+);
+
+$GLOBALS['app_list_strings']['acct_cdi_status_list']=array (
+  '' => '',
+  'Engaged' => 'Engaged - Efforts to reach prospect have been made',
+  'Inactive' => 'Inactive - No opportunity is present',
+  'Lost' => 'Lost - Competitive decision was made in favor of another vendor',
+  'Pipeline' => 'Pipeline - Prospect was receptive of CDI and an opp has been created',
+  'Won' => 'Won - A CDI opportunity closed in this account',
+);
+$GLOBALS['app_list_strings']['acct_ehr_percent_list']=array (
+  '' => '',
+  '0_25' => '0-25%',
+  '26_50' => '26-50%',
+  '51_75' => '51-75%',
+  '76_100' => '76-100%',
+);
+$GLOBALS['app_list_strings']['acct_voice_cap_sys_list']=array (
+  '' => '',
+  '3M' => '3M',
+  'Dolbey' => 'Dolbey',
+  'MM_DQV' => 'M*Modal DQV',
+  'MM_Legacy' => 'M*Modal Legacy',
+  'Nuance_eScriptions' => 'Nuance - eScriptions',
+  'Nuance_Ichart' => 'Nuance - Ichart',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['acct_tos_sys_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_speech_rec_sys_list']=array (
+  '' => '',
+  'MModal' => 'M*Modal',
+  'Nuance_Dragon' => 'Nuance Dragon',
+  'Other' => 'Other',
+  'SpeechQ' => 'SpeechQ',
+);
+$app_strings['LBL_GROUPTAB5_1491298541'] = 'Training';
+?>
