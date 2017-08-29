@@ -375,8 +375,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'outsource_mtso_1_c',
-            'label' => 'LBL_OUTSOURCE_MTSO_1_C',
+            'name' => 'outsource_mtso_1_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_OUTSOURCE_MTSO_1_NAME_C',
           ),
           1 => 
           array (
@@ -388,8 +389,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'outsource_mtso_2_c',
-            'label' => 'LBL_OUTSOURCE_MTSO_2_C',
+            'name' => 'outsource_mtso_2_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_OUTSOURCE_MTSO_2_NAME_C',
           ),
           1 => 
           array (
@@ -401,8 +403,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'outsource_mtso_3_c',
-            'label' => 'LBL_OUTSOURCE_MTSO_3_C',
+            'name' => 'outsource_mtso_3_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_OUTSOURCE_MTSO_3_NAME_C',
           ),
           1 => 
           array (
