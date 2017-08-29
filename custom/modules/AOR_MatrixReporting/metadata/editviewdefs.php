@@ -27,6 +27,9 @@ array (
         array (
           'file' => 'modules/AOR_MatrixReporting/js/EditView.js',
         ),
+          array (
+              'file' => 'custom/modules/AOR_Reports/preview.js',
+          ),
       ),
       'useTabs' => true,
       'tabDefs' => 

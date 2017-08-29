@@ -27,6 +27,9 @@ $viewdefs [$module_name] =
                                     array (
                                         'file' => 'modules/AOR_MatrixReporting/js/EditView.js',
                                     ),
+                                array (
+                                    'file' => 'custom/modules/AOR_Reports/preview.js',
+                                ),
                             ),
                         'useTabs' => false,
                         'tabDefs' =>
