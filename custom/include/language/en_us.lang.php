@@ -226,22 +226,6 @@ $GLOBALS['app_list_strings']['facility_type_list']=array (
   'SA' => 'Sub-Acute',
   'SC' => 'Surgery Center',
 );
-$GLOBALS['app_list_strings']['partner_list_dom']=array (
-  'None' => 'None',
-);
-
-$GLOBALS['app_list_strings']['ae_region_dom']=array (
-  'None' => 'None',
-);
-$GLOBALS['app_list_strings']['sales_forecasting_dom']=array (
-  'None' => 'None',
-);
-$GLOBALS['app_list_strings']['sales_forecast_cat_dom']=array (
-  'None' => 'None',
-);
-$GLOBALS['app_list_strings']['bankruptcy_hold_dom']=array (
-  'None' => 'None',
-);
 $app_list_strings['moduleList']['C1_Cust_Contacts1']='Cust_Contacts';
 $app_list_strings['moduleListSingular']['C1_Cust_Contacts1']='Cust_Contacts';
 $GLOBALS['app_list_strings']['ae_region_list']=array (
@@ -356,4 +340,145 @@ $GLOBALS['app_list_strings']['acct_speech_rec_sys_list']=array (
   'SpeechQ' => 'SpeechQ',
 );
 $app_strings['LBL_GROUPTAB5_1491298541'] = 'Training';
-?>
+
+$GLOBALS['app_list_strings']['partner_list_dom']=array (
+  'None' => 'None',
+  'Allscripts' => 'Allscripts',
+  'Anthelio' => 'Anthelio',
+  'Athena' => 'Athena',
+  'Big_Hand' => 'Big Hand',
+  'Claro' => 'Claro',
+  'Cymetrix' => 'Cymetrix',
+  'eClinical_Works' => 'eClinical Works',
+  'Epic' => 'Epic',
+  'Greenway' => 'Greenway',
+  'Lanier_Australia' => 'Lanier Australia',
+  'Lanier_Canada' => 'Lanier Canada',
+  'McKesson' => 'McKesson',
+  'Medhost' => 'Medhost',
+  'Medicalis' => 'Medicalis',
+  'Meditech' => 'Meditech',
+  'Merge' => 'Merge',
+  'NetSmart' => 'NetSmart',
+  'Notifi' => 'Notifi',
+  'Novarad' => 'Novarad',
+  'Optum' => 'Optum',
+  'Other' => 'Other',
+  'Siemens' => 'Siemens',
+  'Van_Ausdall' => 'Van Ausdall',
+  'Winscribe' => 'Winscribe',
+);
+$GLOBALS['app_list_strings']['ae_region_dom']=array (
+  'None' => 'None',
+  'Ambulatory' => 'Ambulatory',
+  'Canada' => 'Canada',
+  'Federal' => 'Federal',
+  'Imaging' => 'Imaging',
+  'Practices' => 'Practices',
+  'SS_North' => 'SS North',
+  'SS_South' => 'SS South',
+  'SS_West' => 'SS West',
+  'ZBA_North' => 'ZBA North',
+  'ZBA_South' => 'ZBA South',
+  'ZBA_West' => 'ZBA West',
+  'KA' => 'KA',
+  'UK' => 'UK',
+  'AU' => 'AU',
+  'Int_Other' => 'Int Other',
+);
+
+$GLOBALS['app_list_strings']['sales_leadership_dom']=array (
+  'None' => 'None',
+  'Bill' => 'Bill',
+  'Jason' => 'Jason',
+  'Mike' => 'Mike',
+  'Mark' => 'Mark',
+  'Ray' => 'Ray',
+);
+$GLOBALS['app_list_strings']['sales_stage_dom']=array (
+  'None' => 'None',
+  'Lead' => 'Lead',
+  'Closed_No_Opp' => 'Closed - No Oppty',
+  'Closed Nurturing' => 'Closed Nurturing',
+);
+$GLOBALS['app_list_strings']['sales_forecast_cat_dom']=array (
+  'None' => 'None',
+  'Ommitted' => 'Ommitted',
+  'Pipeline' => 'Pipeline',
+  'Best_Case' => 'Best Case',
+  'Commit' => 'Commit',
+);
+$GLOBALS['app_list_strings']['sales_forecasting_dom']=array (
+  'None' => 'None',
+  'Commit' => 'Commit',
+  'Backup' => 'Backup',
+  'Stretch' => 'Stretch',
+);
+$GLOBALS['app_list_strings']['bankruptcy_hold_dom']=array (
+  'None' => 'None',
+  'Yes' => 'Yes',
+);
+$GLOBALS['app_list_strings']['coding_specialist_dom']=array (
+  'None' => 'None',
+);
+
+$GLOBALS['app_list_strings']['coding_specialty_dom']=array (
+  'None' => 'None',
+  'ED_Facility_Coding' => 'ED Facility Coding',
+  'Inpatient_Facility_Coding' => 'Inpatient Facility Coding',
+  'Interventional_Radiology' => 'Interventional Radiology/Cardiology Coding',
+  'Outpatient_Facility_Coding' => 'Outpatient/Ambulatory Facility Coding',
+  'Outpatient_Surgery_Coding' => 'Outpatient Surgery Coding',
+  'Professional_Fee_Coding' => 'Professional Fee Coding',
+);
+$GLOBALS['app_list_strings']['incumbent_uom_dom']=array (
+  'None' => 'None',
+  'VBC_HF' => 'VBC w/H&F',
+  'VBC_No_HF' => 'VBC w/o H&F',
+  '65_Char_VBC_HF' => '65-Char VBC w/H&F',
+  '65_Char_VBC_No_HF' => '65-Char VBC w/o H&F',
+  '65_Char_ASCII_HF' => '65-Char ASCII w/H&F',
+  '65_Char_ASCII_No_HF' => '65-Char ASCII w/o H&F',
+  'Seconds_of_Dictation' => 'Seconds of Dictation',
+  'Reports' => 'Reports',
+  'Gross_Lines' => 'Gross Lines',
+  'Exams' => 'Exams',
+);
+$GLOBALS['app_list_strings']['winner_uom_dom']=array (
+  'None' => 'None',
+  'VBC_HF' => 'VBC w/H&F',
+  'VBC_No_HF' => 'VBC w/o H&F',
+  '65_Char_VBC_HF' => '65-Char VBC w/H&F',
+  '65_Char_VBC_No_HF' => '65-Char VBC w/o H&F',
+  '65_Char_ASCII_HF' => '65-Char ASCII w/H&F',
+  '65_Char_ASCII_No_HF' => '65-Char ASCII w/o H&F',
+  'Seconds_of_Dictation' => 'Seconds of Dictation',
+  'Reports' => 'Reports',
+  'Gross_Lines' => 'Gross Lines',
+  'Exams' => 'Exams',
+);
+$GLOBALS['app_list_strings']['contract_dropdown_dom']=array (
+  'None' => 'None',
+  'Master_Agreement' => 'Master Agreement',
+  'Amendment' => 'Amendment',
+  'Participitation_Form' => 'Participitation Form',
+  'Purchase_Order' => 'Purchase Order',
+  'Work_Request' => 'Work Request',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['contract_term_dom']=array (
+  'None' => 'None',
+  '1yr' => '1 Year',
+  '2yr' => '2 Year',
+  '3yr' => '3 Year',
+  '3yr_Locked' => '3 Year Locked-in',
+  '4yr' => '4 Year',
+  '5yr' => '5 Year',
+  '6yr' => '6 Year',
+  '7yr' => '7 Year',
+  '8yr' => '8 Year',
+  '9yr' => '9 Year',
+  '10yr' => '10 Year',
+  'No_Term' => 'No Term',
+  'Other' => 'Other',
+);
