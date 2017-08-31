@@ -1,7 +1,7 @@
 <?php
 /**
- * Advanced OpenWorkflow, Automating SugarCRM.
- * @package Advanced OpenWorkflow for SugarCRM
+ * Advanced OpenReports, SugarCRM Reporting.
+ * @package Advanced OpenReports for SugarCRM
  * @copyright SalesAgility Ltd http://www.salesagility.com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,11 +29,11 @@ function display_condition_lines($focus, $field, $value, $view){
 
     $html = '';
 
-    if (!is_file('cache/jsLanguage/AOW_Conditions/' . $GLOBALS['current_language'] . '.js')) {
+    if (!is_file('cache/jsLanguage/AOMR_Conditions/' . $GLOBALS['current_language'] . '.js')) {
         require_once ('include/language/jsLanguage.php');
-        jsLanguage::createModuleStringsCache('AOW_Conditions', $GLOBALS['current_language']);
+        jsLanguage::createModuleStringsCache('AOMR_Conditions', $GLOBALS['current_language']);
     }
-    $html .= '<script src="cache/jsLanguage/AOW_Conditions/'. $GLOBALS['current_language'] . '.js"></script>';
+    $html .= '<script src="cache/jsLanguage/AOMR_Conditions/'. $GLOBALS['current_language'] . '.js"></script>';
 
     if($view == 'EditView'){
 
@@ -48,8 +48,7 @@ function display_condition_lines($focus, $field, $value, $view){
         if(isset($focus->report_module) && $focus->report_module != ''){
             require_once("modules/AOW_WorkFlow/aow_utils.php");
             $html .= "<script>";
-            $html .= "flow_rel_modules = \"".trim(preg_replace('/\s+/', ' ', getModuleRelationships($focus->report_module)))."\";";
-            $html .= "flow_module = \"".$focus->report_module."\";";
+            $html .= "report_module = \"".$focus->report_module."\";";
             $html .= "document.getElementById('btn_ConditionLine').disabled = '';";
             if($focus->id != ''){
                 $sql = "SELECT id FROM aomr_conditions WHERE aor_report_id = '".$focus->id."' AND deleted = 0 ORDER BY condition_order ASC";
@@ -59,10 +58,7 @@ function display_condition_lines($focus, $field, $value, $view){
                     $condition_name = new AOMR_Condition();
                     $condition_name->retrieve($row['id']);
                     $condition_name->module_path = unserialize(base64_decode($condition_name->module_path));
-                    if($condition_name->module_path == '')$condition_name->module_path = $focus->report_module;
-                    $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields(getRelatedModule
-                                                                                                ($focus->report_module,
-                                                                                                 $condition_name->module_path[0]))))."\";";
+                    $html .= "report_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields(getRelatedModule($focus->report_module,$condition_name->module_path[0]))))."\";";
                     if($condition_name->value_type == 'Date'){
                         $condition_name->value = unserialize(base64_decode($condition_name->value));
                     }
@@ -70,7 +66,7 @@ function display_condition_lines($focus, $field, $value, $view){
                     $html .= "loadConditionLine(".$condition_item.");";
                 }
             }
-            $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields($focus->report_module)))."\";";
+            $html .= "report_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields($focus->report_module)))."\";";
             $html .= "</script>";
         }
 
@@ -83,17 +79,15 @@ function display_condition_lines($focus, $field, $value, $view){
         if(isset($focus->report_module) && $focus->report_module != ''){
             require_once("modules/AOW_WorkFlow/aow_utils.php");
             $html .= "<script>";
-            $html .= "flow_rel_modules = \"".trim(preg_replace('/\s+/', ' ', getModuleRelationships($focus->floreport_modulew_module)))."\";";
-            $html .= "flow_module = \"".$focus->report_module."\";";
-            $sql = "SELECT id FROM aow_conditions WHERE aow_workflow_id = '".$focus->id."' AND deleted = 0 ORDER BY condition_order ASC";
+            $html .= "report_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields($focus->report_module)))."\";";
+            $html .= "report_module = \"".$focus->report_module."\";";
+            $sql = "SELECT id FROM aor_conditions WHERE aor_report_id = '".$focus->id."' AND deleted = 0 ORDER BY condition_order ASC";
             $result = $focus->db->query($sql);
 
             while ($row = $focus->db->fetchByAssoc($result)) {
-                $condition_name = new AOMR_Condition();
+                $condition_name = new AOR_Condition();
                 $condition_name->retrieve($row['id']);
                 $condition_name->module_path = unserialize(base64_decode($condition_name->module_path));
-                if(empty($condition_name->module_path))$condition_name->module_path[0] = $focus->report_module;
-                $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields(getRelatedModule($focus->report_module,$condition_name->module_path[0]))))."\";";
                 if($condition_name->value_type == 'Date'){
                     $condition_name->value = unserialize(base64_decode($condition_name->value));
                 }

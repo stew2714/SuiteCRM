@@ -41,10 +41,53 @@ class AOR_MatrixReportingViewEdit extends ViewEdit
         $app_list_strings['aomr_field_list'] = $matrix->getFieldDefs($bean->field_defs, $this->bean->report_module);
         parent::display();
     }
+    private function getConditionLines(){
+        if(!$this->bean->id){
+            return array();
+        }
+        $sql = "SELECT id FROM aomr_conditions WHERE aor_report_id = '".$this->bean->id."' AND deleted = 0 ORDER BY condition_order ASC";
+        $result = $this->bean->db->query($sql);
+        $conditions = array();
+        while ($row = $this->bean->db->fetchByAssoc($result)) {
+            $condition_name = new AOMR_Condition();
+            $condition_name->retrieve($row['id']);
+            if(!$condition_name->parenthesis) {
+                $condition_name->module_path = implode(":", unserialize(base64_decode($condition_name->module_path)));
+            }
+            if($condition_name->value_type == 'Date'){
+                $condition_name->value = unserialize(base64_decode($condition_name->value));
+            }
+            $condition_item = $condition_name->toArray();
 
+            if(!$condition_name->parenthesis) {
+                $display = getDisplayForField($condition_name->module_path, $condition_name->field, $this->bean->report_module);
+                $condition_item['module_path_display'] = $display['module'];
+                $condition_item['field_label'] = $display['field'];
+            }
+            if(isset($conditions[$condition_item['condition_order']])) {
+                $conditions[] = $condition_item;
+            }
+            else {
+                $conditions[$condition_item['condition_order']] = $condition_item;
+            }
+        }
+        return $conditions;
+    }
     public function preDisplay()
     {
+        $conditions = $this->getConditionLines();
+        echo "<script>var conditionLines = ".json_encode($conditions)."</script>";
+
+//        if (!is_file('cache/jsLanguage/AOMR_Conditions/' . $GLOBALS['current_language'] . '.js')) {
+//            require_once ('include/language/jsLanguage.php');
+//            jsLanguage::createModuleStringsCache('AOMR_Conditions', $GLOBALS['current_language']);
+//        }
+//        echo '<script src="cache/jsLanguage/AOMR_Conditions/'. $GLOBALS['current_language'] . '.js"></script>';
+
         parent::preDisplay();
+
+
+
 
         if ($this->bean->id) {
             $matrix = new matrixReportBuilder();

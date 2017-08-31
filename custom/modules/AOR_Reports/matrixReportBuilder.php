@@ -315,7 +315,7 @@ class matrixReportBuilder
             $sql .= " ,{$field_x[2]}";
         }
 
-        //echo "<pre>{$sql}</pre>";
+        echo "<pre>{$sql}</pre>";
         return $sql;
 
     }
@@ -331,6 +331,7 @@ class matrixReportBuilder
         $aor_sql_operator_list['Greater_Than_or_Equal_To'] = '>=';
         $aor_sql_operator_list['Less_Than_or_Equal_To'] = '<=';
         $aor_sql_operator_list['Contains'] = 'LIKE';
+        $aor_sql_operator_list['Not_Contains'] = 'NOT LIKE';
         $aor_sql_operator_list['Starts_With'] = 'LIKE';
         $aor_sql_operator_list['Ends_With'] = 'LIKE';
 
@@ -542,6 +543,7 @@ class matrixReportBuilder
                     //handle like conditions
                     Switch ($condition->operator) {
                         case 'Contains':
+                        case 'Not_Contains':
                             $value = "CONCAT('%', " . $value . " ,'%')";
                             break;
                         case 'Starts_With':
@@ -618,6 +620,7 @@ class matrixReportBuilder
         if ($closure) {
             $query['where'][] = ')';
         }
+
 
         return $query;
     }

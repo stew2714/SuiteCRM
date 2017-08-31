@@ -7,7 +7,7 @@
             <img border="0" id="detailpanel_report_img_show" src="{sugar_getimagepath file="advanced_search.gif"}"></a>
         {sugar_translate label='LBL_REPORT' module='AOR_MatrixReporting'}
         <script>
-            document.getElementById('detailpanel_report').className += ' expanded';
+          document.getElementById('detailpanel_report').className += ' expanded';
         </script>
     </h4>
 
