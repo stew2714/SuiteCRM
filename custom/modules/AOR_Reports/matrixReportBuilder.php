@@ -315,7 +315,7 @@ class matrixReportBuilder
             $sql .= " ,{$field_x[2]}";
         }
 
-        echo "<pre>{$sql}</pre>";
+        //echo "<pre>{$sql}</pre>";
         return $sql;
 
     }
