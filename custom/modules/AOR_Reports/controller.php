@@ -174,7 +174,7 @@ class customAOR_ReportsController extends AOR_ReportsController
                 $valid_opp = array('Equal_To', 'Not_Equal_To');
                 break;
             default:
-                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains', 'Starts_With', 'Ends_With',);
+                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains','Not_Contains', 'Starts_With', 'Ends_With',);
                 break;
         }
 

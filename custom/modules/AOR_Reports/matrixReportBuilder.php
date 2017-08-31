@@ -559,7 +559,7 @@ class matrixReportBuilder
                     }
 
                     if (!$where_set) {
-                        if ($condition->value_type == "Period") {
+                        if ($condition->value_type == "Period" && !empty($params)) {
                             if (array_key_exists($condition->value, $app_list_strings['date_time_period_list'])) {
                                 $params = $condition->value;
                             } else {
