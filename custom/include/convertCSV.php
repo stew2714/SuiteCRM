@@ -266,7 +266,7 @@ class convertCSV
                 echo "<b>Failed</b> : " . $field['name'] . "<br>";
                 $GLOBALS['log']->debug('Could not install custom field ' . $field['name'] . ' for module ' . $field['module'] . ': Module does not exist');
             } else {
-                echo "Installed Field : <b>" . $field['name'] . "</b> into Module : <b>" . $field['module'] . "</b><br>";
+                echo "Installed Field : <b>" . $field['name'] . "</b> into Module : <b>" . $field['module'] . "</b> With Label ". $field['label_english']  ."<br>";
             }
         }
     }
@@ -358,7 +358,11 @@ class convertCSV
                 }
             }
         }
-        $languageLocation = "custom/Extension/modules/{$field->module}/Ext/Language/en_us.imported_custom_fields.php";
+        if($field->type == "relate"){
+            $languageLocation = "custom/Extension/modules/{$defs['module']}/Ext/Language/en_us.imported_custom_fields.php";
+        }else{
+            $languageLocation = "custom/Extension/modules/{$field->module}/Ext/Language/en_us.imported_custom_fields.php";
+        }
         include($languageLocation);
 
 

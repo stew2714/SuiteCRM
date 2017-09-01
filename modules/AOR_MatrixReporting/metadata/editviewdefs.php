@@ -6,7 +6,6 @@ $viewdefs [$module_name] =
             array (
                 'templateMeta' =>
                     array (
-                        'footerTpl' => 'modules/AOR_MatrixReporting/tpls/report.tpl',
                         'maxColumns' => '2',
                         'widths' =>
                             array (
@@ -27,6 +26,9 @@ $viewdefs [$module_name] =
                                     array (
                                         'file' => 'modules/AOR_MatrixReporting/js/EditView.js',
                                     ),
+                                array (
+                                    'file' => 'custom/modules/AOR_Reports/preview.js',
+                                ),
                             ),
                         'useTabs' => false,
                         'tabDefs' =>
@@ -39,7 +41,8 @@ $viewdefs [$module_name] =
                             ),
                         'form' =>
                             array (
-                                'footerTpl' => 'modules/AOR_MatrixReporting/tpls/report.tpl',
+                                'headerTpl' => 'modules/AOR_MatrixReporting/tpls/EditViewHeader.tpl',
+                                'footerTpl' => 'modules/AOR_MatrixReporting/tpls/EditViewFooter.tpl',
                                 'buttons' =>
                                     array (
                                         0 => 'SAVE',
@@ -125,7 +128,7 @@ _form = document.getElementById(\'EditView\');_form.return_action.value=\'EditVi
                                 6 =>
                                     array (
                                         0 => 'description',
-                                        1 => 'condition_lines',
+//                                        1 => 'condition_lines',
                                     ),
                             ),
                     ),

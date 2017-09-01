@@ -226,3 +226,30 @@ $GLOBALS['app_list_strings']['facility_type_list']=array (
   'SA' => 'Sub-Acute',
   'SC' => 'Surgery Center',
 );
+
+$GLOBALS['app_list_strings']['ae_region_list']=array (
+  'None' => 'None',
+);
+$GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
+  'None' => 'None',
+);
+$GLOBALS['app_list_strings']['lead_rating_dom']=array (
+  'None' => 'None',
+);
+
+$GLOBALS['app_list_strings']['partner_list_dom']=array (
+  'None' => 'None',
+);
+
+$GLOBALS['app_list_strings']['ae_region_dom']=array (
+  'None' => 'None',
+);
+$GLOBALS['app_list_strings']['sales_forecasting_dom']=array (
+  'None' => 'None',
+);
+$GLOBALS['app_list_strings']['sales_forecast_cat_dom']=array (
+  'None' => 'None',
+);
+$GLOBALS['app_list_strings']['bankruptcy_hold_dom']=array (
+  'None' => 'None',
+);

@@ -38,6 +38,7 @@ $mod_strings = array (
   'LBL_REQUIRE_ILP_PROBABILITY_TO_BE_0_OR_100' => 'Global Use % must be 0 or 100 when Opportunity is Closed - Won. Please select the appropriate value.',
   'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'License is Required to be 1 or Greater',
   'LBL_YOU_CAN_NOT_CHANGE_KEY' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
+  'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
 
 
 

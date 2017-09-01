@@ -12,7 +12,6 @@ $( document ).ready(function() {
   function updateFields(){
     $.ajax( "index.php?module=AOR_MatrixReporting&action=fielddefs&moduletype=" + $("#report_module").val() )
       .done(function( results ) {
-        console.log( results );
         $('#fieldx1').find('option').remove().end().append(results);
         $('#fieldx2').find('option').remove().end().append(results);
         $('#fieldx3').find('option').remove().end().append(results);

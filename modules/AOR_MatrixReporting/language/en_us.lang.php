@@ -86,7 +86,16 @@ $mod_strings = array (
   'LBL_UPDATE' => "Update",
   'LNK_NEW_AOR_REPORT_RECORD' => "Create Report",
   'LNK_AOR_REPORTS_LIST' => "View Reports",
-
+  'LBL_ADD_PARENTHESIS' => 'Add Parenthesis',
   'LBL_ADD_CONDITION' => "Add Condition",
-
+  'LBL_LOGIC_OP' => 'Logic',
+  'LBL_MODULE_PATH' => 'Module',
+  'LBL_FIELD' => 'Field',
+  'LBL_OPERATOR' => 'Operator',
+  'LBL_VALUE_TYPE' => 'Type',
+  'LBL_VALUE' => 'Value',
+  'LBL_ORDER' => 'Order',
+  'LBL_CONDITION_OPERATOR' => 'Condition Operator',
+  'LBL_AOR_REPORT_ID' => 'Report Id',
+  'LBL_PARAMETER' => 'Parameter',
 );

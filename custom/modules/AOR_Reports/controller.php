@@ -174,7 +174,7 @@ class customAOR_ReportsController extends AOR_ReportsController
                 $valid_opp = array('Equal_To', 'Not_Equal_To');
                 break;
             default:
-                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains', 'Starts_With', 'Ends_With',);
+                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains','Not_Contains', 'Starts_With', 'Ends_With',);
                 break;
         }
 
@@ -273,7 +273,11 @@ class customAOR_ReportsController extends AOR_ReportsController
         }
 
         if ($view == 'EditView') {
-            echo "<select type='text' style='width:178px;'  onchange='UpdatePreview(\"preview\");' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aor_condition_type_list'],
+            $onChange = "";
+            if($_REQUEST['m'] != "aomr"){
+               $onChange= 'UpdatePreview("preview");';
+            }
+            echo "<select type='text' style='width:178px;'  onchange='{$onChange}' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aor_condition_type_list'],
                     $value) . "</select>";
         } else {
             echo $app_list_strings['aor_condition_type_list'][$value];
