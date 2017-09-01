@@ -18,6 +18,7 @@ class AdvancedReporter extends AOR_Report
     var $requestData;
     var $report_module;
     var $id;
+    var $groupBy;
 
     function __construct($bean, $requestData = false)
     {
@@ -29,6 +30,7 @@ class AdvancedReporter extends AOR_Report
         if($requestData != false){
             $this->report_module = $requestData['report_module'];
             $this->id = $requestData['record'];
+            $this->groupBy = $requestData['fieldView']['0']['aor_fields_group_display'];
         }else{
             $this->report_module = $bean->report_module;
         }
@@ -122,8 +124,11 @@ class AdvancedReporter extends AOR_Report
         $_level = (int)$level;
 
         // get results array
+        //gets the title.
         if ($this->requestData != false) {
-            $rows = $this->getViewParams(true, true, $level);
+            if($level != "2"){
+                $rows = $this->getViewParams(true, true, $level);
+            }
         } else {
             $query =
                 "SELECT id, field, module_path FROM aor_fields WHERE aor_report_id = '$_id' AND group_display = $_level AND deleted = 0;";
@@ -154,7 +159,7 @@ class AdvancedReporter extends AOR_Report
 //            "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
 //        $result = $this->db->limitQuery($sql, 0, 1);
 
-        $rows = array($this->getViewParams(true));
+        $rows = array($this->getViewParams(true, false, 1));
 
         foreach ($rows as $field) {
 
@@ -449,7 +454,7 @@ class AdvancedReporter extends AOR_Report
         $_group_value = $this->db->quote($group_value);
 
         $report_sql = $this->build_report_query($_group_value, $extra);
-
+        //echo "<pre>{$report_sql}</pre>";
         // Fix for issue 1232 - items listed in a single report, should adhere to the same standard as ListView items.
         if ($sugar_config['list_max_entries_per_page'] != '') {
             $max_rows = $sugar_config['list_max_entries_per_page'];
@@ -734,7 +739,11 @@ class AdvancedReporter extends AOR_Report
     {
         $rows = array();
         foreach ($this->requestData['fieldView'] as $row) {
-            if ($row['aor_fields_deleted'] == 0 && $row['aor_fields_deleted'] != null) {
+            if ($row['aor_fields_deleted'] == 0 && $row['aor_fields_deleted'] != null &&
+                ($level == $row['aor_fields_group_display'] || $level == false ||
+                 ($row['aor_fields_group_display'] == null && $this->groupBy == $row['aor_fields_field_order']  )
+                )
+            ) {
                 $field = new AOR_Field();
                 foreach ($row as $key => $item) {
                     $newKey = substr($key, 11);
@@ -746,9 +755,11 @@ class AdvancedReporter extends AOR_Report
                 }
                 //set the group option.
                 if($group == true){
-                    if($field->group_display == $level){
+                    if($field->group_display == $level ||
+                       ($field->group_display == null && $level == 1 && $this->groupBy == $field->field_order  )
+                    ){
                         if($array == true){
-                            return array(  $field->toArray() );
+                                return array(  $field->toArray() );
                         }else{
                             return  $field;
                         }
@@ -800,13 +811,14 @@ class AdvancedReporter extends AOR_Report
         $query_array = array();
         $module = new $beanList[$this->report_module]();
         $field = false;
+        //get the group field.
         if($this->requestData != false){
-            $field = $this->getViewParams(true);
+            $field = $this->getViewParams(true, false, 1);
         }else{
             $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
             $field_id = $this->db->getOne($sql);
             if(!empty($field_id)){
-                $field = BeanFactory::getBean("AOR_Field", $field_id);
+                $field = BeanFactory::getBean("AOR_Fields", $field_id);
             }
         }
 
@@ -956,13 +968,15 @@ class AdvancedReporter extends AOR_Report
                 $query .= ' ' . $query_sort_by;
             }
             $result = $this->db->query($query);
-
+            $checkListed = array();
             while ($row = $this->db->fetchByAssoc($result)) {
                 if ($html != '') {
                     $html .= '<br />';
                 }
-
-                $html .= $this->build_report_html($offset, $links, $row[$field_label], create_guid(), $extra);
+                if(!isset($checkListed[$row[$field_label]]) ) {
+                    $checkListed[$row[$field_label]] = $row[$field_label];
+                    $html .= $this->build_report_html($offset, $links, $row[$field_label], create_guid(), $extra);
+                }
 
             }
         }
