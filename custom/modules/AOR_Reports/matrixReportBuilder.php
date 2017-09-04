@@ -352,7 +352,7 @@ class matrixReportBuilder
         $sql .= "WHERE  " . implode(" ", $results['where']);
 
         if ($field_x[0]) {
-            $sql .= "GROUP BY {$field_x[0]}";
+            $sql .= "GROUP BY IFNULL({$field_x[0]}, '')";
         }
         if ($field_x[1]) {
             $sql .= " ,{$field_x[1]}";
@@ -361,7 +361,7 @@ class matrixReportBuilder
             $sql .= " ,{$field_x[2]}";
         }
 
-        //echo "<pre>{$sql}</pre>";
+        echo "<pre>{$sql}</pre>";
         return $sql;
 
     }
