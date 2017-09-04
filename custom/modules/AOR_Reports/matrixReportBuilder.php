@@ -208,10 +208,22 @@ class matrixReportBuilder
                     if($key2 == "none"){
                         $key2 = "";
                     }
-                    if(!isset($this->headers[$key2])){
-                        $key2 = str_replace("_", " ", $key2);
+//                    if(!isset($this->headers[$key2])){
+//                        $key2 = str_replace("_", " ", $key2);
+//                    }
+
+                    if(isset($this->headers[$key2])){
+                        unset($this->headers[$key2]);
+                    }else{
+                        foreach($this->headers as $chanceKey => $value){
+                            $possibleKey = str_replace(".", " ", $chanceKey);
+                            $possibleKey = str_replace("-", " ", $possibleKey);
+                            $possibleKey = str_replace(" ", "_", $possibleKey);
+                            if($possibleKey == $key2){
+                                unset($this->headers[$chanceKey]);
+                            }
+                        }
                     }
-                    unset($this->headers[$key2]);
                 }
             }
         }
@@ -340,7 +352,7 @@ class matrixReportBuilder
         $sql .= "WHERE  " . implode(" ", $results['where']);
 
         if ($field_x[0]) {
-            $sql .= "GROUP BY {$field_x[0]}";
+            $sql .= "GROUP BY IFNULL({$field_x[0]}, '')";
         }
         if ($field_x[1]) {
             $sql .= " ,{$field_x[1]}";

@@ -122,7 +122,7 @@ class SharedSecurityRules extends Basic
      * @return bool
      */
     function checkRules(&$module,$view ){
-//        $moduleBean = clone $module;
+        //        $moduleBean = clone $module;
 
         $class = get_class($module);
         $moduleBean = new $class();
@@ -184,7 +184,7 @@ class SharedSecurityRules extends Basic
                             }
                         }
                     }elseif( ($targetType == "Specify User" && $current_user->id ==  $action->parameters['email'][$key]) ||
-                        ($targetType == "Users" && in_array("all", $action->parameters['email'][$key]) ) )
+                             ($targetType == "Users" && in_array("all", $action->parameters['email'][$key]) ) )
                     {
                         //we have found a possible record to check against.
                         $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
@@ -217,15 +217,15 @@ class SharedSecurityRules extends Basic
                 if(unserialize(base64_decode($condition->module_path)) != false) {
                     $condition->module_path = unserialize(base64_decode($condition->module_path));
                 }
-                    if ($condition->module_path[0] != $rule->flow_module) {
-                        foreach ($condition->module_path as $rel) {
-                            if (empty($rel)) {
-                                continue;
-                            }
-                            $moduleBean->load_relationship($rel);
-                            $related = $moduleBean->$rel->getBeans();
+                if ($condition->module_path[0] != $rule->flow_module) {
+                    foreach ($condition->module_path as $rel) {
+                        if (empty($rel)) {
+                            continue;
                         }
+                        $moduleBean->load_relationship($rel);
+                        $related = $moduleBean->$rel->getBeans();
                     }
+                }
 
 
                 if($related !== false){
@@ -253,7 +253,7 @@ class SharedSecurityRules extends Basic
                                 $result = false;
                             }
                         } else {
-                            if($condition->condition_operator !== "OR" && $result != false) {
+                            if($condition->condition_operator !== "OR" && $view != "view") {
                                 return true;
                             }
                         }
@@ -265,31 +265,31 @@ class SharedSecurityRules extends Basic
                         !empty($moduleBean->{$condition->value})) {
                         $condition->value = $moduleBean->{$condition->value};
                     }
-                        if ($this->checkOperator(
-                            $moduleBean->{$condition->field},
-                            $condition->value,
-                            $condition->operator
-                        )) {
-                            if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
-                                if($condition->condition_operator == "OR"){
-                                    return false;
-                                }
-                                $result = false;
+                    if ($this->checkOperator(
+                        $moduleBean->{$condition->field},
+                        $condition->value,
+                        $condition->operator
+                    )) {
+                        if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                            if($condition->condition_operator == "OR"){
+                                return false;
                             }
+                            $result = false;
+                        }
 
-                        } else {
-                            if($rule->run == "Once True"){
-                                if ($this->checkHistory($moduleBean,$condition->field, $condition->value) ) {
-                                    if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
-                                        $result = false;
-                                    }
+                    } else {
+                        if($rule->run == "Once True"){
+                            if ($this->checkHistory($moduleBean,$condition->field, $condition->value) ) {
+                                if (!$this->findAccess($view, $action->parameters['accesslevel'][$key])) {
+                                    $result = false;
                                 }
-                            }else{
-                                if( $condition->condition_operator !== "OR" && $result != false ){
-                                    return true;
-                                }
+                            }
+                        }else{
+                            if( $condition->condition_operator !== "OR" && $view != "view" ){
+                                return true;
                             }
                         }
+                    }
                 }
 
             }
@@ -349,12 +349,12 @@ class SharedSecurityRules extends Basic
                     return true;
                 }
                 break;
-             case "is_null":
-                 if($rowField == null || $rowField == ""){
+            case "is_null":
+                if($rowField == null || $rowField == ""){
                     return true;
-                 }
-                 break;
-            }
+                }
+                break;
+        }
 
         return false;
     }
