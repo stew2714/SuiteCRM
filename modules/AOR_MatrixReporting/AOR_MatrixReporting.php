@@ -75,7 +75,7 @@ class AOR_MatrixReporting extends Basic
 
         require_once('modules/AOMR_Conditions/AOMR_Condition.php');
         $condition = new AOMR_Condition();
-        $condition->save_lines($_POST, $this, 'aow_conditions_');
+        $condition->save_lines($_POST, $this, 'aor_conditions_');
     }
     public function bean_implements($interface)
     {
@@ -87,5 +87,5 @@ class AOR_MatrixReporting extends Basic
 
         return false;
     }
-	
+
 }

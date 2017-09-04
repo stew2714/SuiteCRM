@@ -51,19 +51,21 @@ class matrixReportBuilder
     var $mainField = "";
     var $bean = array();
 
-    public function total( $total, $count, $actionType){
+    public function total( $total, $count, $actionType, $key){
         if($total == null || empty($total)){
             $total = 0;
         }
+        $array = array("int", "currency", "float");
+//        if(!in_array($this->bean->field_defs[$this->field]['type'], $array) || $key == "TOTAL"){
+//            $actionType = "SUM";
+//        }
         switch($actionType){
             case "AVG":
             case "SUM":
                 return $total + $count;
                 break;
             case "COUNT":
-                if($count > 0){
-                    return $total + 1;
-                }
+                return $total + $count;
                 return $total;
                 break;
             case "MIN":
@@ -128,7 +130,7 @@ class matrixReportBuilder
                 }
 
                 if(is_numeric($count) || empty($count)){
-                    $this->totals[ $key ] = $this->total($this->totals[ $key ], $count, $this->actionType);
+                    $this->totals[ $key ] = $this->total($this->totals[ $key ], $count, $this->actionType, $key);
                 }else{
                     if($i != 0){
                         $label = "";
@@ -180,6 +182,38 @@ class matrixReportBuilder
                 $this->totals["fieldx2"] = "";
             }
 
+        }
+        $array = array("TOTAL", "fieldx0", "fieldx1", "fieldx2");
+        $removeList = array();
+        foreach($data as $key => $row){
+            foreach($row as $key2 => $item){
+                if((!isset($removeList[$key2]) || $removeList[ $key2 ] === true) && $key != 0 && !in_array($key2,
+                                                                                                           $array)){
+                    if(($item == "0" || $item == null)){
+                        $removeList[ $key2 ] = true; //I can remove it.
+                    }else{
+                        $removeList[ $key2 ] = false; //I cant remove it.
+                    }
+                }
+            }
+        }
+
+
+        foreach($data as $key => $row){
+            foreach($removeList as $key2 => $remove ){
+                if($remove === true){
+
+                    unset($data[$key][$key2]);
+                    unset($this->totals[$key2]);
+                    if($key2 == "none"){
+                        $key2 = "";
+                    }
+                    if(!isset($this->headers[$key2])){
+                        $key2 = str_replace("_", " ", $key2);
+                    }
+                    unset($this->headers[$key2]);
+                }
+            }
         }
         return $data;
 
@@ -315,7 +349,7 @@ class matrixReportBuilder
             $sql .= " ,{$field_x[2]}";
         }
 
-        //echo "<pre>{$sql}</pre>";
+        echo "<pre>{$sql}</pre>";
         return $sql;
 
     }
@@ -331,6 +365,7 @@ class matrixReportBuilder
         $aor_sql_operator_list['Greater_Than_or_Equal_To'] = '>=';
         $aor_sql_operator_list['Less_Than_or_Equal_To'] = '<=';
         $aor_sql_operator_list['Contains'] = 'LIKE';
+        $aor_sql_operator_list['Not_Contains'] = 'NOT LIKE';
         $aor_sql_operator_list['Starts_With'] = 'LIKE';
         $aor_sql_operator_list['Ends_With'] = 'LIKE';
 
@@ -542,6 +577,7 @@ class matrixReportBuilder
                     //handle like conditions
                     Switch ($condition->operator) {
                         case 'Contains':
+                        case 'Not_Contains':
                             $value = "CONCAT('%', " . $value . " ,'%')";
                             break;
                         case 'Starts_With':
@@ -557,7 +593,7 @@ class matrixReportBuilder
                     }
 
                     if (!$where_set) {
-                        if ($condition->value_type == "Period") {
+                        if ($condition->value_type == "Period" && !empty($params)) {
                             if (array_key_exists($condition->value, $app_list_strings['date_time_period_list'])) {
                                 $params = $condition->value;
                             } else {
@@ -618,6 +654,7 @@ class matrixReportBuilder
         if ($closure) {
             $query['where'][] = ')';
         }
+
 
         return $query;
     }
