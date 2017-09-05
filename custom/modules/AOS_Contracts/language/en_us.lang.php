@@ -1,5 +1,5 @@
 <?php
-// created: 2017-08-25 12:32:50
+// created: 2017-09-05 19:01:02
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'New Panel 1',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -20,4 +20,5 @@ $mod_strings = array (
   'LBL_REQUIRED_FIELD_END_DATE_PERPETUAL' => 'Please enter the Agreement End Date or mark the Agreement as Perpetual prior to executing the agreement.',
   'LBL_VALUE_IS_REQUIRED' => 'Value is required in this field ',
   'LBL_C1_CUST_CONTACTS1_AOS_CONTRACTS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust Cust_Contacts',
+  'LBL_EDITVIEW_PANEL2' => 'New Panel 2',
 );

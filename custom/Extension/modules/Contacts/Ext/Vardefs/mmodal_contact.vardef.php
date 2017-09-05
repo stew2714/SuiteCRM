@@ -23,16 +23,6 @@ $dictionary['Contact']['fields']['recordtypeid_c']['comments'] = 'Auto-created e
 $dictionary['Contact']['fields']['recordtypeid_c']['vname'] = 'Recordtypeid';
 $dictionary['Contact']['fields']['recordtypeid_c']['source'] = 'custom_fields';
 
-// Field: birthdate_c
-$dictionary['Contact']['fields']['birthdate_c']['name'] = 'birthdate_c';
-$dictionary['Contact']['fields']['birthdate_c']['type'] = 'timestamp';
-$dictionary['Contact']['fields']['birthdate_c']['len'] = '';
-$dictionary['Contact']['fields']['birthdate_c']['size'] = '20';
-$dictionary['Contact']['fields']['birthdate_c']['required'] = false;
-$dictionary['Contact']['fields']['birthdate_c']['comments'] = 'Auto-created entry for field birthdate_c';
-$dictionary['Contact']['fields']['birthdate_c']['vname'] = 'Birthdate';
-$dictionary['Contact']['fields']['birthdate_c']['source'] = 'custom_fields';
-
 // Field: lastactivitydate_c
 $dictionary['Contact']['fields']['lastactivitydate_c']['name'] = 'lastactivitydate_c';
 $dictionary['Contact']['fields']['lastactivitydate_c']['type'] = 'timestamp';

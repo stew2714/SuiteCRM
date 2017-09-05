@@ -186,13 +186,6 @@ $GLOBALS['app_list_strings']['record_type_display_notes']=array (
   'Meetings' => 'Meeting',
   'Tasks' => 'Task',
 );
-$GLOBALS['app_list_strings']['parent_type_display']=array (
-  'Accounts' => 'Account',
-  'Contacts' => 'Contact',
-  'Tasks' => 'Task',
-  'Cases' => 'Case',
-);
-
 $GLOBALS['app_list_strings']['cc_region_dd_list']=array (
   '' => '',
   'AM' => 'Ambulatory Market',
@@ -211,20 +204,6 @@ $GLOBALS['app_list_strings']['cc_region_dd_list']=array (
   'STML' => 'Strategic Market - LifePoint',
   'Tech' => 'Technology',
   'WM' => 'West Market',
-);
-$GLOBALS['app_list_strings']['facility_type_list']=array (
-  'FSDC' => 'Free Standing Data Center',
-  'HS' => 'Health System',
-  'HH' => 'Home Health',
-  'HPC' => 'Hospice',
-  'HOS' => 'Hospital',
-  'IHDC' => 'In-Hospital Data Center',
-  'LG' => 'Legal',
-  'MTSO' => 'MTSO',
-  'NF' => 'Nursing Facility',
-  'PR' => 'Practice',
-  'SA' => 'Sub-Acute',
-  'SC' => 'Surgery Center',
 );
 $app_list_strings['moduleList']['C1_Cust_Contacts1']='Cust_Contacts';
 $app_list_strings['moduleListSingular']['C1_Cust_Contacts1']='Cust_Contacts';
@@ -481,4 +460,30 @@ $GLOBALS['app_list_strings']['contract_term_dom']=array (
   '10yr' => '10 Year',
   'No_Term' => 'No Term',
   'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['parent_type_display']=array (
+  '' => '',
+  'Accounts' => 'Account',
+  'Agreements' => 'Agreements',
+  'Campaigns' => 'Campaigns',
+  'Cases' => 'Case',
+  'Contacts' => 'Contact',
+  'Leads' => 'Leads',
+  'Opportunities' => 'Opportunities',
+  'Tasks' => 'Task',
+);
+$GLOBALS['app_list_strings']['facility_type_list']=array (
+  'FSDC' => 'Free Standing Data Center',
+  'HS' => 'Health System',
+  'HH' => 'Home Health',
+  'HPC' => 'Hospice',
+  'HOS' => 'Hospital',
+  'IHDC' => 'In-Hospital Data Center',
+  'LG' => 'Legal',
+  'MTSO' => 'MTSO',
+  'NF' => 'Nursing Facility',
+  'PR' => 'Practice',
+  'SA' => 'Sub-Acute',
+  'SC' => 'Surgery Center',
+  'IMG' => 'Imaging Center',
 );
