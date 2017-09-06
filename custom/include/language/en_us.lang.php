@@ -487,3 +487,87 @@ $GLOBALS['app_list_strings']['facility_type_list']=array (
   'SC' => 'Surgery Center',
   'IMG' => 'Imaging Center',
 );
+$GLOBALS['app_list_strings']['acct_trans_sys_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_voice_cap_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_him_speech_rec_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_rad_speech_rec_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_ris_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_pacs_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['acct_coding_sys_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['fes_satisfaction_list']=array (
+  '' => '',
+  'High' => 'High',
+  'Medium' => 'Medium',
+  'Low' => 'Low',
+);
+$GLOBALS['app_list_strings']['fes_list']=array (
+  '' => '',
+  'FD' => 'Fluency Direct',
+  'Dragon' => 'Dragon',
+);
+$GLOBALS['app_list_strings']['ehr_status_list']=array (
+  '' => '',
+  'Live' => 'Live',
+  'Implementing' => 'Implementing',
+);
+$GLOBALS['app_list_strings']['nauance_committed_list']=array (
+  '' => '',
+  'Yes' => 'Yes',
+  'No' => 'No',
+);
+$GLOBALS['app_list_strings']['naunce_enterprice_lic_list']=array (
+  '' => '',
+  'Yes' => 'Yes',
+  'No' => 'No',
+);
+$GLOBALS['app_list_strings']['nuance_term_or_perp_list']=array (
+  '' => '',
+  'Perpetual' => 'Perpetual',
+  'Term' => 'Term',
+);
+$GLOBALS['app_list_strings']['adequacy_of_curr_pos_list']=array (
+  '' => '',
+  'Neutral' => 'Neutral',
+  'Growth' => 'Growth',
+  'Overconfident' => 'Overconfident',
+);
+$GLOBALS['app_list_strings']['peferred_buying_mod_list']=array (
+  '' => '',
+  'Capital' => 'Capital',
+  'Subscription' => 'Subscription',
+);
+$GLOBALS['app_list_strings']['ehr_list']=array (
+  '' => '',
+  'Unknown' => 'Unknown',
+  'Epic' => 'Epic',
+  'Cerner' => 'Cerner',
+  'Meditech' => 'Meditech',
+  'McKesson' => 'McKesson',
+  'Siemens' => 'Siemens',
+  'Eclipsys' => 'Eclipsys',
+  'GE' => 'GE',
+  'Self' => 'Self Developed',
+  'Other' => 'Other',
+  'AllScripts' => 'AllScripts',
+  'Misys' => 'Misys',
+  'eClinicalWorks' => 'eClinicalWorks',
+  'nextGen' => 'nextGen',
+  'SRS' => 'SRS',
+  'Greenway' => 'Greenway',
+  'Athena' => 'Athena Health',
+  'No_EHR' => 'No EHR',
+);
