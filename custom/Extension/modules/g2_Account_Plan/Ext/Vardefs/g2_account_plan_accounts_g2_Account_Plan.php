@@ -1,5 +1,5 @@
 <?php
-// created: 2017-09-06 15:49:00
+// created: 2017-09-07 13:04:44
 $dictionary["g2_Account_Plan"]["fields"]["g2_account_plan_accounts"] = array (
   'name' => 'g2_account_plan_accounts',
   'type' => 'link',

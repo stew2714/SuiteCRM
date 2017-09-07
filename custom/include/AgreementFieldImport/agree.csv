@@ -202,7 +202,7 @@ column,do no create,name,type,module
 "   facility_name__c varchar(255),",,,,a
 "   favored_nation_language__c bool NOT NULL,",,,,a
 "   federal_agency__c bool NOT NULL,",,,,a
-"   fluency_for_coding_platform__c bool NOT NULL,",,,,p
+"   fluency_for_coding_platform__c bool NOT NULL,",,,,s
 "   gma_attachment_effective_date__c date,",,,,a
 "   gma_attachment_number__c numeric(19),",,,,a
 "   gma_expiration_date__c date,",,,,a
@@ -219,7 +219,7 @@ column,do no create,name,type,module
 "   grace_period__c varchar(255),",,,,a
 "   hardware_gma__c bool NOT NULL,",,,,p
 "   hardware_pricing_discount__c bool NOT NULL,",,,,p
-"   hire_client_mt_s__c bool NOT NULL,",,,,a
+"   hire_client_mt_s__c bool NOT NULL,",,,,s
 "   hosting_auto_renew__c bool NOT NULL,",,,,p
 "   hosting_effective_date__c date,",,,,p
 "   hosting_expiration_date__c date,",,,,p
@@ -297,14 +297,14 @@ column,do no create,name,type,module
 "   purchase_order_language__c bool NOT NULL,",,,,a
 "   qa_penalty_standard__c bool NOT NULL,",,,,a
 "   late_fees__c bool NOT NULL,",,,,a
-"   qa_program__c bool NOT NULL,",,,,a
+"   qa_program__c bool NOT NULL,",,,,s
 "   region__c varchar(255),",,,,a
 "   request_date__c date,",,,,a
 "   right_to_dispute_waiver__c bool NOT NULL,",,,,a
 "   right_to_dispute__c bool NOT NULL,",,,,a
 "   stat_report_tat__c numeric(19),",,,,a
 "   service_or_product_warranty__c varchar(255),",,,,s
-"   shipping__c varchar(255),",,,,a
+"   shipping__c varchar(255),",,,,p
 "   software_maintenance_and_support__c bool NOT NULL,",,,,p
 "   software_pricing_discount__c bool NOT NULL,",,,,p
 "   suspend_services_notice_period__c varchar(255),",,,,a
@@ -350,7 +350,7 @@ column,do no create,name,type,module
 "   qa_penalty_details__c varchar(2000),",,,,s
 "   fft_pricing_category__c varchar(4099),",,,,s
 "   gpo_affiliation__c varchar(18),",,,,a
-"   included_optional_system_components__c varchar(4099),",,,,a
+"   included_optional_system_components__c varchar(4099),",,,,s
 "   idn_affiliation__c varchar(18),",,,,a
 "   maintenance_and_support_product__c varchar(4099),",,,,a
 "   sent_to_comm_ops__c date,",,,,a
@@ -422,7 +422,7 @@ column,do no create,name,type,module
 "   dq_general_terms_and_conditions__c numeric(19),",,,,a
 "   tos_price_book_rate_v2__c varchar(255),",,,,s
 "   dq_tos_price_book_rate__c numeric(19),",,,,a
-"   coding_price_book_rate__c varchar(255),",,,,p
+"   coding_price_book_rate__c varchar(255),",,,,s
 "   dq_coding_price_book_rate__c numeric(19),",,,,a
 "   dq_payment_type__c numeric(19),",,,,a
 "   dq_product_gma_term_months__c numeric(19),",,,,a
@@ -460,7 +460,7 @@ column,do no create,name,type,module
    dq_total__c numeric(19),,,,a
 baa_effective_date__c date,,,,a
 dq_subs_product_term_for_conv__c real,,,,a
-type_of_scribing__c text,,,,a
+type_of_scribing__c text,,,,s
 virtual_sciribing_renewal_start_date__c date,,,,s
 virtual_scribing_auto_renew__c bool,,,,s
 virtual_scribing_billing__c text,,,,s

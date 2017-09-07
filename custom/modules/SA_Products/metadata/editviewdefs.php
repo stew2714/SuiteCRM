@@ -39,19 +39,58 @@ array (
         array (
           0 => 
           array (
-            'name' => 'fluency_for_coding_platform_c',
-            'label' => 'LBL_FLUENCY_FOR_CODING_PLATFORM_C',
+            'name' => 'shipping_c',
+            'label' => 'LBL_SHIPPING_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'product_term_months_c',
+            'label' => 'LBL_PRODUCT_TERM_MONTHS_C',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'coding_price_book_rate_c',
-            'label' => 'LBL_CODING_PRICE_BOOK_RATE_C',
+            'name' => 'product_hosted_c',
+            'label' => 'LBL_PRODUCT_HOSTED_C',
+          ),
+          1 => 
+          array (
+            'name' => 'product_billing_c',
+            'label' => 'LBL_PRODUCT_BILLING_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hardware_pricing_discount_c',
+            'label' => 'LBL_HARDWARE_PRICING_DISCOUNT_C',
+          ),
+          1 => 
+          array (
+            'name' => 'hardware_gma_c',
+            'label' => 'LBL_HARDWARE_GMA_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'software_pricing_discount_c',
+            'label' => 'LBL_SOFTWARE_PRICING_DISCOUNT_C',
           ),
           1 => '',
+        ),
+        4 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'product_gma_service_level_c',
+            'label' => 'LBL_PRODUCT_GMA_SERVICE_LEVEL_C',
+          ),
         ),
       ),
     ),

@@ -137,4 +137,6 @@ $mod_strings = array (
   'LBL_MTSO_3_C' => 'MTSO 3',
   'LBL_NUANCE_DISPOSITION_C' => 'Nuance Disposition',
   'LBL_COMMITTED_TO_NAUNCE_C' => 'Committed to Nuance',
+  'LBL_EDITVIEW_PANEL13' => 'EHR',
+  'LBL_ACCOUNT2_C' => 'SF account',
 );

@@ -73,10 +73,10 @@ array (
           'newTab' => false,
           'panelDefault' => 'collapsed',
         ),
-        'LBL_EDITVIEW_PANEL8' => 
+        'LBL_EDITVIEW_PANEL13' => 
         array (
           'newTab' => false,
-          'panelDefault' => 'collapsed',
+          'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL9' => 
         array (
@@ -109,51 +109,64 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
-            'label' => 'LBL_NAME',
+            'name' => 'g2_account_plan_accounts_name',
           ),
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'g2_account_plan_accounts_name',
-          ),
-          1 => 
-          array (
-            'name' => 'zba_sss_c',
-            'label' => 'LBL_ZBA_SSS_C',
-          ),
+          0 => 'assigned_user_name',
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
-          1 => 
+          0 => 
           array (
-            'name' => 'state_c',
-            'label' => 'LBL_STATE_C',
+            'name' => 'ehr_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EHR_C',
           ),
         ),
         3 => 
-        array (
-        ),
-        4 => 
         array (
           0 => 
           array (
             'name' => 'created_by_name',
             'label' => 'LBL_CREATED',
           ),
-          1 => 
+          1 => 'date_entered',
+        ),
+        4 => 
+        array (
+          0 => 
           array (
             'name' => 'modified_by_name',
             'label' => 'LBL_MODIFIED_NAME',
           ),
+          1 => 'date_modified',
         ),
         5 => 
         array (
-          0 => 'date_entered',
-          1 => 'date_modified',
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -175,6 +188,12 @@ array (
         array (
           0 => 
           array (
+            'name' => 'preferred_buying_model_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PREFERRED_BUYING_MODEL_C',
+          ),
+          1 => 
+          array (
             'name' => 'financial_objective_c',
             'label' => 'LBL_FINANCIAL_OBJECTIVE_C',
           ),
@@ -187,6 +206,7 @@ array (
           0 => 
           array (
             'name' => 'product_targets_c',
+            'studio' => 'visible',
             'label' => 'LBL_PRODUCT_TARGETS_C',
           ),
           1 => 
@@ -198,6 +218,16 @@ array (
       ),
       'lbl_editview_panel3' => 
       array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'adequacy_of_current_position_c',
+            'studio' => 'visible',
+            'label' => 'LBL_ADEQUACY_OF_CURRENT_POSITION_C',
+          ),
+          1 => '',
+        ),
         1 => 
         array (
           0 => 
@@ -253,6 +283,27 @@ array (
             'name' => 'nuance_disposition_c',
             'label' => 'LBL_NUANCE_DISPOSITION_C',
           ),
+          1 => 
+          array (
+            'name' => 'committed_to_naunce_c',
+            'studio' => 'visible',
+            'label' => 'LBL_COMMITTED_TO_NAUNCE_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nuance_enterprise_license_c',
+            'studio' => 'visible',
+            'label' => 'LBL_NUANCE_ENTERPRISE_LICENSE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'nuance_term_or_perpetual_c',
+            'studio' => 'visible',
+            'label' => 'LBL_NUANCE_TERM_OR_PERPETUAL_C',
+          ),
         ),
       ),
       'lbl_editview_panel6' => 
@@ -287,6 +338,24 @@ array (
           array (
             'name' => 'financial_outlook_c',
             'label' => 'LBL_FINANCIAL_OUTLOOK_C',
+          ),
+        ),
+      ),
+      'lbl_editview_panel13' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ehr_status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EHR_STATUS_C',
+          ),
+          1 => 
+          array (
+            'name' => 'ehr_adoption_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EHR_ADOPTION_C',
           ),
         ),
       ),
@@ -357,6 +426,12 @@ array (
         array (
           0 => 
           array (
+            'name' => 'fes_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FES_C',
+          ),
+          1 => 
+          array (
             'name' => 'fes_adoption_c',
             'label' => 'LBL_FES_ADOPTION_C',
           ),
@@ -364,6 +439,12 @@ array (
         1 => 
         array (
           0 => 
+          array (
+            'name' => 'fes_satisfaction_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FES_SATISFACTION_C',
+          ),
+          1 => 
           array (
             'name' => 'fes_sponsor_c',
             'studio' => 'visible',

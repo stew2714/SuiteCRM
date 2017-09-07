@@ -6,18 +6,22 @@ $popupMeta = array (
     'whereClauses' => array (
   'first_name' => 'contacts.first_name',
   'last_name' => 'contacts.last_name',
-  'account_name' => 'accounts.name',
   'email' => 'contacts.email',
   'title' => 'contacts.title',
-  'contact_type_c' => 'contacts_cstm.contact_type_c',
+  'contact_association_c' => 'contacts_cstm.contact_association_c',
+  'survey_c' => 'contacts_cstm.survey_c',
+  'sales_c' => 'contacts_cstm.sales_c',
+  'assigned_user_name' => 'contacts.assigned_user_name',
 ),
     'searchInputs' => array (
   0 => 'first_name',
   1 => 'last_name',
-  2 => 'account_name',
   3 => 'email',
   4 => 'title',
-  5 => 'contact_type_c',
+  6 => 'contact_association_c',
+  7 => 'survey_c',
+  8 => 'sales_c',
+  9 => 'assigned_user_name',
 ),
     'create' => array (
   'formBase' => 'ContactFormBase.php',
@@ -46,24 +50,41 @@ $popupMeta = array (
     'name' => 'email',
     'width' => '10%',
   ),
-  'account_name' => 
-  array (
-    'name' => 'account_name',
-    'type' => 'varchar',
-    'width' => '10%',
-  ),
   'title' => 
   array (
     'name' => 'title',
     'width' => '10%',
   ),
-  'contact_type_c' => 
+  'contact_association_c' => 
   array (
-    'type' => 'enum',
+    'type' => 'multienum',
     'studio' => 'visible',
-    'label' => 'LBL_CONTACT_TYPE',
+    'label' => 'LBL_CONTACT_ASSOCIATION',
     'width' => '10%',
-    'name' => 'contact_type_c',
+    'name' => 'contact_association_c',
+  ),
+  'survey_c' => 
+  array (
+    'type' => 'bool',
+    'label' => 'LBL_SURVEY',
+    'width' => '10%',
+    'name' => 'survey_c',
+  ),
+  'sales_c' => 
+  array (
+    'type' => 'bool',
+    'label' => 'LBL_SALES',
+    'width' => '10%',
+    'name' => 'sales_c',
+  ),
+  'assigned_user_name' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'name' => 'assigned_user_name',
   ),
 ),
     'listviewdefs' => array (
@@ -83,6 +104,13 @@ $popupMeta = array (
     ),
     'name' => 'name',
   ),
+  'TITLE' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_LIST_TITLE',
+    'default' => true,
+    'name' => 'title',
+  ),
   'EMAIL1' => 
   array (
     'type' => 'varchar',
@@ -96,28 +124,30 @@ $popupMeta = array (
     'label' => 'LBL_EMAIL_ADDRESS',
     'width' => '10%',
     'default' => true,
+    'name' => 'email1',
   ),
-  'TITLE' => 
+  'CONTACT_TYPE_C' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_TITLE',
+    'type' => 'enum',
     'default' => true,
-    'name' => 'title',
+    'studio' => 'visible',
+    'label' => 'LBL_CONTACT_TYPE',
+    'width' => '10%',
   ),
-  'ACCOUNT_NAME' => 
+  'CONTACT_ASSOCIATION_C' => 
   array (
-    'width' => '25%',
-    'label' => 'LBL_LIST_ACCOUNT_NAME',
-    'module' => 'Accounts',
-    'id' => 'ACCOUNT_ID',
+    'type' => 'multienum',
     'default' => true,
-    'sortable' => true,
-    'ACLTag' => 'ACCOUNT',
-    'related_fields' => 
-    array (
-      0 => 'account_id',
-    ),
-    'name' => 'account_name',
+    'studio' => 'visible',
+    'label' => 'LBL_CONTACT_ASSOCIATION',
+    'width' => '10%',
+  ),
+  'ACTIVE_C' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_ACTIVE',
+    'width' => '10%',
   ),
 ),
 );

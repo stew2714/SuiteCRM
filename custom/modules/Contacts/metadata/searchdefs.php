@@ -44,12 +44,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'account_name' => 
-      array (
-        'name' => 'account_name',
-        'default' => true,
-        'width' => '10%',
-      ),
       'contact_type_c' => 
       array (
         'type' => 'enum',

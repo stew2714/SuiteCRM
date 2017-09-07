@@ -1,5 +1,5 @@
 <?php
- // created: 2017-09-06 15:49:00
+ // created: 2017-09-07 13:04:44
 $layout_defs["Accounts"]["subpanel_setup"]['g2_account_plan_accounts'] = array (
   'order' => 100,
   'module' => 'g2_Account_Plan',

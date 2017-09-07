@@ -1,5 +1,5 @@
 <?php
-// created: 2017-08-25 12:37:07
+// created: 2017-09-07 16:29:21
 $mod_strings = array (
   'LBL_CONTACT_TYPE' => 'Contact Type',
   'LBL_OPERATIONAL' => 'Operational',
@@ -19,4 +19,12 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Communication',
   'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
   'LBL_ACCOUNTS_CONTACTS_1_FROM_ACCOUNTS_TITLE' => 'myAccounts',
+  'LBL_REFERENCE_END_DATE' => 'Reference End Date',
+  'LBL_REFERENCE_START_DATE' => 'Reference Start Date',
+  'LBL_REFERENCE_ASSOCIATION' => 'Reference Association',
+  'LBL_REFERENCED_EMR' => 'Referenced EMR',
+  'LBL_ASSIGNED_TO_NAME' => 'Owner',
+  'LBL_EDITVIEW_PANEL2' => 'Address Information',
+  'LBL_EDITVIEW_PANEL3' => 'Reference Program',
+  'SF ID' => 'SF ID',
 );

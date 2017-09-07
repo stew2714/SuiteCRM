@@ -65,7 +65,8 @@ $dictionary['Contact']['fields']['previous_account_c']['source'] = 'custom_field
 
 // Field: standard_title_c
 $dictionary['Contact']['fields']['standard_title_c']['name'] = 'standard_title_c';
-$dictionary['Contact']['fields']['standard_title_c']['type'] = 'varchar';
+$dictionary['Contact']['fields']['standard_title_c']['type'] = 'enum';
+$dictionary['Contact']['fields']['standard_title_c']['options'] = 'std_title_dom';
 $dictionary['Contact']['fields']['standard_title_c']['len'] = '255';
 $dictionary['Contact']['fields']['standard_title_c']['size'] = '20';
 $dictionary['Contact']['fields']['standard_title_c']['required'] = false;

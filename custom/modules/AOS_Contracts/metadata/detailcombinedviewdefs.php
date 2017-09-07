@@ -92,16 +92,6 @@ $viewdefs = array (
             'newTab' => true,
             'panelDefault' => 'expanded',
           ),
-          'LBL_EDITVIEW_PANEL1' => 
-          array (
-            'newTab' => false,
-            'panelDefault' => 'expanded',
-          ),
-          'LBL_EDITVIEW_PANEL2' => 
-          array (
-            'newTab' => false,
-            'panelDefault' => 'expanded',
-          ),
           'ACC_LBL_EDITVIEW_PANEL1' => 
           array (
             'newTab' => false,
@@ -113,6 +103,11 @@ $viewdefs = array (
             'panelDefault' => 'expanded',
           ),
           'ACC_LBL_EDITVIEW_PANEL3' => 
+          array (
+            'newTab' => false,
+            'panelDefault' => 'expanded',
+          ),
+          'ACC_LBL_EDITVIEW_PANEL4' => 
           array (
             'newTab' => false,
             'panelDefault' => 'expanded',
@@ -139,6 +134,11 @@ $viewdefs = array (
           ),
           1 => 
           array (
+            0 => 
+            array (
+              'name' => 'activate_c',
+              'label' => 'LBL_ACTIVATE_C',
+            ),
             1 => 'apttus_related_opportunity_c',
           ),
           2 => 
@@ -244,53 +244,46 @@ $viewdefs = array (
             1 => 'additionalusers',
           ),
         ),
-        'lbl_editview_panel1' => 
-        array (
-          0 => 
-          array (
-            0 => 
-            array (
-              'name' => 'qa_program_c',
-              'label' => 'LBL_QA_PROGRAM_C',
-            ),
-          ),
-          1 => 
-          array (
-            0 => 
-            array (
-              'name' => 'hire_client_mt_s_c',
-              'label' => 'LBL_HIRE_CLIENT_MT_S_C',
-            ),
-          ),
-        ),
-        'lbl_editview_panel2' => 
-        array (
-          0 => 
-          array (
-            0 => 
-            array (
-              'name' => 'included_optional_system_components_c',
-              'label' => 'LBL_INCLUDED_OPTIONAL_SYSTEM_COMPONENTS_C',
-            ),
-          ),
-        ),
         'con_lbl_editview_panel2' => 
         array (
           0 => 
           array (
             0 => 
             array (
-              'name' => 'con_fluency_for_coding_platform_c',
-              'label' => 'LBL_FLUENCY_FOR_CODING_PLATFORM_C',
+              'name' => 'con_shipping_c',
+              'label' => 'LBL_SHIPPING_C',
             ),
+            1 => 'con_product_term_months_c',
           ),
           1 => 
           array (
             0 => 
             array (
-              'name' => 'con_coding_price_book_rate_c',
-              'label' => 'LBL_CODING_PRICE_BOOK_RATE_C',
+              'name' => 'con_product_hosted_c',
+              'label' => 'LBL_PRODUCT_HOSTED_C',
             ),
+            1 => 'con_product_billing_c',
+          ),
+          2 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_hardware_pricing_discount_c',
+              'label' => 'LBL_HARDWARE_PRICING_DISCOUNT_C',
+            ),
+            1 => 'con_hardware_gma_c',
+          ),
+          3 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_software_pricing_discount_c',
+              'label' => 'LBL_SOFTWARE_PRICING_DISCOUNT_C',
+            ),
+          ),
+          4 => 
+          array (
+            1 => 'con_product_gma_service_level_c',
           ),
         ),
         'acc_lbl_editview_panel1' => 
@@ -346,33 +339,20 @@ $viewdefs = array (
           ),
           6 => 
           array (
+            0 => 
+            array (
+              'name' => 'acc_qa_program_c',
+              'label' => 'LBL_QA_PROGRAM_C',
+            ),
             1 => 'acc_tos_revenue_c',
           ),
           7 => 
           array (
             0 => 
             array (
-              'name' => 'acc_securitygroup_display',
-              'comment' => 'Used for adding to the list, detail, and edit views',
-              'studio' => 
-              array (
-                'visible' => false,
-                'listview' => true,
-                'searchview' => false,
-                'detailview' => true,
-                'editview' => true,
-                'formula' => false,
-                'related' => false,
-                'basic_search' => false,
-                'advanced_search' => false,
-                'popuplist' => true,
-                'popupsearch' => false,
-                'dashletsearch' => false,
-                'dashlet' => false,
-              ),
-              'label' => 'LBL_SECURITYGROUP',
+              'name' => 'acc_hire_client_mt_s_c',
+              'label' => 'LBL_HIRE_CLIENT_MT_S_C',
             ),
-            1 => 'acc_additionalusers',
           ),
         ),
         'acc_lbl_editview_panel2' => 
@@ -397,6 +377,11 @@ $viewdefs = array (
           ),
           2 => 
           array (
+            0 => 
+            array (
+              'name' => 'acc_included_optional_system_components_c',
+              'label' => 'LBL_INCLUDED_OPTIONAL_SYSTEM_COMPONENTS_C',
+            ),
             1 => 'acc_estimated_fft_existing_volume_c',
           ),
           3 => 
@@ -433,6 +418,11 @@ $viewdefs = array (
           ),
           3 => 
           array (
+            0 => 
+            array (
+              'name' => 'acc_fluency_for_coding_platform_c',
+              'label' => 'LBL_FLUENCY_FOR_CODING_PLATFORM_C',
+            ),
           ),
           4 => 
           array (
@@ -440,6 +430,44 @@ $viewdefs = array (
             array (
               'name' => 'acc_coding_pricing_c',
               'label' => 'LBL_CODING_PRICING_C',
+            ),
+          ),
+        ),
+        'acc_lbl_editview_panel4' => 
+        array (
+          0 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_term_mm_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_TERM_MM_C',
+            ),
+            1 => 'acc_virtual_scribing_global_permitted_c',
+          ),
+          1 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_auto_renew_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_AUTO_RENEW_C',
+            ),
+            1 => 'acc_virtual_scribing_pricing_c',
+          ),
+          2 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_evergreen_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_EVERGREEN_C',
+            ),
+            1 => 'acc_virtual_scribing_revenue_c',
+          ),
+          3 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_type_of_scribing_c',
+              'label' => 'LBL_TYPE_OF_SCRIBING_C',
             ),
           ),
         ),

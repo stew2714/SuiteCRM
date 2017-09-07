@@ -34,16 +34,6 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL2' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
     ),
     'panels' => 
@@ -65,7 +55,11 @@ array (
         ),
         1 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'activate_c',
+            'label' => 'LBL_ACTIVATE_C',
+          ),
           1 => 
           array (
             'name' => 'apttus_related_opportunity_c',
@@ -228,39 +222,6 @@ array (
             ),
             'label' => 'LBL_ADDITIONALUSERS',
           ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'qa_program_c',
-            'label' => 'LBL_QA_PROGRAM_C',
-          ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'hire_client_mt_s_c',
-            'label' => 'LBL_HIRE_CLIENT_MT_S_C',
-          ),
-          1 => '',
-        ),
-      ),
-      'lbl_editview_panel2' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'included_optional_system_components_c',
-            'label' => 'LBL_INCLUDED_OPTIONAL_SYSTEM_COMPONENTS_C',
-          ),
-          1 => '',
         ),
       ),
     ),
