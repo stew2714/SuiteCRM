@@ -2,6 +2,7 @@
 
 // Created by VarDefBuilder: 2017-07-24 13:03:40
 // Contact: brant.gardner@mmodal.com
+// Note: Hand modified after build, do NOT regenerate
 
 // Field: sf_id_c
 $dictionary['Account']['fields']['sf_id_c']['name'] = 'sf_id_c';
@@ -15,13 +16,14 @@ $dictionary['Account']['fields']['sf_id_c']['source'] = 'custom_fields';
 
 // Field: recordtypeid_c
 $dictionary['Account']['fields']['recordtypeid_c']['name'] = 'recordtypeid_c';
-$dictionary['Account']['fields']['recordtypeid_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['recordtypeid_c']['type'] = 'enum';
 $dictionary['Account']['fields']['recordtypeid_c']['len'] = '18';
 $dictionary['Account']['fields']['recordtypeid_c']['size'] = '20';
 $dictionary['Account']['fields']['recordtypeid_c']['required'] = false;
 $dictionary['Account']['fields']['recordtypeid_c']['comments'] = 'Auto-created entry for field recordtypeid_c';
 $dictionary['Account']['fields']['recordtypeid_c']['vname'] = 'Record Type';
 $dictionary['Account']['fields']['recordtypeid_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['recordtypeid_c']['options'] = 'acct_rectype_list';
 
 // Field: lastactivitydate_c
 $dictionary['Account']['fields']['lastactivitydate_c']['name'] = 'lastactivitydate_c';
@@ -173,6 +175,37 @@ $dictionary['Account']['fields']['primary_gpo_c']['comments'] = 'Auto-created en
 $dictionary['Account']['fields']['primary_gpo_c']['vname'] = 'Primary GPO';
 $dictionary['Account']['fields']['primary_gpo_c']['source'] = 'custom_fields';
 
+// Part 1 - related field for gpo_affiliation
+
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['name']='Accgpo_affiliation_c';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['len']='18';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['type']='id';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['inline_edit']=1;
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['importable']='true';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['reportable']=true;
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['id']='AccountAccgpo_affiliation_c';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['module']='Account';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['vname']='LBL_ACCGPO_AFFILIATION_C';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['source']='custom_fields';
+
+// Part 2 - related field for gpo_affiliation
+
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['name']='gpo_affiliation_name_c';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['len']='255';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['type']='relate';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['inline_edit']=1;
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['importable']='true';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['reportable']=true;
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['ext2']='Accounts';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['id']='Accountgpo_affiliation_name_c';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['module']='Accounts';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['studio']='visible';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['id_name']='Accgpo_affiliation_c';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['vname']='GPO';
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['source']='non-db';
+
+// End of relate for gpo_affilation
+
 // Field: imaging_exam_volume_c
 $dictionary['Account']['fields']['imaging_exam_volume_c']['name'] = 'imaging_exam_volume_c';
 $dictionary['Account']['fields']['imaging_exam_volume_c']['type'] = 'float';
@@ -185,13 +218,14 @@ $dictionary['Account']['fields']['imaging_exam_volume_c']['source'] = 'custom_fi
 
 // Field: ehr_percent_c
 $dictionary['Account']['fields']['ehr_percent_c']['name'] = 'ehr_percent_c';
-$dictionary['Account']['fields']['ehr_percent_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['ehr_percent_c']['type'] = 'enum';
 $dictionary['Account']['fields']['ehr_percent_c']['len'] = '255';
 $dictionary['Account']['fields']['ehr_percent_c']['size'] = '20';
 $dictionary['Account']['fields']['ehr_percent_c']['required'] = false;
 $dictionary['Account']['fields']['ehr_percent_c']['comments'] = 'Auto-created entry for field ehr_percent_c';
 $dictionary['Account']['fields']['ehr_percent_c']['vname'] = 'EHR Percent';
 $dictionary['Account']['fields']['ehr_percent_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['ehr_percent_c']['options'] = 'acct_ehr_percent_list';
 
 // Field: ehr_install_date_c
 $dictionary['Account']['fields']['ehr_install_date_c']['name'] = 'ehr_install_date_c';
@@ -210,8 +244,40 @@ $dictionary['Account']['fields']['mtso_1_c']['len'] = '18';
 $dictionary['Account']['fields']['mtso_1_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_1_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_1_c']['comments'] = 'Auto-created entry for field mtso_1_c';
-$dictionary['Account']['fields']['mtso_1_c']['vname'] = 'MTSO 1';
+$dictionary['Account']['fields']['mtso_1_c']['vname'] = 'MTSO 1 Old';
 $dictionary['Account']['fields']['mtso_1_c']['source'] = 'custom_fields';
+
+// Part 1 - related field for mtso_1
+
+$dictionary['Account']['fields']['Accmtso_1_c']['name']='Accmtso_1_c';
+$dictionary['Account']['fields']['Accmtso_1_c']['len']='18';
+$dictionary['Account']['fields']['Accmtso_1_c']['type']='id';
+$dictionary['Account']['fields']['Accmtso_1_c']['inline_edit']=1;
+$dictionary['Account']['fields']['Accmtso_1_c']['importable']='true';
+$dictionary['Account']['fields']['Accmtso_1_c']['reportable']=true;
+$dictionary['Account']['fields']['Accmtso_1_c']['id']='AccountAccmtso_1_c';
+$dictionary['Account']['fields']['Accmtso_1_c']['module']='Account';
+$dictionary['Account']['fields']['Accmtso_1_c']['vname']='LBL_ACCMTSO_1_C';
+$dictionary['Account']['fields']['Accmtso_1_c']['source']='custom_fields';
+
+// Part 2 - related field for mtso_1
+
+$dictionary['Account']['fields']['mtso_1_name_c']['name']='mtso_1_name_c';
+$dictionary['Account']['fields']['mtso_1_name_c']['len']='255';
+$dictionary['Account']['fields']['mtso_1_name_c']['type']='relate';
+$dictionary['Account']['fields']['mtso_1_name_c']['inline_edit']=1;
+$dictionary['Account']['fields']['mtso_1_name_c']['importable']='true';
+$dictionary['Account']['fields']['mtso_1_name_c']['reportable']=true;
+$dictionary['Account']['fields']['mtso_1_name_c']['ext2']='Accounts';
+$dictionary['Account']['fields']['mtso_1_name_c']['id']='Accountmtso_1_name_c';
+$dictionary['Account']['fields']['mtso_1_name_c']['module']='Accounts';
+$dictionary['Account']['fields']['mtso_1_name_c']['studio']='visible';
+$dictionary['Account']['fields']['mtso_1_name_c']['id_name']='Accmtso_1_c';
+$dictionary['Account']['fields']['mtso_1_name_c']['vname']='MTSO 1';
+$dictionary['Account']['fields']['mtso_1_name_c']['source']='non-db';
+
+// End of relate for mtso_1
+
 
 // Field: mtso_1_percent_c
 $dictionary['Account']['fields']['mtso_1_percent_c']['name'] = 'mtso_1_percent_c';
@@ -230,8 +296,41 @@ $dictionary['Account']['fields']['mtso_2_c']['len'] = '18';
 $dictionary['Account']['fields']['mtso_2_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_2_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_2_c']['comments'] = 'Auto-created entry for field mtso_2_c';
-$dictionary['Account']['fields']['mtso_2_c']['vname'] = 'MTSO 2';
+$dictionary['Account']['fields']['mtso_2_c']['vname'] = 'MTSO 2 Old';
 $dictionary['Account']['fields']['mtso_2_c']['source'] = 'custom_fields';
+
+
+// Part 1 - related field for mtso_2
+
+$dictionary['Account']['fields']['Accmtso_2_c']['name']='Accmtso_2_c';
+$dictionary['Account']['fields']['Accmtso_2_c']['len']='18';
+$dictionary['Account']['fields']['Accmtso_2_c']['type']='id';
+$dictionary['Account']['fields']['Accmtso_2_c']['inline_edit']=1;
+$dictionary['Account']['fields']['Accmtso_2_c']['importable']='true';
+$dictionary['Account']['fields']['Accmtso_2_c']['reportable']=true;
+$dictionary['Account']['fields']['Accmtso_2_c']['id']='AccountAccmtso_2_c';
+$dictionary['Account']['fields']['Accmtso_2_c']['module']='Account';
+$dictionary['Account']['fields']['Accmtso_2_c']['vname']='LBL_ACCMTSO_2_C';
+$dictionary['Account']['fields']['Accmtso_2_c']['source']='custom_fields';
+
+// Part 2 - related field for mtso_2
+
+$dictionary['Account']['fields']['mtso_2_name_c']['name']='mtso_2_name_c';
+$dictionary['Account']['fields']['mtso_2_name_c']['len']='255';
+$dictionary['Account']['fields']['mtso_2_name_c']['type']='relate';
+$dictionary['Account']['fields']['mtso_2_name_c']['inline_edit']=1;
+$dictionary['Account']['fields']['mtso_2_name_c']['importable']='true';
+$dictionary['Account']['fields']['mtso_2_name_c']['reportable']=true;
+$dictionary['Account']['fields']['mtso_2_name_c']['ext2']='Accounts';
+$dictionary['Account']['fields']['mtso_2_name_c']['id']='Accountmtso_2_name_c';
+$dictionary['Account']['fields']['mtso_2_name_c']['module']='Accounts';
+$dictionary['Account']['fields']['mtso_2_name_c']['studio']='visible';
+$dictionary['Account']['fields']['mtso_2_name_c']['id_name']='Accmtso_2_c';
+$dictionary['Account']['fields']['mtso_2_name_c']['vname']='MTSO 2';
+$dictionary['Account']['fields']['mtso_2_name_c']['source']='non-db';
+
+// End of relate for mtso_2
+
 
 // Field: mtso_2_percent_c
 $dictionary['Account']['fields']['mtso_2_percent_c']['name'] = 'mtso_2_percent_c';
@@ -250,8 +349,40 @@ $dictionary['Account']['fields']['mtso_3_c']['len'] = '18';
 $dictionary['Account']['fields']['mtso_3_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_3_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_3_c']['comments'] = 'Auto-created entry for field mtso_3_c';
-$dictionary['Account']['fields']['mtso_3_c']['vname'] = 'MTSO 3';
+$dictionary['Account']['fields']['mtso_3_c']['vname'] = 'MTSO 3 Old';
 $dictionary['Account']['fields']['mtso_3_c']['source'] = 'custom_fields';
+
+// Part 1 - related field for mtso_3
+
+$dictionary['Account']['fields']['Accmtso_3_c']['name']='Accmtso_3_c';
+$dictionary['Account']['fields']['Accmtso_3_c']['len']='18';
+$dictionary['Account']['fields']['Accmtso_3_c']['type']='id';
+$dictionary['Account']['fields']['Accmtso_3_c']['inline_edit']=1;
+$dictionary['Account']['fields']['Accmtso_3_c']['importable']='true';
+$dictionary['Account']['fields']['Accmtso_3_c']['reportable']=true;
+$dictionary['Account']['fields']['Accmtso_3_c']['id']='AccountAccmtso_3_c';
+$dictionary['Account']['fields']['Accmtso_3_c']['module']='Account';
+$dictionary['Account']['fields']['Accmtso_3_c']['vname']='LBL_ACCMTSO_3_C';
+$dictionary['Account']['fields']['Accmtso_3_c']['source']='custom_fields';
+
+// Part 2 - related field for mtso_3
+
+$dictionary['Account']['fields']['mtso_3_name_c']['name']='mtso_3_name_c';
+$dictionary['Account']['fields']['mtso_3_name_c']['len']='255';
+$dictionary['Account']['fields']['mtso_3_name_c']['type']='relate';
+$dictionary['Account']['fields']['mtso_3_name_c']['inline_edit']=1;
+$dictionary['Account']['fields']['mtso_3_name_c']['importable']='true';
+$dictionary['Account']['fields']['mtso_3_name_c']['reportable']=true;
+$dictionary['Account']['fields']['mtso_3_name_c']['ext2']='Accounts';
+$dictionary['Account']['fields']['mtso_3_name_c']['id']='Accountmtso_3_name_c';
+$dictionary['Account']['fields']['mtso_3_name_c']['module']='Accounts';
+$dictionary['Account']['fields']['mtso_3_name_c']['studio']='visible';
+$dictionary['Account']['fields']['mtso_3_name_c']['id_name']='Accmtso_3_c';
+$dictionary['Account']['fields']['mtso_3_name_c']['vname']='MTSO 3';
+$dictionary['Account']['fields']['mtso_3_name_c']['source']='non-db';
+
+// End of relate for mtso_3
+
 
 // Field: mtso_3_percent_c
 $dictionary['Account']['fields']['mtso_3_percent_c']['name'] = 'mtso_3_percent_c';
@@ -295,13 +426,14 @@ $dictionary['Account']['fields']['transcription_volumemonth_c']['source'] = 'cus
 
 // Field: transcription_uom_c
 $dictionary['Account']['fields']['transcription_uom_c']['name'] = 'transcription_uom_c';
-$dictionary['Account']['fields']['transcription_uom_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['transcription_uom_c']['type'] = 'enum';
 $dictionary['Account']['fields']['transcription_uom_c']['len'] = '255';
 $dictionary['Account']['fields']['transcription_uom_c']['size'] = '20';
 $dictionary['Account']['fields']['transcription_uom_c']['required'] = false;
 $dictionary['Account']['fields']['transcription_uom_c']['comments'] = 'Auto-created entry for field transcription_uom_c';
 $dictionary['Account']['fields']['transcription_uom_c']['vname'] = 'Transcription UOM';
 $dictionary['Account']['fields']['transcription_uom_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['transcription_uom_c']['options'] = 'acct_tos_uom_list';
 
 // Field: number_of_dictators_c
 $dictionary['Account']['fields']['number_of_dictators_c']['name'] = 'number_of_dictators_c';
@@ -385,13 +517,14 @@ $dictionary['Account']['fields']['account_type_c']['source'] = 'custom_fields';
 
 // Field: voice_capture_system_c
 $dictionary['Account']['fields']['voice_capture_system_c']['name'] = 'voice_capture_system_c';
-$dictionary['Account']['fields']['voice_capture_system_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['voice_capture_system_c']['type'] = 'enum';
 $dictionary['Account']['fields']['voice_capture_system_c']['len'] = '255';
 $dictionary['Account']['fields']['voice_capture_system_c']['size'] = '20';
 $dictionary['Account']['fields']['voice_capture_system_c']['required'] = false;
 $dictionary['Account']['fields']['voice_capture_system_c']['comments'] = 'Auto-created entry for field voice_capture_system_c';
 $dictionary['Account']['fields']['voice_capture_system_c']['vname'] = 'Voice Capture System';
 $dictionary['Account']['fields']['voice_capture_system_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['voice_capture_system_c']['options'] = 'acct_voice_cap_sys_list';
 
 // Field: voice_capture_install_date_c
 $dictionary['Account']['fields']['voice_capture_install_date_c']['name'] = 'voice_capture_install_date_c';
@@ -405,13 +538,14 @@ $dictionary['Account']['fields']['voice_capture_install_date_c']['source'] = 'cu
 
 // Field: transcription_system_c
 $dictionary['Account']['fields']['transcription_system_c']['name'] = 'transcription_system_c';
-$dictionary['Account']['fields']['transcription_system_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['transcription_system_c']['type'] = 'enum';
 $dictionary['Account']['fields']['transcription_system_c']['len'] = '255';
 $dictionary['Account']['fields']['transcription_system_c']['size'] = '20';
 $dictionary['Account']['fields']['transcription_system_c']['required'] = false;
 $dictionary['Account']['fields']['transcription_system_c']['comments'] = 'Auto-created entry for field transcription_system_c';
 $dictionary['Account']['fields']['transcription_system_c']['vname'] = 'Transcription System';
 $dictionary['Account']['fields']['transcription_system_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['transcription_system_c']['options'] = 'acct_trans_sys_list';
 
 // Field: transcription_install_date_c
 $dictionary['Account']['fields']['transcription_install_date_c']['name'] = 'transcription_install_date_c';
@@ -425,13 +559,14 @@ $dictionary['Account']['fields']['transcription_install_date_c']['source'] = 'cu
 
 // Field: him_speech_rec_system_c
 $dictionary['Account']['fields']['him_speech_rec_system_c']['name'] = 'him_speech_rec_system_c';
-$dictionary['Account']['fields']['him_speech_rec_system_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['him_speech_rec_system_c']['type'] = 'enum';
 $dictionary['Account']['fields']['him_speech_rec_system_c']['len'] = '255';
 $dictionary['Account']['fields']['him_speech_rec_system_c']['size'] = '20';
 $dictionary['Account']['fields']['him_speech_rec_system_c']['required'] = false;
 $dictionary['Account']['fields']['him_speech_rec_system_c']['comments'] = 'Auto-created entry for field him_speech_rec_system_c';
 $dictionary['Account']['fields']['him_speech_rec_system_c']['vname'] = 'Him Speech Rec System';
 $dictionary['Account']['fields']['him_speech_rec_system_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['him_speech_rec_system_c']['options'] = 'acct_speech_rec_sys_list';
 
 // Field: him_speech_rec_install_date_c
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['name'] = 'him_speech_rec_install_date_c';
@@ -445,13 +580,14 @@ $dictionary['Account']['fields']['him_speech_rec_install_date_c']['source'] = 'c
 
 // Field: rad_speech_rec_system_c
 $dictionary['Account']['fields']['rad_speech_rec_system_c']['name'] = 'rad_speech_rec_system_c';
-$dictionary['Account']['fields']['rad_speech_rec_system_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['rad_speech_rec_system_c']['type'] = 'enum';
 $dictionary['Account']['fields']['rad_speech_rec_system_c']['len'] = '255';
 $dictionary['Account']['fields']['rad_speech_rec_system_c']['size'] = '20';
 $dictionary['Account']['fields']['rad_speech_rec_system_c']['required'] = false;
 $dictionary['Account']['fields']['rad_speech_rec_system_c']['comments'] = 'Auto-created entry for field rad_speech_rec_system_c';
 $dictionary['Account']['fields']['rad_speech_rec_system_c']['vname'] = 'Rad Speech Rec System';
 $dictionary['Account']['fields']['rad_speech_rec_system_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['rad_speech_rec_system_c']['options'] = 'acct_rad_speech_rec_list';
 
 // Field: rad_speech_rec_install_date_c
 $dictionary['Account']['fields']['rad_speech_rec_install_date_c']['name'] = 'rad_speech_rec_install_date_c';
@@ -465,13 +601,14 @@ $dictionary['Account']['fields']['rad_speech_rec_install_date_c']['source'] = 'c
 
 // Field: ris_c
 $dictionary['Account']['fields']['ris_c']['name'] = 'ris_c';
-$dictionary['Account']['fields']['ris_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['ris_c']['type'] = 'enum';
 $dictionary['Account']['fields']['ris_c']['len'] = '255';
 $dictionary['Account']['fields']['ris_c']['size'] = '20';
 $dictionary['Account']['fields']['ris_c']['required'] = false;
 $dictionary['Account']['fields']['ris_c']['comments'] = 'Auto-created entry for field ris_c';
 $dictionary['Account']['fields']['ris_c']['vname'] = 'RIS';
 $dictionary['Account']['fields']['ris_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['ris_c']['options'] = 'acct_ris_list';
 
 // Field: ris_install_date_c
 $dictionary['Account']['fields']['ris_install_date_c']['name'] = 'ris_install_date_c';
@@ -485,13 +622,14 @@ $dictionary['Account']['fields']['ris_install_date_c']['source'] = 'custom_field
 
 // Field: coding_system_c
 $dictionary['Account']['fields']['coding_system_c']['name'] = 'coding_system_c';
-$dictionary['Account']['fields']['coding_system_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['coding_system_c']['type'] = 'enum';
 $dictionary['Account']['fields']['coding_system_c']['len'] = '255';
 $dictionary['Account']['fields']['coding_system_c']['size'] = '20';
 $dictionary['Account']['fields']['coding_system_c']['required'] = false;
 $dictionary['Account']['fields']['coding_system_c']['comments'] = 'Auto-created entry for field coding_system_c';
 $dictionary['Account']['fields']['coding_system_c']['vname'] = 'Coding System';
 $dictionary['Account']['fields']['coding_system_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['coding_system_c']['options'] = 'acct_coding_sys_list';
 
 // Field: coding_system_install_date_c
 $dictionary['Account']['fields']['coding_system_install_date_c']['name'] = 'coding_system_install_date_c';
@@ -584,13 +722,14 @@ $dictionary['Account']['fields']['top_10_prospecting_reason_c']['source'] = 'cus
 
 // Field: mq_segmentation_c
 $dictionary['Account']['fields']['mq_segmentation_c']['name'] = 'mq_segmentation_c';
-$dictionary['Account']['fields']['mq_segmentation_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['mq_segmentation_c']['type'] = 'enum';
 $dictionary['Account']['fields']['mq_segmentation_c']['len'] = '255';
 $dictionary['Account']['fields']['mq_segmentation_c']['size'] = '20';
 $dictionary['Account']['fields']['mq_segmentation_c']['required'] = false;
 $dictionary['Account']['fields']['mq_segmentation_c']['comments'] = 'Auto-created entry for field mq_segmentation_c';
 $dictionary['Account']['fields']['mq_segmentation_c']['vname'] = 'M*M Segmentation';
 $dictionary['Account']['fields']['mq_segmentation_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['mq_segmentation_c']['options'] = 'acct_mm_segment_list';
 
 // Field: annual_healthcare_visits_c
 $dictionary['Account']['fields']['annual_healthcare_visits_c']['name'] = 'annual_healthcare_visits_c';
@@ -604,13 +743,14 @@ $dictionary['Account']['fields']['annual_healthcare_visits_c']['source'] = 'cust
 
 // Field: profit_non_profit_c
 $dictionary['Account']['fields']['profit_non_profit_c']['name'] = 'profit_non_profit_c';
-$dictionary['Account']['fields']['profit_non_profit_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['profit_non_profit_c']['type'] = 'enum';
 $dictionary['Account']['fields']['profit_non_profit_c']['len'] = '255';
 $dictionary['Account']['fields']['profit_non_profit_c']['size'] = '20';
 $dictionary['Account']['fields']['profit_non_profit_c']['required'] = false;
 $dictionary['Account']['fields']['profit_non_profit_c']['comments'] = 'Auto-created entry for field profit_non_profit_c';
 $dictionary['Account']['fields']['profit_non_profit_c']['vname'] = 'Profit Non Profit';
 $dictionary['Account']['fields']['profit_non_profit_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['profit_non_profit_c']['options'] = 'acct_profit_list';
 
 // Field: kam_c
 $dictionary['Account']['fields']['kam_c']['name'] = 'kam_c';
@@ -633,13 +773,14 @@ $dictionary['Account']['fields']['levers_dials_date_c']['source'] = 'custom_fiel
 
 // Field: pacs_c
 $dictionary['Account']['fields']['pacs_c']['name'] = 'pacs_c';
-$dictionary['Account']['fields']['pacs_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['pacs_c']['type'] = 'enum';
 $dictionary['Account']['fields']['pacs_c']['len'] = '255';
 $dictionary['Account']['fields']['pacs_c']['size'] = '20';
 $dictionary['Account']['fields']['pacs_c']['required'] = false;
 $dictionary['Account']['fields']['pacs_c']['comments'] = 'Auto-created entry for field pacs_c';
 $dictionary['Account']['fields']['pacs_c']['vname'] = 'PACS';
 $dictionary['Account']['fields']['pacs_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['pacs_c']['options'] = 'acct_pacs_list';
 
 // Field: pacs_install_date_c
 $dictionary['Account']['fields']['pacs_install_date_c']['name'] = 'pacs_install_date_c';
@@ -745,7 +886,7 @@ $dictionary['Account']['fields']['sk_a_id_c']['len'] = '30';
 $dictionary['Account']['fields']['sk_a_id_c']['size'] = '20';
 $dictionary['Account']['fields']['sk_a_id_c']['required'] = false;
 $dictionary['Account']['fields']['sk_a_id_c']['comments'] = 'Auto-created entry for field sk_a_id_c';
-$dictionary['Account']['fields']['sk_a_id_c']['vname'] = 'SK A ID';
+$dictionary['Account']['fields']['sk_a_id_c']['vname'] = 'SK&A ID';
 $dictionary['Account']['fields']['sk_a_id_c']['source'] = 'custom_fields';
 
 // Field: sage_id_c
@@ -946,23 +1087,25 @@ $dictionary['Account']['fields']['isr_rad_prospecting_c']['source'] = 'custom_fi
 
 // Field: fed_department_c
 $dictionary['Account']['fields']['fed_department_c']['name'] = 'fed_department_c';
-$dictionary['Account']['fields']['fed_department_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['fed_department_c']['type'] = 'enum';
 $dictionary['Account']['fields']['fed_department_c']['len'] = '255';
 $dictionary['Account']['fields']['fed_department_c']['size'] = '20';
 $dictionary['Account']['fields']['fed_department_c']['required'] = false;
 $dictionary['Account']['fields']['fed_department_c']['comments'] = 'Auto-created entry for field fed_department_c';
 $dictionary['Account']['fields']['fed_department_c']['vname'] = 'Fed Department';
 $dictionary['Account']['fields']['fed_department_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['fed_department_c']['options'] = 'acct_fed_dpmt_list';
 
 // Field: fed_agency_c
 $dictionary['Account']['fields']['fed_agency_c']['name'] = 'fed_agency_c';
-$dictionary['Account']['fields']['fed_agency_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['fed_agency_c']['type'] = 'enum';
 $dictionary['Account']['fields']['fed_agency_c']['len'] = '255';
 $dictionary['Account']['fields']['fed_agency_c']['size'] = '20';
 $dictionary['Account']['fields']['fed_agency_c']['required'] = false;
 $dictionary['Account']['fields']['fed_agency_c']['comments'] = 'Auto-created entry for field fed_agency_c';
 $dictionary['Account']['fields']['fed_agency_c']['vname'] = 'Fed Agency';
 $dictionary['Account']['fields']['fed_agency_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['fed_agency_c']['options'] = 'acct_fed_agency_list';
 
 // Field: ehr_c
 $dictionary['Account']['fields']['ehr_c']['name'] = 'ehr_c';
@@ -1034,13 +1177,14 @@ $dictionary['Account']['fields']['dh_id_c']['source'] = 'custom_fields';
 
 // Field: current_cdi_vendor_c
 $dictionary['Account']['fields']['current_cdi_vendor_c']['name'] = 'current_cdi_vendor_c';
-$dictionary['Account']['fields']['current_cdi_vendor_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['current_cdi_vendor_c']['type'] = 'enum';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['len'] = '255';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['size'] = '20';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['required'] = false;
 $dictionary['Account']['fields']['current_cdi_vendor_c']['comments'] = 'Auto-created entry for field current_cdi_vendor_c';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['vname'] = 'Current CDI Vendor';
 $dictionary['Account']['fields']['current_cdi_vendor_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['current_cdi_vendor_c']['options'] = 'acct_cdi_vendor_list';
 
 // Field: cdi_buyer_c
 $dictionary['Account']['fields']['cdi_buyer_c']['name'] = 'cdi_buyer_c';
@@ -1064,13 +1208,14 @@ $dictionary['Account']['fields']['cdi_buyer_title_c']['source'] = 'custom_fields
 
 // Field: cdi_status_c
 $dictionary['Account']['fields']['cdi_status_c']['name'] = 'cdi_status_c';
-$dictionary['Account']['fields']['cdi_status_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['cdi_status_c']['type'] = 'enum';
 $dictionary['Account']['fields']['cdi_status_c']['len'] = '255';
 $dictionary['Account']['fields']['cdi_status_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_status_c']['required'] = false;
 $dictionary['Account']['fields']['cdi_status_c']['comments'] = 'Auto-created entry for field cdi_status_c';
 $dictionary['Account']['fields']['cdi_status_c']['vname'] = 'CDI Status';
 $dictionary['Account']['fields']['cdi_status_c']['source'] = 'custom_fields';
+$dictionary['Account']['fields']['cdi_status_c']['options'] = 'acct_cdi_status_list';
 
 // Field: cdi_comments_c
 $dictionary['Account']['fields']['cdi_comments_c']['name'] = 'cdi_comments_c';
@@ -1166,8 +1311,40 @@ $dictionary['Account']['fields']['imaging_owner_c']['len'] = '18';
 $dictionary['Account']['fields']['imaging_owner_c']['size'] = '20';
 $dictionary['Account']['fields']['imaging_owner_c']['required'] = false;
 $dictionary['Account']['fields']['imaging_owner_c']['comments'] = 'Auto-created entry for field imaging_owner_c';
-$dictionary['Account']['fields']['imaging_owner_c']['vname'] = 'Imaging Owner';
+$dictionary['Account']['fields']['imaging_owner_c']['vname'] = 'Imaging Owner Old';
 $dictionary['Account']['fields']['imaging_owner_c']['source'] = 'custom_fields';
+
+// Part 1 - related field for imaging_owner
+
+$dictionary['Account']['fields']['Usrimaging_owner_c']['name']='Usrimaging_owner_c';
+$dictionary['Account']['fields']['Usrimaging_owner_c']['len']='18';
+$dictionary['Account']['fields']['Usrimaging_owner_c']['type']='id';
+$dictionary['Account']['fields']['Usrimaging_owner_c']['inline_edit']=1;
+$dictionary['Account']['fields']['Usrimaging_owner_c']['importable']='true';
+$dictionary['Account']['fields']['Usrimaging_owner_c']['reportable']=true;
+$dictionary['Account']['fields']['Usrimaging_owner_c']['id']='AccountUsrimaging_owner_c';
+$dictionary['Account']['fields']['Usrimaging_owner_c']['module']='User';
+$dictionary['Account']['fields']['Usrimaging_owner_c']['vname']='LBL_ACCIMAGING_OWNER_C';
+$dictionary['Account']['fields']['Usrimaging_owner_c']['source']='custom_fields';
+
+// Part 2 - related field for imaging_owner
+
+$dictionary['Account']['fields']['imaging_owner_name_c']['name']='imaging_owner_name_c';
+$dictionary['Account']['fields']['imaging_owner_name_c']['len']='255';
+$dictionary['Account']['fields']['imaging_owner_name_c']['type']='relate';
+$dictionary['Account']['fields']['imaging_owner_name_c']['inline_edit']=1;
+$dictionary['Account']['fields']['imaging_owner_name_c']['importable']='true';
+$dictionary['Account']['fields']['imaging_owner_name_c']['reportable']=true;
+$dictionary['Account']['fields']['imaging_owner_name_c']['ext2']='Users';
+$dictionary['Account']['fields']['imaging_owner_name_c']['id']='Accountimaging_owner_name_c';
+$dictionary['Account']['fields']['imaging_owner_name_c']['module']='Users';
+$dictionary['Account']['fields']['imaging_owner_name_c']['studio']='visible';
+$dictionary['Account']['fields']['imaging_owner_name_c']['id_name']='Usrimaging_owner_c';
+$dictionary['Account']['fields']['imaging_owner_name_c']['vname']='Imaging Owner';
+$dictionary['Account']['fields']['imaging_owner_name_c']['source']='non-db';
+
+// End of relate for imaging_owner
+
 
 // Field: it_region_c
 $dictionary['Account']['fields']['it_region_c']['name'] = 'it_region_c';
@@ -1593,5 +1770,12 @@ $dictionary['Account']['fields']['coding_fit_c']['required'] = false;
 $dictionary['Account']['fields']['coding_fit_c']['comments'] = 'Auto-created entry for field coding_fit_c';
 $dictionary['Account']['fields']['coding_fit_c']['vname'] = 'Coding Fit';
 $dictionary['Account']['fields']['coding_fit_c']['source'] = 'custom_fields';
+
+// Field: ownership (manually added 2017-09-12)
+$dictionary['Account']['fields']['ownership']['name'] = 'ownership';
+$dictionary['Account']['fields']['ownership']['vname'] = 'LBL_OWNERSHIP';
+$dictionary['Account']['fields']['ownership']['type'] = 'enum';
+$dictionary['Account']['fields']['ownership']['len'] = '40';
+$dictionary['Account']['fields']['ownership']['options'] = 'acct_ownership_list';
 
 ?>

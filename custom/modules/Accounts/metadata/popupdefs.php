@@ -87,11 +87,12 @@ $popupMeta = array (
     'default' => true,
     'name' => 'name',
   ),
-  'FACILITY_TYPE_C' => 
+  'FACILITY_TYPE_DD_C' => 
   array (
-    'type' => 'varchar',
+    'type' => 'enum',
     'default' => true,
-    'label' => 'LBL_FACILITY_TYPE',
+    'studio' => 'visible',
+    'label' => 'LBL_FACILITY_TYPE_DD',
     'width' => '10%',
   ),
   'UCID_C' => 
@@ -100,6 +101,7 @@ $popupMeta = array (
     'default' => true,
     'label' => 'LBL_UCID',
     'width' => '10%',
+    'name' => 'ucid_c',
   ),
   'HIMSS_ID_C' => 
   array (
@@ -107,6 +109,7 @@ $popupMeta = array (
     'default' => true,
     'label' => 'LBL_HIMSS_ID',
     'width' => '10%',
+    'name' => 'himss_id_c',
   ),
   'BILLING_ADDRESS_CITY' => 
   array (

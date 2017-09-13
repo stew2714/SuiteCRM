@@ -280,25 +280,8 @@ $GLOBALS['app_list_strings']['acct_ehr_percent_list']=array (
   '51_75' => '51-75%',
   '76_100' => '76-100%',
 );
-$GLOBALS['app_list_strings']['acct_voice_cap_sys_list']=array (
-  '' => '',
-  '3M' => '3M',
-  'Dolbey' => 'Dolbey',
-  'MM_DQV' => 'M*Modal DQV',
-  'MM_Legacy' => 'M*Modal Legacy',
-  'Nuance_eScriptions' => 'Nuance - eScriptions',
-  'Nuance_Ichart' => 'Nuance - Ichart',
-  'Other' => 'Other',
-);
 $GLOBALS['app_list_strings']['acct_tos_sys_list']=array (
   '' => '',
-);
-$GLOBALS['app_list_strings']['acct_speech_rec_sys_list']=array (
-  '' => '',
-  'MModal' => 'M*Modal',
-  'Nuance_Dragon' => 'Nuance Dragon',
-  'Other' => 'Other',
-  'SpeechQ' => 'SpeechQ',
 );
 $app_strings['LBL_GROUPTAB5_1491298541'] = 'Training';
 
@@ -478,16 +461,10 @@ $GLOBALS['app_list_strings']['acct_voice_cap_list']=array (
 $GLOBALS['app_list_strings']['acct_him_speech_rec_list']=array (
   '' => '',
 );
-$GLOBALS['app_list_strings']['acct_rad_speech_rec_list']=array (
-  '' => '',
-);
 $GLOBALS['app_list_strings']['acct_ris_list']=array (
   '' => '',
 );
 $GLOBALS['app_list_strings']['acct_pacs_list']=array (
-  '' => '',
-);
-$GLOBALS['app_list_strings']['acct_coding_sys_list']=array (
   '' => '',
 );
 $GLOBALS['app_list_strings']['fes_satisfaction_list']=array (
@@ -623,4 +600,73 @@ $GLOBALS['app_list_strings']['referenced_emr_list']=array (
   'NetSmart' => 'NetSmart',
   'NextGen' => 'NextGen',
   'SRS_Health' => 'SRS Health',
+);
+$GLOBALS['app_list_strings']['opportunity_rectype_list']=array (
+  '' => '',
+  'B2B' => 'B2B',
+  'CBay_Opportunity' => 'CBay Opportunity',
+  'GMA_Opportunity' => 'GMA Opportunity',
+  'Lead_Stage_Opportunity' => 'Lead Stage Opportunity',
+  'Partner_Opportunity' => 'Partner Opportunity',
+  'SpeechQ_Editing_Opportunity' => 'SpeechQ Editing Opportunity',
+  'Standard_Opportunity' => 'Standard Opportunity',
+  'TOS_Renewal_Opportunity' => 'TOS Renewal Opportunity',
+);
+$GLOBALS['app_list_strings']['agreement_rectype_list']=array (
+  '' => '',
+  'Add_on_Agreement' => 'Add-on Agreement',
+  'Master_Services_Agreement' => 'Master Services Agreement',
+  'NDA' => 'NDA',
+);
+$GLOBALS['app_list_strings']['acct_rectype_list']=array (
+  '' => '',
+  'B2B_Account' => 'B2B Account',
+  'CBay_Account' => 'CBay Account',
+  'GPO_Other' => 'GPO/Other',
+  'Hospital_Clinic' => 'Hospital/Clinic',
+  'MTSO_Competitor' => 'MTSO Competitor',
+  'New_Partner_Account' => 'New Partner Account',
+  'Partner_Account' => 'Partner Account',
+);
+$GLOBALS['app_list_strings']['acct_speech_rec_sys_list']=array (
+  '' => '',
+  'Nuance_Dragon' => 'Nuance Dragon',
+  'Other' => 'Other',
+  'MultiModal' => 'M*Modal',
+  'MedQuist_SpeechQ' => 'SpeechQ',
+);
+$GLOBALS['app_list_strings']['acct_voice_cap_sys_list']=array (
+  '' => '',
+  '3M' => '3M',
+  'Dolbey' => 'Dolbey',
+  'Nuance_eScriptions' => 'Nuance - eScriptions',
+  'Nuance_Ichart' => 'Nuance - Ichart',
+  'Other' => 'Other',
+  'MedQuist_DQV' => 'M*Modal - DVQ',
+  'MedQuist_Legacy' => 'M*Modal Legacy',
+);
+$GLOBALS['app_list_strings']['acct_coding_sys_list']=array (
+  '' => '',
+  '3M' => '3M',
+  'Alife' => 'Alife',
+  'MedQuist' => 'M*Modal',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['acct_rad_speech_rec_list']=array (
+  '' => '',
+  'Agfa_Talk' => 'Agfa Talk',
+  'Dolbey_Fusion' => 'Dolbey Fusion',
+  'FD_for_Imaging' => 'FD for Imaging',
+  'MModal_Embedded' => 'M*Modal Embedded',
+  'MModal_Fluency_for_Imaging' => 'M*Modal Fluency for Imaging',
+  'MedQuist_SQR' => 'M*Modal SQR',
+  'No_Front_End_Speech' => 'No Front End Speech',
+  'Nuance_Powerscribe_360' => 'Nuance Powerscribe 360',
+  'Nuance_Powerscribe_4x' => 'Nuance Powerscribe 4.x',
+  'Nuance_Powerscribe_5x' => 'Nuance Powerscribe 5.x',
+  'Other' => 'Other',
+);
+
+$GLOBALS['app_list_strings']['acct_ownership_list']=array (
+  '' => '',
 );
