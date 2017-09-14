@@ -189,20 +189,6 @@ $GLOBALS['app_list_strings']['cc_region_dd_list']=array (
 );
 $app_list_strings['moduleList']['C1_Cust_Contacts1']='Cust_Contacts';
 $app_list_strings['moduleListSingular']['C1_Cust_Contacts1']='Cust_Contacts';
-$GLOBALS['app_list_strings']['ae_region_list']=array (
-  'None' => 'None',
-  'Canada' => 'Canada',
-  'Federal' => 'Federal',
-  'Imaging' => 'Imaging',
-  'Practices' => 'Practices',
-  'SS_North' => 'SS North',
-  'SS_South' => 'SS South',
-  'SS_West' => 'SS West',
-  'ZBA_North' => 'ZBA North',
-  'ZBA_South' => 'ZBA South',
-  'ZBA_West' => 'ZBA West',
-  'KA' => 'KA',
-);
 $GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
   'None' => 'None',
   'NonTop25' => 'Segment #1: Excellent Fit - Non-Top 25',
@@ -214,11 +200,6 @@ $GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
   'NISSeg5' => 'Not In Segment (Segment 5)',
   'NIS' => 'Not in Segment',
   'ZBA' => 'ZBA',
-);
-$GLOBALS['app_list_strings']['lead_rating_dom']=array (
-  'None' => 'None',
-  'Hot' => 'Hot',
-  'Cold' => 'Cold',
 );
 $GLOBALS['app_list_strings']['acct_fed_agency_list']=array (
   '' => '',
@@ -253,18 +234,6 @@ $GLOBALS['app_list_strings']['acct_profit_list']=array (
   'Profit' => 'For Profit',
   'Non_Profit' => 'Not For Profit',
 );
-$GLOBALS['app_list_strings']['acct_tos_uom_list']=array (
-  '' => '',
-  '65Char_ASCII_w_HF' => '65-Char ASCII w/H&F',
-  '65Char_ASCII_wo_HF' => '65-Char ASCII w/o H&F',
-  '65Char_VBC_w_HF' => '65-Char VBC w/H&F',
-  '65Char_VBC_wo_HF' => '65-Char VBC w/o H&F',
-  'Reports' => 'Reports',
-  'Seconds_of_Dictation' => 'Seconds of Dictation',
-  'VBC_w_HF' => 'VBC w/H&F',
-  'VBC_wo_HF' => 'VBC w/o H&F',
-);
-
 $GLOBALS['app_list_strings']['acct_cdi_status_list']=array (
   '' => '',
   'Engaged' => 'Engaged - Efforts to reach prospect have been made',
@@ -452,9 +421,6 @@ $GLOBALS['app_list_strings']['facility_type_list']=array (
   'SC' => 'Surgery Center',
   'IMG' => 'Imaging Center',
 );
-$GLOBALS['app_list_strings']['acct_trans_sys_list']=array (
-  '' => '',
-);
 $GLOBALS['app_list_strings']['acct_voice_cap_list']=array (
   '' => '',
 );
@@ -508,27 +474,6 @@ $GLOBALS['app_list_strings']['peferred_buying_mod_list']=array (
   '' => '',
   'Capital' => 'Capital',
   'Subscription' => 'Subscription',
-);
-$GLOBALS['app_list_strings']['ehr_list']=array (
-  '' => '',
-  'Unknown' => 'Unknown',
-  'Epic' => 'Epic',
-  'Cerner' => 'Cerner',
-  'Meditech' => 'Meditech',
-  'McKesson' => 'McKesson',
-  'Siemens' => 'Siemens',
-  'Eclipsys' => 'Eclipsys',
-  'GE' => 'GE',
-  'Self' => 'Self Developed',
-  'Other' => 'Other',
-  'AllScripts' => 'AllScripts',
-  'Misys' => 'Misys',
-  'eClinicalWorks' => 'eClinicalWorks',
-  'nextGen' => 'nextGen',
-  'SRS' => 'SRS',
-  'Greenway' => 'Greenway',
-  'Athena' => 'Athena Health',
-  'No_EHR' => 'No EHR',
 );
 $GLOBALS['app_list_strings']['acct_plan_prod_list']=array (
   '' => '',
@@ -669,4 +614,144 @@ $GLOBALS['app_list_strings']['acct_rad_speech_rec_list']=array (
 
 $GLOBALS['app_list_strings']['acct_ownership_list']=array (
   '' => '',
+);
+$GLOBALS['app_list_strings']['client_buying_tf_list']=array (
+  '' => '',
+  '0_3' => '0 - 3 months',
+  '4_6' => '4 - 6 months',
+  '7_9' => '7 - 9 months',
+  '10_12' => '10 - 12 months',
+  '1_year' => '1 + years',
+);
+$GLOBALS['app_list_strings']['ae_region_list']=array (
+  '' => '',
+  'Canada' => 'Canada',
+  'Federal' => 'Federal',
+  'Imaging' => 'Imaging',
+  'KA' => 'KA',
+  'Practices' => 'Practices',
+  'SS_North' => 'SS North',
+  'SS_South' => 'SS South',
+  'SS_West' => 'SS West',
+  'ZBA_North' => 'ZBA North',
+  'ZBA_South' => 'ZBA South',
+  'ZBA_West' => 'ZBA West',
+);
+$GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
+  '' => '',
+  'NIS' => 'Not in Segment',
+  'NISSeg1' => 'Not in Segment (Segment 1)',
+  'NISSeg5' => 'Not In Segment (Segment 5)',
+  'NonTop25' => 'Segment #1: Excellent Fit - Non-Top 25',
+  'Top25Exc' => 'Segment #2: Excellent Fit - Top 25',
+  'CHS' => 'Segment #3: CH',
+  'Top25GF' => 'Segment #4: Good Fit - Top 25',
+  'NonTop25GF' => 'Segment #5: Good Fit - Non-Top 25',
+  'ZBA' => 'ZBA',
+);
+$GLOBALS['app_list_strings']['acct_tos_uom_list']=array (
+  '' => '',
+  '65Char_ASCII_w_HF' => '65-Char ASCII w/H&F',
+  '65Char_ASCII_wo_HF' => '65-Char ASCII w/o H&F',
+  '65Char_VBC_w_HF' => '65-Char VBC w/H&F',
+  '65Char_VBC_wo_HF' => '65-Char VBC w/o H&F',
+  'Exams' => 'Exams',
+  'Gross_Lines' => 'Gross Lines',
+  'Reports' => 'Reports',
+  'Seconds_of_Dictation' => 'Seconds of Dictation',
+  'VBC_w_HF' => 'VBC w/H&F',
+  'VBC_wo_HF' => 'VBC w/o H&F',
+);
+$GLOBALS['app_list_strings']['ehr_list']=array (
+  '' => '',
+  'AllScripts' => 'AllScripts',
+  'Athena' => 'Athena Health',
+  'Cerner' => 'Cerner',
+  'ChartLogic' => 'ChartLogic',
+  'CPSI' => 'CPSI',
+  'eClinicalWorks' => 'eClinicalWorks',
+  'Eclipsys' => 'Eclipsys',
+  'Epic' => 'Epic',
+  'GE' => 'GE',
+  'Greenway' => 'Greenway',
+  'Healthland' => 'Healthland',
+  'McKesson' => 'McKesson',
+  'Med3000' => 'Med3000',
+  'Medhost' => 'Medhost',
+  'Meditech' => 'Meditech',
+  'Merge_Technologies' => 'Merge Technologies',
+  'Misys' => 'Misys',
+  'NetSmart' => 'NetSmart',
+  'NextGen' => 'NextGen',
+  'Optum' => 'Optum',
+  'Other' => 'Other',
+  'Quadramed' => 'Quadramed',
+  'Self_Developed' => 'Self Developed',
+  'Siemens' => 'Siemens',
+  'SRS' => 'SRS',
+  'UK_Misc' => 'UK Misc',
+  'Unknown' => 'Unknown',
+);
+$GLOBALS['app_list_strings']['lead_rating_dom']=array (
+  '' => '',
+  'Cold' => 'Cold',
+  'Hot' => 'Hot',
+  'Warm' => 'Warm',
+);
+$GLOBALS['app_list_strings']['ehr_rollout_status_list']=array (
+  '' => '',
+  'Deployed' => 'Deployed',
+  'In_Progress' => 'In-Progress',
+  'Planned' => 'Planned',
+);
+$GLOBALS['app_list_strings']['desired_term_list']=array (
+  '' => '',
+  '1_year' => '1 year',
+  '3_years' => '3 years',
+  '2_years' => '2 years',
+  '4_years' => '4 years',
+  '5_years' => '5 years',
+  '6_years' => '6 years',
+  'Perpetual' => 'Perpetual',
+);
+$GLOBALS['app_list_strings']['interest_level_list']=array (
+  '' => '',
+  'No_Interest' => '0 - No Interest',
+  'Low_Interest' => '1 - Low Interest and will not have impact on closing the deal',
+  'Med_Interest' => '2 - Medium Interest and could sway deal',
+  'High_Interest' => '3 - High Interest, however will move forward and will utilize without',
+  'Will_Not_Close_woUse' => '4 - Will not close deal unless they are able to use',
+  'Will_Not_Close_woRef' => '5 - Will not close deal until there is a reference available',
+);
+
+$GLOBALS['app_list_strings']['acct_trans_sys_list']=array (
+  '' => '',
+  'MedQuist_DEP' => 'M*Modal FFT',
+  'MedQuist_CMT' => 'M*Modal CMT',
+  'Nuance_Ichart' => 'Nuance Ichart',
+  'Nuance_eScriptions' => 'Nuance eScriptions',
+  'Dolbey' => 'Dolbey',
+  'Outscourced' => 'Outsourced',
+  'Other' => 'Other',
+  '3M' => '3M',
+  'Self_Developed' => 'Self-Developed',
+  'Word_WordPerfect' => 'Word/WordPerfect',
+  'In_house' => 'In-house',
+);
+$GLOBALS['app_list_strings']['yes_no_list']=array (
+  '' => '',
+  'Yes' => 'Yes',
+  'No' => 'No',
+);
+$GLOBALS['app_list_strings']['lead_gen_spec_list']=array (
+  '' => '',
+  'Jerome_Morgan' => 'Jerome Morgan',
+  'Ron_Stewart' => 'Ron_Stewart',
+  'John_Diepietro' => 'John Diepietro',
+  'Kathy_Wolford' => 'Kathy_Wolford',
+);
+
+$GLOBALS['app_list_strings']['sf_facility_type_list']=array (
+  'PR' => 'Independent Medical Practices',
+  'HOS' => 'Hospitals and Health Systems',
 );

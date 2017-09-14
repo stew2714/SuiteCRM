@@ -207,8 +207,9 @@ $dictionary['sa_Fluency_One']['fields']['client_currently_uses_dragon_c']['sourc
 
 $dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['name']='client_s_buying_timeframe_c';
 $dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['options']='client_buying_tf_list';
 $dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['client_s_buying_timeframe_c']['module']='sa_Fluency_One';
@@ -276,8 +277,9 @@ $dictionary['sa_Fluency_One']['fields']['current_dom_trans_rate_c']['source']='c
 
 $dictionary['sa_Fluency_One']['fields']['current_ehr_c']['name']='current_ehr_c';
 $dictionary['sa_Fluency_One']['fields']['current_ehr_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['current_ehr_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['current_ehr_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['current_ehr_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['current_ehr_c']['options']='ehr_list';
 $dictionary['sa_Fluency_One']['fields']['current_ehr_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['current_ehr_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['current_ehr_c']['module']='sa_Fluency_One';
@@ -343,8 +345,9 @@ $dictionary['sa_Fluency_One']['fields']['current_m_modal_installed_products_c'][
 
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['name']='current_platform_c';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['current_platform_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['current_platform_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['current_platform_c']['options']='acct_trans_sys_list';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['current_platform_c']['module']='sa_Fluency_One';
@@ -356,8 +359,9 @@ $dictionary['sa_Fluency_One']['fields']['current_platform_c']['source']='custom_
 
 $dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['name']='desired_pricing_model_c';
 $dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['options']='peferred_buying_mod_list';
 $dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['module']='sa_Fluency_One';
@@ -369,8 +373,9 @@ $dictionary['sa_Fluency_One']['fields']['desired_pricing_model_c']['source']='cu
 
 $dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['name']='desired_term_lengton_c';
 $dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['options']='desired_term_list';
 $dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['desired_term_lengton_c']['module']='sa_Fluency_One';
@@ -813,8 +818,9 @@ $dictionary['sa_Fluency_One']['fields']['status_c']['source']='custom_fields';
 
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['name']='status_of_ehr_rollout_c';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['options']='ehr_rollout_status_list';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['status_of_ehr_rollout_c']['module']='sa_Fluency_One';
@@ -853,8 +859,9 @@ $dictionary['sa_Fluency_One']['fields']['volume_insourced_c']['source']='custom_
 
 $dictionary['sa_Fluency_One']['fields']['volume_uom_c']['name']='volume_uom_c';
 $dictionary['sa_Fluency_One']['fields']['volume_uom_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['volume_uom_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['volume_uom_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['volume_uom_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['volume_uom_c']['options']='acct_tos_uom_list';
 $dictionary['sa_Fluency_One']['fields']['volume_uom_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['volume_uom_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['volume_uom_c']['module']='sa_Fluency_One';
@@ -1111,7 +1118,7 @@ $dictionary['sa_Fluency_One']['fields']['ae_region_c']['name']='ae_region_c';
 $dictionary['sa_Fluency_One']['fields']['ae_region_c']['len']='255';
 $dictionary['sa_Fluency_One']['fields']['ae_region_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['ae_region_c']['inline_edit']=1;
-$dictionary['sa_Fluency_One']['fields']['ae_region_c']['options']='ae_region_list';
+$dictionary['sa_Fluency_One']['fields']['ae_region_c']['options']='ae_region_dom';
 $dictionary['sa_Fluency_One']['fields']['ae_region_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['ae_region_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['ae_region_c']['module']='sa_Fluency_One';
@@ -1205,8 +1212,9 @@ $dictionary['sa_Fluency_One']['fields']['url_c']['source']='custom_fields';
 
 $dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['name']='includes_pricedown_c';
 $dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['options']='yes_no_list';
 $dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['includes_pricedown_c']['module']='sa_Fluency_One';
@@ -1231,8 +1239,9 @@ $dictionary['sa_Fluency_One']['fields']['pricedown_notes_c']['source']='custom_f
 
 $dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['name']='document_insight_interest_level_c';
 $dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['options']='interest_level_list';
 $dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['module']='sa_Fluency_One';
@@ -1244,8 +1253,9 @@ $dictionary['sa_Fluency_One']['fields']['document_insight_interest_level_c']['so
 
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['name']='capd_interest_level_c';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['len']='255';
-$dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['type']='text';
+$dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['type']='enum';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['options']='interest_level_list';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['importable']='true';
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['reportable']=true;
 $dictionary['sa_Fluency_One']['fields']['capd_interest_level_c']['module']='sa_Fluency_One';
