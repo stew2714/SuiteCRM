@@ -329,6 +329,17 @@ class buildViews{
 	 */
 	function get_view($viewDef, $module, $team){
         $def = strtolower($viewDef) . "defs.php";
+
+        $bean = BeanFactory::getBean("Layouts");
+        $bean->retrieve($team);
+        if(!empty($bean->id)){
+            $beanCheck = BeanFactory::getBean("Layouts");
+            $beanCheck->retrieve_by_string_fields(array('name' => $bean->name, 'flow_module' => $module));
+            if(!empty($beanCheck->id)){
+                $team = $beanCheck->id;
+            }
+        }
+
 		if(!empty($team) && $team != "default"){
 			$coreMetaPath = 'modules/' . $module . '/metadata/' . $team . '/' . $def ;
 			if(file_exists('custom/' .$coreMetaPath )) {
