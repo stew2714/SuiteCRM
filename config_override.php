@@ -39,4 +39,5 @@ $sugar_config['Implementations'] = '90d40376-027d-a8f7-7cd3-593fb7ce674f';
 $sugar_config['list_max_entries_per_page'] = '50';
 $sugar_config['list_max_entries_per_subpanel'] = '10';
 $sugar_config['email_default_delete_attachments'] = true;
+$sugar_config['outfitters_licenses']['gmsyncaddon'] = 'b03e052d5e1e75ae739c5e78a0e7fbd5';
 /***CONFIGURATOR***/
