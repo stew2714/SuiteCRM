@@ -74,10 +74,7 @@
                     dragAndDrop: true,
                     selectable: true,
                     onCanSelectNode: function(node) {
-                        if($('#report-editview-footer .toggle-detailpanel_fields').hasClass('active')) {
-                            dropFieldLine(node);
-                        }
-                        else if($('#report-editview-footer .toggle-detailpanel_conditions').hasClass('active')) {
+                        if($('#report-editview-footer .toggle-detailpanel_conditions')) {
                             dropConditionLine(node);
                         }
                     },
@@ -245,7 +242,7 @@
             report_module = $(this).val();
             loadTreeData($(this).val());
             clearTreeDataFields();
-            clearFieldLines();
+            //clearFieldLines();
             clearConditionLines();
             clearChartLines();
         });
