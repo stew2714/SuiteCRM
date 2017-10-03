@@ -1044,6 +1044,7 @@ class matrixReportBuilder
             $defs[$field['name']] = $label;
         }
 
+        asort($defs);
         return $defs;
     }
     function build_report_query_join(
