@@ -65,7 +65,8 @@ class SA_eloqua_queue extends Basic
     public $assigned_user_name;
     public $assigned_user_link;
     public $additionalusers;
-	
+    public $status;
+
     public function bean_implements($interface)
     {
         switch($interface)

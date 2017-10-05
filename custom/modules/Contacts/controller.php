@@ -43,57 +43,14 @@ class customContactsController extends ContactsController
 {
 	function action_testpull(){
         $sync = new eloquaSync();
-        //659
-
 
         echo '<pre>';
-        //$sync->defineExport() ;
         foreach($sync->activities as $activity){
-            echo $sync->defineExport($activity) ;
+            if( $sync->defineExport($activity) ){
+             //   break;
+            }
         }
-
         echo '</pre>';
-
-
-
-
-
         die();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //print_r($sync->getContactSegments() );
-        //print_r($sync->getContacts() );
-
-//
-//
-//        echo '<pre>';
-//        print_r($sync->getContactLists() );
-//        echo '</pre>';
-
-
-//        $date = new DateTime();
-//        $date->sub(new DateInterval('PT4H'));
-//        $timestamp = $date->getTimestamp();
-        // Build URL Fetch Params and Return the Contacts
-        //$contacts = $sync->client->get('data/contacts?search=*&lastUpdatedAt=' . $timestamp);
-
-
-//        echo '<pre>';
-//        print_r($sync->getCampaignList() );
-//        echo '</pre>';
-        //$sync->getCampaigns();
-
 }

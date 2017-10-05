@@ -61,9 +61,31 @@ class eloquaSync
 
     public function defineExport($activityType = "emailOpen")
     {
-        global $timedate;
+        global $timedate, $sugar_config;
+
+        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 48;
+
         $bean = BeanFactory::getBean("SA_eloqua_queue");
-        $syncs = $bean->get_full_list("", "sa_eloqua_queue.status = 'Still to Process' AND sa_eloqua_queue.queue_type = '{$activityType}'");
+
+        $lastChecked =
+            $bean->get_full_list(
+                "",
+                " sa_eloqua_queue.status = 'Processed' AND 
+                        sa_eloqua_queue.last_checked > NOW() - INTERVAL {$syncCheck} HOUR AND 
+                        sa_eloqua_queue.queue_type = '{$activityType}'"
+            );
+
+        if(count($lastChecked) != 0){
+            //as we have already checked this in the last x hours return as we dont want to do it again.
+           // return false;
+        }
+
+        $syncs =
+            $bean->get_full_list(
+                "",
+                " sa_eloqua_queue.status = 'Still to Process' AND 
+                        sa_eloqua_queue.queue_type = '{$activityType}'"
+            );
 
         if (count($syncs) == 0) {
             echo "New Sync needs to be created. ";
@@ -71,25 +93,31 @@ class eloquaSync
             $bean->status = "Still to Process";
             $bean->queue_type = $activityType;
             $postUrl = "/activities/exports";
+            $date = $timedate->getNow()->sub(new DateInterval("PT{$syncCheck}H") )->format("Y-m-d H:i:s");
             $postData = array(
-                'filter' => "'{{Activity.Type}}'='{$activityType}'",
+                "filter" => "'{{Activity.Type}}'='{$activityType}' AND '{{Activity.CreatedAt}}' > '{$date}'",
+                "areSystemTimestampsInUTC" => true,
                 "name"   => "Bulk Activity Export - {$activityType}",
                 "fields" => array(
-                    "ActivityId"        => "{{Activity.Id}}",
-                    "ActivityType"      => "{{Activity.Type}}",
-                    "ActivityDate"      => "{{Activity.CreatedAt}}",
-                    "ContactId"         => "{{Activity.Contact.Id}}",
-//                    "EmailWebLink"      => "{{Activity.Field(EmailWebLink)}}",
-                    "ExternalId"        => "{{Activity.ExternalId}}",
-                    "ContactIdExt"      => "{{Activity.Contact.Field(ContactIDExt)}}"
+                    "ActivityId" => "{{Activity.Id}}",
+                    "ActivityType" => "{{Activity.Type}}",
+                    "ActivityDate" => "{{Activity.CreatedAt}}",
+                    "ContactId" => "{{Activity.Contact.Id}}",
+                    "EmailWebLink"      => "{{Activity.Field(EmailWebLink)}}",
+                    "ExternalId" => "{{Activity.ExternalId}}",
+                    "ContactIdExt" => "{{Activity.Contact.Field(ContactIDExt)}}"
                 ),
             );
 
-            if($activityType != "FormSubmit" && $activityType != "PageView" && $activityType != "WebVisit"){
+            if ($activityType != "FormSubmit" && $activityType != "PageView" && $activityType != "WebVisit") {
                 $postData['fields']['EmailAddress'] = "{{Activity.Field(EmailAddress)}}";
             }
-            if($activityType != "WebVisit"){
+            if ($activityType != "WebVisit") {
                 $postData['fields']['CampaignId'] = "{{Activity.Campaign.Id}}";
+            }
+
+            if($activityType){
+                $postData['fields']['EmailWebLink']      = "{{Activity.Field(EmailWebLink)}}";
             }
             $data = $this->clientBulk->post($postUrl, $postData);
             $bean->description = $data->uri;
@@ -117,19 +145,24 @@ class eloquaSync
         $data = $this->checkBulk($data->uri);
 
         if ($data != null) {
-            $bean->status = "Processed";
-            $bean->save();
-            //we got the data so now delete the bulk to be 100% sure we dont make a mess of the server.
-            $this->deleteBulk($uri);
-        }else{
+
+            print_r($data);
+            $result = $this->save_data($data->items);
+
+            if ($result == true) {
+                $bean->status = "Processed";
+                $bean->save();
+                //we got the data so now delete the bulk to be 100% sure we dont make a mess of the server.
+                $this->deleteBulk($uri);
+
+                return true;
+            }
+        } else {
             $bean->last_checked = $timedate->now();
             $bean->save();
         }
 
-        echo '<pre>';
-        print_r($data);
-        $this->save_data($data->items);
-        echo '</pre>';
+        return false;
     }
 
     public function save_data($data)
@@ -161,6 +194,8 @@ class eloquaSync
 
             $bean->save();
         }
+
+        return true;
     }
 
     public function deleteBulk($postUrl)
