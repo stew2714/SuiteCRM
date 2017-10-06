@@ -61,6 +61,15 @@ $dictionary['SA_eloqua_queue'] = array(
             'audited' => true,
             'merge_filter' => 'disabled',
         ),
+        'offset' => array(
+            'name' => 'offset',
+            'vname' => 'LBL_STATE',
+            'type' => 'int',
+            'len' => 100,
+            'default' => 0,
+            'audited' => true,
+            'merge_filter' => 'disabled',
+        ),
         'last_checked' => array(
             'name' => 'last_checked',
             'vname' => 'LBL_STATE',
@@ -82,6 +91,8 @@ $dictionary['SA_eloqua_queue'] = array(
 
 ),
     'relationships' => array (
+
+
 ),
     'optimistic_locking' => true,
     'unified_search' => true,

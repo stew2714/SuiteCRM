@@ -103,6 +103,17 @@ $dictionary['SA_eloqua_activity'] = array(
 
 ),
     'relationships' => array (
+
+        'contacts' =>
+            array(
+                'lhs_module' => 'Contacts',
+                'lhs_table' => 'contacts',
+                'lhs_key' => 'id',
+                'rhs_module' => 'SA_eloqua_activity',
+                'rhs_table' => 'sa_eloqua_activity',
+                'rhs_key' => 'related_id',
+                'relationship_type' => 'one-to-many',
+            ),
 ),
     'optimistic_locking' => true,
     'unified_search' => true,

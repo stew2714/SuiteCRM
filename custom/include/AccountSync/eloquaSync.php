@@ -27,6 +27,8 @@ require_once('custom/include/AccountSync/eloquaRequest.php');
 
 class eloquaSync
 {
+    var $limit = 1000;
+
     var $activities = array(
         "EmailSend",
         "EmailOpen",
@@ -63,7 +65,7 @@ class eloquaSync
     {
         global $timedate, $sugar_config;
 
-        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 48;
+        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 99;
 
         $bean = BeanFactory::getBean("SA_eloqua_queue");
 
@@ -75,10 +77,6 @@ class eloquaSync
                         sa_eloqua_queue.queue_type = '{$activityType}'"
             );
 
-        if(count($lastChecked) != 0){
-            //as we have already checked this in the last x hours return as we dont want to do it again.
-           // return false;
-        }
 
         $syncs =
             $bean->get_full_list(
@@ -86,6 +84,11 @@ class eloquaSync
                 " sa_eloqua_queue.status = 'Still to Process' AND 
                         sa_eloqua_queue.queue_type = '{$activityType}'"
             );
+
+        if(count($lastChecked) != 0 && $syncs == 0){
+            //as we have already checked this in the last x hours return as we dont want to do it again.
+            return false;
+        }
 
         if (count($syncs) == 0) {
             echo "New Sync needs to be created. ";
@@ -103,7 +106,6 @@ class eloquaSync
                     "ActivityType" => "{{Activity.Type}}",
                     "ActivityDate" => "{{Activity.CreatedAt}}",
                     "ContactId" => "{{Activity.Contact.Id}}",
-                    "EmailWebLink"      => "{{Activity.Field(EmailWebLink)}}",
                     "ExternalId" => "{{Activity.ExternalId}}",
                     "ContactIdExt" => "{{Activity.Contact.Field(ContactIDExt)}}"
                 ),
@@ -116,13 +118,23 @@ class eloquaSync
                 $postData['fields']['CampaignId'] = "{{Activity.Campaign.Id}}";
             }
 
-            if($activityType){
+            if($activityType != "WebVisit" && $activityType != "PageView" && $activityType != "Subscribe" &&
+                                           $activityType != "FormSubmit" &&
+               $activityType != "Unsubscribe" && $activityType != "Bounceback"){
                 $postData['fields']['EmailWebLink']      = "{{Activity.Field(EmailWebLink)}}";
             }
             $data = $this->clientBulk->post($postUrl, $postData);
             $bean->description = $data->uri;
             $bean->save();
             $uri = $data->uri;
+
+            if (isset($data->failures) && count($data->failures) > 0) {
+                $GLOBALS['log']->fatal = "Failed Bulk Export " . print_r($data);
+                $bean->status = "Failed";
+                $bean->save();
+
+                return false;
+            }
             echo "We have new call make. ";
         } else {
             echo "we have existing syncs outstanding.";
@@ -131,6 +143,8 @@ class eloquaSync
                 break;
             }
             $uri = $bean->description;
+            $offset = $bean->offset;
+
         }
 
         $data = $this->createBulk($uri);
@@ -142,18 +156,30 @@ class eloquaSync
             return false;
         }
         echo "we have made bulk on server. ";
-        $data = $this->checkBulk($data->uri);
+        $data = $this->checkBulk($data->uri, $offset);
 
         if ($data != null) {
 
             print_r($data);
+            //check and see if we have more pages.
+
             $result = $this->save_data($data->items);
 
+
             if ($result == true) {
+                if($data->hasMore == true){
+                    //we have more data to get from the next page.
+                    $newBean = clone $bean;
+                    $newBean->id = "";
+                    $newBean->offset = $data->count;
+                    $newBean->save();
+                }else{
+                    $this->deleteBulk($uri);
+                }
+
                 $bean->status = "Processed";
                 $bean->save();
                 //we got the data so now delete the bulk to be 100% sure we dont make a mess of the server.
-                $this->deleteBulk($uri);
 
                 return true;
             }
@@ -215,12 +241,15 @@ class eloquaSync
         return $data;
     }
 
-    public function checkBulk($postUrl = "/syncs/11")
+    public function checkBulk($postUrl = "/syncs/11", $offset = 0)
     {
         $check = $this->clientBulk->get($postUrl);
-
+        $offsetParam = "";
+        if($offset > 0 ){
+            $offsetParam = "&offset={$offset}";
+        }
         if ($check->status == "success") {
-            $postUrl = $check->uri . "/data";
+            $postUrl = $check->uri . "/data?limit={$this->limit}" . $offsetParam  ;
             $data = $this->clientBulk->get($postUrl);
 
             return $data;
