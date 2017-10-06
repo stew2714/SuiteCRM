@@ -106,8 +106,8 @@ $dictionary['SA_eloqua_activity'] = array(
 
         'contacts' =>
             array(
-                'lhs_module' => 'Contacts',
-                'lhs_table' => 'contacts',
+                'lhs_module' => 'Leads',
+                'lhs_table' => 'leads',
                 'lhs_key' => 'id',
                 'rhs_module' => 'SA_eloqua_activity',
                 'rhs_table' => 'sa_eloqua_activity',
