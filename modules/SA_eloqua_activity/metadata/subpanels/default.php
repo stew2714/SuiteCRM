@@ -52,26 +52,25 @@ $subpanel_layout = array(
     'where' => '',
 
     'list_fields' => array(
-        'name' => array(
-            'vname' => 'LBL_NAME',
-            'widget_class' => 'SubPanelDetailViewLink',
-            'width' => '45%',
+        'campaign_id' => array(
+            'vname' => 'LBL_CAMPAIGN',
+            'width' => '25%',
         ),
-        'date_modified' => array(
-            'vname' => 'LBL_DATE_MODIFIED',
-            'width' => '45%',
+        'activity_date' => array(
+            'vname' => 'LBL_ACTIVITY_DATE',
+            'width' => '25%',
         ),
-        'edit_button' => array(
-            'vname' => 'LBL_EDIT_BUTTON',
-            'widget_class' => 'SubPanelEditButton',
-            'module' => $module_name,
-            'width' => '4%',
+        'activity_type' => array(
+            'vname' => 'LBL_ACTIVITY_TYPE',
+            'width' => '25%',
         ),
-        'remove_button' => array(
-            'vname' => 'LBL_REMOVE',
-            'widget_class' => 'SubPanelRemoveButton',
-            'module' => $module_name,
-            'width' => '5%',
+        'email_address' => array(
+            'vname' => 'LBL_EMAIL_ADDRESS',
+            'width' => '25%',
+        ),
+        'activity_link' => array(
+            'vname' => 'LBL_ACTIVITY_LINK',
+            'width' => '25%',
         ),
     ),
 );

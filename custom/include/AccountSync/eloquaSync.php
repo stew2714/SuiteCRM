@@ -207,6 +207,7 @@ class eloquaSync
             $bean->activity_date = $record->ActivityDate;
             $bean->activity_id = $record->ActivityId;
             $bean->eloqua_contact_id = $record->ContactId;
+            $bean->activity_link = $record->EmailWebLink;
 
             //now see if we can find the contact....
             $contact = BeanFactory::getBean("Leads")->retrieve_by_string_fields(

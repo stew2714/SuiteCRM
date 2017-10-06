@@ -46,7 +46,7 @@ $dictionary['SA_eloqua_activity'] = array(
     'fields' => array (
         'campaign_id' => array(
             'name' => 'campaign_id',
-            'vname' => 'LBL_STATE',
+            'vname' => 'LBL_CAMPAIGN_ID',
             'type' => 'id',
             'len' => 255,
             'audited' => true,
@@ -54,7 +54,7 @@ $dictionary['SA_eloqua_activity'] = array(
         ),
         'activity_date' => array(
             'name' => 'activity_date',
-            'vname' => 'LBL_STATE',
+            'vname' => 'LBL_ACTIVITY_DATE',
             'type' => 'varchar',
             'len' => 255,
             'audited' => true,
@@ -62,16 +62,24 @@ $dictionary['SA_eloqua_activity'] = array(
         ),
         'activity_type' => array(
             'name' => 'activity_type',
-            'vname' => 'LBL_STATE',
+            'vname' => 'LBL_ACTIVITY_TYPE',
             'type' => 'varchar',
             'options' => 'case_state_dom',
             'len' => 100,
             'audited' => true,
             'merge_filter' => 'disabled',
         ),
+        'activity_link' => array(
+            'name' => 'activity_link',
+            'vname' => 'LBL_ACTIVITY_LINK',
+            'type' => 'varchar',
+            'len' => 100,
+            'audited' => true,
+            'merge_filter' => 'disabled',
+        ),
         'activity_id' => array(
             'name' => 'activity_id',
-            'vname' => 'LBL_STATE',
+            'vname' => 'LBL_ACTIVITY_ID',
             'type' => 'varchar',
             'len' => 255,
             'audited' => true,
@@ -79,7 +87,7 @@ $dictionary['SA_eloqua_activity'] = array(
         ),
         'eloqua_contact_id' => array(
             'name' => 'eloqua_contact_id',
-            'vname' => 'LBL_STATE',
+            'vname' => 'LBL_ELOQUA_CONTACT_ID',
             'type' => 'varchar',
             'len' => 255,
             'audited' => true,
@@ -87,31 +95,40 @@ $dictionary['SA_eloqua_activity'] = array(
         ),
         'related_id' => array(
             'name' => 'related_id',
-            'vname' => 'LBL_STATE',
+            'vname' => 'LBL_RELATED_ID',
             'type' => 'id',
             'audited' => true,
             'merge_filter' => 'disabled',
         ),
         'email_address' => array(
             'name' => 'email_address',
-            'vname' => 'LBL_STATE',
+            'vname' => 'LBL_EMAIL_ADDRESS',
             'type' => 'varchar',
             'len' => 255,
             'audited' => true,
             'merge_filter' => 'disabled',
         ),
+        'leads_sa_eloqua_tracking' =>
+            array(
+                'name' => 'leads_sa_eloqua_tracking',
+                'type' => 'link',
+                'relationship' => 'leads_sa_eloqua_tracking',
+                'module' => 'SA_eloqua_activity',
+                'bean_name' => 'SA_eloqua_activity',
+                'source' => 'non-db',
+            ),
 
 ),
     'relationships' => array (
 
-        'contacts' =>
+        'leads_sa_eloqua_tracking' =>
             array(
-                'lhs_module' => 'Leads',
-                'lhs_table' => 'leads',
-                'lhs_key' => 'id',
-                'rhs_module' => 'SA_eloqua_activity',
-                'rhs_table' => 'sa_eloqua_activity',
-                'rhs_key' => 'related_id',
+                'rhs_module' => 'Leads',
+                'rhs_table' => 'leads',
+                'rhs_key' => 'id',
+                'lhs_module' => 'SA_eloqua_activity',
+                'lhs_table' => 'sa_eloqua_activity',
+                'lhs_key' => 'related_id',
                 'relationship_type' => 'one-to-many',
             ),
 ),
