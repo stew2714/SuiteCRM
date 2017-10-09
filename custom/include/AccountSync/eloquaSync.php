@@ -299,10 +299,35 @@ class eloquaSync
 
     public function saveContact($bean, $args, $event){
         if($_REQUEST['action'] == "ConvertLead"){
-            $lead = BeanFactory::getBean("Leads", $_REQUEST['record']);
-            if($lead->load_relationship("sa_eloqua_tracking")) {
-                $relatedBeans = $lead->sa_eloqua_tracking->getBeans();
-                foreach($relatedBeans as $tracker){
+            $_REQUEST['record'] = $bean->db->quote($_REQUEST['record']);
+            $list =
+                BeanFactory::getBean("SA_eloqua_activity")->get_full_list(
+                    "",
+                    "sa_eloqua_activity.related_id = '{$_REQUEST['record']}' "
+                );
+            if(count($list) > 0) {
+
+                foreach($list as $tracker){
+                    $tracker->id = "";
+                    $tracker->related_id = $bean->id;
+                    $tracker->related_type = $bean->module_name;
+                    $tracker->save();
+                }
+            }
+        }
+    }
+
+    public function saveAccount($bean, $args, $event){
+        if($_REQUEST['action'] == "ConvertLead"){
+            $_REQUEST['record'] = $bean->db->quote($_REQUEST['record']);
+            $list =
+                BeanFactory::getBean("SA_eloqua_activity")->get_full_list(
+                    "",
+                    "sa_eloqua_activity.related_id = '{$_REQUEST['record']}' "
+                );
+            if(count($list) > 0) {
+
+                foreach($list as $tracker){
                     $tracker->id = "";
                     $tracker->related_id = $bean->id;
                     $tracker->related_type = $bean->module_name;
