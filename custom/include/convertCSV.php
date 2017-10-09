@@ -116,6 +116,9 @@ class convertCSV
         if (!empty($vardefs['type'])) {
             $vardef['type'] = $vardefs['type'];
         }
+        if (!empty($vardefs['parentenum'])) {
+            $vardef['parentenum'] = $vardefs['parentenum'];
+        }
         if (!empty($vardefs['len'])) {
             $vardef['len'] = $vardefs['len'];
         }
@@ -230,6 +233,12 @@ class convertCSV
                     $field['dbType'] = 'datetime';
                 }
 
+                if (($field['type'] == "dynamicenum")) {
+                    $field['type'] = 'dynamicenum';
+                    $field['dbType'] = 'enum';
+                }
+
+
                 if (!isset($field['duplicate_merge_dom_value'])) $field['duplicate_merge_dom_value'] = '';
 
                 if (!isset($field['default_value'])) $field['default_value'] = '';
@@ -291,6 +300,7 @@ class convertCSV
         $field->vardef_map['studio'] = "studio";
         $field->vardef_map['id_name'] = "id_name";
         $field->vardef_map['related_module'] = "related_module";
+        $field->vardef_map['parentenum'] = "parentenum";
 
         foreach ($field->vardef_map as $property => $fmd_col) {
             if (!empty($field->$property)) {

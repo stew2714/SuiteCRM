@@ -85,4 +85,5 @@ column,do no create,name,type,options,label
 "   sem_ls__c varchar(100),",,,,,SEM LS
 "   gpo__c varchar(100),",,,,,
 "   vip_account__c bool NOT NULL,",,,,,
+"   lead_generation_specialist__c varchar(255),",,,enum,lead_gen_spec_list,
    zba_ss__c varchar(3),,,,,

@@ -1,5 +1,5 @@
 <?php
-// created: 2017-08-15 18:54:36
+// created: 2017-08-25 12:32:49
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -30,6 +30,7 @@ $mod_strings = array (
   'LBL_ENTRY_REQUIRED_PRODUCT_SERVICES' => 'An entry is required in the Product/Service field for all Opportunities.',
   'LBL_WHEN_CLOSED_LOST_WINNER_REQUIRED' => 'You must identify the winner for lost opportunities',
   'LBL_MUST_BE_SELECTED_WHEN_STAGE' => 'ILP Probability % must be selected when Opportunity Stage/Probability is 50% or greater.',
+  'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
   'LBL_MUST_BE_INCUMBENT' => 'You must select an incumbent',
   'LBL_MUST_BE_INCUMBENT999' => 'Please fill data in "Company Signed By"',
   'LBL_MUST_FILL_TERM_LENGTH' => 'You must fill in the term length before you can validate',
@@ -38,7 +39,7 @@ $mod_strings = array (
   'LBL_REQUIRE_ILP_PROBABILITY_TO_BE_0_OR_100' => 'Global Use % must be 0 or 100 when Opportunity is Closed - Won. Please select the appropriate value.',
   'LBL_NUMBER_OF_LICENSES_REQUIRED' => 'License is Required to be 1 or Greater',
   'LBL_YOU_CAN_NOT_CHANGE_KEY' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
-  'LBL_MUST_BE_INCUMBENT' => 'Please fill data in "Company Signed By"',
+  'LBL_C1_CUST_CONTACTS1_OPPORTUNITIES_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
 
 
 

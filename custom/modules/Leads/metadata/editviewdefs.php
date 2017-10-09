@@ -113,8 +113,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'company_c',
-            'label' => 'LBL_COMPANY_C',
+            'name' => 'company',
+            'label' => 'LBL_COMPANY',
           ),
           1 => 'phone_work',
         ),
@@ -283,6 +283,15 @@ array (
           array (
             'name' => 'g1_group_queue_leads_name',
           ),
+        ),
+        17 => 
+        array (
+          0 => 
+          array (
+            'name' => 'addwords_c',
+            'label' => 'LBL_ADDWORDS',
+          ),
+          1 => '',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 

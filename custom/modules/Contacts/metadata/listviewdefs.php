@@ -39,35 +39,6 @@ array (
     'label' => 'LBL_LIST_TITLE',
     'default' => true,
   ),
-  'ACCOUNT_NAME' => 
-  array (
-    'width' => '34%',
-    'label' => 'LBL_LIST_ACCOUNT_NAME',
-    'module' => 'Accounts',
-    'id' => 'ACCOUNT_ID',
-    'link' => true,
-    'contextMenu' => 
-    array (
-      'objectType' => 'sugarAccount',
-      'metaData' => 
-      array (
-        'return_module' => 'Contacts',
-        'return_action' => 'ListView',
-        'module' => 'Accounts',
-        'parent_id' => '{$ACCOUNT_ID}',
-        'parent_name' => '{$ACCOUNT_NAME}',
-        'account_id' => '{$ACCOUNT_ID}',
-        'account_name' => '{$ACCOUNT_NAME}',
-      ),
-    ),
-    'default' => true,
-    'sortable' => true,
-    'ACLTag' => 'ACCOUNT',
-    'related_fields' => 
-    array (
-      0 => 'account_id',
-    ),
-  ),
   'EMAIL1' => 
   array (
     'width' => '15%',
@@ -106,10 +77,133 @@ array (
     'label' => 'LBL_DEPARTMENT',
     'default' => false,
   ),
+  'MARKETING_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_MARKETING',
+    'width' => '10%',
+  ),
   'DO_NOT_CALL' => 
   array (
     'width' => '10%',
     'label' => 'LBL_DO_NOT_CALL',
+    'default' => false,
+  ),
+  'OPERATIONAL_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_OPERATIONAL',
+    'width' => '10%',
+  ),
+  'SECURITYGROUP_DISPLAY' => 
+  array (
+    'type' => 'function',
+    'sortable' => false,
+    'studio' => 
+    array (
+      'visible' => false,
+      'listview' => true,
+      'searchview' => false,
+      'detailview' => true,
+      'editview' => true,
+      'formula' => false,
+      'related' => false,
+      'basic_search' => false,
+      'advanced_search' => false,
+      'popuplist' => true,
+      'popupsearch' => false,
+      'dashletsearch' => false,
+      'dashlet' => false,
+    ),
+    'label' => 'LBL_SECURITYGROUP',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SALES_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_SALES',
+    'width' => '10%',
+  ),
+  'REFERENCE_PROGRAM_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_REFERENCE_PROGRAM',
+    'width' => '10%',
+  ),
+  'ASSISTANT' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ASSISTANT',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'FIRST_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_FIRST_NAME',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'PHONE_WORK' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_OFFICE_PHONE',
+    'default' => false,
+  ),
+  'LAST_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_LAST_NAME',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'REPORT_TO_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_REPORTS_TO',
+    'id' => 'REPORTS_TO_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ASSISTANT_PHONE' => 
+  array (
+    'type' => 'phone',
+    'label' => 'LBL_ASSISTANT_PHONE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SURVEY_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_SURVEY',
+    'width' => '10%',
+  ),
+  'EMAIL_AND_NAME1' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_NAME',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'RELEASE_NOTIFICATION_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_RELEASE_NOTIFICATION',
+    'width' => '10%',
+  ),
+  'LEAD_SOURCE' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_LEAD_SOURCE',
+    'width' => '10%',
     'default' => false,
   ),
   'PHONE_HOME' => 
@@ -118,11 +212,25 @@ array (
     'label' => 'LBL_HOME_PHONE',
     'default' => false,
   ),
+  'TECHNICAL_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_TECHNICAL',
+    'width' => '10%',
+  ),
   'PHONE_MOBILE' => 
   array (
     'width' => '10%',
     'label' => 'LBL_MOBILE_PHONE',
     'default' => false,
+  ),
+  'REFERENCE_END_DATE_C' => 
+  array (
+    'type' => 'date',
+    'default' => false,
+    'label' => 'LBL_REFERENCE_END_DATE',
+    'width' => '10%',
   ),
   'PHONE_OTHER' => 
   array (
@@ -130,10 +238,39 @@ array (
     'label' => 'LBL_OTHER_PHONE',
     'default' => false,
   ),
+  'REFERENCE_START_DATE_C' => 
+  array (
+    'type' => 'date',
+    'default' => false,
+    'label' => 'LBL_REFERENCE_START_DATE',
+    'width' => '10%',
+  ),
+  'REFERENCE_ASSOCIATION_C' => 
+  array (
+    'type' => 'multienum',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_REFERENCE_ASSOCIATION',
+    'width' => '10%',
+  ),
   'PHONE_FAX' => 
   array (
     'width' => '10%',
     'label' => 'LBL_FAX_PHONE',
+    'default' => false,
+  ),
+  'SF_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'Sf Id',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'STANDARD_TITLE_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'Standard Title',
+    'width' => '10%',
     'default' => false,
   ),
   'EMAIL2' => 
@@ -144,10 +281,80 @@ array (
     'customCode' => '{$EMAIL2_LINK}{$EMAIL2}</a>',
     'default' => false,
   ),
+  'SOURCE_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'Source',
+    'width' => '10%',
+    'default' => false,
+  ),
   'PRIMARY_ADDRESS_STREET' => 
   array (
     'width' => '10%',
     'label' => 'LBL_PRIMARY_ADDRESS_STREET',
+    'default' => false,
+  ),
+  'ELOQUA_LEAD_RATING_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'Eloqua Lead Rating',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'LEAD_SOURCE_MOST_RECENT_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'Lead Source Most Recent',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SYNC_TO_ELOQUA_C' => 
+  array (
+    'type' => 'bool',
+    'label' => 'Sync To Eloqua',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNTING_INVOICES_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_ACCOUNTING_INVOICES',
+    'width' => '10%',
+  ),
+  'ASST_EMAIL_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'Asst Email',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'VIP_ACCOUNT_C' => 
+  array (
+    'type' => 'bool',
+    'label' => 'VIP Account',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'REFERENCED_EMR_C' => 
+  array (
+    'type' => 'multienum',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_REFERENCED_EMR',
+    'width' => '10%',
+  ),
+  'BUSINESS_CEO_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_BUSINESS_CEO',
+    'width' => '10%',
+  ),
+  'EMAIL_OPT_OUT' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_EMAIL_OPT_OUT',
     'default' => false,
   ),
   'PRIMARY_ADDRESS_CITY' => 

@@ -35,6 +35,7 @@ class AOR_MatrixReportingController extends SugarController
         $bean = BeanFactory::getBean($_REQUEST['moduletype']);
         $matrix = new matrixReportBuilder();
         $fields = $matrix->getFieldDefs($bean->field_defs, $_REQUEST['moduletype']);
+        asort($fields);
         echo get_select_options_with_id($fields, "");
         die();
     }

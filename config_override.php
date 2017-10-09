@@ -3,7 +3,7 @@
 $sugar_config['default_time_format'] = 'h:iA';
 $sugar_config['email_xss'] = 'YToxMzp7czo2OiJhcHBsZXQiO3M6NjoiYXBwbGV0IjtzOjQ6ImJhc2UiO3M6NDoiYmFzZSI7czo1OiJlbWJlZCI7czo1OiJlbWJlZCI7czo0OiJmb3JtIjtzOjQ6ImZvcm0iO3M6NToiZnJhbWUiO3M6NToiZnJhbWUiO3M6ODoiZnJhbWVzZXQiO3M6ODoiZnJhbWVzZXQiO3M6NjoiaWZyYW1lIjtzOjY6ImlmcmFtZSI7czo2OiJpbXBvcnQiO3M6ODoiXD9pbXBvcnQiO3M6NToibGF5ZXIiO3M6NToibGF5ZXIiO3M6NDoibGluayI7czo0OiJsaW5rIjtzOjY6Im9iamVjdCI7czo2OiJvYmplY3QiO3M6MzoieG1wIjtzOjM6InhtcCI7czo2OiJzY3JpcHQiO3M6Njoic2NyaXB0Ijt9';
 $sugar_config['default_module_favicon'] = false;
-$sugar_config['dashlet_auto_refresh_min'] = '30';
+$sugar_config['dashlet_auto_refresh_min'] = '600';
 $sugar_config['enable_action_menu'] = true;
 $sugar_config['stack_trace_errors'] = false;
 $sugar_config['developerMode'] = false;
@@ -26,6 +26,7 @@ $sugar_config['aod']['enable_aod'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['addAjaxBannedModules'][1] = 'Accounts';
 $sugar_config['addAjaxBannedModules'][53] = 'SecurityGroups';
+$sugar_config['addAjaxBannedModules'][54] = 'SecurityGroups';
 $sugar_config['AgreementsEmailTemplate'] = 'efa77cb1-819d-2a0a-0b78-597850cb15ef';
 $sugar_config['eloqua_company'] = 'MModalIncSandbox';
 $sugar_config['eloqua_username'] = 'Kieran.Monaghan';
@@ -39,4 +40,8 @@ $sugar_config['CommOps'] = '628f3c09-51d4-f65c-2afb-5936d572f62e';
 $sugar_config['Sales'] = '8cc7213b-1d28-12bc-7d6d-5936d546d416';
 $sugar_config['Legal'] = 'b9ebaa1a-0517-b790-70b0-593fb7aef326';
 $sugar_config['Implementations'] = '90d40376-027d-a8f7-7cd3-593fb7ce674f';
+$sugar_config['list_max_entries_per_page'] = '50';
+$sugar_config['list_max_entries_per_subpanel'] = '10';
+$sugar_config['email_default_delete_attachments'] = true;
+$sugar_config['outfitters_licenses']['gmsyncaddon'] = 'b03e052d5e1e75ae739c5e78a0e7fbd5';
 /***CONFIGURATOR***/

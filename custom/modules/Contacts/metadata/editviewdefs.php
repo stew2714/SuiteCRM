@@ -38,10 +38,20 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL1' => 
+        'LBL_EDITVIEW_PANEL2' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'collapsed',
+        ),
+        'LBL_EDITVIEW_PANEL3' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'collapsed',
         ),
         'LBL_PANEL_ADVANCED' => 
         array (
@@ -64,22 +74,21 @@ array (
           ),
           1 => 
           array (
-            'name' => 'last_name',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'phone_work',
-            'comment' => 'Work phone number of the contact',
-            'label' => 'LBL_OFFICE_PHONE',
+            'name' => 'last_name',
           ),
           1 => 
           array (
-            'name' => 'phone_mobile',
-            'comment' => 'Mobile phone number of the contact',
-            'label' => 'LBL_MOBILE_PHONE',
+            'name' => 'phone_work',
+            'comment' => 'Work phone number of the contact',
+            'label' => 'LBL_OFFICE_PHONE',
           ),
         ),
         2 => 
@@ -92,35 +101,55 @@ array (
           ),
           1 => 
           array (
-            'name' => 'active_c',
-            'label' => 'LBL_ACTIVE',
+            'name' => 'phone_mobile',
+            'comment' => 'Mobile phone number of the contact',
+            'label' => 'LBL_MOBILE_PHONE',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'account_name',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-              'copy' => 'primary',
-              'billingKey' => 'primary',
-              'additionalFields' => 
-              array (
-                'phone_office' => 'phone_work',
-              ),
-            ),
+            'name' => 'standard_title_c',
+            'label' => 'Standard Title',
           ),
-          1 => 'department',
+          1 => 
+          array (
+            'name' => 'phone_other',
+            'comment' => 'Other phone number for the contact',
+            'label' => 'LBL_OTHER_PHONE',
+          ),
         ),
         4 => 
         array (
+          0 => 'department',
+          1 => 
+          array (
+            'name' => 'phone_fax',
+            'comment' => 'Contact fax number',
+            'label' => 'LBL_FAX_PHONE',
+          ),
+        ),
+        5 => 
+        array (
           0 => 
+          array (
+            'name' => 'report_to_name',
+            'label' => 'LBL_REPORTS_TO',
+          ),
+          1 => 
           array (
             'name' => 'email1',
             'studio' => 'false',
             'label' => 'LBL_EMAIL_ADDRESS',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'source_c',
+            'label' => 'Source',
           ),
           1 => 
           array (
@@ -129,7 +158,25 @@ array (
             'label' => 'LBL_CONTACT_TYPE',
           ),
         ),
-        5 => 
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
@@ -157,29 +204,6 @@ array (
               'cols' => 30,
               'maxlength' => 150,
             ),
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
@@ -220,8 +244,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'reference_program_c',
-            'label' => 'LBL_REFERENCE_PROGRAM',
+            'name' => 'accounting_invoices_c',
+            'label' => 'LBL_ACCOUNTING_INVOICES',
           ),
         ),
         3 => 
@@ -241,8 +265,48 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accounting_invoices_c',
-            'label' => 'LBL_ACCOUNTING_INVOICES',
+            'name' => 'contact_association_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CONTACT_ASSOCIATION',
+          ),
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reference_program_c',
+            'label' => 'LBL_REFERENCE_PROGRAM',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reference_start_date_c',
+            'label' => 'LBL_REFERENCE_START_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'reference_end_date_c',
+            'label' => 'LBL_REFERENCE_END_DATE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reference_association_c',
+            'studio' => 'visible',
+            'label' => 'LBL_REFERENCE_ASSOCIATION',
+          ),
+          1 => 
+          array (
+            'name' => 'referenced_emr_c',
+            'studio' => 'visible',
+            'label' => 'LBL_REFERENCED_EMR',
           ),
         ),
       ),
@@ -252,20 +316,56 @@ array (
         array (
           0 => 
           array (
-            'name' => 'lead_source',
-            'comment' => 'How did the contact come about',
-            'label' => 'LBL_LEAD_SOURCE',
+            'name' => 'assistant',
+            'comment' => 'Name of the assistant of the contact',
+            'label' => 'LBL_ASSISTANT',
+          ),
+          1 => 
+          array (
+            'name' => 'asst_email_c',
+            'label' => 'Asst Email',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'contact_association_c',
-            'studio' => 'visible',
-            'label' => 'LBL_CONTACT_ASSOCIATION',
+            'name' => 'assistant_phone',
+            'comment' => 'Phone number of the assistant of the contact',
+            'label' => 'LBL_ASSISTANT_PHONE',
           ),
-          1 => 'campaign_name',
+          1 => 
+          array (
+            'name' => 'vip_account_c',
+            'label' => 'VIP Account',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'eloqua_lead_rating_c',
+            'label' => 'Eloqua Lead Rating',
+          ),
+          1 => 
+          array (
+            'name' => 'sync_to_eloqua_c',
+            'label' => 'Sync To Eloqua',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'active_c',
+            'label' => 'LBL_ACTIVE',
+          ),
+          1 => 
+          array (
+            'name' => 'do_not_call',
+            'comment' => 'An indicator of whether contact can be called',
+            'label' => 'LBL_DO_NOT_CALL',
+          ),
         ),
       ),
     ),

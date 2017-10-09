@@ -15,6 +15,20 @@ $dictionary['Lead']['fields']['company_c']['vname']='LBL_COMPANY_C';
 $dictionary['Lead']['fields']['company_c']['source']='custom_fields';
 
 
+ // Vardef Created : facility_type_c 
+
+$dictionary['Lead']['fields']['facility_type_c']['name']='facility_type_c';
+$dictionary['Lead']['fields']['facility_type_c']['len']='255';
+$dictionary['Lead']['fields']['facility_type_c']['type']='enum';
+$dictionary['Lead']['fields']['facility_type_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['facility_type_c']['options']='sf_facility_type_list';
+$dictionary['Lead']['fields']['facility_type_c']['importable']='true';
+$dictionary['Lead']['fields']['facility_type_c']['reportable']=true;
+$dictionary['Lead']['fields']['facility_type_c']['module']='Leads';
+$dictionary['Lead']['fields']['facility_type_c']['vname']='LBL_FACILITY_TYPE_C';
+$dictionary['Lead']['fields']['facility_type_c']['source']='custom_fields';
+
+
  // Vardef Created : zba_ss_c 
 
 
@@ -572,6 +586,20 @@ $dictionary['Lead']['fields']['vip_account_c']['reportable']=true;
 $dictionary['Lead']['fields']['vip_account_c']['module']='Leads';
 $dictionary['Lead']['fields']['vip_account_c']['vname']='LBL_VIP_ACCOUNT_C';
 $dictionary['Lead']['fields']['vip_account_c']['source']='custom_fields';
+
+
+ // Vardef Created : lead_generation_specialist_c 
+
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['name']='lead_generation_specialist_c';
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['len']='255';
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['type']='enum';
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['inline_edit']=1;
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['options']='lead_gen_spec_list';
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['importable']='true';
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['reportable']=true;
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['module']='Leads';
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['vname']='LBL_LEAD_GENERATION_SPECIALIST_C';
+$dictionary['Lead']['fields']['lead_generation_specialist_c']['source']='custom_fields';
 $dictionary['Lead']['fields']['zba_ss_c']['name']='zba_ss_c';
 $dictionary['Lead']['fields']['zba_ss_c']['len']='3';
 $dictionary['Lead']['fields']['zba_ss_c']['type']='varchar';

@@ -26,6 +26,7 @@ require_once('custom/include/AccountSync/eloquaSyncAccounts.php');
 
 $job_strings[] = 'EloquaSyncLeads';
 $job_strings[] = 'EloquaSyncAccounts';
+$job_strings[] = 'EloquaGetHistory';
 
 function EloquaSyncLeads() {
     $sync = new eloquaSyncLeads();
@@ -37,4 +38,26 @@ function EloquaSyncAccounts() {
     $sync = new eloquaSyncAccounts();
     $sync->getAccounts();
     return true;
+}
+
+function EloquaGetHistory()
+{
+    require_once('custom/include/AccountSync/eloquaSync.php');
+    $sync = new eloquaSync();
+
+    echo '<pre>';
+    foreach ($sync->activities as $activity) {
+        if ($sync->defineExport($activity)) {
+            break;
+        }
+    }
+    echo '</pre>';
+    die();
+}
+function EloquaGetCampaigns()
+{
+    require_once('custom/include/AccountSync/eloquaSync.php');
+    $sync = new eloquaSync();
+    $sync->getCampaignList();
+    die();
 }

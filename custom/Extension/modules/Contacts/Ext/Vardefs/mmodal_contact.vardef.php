@@ -23,16 +23,6 @@ $dictionary['Contact']['fields']['recordtypeid_c']['comments'] = 'Auto-created e
 $dictionary['Contact']['fields']['recordtypeid_c']['vname'] = 'Recordtypeid';
 $dictionary['Contact']['fields']['recordtypeid_c']['source'] = 'custom_fields';
 
-// Field: birthdate_c
-$dictionary['Contact']['fields']['birthdate_c']['name'] = 'birthdate_c';
-$dictionary['Contact']['fields']['birthdate_c']['type'] = 'timestamp';
-$dictionary['Contact']['fields']['birthdate_c']['len'] = '';
-$dictionary['Contact']['fields']['birthdate_c']['size'] = '20';
-$dictionary['Contact']['fields']['birthdate_c']['required'] = false;
-$dictionary['Contact']['fields']['birthdate_c']['comments'] = 'Auto-created entry for field birthdate_c';
-$dictionary['Contact']['fields']['birthdate_c']['vname'] = 'Birthdate';
-$dictionary['Contact']['fields']['birthdate_c']['source'] = 'custom_fields';
-
 // Field: lastactivitydate_c
 $dictionary['Contact']['fields']['lastactivitydate_c']['name'] = 'lastactivitydate_c';
 $dictionary['Contact']['fields']['lastactivitydate_c']['type'] = 'timestamp';
@@ -75,7 +65,8 @@ $dictionary['Contact']['fields']['previous_account_c']['source'] = 'custom_field
 
 // Field: standard_title_c
 $dictionary['Contact']['fields']['standard_title_c']['name'] = 'standard_title_c';
-$dictionary['Contact']['fields']['standard_title_c']['type'] = 'varchar';
+$dictionary['Contact']['fields']['standard_title_c']['type'] = 'enum';
+$dictionary['Contact']['fields']['standard_title_c']['options'] = 'std_title_dom';
 $dictionary['Contact']['fields']['standard_title_c']['len'] = '255';
 $dictionary['Contact']['fields']['standard_title_c']['size'] = '20';
 $dictionary['Contact']['fields']['standard_title_c']['required'] = false;
@@ -207,7 +198,7 @@ $dictionary['Contact']['fields']['vip_account_c']['type'] = 'bool';
 $dictionary['Contact']['fields']['vip_account_c']['size'] = '20';
 $dictionary['Contact']['fields']['vip_account_c']['required'] = false;
 $dictionary['Contact']['fields']['vip_account_c']['comments'] = 'Auto-created entry for field vip_account_c';
-$dictionary['Contact']['fields']['vip_account_c']['vname'] = 'Vip Account';
+$dictionary['Contact']['fields']['vip_account_c']['vname'] = 'VIP Account';
 $dictionary['Contact']['fields']['vip_account_c']['source'] = 'custom_fields';
 
 ?>

@@ -41,4 +41,5 @@ $mod_strings['LBL_LEADS_TO_DELETE_C'] = 'Leads To Delete';
 $mod_strings['LBL_SEM_LS_C'] = 'SEM LS';
 $mod_strings['LBL_GPO_C'] = 'Gpo';
 $mod_strings['LBL_VIP_ACCOUNT_C'] = 'Vip Account';
+$mod_strings['LBL_LEAD_GENERATION_SPECIALIST_C'] = 'Lead Generation Specialist';
 $mod_strings['LBL_ZBA_SS_C'] = 'Zba Ss';

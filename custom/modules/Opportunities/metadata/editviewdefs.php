@@ -100,7 +100,7 @@ array (
           0 => 
           array (
             'name' => 'recordtypeid_c',
-            'label' => 'LBL_RECORDTYPEID',
+            'label' => 'LBL_RECORDTYPEID_C',
           ),
         ),
         1 => 
@@ -124,8 +124,9 @@ array (
           0 => 'account_name',
           1 => 
           array (
-            'name' => 'inside_sales_ae_c',
-            'label' => 'LBL_INSIDE_SALES_AE_C',
+            'name' => 'inside_sales_ae_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_INSIDE_SALES_AE_NAME_C',
           ),
         ),
         4 => 
@@ -136,8 +137,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'channel_rep_c',
-            'label' => 'LBL_CHANNEL_REP_C',
+            'name' => 'channel_rep_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CHANNEL_REP_NAME_C',
           ),
         ),
         5 => 
@@ -600,8 +602,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'gpo_c',
-            'label' => 'LBL_GPO_C',
+            'name' => 'gpo_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_GPO_NAME_C',
           ),
         ),
       ),
@@ -611,8 +614,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'new_ae1_c',
-            'label' => 'LBL_NEW_AE1_C',
+            'name' => 'new_ae1_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_NEW_AE1_NAME_C',
           ),
           1 => 
           array (
@@ -624,8 +628,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'new_ae2_c',
-            'label' => 'LBL_NEW_AE2_C',
+            'name' => 'new_ae2_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_NEW_AE2_NAME_C',
           ),
           1 => 
           array (
@@ -637,8 +642,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'se1_c',
-            'label' => 'LBL_SE1_C',
+            'name' => 'se1_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SE1_NAME_C',
           ),
           1 => 
           array (
@@ -650,8 +656,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'se2_c',
-            'label' => 'LBL_SE2_C',
+            'name' => 'se2_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SE2_NAME_C',
           ),
           1 => 
           array (
@@ -663,8 +670,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rvp_override1_c',
-            'label' => 'LBL_RVP_OVERRIDE1_C',
+            'name' => 'rvp_override1_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_RVP_OVERRIDE1_NAME_C',
           ),
           1 => 
           array (
@@ -676,8 +684,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rvp_override2_c',
-            'label' => 'LBL_RVP_OVERRIDE2_C',
+            'name' => 'rvp_override2_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_RVP_OVERRIDE2_NAME_C',
           ),
           1 => 
           array (
@@ -689,8 +698,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'svp_override1_c',
-            'label' => 'LBL_SVP_OVERRIDE1_C',
+            'name' => 'svp_override1_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SVP_OVERRIDE1_NAME_C',
           ),
           1 => 
           array (
@@ -702,8 +712,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'svp_override2_c',
-            'label' => 'LBL_SVP_OVERRIDE2_C',
+            'name' => 'svp_override2_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SVP_OVERRIDE2_NAME_C',
           ),
           1 => 
           array (
@@ -731,8 +742,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'winner_c',
-            'label' => 'LBL_WINNER_C',
+            'name' => 'accounts_opportunities_1_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE',
           ),
         ),
         1 => 
@@ -835,7 +846,7 @@ array (
       ),
       'lbl_editview_panel9' => 
       array (
-        1 => 
+        0 => 
         array (
           0 => 
           array (
@@ -848,7 +859,7 @@ array (
             'label' => 'LBL_ADOPTION_SERVICES_TERM_LENGTH_C',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -856,7 +867,7 @@ array (
             'label' => 'LBL_VALIDATION_DATE_C',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -869,7 +880,7 @@ array (
             'label' => 'LBL_VOLUME_COMMITMENT_C',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -882,7 +893,7 @@ array (
             'label' => 'LBL_NO_OUT_FOR_CONVENIENCE_C',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -895,7 +906,7 @@ array (
             'label' => 'LBL_LICENSE_TYPE_C',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -908,7 +919,7 @@ array (
             'label' => 'LBL_LICENSE_TERM_LENGTH_MM_C',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -921,7 +932,7 @@ array (
             'label' => 'LBL_ADD_ON_LICENSE_PURCHASE_C',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -929,7 +940,7 @@ array (
             'label' => 'LBL_REVENUE_NOTES_C',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -942,7 +953,7 @@ array (
             'label' => 'LBL_SW_MAINT_AUTO_RENEW_C',
           ),
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (

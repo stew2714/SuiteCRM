@@ -34,6 +34,25 @@ class customAOR_ReportsController extends AOR_ReportsController
         $this->view = 'matrixreport';
     }
 
+    protected function action_getModuleFields()
+    {
+        if (!empty($_REQUEST['aor_module']) && $_REQUEST['aor_module'] != '') {
+            if (isset($_REQUEST['rel_field']) && $_REQUEST['rel_field'] != '') {
+                $module = getRelatedModule($_REQUEST['aor_module'], $_REQUEST['rel_field']);
+            } else {
+                $module = $_REQUEST['aor_module'];
+            }
+            $val = !empty($_REQUEST['aor_value']) ? $_REQUEST['aor_value'] : '';
+            $fields =  getModuleFields($module, $_REQUEST['view'], $val);
+            $fields = json_decode($fields, true);
+            asort($fields);
+            $fields = json_encode($fields);
+            echo $fields;
+        }
+        die;
+
+    }
+
     public function action_getPreview()
     {
         parse_str($_REQUEST['formdata'], $requestData);
