@@ -137,8 +137,6 @@ $dictionary['SA_eloqua_activity'] = array(
                 'lhs_table' => 'sa_eloqua_activity',
                 'lhs_key' => 'related_id',
                 'relationship_type' => 'one-to-many',
-                'relationship_role_column' => 'related_type',
-                'relationship_role_column_value' => 'Leads'
             ),
         'contacts_sa_eloqua_tracking' =>
             array(
@@ -149,8 +147,6 @@ $dictionary['SA_eloqua_activity'] = array(
                 'lhs_table' => 'sa_eloqua_activity',
                 'lhs_key' => 'related_id',
                 'relationship_type' => 'one-to-many',
-                'relationship_role_column' => 'related_type',
-                'relationship_role_column_value' => 'Contacts'
             ),
         'accounts_sa_eloqua_tracking' =>
             array(
@@ -161,8 +157,6 @@ $dictionary['SA_eloqua_activity'] = array(
                 'lhs_table' => 'sa_eloqua_activity',
                 'lhs_key' => 'related_id',
                 'relationship_type' => 'one-to-many',
-                'relationship_role_column' => 'related_type',
-                'relationship_role_column_value' => 'Accounts'
             ),
 ),
     'optimistic_locking' => true,

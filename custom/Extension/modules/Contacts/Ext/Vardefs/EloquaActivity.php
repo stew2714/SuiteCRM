@@ -6,7 +6,7 @@
  * Time: 15:50
  */
 
-$dictionary["Account"]["fields"]["contacts_sa_eloqua_tracking"] = array (
+$dictionary["Contact"]["fields"]["contacts_sa_eloqua_tracking"] = array (
     'name' => 'contacts_sa_eloqua_tracking',
     'type' => 'link',
     'relationship' => 'contacts_sa_eloqua_tracking',

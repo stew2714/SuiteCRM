@@ -37,17 +37,16 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 
-require_once ("modules/Contacts/controller.php");
 require_once ("custom/include/AccountSync/eloquaSync.php");
-class customContactsController extends ContactsController
+class SA_eloqua_queueController extends Controller
 {
-	function action_testpull(){
+    function action_testpull(){
         $sync = new eloquaSync();
 
         echo '<pre>';
         foreach($sync->activities as $activity){
             if( $sync->defineExport($activity) ){
-             //   break;
+                   break;
             }
         }
         echo '</pre>';

@@ -70,4 +70,8 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_SA_ELOQUA_ACTIVITY_SUBPANEL_TITLE' => 'Eloqua Activity',
   'LBL_NEW_FORM_TITLE' => 'New Eloqua Activity',
+  'LBL_ACTIVITY_DATE' => 'Activity Date',
+  'LBL_ACTIVITY_TYPE' => 'Activity Type',
+  'LBL_EMAIL_ADDRESS' => 'Email Address',
+  'LBL_ACTIVITY_LINK' => 'Activity Link',
 );
