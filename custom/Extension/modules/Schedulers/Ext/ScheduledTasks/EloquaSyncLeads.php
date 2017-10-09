@@ -27,6 +27,7 @@ require_once('custom/include/AccountSync/eloquaSyncAccounts.php');
 $job_strings[] = 'EloquaSyncLeads';
 $job_strings[] = 'EloquaSyncAccounts';
 $job_strings[] = 'EloquaGetHistory';
+$job_strings[] = 'EloquaGetCampaigns';
 
 function EloquaSyncLeads() {
     $sync = new eloquaSyncLeads();
