@@ -755,3 +755,79 @@ $GLOBALS['app_list_strings']['sf_facility_type_list']=array (
   'PR' => 'Independent Medical Practices',
   'HOS' => 'Hospitals and Health Systems',
 );
+$GLOBALS['app_list_strings']['contract_status_category_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['sales_region_list']=array (
+  'Key_Accounts' => 'Key Accounts (KA - CHS & Strategic Accounts)',
+  'ZBA_North' => 'ZBA North',
+  'ZBA_West' => 'ZBA West',
+  'ZBA_South' => 'ZBA South',
+  'SSS_North' => 'SSS North',
+  'SSS_West' => 'SSS West',
+  'SSS_South' => 'SSS South',
+  'Canada' => 'Canada',
+  'Global_Other_EMEA' => 'Globa/Other/EMEA',
+  'Imaging' => 'Imaging',
+  'Ambulatory' => 'Ambulatory',
+);
+$GLOBALS['app_list_strings']['tos_pricing_category_list']=array (
+);
+$GLOBALS['app_list_strings']['contract_tos_list']=array (
+);
+$GLOBALS['app_list_strings']['tos_billing_list']=array (
+);
+$GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
+);
+$GLOBALS['app_list_strings']['pricing_increase_list']=array (
+);
+$GLOBALS['app_list_strings']['the30_60_90_list']=array (
+);
+$GLOBALS['app_list_strings']['tos_term_for_conv_list']=array (
+);
+$GLOBALS['app_list_strings']['global_permissions_list']=array (
+);
+$GLOBALS['app_list_strings']['tos_commitment_list']=array (
+);
+$GLOBALS['app_list_strings']['impl_and_training_fees_list']=array (
+);
+$GLOBALS['app_list_strings']['type_of_scribing_list']=array (
+);
+$GLOBALS['app_list_strings']['shipping_list']=array (
+);
+$GLOBALS['app_list_strings']['software_pricing_discount_list']=array (
+);
+$GLOBALS['app_list_strings']['product_billing_list']=array (
+);
+$GLOBALS['app_list_strings']['gma_service_level_list']=array (
+);
+$GLOBALS['app_list_strings']['product_name_list']=array (
+);
+$GLOBALS['app_list_strings']['contract_initiation_type_list']=array (
+);
+$GLOBALS['app_list_strings']['contract_source_list']=array (
+);
+$GLOBALS['app_list_strings']['included_optional_system_components_list']=array (
+);
+$GLOBALS['app_list_strings']['extended_adt_retention_list']=array (
+);
+$GLOBALS['app_list_strings']['extended_voice_retention_list']=array (
+);
+$GLOBALS['app_list_strings']['fft_shipping_list']=array (
+);
+$GLOBALS['app_list_strings']['global_use_probability_list']=array (
+);
+$GLOBALS['app_list_strings']['mm_uom__list']=array (
+);
+$GLOBALS['app_list_strings']['fte_list']=array (
+);
+$GLOBALS['app_list_strings']['encoder_list']=array (
+);
+$GLOBALS['app_list_strings']['capital_license_type_list']=array (
+);
+$GLOBALS['app_list_strings']['is_source_list']=array (
+);
+$GLOBALS['app_list_strings']['nih_rating_list']=array (
+);
+$GLOBALS['app_list_strings']['rfp_preparer_list']=array (
+);

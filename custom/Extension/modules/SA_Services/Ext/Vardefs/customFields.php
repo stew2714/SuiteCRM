@@ -62,8 +62,9 @@ $dictionary['SA_Services']['fields']['coding_auto_renew_c']['source']='custom_fi
 
 $dictionary['SA_Services']['fields']['coding_billing_c']['name']='coding_billing_c';
 $dictionary['SA_Services']['fields']['coding_billing_c']['len']='255';
-$dictionary['SA_Services']['fields']['coding_billing_c']['type']='text';
+$dictionary['SA_Services']['fields']['coding_billing_c']['type']='enum';
 $dictionary['SA_Services']['fields']['coding_billing_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_billing_c']['options']='tos_billing_list';
 $dictionary['SA_Services']['fields']['coding_billing_c']['importable']='true';
 $dictionary['SA_Services']['fields']['coding_billing_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['coding_billing_c']['module']='SA_Services';
@@ -75,8 +76,9 @@ $dictionary['SA_Services']['fields']['coding_billing_c']['source']='custom_field
 
 $dictionary['SA_Services']['fields']['coding_commitment_c']['name']='coding_commitment_c';
 $dictionary['SA_Services']['fields']['coding_commitment_c']['len']='255';
-$dictionary['SA_Services']['fields']['coding_commitment_c']['type']='text';
+$dictionary['SA_Services']['fields']['coding_commitment_c']['type']='enum';
 $dictionary['SA_Services']['fields']['coding_commitment_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_commitment_c']['options']='tos_commitment_list';
 $dictionary['SA_Services']['fields']['coding_commitment_c']['importable']='true';
 $dictionary['SA_Services']['fields']['coding_commitment_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['coding_commitment_c']['module']='SA_Services';
@@ -142,8 +144,9 @@ $dictionary['SA_Services']['fields']['coding_expiration_date_c']['source']='cust
 
 $dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['name']='coding_implementation_training_fees_c';
 $dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['len']='255';
-$dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['type']='text';
+$dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['type']='enum';
 $dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['options']='impl_and_training_fees_list';
 $dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['importable']='true';
 $dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['coding_implementation_training_fees_c']['module']='SA_Services';
@@ -168,8 +171,9 @@ $dictionary['SA_Services']['fields']['coding_pricing_category_rate_c']['source']
 
 $dictionary['SA_Services']['fields']['coding_pricing_increase_c']['name']='coding_pricing_increase_c';
 $dictionary['SA_Services']['fields']['coding_pricing_increase_c']['len']='255';
-$dictionary['SA_Services']['fields']['coding_pricing_increase_c']['type']='text';
+$dictionary['SA_Services']['fields']['coding_pricing_increase_c']['type']='enum';
 $dictionary['SA_Services']['fields']['coding_pricing_increase_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_pricing_increase_c']['options']='pricing_increase_list';
 $dictionary['SA_Services']['fields']['coding_pricing_increase_c']['importable']='true';
 $dictionary['SA_Services']['fields']['coding_pricing_increase_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['coding_pricing_increase_c']['module']='SA_Services';
@@ -313,8 +317,9 @@ $dictionary['SA_Services']['fields']['coding_term_months_c']['source']='custom_f
 
 $dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['name']='coding_termination_prior_to_renewal_days_c';
 $dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['len']='255';
-$dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['type']='text';
+$dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['type']='enum';
 $dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['options']='the30_60_90_list';
 $dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['importable']='true';
 $dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['coding_termination_prior_to_renewal_days_c']['module']='SA_Services';
@@ -352,8 +357,9 @@ $dictionary['SA_Services']['fields']['coding_term_for_convenience_notice_dd_c'][
 
 $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['name']='coding_termination_for_convenience_c';
 $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['len']='255';
-$dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['type']='bool';
+$dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['type']='enum';
 $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['options']='the30_60_90_list';
 $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['importable']='true';
 $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['module']='SA_Services';
@@ -443,8 +449,9 @@ $dictionary['SA_Services']['fields']['fft_auto_renew_c']['source']='custom_field
 
 $dictionary['SA_Services']['fields']['fft_billing_c']['name']='fft_billing_c';
 $dictionary['SA_Services']['fields']['fft_billing_c']['len']='255';
-$dictionary['SA_Services']['fields']['fft_billing_c']['type']='text';
+$dictionary['SA_Services']['fields']['fft_billing_c']['type']='enum';
 $dictionary['SA_Services']['fields']['fft_billing_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_billing_c']['options']='tos_billing_list';
 $dictionary['SA_Services']['fields']['fft_billing_c']['importable']='true';
 $dictionary['SA_Services']['fields']['fft_billing_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_billing_c']['module']='SA_Services';
@@ -510,8 +517,9 @@ $dictionary['SA_Services']['fields']['fft_expiration_date_c']['source']='custom_
 
 $dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['name']='fft_implementation_training_fees_c';
 $dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['len']='255';
-$dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['type']='text';
+$dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['type']='enum';
 $dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['options']='impl_and_training_fees_list';
 $dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['importable']='true';
 $dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_implementation_training_fees_c']['module']='SA_Services';
@@ -536,8 +544,9 @@ $dictionary['SA_Services']['fields']['fft_pricing_category_rate_c']['source']='c
 
 $dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['name']='fft_pricing_category_uom_c';
 $dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['len']='255';
-$dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['type']='text';
+$dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['type']='multienum';
 $dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['options']='acct_tos_uom_list';
 $dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['importable']='true';
 $dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['module']='SA_Services';
@@ -549,8 +558,9 @@ $dictionary['SA_Services']['fields']['fft_pricing_category_uom_c']['source']='cu
 
 $dictionary['SA_Services']['fields']['fft_pricing_increase_c']['name']='fft_pricing_increase_c';
 $dictionary['SA_Services']['fields']['fft_pricing_increase_c']['len']='255';
-$dictionary['SA_Services']['fields']['fft_pricing_increase_c']['type']='text';
+$dictionary['SA_Services']['fields']['fft_pricing_increase_c']['type']='enum';
 $dictionary['SA_Services']['fields']['fft_pricing_increase_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_pricing_increase_c']['options']='pricing_increase_list';
 $dictionary['SA_Services']['fields']['fft_pricing_increase_c']['importable']='true';
 $dictionary['SA_Services']['fields']['fft_pricing_increase_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_pricing_increase_c']['module']='SA_Services';
@@ -694,8 +704,9 @@ $dictionary['SA_Services']['fields']['fft_sow_version_c']['source']='custom_fiel
 
 $dictionary['SA_Services']['fields']['fft_shipping_c']['name']='fft_shipping_c';
 $dictionary['SA_Services']['fields']['fft_shipping_c']['len']='255';
-$dictionary['SA_Services']['fields']['fft_shipping_c']['type']='text';
+$dictionary['SA_Services']['fields']['fft_shipping_c']['type']='enum';
 $dictionary['SA_Services']['fields']['fft_shipping_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_shipping_c']['options']='fft_shipping_list';
 $dictionary['SA_Services']['fields']['fft_shipping_c']['importable']='true';
 $dictionary['SA_Services']['fields']['fft_shipping_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_shipping_c']['module']='SA_Services';
@@ -720,8 +731,9 @@ $dictionary['SA_Services']['fields']['fft_term_months_c']['source']='custom_fiel
 
 $dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['name']='fft_termination_prior_to_renewal_days_c';
 $dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['len']='255';
-$dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['type']='text';
+$dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['type']='enum';
 $dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['options']='the30_60_90_list';
 $dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['importable']='true';
 $dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_days_c']['module']='SA_Services';
@@ -746,8 +758,9 @@ $dictionary['SA_Services']['fields']['fft_termination_prior_to_renewal_c']['sour
 
 $dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['name']='fft_term_for_convenience_notice_dd_c';
 $dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['len']='19';
-$dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['type']='int';
+$dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['type']='enum';
 $dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['options']='tos_term_for_conv_list';
 $dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['importable']='true';
 $dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_term_for_convenience_notice_dd_c']['module']='SA_Services';
@@ -850,8 +863,9 @@ $dictionary['SA_Services']['fields']['qa_program_c']['source']='custom_fields';
 
 $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['name']='service_or_product_warranty_c';
 $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['len']='255';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['type']='text';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['type']='enum';
 $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['options']='intell_prop_gen_info_list';
 $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['importable']='true';
 $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['module']='SA_Services';
@@ -928,8 +942,9 @@ $dictionary['SA_Services']['fields']['tos_auto_renew_c']['source']='custom_field
 
 $dictionary['SA_Services']['fields']['tos_billing_c']['name']='tos_billing_c';
 $dictionary['SA_Services']['fields']['tos_billing_c']['len']='255';
-$dictionary['SA_Services']['fields']['tos_billing_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_billing_c']['type']='enum';
 $dictionary['SA_Services']['fields']['tos_billing_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_billing_c']['options']='tos_billing_list';
 $dictionary['SA_Services']['fields']['tos_billing_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_billing_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_billing_c']['module']='SA_Services';
@@ -941,8 +956,9 @@ $dictionary['SA_Services']['fields']['tos_billing_c']['source']='custom_fields';
 
 $dictionary['SA_Services']['fields']['tos_commitment_c']['name']='tos_commitment_c';
 $dictionary['SA_Services']['fields']['tos_commitment_c']['len']='255';
-$dictionary['SA_Services']['fields']['tos_commitment_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_commitment_c']['type']='enum';
 $dictionary['SA_Services']['fields']['tos_commitment_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_commitment_c']['options']='tos_commitment_list';
 $dictionary['SA_Services']['fields']['tos_commitment_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_commitment_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_commitment_c']['module']='SA_Services';
@@ -995,8 +1011,9 @@ $dictionary['SA_Services']['fields']['tos_expiration_date_c']['source']='custom_
 
 $dictionary['SA_Services']['fields']['tos_price_book_rate_c']['name']='tos_price_book_rate_c';
 $dictionary['SA_Services']['fields']['tos_price_book_rate_c']['len']='255';
-$dictionary['SA_Services']['fields']['tos_price_book_rate_c']['type']='bool';
+$dictionary['SA_Services']['fields']['tos_price_book_rate_c']['type']='enum';
 $dictionary['SA_Services']['fields']['tos_price_book_rate_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_price_book_rate_c']['options']='tos_price_book_rate_list';
 $dictionary['SA_Services']['fields']['tos_price_book_rate_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_price_book_rate_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_price_book_rate_c']['module']='SA_Services';
@@ -1021,8 +1038,9 @@ $dictionary['SA_Services']['fields']['tos_pricing_category_rate_c']['source']='c
 
 $dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['name']='tos_pricing_category_uom_c';
 $dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['len']='255';
-$dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['type']='enum';
 $dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['options']='acct_tos_uom_list';
 $dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['module']='SA_Services';
@@ -1034,8 +1052,9 @@ $dictionary['SA_Services']['fields']['tos_pricing_category_uom_c']['source']='cu
 
 $dictionary['SA_Services']['fields']['tos_pricing_category_c']['name']='tos_pricing_category_c';
 $dictionary['SA_Services']['fields']['tos_pricing_category_c']['len']='4099';
-$dictionary['SA_Services']['fields']['tos_pricing_category_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_pricing_category_c']['type']='multienum';
 $dictionary['SA_Services']['fields']['tos_pricing_category_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_pricing_category_c']['options']='tos_pricing_category_list';
 $dictionary['SA_Services']['fields']['tos_pricing_category_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_pricing_category_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_pricing_category_c']['module']='SA_Services';
@@ -1047,8 +1066,9 @@ $dictionary['SA_Services']['fields']['tos_pricing_category_c']['source']='custom
 
 $dictionary['SA_Services']['fields']['tos_pricing_increase_c']['name']='tos_pricing_increase_c';
 $dictionary['SA_Services']['fields']['tos_pricing_increase_c']['len']='255';
-$dictionary['SA_Services']['fields']['tos_pricing_increase_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_pricing_increase_c']['type']='enum';
 $dictionary['SA_Services']['fields']['tos_pricing_increase_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_pricing_increase_c']['options']='pricing_increase_list';
 $dictionary['SA_Services']['fields']['tos_pricing_increase_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_pricing_increase_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_pricing_increase_c']['module']='SA_Services';
@@ -1178,8 +1198,9 @@ $dictionary['SA_Services']['fields']['tos_term_for_convenience_notice_dd_c']['so
 
 $dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['name']='tos_termination_prior_to_renewal_days_c';
 $dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['len']='255';
-$dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['type']='text';
+$dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['type']='enum';
 $dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['options']='the30_60_90_list';
 $dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_termination_prior_to_renewal_days_c']['module']='SA_Services';
@@ -1217,8 +1238,9 @@ $dictionary['SA_Services']['fields']['tos_termination_for_convenience_notice_c']
 
 $dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['name']='tos_termination_for_convenience_c';
 $dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['len']='255';
-$dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['type']='bool';
+$dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['type']='enum';
 $dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['options']='tos_term_for_conv_list';
 $dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['importable']='true';
 $dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['module']='SA_Services';
@@ -1230,8 +1252,9 @@ $dictionary['SA_Services']['fields']['tos_termination_for_convenience_c']['sourc
 
 $dictionary['SA_Services']['fields']['transcription_platform_c']['name']='transcription_platform_c';
 $dictionary['SA_Services']['fields']['transcription_platform_c']['len']='255';
-$dictionary['SA_Services']['fields']['transcription_platform_c']['type']='text';
+$dictionary['SA_Services']['fields']['transcription_platform_c']['type']='enum';
 $dictionary['SA_Services']['fields']['transcription_platform_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['transcription_platform_c']['options']='contract_tos_list';
 $dictionary['SA_Services']['fields']['transcription_platform_c']['importable']='true';
 $dictionary['SA_Services']['fields']['transcription_platform_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['transcription_platform_c']['module']='SA_Services';
@@ -1295,8 +1318,9 @@ $dictionary['SA_Services']['fields']['fft_pricing_category_c']['source']='custom
 
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['name']='included_optional_system_components_c';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['len']='4099';
-$dictionary['SA_Services']['fields']['included_optional_system_components_c']['type']='text';
+$dictionary['SA_Services']['fields']['included_optional_system_components_c']['type']='multienum';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['included_optional_system_components_c']['options']='included_optional_system_components';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['importable']='true';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['module']='SA_Services';
@@ -1386,8 +1410,9 @@ $dictionary['SA_Services']['fields']['tos_price_book_rate_v2_c']['source']='cust
 
 $dictionary['SA_Services']['fields']['coding_price_book_rate_c']['name']='coding_price_book_rate_c';
 $dictionary['SA_Services']['fields']['coding_price_book_rate_c']['len']='255';
-$dictionary['SA_Services']['fields']['coding_price_book_rate_c']['type']='text';
+$dictionary['SA_Services']['fields']['coding_price_book_rate_c']['type']='enum';
 $dictionary['SA_Services']['fields']['coding_price_book_rate_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_price_book_rate_c']['options']='tos_price_book_rate_list';
 $dictionary['SA_Services']['fields']['coding_price_book_rate_c']['importable']='true';
 $dictionary['SA_Services']['fields']['coding_price_book_rate_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['coding_price_book_rate_c']['module']='SA_Services';
@@ -1399,8 +1424,9 @@ $dictionary['SA_Services']['fields']['coding_price_book_rate_c']['source']='cust
 
 $dictionary['SA_Services']['fields']['type_of_scribing_c']['name']='type_of_scribing_c';
 $dictionary['SA_Services']['fields']['type_of_scribing_c']['len']='255';
-$dictionary['SA_Services']['fields']['type_of_scribing_c']['type']='text';
+$dictionary['SA_Services']['fields']['type_of_scribing_c']['type']='enum';
 $dictionary['SA_Services']['fields']['type_of_scribing_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['type_of_scribing_c']['options']='type_of_scribing_list';
 $dictionary['SA_Services']['fields']['type_of_scribing_c']['importable']='true';
 $dictionary['SA_Services']['fields']['type_of_scribing_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['type_of_scribing_c']['module']='SA_Services';
@@ -1439,8 +1465,9 @@ $dictionary['SA_Services']['fields']['virtual_scribing_auto_renew_c']['source']=
 
 $dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['name']='virtual_scribing_billing_c';
 $dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['len']='255';
-$dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['type']='text';
+$dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['type']='enum';
 $dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['options']='tos_billing_list';
 $dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['importable']='true';
 $dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['virtual_scribing_billing_c']['module']='SA_Services';
@@ -1532,8 +1559,9 @@ $dictionary['SA_Services']['fields']['virtual_scribing_general_notes_c']['source
 
 $dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['name']='virtual_scribing_global_permissions_c';
 $dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['len']='255';
-$dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['type']='text';
+$dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['type']='enum';
 $dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['options']='global_permissions_list';
 $dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['importable']='true';
 $dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['virtual_scribing_global_permissions_c']['module']='SA_Services';
@@ -1571,8 +1599,9 @@ $dictionary['SA_Services']['fields']['virtual_scribing_minimum_hours_language_c'
 
 $dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['name']='virtual_scribing_price_book_rate_c';
 $dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['len']='255';
-$dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['type']='text';
+$dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['type']='enum';
 $dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['options']='tos_price_book_rate_list';
 $dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['importable']='true';
 $dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['virtual_scribing_price_book_rate_c']['module']='SA_Services';
@@ -1597,8 +1626,9 @@ $dictionary['SA_Services']['fields']['virtual_scribing_pricing_c']['source']='cu
 
 $dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['name']='virtual_scribing_pricing_increase_c';
 $dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['len']='255';
-$dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['type']='text';
+$dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['type']='enum';
 $dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['options']='pricing_increase_list';
 $dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['importable']='true';
 $dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['virtual_scribing_pricing_increase_c']['module']='SA_Services';
@@ -1651,8 +1681,9 @@ $dictionary['SA_Services']['fields']['virtual_scribing_revenue_c']['source']='cu
 
 $dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['name']='virtual_scribing_term_for_convenience_c';
 $dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['len']='255';
-$dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['type']='text';
+$dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['type']='enum';
 $dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['options']='the30_60_90_list';
 $dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['importable']='true';
 $dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['virtual_scribing_term_for_convenience_c']['module']='SA_Services';
