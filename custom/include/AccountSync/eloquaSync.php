@@ -65,7 +65,7 @@ class eloquaSync
     {
         global $timedate, $sugar_config;
 
-        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 99;
+        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 180;
 
         $bean = BeanFactory::getBean("SA_eloqua_queue");
 
@@ -225,6 +225,7 @@ class eloquaSync
             }
 
             if (isset($contact->id) && !empty($contact->id)) {
+                $bean->related_type = $contact->module_name;
                 $bean->related_id = $contact->id;
             }
 
@@ -296,4 +297,20 @@ class eloquaSync
         return $campaigns;
     }
 
+
+
+    public function saveContact($bean, $args, $event){
+        if($_REQUEST['action'] == "ConvertLead"){
+            $lead = BeanFactory::getBean("Leads", $_REQUEST['record']);
+            if($lead->load_relationship("sa_eloqua_tracking")) {
+                $relatedBeans = $lead->sa_eloqua_tracking->getBeans();
+                foreach($relatedBeans as $tracker){
+                    $tracker->id = "";
+                    $tracker->related_id = $bean->id;
+                    $tracker->related_type = $bean->module_name;
+                    $tracker->save();
+                }
+            }
+        }
+    }
 }

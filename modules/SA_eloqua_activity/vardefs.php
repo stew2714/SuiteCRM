@@ -100,6 +100,13 @@ $dictionary['SA_eloqua_activity'] = array(
             'audited' => true,
             'merge_filter' => 'disabled',
         ),
+        'related_type' => array(
+            'name' => 'related_type',
+            'vname' => 'LBL_RELATED_TYPE',
+            'type' => 'enum',
+            'audited' => true,
+            'merge_filter' => 'disabled',
+        ),
         'email_address' => array(
             'name' => 'email_address',
             'vname' => 'LBL_EMAIL_ADDRESS',
@@ -130,6 +137,32 @@ $dictionary['SA_eloqua_activity'] = array(
                 'lhs_table' => 'sa_eloqua_activity',
                 'lhs_key' => 'related_id',
                 'relationship_type' => 'one-to-many',
+                'relationship_role_column' => 'related_type',
+                'relationship_role_column_value' => 'Leads'
+            ),
+        'contacts_sa_eloqua_tracking' =>
+            array(
+                'rhs_module' => 'Contacts',
+                'rhs_table' => 'contacts',
+                'rhs_key' => 'id',
+                'lhs_module' => 'SA_eloqua_activity',
+                'lhs_table' => 'sa_eloqua_activity',
+                'lhs_key' => 'related_id',
+                'relationship_type' => 'one-to-many',
+                'relationship_role_column' => 'related_type',
+                'relationship_role_column_value' => 'Contacts'
+            ),
+        'accounts_sa_eloqua_tracking' =>
+            array(
+                'rhs_module' => 'Accounts',
+                'rhs_table' => 'accounts',
+                'rhs_key' => 'id',
+                'lhs_module' => 'SA_eloqua_activity',
+                'lhs_table' => 'sa_eloqua_activity',
+                'lhs_key' => 'related_id',
+                'relationship_type' => 'one-to-many',
+                'relationship_role_column' => 'related_type',
+                'relationship_role_column_value' => 'Accounts'
             ),
 ),
     'optimistic_locking' => true,
