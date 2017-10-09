@@ -38,9 +38,10 @@
  ********************************************************************************/
 
 require_once ("custom/include/AccountSync/eloquaSync.php");
-class SA_eloqua_queueController extends Controller
+require_once ("include/MVC/Controller/SugarController.php");
+class SA_eloqua_queueController extends SugarController
 {
-    function action_testpull(){
+    function action_pullHistory(){
         $sync = new eloquaSync();
 
         echo '<pre>';
@@ -50,6 +51,11 @@ class SA_eloqua_queueController extends Controller
             }
         }
         echo '</pre>';
+        die();
+    }
+    function action_pullCampaign(){
+        $sync = new eloquaSync();
+        $sync->getCampaignList();
         die();
     }
 }

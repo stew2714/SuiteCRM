@@ -52,7 +52,7 @@ $subpanel_layout = array(
     'where' => '',
 
     'list_fields' => array(
-        'campaign_id' => array(
+        'campaign_name' => array(
             'vname' => 'LBL_CAMPAIGN',
             'width' => '25%',
         ),

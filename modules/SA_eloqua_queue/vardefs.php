@@ -88,11 +88,8 @@ $dictionary['SA_eloqua_queue'] = array(
             'audited' => true,
             'merge_filter' => 'disabled',
         ),
-
 ),
     'relationships' => array (
-
-
 ),
     'optimistic_locking' => true,
     'unified_search' => true,

@@ -43,3 +43,18 @@
 $app_list_strings['moduleList']['SA_eloqua_activity'] = 'Eloqua Activity';
 $app_list_strings['moduleList']['SA_eloqua_queue'] = 'eloqua Queue';
 $app_list_strings['moduleList']['SA_eloqua_campaigns'] = 'Eloqua Campaigns';
+
+$app_list_strings['activity_type_el_dom'] =
+    array("EmailSend" => "Email Sent",
+        "EmailOpen" => "Email Opened",
+        "EmailClickthrough" => "Email Click through",
+        "Subscribe" => "Subscribe",
+        "Unsubscribe" => "Unsubscribe",
+        "Bounceback" => "Bounce back",
+        "FormSubmit" => "Form Submit",
+        "PageView" => "Page View",
+        "WebVisit" => "Web Visit",
+    );
+
+
+

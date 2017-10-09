@@ -65,7 +65,7 @@ class eloquaSync
     {
         global $timedate, $sugar_config;
 
-        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 180;
+        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 168;
 
         $bean = BeanFactory::getBean("SA_eloqua_queue");
 
@@ -118,10 +118,8 @@ class eloquaSync
                 $postData['fields']['CampaignId'] = "{{Activity.Campaign.Id}}";
             }
 
-            if($activityType != "WebVisit" && $activityType != "PageView" && $activityType != "Subscribe" &&
-                                           $activityType != "FormSubmit" &&
-               $activityType != "Unsubscribe" && $activityType != "Bounceback"){
-                $postData['fields']['EmailWebLink']      = "{{Activity.Field(EmailWebLink)}}";
+            if($activityType == "EmailClickthrough"){
+                $postData['fields']['EmailWebLink']      = "{{Activity.Field(EmailClickedThruLink)}}";
             }
             $data = $this->clientBulk->post($postUrl, $postData);
             $bean->description = $data->uri;
@@ -204,7 +202,7 @@ class eloquaSync
             $bean->email_address = $record->EmailAddress;
             $bean->activity_type = $record->ActivityType;
             $bean->campaign_id = $record->CampaignId;
-            $bean->activity_date = $record->ActivityDate;
+            $bean->activity_date = date('Y-m-d H:i:s', strtotime($record->ActivityDate));
             $bean->activity_id = $record->ActivityId;
             $bean->eloqua_contact_id = $record->ContactId;
             $bean->activity_link = $record->EmailWebLink;
