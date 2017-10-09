@@ -208,14 +208,22 @@ class eloquaSync
             $bean->activity_link = $record->EmailWebLink;
 
             //now see if we can find the Lead and if not found look for an account....
-            $contact = BeanFactory::getBean("Leads")->retrieve_by_string_fields(
+            $contact = BeanFactory::getBean("Contacts")->retrieve_by_string_fields(
                 array(
                     "eloqua_id_c" => $bean->eloqua_contact_id
                 )
             );
 
-            if(empty($contact->id) ){
+            if (empty($contact->id)) {
                 $contact = BeanFactory::getBean("Accounts")->retrieve_by_string_fields(
+                    array(
+                        "eloqua_id_c" => $bean->eloqua_contact_id
+                    )
+                );
+            }
+
+            if (empty($contact->id)) {
+                $contact = BeanFactory::getBean("Leads")->retrieve_by_string_fields(
                     array(
                         "eloqua_id_c" => $bean->eloqua_contact_id
                     )
@@ -226,10 +234,6 @@ class eloquaSync
                 $bean->related_type = $contact->module_name;
                 $bean->related_id = $contact->id;
             }
-
-
-
-
             $bean->save();
         }
 
@@ -299,10 +303,35 @@ class eloquaSync
 
     public function saveContact($bean, $args, $event){
         if($_REQUEST['action'] == "ConvertLead"){
-            $lead = BeanFactory::getBean("Leads", $_REQUEST['record']);
-            if($lead->load_relationship("sa_eloqua_tracking")) {
-                $relatedBeans = $lead->sa_eloqua_tracking->getBeans();
-                foreach($relatedBeans as $tracker){
+            $_REQUEST['record'] = $bean->db->quote($_REQUEST['record']);
+            $list =
+                BeanFactory::getBean("SA_eloqua_activity")->get_full_list(
+                    "",
+                    "sa_eloqua_activity.related_id = '{$_REQUEST['record']}' "
+                );
+            if(count($list) > 0) {
+
+                foreach($list as $tracker){
+                    $tracker->id = "";
+                    $tracker->related_id = $bean->id;
+                    $tracker->related_type = $bean->module_name;
+                    $tracker->save();
+                }
+            }
+        }
+    }
+
+    public function saveAccount($bean, $args, $event){
+        if($_REQUEST['action'] == "ConvertLead"){
+            $_REQUEST['record'] = $bean->db->quote($_REQUEST['record']);
+            $list =
+                BeanFactory::getBean("SA_eloqua_activity")->get_full_list(
+                    "",
+                    "sa_eloqua_activity.related_id = '{$_REQUEST['record']}' "
+                );
+            if(count($list) > 0) {
+
+                foreach($list as $tracker){
                     $tracker->id = "";
                     $tracker->related_id = $bean->id;
                     $tracker->related_type = $bean->module_name;
