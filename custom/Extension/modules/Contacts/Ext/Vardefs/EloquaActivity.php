@@ -16,3 +16,12 @@ $dictionary["Contact"]["fields"]["contacts_sa_eloqua_tracking"] = array (
     'vname' => 'LBL_ELOQUA_ACTIVITY',
 );
 
+$dictionary['Contact']['fields']['eloqua_id_c'] = array(
+    'name' => 'eloqua_id_c',
+    'vname' => 'LBL_ELOQUA_ID',
+    'type' => 'int',
+    'len' => 5,
+    'default' => 0,
+    'reportable' => false,
+    'source' => 'custom_fields',
+);
