@@ -207,32 +207,34 @@ class eloquaSync
             $bean->eloqua_contact_id = $record->ContactId;
             $bean->activity_link = $record->EmailWebLink;
 
-            //now see if we can find the Lead and if not found look for an account....
-            $contact = BeanFactory::getBean("Contacts")->retrieve_by_string_fields(
-                array(
-                    "eloqua_id_c" => $bean->eloqua_contact_id
-                )
-            );
-
-            if (empty($contact->id)) {
-                $contact = BeanFactory::getBean("Accounts")->retrieve_by_string_fields(
+            if(isset($bean->eloqua_contact_id) && !empty($bean->eloqua_contact_id)) {
+                //now see if we can find the Lead and if not found look for an account....
+                $contact = BeanFactory::getBean("Contacts")->retrieve_by_string_fields(
                     array(
                         "eloqua_id_c" => $bean->eloqua_contact_id
                     )
                 );
-            }
 
-            if (empty($contact->id)) {
-                $contact = BeanFactory::getBean("Leads")->retrieve_by_string_fields(
-                    array(
-                        "eloqua_id_c" => $bean->eloqua_contact_id
-                    )
-                );
-            }
+                if (empty($contact->id)) {
+                    $contact = BeanFactory::getBean("Accounts")->retrieve_by_string_fields(
+                        array(
+                            "eloqua_id_c" => $bean->eloqua_contact_id
+                        )
+                    );
+                }
 
-            if (isset($contact->id) && !empty($contact->id)) {
-                $bean->related_type = $contact->module_name;
-                $bean->related_id = $contact->id;
+                if (empty($contact->id)) {
+                    $contact = BeanFactory::getBean("Leads")->retrieve_by_string_fields(
+                        array(
+                            "eloqua_id_c" => $bean->eloqua_contact_id
+                        )
+                    );
+                }
+
+                if (isset($contact->id) && !empty($contact->id)) {
+                    $bean->related_type = $contact->module_name;
+                    $bean->related_id = $contact->id;
+                }
             }
             $bean->save();
         }
