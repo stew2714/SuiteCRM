@@ -65,7 +65,7 @@ class eloquaSync
     {
         global $timedate, $sugar_config;
 
-        $syncCheck = is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 168;
+        $syncCheck = isset($sugar_config['eloqua']['sync_every_x_hours']) && is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 168;
 
         $bean = BeanFactory::getBean("SA_eloqua_queue");
 
@@ -205,7 +205,9 @@ class eloquaSync
             $bean->activity_date = date('Y-m-d H:i:s', strtotime($record->ActivityDate));
             $bean->activity_id = $record->ActivityId;
             $bean->eloqua_contact_id = $record->ContactId;
-            $bean->activity_link = $record->EmailWebLink;
+            if(isset($record->EmailWebLink)){
+                $bean->activity_link = $record->EmailWebLink;
+            }
 
             if(isset($bean->eloqua_contact_id) && !empty($bean->eloqua_contact_id)) {
                 //now see if we can find the Lead and if not found look for an account....
