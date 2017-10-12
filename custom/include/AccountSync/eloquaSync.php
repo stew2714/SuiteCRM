@@ -359,9 +359,11 @@ class eloquaSync
 
         if($prospects){
             foreach($prospects as $contact){
-                $person = BeanFactory::getBean("Accounts", $contact);
-                break; //There should only one one contact with that email address in the system.
-                //@todo grow on this to give options.
+                $tmpPerson = BeanFactory::getBean("Accounts", $contact);
+                if(isset($tmpPerson->eloqua_id_c) && !empty($tmpPerson->eloqua_id_c)){
+                    $person = $tmpPerson;
+                    break; //There should only one one contact with that email address in the system.
+                }
             }
         }
 
@@ -369,9 +371,11 @@ class eloquaSync
 
         if($leads){
             foreach($leads as $contact){
-                $person = BeanFactory::getBean("Leads", $contact);
-                break; //There should only one one contact with that email address in the system.
-                //@todo grow on this to give options.
+                $tmpPerson = BeanFactory::getBean("Leads", $contact);
+                if(isset($tmpPerson->eloqua_id_c) && !empty($tmpPerson->eloqua_id_c)){
+                    $person = $tmpPerson;
+                    break; //There should only one one contact with that email address in the system.
+                }
             }
         }
 
@@ -379,9 +383,11 @@ class eloquaSync
 
         if($contacts){
             foreach($contacts as $contact){
-                $person = BeanFactory::getBean("Contacts", $contact);
-                break; //There should only one one contact with that email address in the system.
-                //@todo grow on this to give options.
+                $tmpPerson = BeanFactory::getBean("Contacts", $contact);
+                if(isset($tmpPerson->eloqua_id_c) && !empty($tmpPerson->eloqua_id_c)){
+                    $person = $tmpPerson;
+                    break; //There should only one one contact with that email address in the system.
+                }
             }
         }
 
