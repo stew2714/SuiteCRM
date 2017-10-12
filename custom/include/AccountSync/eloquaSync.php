@@ -209,6 +209,10 @@ class eloquaSync
                 $bean->activity_link = $record->EmailWebLink;
             }
 
+            if($record->ActivityType == "Unsubscribe"){
+                $contact = $this->search_contact_by_email($record->EmailAddress);
+            }
+
             if(isset($bean->eloqua_contact_id) && !empty($bean->eloqua_contact_id)) {
                 //now see if we can find the Lead and if not found look for an account....
                 $contact = BeanFactory::getBean("Contacts")->retrieve_by_string_fields(
@@ -232,12 +236,13 @@ class eloquaSync
                         )
                     );
                 }
-
-                if (isset($contact->id) && !empty($contact->id)) {
-                    $bean->related_type = $contact->module_name;
-                    $bean->related_id = $contact->id;
-                }
             }
+
+            if (isset($contact->id) && !empty($contact->id)) {
+                $bean->related_type = $contact->module_name;
+                $bean->related_id = $contact->id;
+            }
+
             $bean->save();
         }
 
@@ -344,4 +349,44 @@ class eloquaSync
             }
         }
     }
+
+    private function search_contact_by_email($email_address = null){
+
+        $ea = new EmailAddress();
+
+        $contacts = $ea->getRelatedId($email_address, 'Contacts');
+
+        if($contacts){
+            foreach($contacts as $contact){
+                $person = $contact;
+                break; //There should only one one contact with that email address in the system.
+                //@todo grow on this to give options.
+            }
+        }
+
+        $accounts = $ea->getRelatedId($email_address, 'Accounts');
+
+        if($accounts){
+            foreach($accounts as $contact){
+                $person = $contact;
+                break; //There should only one one contact with that email address in the system.
+                //@todo grow on this to give options.
+            }
+        }
+
+        $leads = $ea->getRelatedId($email_address, 'Leads');
+
+        if($leads){
+            foreach($leads as $contact){
+                $person = $contact;
+                break; //There should only one one contact with that email address in the system.
+                //@todo grow on this to give options.
+            }
+        }
+
+
+
+        return $person;
+    }
+
 }
