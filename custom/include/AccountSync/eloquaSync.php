@@ -352,23 +352,14 @@ class eloquaSync
 
     private function search_contact_by_email($email_address = null){
 
+        $contacts = array();
         $ea = new EmailAddress();
 
-        $contacts = $ea->getRelatedId($email_address, 'Contacts');
+        $prospects = $ea->getRelatedId($email_address, 'Accounts');
 
-        if($contacts){
-            foreach($contacts as $contact){
-                $person = $contact;
-                break; //There should only one one contact with that email address in the system.
-                //@todo grow on this to give options.
-            }
-        }
-
-        $accounts = $ea->getRelatedId($email_address, 'Accounts');
-
-        if($accounts){
-            foreach($accounts as $contact){
-                $person = $contact;
+        if($prospects){
+            foreach($prospects as $contact){
+                $person = BeanFactory::getBean("Accounts", $contact);
                 break; //There should only one one contact with that email address in the system.
                 //@todo grow on this to give options.
             }
@@ -378,12 +369,21 @@ class eloquaSync
 
         if($leads){
             foreach($leads as $contact){
-                $person = $contact;
+                $person = BeanFactory::getBean("Leads", $contact);
                 break; //There should only one one contact with that email address in the system.
                 //@todo grow on this to give options.
             }
         }
 
+        $contacts = $ea->getRelatedId($email_address, 'Contacts');
+
+        if($contacts){
+            foreach($contacts as $contact){
+                $person = BeanFactory::getBean("Contacts", $contact);
+                break; //There should only one one contact with that email address in the system.
+                //@todo grow on this to give options.
+            }
+        }
 
 
         return $person;
