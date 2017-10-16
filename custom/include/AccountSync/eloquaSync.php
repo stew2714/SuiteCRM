@@ -116,6 +116,14 @@ class eloquaSync
             }
             if ($activityType != "WebVisit") {
                 $postData['fields']['CampaignId'] = "{{Activity.Campaign.Id}}";
+
+            }
+            if($activityType == "WebVisit"){
+                $postData['fields']['EmailWebLink'] = "{{Activity.Field(FirstPageViewUrl)}}";
+            }
+
+            if($activityType == "PageView") {
+                $postData['fields']['EmailWebLink'] = "{{Activity.Field(Url)}}";
             }
 
             if($activityType == "EmailClickthrough"){
