@@ -207,18 +207,19 @@ class eloquaSync
                 )
             );
 
-            if(isset($bean->eloqua_contact_id) && !empty($bean->eloqua_contact_id)) {
+            $contactId = $record->ContactId;
+            if(isset($contactId) && !empty($contactId)) {
                 //now see if we can find the Lead and if not found look for an account....
                 $contact = BeanFactory::getBean("Contacts")->retrieve_by_string_fields(
                     array(
-                        "eloqua_id_c" => $bean->eloqua_contact_id
+                        "eloqua_id_c" => $contactId
                     )
                 );
 
                 if (empty($contact->id)) {
                     $contact = BeanFactory::getBean("Accounts")->retrieve_by_string_fields(
                         array(
-                            "eloqua_id_c" => $bean->eloqua_contact_id
+                            "eloqua_id_c" => $contactId
                         )
                     );
                 }
@@ -226,7 +227,7 @@ class eloquaSync
                 if (empty($contact->id)) {
                     $contact = BeanFactory::getBean("Leads")->retrieve_by_string_fields(
                         array(
-                            "eloqua_id_c" => $bean->eloqua_contact_id
+                            "eloqua_id_c" => $contactId
                         )
                     );
                 }
