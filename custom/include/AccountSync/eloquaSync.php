@@ -207,20 +207,6 @@ class eloquaSync
                 )
             );
 
-            $bean->email_address = $record->EmailAddress;
-            $bean->activity_type = $record->ActivityType;
-            $bean->campaign_id = $record->CampaignId;
-            $bean->activity_date = date('Y-m-d H:i:s', strtotime($record->ActivityDate));
-            $bean->activity_id = $record->ActivityId;
-            $bean->eloqua_contact_id = $record->ContactId;
-            if(isset($record->EmailWebLink)){
-                $bean->activity_link = $record->EmailWebLink;
-            }
-
-            if($record->ActivityType == "Unsubscribe"){
-                $contact = $this->search_contact_by_email($record->EmailAddress);
-            }
-
             if(isset($bean->eloqua_contact_id) && !empty($bean->eloqua_contact_id)) {
                 //now see if we can find the Lead and if not found look for an account....
                 $contact = BeanFactory::getBean("Contacts")->retrieve_by_string_fields(
@@ -246,9 +232,29 @@ class eloquaSync
                 }
             }
 
+            if($bean->related_type != $contact->module_name && $bean->related_type != ""){
+                $bean->id = "";
+            }
+
+
             if (isset($contact->id) && !empty($contact->id)) {
                 $bean->related_type = $contact->module_name;
                 $bean->related_id = $contact->id;
+            }
+
+
+            $bean->email_address = $record->EmailAddress;
+            $bean->activity_type = $record->ActivityType;
+            $bean->campaign_id = $record->CampaignId;
+            $bean->activity_date = date('Y-m-d H:i:s', strtotime($record->ActivityDate));
+            $bean->activity_id = $record->ActivityId;
+            $bean->eloqua_contact_id = $record->ContactId;
+            if(isset($record->EmailWebLink)){
+                $bean->activity_link = $record->EmailWebLink;
+            }
+
+            if($record->ActivityType == "Unsubscribe"){
+                $contact = $this->search_contact_by_email($record->EmailAddress);
             }
 
             $bean->save();
