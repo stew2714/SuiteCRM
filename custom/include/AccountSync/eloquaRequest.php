@@ -91,7 +91,7 @@ class EloquaRequest
         
         if ($httpCode > 400) 
         {            
-            print_r($this->responseInfo);            
+           // print_r($this->responseInfo);
         }
         
         // todo : add support in constructor for contentType {xml, json}	
