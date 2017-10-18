@@ -54,8 +54,13 @@ class SA_eloqua_queueController extends SugarController
         die();
     }
     function action_pullCampaign(){
+
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+
         $sync = new eloquaSync();
-        $sync->getCampaignList();
+        $campaigns = $sync->getCampaignList();
+        echo '<pre>' . print_r($campaigns) .  '</pre>';
         die();
     }
 }
