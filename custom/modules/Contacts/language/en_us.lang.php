@@ -27,4 +27,5 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Address Information',
   'LBL_EDITVIEW_PANEL3' => 'Reference Program',
   'SF ID' => 'SF ID',
+  'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
 );

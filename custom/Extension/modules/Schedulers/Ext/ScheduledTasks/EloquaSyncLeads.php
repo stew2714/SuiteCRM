@@ -53,12 +53,12 @@ function EloquaGetHistory()
         }
     }
     echo '</pre>';
-    die();
+    return true;
 }
 function EloquaGetCampaigns()
 {
     require_once('custom/include/AccountSync/eloquaSync.php');
     $sync = new eloquaSync();
     $sync->getCampaignList();
-    die();
+    return true;
 }

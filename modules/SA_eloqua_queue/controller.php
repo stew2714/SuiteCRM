@@ -39,6 +39,9 @@
 
 require_once ("custom/include/AccountSync/eloquaSync.php");
 require_once ("include/MVC/Controller/SugarController.php");
+require_once('custom/include/AccountSync/eloquaSyncLeads.php');
+require_once('custom/include/AccountSync/eloquaSyncAccounts.php');
+
 class SA_eloqua_queueController extends SugarController
 {
     function action_pullHistory(){
@@ -63,4 +66,18 @@ class SA_eloqua_queueController extends SugarController
         echo '<pre>' . print_r($campaigns) .  '</pre>';
         die();
     }
+
+    function action_EloquaSyncLeads() {
+        $sync = new eloquaSyncLeads();
+        $sync->getContacts();
+        die();
+    }
+
+    function action_EloquaSyncAccount() {
+        $sync = new eloquaSyncAccounts();
+        $sync->getAccounts();
+        die();
+    }
+
+
 }

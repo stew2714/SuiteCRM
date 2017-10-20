@@ -258,7 +258,8 @@ class eloquaSyncLeads
             'eloqua_lead_rating_c' => '100081',     // Lead Rating Combined
             'website' => '100197',                  // Website
             'rating_c' => '100196',                   // Rating
-            'description' => '100195'               // Description
+            'description' => '100195',           // Description
+            'primary_campaign_c' => '100203'                      //Primary Campaign Field.
         );
 
         // Get the Key where there is a match in the array to the ID supplied to the function

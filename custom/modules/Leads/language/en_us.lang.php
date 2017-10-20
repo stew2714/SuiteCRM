@@ -10,4 +10,5 @@ $mod_strings = array (
   'LBL_PLEASE_CONTACT' => 'Please contact Blythe Krzemien to move leads',
   'LBL_C1_CUST_CONTACTS1_LEADS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust Cust_Contacts',
   'LBL_FACILITY_TYPE' => 'Facility Type',
+  'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
 );

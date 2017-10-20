@@ -25,4 +25,5 @@ $mod_strings = array (
   'LBL_C1_CUST_CONTACTS1_ACCOUNTS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
   'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'myContacts',
   'LBL_OWNERSHIP' => 'Ownership:',
+  'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
 );
