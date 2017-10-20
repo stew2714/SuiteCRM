@@ -318,7 +318,7 @@ class Person extends Basic
 
         $where_auto = " $table.deleted=0 ";
 
-        if ($where !== '') {
+        if (isset($where) && $where !== '') {
             $query .= "WHERE ($where) AND " . $where_auto;
         } else {
             $query .= 'WHERE ' . $where_auto;
