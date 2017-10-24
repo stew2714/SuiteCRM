@@ -448,7 +448,7 @@ class AdvancedReporter extends AOR_Report
 
     function build_report_html($offset = -1, $links = true, $group_value = '', $tableIdentifier = '', $extra = array())
     {
-
+        $dashletPaginationButtons = "";
         global $beanList, $sugar_config;
 
         $_group_value = $this->db->quote($group_value);
