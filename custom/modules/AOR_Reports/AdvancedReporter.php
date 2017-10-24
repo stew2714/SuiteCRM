@@ -739,10 +739,12 @@ class AdvancedReporter extends AOR_Report
     {
         $rows = array();
         foreach ($this->requestData['fieldView'] as $row) {
-            if ($row['aor_fields_deleted'] == 0 && $row['aor_fields_deleted'] != null &&
-                ($level == $row['aor_fields_group_display'] || $level == false ||
-                 ($row['aor_fields_group_display'] == null && $this->groupBy == $row['aor_fields_field_order']  )
-                )
+            if (isset($row['aor_fields_group_display']) &&
+                $row['aor_fields_deleted'] == 0 &&
+                $row['aor_fields_deleted'] != null &&
+                ($level == $row['aor_fields_group_display'] ||
+                 $level == false ||
+                 ($row['aor_fields_group_display'] == null && $this->groupBy == $row['aor_fields_field_order']))
             ) {
                 $field = new AOR_Field();
                 foreach ($row as $key => $item) {
@@ -773,7 +775,9 @@ class AdvancedReporter extends AOR_Report
         }
 
 
-        if($this->requestData['fieldView'][0]['aor_fields_group_display'] != "-1" && count($rows) != 0){
+        if(isset($this->requestData['fieldView'][0]['aor_fields_group_display']) &&
+                 $this->requestData['fieldView'][0]['aor_fields_group_display'] != "-1" &&
+                 count($rows) != 0){
             $rows[ $this->requestData['fieldView'][0]['aor_fields_group_display'] ]->group_display = '1';
         }
         ksort($rows);
