@@ -163,7 +163,8 @@ class AdvancedReporter extends AOR_Report
 
         foreach ($rows as $field) {
 
-            if ( $field->field_function != 'COUNT' || $field->format != '') {
+            if ( (!isset($field->field_function) || $field->field_function != 'COUNT') || (isset($field->format) &&
+                                                                                 $field->format != '') ) {
                 $moduleFieldByGroupValues[] = $group_value;
                 continue;
             }
