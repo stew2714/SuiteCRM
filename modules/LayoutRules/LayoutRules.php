@@ -113,8 +113,10 @@ class LayoutRules extends Basic
 
         $bean = BeanFactory::getBean("SecurityGroups");
         $ssList = $bean->get_full_list();
-        foreach($ssList as $group){
-            $app_list_strings['group_list'][ $group->id ] = $group->name;
+        if($ssList != false){
+            foreach($ssList as $group){
+                $app_list_strings['group_list'][ $group->id ] = $group->name;
+            }
         }
         asort($app_list_strings['group_list']);
     }

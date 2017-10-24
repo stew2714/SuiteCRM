@@ -80,59 +80,81 @@ class AOMR_Condition extends Basic
         require_once('modules/AOW_WorkFlow/aow_utils.php');
 
         $j = 0;
-        foreach ($post_data[$key . 'field'] as $i => $field) {
+        if(isset($post_data[$key . 'field']) && !empty($post_data[$key . 'field'])) {
+            foreach ($post_data[$key . 'field'] as $i => $field) {
 
-            if ($post_data[$key . 'deleted'][$i] == 1) {
-                $this->mark_deleted($post_data[$key . 'id'][$i]);
-            } else {
-                $condition = new AOMR_Condition();
-                foreach ($this->field_defs as $field_def) {
-                    $field_name = $field_def['name'];
-                    if (isset($post_data[$key . $field_name][$i])) {
-                        if (is_array($post_data[$key . $field_name][$i])) {
+                if ($post_data[$key . 'deleted'][$i] == 1) {
+                    $this->mark_deleted($post_data[$key . 'id'][$i]);
+                } else {
+                    $condition = new AOMR_Condition();
+                    foreach ($this->field_defs as $field_def) {
+                        $field_name = $field_def['name'];
+                        if (isset($post_data[$key . $field_name][$i])) {
+                            if (is_array($post_data[$key . $field_name][$i])) {
 
-                            switch ($condition->value_type) {
-                                case 'Date':
-                                    $post_data[$key . $field_name][$i] = base64_encode(serialize($post_data[$key . $field_name][$i]));
-                                    break;
-                                default:
-                                    $post_data[$key . $field_name][$i] = encodeMultienumValue($post_data[$key . $field_name][$i]);
+                                switch ($condition->value_type) {
+                                    case 'Date':
+                                        $post_data[$key . $field_name][$i] =
+                                            base64_encode(serialize($post_data[$key . $field_name][$i]));
+                                        break;
+                                    default:
+                                        $post_data[$key . $field_name][$i] =
+                                            encodeMultienumValue($post_data[$key . $field_name][$i]);
+                                }
+                            } else {
+                                if ($field_name == 'value' && $post_data[$key . 'value_type'][$i] === 'Value') {
+                                    $post_data[$key . $field_name][$i] =
+                                        fixUpFormatting(
+                                            $_REQUEST['report_module'],
+                                            $condition->field,
+                                            $post_data[$key . $field_name][$i]
+                                        );
+                                } else {
+                                    if ($field_name == 'parameter') {
+                                        $post_data[$key . $field_name][$i] = isset($post_data[$key . $field_name][$i]);
+                                    } else {
+                                        if ($field_name == 'module_path') {
+                                            $post_data[$key . $field_name][$i] =
+                                                base64_encode(
+                                                    serialize(explode(":", $post_data[$key . $field_name][$i]))
+                                                );
+                                        }
+                                    }
+                                }
                             }
-                        } else if ($field_name == 'value' && $post_data[$key . 'value_type'][$i] === 'Value') {
-                            $post_data[$key . $field_name][$i] = fixUpFormatting($_REQUEST['report_module'], $condition->field, $post_data[$key . $field_name][$i]);
-                        } else if ($field_name == 'parameter') {
-                            $post_data[$key . $field_name][$i] = isset($post_data[$key . $field_name][$i]);
-                        } else if ($field_name == 'module_path') {
-                            $post_data[$key . $field_name][$i] = base64_encode(serialize(explode(":", $post_data[$key . $field_name][$i])));
-                        }
-                        if ($field_name == 'parenthesis' && $post_data[$key . $field_name][$i] == 'END') {
-                            if (!isset($lastParenthesisStartConditionId)) {
-                                throw new Exception('a closure parenthesis has no starter pair');
+                            if ($field_name == 'parenthesis' && $post_data[$key . $field_name][$i] == 'END') {
+                                if (!isset($lastParenthesisStartConditionId)) {
+                                    throw new Exception('a closure parenthesis has no starter pair');
+                                }
+                                $condition->parenthesis = $lastParenthesisStartConditionId;
+                            } else {
+                                $condition->$field_name = $post_data[$key . $field_name][$i];
                             }
-                            $condition->parenthesis = $lastParenthesisStartConditionId;
                         } else {
-                            $condition->$field_name = $post_data[$key . $field_name][$i];
+                            if ($field_name == 'parameter') {
+                                $condition->$field_name = 0;
+                            }
                         }
-                    } else if ($field_name == 'parameter') {
-                        $condition->$field_name = 0;
-                    }
 
-                }
-                // Period must be saved as a string instead of a base64 encoded datetime.
-                // Overwriting value
-                if ((!isset($condition->parenthesis) || !$condition->parenthesis) && isset($condition->value_type) && $condition->value_type == 'Period') {
-                    $condition->value = base64_encode($_POST['aor_conditions_value'][$i]);
-                }
-                if (trim($condition->field) != '' || $condition->parenthesis) {
-                    if (isset($_POST['aor_conditions_order'][$i])) {
-                        $condition->condition_order = (int)$_POST['aor_conditions_order'][$i];
-                    } else {
-                        $condition->condition_order = ++$j;
                     }
-                    $condition->aor_report_id = $parent->id;
-                    $conditionId = $condition->save();
-                    if ($condition->parenthesis == 'START') {
-                        $lastParenthesisStartConditionId = $conditionId;
+                    // Period must be saved as a string instead of a base64 encoded datetime.
+                    // Overwriting value
+                    if ((!isset($condition->parenthesis) || !$condition->parenthesis) &&
+                        isset($condition->value_type) &&
+                        $condition->value_type == 'Period') {
+                        $condition->value = base64_encode($_POST['aor_conditions_value'][$i]);
+                    }
+                    if (trim($condition->field) != '' || $condition->parenthesis) {
+                        if (isset($_POST['aor_conditions_order'][$i])) {
+                            $condition->condition_order = (int)$_POST['aor_conditions_order'][$i];
+                        } else {
+                            $condition->condition_order = ++$j;
+                        }
+                        $condition->aor_report_id = $parent->id;
+                        $conditionId = $condition->save();
+                        if ($condition->parenthesis == 'START') {
+                            $lastParenthesisStartConditionId = $conditionId;
+                        }
                     }
                 }
             }

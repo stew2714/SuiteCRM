@@ -163,7 +163,8 @@ class AdvancedReporter extends AOR_Report
 
         foreach ($rows as $field) {
 
-            if ($field->field_function != 'COUNT' || $field->format != '') {
+            if ( (isset($field->field_function) &&  $field->field_function != 'COUNT') || (isset($field->format) &&
+                                                                                           $field->format != '') ) {
                 $moduleFieldByGroupValues[] = $group_value;
                 continue;
             }
@@ -738,50 +739,49 @@ class AdvancedReporter extends AOR_Report
     function getViewParams($group = false, $array = false, $level = false)
     {
         $rows = array();
-        foreach ($this->requestData['fieldView'] as $row) {
-            if (isset($row['aor_fields_group_display']) &&
-                $row['aor_fields_deleted'] == 0 &&
-                $row['aor_fields_deleted'] != null &&
-                ($level == $row['aor_fields_group_display'] ||
-                 $level == false ||
-                 ($row['aor_fields_group_display'] == null && $this->groupBy == $row['aor_fields_field_order']))
-            ) {
-                $field = new AOR_Field();
-                foreach ($row as $key => $item) {
-                    $newKey = substr($key, 11);
-                    if ($newKey == "module_path") {
-                        $field->$newKey = base64_encode(serialize(explode(":", $item)));
-                    } else {
-                        $field->$newKey = $item;
-                    }
-                }
-                //set the group option.
-                if($group == true){
-                    if($field->group_display == $level ||
-                       ($field->group_display == null && $level == 1 && $this->groupBy == $field->field_order  )
-                    ){
-                        if($array == true){
-                                return array(  $field->toArray() );
-                        }else{
-                            return  $field;
+        if(isset($this->requestData['fieldView']) && !empty($this->requestData['fieldView'])) {
+            foreach ($this->requestData['fieldView'] as $row) {
+                if (isset($row['aor_fields_group_display']) &&
+                    $row['aor_fields_deleted'] == 0 &&
+                    $row['aor_fields_deleted'] != null &&
+                    ($level == $row['aor_fields_group_display'] ||
+                     $level == false ||
+                     ($row['aor_fields_group_display'] == null && $this->groupBy == $row['aor_fields_field_order']))) {
+                    $field = new AOR_Field();
+                    foreach ($row as $key => $item) {
+                        $newKey = substr($key, 11);
+                        if ($newKey == "module_path") {
+                            $field->$newKey = base64_encode(serialize(explode(":", $item)));
+                        } else {
+                            $field->$newKey = $item;
                         }
-                    }else{
-                        return null;
                     }
-                }else{
-                    $rows[$row['aor_fields_field_order']] = $field;
+                    //set the group option.
+                    if ($group == true) {
+                        if ($field->group_display == $level ||
+                            ($field->group_display == null && $level == 1 && $this->groupBy == $field->field_order)) {
+                            if ($array == true) {
+                                return array($field->toArray());
+                            } else {
+                                return $field;
+                            }
+                        } else {
+                            return null;
+                        }
+                    } else {
+                        $rows[$row['aor_fields_field_order']] = $field;
+                    }
                 }
             }
+
+            if(isset($this->requestData['fieldView'][0]['aor_fields_group_display']) &&
+                     $this->requestData['fieldView'][0]['aor_fields_group_display'] != "-1" &&
+                     count($rows) != 0){
+                $rows[ $this->requestData['fieldView'][0]['aor_fields_group_display'] ]->group_display = '1';
+            }
+
+            ksort($rows);
         }
-
-
-        if(isset($this->requestData['fieldView'][0]['aor_fields_group_display']) &&
-                 $this->requestData['fieldView'][0]['aor_fields_group_display'] != "-1" &&
-                 count($rows) != 0){
-            $rows[ $this->requestData['fieldView'][0]['aor_fields_group_display'] ]->group_display = '1';
-        }
-        ksort($rows);
-
         return $rows;
     }
     function getConditionParams()
