@@ -41,5 +41,5 @@ $sugar_config['list_max_entries_per_subpanel'] = '10';
 $sugar_config['email_default_delete_attachments'] = true;
 $sugar_config['outfitters_licenses']['gmsyncaddon'] = '5995b6bb71ddda1e939b1c6ebee5bffd ';
 $sugar_config['outfitters_licenses']['LogTrack'] = '0da3d5b27149e372d39f82bcb388ea43';
-$sugar_config['eloqua']['sync_every_x_hours'] = "2";
+$sugar_config['eloqua']['sync_every_x_hours'] = '2';
 /***CONFIGURATOR***/

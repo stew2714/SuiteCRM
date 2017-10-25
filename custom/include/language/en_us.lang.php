@@ -738,11 +738,6 @@ $GLOBALS['app_list_strings']['acct_trans_sys_list']=array (
   'Word_WordPerfect' => 'Word/WordPerfect',
   'In_house' => 'In-house',
 );
-$GLOBALS['app_list_strings']['yes_no_list']=array (
-  '' => '',
-  'Yes' => 'Yes',
-  'No' => 'No',
-);
 $GLOBALS['app_list_strings']['lead_gen_spec_list']=array (
   '' => '',
   'Jerome_Morgan' => 'Jerome Morgan',
@@ -754,9 +749,6 @@ $GLOBALS['app_list_strings']['lead_gen_spec_list']=array (
 $GLOBALS['app_list_strings']['sf_facility_type_list']=array (
   'PR' => 'Independent Medical Practices',
   'HOS' => 'Hospitals and Health Systems',
-);
-$GLOBALS['app_list_strings']['contract_status_category_list']=array (
-  '' => '',
 );
 $GLOBALS['app_list_strings']['sales_region_list']=array (
   'Key_Accounts' => 'Key Accounts (KA - CHS & Strategic Accounts)',
@@ -770,48 +762,6 @@ $GLOBALS['app_list_strings']['sales_region_list']=array (
   'Global_Other_EMEA' => 'Globa/Other/EMEA',
   'Imaging' => 'Imaging',
   'Ambulatory' => 'Ambulatory',
-);
-$GLOBALS['app_list_strings']['tos_pricing_category_list']=array (
-);
-$GLOBALS['app_list_strings']['contract_tos_list']=array (
-);
-$GLOBALS['app_list_strings']['tos_billing_list']=array (
-);
-$GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
-);
-$GLOBALS['app_list_strings']['pricing_increase_list']=array (
-);
-$GLOBALS['app_list_strings']['the30_60_90_list']=array (
-);
-$GLOBALS['app_list_strings']['tos_term_for_conv_list']=array (
-);
-$GLOBALS['app_list_strings']['global_permissions_list']=array (
-);
-$GLOBALS['app_list_strings']['tos_commitment_list']=array (
-);
-$GLOBALS['app_list_strings']['impl_and_training_fees_list']=array (
-);
-$GLOBALS['app_list_strings']['type_of_scribing_list']=array (
-);
-$GLOBALS['app_list_strings']['shipping_list']=array (
-);
-$GLOBALS['app_list_strings']['software_pricing_discount_list']=array (
-);
-$GLOBALS['app_list_strings']['product_billing_list']=array (
-);
-$GLOBALS['app_list_strings']['gma_service_level_list']=array (
-);
-$GLOBALS['app_list_strings']['product_name_list']=array (
-);
-$GLOBALS['app_list_strings']['contract_initiation_type_list']=array (
-);
-$GLOBALS['app_list_strings']['contract_source_list']=array (
-);
-$GLOBALS['app_list_strings']['included_optional_system_components_list']=array (
-);
-$GLOBALS['app_list_strings']['extended_adt_retention_list']=array (
-);
-$GLOBALS['app_list_strings']['extended_voice_retention_list']=array (
 );
 $GLOBALS['app_list_strings']['fft_shipping_list']=array (
 );
@@ -830,4 +780,306 @@ $GLOBALS['app_list_strings']['is_source_list']=array (
 $GLOBALS['app_list_strings']['nih_rating_list']=array (
 );
 $GLOBALS['app_list_strings']['rfp_preparer_list']=array (
+);
+$GLOBALS['app_list_strings']['contract_status_category_list']=array (
+  '' => '',
+  'req' => 'Request',
+  'fil' => 'In Filing',
+  'eff' => 'In Effect',
+  'sig' => 'In Signatures',
+  'aut' => 'In Authoring',
+  'exp' => 'Expired',
+  'amd' => 'Amended',
+  'ter' => 'Terminated',
+  'can' => 'Cancelled',
+);
+
+$GLOBALS['app_list_strings']['contract_status_list']=array (
+  '' => '',
+  'req_req' => 'Request',
+  'eff_act' => 'Activated',
+);
+$GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
+  '' => '',
+  'Add_Product_Service' => 'Add Product/Service',
+  'Zero_Based' => 'Zero Based',
+  'Renewal' => 'Renewal',
+  'Amend_Existing_Terms' => 'Amend Existing Terms',
+  'Gov_Public_Entity_Academic_Institution' => 'Gov./Public Entity/Academic Institution',
+);
+$GLOBALS['app_list_strings']['contract_ownership_group_list']=array (
+  'Renewal_Account_Executive' => 'Renewal Account Executive',
+  'Account_Executive' => 'Account Executive',
+  'Inside_Sales' => 'Inside Sales',
+);
+$GLOBALS['app_list_strings']['payment_type_list']=array (
+  'ACH_Debit' => 'ACH Debi',
+  'Wire_Transfer' => 'Wire Transfer',
+  'Check' => 'Check',
+  'Credit_Card' => 'Credit Card',
+);
+$GLOBALS['app_list_strings']['governing_law_state_list']=array (
+  'AL' => 'Alabama',
+);
+$GLOBALS['app_list_strings']['legal_notices_list']=array (
+  'In_Person' => 'In Person',
+  'Fax' => 'Fax',
+  'Regular_Mail' => 'Regular Mail',
+  'Certified_Mail' => 'Certified Mail',
+  'Overnight_Courier' => 'Overnight Courier',
+);
+$GLOBALS['app_list_strings']['gen_terms_and_conds_list']=array (
+  '' => '',
+  'Standard' => 'Standard',
+  'Modified' => 'Modified',
+  'Additions' => 'Additons',
+);
+$GLOBALS['app_list_strings']['yes_no_list']=array (
+  '' => '',
+  'Yes' => 'Yes',
+  'No' => 'No',
+);
+$GLOBALS['app_list_strings']['contract_os_grp_exp_notice_list']=array (
+  '15_days' => '15 days',
+  '' => '',
+  '30_days' => '30 days',
+  '45_days' => '45 days',
+  '60_days' => '60 days',
+  '90_days' => '90 days',
+  '120_days' => '120 days',
+  '180_days' => '180 days',
+);
+$GLOBALS['app_list_strings']['contract_payment_terms_list']=array (
+  '' => '',
+  '15_days' => '15 days',
+  '30_days' => '30 days',
+  '45_days' => '45 days',
+  '60_days' => '60 days',
+  '90_days' => '90 days',
+);
+$GLOBALS['app_list_strings']['global_permissions_list']=array (
+  '' => '',
+  'Prohibited' => 'Prohibited',
+  'Permitted_with_Advance_Permission' => 'Permitted with Advance Permission',
+);
+$GLOBALS['app_list_strings']['shipping_list']=array (
+  '' => '',
+  'FOB_Origin' => 'FOB Origin',
+  'FOB_Destination' => 'FOB Destination',
+);
+$GLOBALS['app_list_strings']['contract_payment_start_term_list']=array (
+  'Date_of_Invoice' => 'Date of Invoice',
+  'Invoice_Receipt' => 'Invoice Receipt',
+);
+$GLOBALS['app_list_strings']['gen_period_list']=array (
+  '' => '',
+  '10_days' => '10 days',
+  '15_days' => '15 days',
+  '30_days' => '30 days',
+  '45_days' => '45 days',
+  '60_days' => '60 days',
+  '90_days' => '90 days',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['intell_prop_gen_info_list']=array (
+  'Standard' => 'Standard',
+  'Modified' => 'Modified',
+  'Client' => 'Client',
+  'Silent' => 'Silent',
+);
+$GLOBALS['app_list_strings']['contract_assignment_permitted_list']=array (
+  '' => '',
+  'MModal_Only' => 'MModal Only',
+  'Client_Only' => 'Client Only',
+  'Mutual' => 'Mutual',
+);
+$GLOBALS['app_list_strings']['interest_pymt_list']=array (
+  '' => '',
+  0 => '0%',
+  '.5' => '.5 %',
+  1 => '1.0 %',
+  '1.5' => '1.5 %',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['contract_suspend_period_list']=array (
+  '' => '',
+  '0_days' => '0 days',
+  '10_days' => '10 days',
+  '20_days' => '20 days',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['baa_list']=array (
+  '' => '',
+  'Attachment_to_Master' => 'Attachment to Master',
+  'Exhibit' => 'Exhibit',
+  'Stand_alone' => 'Stand alone',
+);
+$GLOBALS['app_list_strings']['baa_source_list']=array (
+  '' => '',
+  'Standard' => 'Standard',
+  'MModal_Modified' => 'MModal Modified',
+  'Client' => 'Client',
+);
+$GLOBALS['app_list_strings']['contract_tos_list']=array (
+  '' => '',
+  'FFT' => 'FFT',
+  'FFP' => 'FFP',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['tos_commitment_list']=array (
+  '' => '',
+  'Exclusive' => 'Exclusive',
+  'Sole_3rd_Party_Vendor' => 'Sole 3rd Party Vendor',
+  'One_of_Several_Third_Party_Vendors' => 'One of Several Third Party Vendors',
+  'Volume' => 'Volume (Monthly Minutes or Annual Revenue)',
+);
+$GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
+  '' => '',
+  'Better_than_Price_Book' => 'Better than Price Book',
+  'Price_Book_or_GPO' => 'Price Book or GPO',
+  'Price_Book_or_GPO_approved_discount' => 'Price Book or GPO approved discount',
+  'Outside_of_Price_Book_or_GPO' => 'Outside of Price Book or GPO approved discount',
+  'Below_production_cost' => 'Below production cost',
+);
+$GLOBALS['app_list_strings']['tos_pricing_category_list']=array (
+  '' => '',
+  'Domestic_MT_Labor' => 'Domestic MT Labor',
+  'Domestic_ME_Labor' => 'Domestic ME Labor',
+  'Domestic_MT_ME_Labor' => 'Domestic MT/ME Labor',
+  'Global_MT_Labor' => 'Global MT Labor',
+  'Global_ME_Labor' => 'Global ME Labor',
+  'Global_MT_ME_Labor' => 'Global MT/ME Labor',
+  'Radiology' => 'Radiology',
+  'Pathology' => 'Pathology',
+  'STAT_Reports' => 'STAT Reports',
+  'Other' => 'Other',
+  'Domestic_Global_MT_Labor' => 'Domestic/Global MT Labor',
+  'Domestic_Global_ME_Labor' => 'Domestic/Global ME Labor',
+  'Full_Blend_Domestic_Global_MT_ME_Labor' => 'Full Blend Domestic/Global MT/ME Labor',
+);
+$GLOBALS['app_list_strings']['tos_billing_list']=array (
+  '' => '',
+  'Annually' => 'Annually',
+  'Monthly' => 'Monthly',
+  'Twice_per_month' => 'Twice per month',
+  'Other' => 'Other',
+  'One_time_fee' => 'One-time fee',
+);
+$GLOBALS['app_list_strings']['pricing_increase_list']=array (
+  '' => '',
+  1 => '1%',
+  2 => '2%',
+  3 => '3%',
+  4 => '4%',
+  5 => '5%',
+  'CPI' => 'CPI',
+  'Lesser_of_CPI_or_3' => 'Lesser of CPI or 3%',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['the30_60_90_list']=array (
+  '' => '',
+  '30_days' => '30 days',
+  '60_days' => '60 days',
+  '90_days' => '90 days',
+);
+$GLOBALS['app_list_strings']['tos_term_for_conv_list']=array (
+  '' => '',
+  'Anytime' => 'Anytime',
+  'After_1st_Year' => 'After 1st Year',
+  'After_Initial_Term' => 'After Initial Term',
+);
+$GLOBALS['app_list_strings']['included_optional_system_components_list']=array (
+  'QASAR' => 'QASAR',
+  'VoiceQ' => 'VoiceQ',
+  'Fluency' => 'Fluency',
+  'eSignature' => 'eSignature',
+  'Dispatch' => 'Dispatch',
+  'Fluency_Voice_Manager' => 'Fluency Voice Manager',
+  'Fluency_Flex' => 'Fluency Flex',
+  'Reference_Repository' => 'Reference_Repository',
+  'BenchmarkKB' => 'BenchmarkKB',
+  'Test_System' => 'Test System',
+  'Voice_Only' => 'Voice Only',
+  'Fluency_Mobile' => 'Fluency Mobile',
+);
+$GLOBALS['app_list_strings']['extended_voice_retention_list']=array (
+  '' => '',
+  '60_days' => '60 days',
+  '90_days' => '90 days',
+);
+$GLOBALS['app_list_strings']['extended_adt_retention_list']=array (
+  '' => '',
+  '180_days' => '180 days',
+  '365_days' => '365 days',
+);
+$GLOBALS['app_list_strings']['impl_and_training_fees_list']=array (
+  '' => '',
+  'No_Charge' => 'No Charge',
+  'One_time_fee' => 'One time fee',
+  'per_hour_billed_monthly' => 'per hour billed monthly',
+);
+$GLOBALS['app_list_strings']['type_of_scribing_list']=array (
+  '' => '',
+  'Real_Time' => 'Real Time',
+  'Asynchronous' => 'Asynchronous',
+);
+$GLOBALS['app_list_strings']['software_pricing_discount_list']=array (
+  '' => '',
+  'List_Price_20_discount' => 'List Price - 20% discount',
+  '21_30_discount' => '21%-30% discount',
+  '31_40_discount' => '31%-40% discount',
+  '41_50_discount' => '41%-50% discount',
+  'More_than_50_discount' => 'More than 50% discount',
+);
+$GLOBALS['app_list_strings']['product_billing_list']=array (
+  '' => '',
+  'Capital' => 'Capital',
+  'Transactional' => 'Transactional',
+  'Milestone' => 'Milestone',
+  'Subscription' => 'Subscription',
+);
+$GLOBALS['app_list_strings']['gma_service_level_list']=array (
+  'Basic_Software_Coverage' => 'Basic Software Coverage',
+  'Basic_Hardware_Coverage_On_Site' => 'Basic Hardware Coverage On-Site',
+  'Extended_Optional_Coverage' => 'Extended Optional Coverage',
+);
+$GLOBALS['app_list_strings']['contract_initiation_type_list']=array (
+  '' => '',
+  'Negotiate_Contract' => 'Negotiate Contract',
+  'Store_Executed_Contract' => 'Store_Execute_Contract',
+);
+$GLOBALS['app_list_strings']['contract_source_list']=array (
+  '' => '',
+  'Standard' => 'Standard',
+  'Acquisition' => 'Acquisition',
+  'Client_Form' => 'Client Form',
+);
+$GLOBALS['app_list_strings']['product_name_list']=array (
+  '' => '',
+  'Catalyst_for_Coding' => 'Catalyst for Coding',
+  'Catalyst_for_Radiology' => 'Catalyst for Radiology',
+  'CDI_Assess' => 'CDI Assess',
+  'CDI_Collaborate' => 'CDI Collaborate',
+  'CDI_Engage' => 'CDI_Engage',
+  'Fluency_Direct' => 'Fluency Direct',
+  'Fluency_Flex' => 'Fluency Flex',
+  'Fluency_Flex_Mobile' => 'Fluency Flex Mobile',
+  'Fluency_for_Coding' => 'Fluency for Coding',
+  'Fluency_for_Imaging' => 'Fluency for Imaging',
+  'Fluency_Voice_Manager' => 'Fluency Voice Manager',
+  'Precsye_University_Integration' => 'Precyse University Integration',
+  'Scout' => 'Scout',
+);
+$GLOBALS['app_list_strings']['contract_category_list']=array (
+  'Client' => 'Client',
+  'Consultant_Independent_Contractor' => 'Consultant/Independent Contractor',
+  'Lease' => 'Lease',
+  'Maintenance_Support_Only' => 'Maintenance & Support Only',
+  'MTSO' => 'MTSO',
+  'NDA' => 'NDA',
+  'POC' => 'POC',
+  'Reseller' => 'Reseller',
+  'Strategic_Alliance' => 'Strategic Alliance',
+  'Vendor' => 'Vendor',
+  'Other' => 'Other',
 );

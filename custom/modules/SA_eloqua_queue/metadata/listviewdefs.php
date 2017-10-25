@@ -16,7 +16,7 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'ELOQUA_ID' =>
+  'ELOQUA_ID' => 
   array (
     'type' => 'id',
     'label' => 'LBL_ELOQUA_ID',
@@ -26,6 +26,13 @@ array (
   'STATUS' => 
   array (
     'type' => 'enum',
+    'label' => 'LBL_STATE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'LAST_CHECKED' => 
+  array (
+    'type' => 'datetimecombo',
     'label' => 'LBL_STATE',
     'width' => '10%',
     'default' => true,
