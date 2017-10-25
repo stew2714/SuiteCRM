@@ -706,9 +706,8 @@ $dictionary['SA_Products']['fields']['product_term_months_c']['source']='custom_
 
 $dictionary['SA_Products']['fields']['shipping_c']['name']='shipping_c';
 $dictionary['SA_Products']['fields']['shipping_c']['len']='255';
-$dictionary['SA_Products']['fields']['shipping_c']['type']='enum';
+$dictionary['SA_Products']['fields']['shipping_c']['type']='text';
 $dictionary['SA_Products']['fields']['shipping_c']['inline_edit']=1;
-$dictionary['SA_Products']['fields']['shipping_c']['options']='shipping_list';
 $dictionary['SA_Products']['fields']['shipping_c']['importable']='true';
 $dictionary['SA_Products']['fields']['shipping_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['shipping_c']['module']='SA_Products';

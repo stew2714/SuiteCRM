@@ -1,6 +1,6 @@
 <?php 
 $mod_strings['LBL_SF_ID_C'] = 'Sf Id';
-$mod_strings['LBL_RECORDTYPEID_C'] = 'Recordtypeid';
+$mod_strings['LBL_RECORDTYPEID_C'] = 'Record Type';
 $mod_strings['LBL_LASTACTIVITYDATE_C'] = 'Lastactivitydate';
 $mod_strings['LBL_APTTUS_ACCOUNT_SEARCH_FIELD_C'] = 'Apttus Account Search Field';
 $mod_strings['LBL_APTTUS_ACCOUNT_C'] = 'Apttus Account';
@@ -149,8 +149,8 @@ $mod_strings['LBL_GLOBAL_PERMITTED_C'] = 'Global Permitted';
 $mod_strings['LBL_GOVERNING_LAW_STATE_C'] = 'Governing Law State';
 $mod_strings['LBL_GRACE_PERIOD_C'] = 'Grace Period';
 $mod_strings['LBL_ATTACHMENT_TO_MASTER_C'] = 'Attachment To Master';
-$mod_strings['LBL_DECIMALELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C'] = 'Intellectual Property General Info';
-$mod_strings['LBL_DECIMALEREST_ON_LATE_PAYMENTS_C'] = 'Interest on Late Payments';
+$mod_strings['LBL_INTELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C'] = 'Intellectual Property General Info';
+$mod_strings['LBL_INTEREST_ON_LATE_PAYMENTS_C'] = 'Interest on Late Payments';
 $mod_strings['LBL_LEGACY_AGREEMENT_NUMBER_C'] = 'Legacy Agreement Number';
 $mod_strings['LBL_LEGAL_ENTITY_C'] = 'Legal Entity';
 $mod_strings['LBL_LEGAL_NOTICES_C'] = 'Legal Notices';
@@ -187,7 +187,7 @@ $mod_strings['LBL_TERMINATION_FOR_DEFAULT_C'] = 'Termination For Default';
 $mod_strings['LBL_TRAVEL_LIVING_FEES_C'] = 'Travel Living Fees';
 $mod_strings['LBL_TYPE_OF_PRODUCT_SERVICES_C'] = 'Type Of Product Services';
 $mod_strings['LBL_TYPE_OF_REQUEST_C'] = 'Type Of Request';
-$mod_strings['LBL_UCID_C'] = 'Ucid';
+$mod_strings['LBL_UCID_C'] = 'UCID';
 $mod_strings['LBL_USE_OF_DATA_CONTINUOUS_IMPROVEMENT_C'] = 'Use Of Data Continuous Improvement';
 $mod_strings['LBL_GPO_AFFILIATION_C'] = 'Gpo Affiliation';
 $mod_strings['LBL_IDN_AFFILIATION_C'] = 'Idn Affiliation';

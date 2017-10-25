@@ -67,6 +67,34 @@ $dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['vname']='LBL_TYPE_
 $dictionary['AOS_Contracts']['fields']['type_of_scribing_c']['source']='custom_fields';
 
 
+ // Vardef Created : decimalellectual_property_general_informatio_c 
+
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['name']='decimalellectual_property_general_informatio_c';
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['type']='enum';
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['options']='intell_prop_gen_info_list';
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['module']='AOS_Contracts';
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['vname']='LBL_DECIMALELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C';
+$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['source']='custom_fields';
+
+
+ // Vardef Created : decimalerest_on_late_payments_c 
+
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['name']='decimalerest_on_late_payments_c';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['type']='enum';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['options']='interest_pymt_list';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['module']='AOS_Contracts';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['vname']='LBL_DECIMALEREST_ON_LATE_PAYMENTS_C';
+$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['source']='custom_fields';
+
+
  // Vardef Created : dq_subs_product_term_for_conv_c 
 
 
@@ -88,8 +116,9 @@ $dictionary['AOS_Contracts']['fields']['sf_id_c']['source']='custom_fields';
 
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['name']='recordtypeid_c';
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['len']='18';
-$dictionary['AOS_Contracts']['fields']['recordtypeid_c']['type']='varchar';
+$dictionary['AOS_Contracts']['fields']['recordtypeid_c']['type']='enum';
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['recordtypeid_c']['options']='agreement_rectype_list';
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['recordtypeid_c']['module']='AOS_Contracts';
@@ -168,8 +197,9 @@ $dictionary['AOS_Contracts']['fields']['apttus_activated_date_c']['source']='cus
 
 $dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['name']='apttus_agreement_category_c';
 $dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['len']='255';
-$dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['type']='enum';
 $dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['options']='contract_category_list';
 $dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['apttus_agreement_category_c']['module']='AOS_Contracts';
@@ -1041,7 +1071,6 @@ $dictionary['AOS_Contracts']['fields']['apttus_special_terms_c']['source']='cust
 $dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['name']='apttus_status_category_c';
 $dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['type']='enum';
-$dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['options']='contract_status_category_list';
 $dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['reportable']=true;
@@ -1055,7 +1084,6 @@ $dictionary['AOS_Contracts']['fields']['apttus_status_category_c']['source']='cu
 $dictionary['AOS_Contracts']['fields']['apttus_status_c']['name']='apttus_status_c';
 $dictionary['AOS_Contracts']['fields']['apttus_status_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['apttus_status_c']['type']='dynamicenum';
-$dictionary['AOS_Contracts']['fields']['apttus_status_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_status_c']['options']='contract_status_list';
 $dictionary['AOS_Contracts']['fields']['apttus_status_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_status_c']['reportable']=true;
@@ -2062,32 +2090,32 @@ $dictionary['AOS_Contracts']['fields']['attachment_to_master_c']['vname']='LBL_A
 $dictionary['AOS_Contracts']['fields']['attachment_to_master_c']['source']='custom_fields';
 
 
- // Vardef Created : decimalellectual_property_general_informatio_c 
+ // Vardef Created : intellectual_property_general_informatio_c 
 
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['name']='decimalellectual_property_general_informatio_c';
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['len']='255';
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['type']='enum';
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['options']='intell_prop_gen_info_list';
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['importable']='true';
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['vname']='LBL_DECIMALELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C';
-$dictionary['AOS_Contracts']['fields']['decimalellectual_property_general_informatio_c']['source']='custom_fields';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['name']='intellectual_property_general_informatio_c';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['type']='enum';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['options']='intell_prop_gen_info_list';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['module']='AOS_Contracts';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['vname']='LBL_INTELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C';
+$dictionary['AOS_Contracts']['fields']['intellectual_property_general_informatio_c']['source']='custom_fields';
 
 
- // Vardef Created : decimalerest_on_late_payments_c 
+ // Vardef Created : interest_on_late_payments_c 
 
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['name']='decimalerest_on_late_payments_c';
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['len']='255';
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['type']='enum';
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['options']='interest_pymt_list';
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['importable']='true';
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['vname']='LBL_DECIMALEREST_ON_LATE_PAYMENTS_C';
-$dictionary['AOS_Contracts']['fields']['decimalerest_on_late_payments_c']['source']='custom_fields';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['name']='interest_on_late_payments_c';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['type']='enum';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['options']='interest_pymt_list';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['module']='AOS_Contracts';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['vname']='LBL_INTEREST_ON_LATE_PAYMENTS_C';
+$dictionary['AOS_Contracts']['fields']['interest_on_late_payments_c']['source']='custom_fields';
 
 
  // Vardef Created : legacy_agreement_number_c 
@@ -2563,7 +2591,7 @@ $dictionary['AOS_Contracts']['fields']['type_of_request_c']['name']='type_of_req
 $dictionary['AOS_Contracts']['fields']['type_of_request_c']['len']='4099';
 $dictionary['AOS_Contracts']['fields']['type_of_request_c']['type']='multienum';
 $dictionary['AOS_Contracts']['fields']['type_of_request_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['type_of_request_c']['options']='contract_type_list';
+$dictionary['AOS_Contracts']['fields']['type_of_request_c']['options']='contract_type_of_request_list';
 $dictionary['AOS_Contracts']['fields']['type_of_request_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['type_of_request_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['type_of_request_c']['module']='AOS_Contracts';
@@ -2588,8 +2616,9 @@ $dictionary['AOS_Contracts']['fields']['ucid_c']['source']='custom_fields';
 
 $dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['name']='use_of_data_continuous_improvement_c';
 $dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['len']='255';
-$dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['type']='enum';
 $dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['options']='intell_prop_gen_info_list';
 $dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['use_of_data_continuous_improvement_c']['module']='AOS_Contracts';
