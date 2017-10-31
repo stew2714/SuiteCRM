@@ -171,6 +171,7 @@ class convertCSV
         }
         if($vardefs['type'] == "id" || $vardefs['type'] == "relate"  ){
             $vardef['id'] = $vardef['module'] . $vardef['name'];
+            $vardef['custom_module'] = $vardef['module'];
         }
         if( !empty($vardefs['id_name']) ){
             $vardef['id_name'] = $vardefs['id_name'];
@@ -298,6 +299,7 @@ class convertCSV
         $field->vardef_map['id'] = "id";
         $field->vardef_map['module'] = "module";
         $field->vardef_map['studio'] = "studio";
+        $field->vardef_map['custom_module'] = "custom_module";
         $field->vardef_map['id_name'] = "id_name";
         $field->vardef_map['related_module'] = "related_module";
         $field->vardef_map['parentenum'] = "parentenum";
