@@ -4,6 +4,8 @@
 // Contact: brant.gardner@mmodal.com
 // Note: Hand modified after build, do NOT regenerate
 
+// Modified 2017-11-01 to patch relate fields
+
 // Field: sf_id_c
 $dictionary['Account']['fields']['sf_id_c']['name'] = 'sf_id_c';
 $dictionary['Account']['fields']['sf_id_c']['type'] = 'varchar';
@@ -188,6 +190,9 @@ $dictionary['Account']['fields']['Accgpo_affiliation_c']['module']='Account';
 $dictionary['Account']['fields']['Accgpo_affiliation_c']['vname']='LBL_ACCGPO_AFFILIATION_C';
 $dictionary['Account']['fields']['Accgpo_affiliation_c']['source']='custom_fields';
 
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['custom_module']='Accounts';
+
 // Part 2 - related field for gpo_affiliation
 
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['name']='gpo_affiliation_name_c';
@@ -203,6 +208,9 @@ $dictionary['Account']['fields']['gpo_affiliation_name_c']['studio']='visible';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['id_name']='Accgpo_affiliation_c';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['vname']='GPO';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['source']='non-db';
+
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['gpo_affiliation_name_c']['custom_module']='Accounts';
 
 // End of relate for gpo_affilation
 
@@ -260,6 +268,9 @@ $dictionary['Account']['fields']['Accmtso_1_c']['module']='Account';
 $dictionary['Account']['fields']['Accmtso_1_c']['vname']='LBL_ACCMTSO_1_C';
 $dictionary['Account']['fields']['Accmtso_1_c']['source']='custom_fields';
 
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['Accmtso_1_c']['custom_module']='Accounts';
+
 // Part 2 - related field for mtso_1
 
 $dictionary['Account']['fields']['mtso_1_name_c']['name']='mtso_1_name_c';
@@ -275,6 +286,9 @@ $dictionary['Account']['fields']['mtso_1_name_c']['studio']='visible';
 $dictionary['Account']['fields']['mtso_1_name_c']['id_name']='Accmtso_1_c';
 $dictionary['Account']['fields']['mtso_1_name_c']['vname']='MTSO 1';
 $dictionary['Account']['fields']['mtso_1_name_c']['source']='non-db';
+
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['mtso_1_name_c']['custom_module']='Accounts';
 
 // End of relate for mtso_1
 
@@ -313,6 +327,9 @@ $dictionary['Account']['fields']['Accmtso_2_c']['module']='Account';
 $dictionary['Account']['fields']['Accmtso_2_c']['vname']='LBL_ACCMTSO_2_C';
 $dictionary['Account']['fields']['Accmtso_2_c']['source']='custom_fields';
 
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['Accmtso_2_c']['custom_module']='Accounts';
+
 // Part 2 - related field for mtso_2
 
 $dictionary['Account']['fields']['mtso_2_name_c']['name']='mtso_2_name_c';
@@ -328,6 +345,9 @@ $dictionary['Account']['fields']['mtso_2_name_c']['studio']='visible';
 $dictionary['Account']['fields']['mtso_2_name_c']['id_name']='Accmtso_2_c';
 $dictionary['Account']['fields']['mtso_2_name_c']['vname']='MTSO 2';
 $dictionary['Account']['fields']['mtso_2_name_c']['source']='non-db';
+
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['mtso_2_name_c']['custom_module']='Accounts';
 
 // End of relate for mtso_2
 
@@ -365,6 +385,9 @@ $dictionary['Account']['fields']['Accmtso_3_c']['module']='Account';
 $dictionary['Account']['fields']['Accmtso_3_c']['vname']='LBL_ACCMTSO_3_C';
 $dictionary['Account']['fields']['Accmtso_3_c']['source']='custom_fields';
 
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['Accmtso_3_c']['custom_module']='Accounts';
+
 // Part 2 - related field for mtso_3
 
 $dictionary['Account']['fields']['mtso_3_name_c']['name']='mtso_3_name_c';
@@ -380,6 +403,9 @@ $dictionary['Account']['fields']['mtso_3_name_c']['studio']='visible';
 $dictionary['Account']['fields']['mtso_3_name_c']['id_name']='Accmtso_3_c';
 $dictionary['Account']['fields']['mtso_3_name_c']['vname']='MTSO 3';
 $dictionary['Account']['fields']['mtso_3_name_c']['source']='non-db';
+
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['mtso_3_name_c']['custom_module']='Accounts';
 
 // End of relate for mtso_3
 
@@ -1327,6 +1353,9 @@ $dictionary['Account']['fields']['Usrimaging_owner_c']['module']='User';
 $dictionary['Account']['fields']['Usrimaging_owner_c']['vname']='LBL_ACCIMAGING_OWNER_C';
 $dictionary['Account']['fields']['Usrimaging_owner_c']['source']='custom_fields';
 
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['Usrimaging_owner_c']['custom_module']='Accounts';
+
 // Part 2 - related field for imaging_owner
 
 $dictionary['Account']['fields']['imaging_owner_name_c']['name']='imaging_owner_name_c';
@@ -1342,6 +1371,9 @@ $dictionary['Account']['fields']['imaging_owner_name_c']['studio']='visible';
 $dictionary['Account']['fields']['imaging_owner_name_c']['id_name']='Usrimaging_owner_c';
 $dictionary['Account']['fields']['imaging_owner_name_c']['vname']='Imaging Owner';
 $dictionary['Account']['fields']['imaging_owner_name_c']['source']='non-db';
+
+// 2017-11-01 BCG
+$dictionary['Account']['fields']['imaging_owner_name_c']['custom_module']='Accounts';
 
 // End of relate for imaging_owner
 
@@ -1777,5 +1809,115 @@ $dictionary['Account']['fields']['ownership']['vname'] = 'LBL_OWNERSHIP';
 $dictionary['Account']['fields']['ownership']['type'] = 'enum';
 $dictionary['Account']['fields']['ownership']['len'] = '40';
 $dictionary['Account']['fields']['ownership']['options'] = 'acct_ownership_list';
+
+// Field: births_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['births_c']['name'] = 'births_c';
+$dictionary['Account']['fields']['births_c']['type'] = 'float';
+$dictionary['Account']['fields']['births_c']['len'] = '18';
+$dictionary['Account']['fields']['births_c']['size'] = '20';
+$dictionary['Account']['fields']['births_c']['required'] = false;
+$dictionary['Account']['fields']['births_c']['comments'] = 'Field births_c';
+$dictionary['Account']['fields']['births_c']['vname'] = 'Births';
+$dictionary['Account']['fields']['births_c']['source'] = 'custom_fields';
+
+// Field: emram_stage_validated_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['emram_stage_validated_c']['name'] = 'emram_stage_validated_c';
+$dictionary['Account']['fields']['emram_stage_validated_c']['type'] = 'float';
+$dictionary['Account']['fields']['emram_stage_validated_c']['len'] = '8';
+$dictionary['Account']['fields']['emram_stage_validated_c']['size'] = '5';
+$dictionary['Account']['fields']['emram_stage_validated_c']['required'] = false;
+$dictionary['Account']['fields']['emram_stage_validated_c']['comments'] = 'Field emram_stage_validated_c';
+$dictionary['Account']['fields']['emram_stage_validated_c']['vname'] = 'EMRAM Stage (Validated)';
+$dictionary['Account']['fields']['emram_stage_validated_c']['source'] = 'custom_fields';
+
+// Field: fiscal_end_date_month_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['name'] = 'fiscal_end_date_month_c';
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['len'] = '20';
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['size'] = '20';
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['required'] = false;
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['comments'] = 'Field fiscal_end_date_month_c';
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['vname'] = 'Fiscal End Date Month';
+$dictionary['Account']['fields']['fiscal_end_date_month_c']['source'] = 'custom_fields';
+
+// Field: of_hospitals_in_health_system_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['name'] = 'of_hospitals_in_health_system_c';
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['type'] = 'float';
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['len'] = '8';
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['size'] = '7';
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['required'] = false;
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['comments'] = 'Field of_hospitals_in_health_system_c';
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['vname'] = '# of Hospitals in Health System';
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['source'] = 'custom_fields';
+
+// Field: organization_primary_service_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['organization_primary_service_c']['name'] = 'organization_primary_service_c';
+$dictionary['Account']['fields']['organization_primary_service_c']['type'] = 'varchar';
+$dictionary['Account']['fields']['organization_primary_service_c']['len'] = '100';
+$dictionary['Account']['fields']['organization_primary_service_c']['size'] = '20';
+$dictionary['Account']['fields']['organization_primary_service_c']['required'] = false;
+$dictionary['Account']['fields']['organization_primary_service_c']['comments'] = 'Field organization_primary_service_c';
+$dictionary['Account']['fields']['organization_primary_service_c']['vname'] = 'Organization Primary Service';
+$dictionary['Account']['fields']['organization_primary_service_c']['source'] = 'custom_fields';
+
+// Field: operating_rooms_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['operating_rooms_c']['name'] = 'operating_rooms_c';
+$dictionary['Account']['fields']['operating_rooms_c']['type'] = 'float';
+$dictionary['Account']['fields']['operating_rooms_c']['len'] = '18';
+$dictionary['Account']['fields']['operating_rooms_c']['size'] = '20';
+$dictionary['Account']['fields']['operating_rooms_c']['required'] = false;
+$dictionary['Account']['fields']['operating_rooms_c']['comments'] = 'Field operating_rooms_c';
+$dictionary['Account']['fields']['operating_rooms_c']['vname'] = 'Operating Rooms';
+$dictionary['Account']['fields']['operating_rooms_c']['source'] = 'custom_fields';
+
+// Field: cardiology_studies_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['cardiology_studies_c']['name'] = 'cardiology_studies_c';
+$dictionary['Account']['fields']['cardiology_studies_c']['type'] = 'float';
+$dictionary['Account']['fields']['cardiology_studies_c']['len'] = '18';
+$dictionary['Account']['fields']['cardiology_studies_c']['size'] = '20';
+$dictionary['Account']['fields']['cardiology_studies_c']['required'] = false;
+$dictionary['Account']['fields']['cardiology_studies_c']['comments'] = 'Field cardiology_studies_c';
+$dictionary['Account']['fields']['cardiology_studies_c']['vname'] = 'Cardiology Studies';
+$dictionary['Account']['fields']['cardiology_studies_c']['source'] = 'custom_fields';
+
+// Field: radiology_studies_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['radiology_studies_c']['name'] = 'radiology_studies_c';
+$dictionary['Account']['fields']['radiology_studies_c']['type'] = 'float';
+$dictionary['Account']['fields']['radiology_studies_c']['len'] = '18';
+$dictionary['Account']['fields']['radiology_studies_c']['size'] = '20';
+$dictionary['Account']['fields']['radiology_studies_c']['required'] = false;
+$dictionary['Account']['fields']['radiology_studies_c']['comments'] = 'Field radiology_studies_c';
+$dictionary['Account']['fields']['radiology_studies_c']['vname'] = 'Radiology Studies';
+$dictionary['Account']['fields']['radiology_studies_c']['source'] = 'custom_fields';
+
+// Field: total_employees_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['total_employees_c']['name'] = 'total_employees_c';
+$dictionary['Account']['fields']['total_employees_c']['type'] = 'float';
+$dictionary['Account']['fields']['total_employees_c']['len'] = '18';
+$dictionary['Account']['fields']['total_employees_c']['size'] = '20';
+$dictionary['Account']['fields']['total_employees_c']['required'] = false;
+$dictionary['Account']['fields']['total_employees_c']['comments'] = 'Field total_employees_c';
+$dictionary['Account']['fields']['total_employees_c']['vname'] = 'Total Employees';
+$dictionary['Account']['fields']['total_employees_c']['source'] = 'custom_fields';
+
+// Field: net_patient_revenues_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['net_patient_revenues_c']['name'] = 'net_patient_revenues_c';
+$dictionary['Account']['fields']['net_patient_revenues_c']['type'] = 'float';
+$dictionary['Account']['fields']['net_patient_revenues_c']['len'] = '18';
+$dictionary['Account']['fields']['net_patient_revenues_c']['size'] = '20';
+$dictionary['Account']['fields']['net_patient_revenues_c']['required'] = false;
+$dictionary['Account']['fields']['net_patient_revenues_c']['comments'] = 'Field net_patient_revenues_c';
+$dictionary['Account']['fields']['net_patient_revenues_c']['vname'] = 'Net Patient Revenues';
+$dictionary['Account']['fields']['net_patient_revenues_c']['source'] = 'custom_fields';
+
+// Field: total_inpatient_revenues_c (manually added 2017-11-01)
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['name'] = 'total_inpatient_revenues_c';
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['type'] = 'float';
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['len'] = '18';
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['size'] = '20';
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['required'] = false;
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['comments'] = 'Field total_inpatient_revenues_c';
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['vname'] = 'Total Inpatient Revenues';
+$dictionary['Account']['fields']['total_inpatient_revenues_c']['source'] = 'custom_fields';
 
 ?>

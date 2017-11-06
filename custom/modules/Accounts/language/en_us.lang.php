@@ -1,5 +1,5 @@
 <?php
-// created: 2017-09-12 18:53:10
+// created: 2017-11-01 18:15:16
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'New Panel 1',
@@ -26,4 +26,5 @@ $mod_strings = array (
   'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'myContacts',
   'LBL_OWNERSHIP' => 'Ownership:',
   'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
+  'LBL_BILLING_ADDRESS_CITY' => 'City',
 );
