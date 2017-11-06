@@ -66,22 +66,28 @@ function showHideUserGroupSelect(bool) {
     $('#private_to_user_or_group').closest('.edit-view-row-item').show();
   } else {
     $('#private_to_user_or_group').prop('disabled', true);
+    $('#private_to_user_or_group').val('');
     $('#private_to_user_or_group').closest('.edit-view-row-item').hide();
+    $('#private_to_user_or_group').closest('.edit-view-row-item').next().hide();
+    $('#private_user_list').val('');
   }
 }
 
 function showHidePrivateUsers(value) {
   if (value === 'private_user') {
     $('#private_user_list').closest('.edit-view-row-item').show();
+    $('#private_user_list').prop('disabled', false);
   } else {
     $('#private_user_list').val('');
     $('#private_user_list').closest('.edit-view-row-item').hide();
+    $('#private_user_list').closest('.edit-view-row-item').next().hide();
   }
 }
 
 function showHidePrivateGroups(value) {
   if (value === 'private_group') {
     $('#private_group_list').closest('.edit-view-row-item').show();
+    $('#private_group_list').prop('disabled', false);
   } else {
     $('#private_group_list').closest('.edit-view-row-item').hide();
     $('#private_group_list').val('');
@@ -129,6 +135,11 @@ $(document).ready(function() {
     checked = $('#private_report_checkbox').is(':checked');
     showHideUserGroupSelect(checked);
   });
+
+  private_to_user_or_group = $('#private_to_user_or_group').find(':selected').val();
+  showHidePrivateUsers(private_to_user_or_group);
+  showHidePrivateGroups(private_to_user_or_group);
+
 
   $('#private_to_user_or_group').change(function() {
     private_to_user_or_group = $('#private_to_user_or_group').find(':selected').val();
