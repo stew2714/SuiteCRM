@@ -346,7 +346,9 @@ class matrixReportBuilder
 
         $sql .= "FROM   {$module} ";
         $sql .= implode(" ", $this->join);
-        $sql .= implode(" ", $results['join']);
+        if(isset($results['join']) && !empty($results['join'])){
+            $sql .= implode(" ", $results['join']);
+        }
 
         //$sql .= "WHERE  {$this->bean->table_name}.deleted = 0 ";
         $sql .= "WHERE  " . implode(" ", $results['where']);
@@ -848,6 +850,7 @@ class matrixReportBuilder
     public function fetchLabelsFromDB($field, $module)
     {
         global $db;
+        $selects = array();
         $field = $this->fieldTypeCheck($field);
         if(is_array($field)){
             $join = $field['join'];
@@ -855,8 +858,10 @@ class matrixReportBuilder
         }
         $subSql = "SELECT distinct {$field} as result_field FROM " . $module . " {$join} WHERE {$module}.deleted = 0";
         $results = $db->query($subSql);
-        foreach ($results as $item) {
-            $selects[] = $db->quote($item['result_field']);
+        if($results != false) {
+            foreach ($results as $item) {
+                $selects[] = $db->quote($item['result_field']);
+            }
         }
 
         return $selects;

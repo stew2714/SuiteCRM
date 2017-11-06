@@ -1,5 +1,5 @@
 column,do no create,name,type,options,label
-"id varchar(18) NOT NULL,",,sf_id_c,,,
+"id varchar(18) NOT NULL,",,sf_id_c,,,SF ID
 "   isdeleted bool NOT NULL,",X,,,,
 "   masterrecordid varchar(18),",X,NU,,,
 "   lastname varchar(80) NOT NULL,",X,,,,
@@ -52,7 +52,7 @@ column,do no create,name,type,options,label
 "   emailbounceddate timestamp,",X,,,,
 "   eloqua_lead_rating__c varchar(50),",,,,,
 "   lead_source_most_recent__c varchar(50),",,,,,
-"   crm__c varchar(60),",,,,,
+"   crm__c varchar(60),",,,,,CRM
 "   target_decision_date__c timestamp,",,,,,
 "   product_interest__c varchar(255),",,,,,
 "   lead_rating__c varchar(255),",,,enum,lead_rating_dom,
@@ -70,7 +70,7 @@ column,do no create,name,type,options,label
 "   ctct21__opted_out_by_ctct__c bool NOT NULL,",,,,,
 "   date_requested__c varchar(50),",,,,,
 "   time_requested__c varchar(255),",,,,,
-"   current_ehr__c varchar(100),",,,,,
+"   current_ehr__c varchar(100),",,,,,Current EHR
 "   currently_using_speech_rec__c varchar(10),",,,,,
 "   lead_group__c varchar(100),",,,,,
 "   number_of_doctors__c real,",,,,,
@@ -78,12 +78,12 @@ column,do no create,name,type,options,label
 "   directions__c varchar(150),",,,,,
 "   channel__c varchar(100),",,,,,
 "   preferred_follow_up__c varchar(100),",,,,,
-"   ehr_vendor__c varchar(100),",,,,,
+"   ehr_vendor__c varchar(100),",,,,,EHR Vendor
 "   bucket__c varchar(100),",,,,,
 "   swipe_date__c timestamp,",,,,,
 "   leads_to_delete__c bool NOT NULL,",,,,,
 "   sem_ls__c varchar(100),",,,,,SEM LS
-"   gpo__c varchar(100),",,,,,
-"   vip_account__c bool NOT NULL,",,,,,
+"   gpo__c varchar(100),",,,,,GPO
+"   vip_account__c bool NOT NULL,",,,,,VIP Account
 "   lead_generation_specialist__c varchar(255),",,,enum,lead_gen_spec_list,
-   zba_ss__c varchar(3),,,,,
+   zba_ss__c varchar(3),,,,,ZBA SS

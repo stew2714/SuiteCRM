@@ -169,8 +169,9 @@ $dictionary['SA_Products']['fields']['hosting_termination_prior_to_renewal_day_c
 
 $dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['name']='hosting_term_notice_period_dd_c';
 $dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['len']='255';
-$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['type']='text';
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['type']='enum';
 $dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['options']='the30_60_90_list';
 $dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['importable']='true';
 $dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['module']='SA_Products';
@@ -182,8 +183,9 @@ $dictionary['SA_Products']['fields']['hosting_term_notice_period_dd_c']['source'
 
 $dictionary['SA_Products']['fields']['name_of_product_c']['name']='name_of_product_c';
 $dictionary['SA_Products']['fields']['name_of_product_c']['len']='4099';
-$dictionary['SA_Products']['fields']['name_of_product_c']['type']='text';
+$dictionary['SA_Products']['fields']['name_of_product_c']['type']='enum';
 $dictionary['SA_Products']['fields']['name_of_product_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['name_of_product_c']['options']='product_name_list';
 $dictionary['SA_Products']['fields']['name_of_product_c']['importable']='true';
 $dictionary['SA_Products']['fields']['name_of_product_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['name_of_product_c']['module']='SA_Products';
@@ -395,8 +397,9 @@ $dictionary['SA_Products']['fields']['product_attachment_number_c']['source']='c
 
 $dictionary['SA_Products']['fields']['product_billing_c']['name']='product_billing_c';
 $dictionary['SA_Products']['fields']['product_billing_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_billing_c']['type']='text';
+$dictionary['SA_Products']['fields']['product_billing_c']['type']='enum';
 $dictionary['SA_Products']['fields']['product_billing_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_billing_c']['options']='product_billing_list';
 $dictionary['SA_Products']['fields']['product_billing_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_billing_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['product_billing_c']['module']='SA_Products';
@@ -421,8 +424,9 @@ $dictionary['SA_Products']['fields']['product_cia_c']['source']='custom_fields';
 
 $dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['name']='product_gma_annual_increase_c';
 $dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['type']='text';
+$dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['type']='enum';
 $dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['options']='pricing_increase_list';
 $dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['product_gma_annual_increase_c']['module']='SA_Products';
@@ -515,8 +519,9 @@ $dictionary['SA_Products']['fields']['product_gma_renewal_term_c']['source']='cu
 
 $dictionary['SA_Products']['fields']['product_gma_service_level_c']['name']='product_gma_service_level_c';
 $dictionary['SA_Products']['fields']['product_gma_service_level_c']['len']='4099';
-$dictionary['SA_Products']['fields']['product_gma_service_level_c']['type']='text';
+$dictionary['SA_Products']['fields']['product_gma_service_level_c']['type']='multienum';
 $dictionary['SA_Products']['fields']['product_gma_service_level_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_gma_service_level_c']['options']='gma_service_level_list';
 $dictionary['SA_Products']['fields']['product_gma_service_level_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_gma_service_level_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['product_gma_service_level_c']['module']='SA_Products';
@@ -554,8 +559,9 @@ $dictionary['SA_Products']['fields']['product_gma_termination_period_dd_c']['sou
 
 $dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['name']='product_gma_termination_prior_to_ren_pic_c';
 $dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['type']='text';
+$dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['type']='enum';
 $dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['options']='the30_60_90_list';
 $dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['product_gma_termination_prior_to_ren_pic_c']['module']='SA_Products';
@@ -726,8 +732,9 @@ $dictionary['SA_Products']['fields']['software_maintenance_and_support_c']['sour
 
 $dictionary['SA_Products']['fields']['software_pricing_discount_c']['name']='software_pricing_discount_c';
 $dictionary['SA_Products']['fields']['software_pricing_discount_c']['len']='255';
-$dictionary['SA_Products']['fields']['software_pricing_discount_c']['type']='bool';
+$dictionary['SA_Products']['fields']['software_pricing_discount_c']['type']='enum';
 $dictionary['SA_Products']['fields']['software_pricing_discount_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['software_pricing_discount_c']['options']='software_pricing_discount_list';
 $dictionary['SA_Products']['fields']['software_pricing_discount_c']['importable']='true';
 $dictionary['SA_Products']['fields']['software_pricing_discount_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['software_pricing_discount_c']['module']='SA_Products';
@@ -778,8 +785,9 @@ $dictionary['SA_Products']['fields']['maintenance_general_notes_c']['source']='c
 
 $dictionary['SA_Products']['fields']['coding_global_permissions_c']['name']='coding_global_permissions_c';
 $dictionary['SA_Products']['fields']['coding_global_permissions_c']['len']='255';
-$dictionary['SA_Products']['fields']['coding_global_permissions_c']['type']='text';
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['type']='enum';
 $dictionary['SA_Products']['fields']['coding_global_permissions_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['coding_global_permissions_c']['options']='global_permissions_list';
 $dictionary['SA_Products']['fields']['coding_global_permissions_c']['importable']='true';
 $dictionary['SA_Products']['fields']['coding_global_permissions_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['coding_global_permissions_c']['module']='SA_Products';
@@ -882,8 +890,9 @@ $dictionary['SA_Products']['fields']['product_billing_terms_c']['source']='custo
 
 $dictionary['SA_Products']['fields']['product_price_increase_c']['name']='product_price_increase_c';
 $dictionary['SA_Products']['fields']['product_price_increase_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_price_increase_c']['type']='text';
+$dictionary['SA_Products']['fields']['product_price_increase_c']['type']='enum';
 $dictionary['SA_Products']['fields']['product_price_increase_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_price_increase_c']['options']='pricing_increase_list';
 $dictionary['SA_Products']['fields']['product_price_increase_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_price_increase_c']['reportable']=true;
 $dictionary['SA_Products']['fields']['product_price_increase_c']['module']='SA_Products';

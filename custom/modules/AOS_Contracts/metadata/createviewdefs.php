@@ -107,7 +107,7 @@ $viewdefs = array (
               'name' => 'type_of_product_services_c',
               'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
             ),
-            1 => 'status',
+            1 => 'apttus_status_c',
           ),
           4 => 
           array (

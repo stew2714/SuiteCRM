@@ -88,9 +88,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
+            'name' => 'apttus_status_c',
+            'label' => 'LBL_APTTUS_STATUS_C',
           ),
         ),
         4 => 

@@ -1,5 +1,5 @@
 <?php
-// created: 2017-09-05 19:01:02
+// created: 2017-10-25 11:22:45
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'New Panel 1',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -21,4 +21,8 @@ $mod_strings = array (
   'LBL_VALUE_IS_REQUIRED' => 'Value is required in this field ',
   'LBL_C1_CUST_CONTACTS1_AOS_CONTRACTS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust Cust_Contacts',
   'LBL_EDITVIEW_PANEL2' => 'New Panel 2',
+  'LBL_APTTUS_STATUS_C' => 'Apttus Status',
+  'LBL_APTTUS_STATUS_CATEGORY_C' => 'Apttus Status Category',
+  'LBL_TYPE_OF_REQUEST_C' => 'Type Of Request',
+  'LBL_OWNERSHIP_GROUP_EXPIRATION_NOTICE_C' => 'Ownership Group Expiration Notice',
 );

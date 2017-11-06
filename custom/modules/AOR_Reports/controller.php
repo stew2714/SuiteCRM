@@ -57,6 +57,9 @@ class customAOR_ReportsController extends AOR_ReportsController
     {
         parse_str($_REQUEST['formdata'], $requestData);
         $requestData = $this->parseLines($requestData);
+        if(!isset($requestData['id']) ){
+            $requestData['id'] = "";
+        }
         $bean = BeanFactory::getBean("AOR_Reports", $requestData['id']);
         $preview = new AdvancedReporter($bean, $requestData);
         echo $preview->buildMultiGroupReport("-2", true);
@@ -105,7 +108,9 @@ class customAOR_ReportsController extends AOR_ReportsController
             }
         }
         $requestData['fieldView'] = $fieldView;
-        $requestData['conditionView'] = $conditionView;
+        if(isset($conditionView) && !empty($conditionView)){
+            $requestData['conditionView'] = $conditionView;
+        }
 
         return $requestData;
     }

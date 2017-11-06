@@ -299,9 +299,13 @@ class eloquaSync
 
     public function getCampaignList($createCampaigns = true)
     {
+        global $sugar_config;
 
         $date = new DateTime();
-        $date->sub(new DateInterval('PT2H'));
+        $syncCheck = isset($sugar_config['eloqua']['sync_every_x_hours']) && is_numeric($sugar_config['eloqua']['sync_every_x_hours']) ? $sugar_config['eloqua']['sync_every_x_hours'] : 168;
+
+
+        $date->sub(new DateInterval('PT' . $syncCheck . 'H'));
         $timestamp = $date->getTimestamp();
 
         $campaigns = $this->client->get('assets/campaigns?search=*&depth=complete&lastUpdatedAt=' . $timestamp);
