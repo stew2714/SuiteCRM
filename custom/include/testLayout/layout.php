@@ -23,7 +23,20 @@ if(isset($_REQUEST['post_data']) && !empty($_REQUEST['post_data'])){
 }
 $id = (isset($params['record']) && !empty($params['record'])) ? $params['record'] : "";
 
-$array = array("LayoutRules", "Users", "Employees",  "AOR_Reports", "AOW_WorkFlow", "SharedSecurityRules", "AOR_MatrixReporting", "Schedulers", "AOR_Scheduled_Reports");
+$array =
+    array(
+        "LayoutRules",
+        "Users",
+        "Employees",
+        "AOR_Reports",
+        "AOW_WorkFlow",
+        "SharedSecurityRules",
+        "AOR_MatrixReporting",
+        "Schedulers",
+        "AOR_Scheduled_Reports",
+        "Documents",
+        "Notes",
+    );
 if($params['module'] == "" || in_array($params['module'], $array)){
     echo json_encode(array( "found" => false,  "layout" => "" ));
 }

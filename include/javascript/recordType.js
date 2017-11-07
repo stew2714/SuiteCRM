@@ -1,5 +1,5 @@
 function assignFields(recordtypeform) {
-  $("#" + recordtypeform + " input, #" + recordtypeform + " select").change(function () {
+  $("#" + recordtypeform + " input:not('input[type=file]'), #" + recordtypeform + " select").change(function () {
     fetchLayout(recordtypeform)
   });
 }
