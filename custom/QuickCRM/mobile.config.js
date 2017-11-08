@@ -3,7 +3,7 @@ QCRM.UnifiedSearch=['Accounts','Contacts','Leads','Meetings','Opportunities'];QC
 QCRM.share_search='All';
 QCRM.native_cal=true;
 QCRM.AOS_show_image=true;
-QCRM.forceLock=false;
+QCRM.forceLock=true;
 QCRM.AudioNotes=true;
 QCRM.enableBeans(['Accounts','Contacts','Opportunities','AOS_Contracts','Leads','Calls','Meetings','Tasks','Documents']);
 Beans['Accounts'].AdditionalFields = ['phone_office','website','email1','description','$ADDbilling','$ADDshipping'];

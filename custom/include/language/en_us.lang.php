@@ -1193,3 +1193,7 @@ $GLOBALS['app_list_strings']['acct_pacs_list']=array (
   'Visage_Imaging' => 'Visage Imaging',
   'Viztek' => 'Viztek',
 );
+$GLOBALS['app_list_strings']['training_list']=array (
+  'training_two' => 'Training 2',
+  'training_with_spaces' => 'Training With Spaces',
+);

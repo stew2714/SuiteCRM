@@ -846,7 +846,11 @@ array (
         ),
         5 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'sf_id_c',
+            'label' => 'SF ID',
+          ),
           1 => '',
         ),
       ),

@@ -1,8 +1,8 @@
 <?php
-// created: 2017-11-06 16:07:01
+// created: 2017-11-08 14:34:38
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
-  'LBL_DETAILVIEW_PANEL1' => 'New Panel 1',
+  'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
   'LBL_HIMSS_ID' => 'HIMSS ID',
   'LBL_DEFINTIVE_ID' => 'Defintive ID',
   'LBL_FACILITY_TYPE' => 'Facility Type_old',

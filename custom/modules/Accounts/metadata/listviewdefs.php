@@ -118,16 +118,23 @@ array (
     'label' => 'LBL_WEBSITE',
     'default' => false,
   ),
+  'CREATED_BY_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CREATED',
+    'default' => false,
+  ),
   'DATE_MODIFIED' => 
   array (
     'width' => '5%',
     'label' => 'LBL_DATE_MODIFIED',
     'default' => false,
   ),
-  'CREATED_BY_NAME' => 
+  'SF_ID_C' => 
   array (
+    'type' => 'varchar',
+    'label' => 'SF ID',
     'width' => '10%',
-    'label' => 'LBL_CREATED',
     'default' => false,
   ),
   'MODIFIED_BY_NAME' => 

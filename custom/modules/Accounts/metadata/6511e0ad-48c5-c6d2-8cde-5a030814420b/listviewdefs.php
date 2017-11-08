@@ -8,12 +8,6 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'ACCOUNT_TYPE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_TYPE',
-    'default' => true,
-  ),
   'PARENT_NAME' => 
   array (
     'type' => 'relate',
@@ -62,18 +56,10 @@ array (
     'label' => 'LBL_INDUSTRY',
     'default' => true,
   ),
-  'SF_ID_C' => 
+  'ACCOUNT_TYPE' => 
   array (
-    'type' => 'varchar',
-    'label' => 'SF ID',
     'width' => '10%',
-    'default' => true,
-  ),
-  'DATE_ENTERED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_ENTERED',
-    'width' => '10%',
+    'label' => 'LBL_TYPE',
     'default' => false,
   ),
   'HIMSS_ID_C' => 
@@ -82,13 +68,6 @@ array (
     'default' => false,
     'label' => 'LBL_HIMSS_ID',
     'width' => '10%',
-  ),
-  'HA_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'HA ID',
-    'width' => '10%',
-    'default' => false,
   ),
   'BILLING_ADDRESS_POSTALCODE' => 
   array (
@@ -137,6 +116,13 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_WEBSITE',
+    'default' => false,
+  ),
+  'SF_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'SF ID',
+    'width' => '10%',
     'default' => false,
   ),
   'DATE_MODIFIED' => 
