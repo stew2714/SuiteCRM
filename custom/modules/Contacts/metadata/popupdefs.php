@@ -133,6 +133,7 @@ $popupMeta = array (
     'studio' => 'visible',
     'label' => 'LBL_CONTACT_TYPE',
     'width' => '10%',
+    'name' => 'contact_type_c',
   ),
   'CONTACT_ASSOCIATION_C' => 
   array (
@@ -141,6 +142,7 @@ $popupMeta = array (
     'studio' => 'visible',
     'label' => 'LBL_CONTACT_ASSOCIATION',
     'width' => '10%',
+    'name' => 'contact_association_c',
   ),
   'ACTIVE_C' => 
   array (
@@ -148,6 +150,7 @@ $popupMeta = array (
     'default' => true,
     'label' => 'LBL_ACTIVE',
     'width' => '10%',
+    'name' => 'active_c',
   ),
 ),
 );

@@ -221,4 +221,12 @@ $searchFields['Contacts'] = array (
   array (
     'query_type' => 'default',
   ),
+  'title' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'photo' => 
+  array (
+    'query_type' => 'default',
+  ),
 );

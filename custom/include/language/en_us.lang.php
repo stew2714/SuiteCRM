@@ -763,12 +763,6 @@ $GLOBALS['app_list_strings']['contract_status_category_list']=array (
   'ter' => 'Terminated',
   'can' => 'Cancelled',
 );
-
-$GLOBALS['app_list_strings']['contract_status_list']=array (
-  '' => '',
-  'req_req' => 'Request',
-  'eff_act' => 'Activated',
-);
 $GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
   '' => '',
   'Add_Product_Service' => 'Add Product/Service',
@@ -1196,4 +1190,45 @@ $GLOBALS['app_list_strings']['acct_pacs_list']=array (
 $GLOBALS['app_list_strings']['training_list']=array (
   'training_two' => 'Training 2',
   'training_with_spaces' => 'Training With Spaces',
+);
+
+$GLOBALS['app_list_strings']['contract_status_list']=array (
+  '' => '',
+  'aut_ar' => 'Accepted Request',
+  'eff_act' => 'Activated',
+  'req_asd' => 'Approved and Submitted for Drafting',
+  'aut_ac' => 'Author Contract',
+  'fil_ad' => 'Awaiting Distribution',
+  'req_ai' => 'Awaiting Information',
+  'aut_ai' => 'Awaiting Information',
+  'sig_ai' => 'Awaiting Information',
+  'eff_ba' => 'Being Amended',
+  'eff_br' => 'Being Renewed',
+  'eff_bt' => 'Being Terminated',
+  'req_cr' => 'Cancelled Request',
+  'can_cr' => 'Cancelled Request',
+  'aut_crr' => 'Client Redline Review',
+  'exp_exp' => 'Expired',
+  'sig_fs' => 'Fully Signed',
+  'req_ia' => 'In Amendment',
+  'sig_ccs' => 'In Comm Ops Contract Setup',
+  'sig_cof' => 'In Comm Ops Final Review',
+  'sig_cor' => 'In Comm Ops Intial Review',
+  'sig_coi' => 'In Comm Ops Issue Resolution',
+  'aut_la' => 'Language Approval',
+  'aut_lap' => 'Language Approved',
+  'aut_mrr' => 'M*Modal Redline Review',
+  'aut_opr' => 'Other Party Review',
+  'sig_opr' => 'Other Party Review',
+  'sig_ops' => 'Other Party Signatures',
+  'aut_per' => 'Partially Executed Received',
+  'sig_rfs' => 'Ready for Signatures',
+  'req_req' => 'Request',
+  'sig_sd' => 'Signature Declined',
+  'req_sfa' => 'Submitted for Approval',
+  'sig_scp' => 'Submitted for Comm Ops Processing',
+  'req_sr' => 'Submitted Request',
+  'amd_sup' => 'Superseded',
+  'eff_sup' => 'Superseded',
+  'ter_ter' => 'Terminated',
 );

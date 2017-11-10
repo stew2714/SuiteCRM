@@ -120,8 +120,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'apttus_related_opportunity_c',
-            'label' => 'LBL_APTTUS_RELATED_OPPORTUNITY_C',
+            'name' => 'opportunity',
+            'label' => 'LBL_OPPORTUNITY',
           ),
         ),
         2 => 
@@ -179,7 +179,11 @@ array (
             'name' => 'apts_request_date_c',
             'label' => 'LBL_APTS_REQUEST_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'apttus_related_opportunity_c',
+            'label' => 'LBL_APTTUS_RELATED_OPPORTUNITY_C',
+          ),
         ),
         7 => 
         array (

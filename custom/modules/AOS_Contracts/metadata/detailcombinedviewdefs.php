@@ -139,7 +139,7 @@ $viewdefs = array (
               'name' => 'activate_c',
               'label' => 'LBL_ACTIVATE_C',
             ),
-            1 => 'apttus_related_opportunity_c',
+            1 => 'opportunity',
           ),
           2 => 
           array (
@@ -180,6 +180,7 @@ $viewdefs = array (
               'name' => 'apts_request_date_c',
               'label' => 'LBL_APTS_REQUEST_DATE_C',
             ),
+            1 => 'apttus_related_opportunity_c',
           ),
           7 => 
           array (

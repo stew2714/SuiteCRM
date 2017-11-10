@@ -1,5 +1,5 @@
 <?php
-// created: 2017-11-08 14:34:38
+// created: 2017-11-10 19:00:02
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -23,7 +23,7 @@ $mod_strings = array (
   'LBL_PLEASE_CONTACT' => 'Please contact Kevin Bradley in order to move an account to new ownership',
   'LBL_ENTRY_REQUIRED_IN_CHANGES' => 'An entry is required in the Top 10 Prospecting Reason field when the Top 10 Prospecting flag is set.',
   'LBL_C1_CUST_CONTACTS1_ACCOUNTS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
-  'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'myContacts',
+  'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Contacts',
   'LBL_OWNERSHIP' => 'Ownership:',
   'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
   'LBL_BILLING_ADDRESS_CITY' => 'City',
