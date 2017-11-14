@@ -175,7 +175,6 @@ class UnifiedSearchAdvanced {
         $unified_search_modules = $this->getUnifiedSearchModules();
 		$unified_search_modules_display = $this->getUnifiedSearchModulesDisplay();
 
-
 		require_once 'include/ListView/ListViewSmarty.php';
 
 		global $modListHeader, $beanList, $beanFiles, $current_language, $app_strings, $current_user, $mod_strings;
@@ -254,7 +253,7 @@ class UnifiedSearchAdvanced {
                 {
                     continue;
                 }
-
+                $untouchedViewDefs = $listViewDefs;
 			    $unifiedSearchFields = array () ;
                 $innerJoins = array();
                 foreach ( $unified_search_modules[ $moduleName ]['fields'] as $field=>$def )
@@ -304,7 +303,6 @@ class UnifiedSearchAdvanced {
                 
 				require_once $this->searchFormPath;
                 $searchForm = new $this->searchFormClass ( $seed, $moduleName ) ;
-
                 $searchForm->setup (array ( $moduleName => array() ) , $unifiedSearchFields , '' , 'saved_views' /* hack to avoid setup doing further unwanted processing */ ) ;
                 $where_clauses = $searchForm->generateSearchWhere() ;
                 //add inner joins back into the where clause
@@ -330,7 +328,7 @@ class UnifiedSearchAdvanced {
                     $where = '';
                 }
                 $displayColumns = array();
-                foreach($listViewDefs[$seed->module_dir] as $colName => $param)
+                foreach($untouchedViewDefs[$seed->module_dir] as $colName => $param)
                 {
                     if(!empty($param['default']) && $param['default'] == true)
                     {
