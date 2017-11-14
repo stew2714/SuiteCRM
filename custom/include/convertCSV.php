@@ -171,7 +171,9 @@ class convertCSV
         }
         if($vardefs['type'] == "id" || $vardefs['type'] == "relate"  ){
             $vardef['id'] = $vardef['module'] . $vardef['name'];
-            $vardef['custom_module'] = $vardef['module'];
+            if($vardefs['type'] != "relate"){
+                $vardef['custom_module'] = $vardef['module'];
+            }
         }
         if( !empty($vardefs['id_name']) ){
             $vardef['id_name'] = $vardefs['id_name'];
