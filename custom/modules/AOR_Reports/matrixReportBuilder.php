@@ -185,18 +185,18 @@ class matrixReportBuilder
         }
         $array = array("TOTAL", "fieldx0", "fieldx1", "fieldx2");
         $removeList = array();
-        foreach($data as $key => $row){
-            foreach($row as $key2 => $item){
-                if((!isset($removeList[$key2]) || $removeList[ $key2 ] === true) && $key != 0 && !in_array($key2,
-                                                                                                           $array)){
-                    if(($item == "0" || $item == null)){
-                        $removeList[ $key2 ] = true; //I can remove it.
-                    }else{
-                        $removeList[ $key2 ] = false; //I cant remove it.
-                    }
-                }
-            }
-        }
+//        foreach($data as $key => $row){
+//            foreach($row as $key2 => $item){
+//                if((!isset($removeList[$key2]) || $removeList[ $key2 ] === true) && $key != 0 && !in_array($key2,
+//                                                                                                           $array)){
+//                    if(($item == "0" || $item == null)){
+//                        $removeList[ $key2 ] = true; //I can remove it.
+//                    }else{
+//                        $removeList[ $key2 ] = false; //I cant remove it.
+//                    }
+//                }
+//            }
+//        }
 
 
         foreach($data as $key => $row){
