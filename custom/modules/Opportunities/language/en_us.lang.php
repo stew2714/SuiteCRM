@@ -1,5 +1,5 @@
 <?php
-// created: 2017-11-10 19:13:50
+// created: 2017-11-14 14:05:50
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -40,4 +40,5 @@ $mod_strings = array (
   'LBL_YOU_CAN_NOT_CHANGE_KEY' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
   'LBL_C1_CUST_CONTACTS1_OPPORTUNITIES_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
   'LBL_FIELD_TRACKING_HISTORY' => 'Field Tracking History',
+  'LBL_EDITVIEW_PANEL14' => 'New Panel 14',
 );

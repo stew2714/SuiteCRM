@@ -1,7 +1,7 @@
 <?php
-// created: 2017-11-10 16:55:20
+// created: 2017-12-01 18:03:29
 $mod_strings = array (
-  'LBL_EDITVIEW_PANEL1' => 'New Panel 1',
+  'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
   'LNK_LIST' => 'View Agreements',
   'LNK_IMPORT_AOS_CONTRACTS' => 'Import Agreements',
@@ -20,10 +20,11 @@ $mod_strings = array (
   'LBL_REQUIRED_FIELD_END_DATE_PERPETUAL' => 'Please enter the Agreement End Date or mark the Agreement as Perpetual prior to executing the agreement.',
   'LBL_VALUE_IS_REQUIRED' => 'Value is required in this field ',
   'LBL_C1_CUST_CONTACTS1_AOS_CONTRACTS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust Cust_Contacts',
-  'LBL_EDITVIEW_PANEL2' => 'New Panel 2',
+  'LBL_EDITVIEW_PANEL2' => 'Business Associate Agreement',
   'LBL_APTTUS_STATUS_C' => 'Apttus Status',
   'LBL_APTTUS_STATUS_CATEGORY_C' => 'Apttus Status Category',
   'LBL_TYPE_OF_REQUEST_C' => 'Type Of Request',
   'LBL_OWNERSHIP_GROUP_EXPIRATION_NOTICE_C' => 'Ownership Group Expiration Notice',
   'LBL_TESTING' => 'testing',
+  'LBL_APTTUS_FF_AGREEMENT_NUMBER_C' => 'Agreement Number',
 );

@@ -29,72 +29,72 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL3' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL9' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL10' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL11' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL13' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL12' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -111,6 +111,7 @@ array (
             'name' => 'recordtypeid_c',
             'label' => 'LBL_RECORDTYPEID_C',
           ),
+          1 => '',
         ),
         1 => 
         array (
@@ -128,6 +129,7 @@ array (
             'name' => 'short_id_c',
             'label' => 'LBL_SHORT_ID_C',
           ),
+          1 => '',
         ),
         3 => 
         array (
@@ -153,8 +155,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'product_c',
-            'label' => 'LBL_PRODUCT_C',
+            'name' => 'amount',
+            'label' => '{$MOD.LBL_AMOUNT} ({$CURRENCY})',
           ),
           1 => 
           array (
@@ -166,17 +168,18 @@ array (
         array (
           0 => 
           array (
+            'name' => 'product_c',
+            'label' => 'LBL_PRODUCT_C',
+          ),
+          1 => 
+          array (
             'name' => 'sales_leadership_c',
             'label' => 'LBL_SALES_LEADERSHIP_C',
           ),
         ),
         7 => 
         array (
-          0 => 
-          array (
-            'name' => 'tip_source_c',
-            'label' => 'LBL_TIP_SOURCE_C',
-          ),
+          0 => 'campaign_name',
           1 => 
           array (
             'name' => 'recordtypeid_c',
@@ -187,8 +190,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'partner_c',
-            'label' => 'LBL_PARTNER_C',
+            'name' => 'tip_source_c',
+            'label' => 'LBL_TIP_SOURCE_C',
           ),
           1 => 'sales_stage',
         ),
@@ -196,8 +199,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_required_c',
-            'label' => 'LBL_RFP_REQUIRED_C',
+            'name' => 'partner_c',
+            'label' => 'LBL_PARTNER_C',
           ),
           1 => 'probability',
         ),
@@ -205,8 +208,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_due_date_c',
-            'label' => 'LBL_RFP_DUE_DATE_C',
+            'name' => 'rfp_required_c',
+            'label' => 'LBL_RFP_REQUIRED_C',
           ),
           1 => 
           array (
@@ -218,8 +221,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'preferred_follow_up_c',
-            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
+            'name' => 'rfp_due_date_c',
+            'label' => 'LBL_RFP_DUE_DATE_C',
           ),
           1 => 
           array (
@@ -228,6 +231,19 @@ array (
           ),
         ),
         12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'preferred_follow_up_c',
+            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
+          ),
+          1 => 
+          array (
+            'name' => 'forecastcategory_c',
+            'label' => 'LBL_FORECASTCATEGORY_C',
+          ),
+        ),
+        13 => 
         array (
           0 => 
           array (
@@ -240,7 +256,20 @@ array (
             'label' => 'LBL_BANKRUPTCY_HOLD1_C',
           ),
         ),
-        13 => 
+        14 => 
+        array (
+          0 => 
+          array (
+            'name' => 'count_c',
+            'label' => 'LBL_COUNT_C',
+          ),
+          1 => 
+          array (
+            'name' => 'vendor_of_choice_c',
+            'label' => 'LBL_VENDOR_OF_CHOICE_C',
+          ),
+        ),
+        15 => 
         array (
           0 => 
           array (
@@ -249,83 +278,25 @@ array (
           ),
           1 => 
           array (
-            'name' => 'vendor_of_choice_c',
-            'label' => 'LBL_VENDOR_OF_CHOICE_C',
-          ),
-        ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'modlink_c',
-            'label' => 'LBL_MODLINK_C',
-          ),
-        ),
-        15 => 
-        array (
-          0 => 
-          array (
-            'name' => 'notifi_subscription_amount_c',
-            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
+            'name' => 'cdi_campaign_target_c',
+            'label' => 'LBL_CDI_CAMPAIGN_TARGET_C',
           ),
         ),
         16 => 
         array (
           0 => 
           array (
-            'name' => 'notifi_c',
-            'label' => 'LBL_NOTIFI_C',
-          ),
-        ),
-        17 => 
-        array (
-          0 => 
-          array (
-            'name' => 'statdx_c',
-            'label' => 'LBL_STATDX_C',
-          ),
-        ),
-        18 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cdi_campaign_target_c',
-            'label' => 'LBL_CDI_CAMPAIGN_TARGET_C',
-          ),
-        ),
-        19 => 
-        array (
-          0 => 
-          array (
             'name' => 'exclude_ch_c',
             'label' => 'LBL_EXCLUDE_CH_C',
           ),
+          1 => '',
         ),
-        20 => 
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
         array (
           0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
           array (
             'name' => 'additionalusers',
             'comment' => 'Used for adding to the list, detail, and edit views',
@@ -347,32 +318,53 @@ array (
             ),
             'label' => 'LBL_ADDITIONALUSERS',
           ),
-        ),
-        21 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'g1_group_queue_opportunities_name',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'latest_update_date_c',
-            'label' => 'LBL_LATEST_UPDATE_DATE_C',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
+            'name' => 'g1_group_queue_opportunities_name',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'latest_update_date_c',
+            'label' => 'LBL_LATEST_UPDATE_DATE_C',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -1085,6 +1077,7 @@ array (
             'name' => 'first_commission_date_c',
             'label' => 'LBL_FIRST_COMMISSION_DATE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel13' => 
