@@ -37,6 +37,30 @@
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
-/**
- * This file adds support for studio
- */
+
+$module_name = 'SA_eloqua_activity';
+$viewdefs[$module_name]['EditView'] = array(
+    'templateMeta' => array(
+        'maxColumns' => '2',
+        'widths' => array(
+            array('label' => '10', 'field' => '30'),
+            array('label' => '10', 'field' => '30')
+        ),
+    ),
+
+    'panels' => array(
+        'default' => array(
+
+            array(
+                'name',
+                'assigned_user_name',
+            ),
+
+            array(
+                'description',
+            ),
+        ),
+
+    ),
+
+);
