@@ -168,25 +168,6 @@ $GLOBALS['app_list_strings']['record_type_display_notes']=array (
   'Meetings' => 'Meeting',
   'Tasks' => 'Task',
 );
-$GLOBALS['app_list_strings']['cc_region_dd_list']=array (
-  '' => '',
-  'AM' => 'Ambulatory Market',
-  'ASP' => 'ASP',
-  'CBS' => 'CBTSI Scribe',
-  'CS' => 'Coding Solutions',
-  'EM' => 'East Market',
-  'Int' => 'International',
-  'MW' => 'Midwest',
-  'MTSO' => 'MTSO',
-  'NM' => 'North Market',
-  'SM' => 'South Market',
-  'STM' => 'Strategic Market',
-  'STMC' => 'Strategic Market - CHS',
-  'STMH' => 'Strategic Market - HCA',
-  'STML' => 'Strategic Market - LifePoint',
-  'Tech' => 'Technology',
-  'WM' => 'West Market',
-);
 $app_list_strings['moduleList']['C1_Cust_Contacts1']='Cust_Contacts';
 $app_list_strings['moduleListSingular']['C1_Cust_Contacts1']='Cust_Contacts';
 $GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
@@ -743,32 +724,16 @@ $GLOBALS['app_list_strings']['fte_list']=array (
 );
 $GLOBALS['app_list_strings']['encoder_list']=array (
 );
-$GLOBALS['app_list_strings']['capital_license_type_list']=array (
-);
 $GLOBALS['app_list_strings']['is_source_list']=array (
 );
 $GLOBALS['app_list_strings']['nih_rating_list']=array (
 );
 $GLOBALS['app_list_strings']['rfp_preparer_list']=array (
 );
-$GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
-  '' => '',
-  'Add_Product_Service' => 'Add Product/Service',
-  'Zero_Based' => 'Zero Based',
-  'Renewal' => 'Renewal',
-  'Amend_Existing_Terms' => 'Amend Existing Terms',
-  'Gov_Public_Entity_Academic_Institution' => 'Gov./Public Entity/Academic Institution',
-);
 $GLOBALS['app_list_strings']['contract_ownership_group_list']=array (
   'Renewal_Account_Executive' => 'Renewal Account Executive',
   'Account_Executive' => 'Account Executive',
   'Inside_Sales' => 'Inside Sales',
-);
-$GLOBALS['app_list_strings']['payment_type_list']=array (
-  'ACH_Debit' => 'ACH Debi',
-  'Wire_Transfer' => 'Wire Transfer',
-  'Check' => 'Check',
-  'Credit_Card' => 'Credit Card',
 );
 $GLOBALS['app_list_strings']['governing_law_state_list']=array (
   'AL' => 'Alabama',
@@ -1230,4 +1195,52 @@ $GLOBALS['app_list_strings']['contract_status_list']=array (
   'eff_sup' => 'Superseded',
   'ter_ter' => 'Terminated',
   'ame_sup' => 'Superseded',
+);
+$GLOBALS['app_list_strings']['imp_timeframe_list']=array (
+  '' => '',
+);
+$GLOBALS['app_list_strings']['imp_timeframe_comments_list']=array (
+);
+$GLOBALS['app_list_strings']['primary_reason_for_winloss_list']=array (
+);
+$GLOBALS['app_list_strings']['co_reviewer_list']=array (
+);
+$GLOBALS['app_list_strings']['capital_license_type_list']=array (
+  '' => '',
+  'Term' => 'Term',
+  'Perpetual' => 'Perpetual',
+);
+$GLOBALS['app_list_strings']['cc_region_dd_list']=array (
+  '' => '',
+  'AM' => 'Ambulatory Market',
+  'ASP' => 'ASP',
+  'CBS' => 'CBTSI Scribe',
+  'CS' => 'Coding Solutions',
+  'EM' => 'East Market',
+  'Int' => 'International',
+  'MW' => 'Midwest',
+  'MTSO' => 'MTSO',
+  'NM' => 'North Market',
+  'SCRSL' => 'Scribe Solutions',
+  'SM' => 'South Market',
+  'STM' => 'Strategic Market',
+  'STMC' => 'Strategic Market - CHS',
+  'STMH' => 'Strategic Market - HCA',
+  'STML' => 'Strategic Market - LifePoint',
+  'Tech' => 'Technology',
+  'WM' => 'West Market',
+);
+$GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
+  '' => '',
+  'Add_Product_Service' => 'Add Product/Service',
+  'Zero_Based' => 'Zero Based',
+  'Renewal' => 'Renewal',
+  'Amend_Existing_Terms' => 'Amend Existing Terms',
+  'Gov._Public_Entity_Academic_Institution' => 'Gov./Public Entity/Academic Institution',
+);
+$GLOBALS['app_list_strings']['payment_type_list']=array (
+  'ACH_Debit' => 'ACH Debit',
+  'Wire_Transfer' => 'Wire Transfer',
+  'Check' => 'Check',
+  'Credit_Card' => 'Credit Card',
 );

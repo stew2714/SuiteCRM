@@ -1,5 +1,5 @@
 <?php
-// created: 2017-11-14 14:05:50
+// created: 2017-12-08 15:40:24
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -41,4 +41,6 @@ $mod_strings = array (
   'LBL_C1_CUST_CONTACTS1_OPPORTUNITIES_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
   'LBL_FIELD_TRACKING_HISTORY' => 'Field Tracking History',
   'LBL_EDITVIEW_PANEL14' => 'New Panel 14',
+  'LBL_ASSIGNED_TO_NAME' => 'Opportunity Owner',
+  'LBL_CAMPAIGN' => 'Primary Campaign',
 );

@@ -1,5 +1,5 @@
 <?php
-// created: 2017-12-01 18:03:29
+// created: 2017-12-11 20:38:59
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -27,4 +27,6 @@ $mod_strings = array (
   'LBL_OWNERSHIP_GROUP_EXPIRATION_NOTICE_C' => 'Ownership Group Expiration Notice',
   'LBL_TESTING' => 'testing',
   'LBL_APTTUS_FF_AGREEMENT_NUMBER_C' => 'Agreement Number',
+  'LBL_NAME' => 'Agreement Name',
+  'LBL_ASSIGNED_TO_NAME' => 'Owner',
 );

@@ -186,8 +186,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_parent_agreement_c',
-            'label' => 'LBL_APTTUS_PARENT_AGREEMENT_C',
+            'name' => 'apttus_parent_agreement_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_PARENT_AGREEMENT_NAME_C',
           ),
           1 => 
           array (
@@ -217,8 +218,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'apttus_requestor_c',
-            'label' => 'LBL_APTTUS_REQUESTOR_C',
+            'name' => 'apttus_requestor_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
         9 => 
