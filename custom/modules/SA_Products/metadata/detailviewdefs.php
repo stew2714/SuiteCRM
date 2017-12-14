@@ -49,16 +49,79 @@ array (
         array (
           0 => 
           array (
-            'name' => 'shipping_c',
-            'label' => 'LBL_SHIPPING_C',
+            'name' => 'product_attachment_number_c',
+            'label' => 'LBL_PRODUCT_ATTACHMENT_NUMBER_C',
           ),
           1 => 
+          array (
+            'name' => 'name_of_product_c',
+            'label' => 'LBL_NAME_OF_PRODUCT_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'product_attachment_effective_date_c',
+            'label' => 'LBL_PRODUCT_ATTACHMENT_EFFECTIVE_DATE_C',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'product_attachment_expiration_date_c',
+            'label' => 'LBL_PRODUCT_ATTACHMENT_EXPIRATION_DATE_C',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'product_term_months_c',
             'label' => 'LBL_PRODUCT_TERM_MONTHS_C',
           ),
+          1 => 
+          array (
+            'name' => 'shipping_c',
+            'label' => 'LBL_SHIPPING_C',
+          ),
         ),
-        1 => 
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'product_subscription_auto_renewal_c',
+            'label' => 'LBL_PRODUCT_SUBSCRIPTION_AUTO_RENEWAL_C',
+          ),
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'product_term_for_convenien_c',
+            'label' => 'LBL_PRODUCT_TERM_FOR_CONVENIEN_C',
+          ),
+          1 => '',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'product_term_for_convenience_c',
+            'label' => 'LBL_PRODUCT_TERM_FOR_CONVENIENCE_C',
+          ),
+          1 => '',
+        ),
+        7 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -71,7 +134,7 @@ array (
             'label' => 'LBL_PRODUCT_BILLING_C',
           ),
         ),
-        2 => 
+        9 => 
         array (
           0 => 
           array (
@@ -84,7 +147,7 @@ array (
             'label' => 'LBL_HARDWARE_GMA_C',
           ),
         ),
-        3 => 
+        10 => 
         array (
           0 => 
           array (
@@ -93,7 +156,7 @@ array (
           ),
           1 => '',
         ),
-        4 => 
+        11 => 
         array (
           0 => '',
           1 => 

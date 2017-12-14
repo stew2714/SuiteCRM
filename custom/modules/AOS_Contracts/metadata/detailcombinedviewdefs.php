@@ -503,67 +503,190 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'acc_tos_term_mm_c',
-              'label' => 'LBL_TOS_TERM_MM_C',
+              'name' => 'acc_tos_attachment_number_c',
+              'label' => 'LBL_TOS_ATTACHMENT_NUMBER_C',
             ),
-            1 => 'acc_tos_pricing_category_c',
+            1 => 'acc_tos_auto_renew_c',
           ),
           1 => 
           array (
             0 => 
             array (
-              'name' => 'acc_tos_auto_renew_c',
-              'label' => 'LBL_TOS_AUTO_RENEW_C',
+              'name' => 'acc_tos_effective_date_c',
+              'label' => 'LBL_TOS_EFFECTIVE_DATE_C',
             ),
-            1 => 'acc_tos_pricing_category_uom_c',
+            1 => 'acc_tos_evergreen_c',
           ),
           2 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_expiration_date_c',
+              'label' => 'LBL_TOS_EXPIRATION_DATE_C',
+            ),
+            1 => 'acc_tos_termination_prior_to_renewal_c',
+          ),
+          3 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_term_mm_c',
+              'label' => 'LBL_TOS_TERM_MM_C',
+            ),
+            1 => 'acc_tos_termination_prior_to_renewal_days_c',
+          ),
+          4 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_renewal_start_date_c',
+              'label' => 'LBL_TOS_RENEWAL_START_DATE_C',
+            ),
+            1 => 'acc_tos_renewal_terms_c',
+          ),
+          5 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_renewal_term_mm_c',
+              'label' => 'LBL_TOS_RENEWAL_TERM_MM_C',
+            ),
+            1 => 'acc_tos_renewal_consent_c',
+          ),
+          6 => 
           array (
             0 => 
             array (
               'name' => 'acc_transcription_platform_c',
               'label' => 'LBL_TRANSCRIPTION_PLATFORM_C',
             ),
-            1 => 'acc_tos_pricing_other_c',
+            1 => 'acc_tos_renewal_notification_period_dd_c',
           ),
-          3 => 
-          array (
-            1 => 'acc_tos_billing_c',
-          ),
-          4 => 
+          7 => 
           array (
             0 => 
             array (
-              'name' => 'acc_tos_commitment_c',
-              'label' => 'LBL_TOS_COMMITMENT_C',
+              'name' => 'acc_other_transcription_platform_c',
+              'label' => 'LBL_OTHER_TRANSCRIPTION_PLATFORM_C',
             ),
-            1 => 'acc_estimated_tos_existing_volume_c',
+            1 => 'acc_tos_termination_for_convenience_c',
           ),
-          5 => 
+          8 => 
           array (
             0 => 
             array (
-              'name' => 'acc_tos_price_book_rate_c',
-              'label' => 'LBL_TOS_PRICE_BOOK_RATE_C',
+              'name' => 'acc_tat_credits_c',
+              'label' => 'LBL_TAT_CREDITS_C',
             ),
-            1 => 'acc_estimated_tos_new_volume_c',
+            1 => 'acc_tos_term_for_convenience_c',
           ),
-          6 => 
+          9 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tat_credit_standard_c',
+              'label' => 'LBL_TAT_CREDIT_STANDARD_C',
+            ),
+            1 => 'acc_tos_term_for_convenience_notice_dd_c',
+          ),
+          10 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tat_credit_details_c',
+              'label' => 'LBL_TAT_CREDIT_DETAILS_C',
+            ),
+          ),
+          11 => 
           array (
             0 => 
             array (
               'name' => 'acc_qa_program_c',
               'label' => 'LBL_QA_PROGRAM_C',
             ),
-            1 => 'acc_tos_revenue_c',
           ),
-          7 => 
+          12 => 
           array (
             0 => 
             array (
-              'name' => 'acc_hire_client_mt_s_c',
-              'label' => 'LBL_HIRE_CLIENT_MT_S_C',
+              'name' => 'acc_qa_penalty_details_c',
+              'label' => 'LBL_QA_PENALTY_DETAILS_C',
             ),
+          ),
+          13 => 
+          array (
+            1 => 'acc_tos_commitment_c',
+          ),
+          14 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_pricing_category_c',
+              'label' => 'LBL_TOS_PRICING_CATEGORY_C',
+            ),
+            1 => 'acc_tos_billing_c',
+          ),
+          15 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_pricing_category_uom_c',
+              'label' => 'LBL_TOS_PRICING_CATEGORY_UOM_C',
+            ),
+          ),
+          16 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_pricing_other_c',
+              'label' => 'LBL_TOS_PRICING_OTHER_C',
+            ),
+            1 => 'acc_hire_client_mt_s_c',
+          ),
+          17 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_pricing_increase_c',
+              'label' => 'LBL_TOS_PRICING_INCREASE_C',
+            ),
+            1 => 'acc_union_mt_s_c',
+          ),
+          18 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_price_increase_during_initial_term_c',
+              'label' => 'LBL_TOS_PRICE_INCREASE_DURING_INITIAL_TERM_C',
+            ),
+            1 => 'acc_number_of_mt_s_for_hire_c',
+          ),
+          19 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_price_book_rate_v2_c',
+              'label' => 'LBL_TOS_PRICE_BOOK_RATE_V2_C',
+            ),
+            1 => 'acc_volume_guarantee_c',
+          ),
+          20 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_revenue_c',
+              'label' => 'LBL_TOS_REVENUE_C',
+            ),
+            1 => 'acc_estimated_tos_existing_volume_c',
+          ),
+          21 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_tos_general_notes_c',
+              'label' => 'LBL_TOS_GENERAL_NOTES_C',
+            ),
+            1 => 'acc_estimated_tos_new_volume_c',
           ),
         ),
         'acc_lbl_editview_panel2' => 
@@ -572,36 +695,145 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'acc_fft_term_months_c',
-              'label' => 'LBL_FFT_TERM_MONTHS_C',
+              'name' => 'acc_fft_attachment_number_c',
+              'label' => 'LBL_FFT_ATTACHMENT_NUMBER_C',
             ),
-            1 => 'acc_fft_shipping_c',
+            1 => 'acc_fft_auto_renew_c',
           ),
           1 => 
           array (
             0 => 
             array (
-              'name' => 'acc_fft_auto_renew_c',
-              'label' => 'LBL_FFT_AUTO_RENEW_C',
+              'name' => 'acc_fft_effective_date_c',
+              'label' => 'LBL_FFT_EFFECTIVE_DATE_C',
             ),
-            1 => 'acc_fft_pricing_category_uom_c',
+            1 => 'acc_fft_evergreen_c',
           ),
           2 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_expiration_date_c',
+              'label' => 'LBL_FFT_EXPIRATION_DATE_C',
+            ),
+            1 => 'acc_fft_termination_prior_to_renewal_c',
+          ),
+          3 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_term_months_c',
+              'label' => 'LBL_FFT_TERM_MONTHS_C',
+            ),
+            1 => 'acc_fft_termination_prior_to_renewal_days_c',
+          ),
+          4 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_renewal_start_date_c',
+              'label' => 'LBL_FFT_RENEWAL_START_DATE_C',
+            ),
+            1 => 'acc_fft_renewal_terms_c',
+          ),
+          5 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_renewal_term_months_c',
+              'label' => 'LBL_FFT_RENEWAL_TERM_MONTHS_C',
+            ),
+            1 => 'acc_fft_renewal_consent_c',
+          ),
+          6 => 
           array (
             0 => 
             array (
               'name' => 'acc_included_optional_system_components_c',
               'label' => 'LBL_INCLUDED_OPTIONAL_SYSTEM_COMPONENTS_C',
             ),
-            1 => 'acc_estimated_fft_existing_volume_c',
+            1 => 'acc_fft_renewal_notification_period_dd_c',
           ),
-          3 => 
+          7 => 
           array (
-            1 => 'acc_estimated_fft_new_volume_c',
+            1 => 'acc_fft_termination_for_convenience_c',
           ),
-          4 => 
+          8 => 
           array (
+            1 => 'acc_fft_term_for_convenience_c',
+          ),
+          9 => 
+          array (
+            1 => 'acc_fft_term_for_convenience_notice_dd_c',
+          ),
+          10 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_shipping_c',
+              'label' => 'LBL_FFT_SHIPPING_C',
+            ),
+            1 => 'acc_fft_pricing_category_c',
+          ),
+          11 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_sow_version_c',
+              'label' => 'LBL_FFT_SOW_VERSION_C',
+            ),
+            1 => 'acc_fft_pricing_category_uom_c',
+          ),
+          12 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_sow_date_c',
+              'label' => 'LBL_FFT_SOW_DATE_C',
+            ),
+            1 => 'acc_fft_pricing_other_c',
+          ),
+          13 => 
+          array (
+            1 => 'acc_fft_pricing_increase_c',
+          ),
+          14 => 
+          array (
+            1 => 'acc_fft_implementation_training_fees_c',
+          ),
+          15 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_volume_guarantee_c',
+              'label' => 'LBL_FFT_VOLUME_GUARANTEE_C',
+            ),
+            1 => 'acc_fft_billing_c',
+          ),
+          16 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_estimated_fft_existing_volume_c',
+              'label' => 'LBL_ESTIMATED_FFT_EXISTING_VOLUME_C',
+            ),
             1 => 'acc_fft_revenue_c',
+          ),
+          17 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_estimated_fft_new_volume_c',
+              'label' => 'LBL_ESTIMATED_FFT_NEW_VOLUME_C',
+            ),
+          ),
+          18 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_fft_general_notes_c',
+              'label' => 'LBL_FFT_GENERAL_NOTES_C',
+            ),
           ),
         ),
         'acc_lbl_editview_panel3' => 
@@ -610,24 +842,56 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'acc_coding_term_months_c',
-              'label' => 'LBL_CODING_TERM_MONTHS_C',
+              'name' => 'acc_coding_attachment_number_c',
+              'label' => 'LBL_CODING_ATTACHMENT_NUMBER_C',
             ),
             1 => 'acc_coding_auto_renew_c',
           ),
           1 => 
           array (
-            1 => 'acc_coding_revenue_c',
+            0 => 
+            array (
+              'name' => 'acc_coding_effective_date_c',
+              'label' => 'LBL_CODING_EFFECTIVE_DATE_C',
+            ),
+            1 => 'acc_coding_evergreen_c',
           ),
           2 => 
           array (
             0 => 
             array (
-              'name' => 'acc_coding_commitment_c',
-              'label' => 'LBL_CODING_COMMITMENT_C',
+              'name' => 'acc_coding_expiration_date_c',
+              'label' => 'LBL_CODING_EXPIRATION_DATE_C',
             ),
+            1 => 'acc_coding_termination_prior_to_renewal_c',
           ),
           3 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_term_months_c',
+              'label' => 'LBL_CODING_TERM_MONTHS_C',
+            ),
+            1 => 'acc_coding_termination_prior_to_renewal_days_c',
+          ),
+          4 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_renewal_start_date_c',
+              'label' => 'LBL_CODING_RENEWAL_START_DATE_C',
+            ),
+            1 => 'acc_coding_renewal_terms_c',
+          ),
+          5 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_renewal_term_months_c',
+              'label' => 'LBL_CODING_RENEWAL_TERM_MONTHS_C',
+            ),
+          ),
+          6 => 
           array (
             0 => 
             array (
@@ -635,13 +899,74 @@ $viewdefs = array (
               'label' => 'LBL_FLUENCY_FOR_CODING_PLATFORM_C',
             ),
           ),
-          4 => 
+          7 => 
+          array (
+            1 => 'acc_coding_renewal_consent_c',
+          ),
+          8 => 
           array (
             0 => 
             array (
-              'name' => 'acc_coding_pricing_c',
-              'label' => 'LBL_CODING_PRICING_C',
+              'name' => 'acc_coding_sow_version_c',
+              'label' => 'LBL_CODING_SOW_VERSION_C',
             ),
+            1 => 'acc_coding_renewal_notification_period_dd_c',
+          ),
+          9 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_sow_date_c',
+              'label' => 'LBL_CODING_SOW_DATE_C',
+            ),
+            1 => 'acc_coding_termination_for_convenience_c',
+          ),
+          10 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_implementation_training_fees_c',
+              'label' => 'LBL_CODING_IMPLEMENTATION_TRAINING_FEES_C',
+            ),
+          ),
+          11 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_commitment_c',
+              'label' => 'LBL_CODING_COMMITMENT_C',
+            ),
+            1 => 'acc_coding_term_for_convenience_notice_dd_c',
+          ),
+          12 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_price_book_rate_c',
+              'label' => 'LBL_CODING_PRICE_BOOK_RATE_C',
+            ),
+            1 => 'acc_coding_pricing_category_rate_c',
+          ),
+          13 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_revenue_c',
+              'label' => 'LBL_CODING_REVENUE_C',
+            ),
+            1 => 'acc_coding_pricing_c',
+          ),
+          14 => 
+          array (
+            1 => 'acc_coding_pricing_increase_c',
+          ),
+          15 => 
+          array (
+            1 => 'acc_coding_billing_c',
+          ),
+          16 => 
+          array (
+            1 => 'acc_coding_estimated_billing_c',
           ),
         ),
         'acc_lbl_editview_panel4' => 
@@ -650,19 +975,19 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'acc_virtual_scribing_term_mm_c',
-              'label' => 'LBL_VIRTUAL_SCRIBING_TERM_MM_C',
+              'name' => 'acc_virtual_scribing_doc_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_DOC_C',
             ),
-            1 => 'acc_virtual_scribing_global_permitted_c',
+            1 => 'acc_virtual_scribing_expiration_date_c',
           ),
           1 => 
           array (
             0 => 
             array (
-              'name' => 'acc_virtual_scribing_auto_renew_c',
-              'label' => 'LBL_VIRTUAL_SCRIBING_AUTO_RENEW_C',
+              'name' => 'acc_virtual_scribing_effective_date_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_EFFECTIVE_DATE_C',
             ),
-            1 => 'acc_virtual_scribing_pricing_c',
+            1 => 'acc_virtual_scribing_term_mm_c',
           ),
           2 => 
           array (
@@ -671,14 +996,94 @@ $viewdefs = array (
               'name' => 'acc_virtual_scribing_evergreen_c',
               'label' => 'LBL_VIRTUAL_SCRIBING_EVERGREEN_C',
             ),
-            1 => 'acc_virtual_scribing_revenue_c',
+            1 => 'acc_virtual_scribing_auto_renew_c',
           ),
           3 => 
           array (
             0 => 
             array (
+              'name' => 'acc_vs_term_prior_to_renewal_dd_c',
+              'label' => 'LBL_VS_TERM_PRIOR_TO_RENEWAL_DD_C',
+            ),
+            1 => 'acc_virtual_scribing_term_prior_to_renewal_c',
+          ),
+          4 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_sciribing_renewal_start_date_c',
+              'label' => 'LBL_VIRTUAL_SCIRIBING_RENEWAL_START_DATE_C',
+            ),
+            1 => 'acc_virtual_scribing_renewal_terms_c',
+          ),
+          5 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_term_for_convenience_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_TERM_FOR_CONVENIENCE_C',
+            ),
+            1 => 'acc_virtual_scribing_renewal_term_mm_c',
+          ),
+          6 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_vs_term_for_conv_notice_dd_c',
+              'label' => 'LBL_VS_TERM_FOR_CONV_NOTICE_DD_C',
+            ),
+            1 => 'acc_virtual_scribing_global_permitted_c',
+          ),
+          7 => 
+          array (
+            0 => 
+            array (
               'name' => 'acc_type_of_scribing_c',
               'label' => 'LBL_TYPE_OF_SCRIBING_C',
+            ),
+            1 => 'acc_virtual_scribing_global_permissions_c',
+          ),
+          8 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_pricing_increase_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_PRICING_INCREASE_C',
+            ),
+            1 => 'acc_virtual_scribing_pricing_c',
+          ),
+          9 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_billing_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_BILLING_C',
+            ),
+            1 => 'acc_virtual_scribing_general_notes_c',
+          ),
+          10 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_minimum_hours_language_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_MINIMUM_HOURS_LANGUAGE_C',
+            ),
+            1 => 'acc_virtual_scribing_commitment_c',
+          ),
+          11 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_price_book_rate_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_PRICE_BOOK_RATE_C',
+            ),
+          ),
+          12 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_virtual_scribing_revenue_c',
+              'label' => 'LBL_VIRTUAL_SCRIBING_REVENUE_C',
             ),
           ),
         ),
@@ -688,12 +1093,64 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'con_shipping_c',
-              'label' => 'LBL_SHIPPING_C',
+              'name' => 'con_product_attachment_number_c',
+              'label' => 'LBL_PRODUCT_ATTACHMENT_NUMBER_C',
             ),
-            1 => 'con_product_term_months_c',
+            1 => 'con_name_of_product_c',
           ),
           1 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_product_attachment_effective_date_c',
+              'label' => 'LBL_PRODUCT_ATTACHMENT_EFFECTIVE_DATE_C',
+            ),
+          ),
+          2 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_product_attachment_expiration_date_c',
+              'label' => 'LBL_PRODUCT_ATTACHMENT_EXPIRATION_DATE_C',
+            ),
+          ),
+          3 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_product_term_months_c',
+              'label' => 'LBL_PRODUCT_TERM_MONTHS_C',
+            ),
+            1 => 'con_shipping_c',
+          ),
+          4 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_product_subscription_auto_renewal_c',
+              'label' => 'LBL_PRODUCT_SUBSCRIPTION_AUTO_RENEWAL_C',
+            ),
+          ),
+          5 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_product_term_for_convenien_c',
+              'label' => 'LBL_PRODUCT_TERM_FOR_CONVENIEN_C',
+            ),
+          ),
+          6 => 
+          array (
+            0 => 
+            array (
+              'name' => 'con_product_term_for_convenience_c',
+              'label' => 'LBL_PRODUCT_TERM_FOR_CONVENIENCE_C',
+            ),
+          ),
+          7 => 
+          array (
+          ),
+          8 => 
           array (
             0 => 
             array (
@@ -702,7 +1159,7 @@ $viewdefs = array (
             ),
             1 => 'con_product_billing_c',
           ),
-          2 => 
+          9 => 
           array (
             0 => 
             array (
@@ -711,7 +1168,7 @@ $viewdefs = array (
             ),
             1 => 'con_hardware_gma_c',
           ),
-          3 => 
+          10 => 
           array (
             0 => 
             array (
@@ -719,7 +1176,7 @@ $viewdefs = array (
               'label' => 'LBL_SOFTWARE_PRICING_DISCOUNT_C',
             ),
           ),
-          4 => 
+          11 => 
           array (
             1 => 'con_product_gma_service_level_c',
           ),

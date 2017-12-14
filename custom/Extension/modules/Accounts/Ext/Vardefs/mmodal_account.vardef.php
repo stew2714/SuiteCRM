@@ -6,6 +6,8 @@
 
 // Modified 2017-11-01 to patch relate fields
 
+// Modified 2017-12-13 to enlarge recordtypeid_c per Dan Herrera
+
 // Field: sf_id_c
 $dictionary['Account']['fields']['sf_id_c']['name'] = 'sf_id_c';
 $dictionary['Account']['fields']['sf_id_c']['type'] = 'varchar';
@@ -19,7 +21,7 @@ $dictionary['Account']['fields']['sf_id_c']['source'] = 'custom_fields';
 // Field: recordtypeid_c
 $dictionary['Account']['fields']['recordtypeid_c']['name'] = 'recordtypeid_c';
 $dictionary['Account']['fields']['recordtypeid_c']['type'] = 'enum';
-$dictionary['Account']['fields']['recordtypeid_c']['len'] = '18';
+$dictionary['Account']['fields']['recordtypeid_c']['len'] = '35';
 $dictionary['Account']['fields']['recordtypeid_c']['size'] = '20';
 $dictionary['Account']['fields']['recordtypeid_c']['required'] = false;
 $dictionary['Account']['fields']['recordtypeid_c']['comments'] = 'Auto-created entry for field recordtypeid_c';

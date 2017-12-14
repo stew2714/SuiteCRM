@@ -716,19 +716,7 @@ $GLOBALS['app_list_strings']['sales_region_list']=array (
 );
 $GLOBALS['app_list_strings']['fft_shipping_list']=array (
 );
-$GLOBALS['app_list_strings']['global_use_probability_list']=array (
-);
 $GLOBALS['app_list_strings']['mm_uom__list']=array (
-);
-$GLOBALS['app_list_strings']['fte_list']=array (
-);
-$GLOBALS['app_list_strings']['encoder_list']=array (
-);
-$GLOBALS['app_list_strings']['is_source_list']=array (
-);
-$GLOBALS['app_list_strings']['nih_rating_list']=array (
-);
-$GLOBALS['app_list_strings']['rfp_preparer_list']=array (
 );
 $GLOBALS['app_list_strings']['contract_ownership_group_list']=array (
   'Renewal_Account_Executive' => 'Renewal Account Executive',
@@ -849,14 +837,6 @@ $GLOBALS['app_list_strings']['tos_commitment_list']=array (
   'Sole_3rd_Party_Vendor' => 'Sole 3rd Party Vendor',
   'One_of_Several_Third_Party_Vendors' => 'One of Several Third Party Vendors',
   'Volume' => 'Volume (Monthly Minutes or Annual Revenue)',
-);
-$GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
-  '' => '',
-  'Better_than_Price_Book' => 'Better than Price Book',
-  'Price_Book_or_GPO' => 'Price Book or GPO',
-  'Price_Book_or_GPO_approved_discount' => 'Price Book or GPO approved discount',
-  'Outside_of_Price_Book_or_GPO' => 'Outside of Price Book or GPO approved discount',
-  'Below_production_cost' => 'Below production cost',
 );
 $GLOBALS['app_list_strings']['tos_pricing_category_list']=array (
   '' => '',
@@ -1196,14 +1176,7 @@ $GLOBALS['app_list_strings']['contract_status_list']=array (
   'ter_ter' => 'Terminated',
   'ame_sup' => 'Superseded',
 );
-$GLOBALS['app_list_strings']['imp_timeframe_list']=array (
-  '' => '',
-);
 $GLOBALS['app_list_strings']['imp_timeframe_comments_list']=array (
-);
-$GLOBALS['app_list_strings']['primary_reason_for_winloss_list']=array (
-);
-$GLOBALS['app_list_strings']['co_reviewer_list']=array (
 );
 $GLOBALS['app_list_strings']['capital_license_type_list']=array (
   '' => '',
@@ -1303,4 +1276,91 @@ $GLOBALS['app_list_strings']['contract_product_list']=array (
   'Precyse_University_Integration' => 'Precyse University Integration',
   'Transcription_Outsource_Services' => 'Transcription Outsource Services',
   'Virtual_Scribing_Services' => 'Virtual Scribing Services',
+);
+$GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
+  '' => '',
+  'Better_than_Price_Book' => 'Better than Price Book',
+  'Price_Book_or_GPO' => 'Price Book or GPO',
+  'Price_Book_or_GPO_approved_discount' => 'Price Book or GPO approved discount',
+  'Below_production_cost' => 'Below production cost',
+  'Outside_of_Price_Book_or_GPO_approved_discount' => 'Outside of Price Book or GPO approved discount',
+);
+$GLOBALS['app_list_strings']['global_use_probability_list']=array (
+  'None' => 'None',
+  'zero' => '0% - Global Service not presented',
+  'twentyfive' => '25% - Low probability of Global Services',
+  'fifty' => '50% - 50/50 shot of Global Services',
+  'seventyfive' => '75% - High probability of Global Services',
+  'onehundred' => '100% - Customer will definitely use Global Services ',
+);
+$GLOBALS['app_list_strings']['fte_list']=array (
+  'none' => 'None',
+  'Global' => 'Global',
+  'Domestic' => 'Domestic',
+  'Hybrid' => 'Hybrid',
+);
+$GLOBALS['app_list_strings']['encoder_list']=array (
+  'None' => 'None',
+  '3M' => '3M',
+  'Trucode' => 'Trucode',
+  'Quantim' => 'Quantim (Quadramed)',
+  'Webstrat' => 'Webstrat (HHS/Inguenix)',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['co_reviewer_list']=array (
+  'None' => 'None',
+  'Reardon' => 'Reardon',
+  'Mason' => 'Mason',
+  'Carl' => 'Carl',
+  'Merritt' => 'Merritt',
+);
+$GLOBALS['app_list_strings']['is_source_list']=array (
+  'None' => 'None',
+  'Hellard' => 'Hellard',
+  'Petri' => 'Petri',
+  'Zinn' => 'Zinn',
+  'Nagorski' => 'Nagorski',
+  'Narrasoft' => 'Narrasoft',
+  'D2D' => 'D2D',
+  'NiH' => 'NiH',
+  'Enenmoh' => 'Enenmoh',
+  'Winchester' => 'Winchester',
+);
+$GLOBALS['app_list_strings']['rfp_preparer_list']=array (
+  'None' => 'None',
+  'Heim' => 'Heim',
+  'Schuck' => 'Schuck',
+);
+$GLOBALS['app_list_strings']['imp_timeframe_list']=array (
+  'work_request' => 'Work Request - estimate 30 day implementation',
+  'standard' => 'Standard - estimate 120 day implementation',
+  'phased' => 'Phased - Phase 1 starts in 0-3 Months',
+  'other' => 'Other',
+  'phased2' => 'Phased - Phase 1 starts in 4-6 Months',
+  'emr' => 'EMR Dependency - implementation date TBD',
+  '' => '',
+  'phased3' => 'Phased - Phase 1 starts in 7-9 Months',
+  'phased4' => 'Phased - Phase 1 starts after 9 Months',
+);
+$GLOBALS['app_list_strings']['nih_rating_list']=array (
+  'none' => 'None',
+  'a' => 'A',
+  'b' => 'B',
+  'c' => 'C',
+  'd' => 'D',
+  'mo' => 'MO',
+  'nr' => 'NR',
+);
+$GLOBALS['app_list_strings']['primary_reason_for_winloss_list']=array (
+  'customer_experience_support' => 'Customer Experience (Support)',
+  'dont_know' => 'Don\'t Know',
+  'financial_stability' => 'Financial Stability',
+  'gpo_relationship_agreement' => 'GPO relationship/agreement',
+  'price' => 'Price',
+  'product_features_integration' => 'Product Features / Integrations',
+  'product_maturity_installed_base' => 'Product Maturity / installed base',
+  'references' => 'References',
+  'vendor_standardization' => 'Vendor Standardization',
+  'vendor_reseller' => 'Vendor Reseller',
+  'auto_renewal' => 'Auto-Renewal',
 );
