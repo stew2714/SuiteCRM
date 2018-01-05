@@ -44,6 +44,16 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL3' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL4' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
     ),
     'panels' => 
@@ -577,6 +587,131 @@ array (
           array (
             'name' => 'baa_effective_date_c',
             'label' => 'LBL_BAA_EFFECTIVE_DATE_C',
+          ),
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apts_request_date_c',
+            'label' => 'LBL_APTS_REQUEST_DATE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'apttus_executed_copy_mailed_out_date_c',
+            'label' => 'LBL_APTTUS_EXECUTED_COPY_MAILED_OUT_DATE_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'courior_tracking_number_c',
+            'label' => 'LBL_COURIOR_TRACKING_NUMBER_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'apttus_activated_date_c',
+            'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'apttus_activated_by_c',
+            'label' => 'LBL_APTTUS_ACTIVATED_BY_C',
+          ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apttus_company_signed_by_c',
+            'label' => 'LBL_APTTUS_COMPANY_SIGNED_BY_C',
+          ),
+          1 => 
+          array (
+            'name' => 'apttus_non_standard_legal_language_c',
+            'label' => 'LBL_APTTUS_NON_STANDARD_LEGAL_LANGUAGE_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apttus_company_signed_date_c',
+            'label' => 'LBL_APTTUS_COMPANY_SIGNED_DATE_C',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apttus_company_signed_title_c',
+            'label' => 'LBL_APTTUS_COMPANY_SIGNED_TITLE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'apttus_source_c',
+            'label' => 'LBL_APTTUS_SOURCE_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apttus_other_party_signed_by_c',
+            'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_C',
+          ),
+          1 => 
+          array (
+            'name' => 'apttus_other_party_signed_by_unlisted_c',
+            'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_UNLISTED_C',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apttus_other_party_signed_date_c',
+            'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_DATE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'apttus_other_party_signed_title_c',
+            'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_TITLE_C',
+          ),
+        ),
+        5 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_submitted_to_comm_ops_c',
+            'label' => 'LBL_DATE_SUBMITTED_TO_COMM_OPS_C',
+          ),
+          1 => 
+          array (
+            'name' => 'total_time_with_comm_ops_c',
+            'label' => 'LBL_TOTAL_TIME_WITH_COMM_OPS_C',
           ),
         ),
       ),

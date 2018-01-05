@@ -38,12 +38,6 @@ array (
     'label' => 'LBL_FACILITY_TYPE_DD',
     'width' => '10%',
   ),
-  'BILLING_ADDRESS_STREET' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_BILLING_ADDRESS_STREET',
-    'default' => true,
-  ),
   'BILLING_ADDRESS_CITY' => 
   array (
     'width' => '10%',
@@ -56,10 +50,11 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_STATE',
     'default' => true,
   ),
-  'INDUSTRY' => 
+  'EHR_C' => 
   array (
+    'type' => 'varchar',
+    'label' => 'EHR',
     'width' => '10%',
-    'label' => 'LBL_INDUSTRY',
     'default' => true,
   ),
   'SF_ID_C' => 
@@ -68,6 +63,12 @@ array (
     'label' => 'SF ID',
     'width' => '10%',
     'default' => true,
+  ),
+  'BILLING_ADDRESS_STREET' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_BILLING_ADDRESS_STREET',
+    'default' => false,
   ),
   'DATE_ENTERED' => 
   array (
@@ -94,6 +95,12 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
+    'default' => false,
+  ),
+  'INDUSTRY' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_INDUSTRY',
     'default' => false,
   ),
   'SHIPPING_ADDRESS_STREET' => 
