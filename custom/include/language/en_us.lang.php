@@ -1364,3 +1364,16 @@ $GLOBALS['app_list_strings']['primary_reason_for_winloss_list']=array (
   'vendor_reseller' => 'Vendor Reseller',
   'auto_renewal' => 'Auto-Renewal',
 );
+$GLOBALS['app_list_strings']['gma_product_list']=array (
+  'Fluency_Mobile' => 'Fluency Mobile',
+  'Fluency_Direct' => 'Fluency Direct',
+  'Fluency_for_Imaging' => 'Fluency for Imaging',
+  'Fluency_for_Coding' => 'Fluency for Coding',
+  'Catalyst_for_Quality' => 'Catalyst for Quality',
+  'Catalyst_for_Radiology' => 'Catalyst for Raidiology',
+  'Catalyst_Embedded' => 'Catalyst (Embedded)',
+  'Catalyst_for_Coding' => 'Catalyst for Coding',
+  'Fluency_Voice_Capture' => 'Fluency Voice Capture',
+  'Fluency_Voice_Capture_Upgrade_Program' => 'Fluency Voice Capture Upgrade Program',
+  'Hardware' => 'Hardware',
+);
