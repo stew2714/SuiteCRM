@@ -1,5 +1,5 @@
 <?php
-// created: 2017-09-07 17:52:08
+// created: 2017-11-10 19:08:27
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -28,12 +28,13 @@ $subpanel_layout['list_fields'] = array (
     'sortable' => true,
     'default' => true,
   ),
-  'phone_work' => 
+  'contact_type_c' => 
   array (
-    'name' => 'phone_work',
-    'vname' => 'LBL_LIST_PHONE',
-    'width' => '15%',
+    'type' => 'enum',
     'default' => true,
+    'studio' => 'visible',
+    'vname' => 'LBL_CONTACT_TYPE',
+    'width' => '10%',
   ),
   'contact_association_c' => 
   array (
@@ -42,6 +43,25 @@ $subpanel_layout['list_fields'] = array (
     'studio' => 'visible',
     'vname' => 'LBL_CONTACT_ASSOCIATION',
     'width' => '10%',
+  ),
+  'active_c' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'vname' => 'LBL_ACTIVE',
+    'width' => '10%',
+  ),
+  'assigned_user_name' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'vname' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Users',
+    'target_record_key' => 'assigned_user_id',
   ),
   'edit_button' => 
   array (

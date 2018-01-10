@@ -329,7 +329,6 @@ array (
             'name' => 'addwords_c',
             'label' => 'LBL_ADDWORDS',
           ),
-          1 => '',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 

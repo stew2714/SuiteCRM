@@ -168,25 +168,6 @@ $GLOBALS['app_list_strings']['record_type_display_notes']=array (
   'Meetings' => 'Meeting',
   'Tasks' => 'Task',
 );
-$GLOBALS['app_list_strings']['cc_region_dd_list']=array (
-  '' => '',
-  'AM' => 'Ambulatory Market',
-  'ASP' => 'ASP',
-  'CBS' => 'CBTSI Scribe',
-  'CS' => 'Coding Solutions',
-  'EM' => 'East Market',
-  'Int' => 'International',
-  'MW' => 'Midwest',
-  'MTSO' => 'MTSO',
-  'NM' => 'North Market',
-  'SM' => 'South Market',
-  'STM' => 'Strategic Market',
-  'STMC' => 'Strategic Market - CHS',
-  'STMH' => 'Strategic Market - HCA',
-  'STML' => 'Strategic Market - LifePoint',
-  'Tech' => 'Technology',
-  'WM' => 'West Market',
-);
 $app_list_strings['moduleList']['C1_Cust_Contacts1']='Cust_Contacts';
 $app_list_strings['moduleListSingular']['C1_Cust_Contacts1']='Cust_Contacts';
 $GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
@@ -201,9 +182,6 @@ $GLOBALS['app_list_strings']['FluencyONE_Segment_list']=array (
   'NIS' => 'Not in Segment',
   'ZBA' => 'ZBA',
 );
-$GLOBALS['app_list_strings']['acct_fed_agency_list']=array (
-  '' => '',
-);
 $GLOBALS['app_list_strings']['acct_cdi_vendor_list']=array (
   '' => '',
   '3M' => '3M',
@@ -212,12 +190,6 @@ $GLOBALS['app_list_strings']['acct_cdi_vendor_list']=array (
   'Huron' => 'Huron',
   'JATA' => 'JATA',
   'Optum' => 'Optum',
-);
-$GLOBALS['app_list_strings']['acct_fed_dpmt_list']=array (
-  '' => '',
-  'DoD' => 'DoD',
-  'IHS' => 'IHS',
-  'VAMC' => 'VAMC',
 );
 $GLOBALS['app_list_strings']['acct_mm_segment_list']=array (
   '' => '',
@@ -425,12 +397,6 @@ $GLOBALS['app_list_strings']['acct_voice_cap_list']=array (
   '' => '',
 );
 $GLOBALS['app_list_strings']['acct_him_speech_rec_list']=array (
-  '' => '',
-);
-$GLOBALS['app_list_strings']['acct_ris_list']=array (
-  '' => '',
-);
-$GLOBALS['app_list_strings']['acct_pacs_list']=array (
   '' => '',
 );
 $GLOBALS['app_list_strings']['fes_satisfaction_list']=array (
@@ -723,21 +689,6 @@ $GLOBALS['app_list_strings']['interest_level_list']=array (
   'Will_Not_Close_woUse' => '4 - Will not close deal unless they are able to use',
   'Will_Not_Close_woRef' => '5 - Will not close deal until there is a reference available',
 );
-
-$GLOBALS['app_list_strings']['acct_trans_sys_list']=array (
-  '' => '',
-  'MedQuist_DEP' => 'M*Modal FFT',
-  'MedQuist_CMT' => 'M*Modal CMT',
-  'Nuance_Ichart' => 'Nuance Ichart',
-  'Nuance_eScriptions' => 'Nuance eScriptions',
-  'Dolbey' => 'Dolbey',
-  'Outscourced' => 'Outsourced',
-  'Other' => 'Other',
-  '3M' => '3M',
-  'Self_Developed' => 'Self-Developed',
-  'Word_WordPerfect' => 'Word/WordPerfect',
-  'In_house' => 'In-house',
-);
 $GLOBALS['app_list_strings']['lead_gen_spec_list']=array (
   '' => '',
   'Jerome_Morgan' => 'Jerome Morgan',
@@ -765,58 +716,12 @@ $GLOBALS['app_list_strings']['sales_region_list']=array (
 );
 $GLOBALS['app_list_strings']['fft_shipping_list']=array (
 );
-$GLOBALS['app_list_strings']['global_use_probability_list']=array (
-);
 $GLOBALS['app_list_strings']['mm_uom__list']=array (
-);
-$GLOBALS['app_list_strings']['fte_list']=array (
-);
-$GLOBALS['app_list_strings']['encoder_list']=array (
-);
-$GLOBALS['app_list_strings']['capital_license_type_list']=array (
-);
-$GLOBALS['app_list_strings']['is_source_list']=array (
-);
-$GLOBALS['app_list_strings']['nih_rating_list']=array (
-);
-$GLOBALS['app_list_strings']['rfp_preparer_list']=array (
-);
-$GLOBALS['app_list_strings']['contract_status_category_list']=array (
-  '' => '',
-  'req' => 'Request',
-  'fil' => 'In Filing',
-  'eff' => 'In Effect',
-  'sig' => 'In Signatures',
-  'aut' => 'In Authoring',
-  'exp' => 'Expired',
-  'amd' => 'Amended',
-  'ter' => 'Terminated',
-  'can' => 'Cancelled',
-);
-
-$GLOBALS['app_list_strings']['contract_status_list']=array (
-  '' => '',
-  'req_req' => 'Request',
-  'eff_act' => 'Activated',
-);
-$GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
-  '' => '',
-  'Add_Product_Service' => 'Add Product/Service',
-  'Zero_Based' => 'Zero Based',
-  'Renewal' => 'Renewal',
-  'Amend_Existing_Terms' => 'Amend Existing Terms',
-  'Gov_Public_Entity_Academic_Institution' => 'Gov./Public Entity/Academic Institution',
 );
 $GLOBALS['app_list_strings']['contract_ownership_group_list']=array (
   'Renewal_Account_Executive' => 'Renewal Account Executive',
   'Account_Executive' => 'Account Executive',
   'Inside_Sales' => 'Inside Sales',
-);
-$GLOBALS['app_list_strings']['payment_type_list']=array (
-  'ACH_Debit' => 'ACH Debi',
-  'Wire_Transfer' => 'Wire Transfer',
-  'Check' => 'Check',
-  'Credit_Card' => 'Credit Card',
 );
 $GLOBALS['app_list_strings']['governing_law_state_list']=array (
   'AL' => 'Alabama',
@@ -932,14 +837,6 @@ $GLOBALS['app_list_strings']['tos_commitment_list']=array (
   'Sole_3rd_Party_Vendor' => 'Sole 3rd Party Vendor',
   'One_of_Several_Third_Party_Vendors' => 'One of Several Third Party Vendors',
   'Volume' => 'Volume (Monthly Minutes or Annual Revenue)',
-);
-$GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
-  '' => '',
-  'Better_than_Price_Book' => 'Better than Price Book',
-  'Price_Book_or_GPO' => 'Price Book or GPO',
-  'Price_Book_or_GPO_approved_discount' => 'Price Book or GPO approved discount',
-  'Outside_of_Price_Book_or_GPO' => 'Outside of Price Book or GPO approved discount',
-  'Below_production_cost' => 'Below production cost',
 );
 $GLOBALS['app_list_strings']['tos_pricing_category_list']=array (
   '' => '',
@@ -1082,4 +979,401 @@ $GLOBALS['app_list_strings']['contract_category_list']=array (
   'Strategic_Alliance' => 'Strategic Alliance',
   'Vendor' => 'Vendor',
   'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['acct_fed_dpmt_list']=array (
+  '' => '',
+  'DoD' => 'DoD',
+  'IHS' => 'IHS',
+  'VAMC' => 'VAMC',
+  'DOJ' => 'DOJ',
+  'FEDERAL' => 'FEDERAL',
+  'IPO' => 'IPO',
+);
+$GLOBALS['app_list_strings']['acct_fed_agency_list']=array (
+  '' => '',
+  'AFB' => 'AFB',
+  'ARMY' => 'ARMY',
+  'FEDERAL' => 'FEDERAL',
+  'IHS' => 'IHS',
+  'IPO' => 'IPO',
+  'NAVY' => 'NAVY',
+  'TRIBAL' => 'TRIBAL',
+  'VAMC' => 'VAMC',
+  'VISN_1' => 'VISN 1',
+  'VISN_2' => 'VISN 2',
+  'VISN_3' => 'VISN 3',
+  'VISN_4' => 'VISN 4',
+  'VISN_5' => 'VISN 5',
+  'VISN_6' => 'VISN 6',
+  'VISN_7' => 'VISN 7',
+  'VISN_8' => 'VISN 8',
+  'VISN_9' => 'VISN 9',
+  'VISN_10' => 'VISN 10',
+  'VISN_11' => 'VISN 11',
+  'VISN_12' => 'VISN 12',
+  'VISN_15' => 'VISN 15',
+  'VISN_16' => 'VISN 16',
+  'VISN_17' => 'VISN 17',
+  'VISN_18' => 'VISN 18',
+  'VISN_19' => 'VISN 19',
+  'VISN_20' => 'VISN 20',
+  'VISN_21' => 'VISN 21',
+  'VISN_22' => 'VISN 22',
+  'VISN_23' => 'VISN 23',
+);
+
+$GLOBALS['app_list_strings']['acct_trans_sys_list']=array (
+  '' => '',
+  '3M' => '3M',
+  'Acusis' => 'Acusis',
+  'Cerner' => 'Cerner',
+  'CPSI' => 'CPSI',
+  'Crescendo' => 'Crescendo',
+  'Diskriter' => 'Diskriter',
+  'Dolbey' => 'Dolbey',
+  'Ecliplsys' => 'Ecliplsys',
+  'Epic' => 'Epic',
+  'eScription' => 'eScription',
+  'eScription_Editscript' => 'eScription Editscript',
+  'eScription_Intelliscript' => 'eScription Intelliscript',
+  'Handwritten' => 'Handwritten',
+  'Healthland' => 'Healthland',
+  'HMS' => 'HMS',
+  'In_house' => 'In-house',
+  'MedQuist_CMT' => 'M*Modal CMT',
+  'MedQuist_DEP' => 'M*Modal FFT',
+  'McKesson' => 'McKesson',
+  'MediScribe' => 'MediScribe',
+  'Meditech' => 'Meditech',
+  'Nuance_eScriptions' => 'Nuance eScriptions',
+  'Nuance_Ichart' => 'Nuance Ichart',
+  'Other' => 'Other',
+  'Outscourced' => 'Outsourced',
+  'Self_Developed' => 'Self-Developed',
+  'Word_WordPerfect' => 'Word/WordPerfect',
+  'Nuance' => 'Nuance',
+  'Not_Reported' => 'Not Reported',
+  'Precyse' => 'Precyse',
+  'QuadraMed' => 'QuadraMed',
+  'Siemens' => 'Siemens',
+  'StenTel' => 'StenTel',
+  'Transcend' => 'Transcend',
+  'WebMedX' => 'WebMedX',
+  'WinScribe' => 'WinScribre',
+);
+$GLOBALS['app_list_strings']['acct_ris_list']=array (
+  '' => '',
+  'AGFA' => 'AGFA',
+  'Allscripts' => 'Allscripts',
+  'BRIT' => 'BRIT',
+  'Carestream' => 'Carestream',
+  'Cerner_Radnet' => 'Cerner Radnet',
+  'CPSI' => 'CPSI',
+  'Epic' => 'Epic',
+  'Epic_Radiant' => 'Epic Radiant',
+  'Fuji' => 'Fuji',
+  'GE' => 'GE',
+  'GE_Centricity' => 'GE Centricity',
+  'HMS' => 'HMS',
+  'IBM_DR_Systems' => 'IBM - DR Systems',
+  'IBM_Merge' => 'IBM - Merge',
+  'Infinitt' => 'Infinitt',
+  'McKesson' => 'McKesson',
+  'Medinformatics' => 'Medinformatics',
+  'Meditech' => 'Meditech',
+  'Merge_Healthcare' => 'Merge Healthcare',
+  'Not_Reported' => 'Not Reported',
+  'NovaRad' => 'NovaRad',
+  'Other' => 'Other',
+  'Phillips' => 'Phillips',
+  'RamSoft' => 'RamSoft',
+  'Sectra' => 'Sectra',
+  'Self_developed' => 'Self developed',
+  'Siemens' => 'Siemens',
+);
+
+$GLOBALS['app_list_strings']['acct_pacs_list']=array (
+  '' => '',
+  'AGFA' => 'AGFA',
+  'Avreo' => 'Avreo',
+  'BRIT' => 'BRIT',
+  'Carestream' => 'Carestream',
+  'Cerner_Provision' => 'Cerner Provision',
+  'CPSI' => 'CPSI',
+  'Fuji_Synapse' => 'Fuji Synapse',
+  'GE_Centricity' => 'GE Centricity',
+  'GE_Centricity_IW' => 'GE Centricity IW',
+  'IBM_DR_Systems' => 'IBM - DR Systems',
+  'IBM_Merge' => 'IBM - Merge',
+  'Infinitt' => 'Infinitt',
+  'Intelerad' => 'Intelerad',
+  'McKesson' => 'McKesson',
+  'NOVARAD_NovaPACS' => 'NOVARD (NovaPACS)',
+  'NovaRad_PACS' => 'NovaRad PACS',
+  'Other' => 'Other',
+  'Phillips' => 'Phillips',
+  'Phillips_Intellispace' => 'Phillips Intellispace',
+  'RamSoft' => 'RamSoft',
+  'SECTRA' => 'SECTRA',
+  'Siemens' => 'Siemens',
+  'TeraRecon' => 'TeraRecon',
+  'Visage_Imaging' => 'Visage Imaging',
+  'Viztek' => 'Viztek',
+);
+$GLOBALS['app_list_strings']['training_list']=array (
+  'training_two' => 'Training 2',
+  'training_with_spaces' => 'Training With Spaces',
+);
+$GLOBALS['app_list_strings']['contract_status_category_list']=array (
+  '' => '',
+  'ame' => 'Amended',
+  'can' => 'Cancelled',
+  'exp' => 'Expired',
+  'aut' => 'In Authoring',
+  'eff' => 'In Effect',
+  'fil' => 'In Filing',
+  'sig' => 'In Signatures',
+  'req' => 'Request',
+  'ter' => 'Terminated',
+);
+$GLOBALS['app_list_strings']['contract_status_list']=array (
+  '' => '',
+  'aut_ar' => 'Accepted Request',
+  'eff_act' => 'Activated',
+  'req_asd' => 'Approved and Submitted for Drafting',
+  'aut_ac' => 'Author Contract',
+  'fil_ad' => 'Awaiting Distribution',
+  'sig_ai' => 'Awaiting Information',
+  'aut_ai' => 'Awaiting Information',
+  'req_ai' => 'Awaiting Information',
+  'eff_ba' => 'Being Amended',
+  'eff_br' => 'Being Renewed',
+  'eff_bt' => 'Being Terminated',
+  'can_cr' => 'Cancelled Request',
+  'req_cr' => 'Cancelled Request',
+  'aut_crr' => 'Client Redline Review',
+  'exp_exp' => 'Expired',
+  'sig_fs' => 'Fully Signed',
+  'req_ia' => 'In Amendment',
+  'sig_ccs' => 'In Comm Ops Contract Setup',
+  'sig_cof' => 'In Comm Ops Final Review',
+  'sig_cor' => 'In Comm Ops Intial Review',
+  'sig_coi' => 'In Comm Ops Issue Resolution',
+  'aut_la' => 'Language Approval',
+  'aut_lap' => 'Language Approved',
+  'aut_mrr' => 'M*Modal Redline Review',
+  'sig_opr' => 'Other Party Review',
+  'aut_opr' => 'Other Party Review',
+  'sig_ops' => 'Other Party Signatures',
+  'aut_per' => 'Partially Executed Received',
+  'sig_rfs' => 'Ready for Signatures',
+  'req_req' => 'Request',
+  'sig_sd' => 'Signature Declined',
+  'req_sfa' => 'Submitted for Approval',
+  'sig_scp' => 'Submitted for Comm Ops Processing',
+  'req_sr' => 'Submitted Request',
+  'eff_sup' => 'Superseded',
+  'ter_ter' => 'Terminated',
+  'ame_sup' => 'Superseded',
+);
+$GLOBALS['app_list_strings']['imp_timeframe_comments_list']=array (
+);
+$GLOBALS['app_list_strings']['capital_license_type_list']=array (
+  '' => '',
+  'Term' => 'Term',
+  'Perpetual' => 'Perpetual',
+);
+$GLOBALS['app_list_strings']['cc_region_dd_list']=array (
+  '' => '',
+  'AM' => 'Ambulatory Market',
+  'ASP' => 'ASP',
+  'CBS' => 'CBTSI Scribe',
+  'CS' => 'Coding Solutions',
+  'EM' => 'East Market',
+  'Int' => 'International',
+  'MW' => 'Midwest',
+  'MTSO' => 'MTSO',
+  'NM' => 'North Market',
+  'SCRSL' => 'Scribe Solutions',
+  'SM' => 'South Market',
+  'STM' => 'Strategic Market',
+  'STMC' => 'Strategic Market - CHS',
+  'STMH' => 'Strategic Market - HCA',
+  'STML' => 'Strategic Market - LifePoint',
+  'Tech' => 'Technology',
+  'WM' => 'West Market',
+);
+$GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
+  '' => '',
+  'Add_Product_Service' => 'Add Product/Service',
+  'Zero_Based' => 'Zero Based',
+  'Renewal' => 'Renewal',
+  'Amend_Existing_Terms' => 'Amend Existing Terms',
+  'Gov._Public_Entity_Academic_Institution' => 'Gov./Public Entity/Academic Institution',
+);
+$GLOBALS['app_list_strings']['payment_type_list']=array (
+  'ACH_Debit' => 'ACH Debit',
+  'Wire_Transfer' => 'Wire Transfer',
+  'Check' => 'Check',
+  'Credit_Card' => 'Credit Card',
+);
+$GLOBALS['app_list_strings']['contract_product_list']=array (
+  'CAPD' => 'CAPD',
+  'Catalyst_Embedded' => 'Catalyst (Embedded)',
+  'CDI_Assess' => 'CDI Assess',
+  'CDI_Collaborate' => 'CDI Collaborate',
+  'CDI_Engage' => 'CDI Engage',
+  'Coding_Assessments' => 'Coding Assessments',
+  'Coding_Audit_Services' => 'Coding Audit Services',
+  'Coding_Outsourced_Services' => 'Coding Outsourced Services',
+  'eSign' => 'eSign',
+  'Fluency_Embedded' => 'Fluency (Embedded)',
+  'Fluency_Direct' => 'Fluency Direct',
+  'Fluency_Flex' => 'Fluency Flex',
+  'Fluency_for_Coding' => 'Fluency for Coding',
+  'Fluency_for_Imaging' => 'Fluency for Imaging',
+  'Fluency_for_Practices' => 'Fluency for Practices',
+  'Fluency_for_Transcription' => 'Fluency for Transcription',
+  'Fluency_Mobile' => 'Fluency Mobile',
+  'FluencyOne' => 'FluencyOne',
+  'Fluency_Voice_Manager' => 'Fluency Voice Manager',
+  'Fluency_Voice_Manager_Upgrade_Program' => 'Fluency Voice Manager Upgrade Program',
+  'HCC_Collaborate' => 'HCC Collaborate',
+  'HCC_Engage' => 'HCC Engage',
+  'HIM_Management_Services' => 'HIM Management Services',
+  'M_Modal_Scout' => 'M*Modal Scout',
+  'Maintenance_and_Support_Only' => 'Maintenance and Support Only',
+  'Precyse_University_Integration' => 'Precyse University Integration',
+  'Transcription_Outsource_Services' => 'Transcription Outsource Services',
+  'Virtual_Scribing_Services' => 'Virtual Scribing Services',
+);
+$GLOBALS['app_list_strings']['contract_product_list']=array (
+  'CAPD' => 'CAPD',
+  'Catalyst_Embedded' => 'Catalyst (Embedded)',
+  'CDI_Assess' => 'CDI Assess',
+  'CDI_Collaborate' => 'CDI Collaborate',
+  'CDI_Engage' => 'CDI Engage',
+  'Coding_Assessments' => 'Coding Assessments',
+  'Coding_Audit_Services' => 'Coding Audit Services',
+  'Coding_Outsourced_Services' => 'Coding Outsourced Services',
+  'eSign' => 'eSign',
+  'Fluency_Embedded' => 'Fluency (Embedded)',
+  'Fluency_Direct' => 'Fluency Direct',
+  'Fluency_Flex' => 'Fluency Flex',
+  'Fluency_for_Coding' => 'Fluency for Coding',
+  'Fluency_for_Imaging' => 'Fluency for Imaging',
+  'Fluency_for_Practices' => 'Fluency for Practices',
+  'Fluency_for_Transcription' => 'Fluency for Transcription',
+  'Fluency_Mobile' => 'Fluency Mobile',
+  'FluencyOne' => 'FluencyOne',
+  'Fluency_Voice_Manager' => 'Fluency Voice Manager',
+  'Fluency_Voice_Manager_Upgrade_Program' => 'Fluency Voice Manager Upgrade Program',
+  'HCC_Collaborate' => 'HCC Collaborate',
+  'HCC_Engage' => 'HCC Engage',
+  'HIM_Management_Services' => 'HIM Management Services',
+  'M_Modal_Scout' => 'M*Modal Scout',
+  'Maintenance_and_Support_Only' => 'Maintenance and Support Only',
+  'Precyse_University_Integration' => 'Precyse University Integration',
+  'Transcription_Outsource_Services' => 'Transcription Outsource Services',
+  'Virtual_Scribing_Services' => 'Virtual Scribing Services',
+);
+$GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
+  '' => '',
+  'Better_than_Price_Book' => 'Better than Price Book',
+  'Price_Book_or_GPO' => 'Price Book or GPO',
+  'Price_Book_or_GPO_approved_discount' => 'Price Book or GPO approved discount',
+  'Below_production_cost' => 'Below production cost',
+  'Outside_of_Price_Book_or_GPO_approved_discount' => 'Outside of Price Book or GPO approved discount',
+);
+$GLOBALS['app_list_strings']['global_use_probability_list']=array (
+  'None' => 'None',
+  'zero' => '0% - Global Service not presented',
+  'twentyfive' => '25% - Low probability of Global Services',
+  'fifty' => '50% - 50/50 shot of Global Services',
+  'seventyfive' => '75% - High probability of Global Services',
+  'onehundred' => '100% - Customer will definitely use Global Services ',
+);
+$GLOBALS['app_list_strings']['fte_list']=array (
+  'none' => 'None',
+  'Global' => 'Global',
+  'Domestic' => 'Domestic',
+  'Hybrid' => 'Hybrid',
+);
+$GLOBALS['app_list_strings']['encoder_list']=array (
+  'None' => 'None',
+  '3M' => '3M',
+  'Trucode' => 'Trucode',
+  'Quantim' => 'Quantim (Quadramed)',
+  'Webstrat' => 'Webstrat (HHS/Inguenix)',
+  'Other' => 'Other',
+);
+$GLOBALS['app_list_strings']['co_reviewer_list']=array (
+  'None' => 'None',
+  'Reardon' => 'Reardon',
+  'Mason' => 'Mason',
+  'Carl' => 'Carl',
+  'Merritt' => 'Merritt',
+);
+$GLOBALS['app_list_strings']['is_source_list']=array (
+  'None' => 'None',
+  'Hellard' => 'Hellard',
+  'Petri' => 'Petri',
+  'Zinn' => 'Zinn',
+  'Nagorski' => 'Nagorski',
+  'Narrasoft' => 'Narrasoft',
+  'D2D' => 'D2D',
+  'NiH' => 'NiH',
+  'Enenmoh' => 'Enenmoh',
+  'Winchester' => 'Winchester',
+);
+$GLOBALS['app_list_strings']['rfp_preparer_list']=array (
+  'None' => 'None',
+  'Heim' => 'Heim',
+  'Schuck' => 'Schuck',
+);
+$GLOBALS['app_list_strings']['imp_timeframe_list']=array (
+  'work_request' => 'Work Request - estimate 30 day implementation',
+  'standard' => 'Standard - estimate 120 day implementation',
+  'phased' => 'Phased - Phase 1 starts in 0-3 Months',
+  'other' => 'Other',
+  'phased2' => 'Phased - Phase 1 starts in 4-6 Months',
+  'emr' => 'EMR Dependency - implementation date TBD',
+  '' => '',
+  'phased3' => 'Phased - Phase 1 starts in 7-9 Months',
+  'phased4' => 'Phased - Phase 1 starts after 9 Months',
+);
+$GLOBALS['app_list_strings']['nih_rating_list']=array (
+  'none' => 'None',
+  'a' => 'A',
+  'b' => 'B',
+  'c' => 'C',
+  'd' => 'D',
+  'mo' => 'MO',
+  'nr' => 'NR',
+);
+$GLOBALS['app_list_strings']['primary_reason_for_winloss_list']=array (
+  'customer_experience_support' => 'Customer Experience (Support)',
+  'dont_know' => 'Don\'t Know',
+  'financial_stability' => 'Financial Stability',
+  'gpo_relationship_agreement' => 'GPO relationship/agreement',
+  'price' => 'Price',
+  'product_features_integration' => 'Product Features / Integrations',
+  'product_maturity_installed_base' => 'Product Maturity / installed base',
+  'references' => 'References',
+  'vendor_standardization' => 'Vendor Standardization',
+  'vendor_reseller' => 'Vendor Reseller',
+  'auto_renewal' => 'Auto-Renewal',
+);
+$GLOBALS['app_list_strings']['gma_product_list']=array (
+  'Fluency_Mobile' => 'Fluency Mobile',
+  'Fluency_Direct' => 'Fluency Direct',
+  'Fluency_for_Imaging' => 'Fluency for Imaging',
+  'Fluency_for_Coding' => 'Fluency for Coding',
+  'Catalyst_for_Quality' => 'Catalyst for Quality',
+  'Catalyst_for_Radiology' => 'Catalyst for Raidiology',
+  'Catalyst_Embedded' => 'Catalyst (Embedded)',
+  'Catalyst_for_Coding' => 'Catalyst for Coding',
+  'Fluency_Voice_Capture' => 'Fluency Voice Capture',
+  'Fluency_Voice_Capture_Upgrade_Program' => 'Fluency Voice Capture Upgrade Program',
+  'Hardware' => 'Hardware',
 );

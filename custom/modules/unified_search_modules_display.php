@@ -1,11 +1,7 @@
 <?php
-// created: 2017-09-07 13:04:45
+// created: 2017-11-10 18:53:17
 $unified_search_modules_display = array (
   'Accounts' => 
-  array (
-    'visible' => true,
-  ),
-  'Contacts' => 
   array (
     'visible' => true,
   ),
@@ -13,11 +9,19 @@ $unified_search_modules_display = array (
   array (
     'visible' => true,
   ),
+  'Opportunities' => 
+  array (
+    'visible' => true,
+  ),
   'Meetings' => 
   array (
     'visible' => true,
   ),
-  'Opportunities' => 
+  'Contacts' => 
+  array (
+    'visible' => true,
+  ),
+  'AOS_Contracts' => 
   array (
     'visible' => true,
   ),
@@ -34,10 +38,6 @@ $unified_search_modules_display = array (
     'visible' => false,
   ),
   'AOR_Reports' => 
-  array (
-    'visible' => false,
-  ),
-  'AOS_Contracts' => 
   array (
     'visible' => false,
   ),

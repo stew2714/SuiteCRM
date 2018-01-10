@@ -1,5 +1,6 @@
-<?php 
-$GLOBALS["tabStructure"] =array (
+<?php
+// created: 2017-11-08 14:02:09
+$GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_SALES' => 
   array (
     'label' => 'LBL_TABGROUP_SALES',
@@ -7,26 +8,30 @@ $GLOBALS["tabStructure"] =array (
     array (
       0 => 'Home',
       1 => 'Accounts',
-      2 => 'Contacts',
-      3 => 'Opportunities',
-      4 => 'Leads',
-      5 => 'Contracts',
-      6 => 'Quotes',
-      7 => 'Forecasts',
+      2 => 'AOS_Contracts',
+      3 => 'Campaigns',
+      4 => 'Contacts',
+      5 => 'sa_Tracking_History',
+      6 => 'sa_Fluency_One',
+      7 => 'Leads',
+      8 => 'SA_Legal_Timesheets',
+      9 => 'SA_Legal_Vendors',
+      10 => 'Opportunities',
     ),
   ),
-  'LBL_TABGROUP_MARKETING' => 
+  'LBL_GROUPTAB5_1491298541' => 
   array (
-    'label' => 'LBL_TABGROUP_MARKETING',
+    'label' => 'LBL_GROUPTAB5_1491298541',
     'modules' => 
     array (
       0 => 'Home',
-      1 => 'Accounts',
-      2 => 'Contacts',
-      3 => 'Leads',
-      4 => 'Campaigns',
-      5 => 'Prospects',
-      6 => 'ProspectLists',
+      1 => 'SA_Curriculum',
+      2 => 'SA_Courses',
+      3 => 'SA_Assignments',
+      4 => 'SA_QuizSubmissions',
+      5 => 'SA_QuizAnswers',
+      6 => 'SA_Quizzes',
+      7 => 'SA_QuizQuestions',
     ),
   ),
   'LBL_TABGROUP_SUPPORT' => 

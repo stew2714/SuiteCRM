@@ -1,8 +1,8 @@
 <?php
-// created: 2017-11-01 18:15:16
+// created: 2017-11-10 19:00:02
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
-  'LBL_DETAILVIEW_PANEL1' => 'New Panel 1',
+  'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
   'LBL_HIMSS_ID' => 'HIMSS ID',
   'LBL_DEFINTIVE_ID' => 'Defintive ID',
   'LBL_FACILITY_TYPE' => 'Facility Type_old',
@@ -23,8 +23,14 @@ $mod_strings = array (
   'LBL_PLEASE_CONTACT' => 'Please contact Kevin Bradley in order to move an account to new ownership',
   'LBL_ENTRY_REQUIRED_IN_CHANGES' => 'An entry is required in the Top 10 Prospecting Reason field when the Top 10 Prospecting flag is set.',
   'LBL_C1_CUST_CONTACTS1_ACCOUNTS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
-  'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'myContacts',
+  'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Contacts',
   'LBL_OWNERSHIP' => 'Ownership:',
   'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
   'LBL_BILLING_ADDRESS_CITY' => 'City',
+  'LBL_EDITVIEW_PANEL2' => 'Territory Information',
+  'LBL_EDITVIEW_PANEL3' => 'Account Statistics',
+  'LBL_EDITVIEW_PANEL4' => 'Market Information',
+  'LBL_EDITVIEW_PANEL5' => 'CDI Information',
+  'LBL_EDITVIEW_PANEL6' => 'Installed Products',
+  'LBL_EDITVIEW_PANEL7' => 'System Information',
 );

@@ -62,7 +62,6 @@ $mod_strings['LBL_IMPLEMENTATION_AND_TRAINING_DISCOUNT_C'] = 'Professional Servi
 $mod_strings['LBL_NUMBER_OF_MT_S_FOR_HIRE_C'] = 'Number Of Mt S For Hire';
 $mod_strings['LBL_OTHER_TRANSCRIPTION_PLATFORM_C'] = 'Other Transcription Platform';
 $mod_strings['LBL_QA_PROGRAM_C'] = 'Qa Program';
-$mod_strings['LBL_SERVICE_OR_PRODUCT_WARRANTY_C'] = 'Service Or Product Warranty';
 $mod_strings['LBL_TAT_CREDIT_DETAILS_C'] = 'Tat Credit Details';
 $mod_strings['LBL_TAT_CREDIT_STANDARD_C'] = 'Tat Credit Standard';
 $mod_strings['LBL_TAT_CREDITS_C'] = 'Tat Credits';

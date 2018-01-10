@@ -64,6 +64,14 @@ array (
     'label' => 'LBL_CONTACT_ASSOCIATION',
     'width' => '10%',
   ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
   'ACTIVE_C' => 
   array (
     'type' => 'bool',
@@ -75,6 +83,43 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_DEPARTMENT',
+    'default' => false,
+  ),
+  'ADDITIONALUSERS' => 
+  array (
+    'type' => 'additionalusers',
+    'sortable' => false,
+    'studio' => 
+    array (
+      'visible' => false,
+      'listview' => true,
+      'searchview' => false,
+      'detailview' => true,
+      'editview' => true,
+      'formula' => false,
+      'related' => false,
+      'basic_search' => false,
+      'advanced_search' => false,
+      'popuplist' => true,
+      'popupsearch' => false,
+      'dashletsearch' => false,
+      'dashlet' => true,
+    ),
+    'label' => 'LBL_ADDITIONALUSERS',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
     'default' => false,
   ),
   'MARKETING_C' => 
@@ -90,11 +135,30 @@ array (
     'label' => 'LBL_DO_NOT_CALL',
     'default' => false,
   ),
+  'MODIFIED_BY_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_MODIFIED',
+    'default' => false,
+  ),
   'OPERATIONAL_C' => 
   array (
     'type' => 'bool',
     'default' => false,
     'label' => 'LBL_OPERATIONAL',
+    'width' => '10%',
+  ),
+  'CREATED_BY_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CREATED',
+    'default' => false,
+  ),
+  'SALES_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_SALES',
     'width' => '10%',
   ),
   'SECURITYGROUP_DISPLAY' => 
@@ -120,13 +184,6 @@ array (
     'label' => 'LBL_SECURITYGROUP',
     'width' => '10%',
     'default' => false,
-  ),
-  'SALES_C' => 
-  array (
-    'type' => 'bool',
-    'default' => false,
-    'label' => 'LBL_SALES',
-    'width' => '10%',
   ),
   'REFERENCE_PROGRAM_C' => 
   array (
@@ -351,12 +408,6 @@ array (
     'label' => 'LBL_BUSINESS_CEO',
     'width' => '10%',
   ),
-  'EMAIL_OPT_OUT' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_EMAIL_OPT_OUT',
-    'default' => false,
-  ),
   'PRIMARY_ADDRESS_CITY' => 
   array (
     'width' => '10%',
@@ -403,18 +454,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_ALT_ADDRESS_POSTALCODE',
-    'default' => false,
-  ),
-  'CREATED_BY_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_CREATED',
-    'default' => false,
-  ),
-  'MODIFIED_BY_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_MODIFIED',
     'default' => false,
   ),
   'SYNC_CONTACT' => 

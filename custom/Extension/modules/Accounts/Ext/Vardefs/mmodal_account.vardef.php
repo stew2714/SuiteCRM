@@ -6,6 +6,8 @@
 
 // Modified 2017-11-01 to patch relate fields
 
+// Modified 2017-12-13 to enlarge recordtypeid_c per Dan Herrera
+
 // Field: sf_id_c
 $dictionary['Account']['fields']['sf_id_c']['name'] = 'sf_id_c';
 $dictionary['Account']['fields']['sf_id_c']['type'] = 'varchar';
@@ -19,7 +21,7 @@ $dictionary['Account']['fields']['sf_id_c']['source'] = 'custom_fields';
 // Field: recordtypeid_c
 $dictionary['Account']['fields']['recordtypeid_c']['name'] = 'recordtypeid_c';
 $dictionary['Account']['fields']['recordtypeid_c']['type'] = 'enum';
-$dictionary['Account']['fields']['recordtypeid_c']['len'] = '18';
+$dictionary['Account']['fields']['recordtypeid_c']['len'] = '35';
 $dictionary['Account']['fields']['recordtypeid_c']['size'] = '20';
 $dictionary['Account']['fields']['recordtypeid_c']['required'] = false;
 $dictionary['Account']['fields']['recordtypeid_c']['comments'] = 'Auto-created entry for field recordtypeid_c';
@@ -1823,7 +1825,7 @@ $dictionary['Account']['fields']['births_c']['source'] = 'custom_fields';
 // Field: emram_stage_validated_c (manually added 2017-11-01)
 $dictionary['Account']['fields']['emram_stage_validated_c']['name'] = 'emram_stage_validated_c';
 $dictionary['Account']['fields']['emram_stage_validated_c']['type'] = 'float';
-$dictionary['Account']['fields']['emram_stage_validated_c']['len'] = '8';
+$dictionary['Account']['fields']['emram_stage_validated_c']['len'] = '18';
 $dictionary['Account']['fields']['emram_stage_validated_c']['size'] = '5';
 $dictionary['Account']['fields']['emram_stage_validated_c']['required'] = false;
 $dictionary['Account']['fields']['emram_stage_validated_c']['comments'] = 'Field emram_stage_validated_c';
@@ -1843,7 +1845,7 @@ $dictionary['Account']['fields']['fiscal_end_date_month_c']['source'] = 'custom_
 // Field: of_hospitals_in_health_system_c (manually added 2017-11-01)
 $dictionary['Account']['fields']['of_hospitals_in_health_system_c']['name'] = 'of_hospitals_in_health_system_c';
 $dictionary['Account']['fields']['of_hospitals_in_health_system_c']['type'] = 'float';
-$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['len'] = '8';
+$dictionary['Account']['fields']['of_hospitals_in_health_system_c']['len'] = '18';
 $dictionary['Account']['fields']['of_hospitals_in_health_system_c']['size'] = '7';
 $dictionary['Account']['fields']['of_hospitals_in_health_system_c']['required'] = false;
 $dictionary['Account']['fields']['of_hospitals_in_health_system_c']['comments'] = 'Field of_hospitals_in_health_system_c';

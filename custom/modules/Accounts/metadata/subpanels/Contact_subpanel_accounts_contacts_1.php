@@ -1,5 +1,5 @@
 <?php
-// created: 2017-08-25 12:37:08
+// created: 2017-11-10 19:08:42
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -8,24 +8,31 @@ $subpanel_layout['list_fields'] = array (
     'width' => '45%',
     'default' => true,
   ),
+  'parent_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_MEMBER_OF',
+    'id' => 'PARENT_ID',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Accounts',
+    'target_record_key' => 'parent_id',
+  ),
   'billing_address_city' => 
   array (
     'vname' => 'LBL_LIST_CITY',
     'width' => '20%',
     'default' => true,
   ),
-  'billing_address_country' => 
+  'facility_type_dd_c' => 
   array (
-    'type' => 'varchar',
-    'vname' => 'LBL_BILLING_ADDRESS_COUNTRY',
-    'width' => '7%',
+    'type' => 'enum',
     'default' => true,
-  ),
-  'phone_office' => 
-  array (
-    'vname' => 'LBL_LIST_PHONE',
-    'width' => '20%',
-    'default' => true,
+    'studio' => 'visible',
+    'vname' => 'LBL_FACILITY_TYPE_DD',
+    'width' => '10%',
   ),
   'account_type' => 
   array (

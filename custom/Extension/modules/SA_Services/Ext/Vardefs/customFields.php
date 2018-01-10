@@ -15,6 +15,20 @@ $dictionary['SA_Services']['fields']['shipping_c']['vname']='LBL_SHIPPING_C';
 $dictionary['SA_Services']['fields']['shipping_c']['source']='custom_fields';
 
 
+ // Vardef Created : service_or_product_warranty_c 
+
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['name']='service_or_product_warranty_c';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['len']='255';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['type']='enum';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['options']='intell_prop_gen_info_list';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['importable']='true';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['vname']='LBL_SERVICE_OR_PRODUCT_WARRANTY_C';
+$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['source']='custom_fields';
+
+
  // Vardef Created : sf_id_c 
 
 
@@ -857,20 +871,6 @@ $dictionary['SA_Services']['fields']['qa_program_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['qa_program_c']['module']='SA_Services';
 $dictionary['SA_Services']['fields']['qa_program_c']['vname']='LBL_QA_PROGRAM_C';
 $dictionary['SA_Services']['fields']['qa_program_c']['source']='custom_fields';
-
-
- // Vardef Created : service_or_product_warranty_c 
-
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['name']='service_or_product_warranty_c';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['len']='255';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['type']='enum';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['inline_edit']=1;
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['options']='intell_prop_gen_info_list';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['importable']='true';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['reportable']=true;
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['module']='SA_Services';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['vname']='LBL_SERVICE_OR_PRODUCT_WARRANTY_C';
-$dictionary['SA_Services']['fields']['service_or_product_warranty_c']['source']='custom_fields';
 
 
  // Vardef Created : tat_credit_details_c 

@@ -29,12 +29,12 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
@@ -106,14 +106,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'recordtypeid_c',
-            'label' => 'LBL_RECORDTYPEID_C',
-          ),
-        ),
-        1 => 
-        array (
           0 => 'name',
           1 => 
           array (
@@ -121,15 +113,21 @@ array (
             'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
             'name' => 'short_id_c',
             'label' => 'LBL_SHORT_ID_C',
           ),
+          1 => 
+          array (
+            'name' => 'specialist_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SPECIALIST_NAME_C',
+          ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 'account_name',
           1 => 
@@ -139,7 +137,7 @@ array (
             'label' => 'LBL_INSIDE_SALES_AE_NAME_C',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 'date_closed',
           1 => 
@@ -149,7 +147,7 @@ array (
             'label' => 'LBL_CHANNEL_REP_NAME_C',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -162,15 +160,16 @@ array (
             'label' => 'LBL_REGION_C',
           ),
         ),
-        6 => 
+        5 => 
         array (
-          0 => 
+          0 => 'campaign_name',
+          1 => 
           array (
             'name' => 'sales_leadership_c',
             'label' => 'LBL_SALES_LEADERSHIP_C',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -183,7 +182,7 @@ array (
             'label' => 'LBL_RECORDTYPEID_C',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -192,7 +191,7 @@ array (
           ),
           1 => 'sales_stage',
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -201,7 +200,7 @@ array (
           ),
           1 => 'probability',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -214,7 +213,7 @@ array (
             'label' => 'LBL_CONFIDENCE_LEVEL_C',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -227,7 +226,7 @@ array (
             'label' => 'LBL_FORECASTING_CATEGORY_C',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -240,12 +239,13 @@ array (
             'label' => 'LBL_BANKRUPTCY_HOLD1_C',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
-            'name' => 'new_partner_c',
-            'label' => 'LBL_NEW_PARTNER_C',
+            'name' => 'new_partner_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_NEW_PARTNER_NAME_C',
           ),
           1 => 
           array (
@@ -253,79 +253,25 @@ array (
             'label' => 'LBL_VENDOR_OF_CHOICE_C',
           ),
         ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'modlink_c',
-            'label' => 'LBL_MODLINK_C',
-          ),
-        ),
-        15 => 
-        array (
-          0 => 
-          array (
-            'name' => 'notifi_subscription_amount_c',
-            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
-          ),
-        ),
-        16 => 
-        array (
-          0 => 
-          array (
-            'name' => 'notifi_c',
-            'label' => 'LBL_NOTIFI_C',
-          ),
-        ),
-        17 => 
-        array (
-          0 => 
-          array (
-            'name' => 'statdx_c',
-            'label' => 'LBL_STATDX_C',
-          ),
-        ),
-        18 => 
+        13 => 
         array (
           0 => 
           array (
             'name' => 'cdi_campaign_target_c',
             'label' => 'LBL_CDI_CAMPAIGN_TARGET_C',
           ),
-        ),
-        19 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'exclude_ch_c',
             'label' => 'LBL_EXCLUDE_CH_C',
           ),
         ),
-        20 => 
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
         array (
           0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
           array (
             'name' => 'additionalusers',
             'comment' => 'Used for adding to the list, detail, and edit views',
@@ -347,32 +293,53 @@ array (
             ),
             'label' => 'LBL_ADDITIONALUSERS',
           ),
-        ),
-        21 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'g1_group_queue_opportunities_name',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'latest_update_date_c',
-            'label' => 'LBL_LATEST_UPDATE_DATE_C',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
+            'name' => 'g1_group_queue_opportunities_name',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'latest_update_date_c',
+            'label' => 'LBL_LATEST_UPDATE_DATE_C',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -537,6 +504,11 @@ array (
           array (
             'name' => 'annual_maintenance_cost_c',
             'label' => 'LBL_ANNUAL_MAINTENANCE_COST_C',
+          ),
+          1 => 
+          array (
+            'name' => 'emr2_c',
+            'label' => 'LBL_EMR2_C',
           ),
         ),
         6 => 
@@ -857,6 +829,19 @@ array (
         array (
           0 => 
           array (
+            'name' => 'co_validation_c',
+            'label' => 'LBL_CO_VALIDATION_C',
+          ),
+          1 => 
+          array (
+            'name' => 'term_length_mm_c',
+            'label' => 'LBL_TERM_LENGTH_MM_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'co_status_c',
             'label' => 'LBL_CO_STATUS_C',
           ),
@@ -866,15 +851,20 @@ array (
             'label' => 'LBL_ADOPTION_SERVICES_TERM_LENGTH_C',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
             'name' => 'validation_date_c',
             'label' => 'LBL_VALIDATION_DATE_C',
           ),
+          1 => 
+          array (
+            'name' => 'exclusivity_c',
+            'label' => 'LBL_EXCLUSIVITY_C',
+          ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -887,7 +877,7 @@ array (
             'label' => 'LBL_VOLUME_COMMITMENT_C',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -900,7 +890,7 @@ array (
             'label' => 'LBL_NO_OUT_FOR_CONVENIENCE_C',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -913,7 +903,7 @@ array (
             'label' => 'LBL_LICENSE_TYPE_C',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -926,7 +916,7 @@ array (
             'label' => 'LBL_LICENSE_TERM_LENGTH_MM_C',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -939,15 +929,20 @@ array (
             'label' => 'LBL_ADD_ON_LICENSE_PURCHASE_C',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
             'name' => 'revenue_notes_c',
             'label' => 'LBL_REVENUE_NOTES_C',
           ),
+          1 => 
+          array (
+            'name' => 'sw_maintenance_term_length_mm_c',
+            'label' => 'LBL_SW_MAINTENANCE_TERM_LENGTH_MM_C',
+          ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -960,12 +955,13 @@ array (
             'label' => 'LBL_SW_MAINT_AUTO_RENEW_C',
           ),
         ),
-        9 => 
+        10 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
-            'name' => 'sw_maintenance_term_length_mm_c',
-            'label' => 'LBL_SW_MAINTENANCE_TERM_LENGTH_MM_C',
+            'name' => 'sw_maint_renewal_term_c',
+            'label' => 'LBL_SW_MAINT_RENEWAL_TERM_C',
           ),
         ),
       ),
@@ -1014,8 +1010,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'marketing_report_status_c',
-            'label' => 'LBL_MARKETING_REPORT_STATUS_C',
+            'name' => 'rfp_preparer_c',
+            'label' => 'LBL_RFP_PREPARER_C',
           ),
           1 => 
           array (
@@ -1027,8 +1023,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_preparer_c',
-            'label' => 'LBL_RFP_PREPARER_C',
+            'name' => 'previous_opportunity_stage_c',
+            'label' => 'LBL_PREVIOUS_OPPORTUNITY_STAGE_C',
           ),
           1 => 
           array (
@@ -1038,11 +1034,7 @@ array (
         ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'previous_opportunity_stage_c',
-            'label' => 'LBL_PREVIOUS_OPPORTUNITY_STAGE_C',
-          ),
+          0 => '',
           1 => 
           array (
             'name' => 'previous_opportunity_stage_date_c',
@@ -1080,7 +1072,8 @@ array (
         ),
         2 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'first_commission_date_c',
             'label' => 'LBL_FIRST_COMMISSION_DATE_C',

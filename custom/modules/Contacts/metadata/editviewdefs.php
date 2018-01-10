@@ -30,33 +30,33 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'tabDefs' => 
       array (
         'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
+          'newTab' => true,
+          'panelDefault' => 'collapsed',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'collapsed',
         ),
         'LBL_EDITVIEW_PANEL3' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'collapsed',
         ),
         'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
+          'newTab' => true,
+          'panelDefault' => 'collapsed',
         ),
       ),
       'syncDetailEditViews' => true,
