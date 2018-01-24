@@ -33,6 +33,19 @@ $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['source']=
 
 
 
+ // Vardef Created : cac_services_c 
+
+$dictionary['SA_Services']['fields']['cac_services_c']['name']='cac_services_c';
+$dictionary['SA_Services']['fields']['cac_services_c']['len']='255';
+$dictionary['SA_Services']['fields']['cac_services_c']['type']='bool';
+$dictionary['SA_Services']['fields']['cac_services_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['cac_services_c']['importable']='true';
+$dictionary['SA_Services']['fields']['cac_services_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['cac_services_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['cac_services_c']['vname']='LBL_CAC_SERVICES_C';
+$dictionary['SA_Services']['fields']['cac_services_c']['source']='custom_fields';
+
+
  // Vardef Created : codingt_renewal_notice_days_c 
 
 $dictionary['SA_Services']['fields']['codingt_renewal_notice_days_c']['name']='codingt_renewal_notice_days_c';
@@ -381,6 +394,19 @@ $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['vn
 $dictionary['SA_Services']['fields']['coding_termination_for_convenience_c']['source']='custom_fields';
 
 
+ // Vardef Created : estimated_billing_c 
+
+$dictionary['SA_Services']['fields']['estimated_billing_c']['name']='estimated_billing_c';
+$dictionary['SA_Services']['fields']['estimated_billing_c']['len']='255';
+$dictionary['SA_Services']['fields']['estimated_billing_c']['type']='bool';
+$dictionary['SA_Services']['fields']['estimated_billing_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['estimated_billing_c']['importable']='true';
+$dictionary['SA_Services']['fields']['estimated_billing_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['estimated_billing_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['estimated_billing_c']['vname']='LBL_ESTIMATED_BILLING_C';
+$dictionary['SA_Services']['fields']['estimated_billing_c']['source']='custom_fields';
+
+
  // Vardef Created : estimated_fft_existing_volume_c 
 
 $dictionary['SA_Services']['fields']['estimated_fft_existing_volume_c']['name']='estimated_fft_existing_volume_c';
@@ -431,6 +457,47 @@ $dictionary['SA_Services']['fields']['estimated_tos_new_volume_c']['reportable']
 $dictionary['SA_Services']['fields']['estimated_tos_new_volume_c']['module']='SA_Services';
 $dictionary['SA_Services']['fields']['estimated_tos_new_volume_c']['vname']='LBL_ESTIMATED_TOS_NEW_VOLUME_C';
 $dictionary['SA_Services']['fields']['estimated_tos_new_volume_c']['source']='custom_fields';
+
+
+ // Vardef Created : extended_adt_retention_c 
+
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['name']='extended_adt_retention_c';
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['len']='255';
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['type']='enum';
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['options']='extended_adt_retention';
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['importable']='true';
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['vname']='LBL_EXTENDED_ADT_RETENTION_C';
+$dictionary['SA_Services']['fields']['extended_adt_retention_c']['source']='custom_fields';
+
+
+ // Vardef Created : extended_report_retention_c 
+
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['name']='extended_report_retention_c';
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['len']='255';
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['type']='bool';
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['importable']='true';
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['vname']='LBL_EXTENDED_REPORT_RETENTION_C';
+$dictionary['SA_Services']['fields']['extended_report_retention_c']['source']='custom_fields';
+
+
+ // Vardef Created : extended_voice_retention_c 
+
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['name']='extended_voice_retention_c';
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['len']='255';
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['type']='enum';
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['options']='extended_voice_retention';
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['importable']='true';
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['vname']='LBL_EXTENDED_VOICE_RETENTION_C';
+$dictionary['SA_Services']['fields']['extended_voice_retention_c']['source']='custom_fields';
 
 
  // Vardef Created : fft_attachment_number_c 
@@ -808,6 +875,47 @@ $dictionary['SA_Services']['fields']['fluency_for_coding_platform_c']['vname']='
 $dictionary['SA_Services']['fields']['fluency_for_coding_platform_c']['source']='custom_fields';
 
 
+ // Vardef Created : global_permissions_c 
+
+$dictionary['SA_Services']['fields']['global_permissions_c']['name']='global_permissions_c';
+$dictionary['SA_Services']['fields']['global_permissions_c']['len']='255';
+$dictionary['SA_Services']['fields']['global_permissions_c']['type']='enum';
+$dictionary['SA_Services']['fields']['global_permissions_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['global_permissions_c']['options']='global_permissions_list';
+$dictionary['SA_Services']['fields']['global_permissions_c']['importable']='true';
+$dictionary['SA_Services']['fields']['global_permissions_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['global_permissions_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['global_permissions_c']['vname']='LBL_GLOBAL_PERMISSIONS_C';
+$dictionary['SA_Services']['fields']['global_permissions_c']['source']='custom_fields';
+
+
+ // Vardef Created : global_permitted_c 
+
+$dictionary['SA_Services']['fields']['global_permitted_c']['name']='global_permitted_c';
+$dictionary['SA_Services']['fields']['global_permitted_c']['len']='255';
+$dictionary['SA_Services']['fields']['global_permitted_c']['type']='bool';
+$dictionary['SA_Services']['fields']['global_permitted_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['global_permitted_c']['importable']='true';
+$dictionary['SA_Services']['fields']['global_permitted_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['global_permitted_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['global_permitted_c']['vname']='LBL_GLOBAL_PERMITTED_C';
+$dictionary['SA_Services']['fields']['global_permitted_c']['source']='custom_fields';
+
+
+ // Vardef Created : grace_period_c 
+
+$dictionary['SA_Services']['fields']['grace_period_c']['name']='grace_period_c';
+$dictionary['SA_Services']['fields']['grace_period_c']['len']='255';
+$dictionary['SA_Services']['fields']['grace_period_c']['type']='enum';
+$dictionary['SA_Services']['fields']['grace_period_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['grace_period_c']['options']='the30_60_90_list';
+$dictionary['SA_Services']['fields']['grace_period_c']['importable']='true';
+$dictionary['SA_Services']['fields']['grace_period_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['grace_period_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['grace_period_c']['vname']='LBL_GRACE_PERIOD_C';
+$dictionary['SA_Services']['fields']['grace_period_c']['source']='custom_fields';
+
+
  // Vardef Created : hire_client_mt_s_c 
 
 $dictionary['SA_Services']['fields']['hire_client_mt_s_c']['name']='hire_client_mt_s_c';
@@ -832,6 +940,19 @@ $dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['
 $dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['module']='SA_Services';
 $dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['vname']='LBL_IMPLEMENTATION_AND_TRAINING_DISCOUNT_C';
 $dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['source']='custom_fields';
+
+
+ // Vardef Created : m_modal_travel_living_policy_c 
+
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['name']='m_modal_travel_living_policy_c';
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['len']='255';
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['type']='bool';
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['importable']='true';
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['vname']='LBL_M_MODAL_TRAVEL_LIVING_POLICY_C';
+$dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['source']='custom_fields';
 
 
  // Vardef Created : number_of_mt_s_for_hire_c 
@@ -871,6 +992,19 @@ $dictionary['SA_Services']['fields']['qa_program_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['qa_program_c']['module']='SA_Services';
 $dictionary['SA_Services']['fields']['qa_program_c']['vname']='LBL_QA_PROGRAM_C';
 $dictionary['SA_Services']['fields']['qa_program_c']['source']='custom_fields';
+
+
+ // Vardef Created : stat_report_tat_c 
+
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['name']='stat_report_tat_c';
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['len']='19';
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['type']='int';
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['importable']='true';
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['vname']='LBL_STAT_REPORT_TAT_C';
+$dictionary['SA_Services']['fields']['stat_report_tat_c']['source']='custom_fields';
 
 
  // Vardef Created : tat_credit_details_c 
@@ -1260,6 +1394,19 @@ $dictionary['SA_Services']['fields']['transcription_platform_c']['reportable']=t
 $dictionary['SA_Services']['fields']['transcription_platform_c']['module']='SA_Services';
 $dictionary['SA_Services']['fields']['transcription_platform_c']['vname']='LBL_TRANSCRIPTION_PLATFORM_C';
 $dictionary['SA_Services']['fields']['transcription_platform_c']['source']='custom_fields';
+
+
+ // Vardef Created : travel_living_fees_c 
+
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['name']='travel_living_fees_c';
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['len']='255';
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['type']='bool';
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['importable']='true';
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['vname']='LBL_TRAVEL_LIVING_FEES_C';
+$dictionary['SA_Services']['fields']['travel_living_fees_c']['source']='custom_fields';
 
 
  // Vardef Created : union_mt_s_c 

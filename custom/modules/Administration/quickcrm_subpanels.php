@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -32,18 +32,25 @@ $qutils->getSubPanelsLabels();
 
 //$_REQUEST['conf_module']='Accounts';
 $module = $_REQUEST['conf_module'];
+$profile = $_REQUEST['profile'];
+$profile_name = '';
+if ($qutils->mobile['profilemode'] != 'none'){
+	$profile_name = ' (' . str_replace ('&quot;','',$_REQUEST['profile_name']) . ')';
+}
 
 $MBmod_strings=return_module_language($current_language, 'ModuleBuilder');
 $ss = new Sugar_Smarty();
 $ss->assign('module', $module);
+$ss->assign('profile', $profile);
 $ss->assign('MOD', $mod_strings);
 $ss->assign('APP_STRINGS', $app_strings);
 $ss->assign('AVAILABLE', $MBmod_strings['LBL_AVAILABLE']);
 $ss->assign('HIDDEN', $MBmod_strings['LBL_HIDDEN']);
-$ss->assign('TITLE', $app_list_strings["moduleList"][$module] . ' - ' . $mod_strings['LBL_VISIBLE_PANELS']);
+$ss->assign('TITLE', $app_list_strings["moduleList"][$module] . ' - ' . $mod_strings['LBL_VISIBLE_PANELS'] . ' ' . $profile_name);
 
+if ($profile == '_default') $displayed = $qutils->mobile['subpanels'][$module];
+else $displayed = $qutils->mobile['profiles'][$profile]['subpanels'][$module];
 
-$displayed = $qutils->mobile['subpanels'][$module];
 $available_fields=array();
 foreach ($displayed as $field){
 	$available_fields[]=array('field'=>$field,'label'=>$qutils->server_config['subpanels'][$module][$field]['tmplabel']);

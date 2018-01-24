@@ -271,21 +271,6 @@ $GLOBALS['app_list_strings']['ae_region_dom']=array (
   'AU' => 'AU',
   'Int_Other' => 'Int Other',
 );
-
-$GLOBALS['app_list_strings']['sales_leadership_dom']=array (
-  'None' => 'None',
-  'Bill' => 'Bill',
-  'Jason' => 'Jason',
-  'Mike' => 'Mike',
-  'Mark' => 'Mark',
-  'Ray' => 'Ray',
-);
-$GLOBALS['app_list_strings']['sales_stage_dom']=array (
-  'None' => 'None',
-  'Lead' => 'Lead',
-  'Closed_No_Opp' => 'Closed - No Oppty',
-  'Closed Nurturing' => 'Closed Nurturing',
-);
 $GLOBALS['app_list_strings']['sales_forecast_cat_dom']=array (
   'None' => 'None',
   'Ommitted' => 'Ommitted',
@@ -305,16 +290,6 @@ $GLOBALS['app_list_strings']['bankruptcy_hold_dom']=array (
 );
 $GLOBALS['app_list_strings']['coding_specialist_dom']=array (
   'None' => 'None',
-);
-
-$GLOBALS['app_list_strings']['coding_specialty_dom']=array (
-  'None' => 'None',
-  'ED_Facility_Coding' => 'ED Facility Coding',
-  'Inpatient_Facility_Coding' => 'Inpatient Facility Coding',
-  'Interventional_Radiology' => 'Interventional Radiology/Cardiology Coding',
-  'Outpatient_Facility_Coding' => 'Outpatient/Ambulatory Facility Coding',
-  'Outpatient_Surgery_Coding' => 'Outpatient Surgery Coding',
-  'Professional_Fee_Coding' => 'Professional Fee Coding',
 );
 $GLOBALS['app_list_strings']['incumbent_uom_dom']=array (
   'None' => 'None',
@@ -1285,14 +1260,6 @@ $GLOBALS['app_list_strings']['tos_price_book_rate_list']=array (
   'Below_production_cost' => 'Below production cost',
   'Outside_of_Price_Book_or_GPO_approved_discount' => 'Outside of Price Book or GPO approved discount',
 );
-$GLOBALS['app_list_strings']['global_use_probability_list']=array (
-  'None' => 'None',
-  'zero' => '0% - Global Service not presented',
-  'twentyfive' => '25% - Low probability of Global Services',
-  'fifty' => '50% - 50/50 shot of Global Services',
-  'seventyfive' => '75% - High probability of Global Services',
-  'onehundred' => '100% - Customer will definitely use Global Services ',
-);
 $GLOBALS['app_list_strings']['fte_list']=array (
   'none' => 'None',
   'Global' => 'Global',
@@ -1376,4 +1343,57 @@ $GLOBALS['app_list_strings']['gma_product_list']=array (
   'Fluency_Voice_Capture' => 'Fluency Voice Capture',
   'Fluency_Voice_Capture_Upgrade_Program' => 'Fluency Voice Capture Upgrade Program',
   'Hardware' => 'Hardware',
+);
+$GLOBALS['app_list_strings']['global_use_probability_list']=array (
+  '' => '',
+  'zero' => '0% - Global Service not presented',
+  'twentyfive' => '25% - Low probability of Global Services',
+  'fifty' => '50% - 50/50 shot of Global Services',
+  'seventyfive' => '75% - High probability of Global Services',
+  'onehundred' => '100% - Customer will definitely use Global Services ',
+);
+$GLOBALS['app_list_strings']['sales_leadership_dom']=array (
+  '' => '',
+  'Bill' => 'Bill',
+  'Jason' => 'Jason',
+  'Mark' => 'Mark',
+  'Mike' => 'Mike',
+  'Ray' => 'Ray',
+);
+$GLOBALS['app_list_strings']['encoder_list']=array (
+  'None' => 'None',
+  '3M' => '3M',
+  'Trucode' => 'Trucode',
+  'Other' => 'Other',
+  'Webstrat_HHS_Inguenix' => 'Webstrat (HHS/Inguenix)',
+  'Quantim_Quadramed' => 'Quantim (Quadramed)',
+);
+$GLOBALS['app_list_strings']['encoder_list']=array (
+  '' => '',
+  '3M' => '3M',
+  'Other' => 'Other',
+  'Quantim_Quadramed' => 'Quantim (Quadramed)',
+  'Trucode' => 'Trucode',
+  'Webstrat_HHS_Inguenix' => 'Webstrat (HHS/Inguenix)',
+);
+$GLOBALS['app_list_strings']['coding_specialty_dom']=array (
+  '' => '',
+  'ED_Facility_Coding' => 'ED Facility Coding',
+  'Inpatient_Facility_Coding' => 'Inpatient Facility Coding',
+  'Interventional_Radiology' => 'Interventional Radiology/Cardiology Coding',
+  'Outpatient_Facility_Coding' => 'Outpatient/Ambulatory Facility Coding',
+  'Outpatient_Surgery_Coding' => 'Outpatient Surgery Coding',
+  'Professional_Fee_Coding' => 'Professional Fee Coding',
+);
+$GLOBALS['app_list_strings']['sales_stage_dom']=array (
+  'Closed_Won' => 'Closed - Won',
+  'Closed_Nurturing' => 'Closed - Nuturing',
+  'Closed_Won_not_in_Pipeline' => 'Closed - Won (not in Pipeline)',
+  'Pilot' => 'Pilot',
+  '1_Lead' => '1. Lead',
+  '2_Discovery' => '2. Discovery',
+  '3_Qualified' => '3. Qualified',
+  '4_Proposal' => '4. Proposal',
+  '5_Contract' => '5. Contract',
+  'Closed_No_Oppty' => 'Closed - No Oppty',
 );

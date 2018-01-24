@@ -1,11 +1,18 @@
 <?php
-// created: 2017-01-06 13:54:33
+// created: 2018-01-20 02:56:16
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
     'vname' => 'LBL_LIST_ACCOUNT_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
     'width' => '45%',
+    'default' => true,
+  ),
+  'account_type' => 
+  array (
+    'type' => 'enum',
+    'vname' => 'LBL_TYPE',
+    'width' => '10%',
     'default' => true,
   ),
   'facility_type_dd_c' => 
@@ -30,10 +37,24 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_HIMSS_ID',
     'width' => '10%',
   ),
-  'billing_address_street' => 
+  'ha_id_c' => 
   array (
     'type' => 'varchar',
-    'vname' => 'LBL_BILLING_ADDRESS_STREET',
+    'vname' => 'HA ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'dh_id_c' => 
+  array (
+    'type' => 'varchar',
+    'vname' => 'DH Id',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ehr_c' => 
+  array (
+    'type' => 'varchar',
+    'vname' => 'EHR',
     'width' => '10%',
     'default' => true,
   ),
@@ -54,6 +75,13 @@ $subpanel_layout['list_fields'] = array (
   array (
     'type' => 'varchar',
     'vname' => 'LBL_BILLING_ADDRESS_STATE',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'sf_id_c' => 
+  array (
+    'type' => 'varchar',
+    'vname' => 'SF ID',
     'width' => '10%',
     'default' => true,
   ),

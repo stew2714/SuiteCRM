@@ -50,6 +50,27 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_STATE',
     'default' => true,
   ),
+  'HIMSS_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_HIMSS_ID',
+    'width' => '10%',
+  ),
+  'HA_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'HA ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'DEFINTIVE_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_DEFINTIVE_ID',
+    'width' => '10%',
+  ),
   'EHR_C' => 
   array (
     'type' => 'varchar',
@@ -74,20 +95,6 @@ array (
   array (
     'type' => 'datetime',
     'label' => 'LBL_DATE_ENTERED',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'HIMSS_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_HIMSS_ID',
-    'width' => '10%',
-  ),
-  'HA_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'HA ID',
     'width' => '10%',
     'default' => false,
   ),
@@ -133,12 +140,12 @@ array (
     'label' => 'LBL_SHIPPING_ADDRESS_COUNTRY',
     'default' => false,
   ),
-  'DEFINTIVE_ID_C' => 
+  'DH_ID_C' => 
   array (
     'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_DEFINTIVE_ID',
+    'label' => 'DH Id',
     'width' => '10%',
+    'default' => false,
   ),
   'WEBSITE' => 
   array (

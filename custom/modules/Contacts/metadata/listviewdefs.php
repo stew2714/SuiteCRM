@@ -39,6 +39,18 @@ array (
     'label' => 'LBL_LIST_TITLE',
     'default' => true,
   ),
+  'PHONE_WORK' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_OFFICE_PHONE',
+    'default' => true,
+  ),
+  'PHONE_MOBILE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_MOBILE_PHONE',
+    'default' => true,
+  ),
   'EMAIL1' => 
   array (
     'width' => '15%',
@@ -62,6 +74,13 @@ array (
     'default' => true,
     'studio' => 'visible',
     'label' => 'LBL_CONTACT_ASSOCIATION',
+    'width' => '10%',
+  ),
+  'SALES_C' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_SALES',
     'width' => '10%',
   ),
   'ASSIGNED_USER_NAME' => 
@@ -154,13 +173,6 @@ array (
     'label' => 'LBL_CREATED',
     'default' => false,
   ),
-  'SALES_C' => 
-  array (
-    'type' => 'bool',
-    'default' => false,
-    'label' => 'LBL_SALES',
-    'width' => '10%',
-  ),
   'SECURITYGROUP_DISPLAY' => 
   array (
     'type' => 'function',
@@ -204,12 +216,6 @@ array (
     'type' => 'varchar',
     'label' => 'LBL_FIRST_NAME',
     'width' => '10%',
-    'default' => false,
-  ),
-  'PHONE_WORK' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_OFFICE_PHONE',
     'default' => false,
   ),
   'LAST_NAME' => 
@@ -275,12 +281,6 @@ array (
     'default' => false,
     'label' => 'LBL_TECHNICAL',
     'width' => '10%',
-  ),
-  'PHONE_MOBILE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_MOBILE_PHONE',
-    'default' => false,
   ),
   'REFERENCE_END_DATE_C' => 
   array (

@@ -34,5 +34,6 @@
  ********************************************************************************/
 
 
-$app_list_strings['moduleList']['QCRM_SavedSearch'] = 'QuickCRM SavedSearches';
+$app_list_strings['moduleList']['QCRM_SavedSearch'] = 'QuickCRM Saved Searches';
 $app_list_strings['moduleList']['QCRM_Homepage'] = 'QuickCRM Homepage';
+$app_list_strings['moduleList']['QCRM_Tracker'] = 'QuickCRM GPS Tracker';

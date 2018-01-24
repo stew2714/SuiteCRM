@@ -68,11 +68,12 @@ class QCRM_SavedSearch_sugar extends Basic {
 		var $fields;
 		var $sort_order;
 		var $type;
-		function QCRM_SavedSearch_sugar(){	
-		parent::Basic();
+		
+	public function __construct(){
+		parent::__construct();
 	}
 	
-	function bean_implements($interface){
+	public function bean_implements($interface){
 		switch($interface){
 			case 'ACL': return true;
 		}

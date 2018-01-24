@@ -1,5 +1,5 @@
 <?php
-// created: 2017-12-08 15:40:24
+// created: 2018-01-23 20:08:19
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -40,7 +40,10 @@ $mod_strings = array (
   'LBL_YOU_CAN_NOT_CHANGE_KEY' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
   'LBL_C1_CUST_CONTACTS1_OPPORTUNITIES_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
   'LBL_FIELD_TRACKING_HISTORY' => 'Field Tracking History',
-  'LBL_EDITVIEW_PANEL14' => 'New Panel 14',
+  'LBL_EDITVIEW_PANEL14' => 'Opportunity Status',
   'LBL_ASSIGNED_TO_NAME' => 'Opportunity Owner',
   'LBL_CAMPAIGN' => 'Primary Campaign',
+  'LBL_EDITVIEW_PANEL15' => 'Closing Details',
+  'LBL_EDITVIEW_PANEL16' => 'Win/Loss Details',
+  'LBL_RECORDTYPEID_C' => 'Recordtypeid',
 );

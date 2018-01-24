@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="lib/jquerymobile/quickcrm.min.css" />
         <link rel="stylesheet" href="lib/jquerymobile/icon-pack-custom.css" />
         <link rel="stylesheet" href="lib/mobiscroll/css/mobiscroll.custom-2.17.1.min.css" />
-        <link rel="stylesheet" href="css/quickcrm5.5.css" />
+        <link rel="stylesheet" href="css/quickcrm6.0.css" />
         <script src="lib/jquerymobile/jquery.mobile-1.4.5.min.js"></script>
 
 
@@ -130,6 +130,13 @@ function removeOldScripts(time){
 	localStorage.setItem("LastScript",time);
 }
 
+function removeACLData(){
+	var k,js=/^(dis|acl|acls)-/; // js scripts , user's disabled modules and acl
+	for(k in localStorage){
+			if(js.test(k)) delete localStorage[k];
+	}
+}
+
 function ClearCache(){
 	var k;
 	for(k in localStorage){
@@ -150,6 +157,9 @@ function LoadApp() {
 		alert('Please check that private browsing is turned off before using QuickCRM Mobile');
 		return;
 	}
+	
+	if (Math.floor(Math.random() * 5) === 4) removeACLData();
+	
 	localStorage.setItem("SDemo","0");
 	var key=window.location.host+window.location.pathname+"Info",s=localStorage.getItem(key); // in case people use multiple instances
 	if (s!==null & s > '6.3') {
@@ -207,7 +217,7 @@ function LoadScripts() {
 			$.cachedScript(QuickCRMAddress+"/js/mobile_"+webL+".js?v="+quickcrm_upd_time);
 
 
-			$.cachedScript("js/quickcrm-web-5.5.2.min.js").done(function(script, textStatus) {
+			$.cachedScript("js/quickcrm-web-6.0.0.min.js").done(function(script, textStatus) {
 
 
 
@@ -274,7 +284,7 @@ function LoadScriptsOld() {
 
 			removeOldScripts(quickcrm_upd_time);
 
-			proxy_url=(QuickCRMAddress+(QuickCRMAddress.substr(-1)==="/"?"":"/"))+(mobile_app?"REST":"../service/v"+(sugar_version >= '6.5'?'4_1':(sugar_version >= '6.2'?'4':'2')))+"/rest.php";
+			proxy_url=(QuickCRMAddress+(QuickCRMAddress.substr(-1)==="/"?"":"/"))+(mobile_app?"REST":"../service/v"+(sugar_version >= '6.5'?'4_1':(sugar_version >= '6.2'?'4':(sugar_version >= '6.1'?'3':'2'))))+"/rest.php";
 			//cachedScript(QuickCRMAddress+"/fielddefs/fields.js",{});
 			var q_language = getSugarLanguage(sugar_languages,default_language);
 			cachedScript(QuickCRMAddress+"/fielddefs/modules_"+q_language+".js",{});
@@ -284,7 +294,7 @@ function LoadScriptsOld() {
 			$.cachedScript(QuickCRMAddress+"/js/mobile_"+webL+".js?v="+quickcrm_upd_time);
 
 
-			$.cachedScript("js/quickcrm-web-5.5.2.min.js").done(function(script, textStatus) {
+			$.cachedScript("js/quickcrm-web-6.0.0.min.js").done(function(script, textStatus) {
 
 
 				if (jjwg_installed) {
@@ -515,12 +525,12 @@ EOQ;
 					<ul id="AllActivitiesListDiv" data-role="listview" data-split-theme="c" data-filter="false"></ul>
 				</div>
 				<div id="calendar" class="ui-grid-a my-breakpoint">
-					<div id="calendarLEFT" class="ui-block-a">
+					<div id="calendarLEFT" class="ui-block-a calleft">
 						<div id="calendarMOBI" style="padding:5px;"></div>
 					</div>
-					<div id="calendarRIGHT" class="ui-block-b" style="padding-left:5px;padding-right:5px;">
+					<div id="calendarRIGHT" class="ui-block-b calright" style="padding-left:5px;padding-right:5px;">
 						<div id="calendarbtns" >
-							<div style="float:left;margin-left:10px;">
+							<div style="float:left;margin-left:0;">
 								<div id="CalModeS" data-role="controlgroup"  style="text-align: center" data-type="horizontal" >
 									<input type="radio" name="CalMode" id="CalMode_day" data-mini="true" value="day" class="custom" data-theme="c" checked="checked" />
 									<label for="CalMode_day">&nbsp;</label>
@@ -528,7 +538,7 @@ EOQ;
 									<label for="CalMode_week">&nbsp;</label>
 								</div>
 							</div>
-							<div  style="float:right;margin-right:10px;">
+							<div  style="float:right;margin-right:10;">
 								<div id="CalDispS" data-role="controlgroup"  style="text-align: center" data-type="horizontal" >
 									<input type="radio" name="CalDisp" id="CalDispL" data-mini="true" data-icon="bars" value="list" class="custom" data-theme="c" checked="checked" />
 									<label for="CalDispL"><span class="ui-icon-bars ui-btn-icon-notext inlineIcon">&nbsp;</span></label>
@@ -539,6 +549,14 @@ EOQ;
 						</div>
 						<div id="CalList" style="clear:both;">
 							<ul id="calendarList" data-role="listview" data-inset="true" data-split-theme="c" data-filter="false"></ul>
+						</div>
+						<div id="CalNav" style="display:none;clear:both;">
+							<div style="float:left;margin-left:10px;">
+								<a id="TrackPrev" href="javascript:GetCalendarTrackersPrev();" class="navLeftIcon mbsc-ic mbsc-ic-arrow-left"></a>
+							</div>
+							<div  style="float:right;margin-right:10px;">
+								<a id="TrackNext" href="javascript:GetCalendarTrackersNext();" class="navLeftIcon mbsc-ic mbsc-ic-arrow-right"></a>
+							</div>
 						</div>
 						<div id="CalMap" style="display:none;clear:both;">
 							<div id="cal_markers_div">
@@ -606,7 +624,7 @@ EOQ;
         <div id="EditNotes" data-role="page" data-theme="b">
             <div data-role="header" data-theme="d">
                 <h1 id="EditNotesTitle"></h1>
-				<a id="EditNotesCancelTopBtn" href="#" data-role="button" data-rel="back" data-theme="c"></a>
+				<a id="EditNotesCancelTopBtn" href="javascript:refreshPage(0)" data-role="button" data-theme="c"></a>
 				<a id="EditNotesConfirmTopBtn" href="javascript:SaveNote();" data-role="button"  data-inline="true" class="ui-btn-right" data-theme="b"></a>
             </div>
             <div role="main" class="ui-content">
@@ -636,7 +654,7 @@ EOQ;
 				<output id="EditNotesPict"></output>
                 <br />
 				<div style="margin:0 auto; margin-left:auto; margin-right:auto; align:center; text-align:center;">
-					<a id="EditNotesCancelBottomBtn" href="#" data-role="button" data-rel="back" data-inline="true" data-theme="c"></a>
+					<a id="EditNotesCancelBottomBtn" href="javascript:refreshPage(0)" data-role="button" data-inline="true" data-theme="c"></a>
 					<a id="EditNotesConfirmBottomBtn" href="javascript:SaveNote();" data-role="button" data-inline="true" ></a>
 				</div>
             </div>

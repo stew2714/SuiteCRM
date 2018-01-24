@@ -138,7 +138,7 @@ $printable = str_replace("\n", "<br />", $converted);
     	if (isset($sugar_config['quickcrm_pdf_format'])){
     		$page_def = $sugar_config['quickcrm_pdf_format'];
     	}
-    	else if (isset($sugar_config['suitecrm_version']) && $sugar_config['suitecrm_version'] >= '7.8.3') {
+    	else if (isset($sugar_config['suitecrm_version']) && version_compare($sugar_config['suitecrm_version'], '7.8.3', '>=')) {
 	        $orientation = ($template->orientation == "Landscape") ? "-L" : "";
 	        $page_def = $template->page_size . $orientation;
     	}

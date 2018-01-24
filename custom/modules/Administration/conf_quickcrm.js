@@ -6,38 +6,88 @@ function QHideStatus(){
 	$('#StatusDiv').html('');
 }
 
-function SaveFields(button,conf_module,conf_type){
+function QdisplayError(str){
+    QShowStatus(str);
+    	setTimeout(function(){
+            QHideStatus();
+    },20000);
+}
+
+function QdisplaySuccess(str){
+    QShowStatus(str);
+    	setTimeout(function(){
+            QHideStatus();
+    },4000);
+}
+
+
+function SaveFields(button,conf_module,conf_type,profile,profileName){
 	function onSuccess(res){
+
         def=def2;
-        if(button=='changeModule'){
-
-            conf_get(moduletoredirect,typetoredirect)
+        if(!res){
+        	QdisplayError('Unexpected error');
+        }
+        else if(button=='changeModule'){
+            conf_get(moduletoredirect,typetoredirect,profiletoredirect,profileNametoredirect)
+        }
+        else if(conf_type=='module'){
+            conf_tree();
+            conf_get(conf_module,conf_type,profile,profileName);
         }else {
-            QShowStatus(SUGAR.language.get('app_strings','LBL_SAVED'));
-            setTimeout(function(){
-                    QHideStatus();
-            },4000);
+        	if (res.success){
+				QdisplaySuccess(SUGAR.language.get('app_strings','LBL_SAVED'));
 
-            $('#conf_sortableD2 li').each(function(indx, element){
-                $(element).addClass('ui-state-default');
-                $(element).removeClass('ui-state-highlight');
-            })
-            $('#conf_sortableD1 li').each(function(indx, element){
-                $(element).removeClass('ui-state-default');
-                $(element).addClass('ui-state-highlight');
-            })
+            	$('#conf_sortableD2 li').each(function(indx, element){
+                	$(element).addClass('ui-state-default');
+                	$(element).removeClass('ui-state-highlight');
+            	});
+	            $('#conf_sortableD1 li').each(function(indx, element){
+    	            $(element).removeClass('ui-state-default');
+        	        $(element).addClass('ui-state-highlight');
+            	});
+            	$('#conf_sortableD3 li').each(function(indx, element){
+                	$(element).removeClass('ui-state-default');
+                	$(element).addClass('ui-state-highlight');
+            	});
+            }
+            else {
+            	QdisplayError(res.error_messages.join('<br>'));
+            }
         }
 	}
 	
-	var data = {conf_module:conf_module,conf_type:conf_type,input_type:'JSON',response_type:'html',sel_fields:$('#conf_sortableD1').sortable( 'toArray').toString()};
-	if (conf_type == 'list') data.colorfield = $('#colorfield').val();
+	var data = {profile:(profile || '_default'),conf_module:conf_module,conf_type:conf_type,input_type:'JSON',response_type:'html',sel_fields:$('#conf_sortableD1').sortable( 'toArray').toString()};
+	try{
+		data.extra_fields = $('#conf_sortableD3').sortable( 'toArray').toString();
+	}
+	catch(err){}
+	if (conf_type == 'list') {
+		data.colorfield = $('#colorfield').val();
+		data.totalsfield0 = $('#totalsfield0').val();
+		data.totalsfield1 = $('#totalsfield1').val();
+		data.totalsfield2 = $('#totalsfield2').val();
+		data.totalsfunction0 = $('#totalsfunction0').val();
+		data.totalsfunction1 = $('#totalsfunction1').val();
+		data.totalsfunction2 = $('#totalsfunction2').val();
+		data.groupfield = $('#groupfield').val();
+
+		data.LV = $('#LV').is(':checked')?'1':'0';
+		data.SP = $('#SP').is(':checked')?'1':'0';
+		data.DASHLET = $('#DASHLET').is(':checked')?'1':'0';
+
+	}
+	else if (conf_type == 'module'){
+		data.copy_from = $('#copy_from').val();
+		data.new_profile = $('#new_profile').val();
+	}
 	else if (conf_type == 'fields') data.syncCheckbox = $('#syncCheckbox').is(':checked')?'1':'0';
 
 	QShowStatus(SUGAR.language.get('app_strings','LBL_SAVING'));
 	
 	$.ajax({
 			url: 'index.php?module=Administration&action=configquickcrm_save&to_pdf=1',
-			dataType: 'html',
+			dataType: 'json',
 			data: data,
 			type: 'post', 
 			cache: false,
@@ -48,7 +98,7 @@ function SaveFields(button,conf_module,conf_type){
 	});
 }	
 
-function conf_get(module,type){
+function conf_get(module,type,profile,profile_name){
 	function onSuccess(res){
 		QHideStatus();
 		$('#confpage').html(res);
@@ -58,38 +108,61 @@ function conf_get(module,type){
 	
 	$.ajax(
 		{
-			url: 'index.php?module=Administration&action=quickcrm_'+type+'&conf_module='+module+'&to_pdf=true',
+			url: 'index.php?module=Administration&action=quickcrm_'+type+'&conf_module='+module+'&profile='+profile+'&profile_name="'+profile_name+'"&to_pdf=true',
 			dataType: 'html',
 			type: 'get', 
 			cache: false,
 			error: function(xmlHttpRequest, textStatus, errorThrown) {
+            	QdisplayError(textStatus);
+ 			},
+			success: onSuccess // callback
+		}
+	);
+}
+
+function removeLayout(module,profile,profile_name,removeLabel){
+	if (confirm(removeLabel+ ': '+profile_name)){
+		$.ajax(
+			{
+				url: 'index.php?module=Administration&action=quickcrm_remove_view&profile='+profile+'&to_pdf=true',
+				dataType: 'html',
+				type: 'get', 
+				cache: false,
+				error: function(xmlHttpRequest, textStatus, errorThrown) {
+            		QdisplayError(textStatus);
+				},
+				success: function(res){
+					conf_tree();
+				}
+			}
+		);
+	}
+}
+
+function conf_tree(){
+	function onSuccess(res){
+		QHideStatus();
+		$('#conftree').html(res);
+	}
+	
+	QShowStatus(SUGAR.language.get('app_strings','LBL_LOADING'));
+	
+	$.ajax(
+		{
+			url: 'index.php?module=Administration&action=quickcrm_tree&to_pdf=true',
+			dataType: 'html',
+			type: 'get', 
+			cache: false,
+			error: function(xmlHttpRequest, textStatus, errorThrown) {
+            	QdisplayError(textStatus);
 			},
 			success: onSuccess // callback
 		}
 	);
 }
 
-function conf_search(module){
-	conf_get(module,'search');
-}
-
-function conf_list(module){
-	conf_get(module,'list');
-}
-
-function conf_fields(module){
-	conf_get(module,'fields');
-}
-
-function conf_detail(module){
-	conf_get(module,'detail');
-}
-
-function conf_subpanels(module){
-	conf_get(module,'subpanels');
-}
-
 $(function() {
+	conf_tree();
 	// workaround for Chrome
 	if ($('.sidebar').is(':visible'))
 			$('#buttontoggle').click();

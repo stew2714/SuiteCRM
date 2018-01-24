@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -35,6 +35,7 @@ class QUtils {
 	var $QuickCRMExtraFields;
 	var $QuickCRMDefEdit;
 	var $QuickCRMDefSearch;
+	var $QuickCRMDefColors;
 	var $QuickCRMDefList;
 	var $QuickCRMDefSubPanels;
 	var $ModuleDef;
@@ -42,7 +43,7 @@ class QUtils {
 	var $server_config; // server configuration
 	var $config; // server configuration
 	
-	function __construct(){
+	public function __construct(){
 		include('custom/modules/Administration/quickcrm_std.php');
 		$this->QuickCRM_modules = $QuickCRM_modules;
 		$this->QuickCRM_ExcludedModules = $QuickCRM_ExcludedModules;
@@ -53,9 +54,12 @@ class QUtils {
 		$this->QuickCRMAddressesFields = $QuickCRMAddressesFields;
 		$this->QuickCRMExtraFields = $QuickCRMExtraFields;
 		$this->QuickCRMDefEdit = $QuickCRMDefEdit;
+		$this->QuickCRMDefTotals = $QuickCRMDefTotals;
+		$this->QuickCRMDefGroupby = $QuickCRMDefGroupby;
 		$this->QuickCRMDefSearch = $QuickCRMDefSearch;
 		$this->QuickCRMDefList = $QuickCRMDefList;
 		$this->QuickCRMDefSubPanels = $QuickCRMDefSubPanels;
+		$this->QuickCRMDefColors = $QuickCRMDefColors;
 		$this->QuickCRM_custom_modules = array();
 		$this->server_config = array();
 		$this->mobile = array();
@@ -67,9 +71,10 @@ class QUtils {
 		$dmod=$this->QuickCRM_modules; // predefined module
 		$smod=$this->QuickCRM_simple_modules;
 		$allmodules = $moduleList;
-		// in some configurations, Employees is not in $moduleList
+		// in some configurations, some modules are missing in $moduleList
 		if (!in_array ('Employees',$allmodules)) array_push($allmodules,'Employees');
 		if (!in_array ('SugarFeed',$allmodules)) array_push($allmodules,'SugarFeed');
+		if (!in_array ('ProjectTask',$allmodules)) array_push($allmodules,'ProjectTask');
 		$res= array();
 	
         foreach ($allmodules as $key => $e) {
@@ -92,7 +97,6 @@ class QUtils {
 			}
 		}
 		$this->QuickCRM_custom_modules = $res;
-		//return $res;
 	}
 
     function getUnifiedSearchSettings($lst_mod){
@@ -128,29 +132,16 @@ class QUtils {
 				VardefManager::loadVardef($e, $bean);
 				$dict=$dictionary;
 				if (!in_array ($e,$smod)) {
-					$custom_icon=false;
-					if ($sugar_config['sugar_version']<'6.1'){
-						if (!file_exists("themes/default/images/icon_{$e}_32.gif")){
-							if (file_exists("custom/themes/default/images/icon_{$e}_32.gif")){
-								$custom_icon='custom';
-							}
-							else {
-								$custom_icon='none';
-							}
-						}
-						$filename='';
-					}
-					else {
-						$filename = SugarThemeRegistry::current()->getImageURL("icon_{$e}_32.gif");
-						if ($filename != false) {
-							if (strpos ( $filename, "custom/themes" )!==FALSE ) $custom_icon='custom';
-						}
-					}
+					$module_template = 'basic';
+					if ($e == 'Employees') $module_template = 'person';
+					else if (isset($dict[$bean]['templates']['person'])) $module_template = 'person';
+					else if (isset($dict[$bean]['templates']['company'])) $module_template = 'company';
+					else if (isset($dict[$bean]['templates']['file'])) $module_template = 'file';
+					else if (isset($dict[$bean]['templates']['issue'])) $module_template = 'issue';
+					else if (isset($dict[$bean]['templates']['sale'])) $module_template = 'sale';
 					$res[$e]= array(
-						'type'=>(($e == 'Employees' || isset($dict[$bean]['templates']['person']))?'person':(isset($dict[$bean]['templates']['company'])?'company':(isset($dict[$bean]['templates']['file'])?'file':'basic'))),
+						'type'=> $module_template,
 						'table'=> $dict[$bean]['table'],
-						'custom'=>$custom_icon, // kept for downward compatibility
-						'icon'=> $filename == false ? '' : $filename,
 					);
 				}
 			}
@@ -374,13 +365,13 @@ class QUtils {
 		return $list;
 	}
 	
-    function QgetFields($moduleName,$labels,$excluded_types) {
+    function QgetFields($moduleName,$labels,$excluded_types,$excluded_names = array()) {
 	// allowed display fields
 		global $beanFiles, $beanList;
 		global $app_strings;
 		global $current_language;
 		$list = array();
-		$excluded_names = array('id','assigned_user_id','assigned_user_name','deleted','name','first_name','last_name');
+		$excluded_names = array_merge($excluded_names,array('id','assigned_user_id','assigned_user_name','deleted'));
 		if (file_exists($beanFiles[$beanList[$moduleName]])) {
 			$nodeModule = Q_new_bean($moduleName);
 			foreach($nodeModule->field_name_map as $field_name => $field_defs)
@@ -392,6 +383,9 @@ class QUtils {
 				$source=(isset($field_defs['source'])?$field_defs['source']:"");
 				$mod=(isset($field_defs['module'])?$field_defs['module']:"");
 				$dbType=(isset($field_defs['dbType'])?$field_defs['dbType']:"");
+				if (!isset($field_defs['vname'])) {
+					$field_defs['vname'] = $field_defs['name'];
+				}
 				if((!in_array($field_defs['type'],$excluded_types)
 					&& ($source != 'non-db'
 					// PRO ONLY
@@ -400,7 +394,7 @@ class QUtils {
 								|| $field_defs['type'] == 'Drawing' 
 								|| $field_defs['type'] == 'phone' 
 								|| ($field_defs['type'] == 'function' && ($field_defs['name'] == 'aop_case_updates_threaded'))
-								|| $field_defs['name'] == 'update_text' || $field_defs['name'] == 'internal' || $field_defs['name'] == 'description' || $field_defs['name'] == 'description_html'))
+								|| $field_defs['name'] == 'name' || $field_defs['name'] == 'update_text' || $field_defs['name'] == 'internal' || $field_defs['name'] == 'description' || $field_defs['name'] == 'description_html'))
 						)
 					)
 					||
@@ -430,7 +424,9 @@ class QUtils {
 	
     function QgetDisplayFields($moduleName,$labels) {
 		global $app_strings, $QuickCRM_AddressDef,$QuickCRM_google_AddressDef;
-		$list=$this->QgetFields($moduleName,$labels,array('link','id','parent_type','assigned_user_name'));
+		$excluded = array();
+		if ($this->mobile['mod_def'][$moduleName]['type']=='person') $excluded = array('name');
+		$list=$this->QgetFields($moduleName,$labels,array('link','id','parent_type','assigned_user_name'),$excluded);
 		if (isset($this->server_config['addresses'][$moduleName])){
 			foreach($this->server_config['addresses'][$moduleName] as $prefix){
 				
@@ -458,7 +454,7 @@ class QUtils {
 		$list = array();
 		$excluded_types = array('link','id','function','file','iframe','relate','parent_type','assigned_user_name');
 		$allow_nondb_relate = (!isset($sugar_config['quickcrm_norelatesearch']) || $sugar_config['quickcrm_norelatesearch']==false); 
-		$excluded_names = array('id','assigned_user_id','assigned_user_name','deleted','name','first_name','last_name');
+		$excluded_names = array('id','assigned_user_id','assigned_user_name','deleted');
 		if (file_exists($beanFiles[$beanList[$moduleName]])){
 			$nodeModule = Q_new_bean($moduleName);
 			$map=$nodeModule->field_name_map;
@@ -470,6 +466,9 @@ class QUtils {
 				}
 				$source=(isset($field_defs['source'])?$field_defs['source']:"");
 				$mod=(isset($field_defs['module'])?$field_defs['module']:"");
+				if (!isset($field_defs['vname'])) {
+					$field_defs['vname'] = $field_defs['name'];
+				}
 				if ($field_defs['type'] == 'relate' && $source=='non-db'){
 					if (isset($field_defs['id_name'])){
 						if (!isset($map[$field_defs['id_name']]['source']) || $map[$field_defs['id_name']]['source'] != 'non-db'){
@@ -488,6 +487,8 @@ class QUtils {
 					(($field_defs['type'] == 'parent') && isset($field_defs['parent_type']) && isset($field_defs['options']))
 				||
 					($field_defs['name'] == 'email1')
+				||
+					($field_defs['name'] == 'name')
 				)
 					
 				{
@@ -505,8 +506,33 @@ class QUtils {
 		return $list;
 	}
 
+	function SetProfileView($module,$profile_id,$view,$data){
+		if ($profile_id == '_default') {
+			$this->mobile[$view][$module] = $data;
+		}
+		else {
+			if (!isset($this->mobile['profiles'][$profile_id][$view])) {
+				$this->mobile['profiles'][$profile_id][$view] = array();
+			}
+			$this->mobile['profiles'][$profile_id][$view][$module] = $data;
+		}
+	}
+
+	function GetProfileView($module,$profile_id,$view){
+		if ($profile_id == '_default') {
+			return $this->mobile[$view][$module];
+		}
+		else {
+			if (!isset($this->mobile['profiles'][$profile_id][$view]) || !isset($this->mobile['profiles'][$profile_id][$view][$module])) {
+				return False;
+			}
+			return $this->mobile['profiles'][$profile_id][$view][$module];
+		}
+	}
+
 	function UpdateModules(){
 		global $beanFiles, $beanList,$sugar_config;
+		
 		// remove suppressed modules from module list
 		$newmodule_list=array();
 		foreach ($this->mobile['modules'] as $module){
@@ -518,6 +544,8 @@ class QUtils {
 		
 		$this->mobile['mod_def']= $this->BuildModDef();
 		$res=$this->BuildModLinks();
+		
+		// add to config defined in earlier versions
 		$this->mobile['links']=$res['links'];
 		if (!isset($this->mobile['list'])){
 			$this->mobile['list']=array();
@@ -525,40 +553,64 @@ class QUtils {
 		if (!isset($this->mobile['detail'])){
 			$this->mobile['detail']=array();
 		}
-		if (!isset($this->mobile['share_search'])){ // add to config defined in earlier versions
+		if (!isset($this->mobile['share_search'])){
 			$this->mobile['share_search']='All';
 		}
 
-		if (!isset($this->mobile['groupmode'])){ // add to config defined in earlier versions
-			$this->mobile['groupmode']=in_array ('SecurityGroups',$moduleList)?'SecurityGroups':'ACLRoles';
+		if (!isset($this->mobile['profilemode'])){
+			$this->mobile['profilemode']='none';
 		}
-		if (!isset($this->mobile['groupviews'])){
-			$this->mobile['groupviews']=array();
+		if (!isset($this->mobile['profiles'])){
+			$this->mobile['profiles']=array();
 		}
 
-		if (!isset($this->mobile['native_cal'])){ // add to config defined in earlier versions
+		if (!isset($this->mobile['trackermode'])){
+			$this->mobile['trackermode']='none';
+		}
+		if (!isset($this->mobile['trackerfreq'])){
+			$this->mobile['trackerfreq']=30;
+		}
+		if (!isset($this->mobile['trackergroup'])){
+			$this->mobile['trackergroup']='';
+		}
+		if (!isset($this->mobile['trackerrole'])){
+			$this->mobile['trackerrole']='';
+		}
+		/*
+		if (!isset($this->mobile['trackerviewer'])){
+			$this->mobile['trackerviewer']='';
+		}
+		*/
+		if (!isset($this->mobile['native_cal'])){
 			$this->mobile['native_cal']=true;
 		}
 
-		if (!isset($this->mobile['force_lock'])){ // add to config defined in earlier versions
+		if (!isset($this->mobile['force_lock'])){
 			$this->mobile['force_lock']=false;
 		}
 
-		if (!isset($this->mobile['documents_sync'])){ // add to config defined in earlier versions
+		if (!isset($this->mobile['documents_sync'])){
 			$this->mobile['documents_sync']=true;
 		}
 		
-		if (!isset($this->mobile['audio_notes'])){ // add to config defined in earlier versions
+		if (!isset($this->mobile['audio_notes'])){
 			$this->mobile['audio_notes']=true;
 		}
 		
-		if (!isset($this->mobile['offline_max_days'])){ // add to config defined in earlier versions
+		if (!isset($this->mobile['languages'])){
+			$this->mobile['languages']='all';
+		}
+		
+		if (!isset($this->mobile['offline_max_days'])){
 			$this->mobile['offline_max_days']=7;
 		}
 		
 		$this->mobile['def_title_fields']=array();
 		$this->mobile['def_details_fields']=array();
+		if (!isset($this->mobile['groupby'])) $this->mobile['groupby']=array();
+		if (!isset($this->mobile['showtotals'])) $this->mobile['showtotals']=array();
 		if (!isset($this->mobile['marked'])) $this->mobile['marked']=array();
+		if (!isset($this->mobile['totals'])) $this->mobile['totals']=array();
 		if (!isset($this->mobile['rowspersubpanel'])) $this->mobile['rowspersubpanel']=5;
 		if (!isset($this->mobile['rowsperdashlet'])) $this->mobile['rowsperdashlet']=5;
 		foreach ($this->mobile['modules'] as $module){
@@ -574,7 +626,41 @@ class QUtils {
 					else
 						$this->mobile['fields'][$module] = $this->QuickCRMDetailsFields[$module];
 				}
-				else $this->mobile['fields'][$module]=array();
+				else {
+					if ($this->mobile['mod_def'][$module]['type']=='person') {
+						$this->mobile['fields'][$module]=array('first_name','last_name');
+					}
+					else if ($module == 'Documents' || $this->mobile['mod_def'][$module]['type']=='file') {
+						$this->mobile['fields'][$module]=array('document_name');
+					}
+					else {
+						$this->mobile['fields'][$module]=array('name');
+					}
+				}
+			}
+			else {
+				if (!isset($this->mobile['version'])){
+					// prepend name fields when upgrading from old version
+					$has_details = isset($this->mobile['detail'][$module]) && is_array($this->mobile['detail'][$module]);
+					if ($this->mobile['mod_def'][$module]['type']=='person') {
+						array_unshift ($this->mobile['fields'][$module],'first_name','last_name');
+						if ($has_details){
+							array_unshift ($this->mobile['detail'][$module],'first_name','last_name');
+						}
+					}
+					else if ($module == 'Documents' || $this->mobile['mod_def'][$module]['type']=='file') {
+						array_unshift ($this->mobile['fields'][$module],'document_name');
+						if ($has_details){
+							array_unshift ($this->mobile['detail'][$module],'document_name');
+						}
+					}
+					else {
+						array_unshift ($this->mobile['fields'][$module],'name');
+						if ($has_details){
+							array_unshift ($this->mobile['detail'][$module],'name');
+						}
+					}
+				}
 			}
 			if (!isset($this->mobile['list'][$module])){
 				if (isset($this->QuickCRMDefList[$module])){
@@ -582,6 +668,21 @@ class QUtils {
 				}
 				else $this->mobile['list'][$module]=array();
 			}
+			if (!isset($this->mobile['totals'][$module])){
+				if (isset($this->QuickCRMDefTotals[$module])){
+					$this->mobile['totals'][$module] = $this->QuickCRMDefTotals[$module];
+				}
+			}
+			if (!isset($this->mobile['groupby'][$module])){
+				if (isset($this->QuickCRMDefGroupby[$module])){
+					$this->mobile['groupby'][$module] = $this->QuickCRMDefGroupby[$module];
+				}
+			}
+
+			if (!isset($this->mobile['showtotals'][$module])){
+				$this->mobile['showtotals'][$module] = array('list'=>True, 'dashlets' => True, 'subpanels'=> False);
+			}
+
 			$subpanels=array();
 			if (isset($this->mobile['subpanels'][$module]))
 			  foreach ($this->mobile['subpanels'][$module] as $subpanel){
@@ -602,7 +703,25 @@ class QUtils {
 					$this->mobile['def_title_fields'][$module]= array('name');
 				}
 			}
+
+			if (!isset($this->mobile['basic_search'][$module])){
+				if ($module == 'Documents' || $this->mobile['mod_def'][$module]['type']=='file') {
+					$this->mobile['basic_search'][$module]= array('document_name');
+				}
+				else {
+					$this->mobile['basic_search'][$module]= array('name');
+				}
+			}
+			if (!isset($this->mobile['highlighted'][$module])){
+				if ($this->mobile['mod_def'][$module]['type']=='file') {
+					$this->mobile['highlighted'][$module]= array('document_name');
+				}
+				else {
+					$this->mobile['highlighted'][$module]= array('name');
+				}
+			}
 		}
+		$this->mobile['version'] = '5.1.0';
 	}
 
 	function ConvertConfig(){
@@ -610,18 +729,19 @@ class QUtils {
 		$proKey='QuickCRM_mobileconfig';
 		$trialKey='QuickCRM_trialmobileconfig';
 
-		$administration = new Administration();
-		$administration->retrieveSettings('QuickCRM',true);
-			
+		if (!file_exists('custom/QuickCRM/mobile.defs.js')){
+			$administration = new Administration();
+			$administration->retrieveSettings('QuickCRM',true);	
 			if (!isset($administration->settings[$proKey]) || $administration->settings[$proKey]=='') {
 				if (isset($administration->settings[$trialKey]) && $administration->settings[$trialKey]!='') {
 					$administration->saveSetting('QuickCRM', 'mobileconfig', $administration->settings[$trialKey]);
-					$administration->saveSetting('QuickCRM', 'trialmobileconfig', '');
+					//$administration->saveSetting('QuickCRM', 'trialmobileconfig', '');
 				}
-			}	
+			}
+		}	
 	}
 	
-	function LoadMobileConfig($refresh=false){
+	function LoadMobileConfig($refresh=true){
 		global $sugar_config, $moduleList, $beanFiles, $beanList;
 		
 		if (isset($this->mobile['modules'])){ // Already loaded
@@ -630,24 +750,37 @@ class QUtils {
 		
 		$json = getJSONobj();
 		
-		$administration = new Administration();
-		$administration->retrieveSettings('QuickCRM',true);
+		$configuration_found = false;
+		if (file_exists('custom/QuickCRM/mobile.defs.js')){
+			$str = file_get_contents('custom/QuickCRM/mobile.defs.js');
+			$this->mobile = $json->decode($str);
+			$configuration_found = true;
+		}
+		else {
+			$administration = new Administration();
+			$administration->retrieveSettings('QuickCRM',true);
 
-		$confKey='QuickCRM_'.($sugar_config['quickcrm_trial'] != false?'trial':'').'mobileconfig';
-		if (isset($administration->settings[$confKey]) && $administration->settings[$confKey]!='') {
-			$this->mobile = $json->decode(base64_decode($administration->settings[$confKey]));
-			if ($refresh){
-				$this->UpdateModules();
+			// convert old configuration
+			$confKey='QuickCRM_'.($sugar_config['quickcrm_trial'] != false?'trial':'').'mobileconfig';
+			if (isset($administration->settings[$confKey]) && $administration->settings[$confKey]!='') {
+				$configuration_found = true;
+				// configuration prior to 5.9.5
+				$this->mobile = $json->decode(base64_decode($administration->settings[$confKey]));
 			}
-			
-			return;
 		}	
-
+		if ($configuration_found){
+				$this->UpdateModules();
+				return;
+		}
+			
+		// Build default configuration
+		
 		// remove unavailable modules
+
 		$newmodule_list=array();
 		foreach ($this->QuickCRM_modules as $module){
 			if (file_exists($beanFiles[$beanList[$module]])){
-				array_push($newmodule_list,$module);
+					array_push($newmodule_list,$module);
 			}
 		}
 
@@ -660,21 +793,32 @@ class QUtils {
 			'detail' => array(), // additional fields for display
 			'addresses' => $this->QuickCRMAddressesFields, // displayed address fields
 			'search' => array(), // search fields
+			'basic_search' => array(), // search fields
+			'highlighted' => array(), // list fields
 			'list' => array(), // list fields
 			'marked' => array(), // list fields
+			'totals' => array(), // list fields
+			'groupby' => array(), // list fields
+			'showtotals' => array(), // list fields
 			'subpanels' => array(), // subpanels (ordered)
 			'offline_max_days' => '7',
 			'rowsperpage' => '20',
 			'rowspersubpanel' => '5',
 			'rowsperdashlet' => '5',
 			'groupusers' => false,
-			'groupmode' => in_array ('SecurityGroups',$moduleList)?'SecurityGroups':'ACLRoles',
-			'groupviews' => array(), // specific views per group
+			'profilemode' => 'none',
+			'profiles' => array(), // specific views per group
+			'trackermode' => 'none',
+			'trackerfreq' => 30,
+			'trackergroup' => '',
+			'trackerrole' => '',
+			//'trackerviewer' => '',
 			'share_search' => 'All',
 			'native_cal' => true,
 			'force_lock' => false,
 			'documents_sync' => true,
 			'audio_notes' => true,
+			'languages' => 'all',
 			
 			'mod_def' => array(), // Properties of selected modules
 			'links' => array(), // available links for selected modules
@@ -682,93 +826,12 @@ class QUtils {
 		if (file_exists('custom/QuickCRM/views.php')){
 			include ('custom/QuickCRM/views.php');
 		}
-		$oldconfKey='QuickCRM_'.($sugar_config['quickcrm_trial'] != false?'trial':'').'mobile_config';
-		$conf_file='custom/QuickCRM/mobile.config.js';
-		$lines=array();
-		if (!isset($administration->settings[$oldconfKey]) || $administration->settings[$oldconfKey]=='') {
-			if (!file_exists($conf_file)) {
-//				return;
-			}
-			else {
-				$lines = file($conf_file); 
-			}
-		}
-		else {
-			$lines = explode("\n", base64_decode($administration->settings[$oldconfKey]));
-		}
 		$addfields=array();
-		$updateFromOldConfig=true;
-		if (isset($lines[0]) && substr($lines[0], 0, 4)!='//V3'){
-			$rows_pattern ='/^RowsPerPage=(.+);$/';
-			$updateFromOldConfig= (substr($lines[0], 0, 4)=='//V1' || substr($lines[0], 0, 4)=='//V2');
-				$additional_pattern ='/^Beans\[\'(.+)\'\]\.AdditionalFields.+\[(.+)\].+$/';
-				$search_pattern ='/^Beans\[\'(.+)\'\]\.SearchFields.+\[(.+)\].+$/';
-				$list_pattern ='/^Beans\[\'(.+)\'\]\.CustomListFields.+\[(.+)\].+$/';
-				$addresses_pattern ='/^Beans\[\'(.+)\'\]\.Addresses.+\[(.+)\].+$/';
-				$no_access_pattern = "/^Beans\[\'(.+)\'\]\.access.+=.+\'none\';$/";
-				$enabled_pattern ='/^QCRM.enableBeans\(\[(.+)\]\);$/';
-		}
-		else {
-			$lines=array(); // do not read config file saved with V3.0
-		}
-		foreach ($lines AS $line) {
-			if (preg_match($rows_pattern,$line)>0){
-				$this->mobile['rowsperpage']=trim(preg_replace($rows_pattern,'$1',$line));
-			}
-			elseif (preg_match($enabled_pattern,$line)>0){
-				$module = trim(preg_replace($enabled_pattern,'$1',$line));
-				$module_arr=explode(",", $module);
-				$enabled_modules = array();
-				foreach($module_arr as $module){
-					$module=substr($module, 1, -1);
-					array_push($enabled_modules,$module);
-				}
-				$this->mobile['modules'] = $enabled_modules;
-			}
-			elseif (preg_match($additional_pattern,$line)>0){
-				$module = trim(preg_replace($additional_pattern,'$1',$line));
-				$fields = trim(preg_replace($additional_pattern,'$2',$line));
-				$fields_arr=explode(",", $fields);
-				if (!isset($addfields[$module])) $addfields[$module]=array();
-				foreach($fields_arr as $field){
-					$fld=substr($field, 1, -1);
-					$addfields[$module][]=$fld;
-				}
-			}
-			elseif (preg_match($search_pattern,$line)>0){
-				$module = trim(preg_replace($search_pattern,'$1',$line));
-				$fields = trim(preg_replace($search_pattern,'$2',$line));
-				$fields_arr=explode(",", $fields);
-				foreach($fields_arr as $field){
-					$fld=substr($field, 1, -1);
-					$this->mobile['search'][$module][]=$fld;
-				}
-			}
-			elseif (preg_match($list_pattern,$line)>0){
-				$module = trim(preg_replace($list_pattern,'$1',$line));
-				$fields = trim(preg_replace($list_pattern,'$2',$line));
-				$fields_arr=explode(",", $fields);
-				foreach($fields_arr as $field){
-					$fld=substr($field, 1, -1);
-					$this->mobile['list'][$module][]=$fld;
-				}
-			}
-			elseif (preg_match($addresses_pattern,$line)>0){
-				$module = trim(preg_replace($addresses_pattern,'$1',$line));
-				$addresses = trim(preg_replace($addresses_pattern,'$2',$line));
-				$fields_arr=explode(",", $addresses);
-				// reset addresses 
-				$this->mobile['addresses'][$module]=array();
-				foreach($fields_arr as $field){
-					$fld=substr($field, 1, -1);
-					$this->mobile['addresses'][$module][]=$fld;
-				}
-			}
-		}
 		$this->mobile['mod_def']= $this->BuildModDef();
 		$res=$this->BuildModLinks();
 		$this->mobile['links']=$res['links'];
 		$ModuleDef=$this->mobile['mod_def'];
+		$this->mobile['version']= "5.1.0";
 		foreach($this->mobile['modules'] as $module)
 			{
 
@@ -781,6 +844,24 @@ class QUtils {
 					}
 				}
 				
+				if (!isset($this->mobile['basic_search'][$module])){
+					if ($module == 'Documents' || $ModuleDef[$module]['type']=='file') {
+						$this->mobile['basic_search'][$module]= array('document_name');
+					}
+					else {
+						$this->mobile['basic_search'][$module]= array('name');
+					}
+				}
+
+				if (!isset($this->mobile['highlighted'][$module])){
+					if ($ModuleDef[$module]['type']=='file') {
+						$this->mobile['highlighted'][$module]= array('document_name');
+					}
+					else {
+						$this->mobile['highlighted'][$module]= array('name');
+					}
+				}
+
 				$subpanels=array();
 				if (isset($this->QuickCRMDefSubPanels[$module])){
 					foreach ($this->QuickCRMDefSubPanels[$module] as $lnk){
@@ -810,28 +891,37 @@ class QUtils {
 				}
 				$this->mobile['list'][$module]=$listfields;
 
+				if (isset($this->QuickCRMDefColors[$module])){
+					$this->mobile['marked'][$module] = $this->QuickCRMDefColors[$module];
+				}
+				if (isset($this->QuickCRMDefTotals[$module])){
+					$this->mobile['totals'][$module] = $this->QuickCRMDefTotals[$module];
+				}
+				if (isset($this->QuickCRMDefGroupby[$module])){
+					$this->mobile['groupby'][$module] = $this->QuickCRMDefGroupby[$module];
+				}
+				$this->mobile['showtotals'][$module] = array('list'=>True, 'dashlets' => True, 'subpanels'=> True);
+
 				if (isset($this->QuickCRMDetailsFields[$module])) {
-					if ($updateFromOldConfig && isset($addfields[$module])){
-						$this->mobile['fields'][$module]=array();
-						// for upward compatibility when new default fields have been defined
-						// add only default fields that have not been defined by user
-						foreach ($this->QuickCRMDetailsFields[$module] as $fld){
-							if (!in_array($fld,$addfields[$module])){
-								array_push($this->mobile['fields'][$module],$fld);
-							}
-						}				
-					}
-					else {
 						if (isset($this->QuickCRMDefEdit[$module])){
 							$this->mobile['fields'][$module] = $this->QuickCRMDefEdit[$module];
 							$this->mobile['detail'][$module] = $this->QuickCRMDetailsFields[$module];
 						}
-						else
+						else{
 							$this->mobile['fields'][$module] = $this->QuickCRMDetailsFields[$module];
+						}
+				}
+				else{
+					if ($ModuleDef[$module]['type']=='person') {
+						$this->mobile['fields'][$module]=array('first_name','last_name');
+					}
+					else if ($module == 'Documents' || $ModuleDef[$module]['type']=='file') {
+						$this->mobile['fields'][$module]=array('document_name');
+					}
+					else {
+						$this->mobile['fields'][$module]=array('name');
 					}
 				}
-				else
-					$this->mobile['fields'][$module]=array();
 					
 				if (isset($this->mobile['addresses'][$module])) {
 					foreach($this->mobile['addresses'][$module] as $key=>$fld){
@@ -850,40 +940,6 @@ class QUtils {
 		global $current_language, $sugar_config;
 		
 		$json = getJSONobj();
-		if (!$refresh){
-			$administration = new Administration();
-			$administration->retrieveSettings('QuickCRM');
-
-			$confKey='QuickCRM_'.($sugar_config['quickcrm_trial'] != false?'trial':'').'serverconfig';
-			if (isset($administration->settings[$confKey])) {
-				$this->server_config=$json->decode(base64_decode($administration->settings[$confKey]));
-				$Sflds=array();
-				$Dflds=array();
-				$Lflds=array();
-				$current_Sversion=false;
-				$current_Dversion=false;
-				$current_Lversion=false;
-				foreach($this->server_config['modules'] as $module){
-					if (isset($administration->settings['QuickCRM_'.'S'.$module])){
-						$current_Sversion=true;
-						$Sflds[$module]=$json->decode(base64_decode($administration->settings['QuickCRM_'.'S'.$module]));
-					}
-					if (isset($administration->settings['QuickCRM_'.'D'.$module])){
-						$current_Dversion=true;
-						$Dflds[$module]=$json->decode(base64_decode($administration->settings['QuickCRM_'.'D'.$module]));
-					}
-					if (isset($administration->settings['QuickCRM_'.'L'.$module])){
-						$current_Lversion=true;
-						$Lflds[$module]=$json->decode(base64_decode($administration->settings['QuickCRM_'.'L'.$module]));
-					}
-				}
-				// In previous version, all search fields were already stored in the same settings
-				if ($current_Sversion) $this->server_config['search']=$Sflds;
-				if ($current_Dversion) $this->server_config['fields']=$Dflds;
-				if ($current_Lversion) $this->server_config['list']=$Lflds;
-				return;
-			}
-		}
 		$this->server_config = array(
 			'modules' => array(), // Available modules
 			'fields' => array(), // Available fields for display
@@ -918,21 +974,6 @@ class QUtils {
 			$this->server_config['search'][$module] = $this->QgetSearchFields($module,$labels);
 			$this->server_config['list'][$module] = $this->QgetListFields($module,$labels);
 			$this->server_config['marked'][$module] = $this->QgetMarkableFields($module,$labels);
-/*
-			if (isset($this->server_config['addresses'][$module])){
-				foreach($this->server_config['addresses'][$module] as $prefix){
-					unset ($this->server_config['fields'][$module][$prefix.'_address_street']);
-					unset ($this->server_config['fields'][$module][$prefix.'_address_city']);
-					unset ($this->server_config['fields'][$module][$prefix.'_address_state']);
-					unset ($this->server_config['fields'][$module][$prefix.'_address_postalcode']);
-					unset ($this->server_config['fields'][$module][$prefix.'_address_country']);
-					$this->server_config['fields'][$module]['$ADD'.$prefix] = array(
-									'type' => 'Address',
-									'label' => $prefix,
-							);
-				}
-			}
-*/
 			$lnks=$this->QgetAvailableLinks($module);
 			$this->server_config['links'][$module]=$lnks['links'];
 			$this->server_config['subpanels'][$module]=$lnks['subpanels'];
@@ -941,6 +982,8 @@ class QUtils {
 
 	function getJSConfig(){
 		global $sugar_config,$QuickCRM_AddressDef,$QuickCRM_google_AddressDef;
+
+		$json = getJSONobj();
 	
 		$str="//V3.0\n";
 		$enabled= $this->mobile['modules'];
@@ -961,68 +1004,99 @@ class QUtils {
 			$str.= "QCRM.mode='" . $sugar_config['quickcrm_mode'] . "';\n";
 		}
 			
+		require_once('modules/MySettings/TabController.php');
+        
+        $controller = new TabController();
+        $tabs = $controller->get_tabs_system();
+        $disabled = array();
+        foreach ($tabs[1] as $key=>$value)
+        {
+            $disabled[] = $key;
+        }
+		
+		$current_config = $this->mobile;
 		
 		$str.="QCRM.enableBeans(['" . implode("','",$enabled) . "']);\n";
-		if (!isset($this->mobile['detail'])) $this->mobile['detail'] = array();
+		if (!isset($current_config['detail'])) $current_config['detail'] = array();
 		$preset_fields = $this->QgetPresetModuleFields();
 		foreach($enabled as $module){
-			if (count($this->mobile['fields'][$module]) >0){
-				$str.="Beans['$module'].AdditionalFields = ['" . implode("','",$this->mobile['fields'][$module]) . "'];\n";
+			
+			if (in_array($module,$disabled)){
+				$str.="Beans['$module'].ShowTab = false;\n";
 			}
-			if (isset($this->mobile['detail'][$module]) && $this->mobile['detail'][$module] != False && (count($this->mobile['detail'][$module]) >0)){
+		
+			if (count($current_config['fields'][$module]) >0){
+				$str.="Beans['$module'].AdditionalFields = ['" . implode("','",$current_config['fields'][$module]) . "'];\n";
+			}
+			if (isset($current_config['detail'][$module]) && $current_config['detail'][$module] != False && (count($current_config['detail'][$module]) >0)){
 				if (isset($preset_fields[$module])) $def_fields = $preset_fields[$module];
 				else $def_fields = array();
-				$str.="Beans['$module'].DetailFields = ['" . implode("','",array_merge ($def_fields,$this->mobile['detail'][$module])) . "'];\n";
+				$str.="Beans['$module'].DetailFields = ['" . implode("','",array_merge ($def_fields,$current_config['detail'][$module])) . "'];\n";
 			}
 			
-			if (isset($this->mobile['search'][$module]) && (count($this->mobile['search'][$module]) >0)){
-				$str.="Beans['$module'].SearchFields = ['" . implode("','",$this->mobile['search'][$module]) . "'];\n";
+			if (isset($current_config['search'][$module]) && (count($current_config['search'][$module]) >0)){
+				$str.="Beans['$module'].SearchFields = ['" . implode("','",$current_config['search'][$module]) . "'];\n";
 			}
 			
-			if (isset($this->mobile['list'][$module]) && (count($this->mobile['list'][$module]) >0)){
-				$str.="Beans['$module'].CustomListFields = ['" . implode("','",$this->mobile['list'][$module]) . "'];\n";
+			if (isset($current_config['basic_search'][$module]) && (count($current_config['basic_search'][$module]) >0)){
+				$str.="Beans['$module'].basic_search = ['" . implode("','",$current_config['basic_search'][$module]) . "'];\n";
+			}
+			if (isset($current_config['list'][$module]) && (count($current_config['list'][$module]) >0)){
+				$str.="Beans['$module'].CustomListFields = ['" . implode("','",$current_config['list'][$module]) . "'];\n";
 			}
 
-			if (isset($this->mobile['def_title_fields'][$module])){ // TO REMOVE WHEN APP HAS BEEN UPDATED
-				$titlefield = implode("','",$this->mobile['def_title_fields'][$module]);
+			if (isset($current_config['highlighted'][$module]) && (count($current_config['highlighted'][$module]) >0)){
+				$str.="Beans['$module'].highlighted = ['" . implode("','",$current_config['highlighted'][$module]) . "'];\n";
+			}
+
+			if (isset($current_config['def_title_fields'][$module])){ // TO REMOVE WHEN APP HAS BEEN UPDATED
+				$titlefield = implode("','",$current_config['def_title_fields'][$module]);
 				if ($titlefield != 'name') {
 					$str.="Beans['$module'].TitleFields = ['" . $titlefield . "'];\n";
 				}
 			}
 			
-			if (isset($this->mobile['subpanels'][$module]) && count($this->mobile['subpanels'][$module])>0){
+			if (isset($current_config['subpanels'][$module]) && count($current_config['subpanels'][$module])>0){
 				$str.="Beans['$module'].CustomLinks = {";
 				$str_subp="";
-				foreach($this->mobile['subpanels'][$module] as $key=>$fld){
-					$str_subp .= ($str_subp==''?"":",") ."'".$fld."':{title:'".$this->mobile['links'][$module][$fld]['label']."'}";
+				foreach($current_config['subpanels'][$module] as $key=>$fld){
+					$str_subp .= ($str_subp==''?"":",") ."'".$fld."':{title:'".$current_config['links'][$module][$fld]['label']."'}";
 				}
 				$str.= $str_subp . "};\n";
 			}
 			else $str.="Beans['$module'].CustomLinks = [];\n";
 			
-			if (isset($this->mobile['marked'][$module]) && ($this->mobile['marked'][$module] !=='') && ($this->mobile['marked'][$module] !=='none')){
-				$str.="Beans['$module'].ColoredField = '" . $this->mobile['marked'][$module] . "';\n";
+			if (isset($current_config['marked'][$module]) && ($current_config['marked'][$module] !=='') && ($current_config['marked'][$module] !=='none')){
+				$str.="Beans['$module'].ColoredField = '" . $current_config['marked'][$module] . "';\n";
+			}
+			if (isset($current_config['totals'][$module])  && (count($current_config['totals'][$module]) > 0)){
+				$str.="Beans['$module'].ListTotals = ".$json->encode($current_config['totals'][$module]).";\n";
+				if (isset($current_config['groupby'][$module]) && ($current_config['groupby'][$module] !='')){
+					$str.="Beans['$module'].GroupTotals = '".$current_config['groupby'][$module]."';\n";
+				}
+
+				if (isset($current_config['showtotals'][$module]) && ($current_config['showtotals'][$module] !='')){
+					$str.="Beans['$module'].ShowTotals = ".$json->encode($current_config['showtotals'][$module]).";\n";
+				}
+
 			}
 
 		}
 		
-		if (isset($this->mobile['groupviews'])){
-			$str.="QCRM.Profiles={};";
-			foreach ($this->mobile['groupviews'] as $group => $settings){
-				$str.="QCRM.Profiles['$group']={};";
-				foreach ($settings as $module => $module_settings){
-					$str.="QCRM.Profiles['$group']['$module']={fields:['" . implode("','",$module_settings['fields']) . "']};\n";
-				}
-			}
-		}
+		$str.="QCRM.Profiles=".$json->encode($current_config['profiles']).";";
 			
 		// Save group mode (roles or security group)
-		$str.="QCRM.ProfileMode='". $this->mobile['groupmode'] . "';\n";
+		$str.="QCRM.ProfileMode='". $current_config['profilemode'] . "';\n";
+		$str.="QCRM.TrackerMode='". $current_config['trackermode'] . "';\n";
+		if ($current_config['trackermode'] != 'none'){
+			//$str.="QCRM.TrackerViewer=". $current_config['trackerviewer'] . ";";
+			$str.="QCRM.TrackerFreq=". $current_config['trackerfreq'] . "; QCRM.TrackerRole='". $current_config['trackerrole'] . "'; QCRM.TrackerGroup='". $current_config['trackergroup'] . "';\n";
+		}
 		// Save RowsPerPage & groupusers
-		$str.='RowsPerPage='. $this->mobile['rowsperpage'] . ";";
-		$str.='RowsPerDashlet='. $this->mobile['rowsperdashlet'] . ";";
-		$str.='RowsPerSubPanel='. $this->mobile['rowspersubpanel'] . ";\n";
-		if (!isset ($this->mobile['groupusers']) || !$this->mobile['groupusers']){
+		$str.='RowsPerPage='. $current_config['rowsperpage'] . ";";
+		$str.='RowsPerDashlet='. $current_config['rowsperdashlet'] . ";";
+		$str.='RowsPerSubPanel='. $current_config['rowspersubpanel'] . ";\n";
+		if (!isset ($current_config['groupusers']) || !$current_config['groupusers']){
 			$str.= "SimpleBeans['Users'].query += 'AND (users.is_group=0 OR users.is_group IS NULL)';\n";
 		}
 		else
@@ -1036,48 +1110,60 @@ class QUtils {
 
 	function SaveMobileConfig($saveLanguages){
 		global $sugar_config;
+
+		$mobile = new mobile_jsLanguage();
+		$success = true;
+		$errors = array();
+
 		$json = getJSONobj();
+		$saveDir = realpath(dirname(__FILE__).'/../../QuickCRM/');
+		$saveDirApp = $sugar_config['sugar_version']<'6.3' ? $saveDir : $mobile->saveDir;
+		$saveFileApp = $sugar_config['sugar_version']<'6.3' ? 'mobile.config.js' : 'mobile_config.js';
 	
 		$str= $this->getJSConfig();
 
 		$administration = new Administration();
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'mobile_config', base64_encode($str));
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'mobileconfig', base64_encode($json->encode($this->mobile)));
-		
-// KEEP IT UNTIL upwards compatibility with Android App		
-		$saveDir = realpath(dirname(__FILE__).'/../../QuickCRM/');
-		if($fh = @fopen($saveDir .'/' .  'mobile.config.js', "w")){
+
+
+		$administration->saveSetting('QuickCRM', 'server_version', "5.1.0");
+
+
+		// save app data
+		if($fh = fopen($saveDirApp .'/' .  $saveFileApp, "w")){
 			fputs($fh, $str);
 			fclose($fh);
 		}
+		else {
+			$error_msg = 'Error writing: ' . $saveDirApp .'/' .  $saveFileApp;
+			$errors[] = $error_msg;
+			$GLOBALS['log']->fatal('[QuickCRM] ' .  $error_msg);
+			$success = false;
+		}
 		if ($saveLanguages){
-			$mobile = new mobile_jsLanguage();
 			$mobile->createFiles(array_merge($this->mobile['modules'],$this->QuickCRM_simple_modules),$this->mobile);
 		}
+		
+		// backup and save server module data
+		if (file_exists('custom/QuickCRM/mobile.defs.js')){
+			rename('custom/QuickCRM/mobile.defs.js','custom/QuickCRM/mobile.defs.back.js');
+		}
+		if($fh = fopen($saveDir .'/' .  'mobile.defs.js', "w")){
+			fputs($fh, $json->encode($this->mobile));
+			fclose($fh);
+		}
+		else {
+			$error_msg = 'Error writing: ' . $saveDir .'/mobile.defs.js';
+			$errors[] = $error_msg;
+			$GLOBALS['log']->fatal('[QuickCRM] ' .  $error_msg);
+			$success = false;
+		}
+		
+		return array('success'=>$success,'error_messages' => $errors);
+
 	}
 
 	function SaveServerConfig(){
 		global $sugar_config;
-		$json = getJSONobj();
-		$administration = new Administration();
-		foreach($this->server_config['modules'] as $module){
-			if (isset($this->server_config['search'][$module]))
-				$administration->saveSetting('QuickCRM', 'S'.$module, base64_encode($json->encode($this->server_config['search'][$module])));
-			if (isset($this->server_config['fields'][$module]))
-				$administration->saveSetting('QuickCRM', 'D'.$module, base64_encode($json->encode($this->server_config['fields'][$module])));
-			if (isset($this->server_config['list'][$module]))
-				$administration->saveSetting('QuickCRM', 'L'.$module, base64_encode($json->encode($this->server_config['list'][$module])));
-		}
-		$save_Sflds=$this->server_config['search'];
-		$save_Dflds=$this->server_config['fields'];
-		$save_Lflds=$this->server_config['list'];
-		$this->server_config['search']="";
-		$this->server_config['fields']="";
-		$this->server_config['list']="";
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'serverconfig', base64_encode($json->encode($this->server_config)));
-		$this->server_config['search']=$save_Sflds;
-		$this->server_config['fields']=$save_Dflds;
-		$this->server_config['list']=$save_Lflds;
 	}
 
 	function LoadConfig($refresh=true){
@@ -1115,8 +1201,8 @@ class QUtils {
 			}
 		}
 		
-		$this->SaveServerConfig();
 		$this->SaveMobileConfig(true);
+		$this->SaveServerConfig();
 		return (CheckAccess());
 	}
 
