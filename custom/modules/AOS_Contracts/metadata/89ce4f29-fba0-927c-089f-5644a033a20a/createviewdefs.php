@@ -483,7 +483,7 @@ $viewdefs = array (
           ),
           3 => 
           array (
-            1 => 'apttus_activated_by_c',
+            1 => 'apttus_activated_by_name_c',
           ),
         ),
         'lbl_editview_panel4' => 

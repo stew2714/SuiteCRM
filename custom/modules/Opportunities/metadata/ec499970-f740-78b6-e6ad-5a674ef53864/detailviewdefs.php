@@ -86,15 +86,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'a3_classification_c',
-            'label' => 'LBL_A3_CLASSIFICATION_C',
-          ),
-          1 => '',
-        ),
-        1 => 
-        array (
           0 => 'name',
           1 => 
           array (
@@ -102,7 +93,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 'date_closed',
           1 => 
@@ -111,7 +102,7 @@ array (
             'label' => 'LBL_REGION_C',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 'account_name',
           1 => 
@@ -120,7 +111,7 @@ array (
             'label' => 'LBL_RECORDTYPEID_C',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -129,7 +120,7 @@ array (
           ),
           1 => 'sales_stage',
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -138,7 +129,7 @@ array (
           ),
           1 => 'probability',
         ),
-        6 => 
+        5 => 
         array (
           0 => 'campaign_name',
           1 => 
@@ -147,7 +138,7 @@ array (
             'label' => 'LBL_CONFIDENCE_LEVEL_C',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -160,7 +151,7 @@ array (
             'label' => 'LBL_RATING_C',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -173,7 +164,7 @@ array (
             'label' => 'LBL_FORECAST_C',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -186,7 +177,7 @@ array (
             'label' => 'LBL_VENDOR_OF_CHOICE_C',
           ),
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -200,7 +191,7 @@ array (
             'label' => 'LBL_MUST_WIN_C',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -210,7 +201,7 @@ array (
           ),
           1 => '',
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -219,7 +210,7 @@ array (
           ),
           1 => '',
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
@@ -228,7 +219,7 @@ array (
           ),
           1 => '',
         ),
-        14 => 
+        13 => 
         array (
           0 => 
           array (
@@ -237,7 +228,7 @@ array (
           ),
           1 => '',
         ),
-        15 => 
+        14 => 
         array (
           0 => 
           array (
@@ -246,7 +237,7 @@ array (
           ),
           1 => '',
         ),
-        16 => 
+        15 => 
         array (
           0 => 
           array (
@@ -255,7 +246,7 @@ array (
           ),
           1 => '',
         ),
-        17 => 
+        16 => 
         array (
           0 => 
           array (
@@ -268,7 +259,7 @@ array (
             'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
           ),
         ),
-        18 => 
+        17 => 
         array (
           0 => 
           array (
@@ -281,7 +272,7 @@ array (
             'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
           ),
         ),
-        19 => 
+        18 => 
         array (
           0 => 
           array (
@@ -294,7 +285,7 @@ array (
             'label' => 'LBL_GP_CONTRACT_ORDER_C',
           ),
         ),
-        20 => 
+        19 => 
         array (
           0 => 
           array (
@@ -307,7 +298,7 @@ array (
             'label' => 'LBL_COMMISSIONS_NOTES_C',
           ),
         ),
-        21 => 
+        20 => 
         array (
           0 => '',
           1 => 

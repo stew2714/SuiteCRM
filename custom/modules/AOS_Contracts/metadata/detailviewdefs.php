@@ -686,8 +686,9 @@ array (
           0 => '',
           1 => 
           array (
-            'name' => 'apttus_activated_by_c',
-            'label' => 'LBL_APTTUS_ACTIVATED_BY_C',
+            'name' => 'apttus_activated_by_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_ACTIVATED_BY_NAME_C',
           ),
         ),
       ),

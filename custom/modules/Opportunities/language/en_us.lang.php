@@ -1,5 +1,5 @@
 <?php
-// created: 2018-01-23 20:08:19
+// created: 2018-01-26 15:13:07
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
