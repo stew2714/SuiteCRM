@@ -39,7 +39,6 @@ array (
         ),
         1 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'start_date',
@@ -79,7 +78,6 @@ array (
             'name' => 'aos_contracrtunities_name',
             'label' => 'LBL_AOS_CONTRACTS_OPPORTUNITIES_FROM_OPPORTUNITIES_TITLE',
           ),
-          1 => '',
         ),
         5 => 
         array (

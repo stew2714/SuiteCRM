@@ -246,6 +246,7 @@ $dictionary['Opportunity']['fields']['sf_id_c']['source']='custom_fields';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['name']='recordtypeid_c';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['len']='18';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['type']='enum';
+$dictionary['Opportunity']['fields']['recordtypeid_c']['audited']=true;
 $dictionary['Opportunity']['fields']['recordtypeid_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['recordtypeid_c']['options']='opportunity_rectype_list';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['importable']='true';

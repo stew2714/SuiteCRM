@@ -39,7 +39,7 @@ array (
         ),
         1 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'start_date',
             'label' => 'LBL_START_DATE',

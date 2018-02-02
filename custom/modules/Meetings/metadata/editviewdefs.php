@@ -85,6 +85,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           'panelDefault' => 'expanded',
         ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -138,12 +139,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
               'updateCallback' => 'SugarWidgetScheduler.update_time();',
             ),
           ),
-          1 => 
-          array (
-            'name' => 'location',
-            'comment' => 'Meeting location',
-            'label' => 'LBL_LOCATION',
-          ),
         ),
         3 => 
         array (
@@ -184,10 +179,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'description',
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 
-          array (
-            'name' => 'a4_sites_meetings_1_name',
           ),
         ),
       ),

@@ -330,7 +330,6 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -339,7 +338,6 @@ array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -957,7 +955,6 @@ array (
         ),
         10 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'sw_maint_renewal_term_c',
@@ -1034,7 +1031,6 @@ array (
         ),
         5 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'previous_opportunity_stage_date_c',
@@ -1072,7 +1068,6 @@ array (
         ),
         2 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'first_commission_date_c',

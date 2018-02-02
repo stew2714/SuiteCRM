@@ -313,7 +313,6 @@ array (
         ),
         15 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 't_c_version_c',
@@ -572,7 +571,6 @@ array (
             'name' => 'intellectual_property_general_informatio_c',
             'label' => 'LBL_INTELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C',
           ),
-          1 => '',
         ),
         14 => 
         array (
@@ -594,7 +592,6 @@ array (
             'name' => 'enhanced_data_use_rights_language_c',
             'label' => 'LBL_ENHANCED_DATA_USE_RIGHTS_LANGUAGE_C',
           ),
-          1 => '',
         ),
         16 => 
         array (
@@ -603,7 +600,6 @@ array (
             'name' => 'legal_notices_c',
             'label' => 'LBL_LEGAL_NOTICES_C',
           ),
-          1 => '',
         ),
         17 => 
         array (
@@ -665,7 +661,6 @@ array (
         ),
         1 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'courior_tracking_number_c',
@@ -674,7 +669,6 @@ array (
         ),
         2 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'apttus_activated_date_c',
@@ -683,7 +677,6 @@ array (
         ),
         3 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'apttus_activated_by_name_c',
@@ -714,7 +707,6 @@ array (
             'name' => 'apttus_company_signed_date_c',
             'label' => 'LBL_APTTUS_COMPANY_SIGNED_DATE_C',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -757,8 +749,6 @@ array (
         ),
         5 => 
         array (
-          0 => '',
-          1 => '',
         ),
         6 => 
         array (

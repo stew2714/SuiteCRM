@@ -509,6 +509,19 @@ $dictionary['AOS_Contracts']['fields']['cia_pricing_discount_c']['vname']='LBL_C
 $dictionary['AOS_Contracts']['fields']['cia_pricing_discount_c']['source']='custom_fields';
 
 
+ // Vardef Created : gma_pricing_discount_c 
+
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['name']='gma_pricing_discount_c';
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['len']='255';
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['type']='bool';
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['module']='AOS_Contracts';
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['vname']='LBL_GMA_PRICING_DISCOUNT_C';
+$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['source']='custom_fields';
+
+
  // Vardef Created : dq_subs_product_term_for_conv_c 
 
 
@@ -2551,7 +2564,7 @@ $dictionary['AOS_Contracts']['fields']['payment_terms_c']['name']='payment_terms
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['type']='enum';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['payment_terms_c']['options']='contract_payment_terms';
+$dictionary['AOS_Contracts']['fields']['payment_terms_c']['options']='contract_payment_terms_list';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['payment_terms_c']['module']='AOS_Contracts';
@@ -2778,7 +2791,7 @@ $dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['name']='ty
 $dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['len']='4099';
 $dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['type']='multienum';
 $dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['options']='contracts_product_list';
+$dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['options']='contract_product_list';
 $dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['type_of_product_services_c']['module']='AOS_Contracts';
@@ -3240,19 +3253,6 @@ $dictionary['AOS_Contracts']['fields']['dq_paymentterms_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['dq_paymentterms_c']['module']='AOS_Contracts';
 $dictionary['AOS_Contracts']['fields']['dq_paymentterms_c']['vname']='LBL_DQ_PAYMENTTERMS_C';
 $dictionary['AOS_Contracts']['fields']['dq_paymentterms_c']['source']='custom_fields';
-
-
- // Vardef Created : gma_pricing_discount_c 
-
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['name']='gma_pricing_discount_c';
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['len']='255';
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['type']='bool';
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['importable']='true';
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['vname']='LBL_GMA_PRICING_DISCOUNT_C';
-$dictionary['AOS_Contracts']['fields']['gma_pricing_discount_c']['source']='custom_fields';
 
 
  // Vardef Created : strategic_deal_c 
