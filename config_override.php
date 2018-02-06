@@ -43,11 +43,16 @@ $sugar_config['list_max_entries_per_page'] = '50';
 $sugar_config['list_max_entries_per_subpanel'] = '10';
 $sugar_config['email_default_delete_attachments'] = true;
 $sugar_config['outfitters_licenses']['gmsyncaddon'] = '5995b6bb71ddda1e939b1c6ebee5bffd ';
-$sugar_config['outfitters_licenses']['LogTrack'] = '0da3d5b27149e372d39f82bcb388ea43';
+$sugar_config['outfitters_licenses']['LogTrack'] = 'fb87a82b6123ce2aaf7126c85d162627';
 $sugar_config['outfitters_licenses']['Login Tracker'] = '5748656fd717a9053582e6738f747efb';
 $sugar_config['outfitters_licenses']['analytic-reporting'] = '2f6ac5d86f8b5f0075ff647fe64c7d25';
 $sugar_config['eloqua']['sync_every_x_hours'] = '2';
 $sugar_config['default_theme'] = 'SuiteP';
 $sugar_config['disabled_themes'] = 'Suite7,SuiteR';
 $sugar_config['calendar']['show_calls_by_default'] = false;
+$sugar_config['DHA_templates_default_lang'] = 'en_US';
+$sugar_config['DHA_templates_dir'] = 'document_templates/';
+$sugar_config['DHA_OpenOffice_exe'] = '';
+$sugar_config['DHA_OpenOffice_cde'] = '';
+$sugar_config['DHA_OpenOffice_HOME'] = '';
 /***CONFIGURATOR***/

@@ -93,3 +93,5 @@ $mod_strings['LBL_ONEF1RADTOSOPP_C'] = 'Onef1radtosopp';
 $mod_strings['LBL_F1RADTOSOPP_NAME_C'] = 'F1 RAD TOS Opp';
 $mod_strings['LBL_ONEF1_FFI_OPP_C'] = 'Onef1 Ffi Opp';
 $mod_strings['LBL_F1_FFI_OPP_NAME_C'] = 'F1 FFI Opp';
+$mod_strings['LBL_ONEACCOUNT_C'] = 'Oneaccount';
+$mod_strings['LBL_ACCOUNT_NAME_C'] = 'Account';

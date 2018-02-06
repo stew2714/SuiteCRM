@@ -144,6 +144,23 @@ $dictionary['sa_Fluency_One']['fields']['f1_ffi_opp_c']['vname']='LBL_F1_FFI_OPP
 $dictionary['sa_Fluency_One']['fields']['f1_ffi_opp_c']['source']='custom_fields';
 
 
+ // Vardef Created : account_232534532_c 
+
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['name']='account_232534532_c';
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['type']='varchar';
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['vname']='LBL_ACCOUNT_232534532_C';
+$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['source']='custom_fields';
+
+
+ // Vardef Created : f1_ffi_opp_name_c 
+
+
+
  // Vardef Created : sf_id_c 
 
 $dictionary['sa_Fluency_One']['fields']['sf_id_c']['name']='sf_id_c';
@@ -171,17 +188,36 @@ $dictionary['sa_Fluency_One']['fields']['lastactivitydate_c']['vname']='LBL_LAST
 $dictionary['sa_Fluency_One']['fields']['lastactivitydate_c']['source']='custom_fields';
 
 
- // Vardef Created : account_232534532_c 
+ // Vardef Created : Oneaccount_c 
 
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['name']='account_232534532_c';
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['len']='18';
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['type']='varchar';
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['inline_edit']=1;
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['importable']='true';
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['reportable']=true;
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['module']='sa_Fluency_One';
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['vname']='LBL_ACCOUNT_232534532_C';
-$dictionary['sa_Fluency_One']['fields']['account_232534532_c']['source']='custom_fields';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['name']='Oneaccount_c';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['type']='id';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['id']='sa_Fluency_OneOneaccount_c';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['custom_module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['vname']='LBL_ONEACCOUNT_C';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['source']='custom_fields';
+
+
+ // Vardef Created : account_name_c 
+
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['name']='account_name_c';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['len']='255';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['type']='relate';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['ext2']='Accounts';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['id']='sa_Fluency_Oneaccount_name_c';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['module']='Accounts';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['studio']='visible';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['id_name']='Oneaccount_c';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['vname']='LBL_ACCOUNT_NAME_C';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['source']='non-db';
 
 
  // Vardef Created : annual_outpatient_days_c 
@@ -449,7 +485,7 @@ $dictionary['sa_Fluency_One']['fields']['estimated_global_mix_c']['source']='cus
  // Vardef Created : Onegpo_affiliation_c 
 
 $dictionary['sa_Fluency_One']['fields']['Onegpo_affiliation_c']['name']='Onegpo_affiliation_c';
-$dictionary['sa_Fluency_One']['fields']['Onegpo_affiliation_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Onegpo_affiliation_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Onegpo_affiliation_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Onegpo_affiliation_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Onegpo_affiliation_c']['importable']='true';
@@ -481,7 +517,7 @@ $dictionary['sa_Fluency_One']['fields']['gpo_affilitaion_name_c']['source']='non
  // Vardef Created : Oneidn_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneidn_c']['name']='Oneidn_c';
-$dictionary['sa_Fluency_One']['fields']['Oneidn_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneidn_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Oneidn_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Oneidn_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Oneidn_c']['importable']='true';
@@ -734,7 +770,7 @@ $dictionary['sa_Fluency_One']['fields']['number_of_credentialed_users_c']['sourc
  // Vardef Created : Oneoutsource_mtso_1_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_1_c']['name']='Oneoutsource_mtso_1_c';
-$dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_1_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_1_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_1_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_1_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_1_c']['importable']='true';
@@ -766,7 +802,7 @@ $dictionary['sa_Fluency_One']['fields']['outsource_mtso_1_name_c']['source']='no
  // Vardef Created : Oneoutsource_mtso_2_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_2_c']['name']='Oneoutsource_mtso_2_c';
-$dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_2_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_2_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_2_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_2_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_2_c']['importable']='true';
@@ -798,7 +834,7 @@ $dictionary['sa_Fluency_One']['fields']['outsource_mtso_2_name_c']['source']='no
  // Vardef Created : Oneoutsource_mtso_3_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_3_c']['name']='Oneoutsource_mtso_3_c';
-$dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_3_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_3_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_3_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_3_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Oneoutsource_mtso_3_c']['importable']='true';
@@ -1010,7 +1046,7 @@ $dictionary['sa_Fluency_One']['fields']['proposed_technology_discount_c']['sourc
  // Vardef Created : Oneeb_tos_opp_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_opp_c']['name']='Oneeb_tos_opp_c';
-$dictionary['sa_Fluency_One']['fields']['Oneeb_tos_opp_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneeb_tos_opp_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_opp_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_opp_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_opp_c']['importable']='true';
@@ -1042,7 +1078,7 @@ $dictionary['sa_Fluency_One']['fields']['eb_tos_opp_name_c']['source']='non-db';
  // Vardef Created : Oneeb_tos_renewal_opp_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_renewal_opp_c']['name']='Oneeb_tos_renewal_opp_c';
-$dictionary['sa_Fluency_One']['fields']['Oneeb_tos_renewal_opp_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneeb_tos_renewal_opp_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_renewal_opp_c']['type']='varchar';
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_renewal_opp_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Oneeb_tos_renewal_opp_c']['importable']='true';
@@ -1072,7 +1108,7 @@ $dictionary['sa_Fluency_One']['fields']['eb_tos_renewal_opp_name_c']['source']='
  // Vardef Created : Oneeb_elf_opp_c 
 
 $dictionary['sa_Fluency_One']['fields']['Oneeb_elf_opp_c']['name']='Oneeb_elf_opp_c';
-$dictionary['sa_Fluency_One']['fields']['Oneeb_elf_opp_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneeb_elf_opp_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Oneeb_elf_opp_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Oneeb_elf_opp_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Oneeb_elf_opp_c']['importable']='true';
@@ -1387,7 +1423,7 @@ $dictionary['sa_Fluency_One']['fields']['reason_customer_declined_c']['source']=
  // Vardef Created : Onef1_cdi_opp_c 
 
 $dictionary['sa_Fluency_One']['fields']['Onef1_cdi_opp_c']['name']='Onef1_cdi_opp_c';
-$dictionary['sa_Fluency_One']['fields']['Onef1_cdi_opp_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Onef1_cdi_opp_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Onef1_cdi_opp_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Onef1_cdi_opp_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Onef1_cdi_opp_c']['importable']='true';
@@ -1419,7 +1455,7 @@ $dictionary['sa_Fluency_One']['fields']['f1_cdi_opp_name_c']['source']='non-db';
  // Vardef Created : Onef1radtosopp_c 
 
 $dictionary['sa_Fluency_One']['fields']['Onef1radtosopp_c']['name']='Onef1radtosopp_c';
-$dictionary['sa_Fluency_One']['fields']['Onef1radtosopp_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Onef1radtosopp_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Onef1radtosopp_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Onef1radtosopp_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Onef1radtosopp_c']['importable']='true';
@@ -1451,7 +1487,7 @@ $dictionary['sa_Fluency_One']['fields']['f1radtosopp_name_c']['source']='non-db'
  // Vardef Created : Onef1_ffi_opp_c 
 
 $dictionary['sa_Fluency_One']['fields']['Onef1_ffi_opp_c']['name']='Onef1_ffi_opp_c';
-$dictionary['sa_Fluency_One']['fields']['Onef1_ffi_opp_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Onef1_ffi_opp_c']['len']='36';
 $dictionary['sa_Fluency_One']['fields']['Onef1_ffi_opp_c']['type']='id';
 $dictionary['sa_Fluency_One']['fields']['Onef1_ffi_opp_c']['inline_edit']=1;
 $dictionary['sa_Fluency_One']['fields']['Onef1_ffi_opp_c']['importable']='true';

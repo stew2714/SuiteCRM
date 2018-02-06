@@ -148,13 +148,6 @@ array (
             'label' => 'LBL_DEFINTIVE_ID',
           ),
         ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'g1_group_queue_accounts_name',
-          ),
-        ),
       ),
       'LBL_PANEL_ADVANCED' => 
       array (
