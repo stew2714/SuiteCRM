@@ -1,5 +1,5 @@
 <?php
-// created: 2017-12-18 16:14:56
+// created: 2018-01-31 18:27:53
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -31,5 +31,5 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO_NAME' => 'Owner',
   'LBL_EDITVIEW_PANEL3' => 'Key Dates',
   'LBL_EDITVIEW_PANEL4' => 'Miscellaneous',
-  'LBL_EDITVIEW_PANEL5' => 'New Panel 5',
+  'LBL_EDITVIEW_PANEL5' => 'System Information',
 );

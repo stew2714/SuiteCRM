@@ -202,7 +202,6 @@ $mod_strings['LBL_REQUEST_TO_COMM_OPS_DAYS_C'] = 'Request To Comm Ops Days';
 $mod_strings['LBL_GENERAL_TERMS_AND_CONDITIONS_C'] = 'General Terms And Conditions';
 $mod_strings['LBL_T_C_VERSION_C'] = 'GTC Version Date';
 $mod_strings['LBL_DQ_PAYMENTTERMS_C'] = 'DQ PaymentTerms';
-$mod_strings['LBL_GMA_PRICING_DISCOUNT_C'] = 'GMA Pricing Discount';
 $mod_strings['LBL_STRATEGIC_DEAL_C'] = 'Strategic Deal';
 $mod_strings['LBL_STRATEGIC_DEAL_DESCRIPTION_C'] = 'Strategic Deal Description';
 $mod_strings['LBL_DQ_STRATEGICDEAL_C'] = 'DQ Strategic Deal';

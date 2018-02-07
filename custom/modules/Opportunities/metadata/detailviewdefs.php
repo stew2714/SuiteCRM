@@ -266,6 +266,13 @@ array (
             'label' => 'LBL_EXCLUDE_CH_C',
           ),
         ),
+        14 => 
+        array (
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_3_name',
+          ),
+        ),
       ),
       'lbl_editview_panel1' => 
       array (
@@ -330,7 +337,6 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -339,7 +345,6 @@ array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -957,8 +962,7 @@ array (
         ),
         10 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'sw_maint_renewal_term_c',
             'label' => 'LBL_SW_MAINT_RENEWAL_TERM_C',
@@ -1034,8 +1038,7 @@ array (
         ),
         5 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'previous_opportunity_stage_date_c',
             'label' => 'LBL_PREVIOUS_OPPORTUNITY_STAGE_DATE_C',
@@ -1072,8 +1075,7 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'first_commission_date_c',
             'label' => 'LBL_FIRST_COMMISSION_DATE_C',

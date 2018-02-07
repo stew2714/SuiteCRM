@@ -122,7 +122,11 @@ array (
         ),
         2 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'business_type_c',
+            'label' => 'Business Type',
+          ),
           1 => 'industry',
         ),
         3 => 

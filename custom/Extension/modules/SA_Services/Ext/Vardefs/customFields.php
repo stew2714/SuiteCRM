@@ -29,6 +29,19 @@ $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['vname']='
 $dictionary['SA_Services']['fields']['service_or_product_warranty_c']['source']='custom_fields';
 
 
+ // Vardef Created : implementation_and_training_discount_c 
+
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['name']='implementation_and_training_discount_c';
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['len']='255';
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['type']='bool';
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['importable']='true';
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['vname']='LBL_IMPLEMENTATION_AND_TRAINING_DISCOUNT_C';
+$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['source']='custom_fields';
+
+
  // Vardef Created : sf_id_c 
 
 
@@ -929,19 +942,6 @@ $dictionary['SA_Services']['fields']['hire_client_mt_s_c']['vname']='LBL_HIRE_CL
 $dictionary['SA_Services']['fields']['hire_client_mt_s_c']['source']='custom_fields';
 
 
- // Vardef Created : implementation_and_training_discount_c 
-
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['name']='implementation_and_training_discount_c';
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['len']='255';
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['type']='bool';
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['inline_edit']=1;
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['importable']='true';
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['reportable']=true;
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['module']='SA_Services';
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['vname']='LBL_IMPLEMENTATION_AND_TRAINING_DISCOUNT_C';
-$dictionary['SA_Services']['fields']['implementation_and_training_discount_c']['source']='custom_fields';
-
-
  // Vardef Created : m_modal_travel_living_policy_c 
 
 $dictionary['SA_Services']['fields']['m_modal_travel_living_policy_c']['name']='m_modal_travel_living_policy_c';
@@ -1499,6 +1499,33 @@ $dictionary['SA_Services']['fields']['fft_general_notes_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['fft_general_notes_c']['module']='SA_Services';
 $dictionary['SA_Services']['fields']['fft_general_notes_c']['vname']='LBL_FFT_GENERAL_NOTES_C';
 $dictionary['SA_Services']['fields']['fft_general_notes_c']['source']='custom_fields';
+
+
+ // Vardef Created : coding_global_permissions_c 
+
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['name']='coding_global_permissions_c';
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['len']='255';
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['type']='enum';
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['options']='global_permissions_list';
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['importable']='true';
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['vname']='LBL_CODING_GLOBAL_PERMISSIONS_C';
+$dictionary['SA_Services']['fields']['coding_global_permissions_c']['source']='custom_fields';
+
+
+ // Vardef Created : coding_global_permitted_c 
+
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['name']='coding_global_permitted_c';
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['len']='255';
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['type']='bool';
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['importable']='true';
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['vname']='LBL_CODING_GLOBAL_PERMITTED_C';
+$dictionary['SA_Services']['fields']['coding_global_permitted_c']['source']='custom_fields';
 
 
  // Vardef Created : tos_term_for_convenience_c 

@@ -190,16 +190,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'f1_cdi_opp_c',
-            'label' => 'LBL_F1_CDI_OPP_C',
+            'name' => 'f1_cdi_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_F1_CDI_OPP_NAME_C',
           ),
         ),
         8 => 
         array (
           0 => 
           array (
-            'name' => 'f1radtosopp_c',
-            'label' => 'LBL_F1RADTOSOPP_C',
+            'name' => 'f1radtosopp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_F1RADTOSOPP_NAME_C',
           ),
           1 => '',
         ),
@@ -207,8 +209,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'f1_ffi_opp_c',
-            'label' => 'LBL_F1_FFI_OPP_C',
+            'name' => 'f1_ffi_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_F1_FFI_OPP_NAME_C',
           ),
           1 => '',
         ),

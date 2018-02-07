@@ -94,6 +94,7 @@ array (
           'panelDefault' => 'expanded',
         ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -115,8 +116,22 @@ array (
             'name' => 'date_start',
             'label' => 'LBL_DATE_TIME',
           ),
+          1 => 
+          array (
+            'name' => 'parent_name',
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+          ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_end',
+            'comment' => 'Date meeting ends',
+            'label' => 'LBL_DATE_END',
+          ),
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -124,13 +139,8 @@ array (
             'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
             'label' => 'LBL_DURATION',
           ),
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
-          ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -138,22 +148,10 @@ array (
             'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
             'label' => 'LBL_REMINDER',
           ),
-          1 => 'location',
-        ),
-        4 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'sa_legal_vendors_activities_1_meetings_name',
-          ),
         ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'aos_contracts_activities_1_meetings_name',
-          ),
+          0 => 'description',
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
@@ -164,20 +162,6 @@ array (
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'label' => 'LBL_DATE_MODIFIED',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
           ),
           1 => 
           array (

@@ -2,13 +2,6 @@
 $module_name = 'sa_Fluency_One';
 $listViewDefs [$module_name] = 
 array (
-  'NAME' => 
-  array (
-    'width' => '32%',
-    'label' => 'LBL_NAME',
-    'default' => true,
-    'link' => true,
-  ),
   'ACCOUNT_232534532_C' => 
   array (
     'type' => 'varchar',
