@@ -157,6 +157,21 @@ $dictionary['sa_Fluency_One']['fields']['account_232534532_c']['vname']='LBL_ACC
 $dictionary['sa_Fluency_One']['fields']['account_232534532_c']['source']='custom_fields';
 
 
+ // Vardef Created : Oneaccount_c 
+
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['name']='Oneaccount_c';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['len']='18';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['type']='id';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['id']='sa_Fluency_OneOneaccount_c';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['custom_module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['vname']='LBL_ONEACCOUNT_C';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['source']='custom_fields';
+
+
  // Vardef Created : f1_ffi_opp_name_c 
 
 
@@ -188,19 +203,19 @@ $dictionary['sa_Fluency_One']['fields']['lastactivitydate_c']['vname']='LBL_LAST
 $dictionary['sa_Fluency_One']['fields']['lastactivitydate_c']['source']='custom_fields';
 
 
- // Vardef Created : Oneaccount_c 
+ // Vardef Created : Oneaccount_232534532_c 
 
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['name']='Oneaccount_c';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['len']='18';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['type']='id';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['inline_edit']=1;
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['importable']='true';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['reportable']=true;
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['id']='sa_Fluency_OneOneaccount_c';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['module']='sa_Fluency_One';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['custom_module']='sa_Fluency_One';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['vname']='LBL_ONEACCOUNT_C';
-$dictionary['sa_Fluency_One']['fields']['Oneaccount_c']['source']='custom_fields';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['name']='Oneaccount_232534532_c';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['len']='36';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['type']='id';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['inline_edit']=1;
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['importable']='true';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['reportable']=true;
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['id']='sa_Fluency_OneOneaccount_232534532_c';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['custom_module']='sa_Fluency_One';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['vname']='LBL_ONEACCOUNT_232534532_C';
+$dictionary['sa_Fluency_One']['fields']['Oneaccount_232534532_c']['source']='custom_fields';
 
 
  // Vardef Created : account_name_c 
@@ -215,7 +230,7 @@ $dictionary['sa_Fluency_One']['fields']['account_name_c']['ext2']='Accounts';
 $dictionary['sa_Fluency_One']['fields']['account_name_c']['id']='sa_Fluency_Oneaccount_name_c';
 $dictionary['sa_Fluency_One']['fields']['account_name_c']['module']='Accounts';
 $dictionary['sa_Fluency_One']['fields']['account_name_c']['studio']='visible';
-$dictionary['sa_Fluency_One']['fields']['account_name_c']['id_name']='Oneaccount_c';
+$dictionary['sa_Fluency_One']['fields']['account_name_c']['id_name']='Oneaccount_232534532_c';
 $dictionary['sa_Fluency_One']['fields']['account_name_c']['vname']='LBL_ACCOUNT_NAME_C';
 $dictionary['sa_Fluency_One']['fields']['account_name_c']['source']='non-db';
 

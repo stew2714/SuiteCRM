@@ -19,7 +19,7 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   hwsw_cost__c real,",,,,,,HW/SW Cost,,
 "   annual_mq_services_estimate__c real,",,,,,,Annual M*Modal Services Estimate,,
 "   other_cost__c real,",,,,,,,,
-"   gpo__c varchar(18),",,Onegpo_c,,id,,,,
+"   gpo__c varchar(36),",,Onegpo_c,,id,,,,
 ,,gpo_name_c,,relate,,GPO,Onegpo_c,Accounts
 "   global_use_probability_percent__c varchar(255),",,,,enum,global_use_probability_list,,,
 "   business_type__c varchar(4099),",,,,,,,,
@@ -91,7 +91,7 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   rfp_required__c bool NOT NULL,",,,,,,RFP Required,,
 "   rfp_due_date__c timestamp,",,,,,,RFP Due Date,,
 "   incumbentx__c varchar(18),",,,,,,Incumbent,,
-"   winner__c varchar(18),",,Onewinner_c,,id,,,,
+"   winner__c varchar(36),",,Onewinner_c,,id,,,,
 ,,winner_name_c,,relate,,Account Winner,Onewinner_c,Users
 "   incumbent_unit_price__c real,",,,,,,,,
 "   winner_unit_price__c real,",,,,,,,,
@@ -123,7 +123,7 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   close_date_range__c varchar(1300),",,,,,,,,
 "   forecasted__c varchar(1300),",,,,,,,,
 "   pipeline_score__c real,",,,,,,,,
-"   specialist__c varchar(18),",,Onespecialist_c,,id,,,,
+"   specialist__c varchar(36),",,Onespecialist_c,,id,,,,
 ,,specialist_name_c,,relate,,Solution Sales Executive,Onespecialist_c,Users
 "   number_of_ftes__c real,",,,,,,Number of FTEs,,
 "   nih_rating__c varchar(255),",,,,enum,nih_rating_list,NIH Rating,,
@@ -140,9 +140,9 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   primary_business_focus__c varchar(100),",,,,,,,,
 "   current_using_speech_rec__c varchar(10),",,,,,,,,
 "   coding_start_date__c timestamp,",,,,,,,,
-"   new_ae1__c varchar(18),",,Onenew_ae1_c,,id,,,,
+"   new_ae1__c varchar(36),",,Onenew_ae1_c,,id,,,,
 ,,new_ae1_name_c,,relate,,New AE1,Onenew_ae1_c,Users
-"   new_ae2__c varchar(18),",,Onenew_ae2_c,,id,,,,
+"   new_ae2__c varchar(36),",,Onenew_ae2_c,,id,,,,
 ,,new_ae2_name_c,,relate,,New AE2,Onenew_ae2_c,Users
 "   new_ae1_id__c varchar(1300),",,,,,,,,
 "   new_ae2_id__c varchar(1300),",,,,,,,,
@@ -180,10 +180,10 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   co_annual_tos_estimate__c real,",,,,,,Annual TOS/Coding Services Estimate,,
 "   quarterly_quota__c real,",,,,,,,,
 "   backup__c real,",,,,,,,,
-"   channel_rep__c varchar(18),",,Onechannel_rep_c,,id,,,,
+"   channel_rep__c varchar(36),",,Onechannel_rep_c,,id,,,,
 ,,channel_rep_name_c,,relate,,Channel Rep,Onechannel_rep_c,Users
 "   bundle__c varchar(18),",,,,,,,,
-"   inside_sales_ae__c varchar(18),",,Oneinside_sales_ae_c,,id,,,,
+"   inside_sales_ae__c varchar(36),",,Oneinside_sales_ae_c,,id,,,,
 ,,inside_sales_ae_name_c,,relate,,Inside Sales AE,Oneinside_sales_ae_c,Users
 "   emr2__c varchar(255),",,,,enum,ehr_list,EHR,,
 "   partner__c varchar(255),",,,,enum,partner_list_dom,,,
@@ -210,17 +210,17 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   term_length_mm__c real,",,,,,,Subscription/TOS/Coding Term Length (MM),,
 "   btl__c bool NOT NULL,",,,,,,BTL,,
 "   ae1_perc__c real,",,,,,,AE1 Perc,,
-"   ae1__c varchar(18),",,Oneae1_c,,id,,,,
+"   ae1__c varchar(36),",,Oneae1_c,,id,,,,
 ,,ae1_name_c,,relate,,AE1,Oneae1_c,Users
 "   ae2_perc__c real,",,,,,,AE2 Perc,,
-"   ae2__c varchar(18),",,Oneae2,,id,,,,,,
+"   ae2__c varchar(36),",,Oneae2,,id,,,,,,
 ,,ae2_name_c,,relate,,AE2,Oneae2_c,Users
 "   co_status__c varchar(255),",,,,enum,sa_status_list,Status,,
 "   mixed__c real,",,,,,,,,
 "   se1_perc__c real,",,,,,,SE1 Perc,,
 "   marketing_category_opp__c varchar(1300),",,,,,,,,
 "   se2_perc__c real,",,,,,,SE2 Perc,,
-"   se2__c varchar(18),",,Onese2_c,,id,,,,
+"   se2__c varchar(36),",,Onese2_c,,id,,,,
 ,,se2_name_c,,relate,,SE2,Onese2_c,Users
 "   validation_date__c timestamp,",,,,,,,,
 "   est_platform_cost__c real,",,,,,,,,
@@ -251,9 +251,9 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   blank_ae6__c varchar(50),",,,,,,Blank AE6,,
 "   blank_ae7__c varchar(50),",,,,,,Blank AE7,,
 "   blank_ae8__c varchar(50),",,,,,,Blank AE8,,
-"   rvp_override1__c varchar(18),",,Onervp_override1_c,,id,,,,
+"   rvp_override1__c varchar(36),",,Onervp_override1_c,,id,,,,
 ,,rvp_override1_name_c,,relate,,RVP Override 1,Onervp_override1_c,Users
-"   rvp_override2__c varchar(18),",,Onervp_override2_c,,id,,,,
+"   rvp_override2__c varchar(36),",,Onervp_override2_c,,id,,,,
 ,,rvp_override2_name_c,,relate,,RVP Override 2,Onervp_override2_c,Users
 "   rvp_1__c real,",,,,,,RVP1,,
 "   rvp_2__c real,",,,,,,RVP2,,
@@ -261,9 +261,9 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   in_rolling_4qs__c bool NOT NULL,",,,,,,In Rolling 4QS,,
 "   svp_1__c real,",,,,,,SVP1,,
 "   svp_2__c real,",,,,,,SVP2,,
-"   svp_override1__c varchar(18),",,Onesvp_override1_c,,id,,,,
+"   svp_override1__c varchar(36),",,Onesvp_override1_c,,id,,,,
 ,,svp_override1_name_c,,relate,,SVP Override 1,Onesvp_override1_c,Users
-"   svp_override2__c varchar(18),",,Onesvp_override2_c,,id,,,,
+"   svp_override2__c varchar(36),",,Onesvp_override2_c,,id,,,,
 ,,svp_override2_name_c,,relate,,SVP Override 2,Onesvp_override2_c,Users
 "   rvp1_id__c varchar(1300),",,,,,,RVP1 ID,,
 "   rvp2_id__c varchar(1300),",,,,,,RVP2 ID,,
@@ -284,7 +284,7 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   nb_rollable__c bool NOT NULL,",,,,,,NB Rollable,,
 "   rollable1__c bool NOT NULL,",,,,,,,,
 "   initial_license_purchase__c bool NOT NULL,",,,,,,,,
-"   se1__c varchar(18),",,Onese1_c,,id,,,,
+"   se1__c varchar(36),",,Onese1_c,,id,,,,
 ,,se1_name_c,,relate,,SE1,Onsese1_c,Users
 "   before_blended_lr__c real,",,,,,,,,
 "   blended_volume__c real,",,,,,,,,
@@ -333,7 +333,7 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   sw_maint_auto_renew__c bool NOT NULL,",,,,,,M&S Auto Renew,,
 "   sw_maint_renewal_term__c varchar(40),",,,,,,M&S Renewal Term,,
 "   adoption_services_term_length__c real,",,,,,,,,
-"   new_partner__c varchar(18),",,Onenew_partner_c,,id,,,,
+"   new_partner__c varchar(36),",,Onenew_partner_c,,id,,,,
 ,,new_partner_name_c,,relate,,New Partner,Onenew_partner_c,Accounts
 "   crm_lead_validated__c bool NOT NULL,",,,,,,,,
 "   new_ae1_credit__c real,",,,,,,New AE1 Credit,,

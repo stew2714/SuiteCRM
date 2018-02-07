@@ -2,12 +2,12 @@
 $module_name = 'sa_Fluency_One';
 $listViewDefs [$module_name] = 
 array (
-  'ACCOUNT_232534532_C' => 
+  'NAME' => 
   array (
-    'type' => 'varchar',
-    'label' => 'LBL_ACCOUNT_232534532_C',
-    'width' => '10%',
+    'width' => '32%',
+    'label' => 'LBL_NAME',
     'default' => true,
+    'link' => true,
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -52,6 +52,23 @@ array (
     'label' => 'LBL_EB_PROPOSAL_DELIVERED_TO_CUSTOMER_DATE_C',
     'width' => '10%',
     'default' => true,
+  ),
+  'ACCOUNT_232534532_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCOUNT_232534532_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNT_NAME_C' => 
+  array (
+    'type' => 'relate',
+    'studio' => 'visible',
+    'label' => 'LBL_ACCOUNT_NAME_C',
+    'id' => 'ONEACCOUNT_232534532_C',
+    'link' => true,
+    'width' => '10%',
+    'default' => false,
   ),
 );
 ?>

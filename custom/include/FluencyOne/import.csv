@@ -1,8 +1,8 @@
 column,Do not create,name,type,options,label,id_name,related module
 "   sf_id_c varchar(18),",,,,,,,
 "   lastactivitydate_c timestamp,",,,,,,,
-"   account_232534532__c varchar(18),",,Oneaccount_c,id,,,,
-,,account_name_c,relate,,Account,Oneaccount_c,Accounts
+"   account_232534532__c varchar(36),",,Oneaccount_232534532_c,id,,,,
+,,account_name_c,relate,,Account,Oneaccount_232534532_c,Accounts
 "   annual_outpatient_days__c real,",,,,,,,
 "   beds__c real,",,,,,,,
 "   client_locations__c varchar(255),",,,,,,,

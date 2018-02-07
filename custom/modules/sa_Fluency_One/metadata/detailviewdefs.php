@@ -94,8 +94,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_232534532_c',
-            'label' => 'LBL_ACCOUNT_232534532_C',
+            'name' => 'account_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_ACCOUNT_NAME_C',
           ),
           1 => 'assigned_user_name',
         ),
