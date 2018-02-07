@@ -1,0 +1,3 @@
+column,Do not create,name,type,options,label,id_name,related module
+"   document_insight_interest_level__c varchar(255),",,,enum,interest_level_list,,,
+"   capd_interest_level__c varchar(255),",,,enum,interest_level_list,,,
