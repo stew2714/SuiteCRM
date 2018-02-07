@@ -15,3 +15,7 @@ $entry_point_registry['loadCustomFieldsOpportunity'] = array(
     'file' => 'custom/include/OpportunityFieldImport/loadCSV.php',
     'auth' => true
 );
+$entry_point_registry['loadCustomFieldsLegalTimesheets'] = array(
+    'file' => 'custom/include/LegalTimeSheets/loadCSV.php',
+    'auth' => true
+);
