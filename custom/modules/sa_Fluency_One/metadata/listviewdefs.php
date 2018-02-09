@@ -9,6 +9,15 @@ array (
     'default' => true,
     'link' => true,
   ),
+  'ACCOUNTS_SA_FLUENCY_ONE_1_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_SA_FLUENCY_ONE_1_FROM_ACCOUNTS_TITLE',
+    'id' => 'ACCOUNTS_SA_FLUENCY_ONE_1ACCOUNTS_IDA',
+    'width' => '10%',
+    'default' => true,
+  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '9%',

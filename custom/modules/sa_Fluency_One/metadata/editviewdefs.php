@@ -75,9 +75,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ACCOUNT_NAME_C',
+            'name' => 'accounts_sa_fluency_one_1_name',
+            'label' => 'LBL_ACCOUNTS_SA_FLUENCY_ONE_1_FROM_ACCOUNTS_TITLE',
           ),
           1 => 'assigned_user_name',
         ),
@@ -653,6 +652,19 @@ array (
           array (
             'name' => 'pricedown_notes_c',
             'label' => 'LBL_PRICEDOWN_NOTES_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+          1 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
           ),
         ),
       ),
