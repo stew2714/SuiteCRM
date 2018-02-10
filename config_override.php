@@ -55,4 +55,9 @@ $sugar_config['DHA_templates_dir'] = 'document_templates/';
 $sugar_config['DHA_OpenOffice_exe'] = '';
 $sugar_config['DHA_OpenOffice_cde'] = '';
 $sugar_config['DHA_OpenOffice_HOME'] = '';
+$sugar_config['securitysuite_additive'] = true;
+$sugar_config['securitysuite_strict_rights'] = false;
+$sugar_config['securitysuite_shared_calendar_hide_restricted'] = false;
+$sugar_config['securitysuite_show_group_events'] = false;
+$sugar_config['securitysuite_user_role_precedence'] = false;
 /***CONFIGURATOR***/

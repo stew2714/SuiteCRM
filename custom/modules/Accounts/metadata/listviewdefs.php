@@ -17,6 +17,12 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'ACCOUNT_TYPE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_TYPE',
+    'default' => true,
+  ),
   'UCID_C' => 
   array (
     'type' => 'varchar',
@@ -50,13 +56,6 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_STATE',
     'default' => true,
   ),
-  'HA_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'HA ID',
-    'width' => '10%',
-    'default' => true,
-  ),
   'HIMSS_ID_C' => 
   array (
     'type' => 'varchar',
@@ -71,23 +70,24 @@ array (
     'label' => 'LBL_DEFINTIVE_ID',
     'width' => '10%',
   ),
+  'BILLING_ADDRESS_POSTALCODE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
+    'default' => false,
+  ),
   'SF_ID_C' => 
   array (
     'type' => 'varchar',
     'label' => 'SF ID',
     'width' => '10%',
-    'default' => true,
-  ),
-  'ACCOUNT_TYPE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_TYPE',
     'default' => false,
   ),
-  'BILLING_ADDRESS_POSTALCODE' => 
+  'HA_ID_C' => 
   array (
+    'type' => 'varchar',
+    'label' => 'HA ID',
     'width' => '10%',
-    'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
     'default' => false,
   ),
   'SHIPPING_ADDRESS_STREET' => 
