@@ -253,7 +253,7 @@ class SharedSecurityRules extends Basic
                                 $result = false;
                             }
                         } else {
-                            if($condition->condition_operator !== "OR" && $view != "view") {
+                            if(count($related) <= 1 && $view != "view") {
                                 return false;
                             }
                         }
