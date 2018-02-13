@@ -5431,16 +5431,15 @@ class SugarBean
             require_once("modules/SecurityGroups/SecurityGroup.php");
             $in_group = SecurityGroup::groupHasAccess($this->module_dir, $this->id, $view);
         }
-
-        // Added by BCG on 2018-02-09 per email from Ian Davie, SalesAgility
-        $bean = BeanFactory::getBean("SharedSecurityRules");
+		$bean = BeanFactory::getBean("SharedSecurityRules");
         if($bean != false) {
-            if ($bean->checkRules($this, $view) == false) {
-              return false;
+            $ruleAccess = $bean->checkRules($this, $view);
+            if ($ruleAccess === false) {
+                return false;
+            }elseif($ruleAccess === true){
+                return true;
             }
         }
-        // End modification made 2018-02-09 by BCG
-
         return ACLController::checkAccess($this->module_dir, $view, $is_owner, $this->acltype, $in_group);
     }
 
