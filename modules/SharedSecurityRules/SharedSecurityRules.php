@@ -140,7 +140,7 @@ class SharedSecurityRules extends Basic
         global $current_user;
         $bean = BeanFactory::getBean("SharedSecurityRules");
         $results = $bean->get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_name}'");
-        $result = true;
+        $result = null;
         foreach($results as $rule){
             $rel = "sharedsecurityrulesactions";
             $rule->load_relationship($rel);
@@ -239,11 +239,11 @@ class SharedSecurityRules extends Basic
                             $condition->value = $current_user->id;
 
                         }
-                        if ($condition->value_type == "Field" &&
-                            isset($record->{$condition->field}) &&
-                            !empty($record->{$condition->field})) {
-                            $condition->value = $record->{$condition->field};
-                        }
+//                        if ($condition->value_type == "Field" &&
+//                            isset($record->{$condition->field}) &&
+//                            !empty($record->{$condition->field})) {
+//                            $condition->value = $record->{$condition->field};
+//                        }
                         if ($this->checkOperator(
                             $record->{$condition->field},
                             $condition->value,
@@ -254,7 +254,7 @@ class SharedSecurityRules extends Basic
                             }
                         } else {
                             if($condition->condition_operator !== "OR" && $view != "view") {
-                                return true;
+                                return false;
                             }
                         }
                     }
