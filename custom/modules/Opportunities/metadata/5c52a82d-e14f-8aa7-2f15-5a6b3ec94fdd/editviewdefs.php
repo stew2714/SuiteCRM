@@ -149,8 +149,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'region_c',
-            'label' => 'LBL_REGION_C',
+            'name' => 'new_am_region_c',
+            'label' => 'LBL_NEW_AM_REGION_C',
           ),
         ),
         5 => 
@@ -188,8 +188,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_required_c',
-            'label' => 'LBL_RFP_REQUIRED_C',
+            'name' => 'reseller_c',
+            'label' => 'LBL_RESELLER_C',
           ),
           1 => 'probability',
         ),
@@ -197,8 +197,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_due_date_c',
-            'label' => 'LBL_RFP_DUE_DATE_C',
+            'name' => 'rfp_required_c',
+            'label' => 'LBL_RFP_REQUIRED_C',
           ),
           1 => 
           array (
@@ -210,8 +210,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'preferred_follow_up_c',
-            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
+            'name' => 'rfp_due_date_c',
+            'label' => 'LBL_RFP_DUE_DATE_C',
           ),
           1 => 
           array (
@@ -223,22 +223,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'crm_c',
-            'label' => 'LBL_CRM_C',
-          ),
-          1 => 
-          array (
-            'name' => 'bankruptcy_hold1_c',
-            'label' => 'LBL_BANKRUPTCY_HOLD1_C',
-          ),
-        ),
-        12 => 
-        array (
-          0 => 
-          array (
-            'name' => 'new_partner_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_NEW_PARTNER_NAME_C',
+            'name' => 'preferred_follow_up_c',
+            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
           ),
           1 => 
           array (
@@ -246,17 +232,17 @@ array (
             'label' => 'LBL_VENDOR_OF_CHOICE_C',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
-            'name' => 'cdi_campaign_target_c',
-            'label' => 'LBL_CDI_CAMPAIGN_TARGET_C',
+            'name' => 'crm_c',
+            'label' => 'LBL_CRM_C',
           ),
           1 => 
           array (
-            'name' => 'exclude_ch_c',
-            'label' => 'LBL_EXCLUDE_CH_C',
+            'name' => 'must_win_c',
+            'label' => 'LBL_MUST_WIN_C',
           ),
         ),
       ),
@@ -266,66 +252,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
-          ),
-          1 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'g1_group_queue_opportunities_name',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
           1 => '',
         ),
-        3 => 
+        1 => 
         array (
           0 => 
           array (
@@ -709,8 +641,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'incumbentx_c',
-            'label' => 'LBL_INCUMBENTX_C',
+            'name' => 'incumbent_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_INCUMBENT_NAME_C',
           ),
           1 => 
           array (
@@ -1001,6 +934,11 @@ array (
         ),
         3 => 
         array (
+          0 => '',
+          1 => '',
+        ),
+        4 => 
+        array (
           0 => 
           array (
             'name' => 'rfp_preparer_c',
@@ -1012,7 +950,7 @@ array (
             'label' => 'LBL_PRODUCT_INTEREST_C',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -1025,7 +963,7 @@ array (
             'label' => 'LBL_PROSPECT_DATE_C',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => '',
           1 => 

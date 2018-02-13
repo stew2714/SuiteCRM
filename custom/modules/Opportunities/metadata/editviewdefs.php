@@ -30,27 +30,27 @@ array (
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL3' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
@@ -119,7 +119,10 @@ array (
         ),
         2 => 
         array (
-          0 => 'account_name',
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_3_name',
+          ),
           1 => 
           array (
             'name' => 'inside_sales_ae_name_c',
@@ -149,8 +152,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'region_c',
-            'label' => 'LBL_REGION_C',
+            'name' => 'new_am_region_c',
+            'label' => 'LBL_NEW_AM_REGION_C',
           ),
         ),
         5 => 
@@ -257,13 +260,6 @@ array (
           array (
             'name' => 'exclude_ch_c',
             'label' => 'LBL_EXCLUDE_CH_C',
-          ),
-        ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_opportunities_3_name',
           ),
         ),
       ),
@@ -714,13 +710,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'incumbentx_c',
-            'label' => 'LBL_INCUMBENTX_C',
+            'name' => 'accounts_opportunities_2_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE',
           ),
           1 => 
           array (
-            'name' => 'accounts_opportunities_1_name',
-            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE',
+            'name' => 'winner_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_WINNER_NAME_C',
           ),
         ),
         1 => 

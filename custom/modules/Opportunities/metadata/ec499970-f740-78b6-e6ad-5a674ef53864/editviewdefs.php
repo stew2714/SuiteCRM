@@ -91,13 +91,17 @@ array (
           ),
           1 => 
           array (
-            'name' => 'region_c',
-            'label' => 'LBL_REGION_C',
+            'name' => 'new_am_region_c',
+            'label' => 'LBL_NEW_AM_REGION_C',
           ),
         ),
         2 => 
         array (
-          0 => 'account_name',
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_3_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE',
+          ),
           1 => 
           array (
             'name' => 'recordtypeid_c',
@@ -452,13 +456,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'incumbentx_c',
-            'label' => 'LBL_INCUMBENTX_C',
+            'name' => 'accounts_opportunities_2_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE',
           ),
           1 => 
           array (
-            'name' => 'accounts_opportunities_1_name',
-            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE',
+            'name' => 'winner_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_WINNER_NAME_C',
           ),
         ),
         1 => 

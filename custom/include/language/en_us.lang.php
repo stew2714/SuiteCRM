@@ -1352,14 +1352,6 @@ $GLOBALS['app_list_strings']['global_use_probability_list']=array (
   'seventyfive' => '75% - High probability of Global Services',
   'onehundred' => '100% - Customer will definitely use Global Services ',
 );
-$GLOBALS['app_list_strings']['sales_leadership_dom']=array (
-  '' => '',
-  'Bill' => 'Bill',
-  'Jason' => 'Jason',
-  'Mark' => 'Mark',
-  'Mike' => 'Mike',
-  'Ray' => 'Ray',
-);
 $GLOBALS['app_list_strings']['encoder_list']=array (
   'None' => 'None',
   '3M' => '3M',
@@ -1396,4 +1388,46 @@ $GLOBALS['app_list_strings']['sales_stage_dom']=array (
   '4_Proposal' => '4. Proposal',
   '5_Contract' => '5. Contract',
   'Closed_No_Oppty' => 'Closed - No Oppty',
+);
+$GLOBALS['app_list_strings']['new_am_region_list']=array (
+  'Ambulatory' => 'Ambulatory',
+  'AU' => 'AU',
+  'Canada' => 'Canada',
+  'Community' => 'Community',
+  'Federal' => 'Federal',
+  'Imaging' => 'Imaging',
+  'IME' => 'IME',
+  'Int_Other' => 'Int Other',
+  'KA' => 'KA',
+  'Practices' => 'Practices',
+  'SS_North' => 'SS North',
+  'SS_South' => 'SS South',
+  'SS_West' => 'SS_West',
+  'UK' => 'UK',
+  'ZBA_North' => 'ZBA North',
+  'ZBA_South' => 'ZBA South',
+  'ZBA_West' => 'ZBA West',
+  'Legal' => 'Legal',
+);
+$GLOBALS['app_list_strings']['sa_status_list']=array (
+  'In_Review' => 'In Review',
+  'Issue_Resolution' => 'Issue Resolution',
+  'Pending_Apttus_Submission' => 'Pending Apttus Submission',
+  'Complete' => 'Complete',
+);
+$GLOBALS['app_list_strings']['confidence_level_list']=array (
+  'None' => '--None--',
+  'High' => 'High',
+  'Lost' => 'Lost',
+  'Low' => 'Low',
+  'Medium' => 'Medium',
+  'Won' => 'Won',
+);
+$GLOBALS['app_list_strings']['sales_leadership_dom']=array (
+  '' => '',
+  'Bill' => 'Bill',
+  'Jason' => 'Jason',
+  'Mark' => 'Mark',
+  'Mike' => 'Mike',
+  'Ray' => 'Ray',
 );

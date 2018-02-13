@@ -60,4 +60,5 @@ $sugar_config['securitysuite_strict_rights'] = false;
 $sugar_config['securitysuite_shared_calendar_hide_restricted'] = false;
 $sugar_config['securitysuite_show_group_events'] = false;
 $sugar_config['securitysuite_user_role_precedence'] = false;
+$sugar_config['salesRoleId'] = 'abc40453-3d16-7384-503c-5a7f6d839e38';
 /***CONFIGURATOR***/

@@ -36,7 +36,7 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   go_live_date__c timestamp,",,,,,,,,
 "   mq_project_id__c varchar(40),",,,,,,Project ID,,
 "   implementation_timeframe__c varchar(255),",,,,enum,imp_timeframe_list,,,
-"   region__c varchar(255),",,,,enum,ae_region_dom,AE Region
+"   region__c varchar(255),",,,,,,,,
 "   is_source__c varchar(255),",,,,enum,is_source_list,,,
 "   target_decision_date__c timestamp,",,,,,,,,
 "   lead_rating__c varchar(255),",,,,enum,lead_rating_dom,,,
@@ -64,8 +64,8 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   budgeted_pricedown_amount__c real,",,,,,,,,
 "   tip_source__c varchar(30),",,,,,,,,
 "   implemention_comments__c varchar(255),",,,,,,,,
-"   new_am_region__c varchar(255),",,,,,,,,
-"   confidence_level__c varchar(255),",,,,,,,,
+"   new_am_region__c varchar(255),",,,,enum,new_am_region_list,AE Region,,
+"   confidence_level__c varchar(255),",,,,enum,confidence_level_list,,,
 "   sage_opportunity_id__c varchar(30),",,,,,,,,
 "   register_date__c timestamp,",,,,,,,,
 "   contract_date__c timestamp,",,,,,,,,
@@ -90,7 +90,8 @@ column,do not create ,name,,type,options,label,id_name,related module
 "   started_as_a_lead__c bool NOT NULL,",,,,,,,,
 "   rfp_required__c bool NOT NULL,",,,,,,RFP Required,,
 "   rfp_due_date__c timestamp,",,,,,,RFP Due Date,,
-"   incumbentx__c varchar(18),",,,,,,Incumbent,,
+"   incumbentx__c varchar(18),",,Oneincumbentx_c,,id,,,,
+,,incumbent_name_c,,relate,,Incumbent,Oneincumbentx_c,Accounts
 "   winner__c varchar(36),",,Onewinner_c,,id,,,,
 ,,winner_name_c,,relate,,Account Winner,Onewinner_c,Users
 "   incumbent_unit_price__c real,",,,,,,,,

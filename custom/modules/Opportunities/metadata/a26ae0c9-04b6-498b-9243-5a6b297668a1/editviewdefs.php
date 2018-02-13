@@ -138,8 +138,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'region_c',
-            'label' => 'LBL_REGION_C',
+            'name' => 'new_am_region_c',
+            'label' => 'LBL_NEW_AM_REGION_C',
           ),
         ),
         8 => 

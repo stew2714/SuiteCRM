@@ -182,7 +182,7 @@ $dictionary['Account']['fields']['primary_gpo_c']['source'] = 'custom_fields';
 // Part 1 - related field for gpo_affiliation
 
 $dictionary['Account']['fields']['Accgpo_affiliation_c']['name']='Accgpo_affiliation_c';
-$dictionary['Account']['fields']['Accgpo_affiliation_c']['len']='18';
+$dictionary['Account']['fields']['Accgpo_affiliation_c']['len']='36';
 $dictionary['Account']['fields']['Accgpo_affiliation_c']['type']='id';
 $dictionary['Account']['fields']['Accgpo_affiliation_c']['inline_edit']=1;
 $dictionary['Account']['fields']['Accgpo_affiliation_c']['importable']='true';
@@ -193,7 +193,7 @@ $dictionary['Account']['fields']['Accgpo_affiliation_c']['vname']='LBL_ACCGPO_AF
 $dictionary['Account']['fields']['Accgpo_affiliation_c']['source']='custom_fields';
 
 // 2017-11-01 BCG
-$dictionary['Account']['fields']['Accgpo_affiliation_c']['custom_module']='Accounts';
+//$dictionary['Account']['fields']['Accgpo_affiliation_c']['custom_module']='Accounts';
 
 // Part 2 - related field for gpo_affiliation
 

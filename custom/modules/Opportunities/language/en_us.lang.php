@@ -1,5 +1,5 @@
 <?php
-// created: 2018-01-26 15:13:07
+// created: 2018-02-13 15:14:49
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -46,4 +46,9 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL15' => 'Closing Details',
   'LBL_EDITVIEW_PANEL16' => 'Win/Loss Details',
   'LBL_RECORDTYPEID_C' => 'Recordtypeid',
+  'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE' => 'Accounts (Won)',
+  'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE' => 'Accounts (Incumbent)',
+  'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE' => 'Account',
+  'LBL_CONFIDENCE_LEVEL_C' => 'Confidence Level',
+  'LBL_SALES_LEADERSHIP_C' => 'Sales Leadership',
 );

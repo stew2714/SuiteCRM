@@ -203,4 +203,12 @@ $searchFields['Opportunities'] = array (
   array (
     'query_type' => 'default',
   ),
+  'confidence_level_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'sales_leadership_c' => 
+  array (
+    'query_type' => 'default',
+  ),
 );

@@ -224,6 +224,19 @@ $dictionary['Opportunity']['fields']['new_partner_c']['vname']='LBL_NEW_PARTNER_
 $dictionary['Opportunity']['fields']['new_partner_c']['source']='custom_fields';
 
 
+ // Vardef Created : incumbentx_c 
+
+$dictionary['Opportunity']['fields']['incumbentx_c']['name']='incumbentx_c';
+$dictionary['Opportunity']['fields']['incumbentx_c']['len']='18';
+$dictionary['Opportunity']['fields']['incumbentx_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['incumbentx_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['incumbentx_c']['importable']='true';
+$dictionary['Opportunity']['fields']['incumbentx_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['incumbentx_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['incumbentx_c']['vname']='LBL_INCUMBENTX_C';
+$dictionary['Opportunity']['fields']['incumbentx_c']['source']='custom_fields';
+
+
  // Vardef Created : volume_commitment_c 
 
 
@@ -740,9 +753,8 @@ $dictionary['Opportunity']['fields']['implementation_timeframe_c']['source']='cu
 
 $dictionary['Opportunity']['fields']['region_c']['name']='region_c';
 $dictionary['Opportunity']['fields']['region_c']['len']='255';
-$dictionary['Opportunity']['fields']['region_c']['type']='enum';
+$dictionary['Opportunity']['fields']['region_c']['type']='text';
 $dictionary['Opportunity']['fields']['region_c']['inline_edit']=1;
-$dictionary['Opportunity']['fields']['region_c']['options']='ae_region_dom';
 $dictionary['Opportunity']['fields']['region_c']['importable']='true';
 $dictionary['Opportunity']['fields']['region_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['region_c']['module']='Opportunities';
@@ -1118,8 +1130,9 @@ $dictionary['Opportunity']['fields']['implemention_comments_c']['source']='custo
 
 $dictionary['Opportunity']['fields']['new_am_region_c']['name']='new_am_region_c';
 $dictionary['Opportunity']['fields']['new_am_region_c']['len']='255';
-$dictionary['Opportunity']['fields']['new_am_region_c']['type']='text';
+$dictionary['Opportunity']['fields']['new_am_region_c']['type']='enum';
 $dictionary['Opportunity']['fields']['new_am_region_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['new_am_region_c']['options']='new_am_region_list';
 $dictionary['Opportunity']['fields']['new_am_region_c']['importable']='true';
 $dictionary['Opportunity']['fields']['new_am_region_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['new_am_region_c']['module']='Opportunities';
@@ -1131,8 +1144,9 @@ $dictionary['Opportunity']['fields']['new_am_region_c']['source']='custom_fields
 
 $dictionary['Opportunity']['fields']['confidence_level_c']['name']='confidence_level_c';
 $dictionary['Opportunity']['fields']['confidence_level_c']['len']='255';
-$dictionary['Opportunity']['fields']['confidence_level_c']['type']='text';
+$dictionary['Opportunity']['fields']['confidence_level_c']['type']='enum';
 $dictionary['Opportunity']['fields']['confidence_level_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['confidence_level_c']['options']='confidence_level_list';
 $dictionary['Opportunity']['fields']['confidence_level_c']['importable']='true';
 $dictionary['Opportunity']['fields']['confidence_level_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['confidence_level_c']['module']='Opportunities';
@@ -1465,17 +1479,36 @@ $dictionary['Opportunity']['fields']['rfp_due_date_c']['vname']='LBL_RFP_DUE_DAT
 $dictionary['Opportunity']['fields']['rfp_due_date_c']['source']='custom_fields';
 
 
- // Vardef Created : incumbentx_c 
+ // Vardef Created : Oneincumbentx_c 
 
-$dictionary['Opportunity']['fields']['incumbentx_c']['name']='incumbentx_c';
-$dictionary['Opportunity']['fields']['incumbentx_c']['len']='18';
-$dictionary['Opportunity']['fields']['incumbentx_c']['type']='varchar';
-$dictionary['Opportunity']['fields']['incumbentx_c']['inline_edit']=1;
-$dictionary['Opportunity']['fields']['incumbentx_c']['importable']='true';
-$dictionary['Opportunity']['fields']['incumbentx_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['incumbentx_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['incumbentx_c']['vname']='LBL_INCUMBENTX_C';
-$dictionary['Opportunity']['fields']['incumbentx_c']['source']='custom_fields';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['name']='Oneincumbentx_c';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['len']='18';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['type']='id';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['id']='OpportunitiesOneincumbentx_c';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['custom_module']='Opportunities';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['vname']='LBL_ONEINCUMBENTX_C';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['source']='custom_fields';
+
+
+ // Vardef Created : incumbent_name_c 
+
+$dictionary['Opportunity']['fields']['incumbent_name_c']['name']='incumbent_name_c';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['len']='255';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['type']='relate';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['incumbent_name_c']['importable']='true';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['incumbent_name_c']['ext2']='Accounts';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['id']='Opportunitiesincumbent_name_c';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['module']='Accounts';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['studio']='visible';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['id_name']='Oneincumbentx_c';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['vname']='LBL_INCUMBENT_NAME_C';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['source']='non-db';
 
 
  // Vardef Created : Onewinner_c 
