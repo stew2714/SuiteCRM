@@ -140,7 +140,7 @@ class SharedSecurityRules extends Basic
         global $current_user;
         $bean = BeanFactory::getBean("SharedSecurityRules");
         $results = $bean->get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_name}'");
-        $result = true;
+        $result = null;
         foreach($results as $rule){
             $rel = "sharedsecurityrulesactions";
             $rule->load_relationship($rel);
@@ -233,17 +233,17 @@ class SharedSecurityRules extends Basic
                         if($moduleBean->field_defs[ $condition->field ]['type'] == "relate"){
                             $condition->field = $moduleBean->field_defs[ $condition->field ]['id_name'];
                         }
-                        if($condition->field == "currentUser"){
+                        if($condition->value_type == "currentUser"){
                             global $current_user;
-                            $condition->field = "Field";
+                            $condition->value_type = "Field";
                             $condition->value = $current_user->id;
 
                         }
-                        if ($condition->value_type == "Field" &&
-                            isset($record->{$condition->field}) &&
-                            !empty($record->{$condition->field})) {
-                            $condition->value = $record->{$condition->field};
-                        }
+//                        if ($condition->value_type == "Field" &&
+//                            isset($record->{$condition->field}) &&
+//                            !empty($record->{$condition->field})) {
+//                            $condition->value = $record->{$condition->field};
+//                        }
                         if ($this->checkOperator(
                             $record->{$condition->field},
                             $condition->value,
@@ -253,8 +253,8 @@ class SharedSecurityRules extends Basic
                                 $result = false;
                             }
                         } else {
-                            if($condition->condition_operator !== "OR" && $view != "view") {
-                                return true;
+                            if(count($related) <= 1 && $view != "view") {
+                                return false;
                             }
                         }
                     }
