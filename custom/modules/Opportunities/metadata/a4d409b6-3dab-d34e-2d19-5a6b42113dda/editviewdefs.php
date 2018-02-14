@@ -38,6 +38,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL15' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
           'newTab' => false,
@@ -387,6 +392,149 @@ array (
             'label' => 'LBL_CO_ANNUAL_PROD_SUBSCRIPTION_FEE_C',
           ),
           1 => '',
+        ),
+      ),
+      'lbl_editview_panel15' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'pricing_notes_c',
+            'label' => 'LBL_PRICING_NOTES_C',
+          ),
+          1 => 
+          array (
+            'name' => 'mmodal_scout_c',
+            'label' => 'LBL_MMODAL_SCOUT_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'number_of_licenses_c',
+            'label' => 'LBL_NUMBER_OF_LICENSES_C',
+          ),
+          1 => 
+          array (
+            'name' => 'annual_volume_c',
+            'label' => 'LBL_ANNUAL_VOLUME_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fte_c',
+            'label' => 'LBL_FTE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'mq_uom_c',
+            'label' => 'LBL_MQ_UOM_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr2_c',
+            'label' => 'LBL_EMR2_C',
+          ),
+          1 => 
+          array (
+            'name' => 'mq_unit_price_c',
+            'label' => 'LBL_MQ_UNIT_PRICE_C',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'encoder_c',
+            'label' => 'LBL_ENCODER_C',
+          ),
+          1 => 
+          array (
+            'name' => 'btl_c',
+            'label' => 'LBL_BTL_C',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'encoder_description_c',
+            'label' => 'LBL_ENCODER_DESCRIPTION_C',
+          ),
+          1 => 
+          array (
+            'name' => 'global_use_probability_percent_c',
+            'label' => 'LBL_GLOBAL_USE_PROBABILITY_PERCENT_C',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'number_of_ftes_c',
+            'label' => 'LBL_NUMBER_OF_FTES_C',
+          ),
+          1 => 
+          array (
+            'name' => 'gpo_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_GPO_NAME_C',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'coding_start_date_c',
+            'label' => 'LBL_CODING_START_DATE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'notifi_c',
+            'label' => 'LBL_NOTIFI_C',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'coding_end_date_c',
+            'label' => 'LBL_CODING_END_DATE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'notifi_subscription_amount_c',
+            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'coding_specialty_c',
+            'label' => 'LBL_CODING_SPECIALTY_C',
+          ),
+          1 => 
+          array (
+            'name' => 'modlink_c',
+            'label' => 'LBL_MODLINK_C',
+          ),
+        ),
+        10 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'statdx_c',
+            'label' => 'LBL_STATDX_C',
+          ),
         ),
       ),
       'lbl_editview_panel6' => 

@@ -30,27 +30,27 @@ array (
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL10' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL12' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -70,7 +70,11 @@ array (
         ),
         1 => 
         array (
-          0 => 'account_name',
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_3_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE',
+          ),
           1 => 
           array (
             'name' => 'recordtypeid_c',
@@ -160,117 +164,91 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_NEW_AE2_NAME_C',
           ),
-          1 => '',
-        ),
-        10 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'count_c',
             'label' => 'LBL_COUNT_C',
           ),
-          1 => '',
         ),
-        11 => 
-        array (
-          0 => 
-          array (
-            'name' => 'number_of_ftes_c',
-            'label' => 'LBL_NUMBER_OF_FTES_C',
-          ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
-          array (
-            'name' => 'coding_start_date_c',
-            'label' => 'LBL_CODING_START_DATE_C',
-          ),
-          1 => '',
-        ),
-        13 => 
-        array (
-          0 => 
-          array (
-            'name' => 'coding_end_date_c',
-            'label' => 'LBL_CODING_END_DATE_C',
-          ),
-          1 => '',
-        ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'coding_specialty_c',
-            'label' => 'LBL_CODING_SPECIALTY_C',
-          ),
-          1 => '',
-        ),
-        15 => 
-        array (
-          0 => 
-          array (
-            'name' => 'modlink_c',
-            'label' => 'LBL_MODLINK_C',
-          ),
-          1 => '',
-        ),
-        16 => 
+        10 => 
         array (
           0 => 
           array (
             'name' => 'notifi_subscription_amount_c',
             'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'number_of_ftes_c',
+            'label' => 'LBL_NUMBER_OF_FTES_C',
+          ),
         ),
-        17 => 
+        11 => 
         array (
           0 => 
           array (
             'name' => 'notifi_c',
             'label' => 'LBL_NOTIFI_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'coding_start_date_c',
+            'label' => 'LBL_CODING_START_DATE_C',
+          ),
         ),
-        18 => 
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'statdx_c',
+            'label' => 'LBL_STATDX_C',
+          ),
+          1 => 
+          array (
+            'name' => 'coding_end_date_c',
+            'label' => 'LBL_CODING_END_DATE_C',
+          ),
+        ),
+        13 => 
         array (
           0 => 
           array (
             'name' => 'extended_term_adoption_services_value_c',
             'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'coding_specialty_c',
+            'label' => 'LBL_CODING_SPECIALTY_C',
+          ),
         ),
-        19 => 
+        14 => 
         array (
           0 => 
           array (
             'name' => 'non_standard_commissions_release_c',
             'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
           ),
-          1 => '',
-        ),
-        20 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'gp_contract_order_c',
-            'label' => 'LBL_GP_CONTRACT_ORDER_C',
+            'name' => 'modlink_c',
+            'label' => 'LBL_MODLINK_C',
           ),
-          1 => '',
         ),
-        21 => 
+        15 => 
         array (
           0 => 
           array (
             'name' => 'commissions_notes_c',
             'label' => 'LBL_COMMISSIONS_NOTES_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'gp_contract_order_c',
+            'label' => 'LBL_GP_CONTRACT_ORDER_C',
+          ),
         ),
-        22 => 
+        16 => 
         array (
           0 => 
           array (

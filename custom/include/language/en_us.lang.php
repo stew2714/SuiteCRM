@@ -271,22 +271,11 @@ $GLOBALS['app_list_strings']['ae_region_dom']=array (
   'AU' => 'AU',
   'Int_Other' => 'Int Other',
 );
-$GLOBALS['app_list_strings']['sales_forecast_cat_dom']=array (
-  'None' => 'None',
-  'Ommitted' => 'Ommitted',
-  'Pipeline' => 'Pipeline',
-  'Best_Case' => 'Best Case',
-  'Commit' => 'Commit',
-);
 $GLOBALS['app_list_strings']['sales_forecasting_dom']=array (
   'None' => 'None',
   'Commit' => 'Commit',
   'Backup' => 'Backup',
   'Stretch' => 'Stretch',
-);
-$GLOBALS['app_list_strings']['bankruptcy_hold_dom']=array (
-  'None' => 'None',
-  'Yes' => 'Yes',
 );
 $GLOBALS['app_list_strings']['coding_specialist_dom']=array (
   'None' => 'None',
@@ -1274,30 +1263,6 @@ $GLOBALS['app_list_strings']['encoder_list']=array (
   'Webstrat' => 'Webstrat (HHS/Inguenix)',
   'Other' => 'Other',
 );
-$GLOBALS['app_list_strings']['co_reviewer_list']=array (
-  'None' => 'None',
-  'Reardon' => 'Reardon',
-  'Mason' => 'Mason',
-  'Carl' => 'Carl',
-  'Merritt' => 'Merritt',
-);
-$GLOBALS['app_list_strings']['is_source_list']=array (
-  'None' => 'None',
-  'Hellard' => 'Hellard',
-  'Petri' => 'Petri',
-  'Zinn' => 'Zinn',
-  'Nagorski' => 'Nagorski',
-  'Narrasoft' => 'Narrasoft',
-  'D2D' => 'D2D',
-  'NiH' => 'NiH',
-  'Enenmoh' => 'Enenmoh',
-  'Winchester' => 'Winchester',
-);
-$GLOBALS['app_list_strings']['rfp_preparer_list']=array (
-  'None' => 'None',
-  'Heim' => 'Heim',
-  'Schuck' => 'Schuck',
-);
 $GLOBALS['app_list_strings']['imp_timeframe_list']=array (
   'work_request' => 'Work Request - estimate 30 day implementation',
   'standard' => 'Standard - estimate 120 day implementation',
@@ -1308,15 +1273,6 @@ $GLOBALS['app_list_strings']['imp_timeframe_list']=array (
   '' => '',
   'phased3' => 'Phased - Phase 1 starts in 7-9 Months',
   'phased4' => 'Phased - Phase 1 starts after 9 Months',
-);
-$GLOBALS['app_list_strings']['nih_rating_list']=array (
-  'none' => 'None',
-  'a' => 'A',
-  'b' => 'B',
-  'c' => 'C',
-  'd' => 'D',
-  'mo' => 'MO',
-  'nr' => 'NR',
 );
 $GLOBALS['app_list_strings']['primary_reason_for_winloss_list']=array (
   'customer_experience_support' => 'Customer Experience (Support)',
@@ -1409,12 +1365,6 @@ $GLOBALS['app_list_strings']['new_am_region_list']=array (
   'ZBA_West' => 'ZBA West',
   'Legal' => 'Legal',
 );
-$GLOBALS['app_list_strings']['sa_status_list']=array (
-  'In_Review' => 'In Review',
-  'Issue_Resolution' => 'Issue Resolution',
-  'Pending_Apttus_Submission' => 'Pending Apttus Submission',
-  'Complete' => 'Complete',
-);
 $GLOBALS['app_list_strings']['confidence_level_list']=array (
   'None' => '--None--',
   'High' => 'High',
@@ -1430,4 +1380,97 @@ $GLOBALS['app_list_strings']['sales_leadership_dom']=array (
   'Mark' => 'Mark',
   'Mike' => 'Mike',
   'Ray' => 'Ray',
+);
+$GLOBALS['app_list_strings']['sales_stage_dom']=array (
+  'Closed_Won' => 'Closed - Won',
+  'Closed_Nurturing' => 'Closed - Nuturing',
+  'Closed_Won_not_in_Pipeline' => 'Closed - Won (not in Pipeline)',
+  'Pilot' => 'Pilot',
+  '1_Lead' => '1. Lead',
+  '2_Discovery' => '2. Discovery',
+  '3_Qualified' => '3. Qualified',
+  '4_Proposal' => '4. Proposal',
+  '5_Contract' => '5. Contract',
+  'Closed_No_Oppty' => 'Closed - No Oppty',
+  'Closed_Lost' => 'Closed Lost',
+  'Closed_Inactive' => 'Closed Inactive',
+);
+$GLOBALS['app_list_strings']['sales_stage_dom']=array (
+  '1_Lead' => '1. Lead',
+  '2_Discovery' => '2. Discovery',
+  '3_Qualified' => '3. Qualified',
+  '4_Proposal' => '4. Proposal',
+  '5_Contract' => '5. Contract',
+  'Closed_No_Oppty' => 'Closed - No Oppty',
+  'Closed_Nurturing' => 'Closed - Nuturing',
+  'Closed_Won' => 'Closed - Won',
+  'Closed_Won_not_in_Pipeline' => 'Closed - Won (not in Pipeline)',
+  'Closed_Inactive' => 'Closed Inactive',
+  'Closed_Lost' => 'Closed Lost',
+  'Pilot' => 'Pilot',
+  '' => '',
+);
+$GLOBALS['app_list_strings']['sales_stage_dom']=array (
+  '' => '',
+  '1_Lead' => '1. Lead',
+  '2_Discovery' => '2. Discovery',
+  '3_Qualified' => '3. Qualified',
+  '4_Proposal' => '4. Proposal',
+  '5_Contract' => '5. Contract',
+  'Closed_No_Oppty' => 'Closed - No Oppty',
+  'Closed_Nurturing' => 'Closed - Nuturing',
+  'Closed_Won' => 'Closed - Won',
+  'Closed_Won_not_in_Pipeline' => 'Closed - Won (not in Pipeline)',
+  'Closed_Inactive' => 'Closed Inactive',
+  'Closed_Lost' => 'Closed Lost',
+  'Pilot' => 'Pilot',
+);
+$GLOBALS['app_list_strings']['sales_forecast_cat_dom']=array (
+  'None' => 'None',
+  'Ommitted' => 'Ommitted',
+  'Pipeline' => 'Pipeline',
+  'Closed' => 'Closed',
+);
+$GLOBALS['app_list_strings']['bankruptcy_hold_dom']=array (
+  '' => '',
+  'Yes' => 'Yes',
+);
+
+$GLOBALS['app_list_strings']['sa_status_list']=array (
+  '' => '',
+  'Complete' => 'Complete',
+  'In_Review' => 'In Review',
+  'Issue_Resolution' => 'Issue Resolution',
+  'Pending_Apttus_Submission' => 'Pending Apttus Submission',
+);
+$GLOBALS['app_list_strings']['co_reviewer_list']=array (
+  '' => '',
+  'Carl' => 'Carl',
+  'Mason' => 'Mason',
+  'Merritt' => 'Merritt',
+  'Reardon' => 'Reardon',
+);
+$GLOBALS['app_list_strings']['is_source_list']=array (
+  '' => '',
+  'D2D' => 'D2D',
+  'Enenmoh' => 'Enenmoh',
+  'Hellard' => 'Hellard',
+  'Nagorski' => 'Nagorski',
+  'Narrasoft' => 'Narrasoft',
+  'NiH' => 'NiH',
+  'Petri' => 'Petri',
+  'Winchester' => 'Winchester',
+  'Zinn' => 'Zinn',
+);
+$GLOBALS['app_list_strings']['nih_rating_list']=array (
+  '' => '',
+  'A' => 'A',
+  'B' => 'B',
+  'C' => 'C',
+  'NR' => 'NR',
+);
+$GLOBALS['app_list_strings']['rfp_preparer_list']=array (
+  '' => '',
+  'Heim' => 'Heim',
+  'Schuck' => 'Schuck',
 );
