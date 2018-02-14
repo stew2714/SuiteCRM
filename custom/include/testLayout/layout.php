@@ -36,6 +36,8 @@ $array =
         "AOR_Scheduled_Reports",
         "Documents",
         "Notes",
+        "Meetings",
+        "Calls"
     );
 if($params['module'] == "" || in_array($params['module'], $array)){
     echo json_encode(array( "found" => false,  "layout" => "" ));
