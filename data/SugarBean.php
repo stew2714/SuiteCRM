@@ -5431,15 +5431,15 @@ class SugarBean
             require_once("modules/SecurityGroups/SecurityGroup.php");
             $in_group = SecurityGroup::groupHasAccess($this->module_dir, $this->id, $view);
         }
-		$bean = BeanFactory::getBean("SharedSecurityRules");
-        if($bean != false) {
-            $ruleAccess = $bean->checkRules($this, $view);
-            if ($ruleAccess === false) {
-                return false;
-            }elseif($ruleAccess === true){
-                return true;
-            }
-        }
+//		$bean = BeanFactory::getBean("SharedSecurityRules");
+//        if($bean != false) {
+//            $ruleAccess = $bean->checkRules($this, $view);
+//            if ($ruleAccess === false) {
+//                return false;
+//            }elseif($ruleAccess === true){
+//                return true;
+//            }
+//        }
         return ACLController::checkAccess($this->module_dir, $view, $is_owner, $this->acltype, $in_group);
     }
 
