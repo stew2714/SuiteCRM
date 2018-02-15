@@ -133,14 +133,14 @@ class SharedSecurityRules extends Basic
         }
 
         //shared$moduleBean->retrieve($module->id);
-
+        
+        $result = null;
         if(empty($moduleBean->id) || $moduleBean->id == "[SELECT_ID_LIST]"){
-            return true;
+            return $result;
         }
         global $current_user;
         $bean = BeanFactory::getBean("SharedSecurityRules");
         $results = $bean->get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_name}'");
-        $result = null;
         foreach($results as $rule){
             $rel = "sharedsecurityrulesactions";
             $rule->load_relationship($rel);
@@ -299,6 +299,99 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
+    function buildRuleWhere($module){
+        
+        global $current_user;
+        $where = "";
+        $results = SugarBean::get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_dir}'");
+        foreach($results as $rule){
+            $rel = "sharedsecurityrulesactions";
+            $rule->load_relationship($rel);
+            $actions = $rule->{$rel}->getBeans();
+            $actionIsUser = false;
+            foreach($actions as $action){
+                if(unserialize(base64_decode($action->parameters)) != false){
+                    $action->parameters = unserialize(base64_decode($action->parameters));
+                }
+                foreach($action->parameters['accesslevel'] as $key => $accessLevel){
+                    if($accessLevel == "none"){
+                        $targetType = $action->parameters['email_target_type'][$key];
+                        if($targetType == "Users" && $action->parameters['email'][ $key ]['0'] == "role"){
+                            $role = BeanFactory::getBean("ACLRoles", $action->parameters['email'][ $key ]['2'] );
+                            if($role->load_relationship("users")){
+                                $userList = $role->users->getBeans();
+                                if(key_exists($current_user->id, $userList)){
+                                    $actionIsUser = true;
+                                }
+                            }
+                        }elseif($targetType == "Users" && $action->parameters['email'][ $key ]['0'] == "security_group"){
+                            $secGroups = BeanFactory::getBean("SecurityGroups", $action->parameters['email'][ $key ]['1'] );
+                            if(!empty($action->parameters['email'][ $key ]['2'])){
+                                $role = BeanFactory::getBean("ACLRoles", $action->parameters['email'][ $key ]['2'] );
+                                if($role->load_relationship("users")){
+                                    $userList = $role->users->getBeans();
+                                    if(key_exists($current_user->id, $userList)){
+                                        $actionIsUser = true;
+                                    }
+                                }
+                            }else {
+                                if ($secGroups->load_relationship("users")) {
+                                    $userList = $secGroups->users->getBeans();
+                                    if (key_exists($current_user->id, $userList)) {
+                                        $actionIsUser = true;
+                                    }
+                                }
+                            }
+                        }elseif( ($targetType == "Specify User" && $current_user->id ==  $action->parameters['email'][$key]) ||
+                            ($targetType == "Users" && in_array("all", $action->parameters['email'][$key]) ) )
+                        {
+                            $actionIsUser = true;
+                        }
+                    }
+                }
+            }
+            if($actionIsUser == true){
+                $rel = "sharedsecurityrulesconditions";
+                $rule->load_relationship($rel);
+                $related = false;
+                $conditions = $rule->{$rel}->getBeans(array('order_by' => 'condition_order ASC' ));
+                if(count($conditions) != 0) {
+                    foreach ($conditions as $condition) {
+                        if(unserialize(base64_decode($condition->module_path)) != false) {
+                            $condition->module_path = unserialize(base64_decode($condition->module_path));
+                        }
+                        
+                        if ($condition->module_path[0] != $rule->flow_module) {
+                            foreach ($condition->module_path as $rel) {
+                                if (empty($rel)) {
+                                    continue;
+                                }
+                                $module->load_relationship($rel);
+                                $related = $module->$rel->getBeans();
+                            }
+                        }
+                        
+                        if($related == false) {
+                            if ($condition->value_type == "Field" &&
+                                isset($module->{$condition->value}) &&
+                                !empty($module->{$condition->value})) {
+                                    $condition->value = $module->{$condition->value};
+                                }
+                            $value = $condition->value;
+                            $operatorValue = $this->changeOperator($condition->operator, $value);
+                            if(empty($where)){
+                                $where = " ( ".$module->table_name.".".$condition->field." ".$operatorValue." ) ";
+                            } else {
+                                $where .= " AND ( ".$module->table_name.".".$condition->field." ".$operatorValue." ) ";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $where;
+    }
+    
     public function checkHistory($module, $field, $value){
         global $db;
         if($module->field_defs[ $field ]['audited'] == true ){
@@ -359,6 +452,25 @@ class SharedSecurityRules extends Basic
         return false;
     }
 
+    private function changeOperator($operator, $value){
+        switch ($operator) {
+            case "Equal_To":
+                return " != '".$value."' ";
+            case "Not_Equal_To":
+                return " = '".$value."' ";
+            case "Starts_With":
+                return " NOT LIKE '".$value."%'";
+            case "Ends_With":
+                return " NOT LIKE '%".$value."' ";
+            case "Contains":
+                return " NOT LIKE '%".$value."%' ";
+            case "is_null":
+                return " IS NOT NULL ";
+        }
+        
+        return false;
+    }
+    
     /**
      * @param $view
      * @param $item

@@ -2956,6 +2956,14 @@ class SugarBean
         }
         /* BEGIN - SECURITY GROUPS */
         global $current_user, $sugar_config;
+        $rulesWhere = SharedSecurityRules::buildRuleWhere($this);
+        if (!empty($rulesWhere)) {
+            if (empty($where)) {
+                $where = $rulesWhere;
+            } else {
+                $where .= " AND ".$rulesWhere;
+            }
+        }
         if ($this->module_dir == 'Users' && !is_admin($current_user)
             && isset($sugar_config['securitysuite_filter_user_list'])
             && $sugar_config['securitysuite_filter_user_list']
