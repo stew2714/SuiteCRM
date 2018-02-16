@@ -23,7 +23,7 @@ $sugar_config['authenticationClass'] = '';
 $sugar_config['logger']['level'] = 'fatal';
 $sugar_config['verify_client_ip'] = false;
 $sugar_config['aod']['enable_aod'] = false;
-$sugar_config['dump_slow_queries'] = true;
+$sugar_config['dump_slow_queries'] = false;
 $sugar_config['addAjaxBannedModules'][1] = 'SecurityGroups';
 $sugar_config['addAjaxBannedModules'][53] = 'SecurityGroups';
 $sugar_config['addAjaxBannedModules'][54] = 'SecurityGroups';
@@ -61,4 +61,5 @@ $sugar_config['securitysuite_shared_calendar_hide_restricted'] = false;
 $sugar_config['securitysuite_show_group_events'] = false;
 $sugar_config['securitysuite_user_role_precedence'] = false;
 $sugar_config['salesRoleId'] = 'abc40453-3d16-7384-503c-5a7f6d839e38';
+$sugar_config['log_memory_usage'] = true;
 /***CONFIGURATOR***/
