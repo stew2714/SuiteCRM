@@ -314,8 +314,7 @@ class ListViewDisplay {
 		foreach ( $this->actionsMenuExtraItems as $item )
 		    $menuItems[] = $item;
 
-        if ( ACLController::checkAccess($this->seed->module_dir,'delete',true) &&
-             !$this->show_action_dropdown_as_delete ) {
+		if(!$this->show_action_dropdown_as_delete) {
 			$menuItems[] = $this->buildDeleteLink($location);
 		}
 
