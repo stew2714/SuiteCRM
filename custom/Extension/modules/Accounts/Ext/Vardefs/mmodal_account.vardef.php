@@ -8,6 +8,8 @@
 
 // Modified 2017-12-13 to enlarge recordtypeid_c per Dan Herrera
 
+// Modified 2018-02-19 to remove all references to 'ext2' per email from SalesAgility
+
 // Field: sf_id_c
 $dictionary['Account']['fields']['sf_id_c']['name'] = 'sf_id_c';
 $dictionary['Account']['fields']['sf_id_c']['type'] = 'varchar';
@@ -203,7 +205,7 @@ $dictionary['Account']['fields']['gpo_affiliation_name_c']['type']='relate';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['inline_edit']=1;
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['importable']='true';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['reportable']=true;
-$dictionary['Account']['fields']['gpo_affiliation_name_c']['ext2']='Accounts';
+//$dictionary['Account']['fields']['gpo_affiliation_name_c']['ext2']='Accounts';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['id']='Accountgpo_affiliation_name_c';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['module']='Accounts';
 $dictionary['Account']['fields']['gpo_affiliation_name_c']['studio']='visible';
@@ -281,7 +283,7 @@ $dictionary['Account']['fields']['mtso_1_name_c']['type']='relate';
 $dictionary['Account']['fields']['mtso_1_name_c']['inline_edit']=1;
 $dictionary['Account']['fields']['mtso_1_name_c']['importable']='true';
 $dictionary['Account']['fields']['mtso_1_name_c']['reportable']=true;
-$dictionary['Account']['fields']['mtso_1_name_c']['ext2']='Accounts';
+//$dictionary['Account']['fields']['mtso_1_name_c']['ext2']='Accounts';
 $dictionary['Account']['fields']['mtso_1_name_c']['id']='Accountmtso_1_name_c';
 $dictionary['Account']['fields']['mtso_1_name_c']['module']='Accounts';
 $dictionary['Account']['fields']['mtso_1_name_c']['studio']='visible';
@@ -340,7 +342,7 @@ $dictionary['Account']['fields']['mtso_2_name_c']['type']='relate';
 $dictionary['Account']['fields']['mtso_2_name_c']['inline_edit']=1;
 $dictionary['Account']['fields']['mtso_2_name_c']['importable']='true';
 $dictionary['Account']['fields']['mtso_2_name_c']['reportable']=true;
-$dictionary['Account']['fields']['mtso_2_name_c']['ext2']='Accounts';
+//$dictionary['Account']['fields']['mtso_2_name_c']['ext2']='Accounts';
 $dictionary['Account']['fields']['mtso_2_name_c']['id']='Accountmtso_2_name_c';
 $dictionary['Account']['fields']['mtso_2_name_c']['module']='Accounts';
 $dictionary['Account']['fields']['mtso_2_name_c']['studio']='visible';
@@ -398,7 +400,7 @@ $dictionary['Account']['fields']['mtso_3_name_c']['type']='relate';
 $dictionary['Account']['fields']['mtso_3_name_c']['inline_edit']=1;
 $dictionary['Account']['fields']['mtso_3_name_c']['importable']='true';
 $dictionary['Account']['fields']['mtso_3_name_c']['reportable']=true;
-$dictionary['Account']['fields']['mtso_3_name_c']['ext2']='Accounts';
+//$dictionary['Account']['fields']['mtso_3_name_c']['ext2']='Accounts';
 $dictionary['Account']['fields']['mtso_3_name_c']['id']='Accountmtso_3_name_c';
 $dictionary['Account']['fields']['mtso_3_name_c']['module']='Accounts';
 $dictionary['Account']['fields']['mtso_3_name_c']['studio']='visible';
@@ -1366,7 +1368,7 @@ $dictionary['Account']['fields']['imaging_owner_name_c']['type']='relate';
 $dictionary['Account']['fields']['imaging_owner_name_c']['inline_edit']=1;
 $dictionary['Account']['fields']['imaging_owner_name_c']['importable']='true';
 $dictionary['Account']['fields']['imaging_owner_name_c']['reportable']=true;
-$dictionary['Account']['fields']['imaging_owner_name_c']['ext2']='Users';
+//$dictionary['Account']['fields']['imaging_owner_name_c']['ext2']='Users';
 $dictionary['Account']['fields']['imaging_owner_name_c']['id']='Accountimaging_owner_name_c';
 $dictionary['Account']['fields']['imaging_owner_name_c']['module']='Users';
 $dictionary['Account']['fields']['imaging_owner_name_c']['studio']='visible';

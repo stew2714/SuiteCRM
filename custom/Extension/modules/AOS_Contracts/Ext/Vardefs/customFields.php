@@ -596,14 +596,13 @@ $dictionary['AOS_Contracts']['fields']['apttus_account_c']['source']='custom_fie
  // Vardef Created : Oneapttus_activated_by 
 
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['name']='Oneapttus_activated_by';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['len']='18';
+$dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['len']='36';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['type']='id';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['id']='AOS_ContractsOneapttus_activated_by';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['custom_module']='AOS_Contracts';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['vname']='LBL_ONEAPTTUS_ACTIVATED_BY';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_activated_by']['source']='custom_fields';
 
@@ -748,14 +747,13 @@ $dictionary['AOS_Contracts']['fields']['apttus_business_hours_c']['source']='cus
  // Vardef Created : Oneapttus_company_signed_by 
 
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['name']='Oneapttus_company_signed_by';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['len']='18';
+$dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['len']='36';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['type']='id';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['id']='AOS_ContractsOneapttus_company_signed_by';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['custom_module']='AOS_Contracts';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['vname']='LBL_ONEAPTTUS_COMPANY_SIGNED_BY';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_company_signed_by']['source']='custom_fields';
 
@@ -1282,14 +1280,13 @@ $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_unlisted_c'
  // Vardef Created : Oneapttus_other_party_signed_by 
 
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['name']='Oneapttus_other_party_signed_by';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['len']='18';
+$dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['len']='36';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['type']='id';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['id']='AOS_ContractsOneapttus_other_party_signed_by';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['custom_module']='AOS_Contracts';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['vname']='LBL_ONEAPTTUS_OTHER_PARTY_SIGNED_BY';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_other_party_signed_by']['source']='custom_fields';
 
@@ -1367,14 +1364,13 @@ $dictionary['AOS_Contracts']['fields']['apttus_owner_expiration_notice_c']['sour
  // Vardef Created : Oneapttus_parent_agreement_c 
 
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['name']='Oneapttus_parent_agreement_c';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['len']='18';
+$dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['len']='36';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['type']='id';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['id']='AOS_ContractsOneapttus_parent_agreement_c';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['custom_module']='AOS_Contracts';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['vname']='LBL_ONEAPTTUS_PARENT_AGREEMENT_C';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_parent_agreement_c']['source']='custom_fields';
 
@@ -1492,14 +1488,13 @@ $dictionary['AOS_Contracts']['fields']['apttus_request_date_c']['source']='custo
  // Vardef Created : Oneapttus_requestor_c 
 
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['name']='Oneapttus_requestor_c';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['len']='18';
+$dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['len']='36';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['type']='id';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['id']='AOS_ContractsOneapttus_requestor_c';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['custom_module']='AOS_Contracts';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['vname']='LBL_ONEAPTTUS_REQUESTOR_C';
 $dictionary['AOS_Contracts']['fields']['Oneapttus_requestor_c']['source']='custom_fields';
 

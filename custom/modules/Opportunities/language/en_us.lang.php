@@ -1,5 +1,5 @@
 <?php
-// created: 2018-02-14 04:19:28
+// created: 2018-02-16 16:41:24
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -40,11 +40,11 @@ $mod_strings = array (
   'LBL_YOU_CAN_NOT_CHANGE_KEY' => 'You cannot change the key fields after closing out an opp, please contact Kevin Bradley for assistance.',
   'LBL_C1_CUST_CONTACTS1_OPPORTUNITIES_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust_Contacts',
   'LBL_FIELD_TRACKING_HISTORY' => 'Field Tracking History',
-  'LBL_EDITVIEW_PANEL14' => 'Opportunity Status',
+  'LBL_EDITVIEW_PANEL14' => 'Volumes',
   'LBL_ASSIGNED_TO_NAME' => 'Opportunity Owner',
   'LBL_CAMPAIGN' => 'Primary Campaign',
-  'LBL_EDITVIEW_PANEL15' => 'Pricing Details',
-  'LBL_EDITVIEW_PANEL16' => 'Win/Loss Details',
+  'LBL_EDITVIEW_PANEL15' => 'Renewal Pricedowns',
+  'LBL_EDITVIEW_PANEL16' => 'Competitive Details',
   'LBL_RECORDTYPEID_C' => 'Recordtypeid',
   'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE' => 'Accounts (Won)',
   'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE' => 'Accounts (Incumbent)',
@@ -84,4 +84,5 @@ $mod_strings = array (
   'LBL_ANNUAL_MQ_SERVICES_ESTIMATE_C' => 'Annual M*Modal Services Estimate',
   'LBL_OTHER_COST_C' => 'Other Cost',
   'LBL_ANNUAL_MAINTENANCE_COST_C' => 'Annual Maintenance Cost',
+  'LBL_EDITVIEW_PANEL17' => 'Terms',
 );

@@ -708,16 +708,6 @@ $GLOBALS['app_list_strings']['yes_no_list']=array (
   'Yes' => 'Yes',
   'No' => 'No',
 );
-$GLOBALS['app_list_strings']['contract_os_grp_exp_notice_list']=array (
-  '15_days' => '15 days',
-  '' => '',
-  '30_days' => '30 days',
-  '45_days' => '45 days',
-  '60_days' => '60 days',
-  '90_days' => '90 days',
-  '120_days' => '120 days',
-  '180_days' => '180 days',
-);
 $GLOBALS['app_list_strings']['contract_payment_terms_list']=array (
   '' => '',
   '15_days' => '15 days',
@@ -903,11 +893,6 @@ $GLOBALS['app_list_strings']['gma_service_level_list']=array (
   'Basic_Software_Coverage' => 'Basic Software Coverage',
   'Basic_Hardware_Coverage_On_Site' => 'Basic Hardware Coverage On-Site',
   'Extended_Optional_Coverage' => 'Extended Optional Coverage',
-);
-$GLOBALS['app_list_strings']['contract_initiation_type_list']=array (
-  '' => '',
-  'Negotiate_Contract' => 'Negotiate Contract',
-  'Store_Executed_Contract' => 'Store_Execute_Contract',
 );
 $GLOBALS['app_list_strings']['contract_source_list']=array (
   '' => '',
@@ -1126,14 +1111,6 @@ $GLOBALS['app_list_strings']['cc_region_dd_list']=array (
   'STML' => 'Strategic Market - LifePoint',
   'Tech' => 'Technology',
   'WM' => 'West Market',
-);
-$GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
-  '' => '',
-  'Add_Product_Service' => 'Add Product/Service',
-  'Zero_Based' => 'Zero Based',
-  'Renewal' => 'Renewal',
-  'Amend_Existing_Terms' => 'Amend Existing Terms',
-  'Gov._Public_Entity_Academic_Institution' => 'Gov./Public Entity/Academic Institution',
 );
 $GLOBALS['app_list_strings']['payment_type_list']=array (
   'ACH_Debit' => 'ACH Debit',
@@ -1454,8 +1431,12 @@ $GLOBALS['app_list_strings']['contract_status_list']=array (
   'exp_exp' => 'Expired',
   'sig_fs' => 'Fully Signed',
   'req_ia' => 'In Amendment',
+  'sig_coc' => 'In Comm Ops Contract Setup',
   'sig_cof' => 'In Comm Ops Final Review',
+  'sig_coi' => 'In Comm Ops Initial Review',
+  'sig_ior' => 'In Comm Ops Issue Resolution',
   'aut_la' => 'Language Approval',
+  'aut_lad' => 'Language Approved',
   'aut_mrr' => 'M*Modal Redline Review',
   'sig_opr' => 'Other Party Review',
   'aut_opr' => 'Other Party Review',
@@ -1464,14 +1445,34 @@ $GLOBALS['app_list_strings']['contract_status_list']=array (
   'sig_rfs' => 'Ready for Signatures',
   'req_req' => 'Request',
   'sig_sd' => 'Signature Declined',
-  'req_sfa' => 'Submitted for Approval',
+  'sig_fco' => 'Submitted for Comm Ops Processing',
   'req_sr' => 'Submitted Request',
+  'ame_sup' => 'Superseded',
   'eff_sup' => 'Superseded',
   'ter_ter' => 'Terminated',
-  'ame_sup' => 'Superseded',
-  'sig_ior' => 'In Comm Ops Issue Resolution',
-  'aut_lad' => 'Language Approved',
-  'sig_fco' => 'Submitted for Comm Ops Processing',
-  'sig_coc' => 'In Comm Ops Contract Setup',
-  'sig_coi' => 'In Comm Ops Initial Review',
+  'req_sa' => 'Submitted for Approval',
+);
+$GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
+  '' => '',
+  'Add_Product_Services' => 'Add Product/Services',
+  'Amend_Existing_Terms' => 'Amend Existing Terms',
+  'Gov._Public_Entity_Academic_Institution' => 'Gov./Public Entity/Academic Institution',
+  'Renewal' => 'Renewal',
+  'Zero_Based' => 'Zero Based',
+);
+
+$GLOBALS['app_list_strings']['contract_initiation_type_list']=array (
+  '' => '',
+  'Negotiate_Contract' => 'Negotiate Contract',
+  'Store_Executed_Contract' => 'Store Executed Contract',
+);
+$GLOBALS['app_list_strings']['contract_os_grp_exp_notice_list']=array (
+  '' => '',
+  '15_days' => '15 days',
+  '30_days' => '30 days',
+  '45_days' => '45 days',
+  '60_days' => '60 days',
+  '90_days' => '90 days',
+  '120_days' => '120 days',
+  '180_days' => '180 days',
 );
