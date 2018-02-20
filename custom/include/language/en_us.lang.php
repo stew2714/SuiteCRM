@@ -889,11 +889,6 @@ $GLOBALS['app_list_strings']['product_billing_list']=array (
   'Milestone' => 'Milestone',
   'Subscription' => 'Subscription',
 );
-$GLOBALS['app_list_strings']['gma_service_level_list']=array (
-  'Basic_Software_Coverage' => 'Basic Software Coverage',
-  'Basic_Hardware_Coverage_On_Site' => 'Basic Hardware Coverage On-Site',
-  'Extended_Optional_Coverage' => 'Extended Optional Coverage',
-);
 $GLOBALS['app_list_strings']['contract_source_list']=array (
   '' => '',
   'Standard' => 'Standard',
@@ -1475,4 +1470,16 @@ $GLOBALS['app_list_strings']['contract_os_grp_exp_notice_list']=array (
   '90_days' => '90 days',
   '120_days' => '120 days',
   '180_days' => '180 days',
+);
+$GLOBALS['app_list_strings']['gma_service_level_list']=array (
+  '' => '',
+  'Basic_Hardware_Coverage_On_Site' => 'Basic Hardware Coverage On-Site',
+  'Basic_Software_Coverage' => 'Basic Software Coverage',
+  'Extended_Optional_Coverage' => 'Extended Optional Coverage',
+);
+$GLOBALS['app_list_strings']['sharedGroupRule']=array (
+  'view' => 'View Only',
+  'view_edit' => 'View & Edit',
+  'view_edit_delete' => 'View, Edit & Delete',
+  'none' => 'No Access',
 );

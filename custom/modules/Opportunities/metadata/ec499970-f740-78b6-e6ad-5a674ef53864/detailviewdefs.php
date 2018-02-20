@@ -409,9 +409,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'winner_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_WINNER_NAME_C',
+            'name' => 'accounts_opportunities_1_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE',
           ),
         ),
         1 => 

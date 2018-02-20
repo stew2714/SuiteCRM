@@ -99,8 +99,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'legacy_agreement_number_c',
-            'label' => 'LBL_LEGACY_AGREEMENT_NUMBER_C',
+            'name' => 'apttus_agreement_number_c',
+            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
           ),
           1 => 
           array (

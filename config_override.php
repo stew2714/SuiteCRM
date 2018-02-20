@@ -60,6 +60,6 @@ $sugar_config['securitysuite_strict_rights'] = false;
 $sugar_config['securitysuite_shared_calendar_hide_restricted'] = false;
 $sugar_config['securitysuite_show_group_events'] = false;
 $sugar_config['securitysuite_user_role_precedence'] = false;
-$sugar_config['salesRoleId'] = 'abc40453-3d16-7384-503c-5a7f6d839e38';
+$sugar_config['salesRoleId'] = '97fd0408-2b26-720b-f753-5a7f78fd6c4b';
 $sugar_config['log_memory_usage'] = true;
 /***CONFIGURATOR***/
