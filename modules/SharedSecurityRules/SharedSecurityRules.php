@@ -140,7 +140,7 @@ class SharedSecurityRules extends Basic
         }
         global $current_user;
         $bean = BeanFactory::getBean("SharedSecurityRules");
-        $results = $bean->get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_name}'");
+        $results = $bean->get_full_list("", "sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_name}'");
         foreach($results as $rule){
             $rel = "sharedsecurityrulesactions";
             $rule->load_relationship($rel);
@@ -301,10 +301,12 @@ class SharedSecurityRules extends Basic
 
     function buildRuleWhere($module){
         
-        global $current_user;
+        global $current_user, $db;
         $where = "";
-        $results = SugarBean::get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_dir}'");
-        foreach($results as $rule){
+//         $results = SugarBean::get_full_list("", "sharedsecurityrules.status = 'Active' && sharedsecurityrules.flow_module = '{$module->module_dir}'");
+        $sql = "SELECT * FROM sharedsecurityrules WHERE sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_dir}'";
+        $results = $db->query($sql);
+        while(($rule = $module->db->fetchByAssoc($results)) != null){
             $rel = "sharedsecurityrulesactions";
             $rule->load_relationship($rel);
             $actions = $rule->{$rel}->getBeans();
