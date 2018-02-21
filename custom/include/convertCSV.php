@@ -387,19 +387,14 @@ class convertCSV
         $out .= override_value_to_string_recursive(array($vBean, "fields", $field->name, "source"), "dictionary", $field->source) . "\n";
         $out .= "\n ?>";
 
-        if (!isset($mod_strings[$field->vname])) {
-            $language_out = "";
+        $language_out = "";
 
-            if (!file_exists($languageLocation)) {
-                $language_out .= "<?php \n";
-            }
-
-            $language_out .= "\$mod_strings['$field->vname'] = '$field->label_english';\n";
-            file_put_contents($languageLocation, $language_out, FILE_APPEND | LOCK_EX);
-        }else{
-            //@todo 1
-            //requires loading the mod_strings and changing the label.
+        if (!file_exists($languageLocation)) {
+            $language_out .= "<?php \n";
         }
+
+        $language_out .= "\$mod_strings['$field->vname'] = '$field->label_english';\n";
+        file_put_contents($languageLocation, $language_out, FILE_APPEND | LOCK_EX);
 
         if (!file_exists("custom/Extension/modules/{$field->module}/Ext/Vardefs")) {
             mkdir_recursive("custom/Extension/modules/{$field->module}/Ext/Vardefs");
