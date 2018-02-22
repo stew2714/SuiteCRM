@@ -1,5 +1,5 @@
 <?php
-// created: 2018-02-16 16:41:24
+// created: 2018-02-22 02:13:54
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -85,4 +85,8 @@ $mod_strings = array (
   'LBL_OTHER_COST_C' => 'Other Cost',
   'LBL_ANNUAL_MAINTENANCE_COST_C' => 'Annual Maintenance Cost',
   'LBL_EDITVIEW_PANEL17' => 'Terms',
+  'LBL_TERM_LENGTH_MM_C' => 'Subscr./TOS/Coding Term (MM)',
+  'LBL_ADOPTION_SERVICES_TERM_LENGTH_C' => 'Adoption Services Term',
+  'LBL_LICENSE_TERM_LENGTH_MM_C' => 'Capital License Term',
+  'LBL_SW_MAINTENANCE_TERM_LENGTH_MM_C' => 'M&S Initial Term (MM)',
 );
