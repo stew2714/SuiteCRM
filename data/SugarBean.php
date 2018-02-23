@@ -2958,14 +2958,30 @@ class SugarBean
         global $current_user, $sugar_config;
 
 	// Block from Michael Crews per email on 2018-02-22
-        if($this->module_dir == "Accounts"){
-            if (empty($where)) {
-                $where = "accounts.account_type != 'Prospect'";
-            } else {
-                $where .= " AND accounts.account_type != 'Prospect'";
+        //if($this->module_dir == "Accounts"){
+        //    if (empty($where)) {
+        //        $where = "accounts.account_type != 'Prospect'";
+        //    } else {
+        //        $where .= " AND accounts.account_type != 'Prospect'";
+        //    }
+        // }
+	// End added block
+
+          if($this->module_dir  == "Accounts") {
+            $RoleId = array();
+            $roles = ACLRole::getUserRoles($current_user->id, false);
+            foreach ($roles as $role) {
+                $RoleId[] = $role->id;
+            }
+            if (in_array($sugar_config['salesRoleId'], $RoleId)) {
+                if (empty($where)) {
+                    $where = " ( accounts.account_type != 'Prospect') ";
+                } else {
+                    $where .= " AND ( accounts.account_type != 'Prospect') ";
+                }
             }
         }
-	// End added block
+
 
 //         if($this->module_dir == "Accounts"){
 //             $rulesWhere = SharedSecurityRules::buildRuleWhere($this);
