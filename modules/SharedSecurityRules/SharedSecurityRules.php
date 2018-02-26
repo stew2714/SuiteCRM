@@ -129,7 +129,7 @@ class SharedSecurityRules extends Basic
         if (!empty($module->fetched_row) && !empty($module->fetched_row['id']) && !empty($module->fetched_row['assigned_user_id']) && !empty($module->fetched_row['created_by'])) {
             $moduleBean->populateFromRow($module->fetched_row);
         } else {
-            //$moduleBean->retrieve($module->id);
+            $moduleBean->retrieve($module->id);
         }
 
         //shared$moduleBean->retrieve($module->id);
