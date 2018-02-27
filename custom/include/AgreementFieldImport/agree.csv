@@ -300,7 +300,7 @@ column,do no create,name,type,module,options,label,parentenum,id_name,related mo
 "   product_term_months__c numeric(19),",,,,p,,,,,
 "   progress_bar__c varchar(1300),",,,,a,,,,,
 "   purchase_order_language__c bool NOT NULL,",,,,a,,,,,
-"   qa_penalty_standard__c bool NOT NULL,",,,,a,,QA Penalty Standard,,,
+"   qa_penalty_standard__c bool NOT NULL,",,,,s,,QA Penalty Standard,,,
 "   late_fees__c bool NOT NULL,",,,,a,,,,,
 "   qa_program__c bool NOT NULL,",,,,s,,QA Program,,,
 "   region__c varchar(255),",,,enum,a,sales_region_list,,,,

@@ -2109,19 +2109,6 @@ $dictionary['AOS_Contracts']['fields']['purchase_order_language_c']['vname']='LB
 $dictionary['AOS_Contracts']['fields']['purchase_order_language_c']['source']='custom_fields';
 
 
- // Vardef Created : qa_penalty_standard_c 
-
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['name']='qa_penalty_standard_c';
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['len']='255';
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['type']='bool';
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['importable']='true';
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['module']='AOS_Contracts';
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['vname']='LBL_QA_PENALTY_STANDARD_C';
-$dictionary['AOS_Contracts']['fields']['qa_penalty_standard_c']['source']='custom_fields';
-
-
  // Vardef Created : late_fees_c 
 
 $dictionary['AOS_Contracts']['fields']['late_fees_c']['name']='late_fees_c';

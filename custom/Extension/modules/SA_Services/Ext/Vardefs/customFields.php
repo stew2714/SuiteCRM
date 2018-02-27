@@ -981,6 +981,19 @@ $dictionary['SA_Services']['fields']['other_transcription_platform_c']['vname']=
 $dictionary['SA_Services']['fields']['other_transcription_platform_c']['source']='custom_fields';
 
 
+ // Vardef Created : qa_penalty_standard_c 
+
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['name']='qa_penalty_standard_c';
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['len']='255';
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['type']='bool';
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['inline_edit']=1;
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['importable']='true';
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['reportable']=true;
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['module']='SA_Services';
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['vname']='LBL_QA_PENALTY_STANDARD_C';
+$dictionary['SA_Services']['fields']['qa_penalty_standard_c']['source']='custom_fields';
+
+
  // Vardef Created : qa_program_c 
 
 $dictionary['SA_Services']['fields']['qa_program_c']['name']='qa_program_c';
