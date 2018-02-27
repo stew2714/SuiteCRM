@@ -38,16 +38,16 @@ $( document ).ready(function() {
 
   function checkRules(){
     //Item 5 - Cannot_change_forecasting
-    if (beanData.forecasting_category_c != $("#forecasting_category_c").val() && (
-        !checkArray("VP", beanData.current_user.roles) &&
-        !checkArray("SET", beanData.current_user.roles) &&
-        beanData.current_user.last_name != "Frazier" &&
-        beanData.current_user.last_name != "Barich" &&
-        beanData.current_user.last_name != "Brown" &&
-        beanData.current_user.last_name != "Van Hoeymissen") ) {
-      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_RVPS'));
-      return false //must be outside of validate array.
-    }
+//    if (beanData.forecasting_category_c != $("#forecasting_category_c").val() && (
+//        !checkArray("VP", beanData.current_user.roles) &&
+//        !checkArray("SET", beanData.current_user.roles) &&
+//        beanData.current_user.last_name != "Frazier" &&
+//        beanData.current_user.last_name != "Barich" &&
+//        beanData.current_user.last_name != "Brown" &&
+//        beanData.current_user.last_name != "Van Hoeymissen") ) {
+//      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_RVPS'));
+//      return false //must be outside of validate array.
+//    }
     //Item 6 - close_date
     if (beanData.date_closed != $("#date_closed").val() &&
       (beanData.previous_date_month < beanData.today_month) &&
