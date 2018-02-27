@@ -57,13 +57,6 @@ array (
     'label' => 'LBL_HIMSS_ID',
     'width' => '10%',
   ),
-  'HA_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'HA ID',
-    'width' => '10%',
-    'default' => true,
-  ),
   'DEFINTIVE_ID_C' => 
   array (
     'type' => 'varchar',
@@ -75,13 +68,6 @@ array (
   array (
     'type' => 'varchar',
     'label' => 'EHR',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'SF_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'SF ID',
     'width' => '10%',
     'default' => true,
   ),
@@ -138,6 +124,20 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_SHIPPING_ADDRESS_COUNTRY',
+    'default' => false,
+  ),
+  'HA_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'HA ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'SF_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'SF ID',
+    'width' => '10%',
     'default' => false,
   ),
   'DH_ID_C' => 

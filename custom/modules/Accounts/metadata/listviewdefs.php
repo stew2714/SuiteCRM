@@ -56,6 +56,13 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_STATE',
     'default' => true,
   ),
+  'EHR_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'EHR',
+    'width' => '10%',
+    'default' => true,
+  ),
   'HIMSS_ID_C' => 
   array (
     'type' => 'varchar',
