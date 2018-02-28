@@ -85,8 +85,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'phone_fax',
-            'label' => 'LBL_FAX',
+            'name' => 'ehr_c',
+            'label' => 'EHR',
           ),
         ),
         2 => 
