@@ -151,7 +151,11 @@ class convertCSV
         }
         if (!empty($vardefs['related module'])) {
             $vardef['related_module'] = $vardefs['related module'];
-            $vardef['ext2'] =  $vardefs['related module'];
+            if($vardefs['related module'] == "Users") {
+                $vardef['ext2'] = "User";
+            } else {
+                $vardef['ext2'] =  $vardefs['related module'];
+            }
         }
         if (!empty($vardefs['id'])) {
             $vardef['id'] = $vardefs['id'];
