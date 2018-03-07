@@ -253,7 +253,7 @@ class SharedSecurityRules extends Basic
                                 $result = false;
                             }
                         } else {
-                            if(count($related) <= 1 && $view != "view") {
+                            if(count($related) <= 1) {
                                 return false;
                             }
                         }
@@ -308,8 +308,9 @@ class SharedSecurityRules extends Basic
         $results = $db->query($sql);
         while(($rule = $module->db->fetchByAssoc($results)) != null){
             $rel = "sharedsecurityrulesactions";
-            $rule->load_relationship($rel);
-            $actions = $rule->{$rel}->getBeans();
+            $ruleBean = BeanFactory::getBean('SharedSecurityRules', $rule['id']);
+            $ruleBean->load_relationship($rel);
+            $actions = $ruleBean->{$rel}->getBeans();
             $actionIsUser = false;
             foreach($actions as $action){
                 if(unserialize(base64_decode($action->parameters)) != false){
@@ -354,16 +355,17 @@ class SharedSecurityRules extends Basic
             }
             if($actionIsUser == true){
                 $rel = "sharedsecurityrulesconditions";
-                $rule->load_relationship($rel);
+                $ruleBean = BeanFactory::getBean('SharedSecurityRules', $rule['id']);
+                $ruleBean->load_relationship($rel);
                 $related = false;
-                $conditions = $rule->{$rel}->getBeans(array('order_by' => 'condition_order ASC' ));
+                $conditions = $ruleBean->{$rel}->getBeans(array('order_by' => 'condition_order ASC' ));
                 if(count($conditions) != 0) {
                     foreach ($conditions as $condition) {
                         if(unserialize(base64_decode($condition->module_path)) != false) {
                             $condition->module_path = unserialize(base64_decode($condition->module_path));
                         }
                         
-                        if ($condition->module_path[0] != $rule->flow_module) {
+                        if ($condition->module_path[0] != $ruleBean->flow_module) {
                             foreach ($condition->module_path as $rel) {
                                 if (empty($rel)) {
                                     continue;
@@ -380,11 +382,16 @@ class SharedSecurityRules extends Basic
                                     $condition->value = $module->{$condition->value};
                                 }
                             $value = $condition->value;
-                            $operatorValue = $this->changeOperator($condition->operator, $value);
-                            if(empty($where)){
-                                $where = " ( ".$module->table_name.".".$condition->field." ".$operatorValue." ) ";
+                            $operatorValue = $ruleBean->changeOperator($condition->operator, $value);
+                            if($module->field_defs[$condition->field]['source'] == "custom_fields") {
+                                $table = $module->table_name."_cstm";
                             } else {
-                                $where .= " AND ( ".$module->table_name.".".$condition->field." ".$operatorValue." ) ";
+                                $table = $module->table_name;
+                            }
+                            if(empty($where)){
+                                $where = " ( ".$table.".".$condition->field." ".$operatorValue." ) ";
+                            } else {
+                                $where .= " AND ( ".$table.".".$condition->field." ".$operatorValue." ) ";
                             }
                         }
                     }
