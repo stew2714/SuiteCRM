@@ -95,7 +95,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['type']='re
 $dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['ext2']='User';
+//$dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['ext2']='User';
 $dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['id']='AOS_Contractsapttus_activated_by_name_c';
 $dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['module']='Users';
 $dictionary['AOS_Contracts']['fields']['apttus_activated_by_name_c']['studio']='visible';
@@ -246,7 +246,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['type'
 $dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['ext2']='User';
+//$dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['ext2']='User';
 $dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['id']='AOS_Contractsapttus_company_signed_by_name_c';
 $dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['module']='Users';
 $dictionary['AOS_Contracts']['fields']['apttus_company_signed_by_name_c']['studio']='visible';
@@ -779,9 +779,9 @@ $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['t
 $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['ext2']='Contact';
+//$dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['ext2']='Contact';
 $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['id']='AOS_Contractsapttus_other_party_signed_by_name_c';
-$dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['module']='Contact';
+$dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['module']='Contacts';
 $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['studio']='visible';
 $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['id_name']='Oneapttus_other_party_signed_by';
 $dictionary['AOS_Contracts']['fields']['apttus_other_party_signed_by_name_c']['vname']='LBL_APTTUS_OTHER_PARTY_SIGNED_BY_NAME_C';
@@ -863,7 +863,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['type']
 $dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['ext2']='Agreements';
+//$dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['ext2']='Agreements';
 $dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['id']='AOS_Contractsapttus_parent_agreement_name_c';
 $dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['module']='Agreements';
 $dictionary['AOS_Contracts']['fields']['apttus_parent_agreement_name_c']['studio']='visible';
@@ -987,7 +987,7 @@ $dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['type']='relat
 $dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['inline_edit']=1;
 $dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['reportable']=true;
-$dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['ext2']='Users';
+//$dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['ext2']='User';
 $dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['id']='AOS_Contractsapttus_requestor_name_c';
 $dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['module']='Users';
 $dictionary['AOS_Contracts']['fields']['apttus_requestor_name_c']['studio']='visible';
@@ -1970,7 +1970,7 @@ $dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['n
 $dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['len']='255';
 $dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['type']='enum';
 $dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['inline_edit']=1;
-$dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['options']='contracts_os_grp_exp_notice_list';
+$dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['options']='contract_os_grp_exp_notice_list';
 $dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['importable']='true';
 $dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['ownership_group_expiration_notice_c']['module']='AOS_Contracts';
@@ -2326,6 +2326,19 @@ $dictionary['AOS_Contracts']['fields']['idn_affiliation_c']['reportable']=true;
 $dictionary['AOS_Contracts']['fields']['idn_affiliation_c']['module']='AOS_Contracts';
 $dictionary['AOS_Contracts']['fields']['idn_affiliation_c']['vname']='LBL_IDN_AFFILIATION_C';
 $dictionary['AOS_Contracts']['fields']['idn_affiliation_c']['source']='custom_fields';
+
+
+ // Vardef Created : maintenance_and_support_product_c 
+
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['name']='maintenance_and_support_product_c';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['len']='4099';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['type']='text';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['inline_edit']=1;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['importable']='true';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['reportable']=true;
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['module']='AOS_Contracts';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['vname']='LBL_MAINTENANCE_AND_SUPPORT_PRODUCT_C';
+$dictionary['AOS_Contracts']['fields']['maintenance_and_support_product_c']['source']='custom_fields';
 
 
  // Vardef Created : sent_to_comm_ops_c 

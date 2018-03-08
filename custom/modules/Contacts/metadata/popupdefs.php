@@ -144,13 +144,5 @@ $popupMeta = array (
     'width' => '10%',
     'name' => 'contact_association_c',
   ),
-  'ACTIVE_C' => 
-  array (
-    'type' => 'bool',
-    'default' => true,
-    'label' => 'LBL_ACTIVE',
-    'width' => '10%',
-    'name' => 'active_c',
-  ),
 ),
 );

@@ -13,14 +13,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'active_c' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ACTIVE',
-        'width' => '10%',
-        'name' => 'active_c',
-      ),
     ),
     'advanced_search' => 
     array (
@@ -125,14 +117,6 @@ array (
         'label' => 'LBL_CONTACT_ASSOCIATION',
         'width' => '10%',
         'name' => 'contact_association_c',
-      ),
-      'active_c' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ACTIVE',
-        'width' => '10%',
-        'name' => 'active_c',
       ),
     ),
   ),

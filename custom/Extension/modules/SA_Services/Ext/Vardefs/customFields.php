@@ -1480,7 +1480,7 @@ $dictionary['SA_Services']['fields']['included_optional_system_components_c']['n
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['len']='4099';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['type']='multienum';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['inline_edit']=1;
-$dictionary['SA_Services']['fields']['included_optional_system_components_c']['options']='included_optional_system_components';
+$dictionary['SA_Services']['fields']['included_optional_system_components_c']['options']='included_optional_system_components_list';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['importable']='true';
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['reportable']=true;
 $dictionary['SA_Services']['fields']['included_optional_system_components_c']['module']='SA_Services';

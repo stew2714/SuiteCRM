@@ -91,13 +91,6 @@ array (
     'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
-  'ACTIVE_C' => 
-  array (
-    'type' => 'bool',
-    'default' => true,
-    'label' => 'LBL_ACTIVE',
-    'width' => '10%',
-  ),
   'DEPARTMENT' => 
   array (
     'width' => '10%',
