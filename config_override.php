@@ -62,5 +62,5 @@ $sugar_config['securitysuite_show_group_events'] = false;
 $sugar_config['securitysuite_user_role_precedence'] = true;
 $sugar_config['salesRoleId'] = '97fd0408-2b26-720b-f753-5a7f78fd6c4b';
 $sugar_config['log_memory_usage'] = true;
-$sugar_config['securitysuite_filter_user_list'] = true;
+$sugar_config['securitysuite_filter_user_list'] = false;
 /***CONFIGURATOR***/

@@ -62,6 +62,22 @@ array (
         'default' => true,
         'name' => 'employee_status',
       ),
+      'department' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'LBL_DEPARTMENT',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'department',
+      ),
+      'payroll_company_c' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_PAYROLL_COMPANY',
+        'width' => '10%',
+        'name' => 'payroll_company_c',
+      ),
       'title' => 
       array (
         'name' => 'title',
