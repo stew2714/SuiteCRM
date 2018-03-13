@@ -149,7 +149,7 @@ class SharedSecurityRules extends Basic
                 if(unserialize(base64_decode($action->parameters)) != false){
                     $action->parameters = unserialize(base64_decode($action->parameters));
                 }
-                $result = true;
+//                 $result = true;
                 foreach($action->parameters['email_target_type'] as $key =>  $targetType){
                     if($targetType == "Users" && $action->parameters['email'][ $key ]['0'] == "role"){
                         $role = BeanFactory::getBean("ACLRoles", $action->parameters['email'][ $key ]['2'] );
@@ -286,7 +286,7 @@ class SharedSecurityRules extends Basic
                             }
                         }else{
                             if( $condition->condition_operator !== "OR" ){
-                                return true;
+                                return $result;
                             }
                         }
                     }
