@@ -118,6 +118,40 @@ array (
         'width' => '10%',
         'name' => 'contact_association_c',
       ),
+      'referenced_emr_c' => 
+      array (
+        'type' => 'multienum',
+        'default' => true,
+        'studio' => 'visible',
+        'label' => 'LBL_REFERENCED_EMR',
+        'width' => '10%',
+        'name' => 'referenced_emr_c',
+      ),
+      'reference_start_date_c' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_REFERENCE_START_DATE',
+        'width' => '10%',
+        'name' => 'reference_start_date_c',
+      ),
+      'reference_end_date_c' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_REFERENCE_END_DATE',
+        'width' => '10%',
+        'name' => 'reference_end_date_c',
+      ),
+      'reference_association_c' => 
+      array (
+        'type' => 'multienum',
+        'default' => true,
+        'studio' => 'visible',
+        'label' => 'LBL_REFERENCE_ASSOCIATION',
+        'width' => '10%',
+        'name' => 'reference_association_c',
+      ),
     ),
   ),
   'templateMeta' => 
