@@ -158,7 +158,7 @@ class SharedSecurityRules extends Basic
                             if(key_exists($current_user->id, $userList)){
                                 $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
                             }else{
-                                return true;
+                                return $result;
                             }
                         }
                     }elseif($targetType == "Users" && $action->parameters['email'][ $key ]['0'] == "security_group"){
@@ -170,7 +170,7 @@ class SharedSecurityRules extends Basic
                                 if(key_exists($current_user->id, $userList)){
                                     $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
                                 }else{
-                                    return true;
+                                    return $result;
                                 }
                             }
                         }else {
@@ -179,7 +179,7 @@ class SharedSecurityRules extends Basic
                                 if (key_exists($current_user->id, $userList)) {
                                     $result = $this->checkConditions($rule, $moduleBean, $view, $action, $key, $result);
                                 } else {
-                                    return true;
+                                    return $result;
                                 }
                             }
                         }
