@@ -265,6 +265,11 @@ class SharedSecurityRules extends Basic
                         !empty($moduleBean->{$condition->value})) {
                         $condition->value = $moduleBean->{$condition->value};
                     }
+                    if($condition->value_type == "currentUser"){
+                        global $current_user;
+                        $condition->value_type = "Field";
+                        $condition->value = $current_user->id;
+                    }
                     if ($this->checkOperator(
                         $moduleBean->{$condition->field},
                         $condition->value,
@@ -275,6 +280,8 @@ class SharedSecurityRules extends Basic
                                 return false;
                             }
                             $result = false;
+                        } else {
+                            $result = true;
                         }
 
                     } else {
