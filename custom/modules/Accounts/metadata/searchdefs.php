@@ -59,6 +59,14 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'sales_region_c' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'Sales Region',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'sales_region_c',
+      ),
       'industry' => 
       array (
         'name' => 'industry',
