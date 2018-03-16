@@ -131,9 +131,6 @@ class SharedSecurityRules extends Basic
         } else {
             $moduleBean->retrieve($module->id);
         }
-//        $custom_join = $moduleBean->getCustomJoin();
-//        $sql_query = "SELECT {$module->table_name}.*".$custom_join['select']." FROM {$module->table_name} ".$custom_join['join']."WHERE {$module->table_name}.id = '{$module->id}'";
-
         //shared$moduleBean->retrieve($module->id);
 
         $result = null;
@@ -157,49 +154,32 @@ class SharedSecurityRules extends Basic
                 }
                 foreach($action['parameters']['email_target_type'] as $key =>  $targetType){
                     if($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "role"){
-                        $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.deleted = '0'";
+                        $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
                         $users_roles_results = $module->db->query($users_roles_query);
-                        $user_list = mysqli_fetch_all($users_roles_results, MYSQLI_ASSOC);
-                        $userMatch = false;
-                        foreach($user_list as $userID) {
-                            if($userID['user_id'] == $current_user->id) {
-                                $userMatch = true;
-                            }
-                        }
-                        if($userMatch == true) {
+                        $user_id = mysqli_fetch_row($users_roles_results, MYSQLI_ASSOC);
+                        if($user_id['user_id'] == $current_user->id) {
                             $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
                         } else {
                             return $result;
                         }
-//                        $role = BeanFactory::getBean("ACLRoles", $action['parameters']['email'][ $key ]['2'] );
-//                        if($role->load_relationship("users")){
-//                            $userList = $role->users->getBeans();
-//                            if(key_exists($current_user->id, $userList)){
-//                                $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
-//                            }else{
-//                                return $result;
-//                            }
-//                        }
                     }elseif($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "security_group"){
-                        $secGroups = BeanFactory::getBean("SecurityGroups", $action['parameters']['email'][ $key ]['1'] );
+                        $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
+                        $sec_group_results = $module->db->query($sec_group_query);
+                        $secgroup = mysqli_fetch_row($sec_group_results, MYSQLI_ASSOC);
                         if(!empty($action['parameters']['email'][ $key ]['2'])){
-                            $role = BeanFactory::getBean("ACLRoles", $action['parameters']['email'][ $key ]['2'] );
-                            if($role->load_relationship("users")){
-                                $userList = $role->users->getBeans();
-                                if(key_exists($current_user->id, $userList)){
-                                    $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
-                                }else{
-                                    return $result;
-                                }
+                            $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
+                            $users_roles_results = $module->db->query($users_roles_query);
+                            $user_id = mysqli_fetch_row($users_roles_results, MYSQLI_ASSOC);
+                            if($user_id['user_id'] == $current_user->id) {
+                                $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
+                            } else {
+                                return $result;
                             }
                         }else {
-                            if ($secGroups->load_relationship("users")) {
-                                $userList = $secGroups->users->getBeans();
-                                if (key_exists($current_user->id, $userList)) {
-                                    $result = $this->checkConditions($rule, $moduleBean, $view, $action, $key, $result);
-                                } else {
-                                    return $result;
-                                }
+                            if($secgroup['user_id'] == $current_user->id) {
+                                $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
+                            } else {
+                                return $result;
                             }
                         }
                     }elseif( ($targetType == "Specify User" && $current_user->id ==  $action['parameters']['email'][$key]) ||
@@ -280,8 +260,6 @@ class SharedSecurityRules extends Basic
     private function checkConditions($rule, $moduleBean,$view,$action,$key,  $result = true){
         $sql_query = "SELECT * FROM sharedsecurityrulesconditions WHERE sharedsecurityrulesconditions.sa_shared_sec_rules_id = '{$rule['id']}' && sharedsecurityrulesconditions.deleted = '0' ORDER BY sharedsecurityrulesconditions.condition_order ASC ";
         $conditions_results = $moduleBean->db->query($sql_query);
-//        $rel = "sharedsecurityrulesconditions";
-//        $rule->load_relationship($rel);
         $related = false;
 //        $conditions = $rule->{$rel}->getBeans(array('order_by' => 'condition_order ASC' )); //@todo
         // reorder by condition_order
