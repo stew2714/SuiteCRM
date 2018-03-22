@@ -155,8 +155,6 @@ class SharedSecurityRules extends Basic
                         $user_id = mysqli_fetch_row($users_roles_results);
                         if($user_id[0] == $current_user->id) {
                             $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
-                        } else {
-                            return $result;
                         }
                     }elseif($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "security_group"){
                         $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
@@ -168,14 +166,10 @@ class SharedSecurityRules extends Basic
                             $user_id = mysqli_fetch_row($users_roles_results);
                             if($user_id[0] == $current_user->id) {
                                 $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
-                            } else {
-                                return $result;
                             }
                         }else {
-                            if($secgroup['user_id'] == $current_user->id) {
+                            if($secgroup[0] == $current_user->id) {
                                 $result = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
-                            } else {
-                                return $result;
                             }
                         }
                     }elseif( ($targetType == "Specify User" && $current_user->id ==  $action['parameters']['email'][$key]) ||
@@ -245,7 +239,7 @@ class SharedSecurityRules extends Basic
                             }
                         } else {
                             if(count($related) <= 1) {
-                                return false;
+                                $result = false;
                             }
                         }
                     }
@@ -263,9 +257,11 @@ class SharedSecurityRules extends Basic
                     )) {
                         if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
                             if($condition['condition_operator'] == "OR"){
-                                return false;
+                                $result = false;
                             }
                             $result = false;
+                        } else {
+                            $result = true;
                         }
 
                     } else {
@@ -306,7 +302,6 @@ class SharedSecurityRules extends Basic
                     $action['parameters'] = unserialize(base64_decode($action['parameters']));
                 }
                 foreach($action['parameters']['accesslevel'] as $key => $accessLevel){
-                    if($accessLevel == "none"){
                         $targetType = $action['parameters']['email_target_type'][$key];
 
                         if($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "role"){
@@ -328,7 +323,7 @@ class SharedSecurityRules extends Basic
                                     $actionIsUser = true;
                                 }
                             }else {
-                                if($secgroup['user_id'] == $current_user->id) {
+                                if($secgroup[0] == $current_user->id) {
                                     $actionIsUser = true;
                                 }
                             }
@@ -337,7 +332,6 @@ class SharedSecurityRules extends Basic
                         {
                             $actionIsUser = true;
                         }
-                    }
                 }
             }
             if($actionIsUser == true){
@@ -367,7 +361,11 @@ class SharedSecurityRules extends Basic
                                     $condition['value'] = $module->{$condition['value']};
                                 }
                             $value = $condition['value'];
-                            $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value);
+                            if($accessLevel == 'none') {
+                                $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value, true);
+                            } else {
+                                $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value, false);
+                            }
                             if($module->field_defs[$condition['field']]['source'] == "custom_fields") {
                                 $table = $module->table_name."_cstm";
                             } else {
@@ -446,20 +444,38 @@ class SharedSecurityRules extends Basic
         return false;
     }
 
-    public function changeOperator($operator, $value){
+    public function changeOperator($operator, $value, $reverse){
         switch ($operator) {
             case "Equal_To":
-                return " != '".$value."' ";
-            case "Not_Equal_To":
+                if($reverse){
+                    return " != '".$value."' ";
+                }
                 return " = '".$value."' ";
+            case "Not_Equal_To":
+                if($reverse){
+                    return " = '".$value."' ";
+                }
+                return " != '".$value."' ";
             case "Starts_With":
-                return " NOT LIKE '".$value."%'";
+                if($reverse){
+                    return " NOT LIKE '".$value."%'";
+                }
+                return " LIKE '".$value."%'";
             case "Ends_With":
-                return " NOT LIKE '%".$value."' ";
+                if($reverse){
+                    return " NOT LIKE '%".$value."'";
+                }
+                return " LIKE '%".$value."'";
             case "Contains":
-                return " NOT LIKE '%".$value."%' ";
+                if($reverse){
+                    return " NOT LIKE '%".$value."%' ";
+                }
+                return " LIKE '%".$value."%'";
             case "is_null":
-                return " IS NOT NULL ";
+                if($reverse){
+                    return " IS NOT NULL ";
+                }
+                return " IS NULL ";
         }
         
         return false;
