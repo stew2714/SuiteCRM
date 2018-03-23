@@ -5467,19 +5467,20 @@ class SugarBean
             require_once("modules/SecurityGroups/SecurityGroup.php");
             $in_group = SecurityGroup::groupHasAccess($this->module_dir, $this->id, $view);
         }
-        if($view != "list" && ($view == "edit" && $_REQUEST['action'] == "index") || ($view == "delete" && $_REQUEST['action'] == "index")) {
+        $access = ACLController::checkAccess($this->module_dir, $view, $is_owner, $this->acltype, $in_group);
+        if($view != "list") {
             $bean = BeanFactory::getBean("SharedSecurityRules");
             if($bean != false) {
                 $ruleAccess = $bean->checkRules($this, $view);
                 if ($ruleAccess === false) {
-                    return false;
+                    $access = false;
                 }elseif($ruleAccess === true){
-                    return true;
+                    $access = true;
                 }
             }
         }
 
-        return ACLController::checkAccess($this->module_dir, $view, $is_owner, $this->acltype, $in_group);
+        return $access;
     }
 
     /**
