@@ -244,6 +244,11 @@ class SharedSecurityRules extends Basic
                         }
                     }
                 }else{
+                    if($condition['value_type'] == "currentUser"){
+                        global $current_user;
+                        $condition['value_type'] = "Field";
+                        $condition['value'] = $current_user->id;
+                    }
                     //check and see if it is pointed at a field rather than a value.
                     if ($condition['value_type'] == "Field" &&
                         isset($moduleBean->{$condition['value']}) &&
@@ -257,7 +262,7 @@ class SharedSecurityRules extends Basic
                     )) {
                         if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
                             if($condition['condition_operator'] == "OR"){
-                                $result = false;
+                                return false;
                             }
                             $result = false;
                         } else {
