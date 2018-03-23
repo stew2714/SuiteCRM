@@ -15,7 +15,7 @@ column,do no create,name,type,module,options,label,parentenum,id_name,related mo
 "   apttus__account_search_field__c varchar(255),",,,,a,,Account Search Field,,,
 "   apttus__account__c varchar(18),",,,,a,,Account,,,
 "   apttus__activated_by__c varchar(36),",,Oneapttus_activated_by,id,a,,,,,
-,,apttus_activated_by_name_c,relate,a,,Activated By,,Oneapttus_activated_by,User
+,,apttus_activated_by_name_c,relate,a,,Activated By,,Oneapttus_activated_by,Users
 "   apttus__activated_date__c date,",,,,a,,Activated Date,,,
 "   apttus__agreement_category__c varchar(255),",,,enum,a,contract_category_list,Agreement Category,,,
 "   apttus__agreement_number__c varchar(8),",,,,a,,Agreement Number,,,
@@ -26,7 +26,7 @@ column,do no create,name,type,module,options,label,parentenum,id_name,related mo
 "   apttus__auto_renewal__c bool NOT NULL,",,,,a,,Auto Renewal,,,
 "   apttus__business_hours__c varchar(18),",,,,a,,Business Hours,,,
 "   apttus__company_signed_by__c varchar(36),",,Oneapttus_company_signed_by,id,a,,,,,,
-,,apttus_company_signed_by_name_c,relate,a,,Company Signed By,,Oneapttus_company_signed_by,User
+,,apttus_company_signed_by_name_c,relate,a,,Company Signed By,,Oneapttus_company_signed_by,Users
 "   apttus__company_signed_date__c date,",,,,a,,Company Signed Date,,,
 "   apttus__company_signed_title__c varchar(80),",,,,a,,Company Signed Title,,,
 "   apttus__contract_duration_days__c numeric(19),",,,,a,,Contract Duration Days,,,
@@ -66,13 +66,13 @@ column,do no create,name,type,module,options,label,parentenum,id_name,related mo
 "   apttus__other_party_sent_date__c date,",,,,a,,Other Party Sent Date,,,
 "   apttus__other_party_signed_by_unlisted__c varchar(255),",,,,a,,Other Party Signed By Unlisted,,,
 "   apttus__other_party_signed_by__c varchar(36),",,Oneapttus_other_party_signed_by,id,a,,,,,
-,,apttus_other_party_signed_by_name_c,relate,a,,Other Party Signed By,,Oneapttus_other_party_signed_by,Contact
+,,apttus_other_party_signed_by_name_c,relate,a,,Other Party Signed By,,Oneapttus_other_party_signed_by,Contacts
 "   apttus__other_party_signed_date__c date,",,,,a,,Other Party Signed Date,,,
 "   apttus__other_party_signed_title__c varchar(80),",,,,a,,Other Party Signed Title,,,
 "   apttus__outstanding_days__c numeric(19),",,,,a,,Outstanding Days,,,
 "   apttus__owner_expiration_notice__c varchar(255),",,,,a,,Owner Expiration Notice,,,
 "   apttus__parent_agreement__c varchar(36),",,Oneapttus_parent_agreement_c,id,a,,,,,
-,,apttus_parent_agreement_name_c,relate,a,,Parent Agreement,,Oneapttus_parent_agreement_c,Agreements
+,,apttus_parent_agreement_name_c,relate,a,,Parent Agreement,,Oneapttus_parent_agreement_c,AOS_Contracts
 "   apttus__perpetual__c bool NOT NULL,",,,,a,,Perpetual,,,
 "   apttus__primary_contact__c varchar(18),",,,,a,,Primary Contact,,,
 "   apttus__related_opportunity__c varchar(18),",,,,a,,Related Opportunity,,,
@@ -81,7 +81,7 @@ column,do no create,name,type,module,options,label,parentenum,id_name,related mo
 "   apttus__renewal_notice_days__c numeric(19),",,,,a,,Renewal Notice Days,,,
 "   apttus__request_date__c date,",,,,a,,Request Date,,,
 "   apttus__requestor__c varchar(36),",,Oneapttus_requestor_c,id,a,,,,,
-,,apttus_requestor_name_c,relate,a,,Requestor,,Oneapttus_requestor_c,User
+,,apttus_requestor_name_c,relate,a,,Requestor,,Oneapttus_requestor_c,Users
 "   apttus__retentiondate__c date,",,,,a,,Retention Date,,,
 "   apttus__retentionpolicyid__c varchar(18),",,,,a,,Retention Policy ID,,,
 "   apttus__risk_rating__c numeric(19),",,,,a,,Risk Rating,,,
