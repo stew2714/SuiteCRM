@@ -2988,7 +2988,7 @@ class SugarBean
                 if (empty($where)) {
                     $where = $rulesWhere;
                 } else {
-                    $where .= " AND ".$rulesWhere;
+                    $where .= " OR (".$rulesWhere.") ";
                 }
             }
         }
