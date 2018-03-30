@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -21,7 +21,8 @@ global $app_list_strings;
 
 global $sugar_config;
 ini_set("display_errors", 0);
-if ($sugar_config['quickcrm_trial'] == false) {
+
+
 
 
 	require_once('modules/QuickCRM/license/OutfittersLicense.php');
@@ -32,14 +33,14 @@ if ($sugar_config['quickcrm_trial'] == false) {
 		die();
 	}
 
-}
+
 
 echo '<script>ajaxStatus.hideStatus();</script>';
 echo getClassicModuleTitle(
     "Administration",
     array(
         "<a href='index.php?module=Administration&action=index'>".translate('LBL_MODULE_NAME','Administration')."</a>",
-        $mod_strings['LBL_MODULES_QUICKCRM_TITLE'],
+        'QuickCRM: ' . $mod_strings['LBL_MODULES_QUICKCRM_TITLE'],
     ),
     false
 );
@@ -74,12 +75,12 @@ foreach ($lst_available_modules as $module) {
 }
 $the_form = "";
 
-if ($sugar_config['sugar_version']<'6.5'){
+if ($sugar_config['sugar_version']<'6.5.16'){
 	$the_form .= <<<EOQ
 	<script type="text/javascript" src="custom/QuickCRM/lib/js/jquery-1.7.2.min.js"></script>
 EOQ;
 }
-if (!suitecrmVersion() || suitecrmVersion() < '7.2') {
+if (!suitecrmVersion() || !suitecrmVersionisAtLeast('7.2')) {
 	$the_form .= <<<EOQ
 	<script type="text/javascript" src="custom/QuickCRM/lib/js/jquery-ui-1.8.21.custom.min.js"></script>
 EOQ;

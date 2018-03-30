@@ -17,6 +17,12 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'ACCOUNT_TYPE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_TYPE',
+    'default' => true,
+  ),
   'UCID_C' => 
   array (
     'type' => 'varchar',
@@ -50,29 +56,45 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_STATE',
     'default' => true,
   ),
-  'INDUSTRY' => 
+  'EHR_C' => 
   array (
+    'type' => 'varchar',
+    'label' => 'EHR',
     'width' => '10%',
-    'label' => 'LBL_INDUSTRY',
     'default' => true,
-  ),
-  'ACCOUNT_TYPE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_TYPE',
-    'default' => false,
   ),
   'HIMSS_ID_C' => 
   array (
     'type' => 'varchar',
-    'default' => false,
+    'default' => true,
     'label' => 'LBL_HIMSS_ID',
+    'width' => '10%',
+  ),
+  'DEFINTIVE_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_DEFINTIVE_ID',
     'width' => '10%',
   ),
   'BILLING_ADDRESS_POSTALCODE' => 
   array (
     'width' => '10%',
     'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
+    'default' => false,
+  ),
+  'SF_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'SF ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'HA_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'HA ID',
+    'width' => '10%',
     'default' => false,
   ),
   'SHIPPING_ADDRESS_STREET' => 
@@ -99,23 +121,35 @@ array (
     'label' => 'LBL_SHIPPING_ADDRESS_POSTALCODE',
     'default' => false,
   ),
+  'INDUSTRY' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_INDUSTRY',
+    'default' => false,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_DATE_ENTERED',
+    'default' => false,
+  ),
   'SHIPPING_ADDRESS_COUNTRY' => 
   array (
     'width' => '10%',
     'label' => 'LBL_SHIPPING_ADDRESS_COUNTRY',
     'default' => false,
   ),
-  'DEFINTIVE_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_DEFINTIVE_ID',
-    'width' => '10%',
-  ),
   'WEBSITE' => 
   array (
     'width' => '10%',
     'label' => 'LBL_WEBSITE',
+    'default' => false,
+  ),
+  'DH_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'DH Id',
+    'width' => '10%',
     'default' => false,
   ),
   'CREATED_BY_NAME' => 
@@ -128,13 +162,6 @@ array (
   array (
     'width' => '5%',
     'label' => 'LBL_DATE_MODIFIED',
-    'default' => false,
-  ),
-  'SF_ID_C' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'SF ID',
-    'width' => '10%',
     'default' => false,
   ),
   'MODIFIED_BY_NAME' => 

@@ -1,5 +1,5 @@
 <?php
-// created: 2017-11-10 18:53:17
+// created: 2018-02-20 15:57:48
 $unified_search_modules_display = array (
   'Accounts' => 
   array (
@@ -22,6 +22,10 @@ $unified_search_modules_display = array (
     'visible' => true,
   ),
   'AOS_Contracts' => 
+  array (
+    'visible' => true,
+  ),
+  'A4_SITES' => 
   array (
     'visible' => true,
   ),

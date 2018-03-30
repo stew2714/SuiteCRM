@@ -58,12 +58,15 @@ $QuickCRMTitleFields = array(
 
 $QuickCRMDetailsFields = array(
 	'Accounts' => array(
+			'name',
 			'phone_office',
 			'website',
 			'email1',
 			'description',
 		),
 	'Contacts' => array(
+			'first_name',
+			'last_name',
 			'title',
 			'account_name',
 			'email1',
@@ -72,6 +75,8 @@ $QuickCRMDetailsFields = array(
 			'description',
 		),
 	'Leads' => array(
+			'first_name',
+			'last_name',
 			'title',
 			'account_name',
 			'status',
@@ -81,36 +86,38 @@ $QuickCRMDetailsFields = array(
 			'description',
 		),
 	'Opportunities' => array(
-			'amount','date_closed','sales_stage','account_name','description',
+			'name','amount','date_closed','sales_stage','account_name','description',
 		),
 	'Calls' => array(
-			'direction','status','date_start','duration_hours','duration_minutes','description','parent_name',
+			'name','direction','status','date_start','duration_hours','duration_minutes','description','parent_name',
 		),
 	'Meetings' => array(
-			'status','date_start','duration_hours','duration_minutes','description','parent_name',
+			'name','status','date_start','duration_hours','duration_minutes','description','parent_name',
 		),
 	'Tasks' => array(
-			'status','date_start','date_due','priority','description','contact_name','parent_name',
+			'name','status','date_start','date_due','priority','description','contact_name','parent_name',
 		),
 	'Notes' => array(
-			'description','filename'
+			'name','description','filename'
 		),
 	'Documents' => array(
-			'description','status_id','category_id',
+			'document_name','description','status_id','category_id',
 		),
 	'Cases' => array(
-		'case_number','status','priority','description','account_name'
+		'name','case_number','status','priority','description','account_name'
 		),
 	'Project' => array(
-			'status','priority','description'
+			'name','status','priority','description'
 	),
 	'ProjectTask' => array(
-			'status','priority','project_name','description'
+			'name','status','priority','project_name','description'
 	),
 	'Emails' => array(
-			'description','description_html','type',
+			'name','description','description_html','type',
 	),
 	'Employees' => array(
+			'first_name',
+			'last_name',
 			'address_city',
 			'address_state',
 			'email1',
@@ -118,24 +125,28 @@ $QuickCRMDetailsFields = array(
 			'phone_mobile',
 		),
 	'jjwg_Markers' => array(
-			"city","description","marker_image","jjwg_maps_lat","jjwg_maps_lng"
+			"name","city","description","marker_image","jjwg_maps_lat","jjwg_maps_lng"
 		),
 ); 
 
 $QuickCRMDefEdit = array(
 );
-if (isset($sugar_config['suitecrm_version'])){
-	$QuickCRMDefEdit['Cases'] = $QuickCRMDetailsFields['Cases'];
-	array_push($QuickCRMDefEdit['Cases'],'update_text','internal');
-	array_push($QuickCRMDetailsFields['Cases'],'aop_case_updates_threaded');
-}
 
-
-if ($sugar_config['sugar_version'] >= '6.5'){
-// removed (bug in SugarCRM REST API)
-//		array_push($QuickCRMDefSearch['Contacts'],'account_name');
-//		array_push($QuickCRMDefSearch['Opportunities'],'account_name');
-}
+$QuickCRMDefTotals = array(
+	'Opportunities' => array(
+			array('field' => 'amount','fnct' => array('SUM')),
+		),
+	'AOS_Quotes' => array(
+			array('field' => 'total_amt','fnct' => array('SUM')),
+		),
+	'AOS_Invoices' => array(
+			array('field' => 'total_amt','fnct' => array('SUM')),
+		),
+);
+$QuickCRMDefGroupby = array(
+	'Opportunities' => "sales_stage",
+	'AOS_Quotes' => "stage",
+);
 
 $QuickCRMDefSearch = array(
 	'Contacts' => array(
@@ -173,11 +184,6 @@ $QuickCRMDefSearch = array(
 		),
 
 ); 
-if ($sugar_config['sugar_version'] >= '6.5'){
-// removed (bug in SugarCRM REST API)
-//		array_push($QuickCRMDefSearch['Contacts'],'account_name');
-//		array_push($QuickCRMDefSearch['Opportunities'],'account_name');
-}
 
 $QuickCRMDefList = array(
 	'Accounts' => array(
@@ -221,6 +227,11 @@ $QuickCRMDefList = array(
 		),
 ); 
 
+$QuickCRMDefColors = array(
+	'Opportunities' => 'sales_stage',
+	'Cases' => 'status',
+); 
+
 $QuickCRMDefSubPanels = array(
 	'Accounts' => array(
 			'contacts',
@@ -228,7 +239,6 @@ $QuickCRMDefSubPanels = array(
 			'calls',
 			'meetings',
 			'tasks',
-			'leads',
 			'notes'
 		),
 	'Contacts' => array(
@@ -249,7 +259,6 @@ $QuickCRMDefSubPanels = array(
 			'calls',
 			'meetings',
 			'tasks',
-			'leads',
 			'notes'
 		),
 	'Calls' => array(
@@ -263,6 +272,9 @@ $QuickCRMDefSubPanels = array(
 			'users',
 			'leads',
 			'notes'
+		),
+	'Cases' => array(
+			'contacts',
 		),
 	'Tasks' => array(
 			'notes'
@@ -294,7 +306,7 @@ $QuickCRMAddressesFields = array(
 			'alt',
 		),
 ); 
-$QuickCRMExtraFields = array(
+$QuickCRMExtraFields = array(// field definitions required by the app
 	'Accounts' => array(
 			"billing_address_street","billing_address_city","billing_address_state","billing_address_city","billing_address_postalcode",
 			"shipping_address_street","shipping_address_city","shipping_address_state","shipping_address_city","shipping_address_postalcode",
@@ -315,10 +327,10 @@ $QuickCRMExtraFields = array(
 			'parent_name','parent_type','distance','module_type','unit_type',
 		),
 	'Calls' => array(
-			'date_end','reminder_time',
+			'date_end','reminder_time','repeat_type','repeat_interval','repeat_count','repeat_dow','repeat_until','recurring_source','repeat_parent_id',
 		),
 	'Meetings' => array(
-			'date_end','reminder_time',
+			'date_end','reminder_time','repeat_type','repeat_interval','repeat_count','repeat_dow','repeat_until','recurring_source','repeat_parent_id',
 		),
 	'Employees' => array(
 		),
@@ -328,9 +340,18 @@ $QuickCRMExtraFields = array(
 	'jjwg_Markers' => array(
 			"city","description","jjwg_maps_lat","jjwg_maps_lng","marker_image"
 		),
+	'QCRM_Tracker' => array(
+			'assigned_user_id','jjwg_maps_lat_c','jjwg_maps_lng_c','jjwg_maps_address_c','jjwg_maps_geocode_status_c'
+		),
+	'QCRM_SavedSearch' => array(
+			"name","description","fields","shared"
+		),
+	'QCRM_Homepage' => array(
+			"name","description","shared","dashlets","icons","hidden","creates"
+		),
 ); 
 
-$QuickCRM_ExcludedModules= array('QCRM_Homepage','QCRM_SavedSearch','SecurityGroups','Users','AOS_Products_Quotes','AOS_PDF_Templates','jjwg_Address_Cache','jjwg_Areas','Favorites');
+$QuickCRM_ExcludedModules= array('QCRM_Homepage','QCRM_SavedSearch','QCRM_Tracker','SecurityGroups','EmailTemplates','Users','AOS_Products_Quotes','AOS_PDF_Templates','AOW_WorkFlow','Spots','jjwg_Address_Cache','jjwg_Areas','Favorites','Surveys','AM_ProjectTemplates','AOBH_BusinessHours','AOR_Scheduled_Reports');
 if (!file_exists("custom/service/vAlineaSolReports/rest.php")) $QuickCRM_ExcludedModules[]= 'asol_Reports';
 $QuickCRM_ExcludedFields= array (
 	'Employees' => array (
@@ -348,6 +369,9 @@ $QuickCRM_ExcludedFields= array (
 		'is_group',
 		'messenger_type',
 		'email_link_type',
+	),
+	'Emails' => array (
+		'uid',
 	),
 );
 
@@ -367,20 +391,21 @@ if ($found_aos && !file_exists("custom/QuickCRM/plugins/quickcrm_AOS.php")){
 		);
 		
 	$QuickCRMDetailsFields['AOS_Quotes'] = array(
-			'number','billing_account','stage',"expiration",'total_amount'
+			'number','billing_account','billing_contact','stage',"expiration",'total_amt'
 		);
 		
 	$QuickCRMDefList['AOS_Quotes'] = array(
-			'number','billing_account','total_amount','stage'
+			'number','billing_account','total_amt','stage'
 		);
 
 	$QuickCRMDefSearch['AOS_Quotes'] = array(
-			'number',
 			'stage',
 		);
 		
+	$QuickCRMDefColors['AOS_Quotes'] = 'stage';
+
 	$QuickCRMExtraFields['AOS_Quotes'] = array(
-			"total_amt","discount_amount","subtotal_amount","subtotal_tax_amount","tax_amount","tax_amount","total_amount"
+			"number","total_amt","discount_amount","subtotal_amount","subtotal_tax_amount","tax_amount","tax_amount","total_amount"
 		);
 		
 	$QuickCRMAddressesFields['AOS_Quotes'] = array(
@@ -396,20 +421,20 @@ if ($found_aos && !file_exists("custom/QuickCRM/plugins/quickcrm_AOS.php")){
 		);
 		
 	$QuickCRMDetailsFields['AOS_Invoices'] = array(
-			'number','billing_account',"due_date",'total_amount',
+			'number','billing_account','billing_contact','invoice_date','status','total_amt',
 		);
 		
 	$QuickCRMDefList['AOS_Invoices'] = array(
-			'number','billing_account','total_amount'
+			'number','billing_account','total_amt'
 		);
 		
 	$QuickCRMDefSearch['AOS_Invoices'] = array(
-			'number',
 			'status',
+			'invoice_date',
 		);
 		
 	$QuickCRMExtraFields['AOS_Invoices'] = array(
-			"total_amt","discount_amount","subtotal_amount","subtotal_tax_amount","tax_amount","tax_amount","total_amount"
+			"number","total_amt","discount_amount","subtotal_amount","subtotal_tax_amount","tax_amount","tax_amount","total_amount"
 		);
 		
 	$QuickCRMAddressesFields['AOS_Invoices'] = array(
@@ -471,6 +496,18 @@ if ($found_aos && !file_exists("custom/QuickCRM/plugins/quickcrm_AOS.php")){
 	//if (!in_array ('AOS_Products_Quotes',$moduleList)) array_push($moduleList,'AOS_Products_Quotes');
 }
 // END AOS SUPPORT
+
+if (isset($sugar_config['suitecrm_version'])){
+	$QuickCRMDefEdit['Cases'] = array(
+		'name','case_number','state','status','priority','description','account_name','update_text','internal',
+	);
+	$QuickCRMDetailsFields['Cases'] = array(
+		'name','case_number','state','status','priority','description','account_name','aop_case_updates_threaded'
+	);
+	$QuickCRMDefSearch['Cases'] = array(
+			'state','status','priority',
+	);
+}
 
 try {
 	$handler = opendir(realpath(dirname(__FILE__).'/../../QuickCRM/plugins/'));

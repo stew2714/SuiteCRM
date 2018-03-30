@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -54,18 +54,41 @@ function suitecrmVersion(){
 	
 }
 
+function suitecrmVersionisAtLeast($v){
+	// can't compare strings when 7.10 is released
+	global $sugar_config;
+	$suitecrm_version = False;
+	if (isset($sugar_config['suitecrm_version']) ){
+		$suitecrm_version = $sugar_config['suitecrm_version'];
+	}
+	else if (file_exists('suitecrm_version.php')){
+		include('suitecrm_version.php');
+	}
+	if ($suitecrm_version){
+		return version_compare($suitecrm_version, $v, '>=');
+	}
+	return False;
+	
+}
+
 class mobile_jsLanguage {
     
     /**
      * Creates javascript versions of language files
      */
+    var $saveDir;
     var $modfields;
 	var $listOfLists;
 	var $aos;
 
-    function __construct() {
+    public function __construct() {
+    	global $sugar_config;
 		$this->modfields=array();
 		$this->listOfLists=array();
+
+
+		$this->saveDir = realpath(dirname(__FILE__).'/../../../mobile/fielddefs/');
+
     }
     
     function createAppStringsCache($required_list,$lst_mod,$lang = 'en_us') {
@@ -90,6 +113,9 @@ class mobile_jsLanguage {
 		$app_list_strings["parent_type_display"]=$all_app_list_strings["parent_type_display"];
 		$app_list_strings["duration_intervals"]=$all_app_list_strings["duration_intervals"];
 		$app_list_strings["duration_dom"]=$all_app_list_strings["duration_dom"];
+
+		$app_list_strings["dom_cal_day_short"]=$all_app_list_strings["dom_cal_day_short"];
+		$app_list_strings["repeat_intervals"]=$all_app_list_strings["repeat_intervals"];
 		
 		// date_range_search_dom in not defined until 6.2
 		$app_list_strings["date_search"]= isset($all_app_list_strings["date_range_search_dom"])?$all_app_list_strings["date_range_search_dom"]:$all_app_list_strings["kbdocument_date_filter_options"];
@@ -99,6 +125,18 @@ class mobile_jsLanguage {
 		
 		if (isset($all_app_list_strings["numeric_range_search_dom"])) $app_list_strings["num_search"]= $all_app_list_strings["numeric_range_search_dom"];
 
+		if(isset($all_app_list_strings["aor_total_options"])){
+			$app_list_strings["total_options"]=$all_app_list_strings["aor_total_options"];
+			unset($app_list_strings["total_options"]['']);
+		}
+		else {
+			$app_list_strings['total_options'] =array(
+				'SUM' => 'Sum',
+				'COUNT' => 'Count',
+				'AVG' => 'Average',
+			);
+		}
+		
 		foreach($required_list as $lst){
 			$app_list_strings[$lst]= $all_app_list_strings[$lst];
 		}
@@ -115,11 +153,12 @@ var sugar_app_list_strings = $app_list_strings_encoded;
 EOQ;
 		$SS_mod_strings = null;
 		$MB_mod_strings = null;
-		$all_app_list_strings = null;
+
 		$app_array=array('LBL_CREATE_BUTTON_LABEL',
 			'LBL_EDIT_BUTTON',
 			'LBL_LIST',
 			'LBL_SEARCH_BUTTON_LABEL',
+			'LBL_ADVANCED_SEARCH',
 			'LBL_CURRENT_USER_FILTER',// => 'My Items:',
 			'LBL_BACK',
 			'LBL_SAVE_BUTTON_LABEL',
@@ -164,8 +203,12 @@ EOQ;
 			'LBL_MODIFIED',
 			'LBL_CREATED',
 		);
-		
-		if ($sugar_config['sugar_version']<'6.3'){
+
+		if (isset($all_app_list_strings['aok_status_list'])){
+			$str_app_array['LBL_SHARE_PUBLIC'] = $all_app_list_strings['aok_status_list']['published_public'];
+			$str_app_array['LBL_SHARE_PRIVATE'] = $all_app_list_strings['aok_status_list']['published_private'];
+		}
+		else if ($sugar_config['sugar_version']<'6.3'){
 			$str_app_array['LBL_SHARE_PUBLIC'] = 'Public';
 			$str_app_array['LBL_SHARE_PRIVATE'] = 'Private';
 		}
@@ -174,7 +217,16 @@ EOQ;
 			$app_array[] = 'LBL_SHARE_PUBLIC';
 			$app_array[] = 'LBL_SHARE_PRIVATE';
 		}
-		if (suitecrmVersion() && suitecrmVersion() >= '7.4') $app_array[] = 'LBL_FAVORITES_FILTER';
+		if (suitecrmVersion() && suitecrmVersionisAtLeast('7.4')) $app_array[] = 'LBL_FAVORITES_FILTER';
+
+		if (isset($app_strings['LBL_SUBTHEME_OPTIONS_DAWN'])){
+			$app_array=array_merge($app_array,array(
+			'LBL_SUBTHEME_OPTIONS_DAWN',
+			'LBL_SUBTHEME_OPTIONS_DAY',
+			'LBL_SUBTHEME_OPTIONS_DUSK',
+			'LBL_SUBTHEME_OPTIONS_NIGHT',
+			));
+		}
 		
 		if (file_exists('custom/include/generic/SugarWidgets/SugarWidgetFielddrawing.php')){
 			$app_array=array_merge($app_array,array(
@@ -223,22 +275,38 @@ EOQ;
 			$str_app_array[$key] = str_replace('"','\\"',isset($app_strings[$key])?$app_strings[$key]:$key);
 		}
 		$str_app_array['LBL_REPAIR_JS_FILES_PROCESSING']=$mod_strings['LBL_REPAIR_JS_FILES_PROCESSING'];
-
+		$str_app_array['DEFAULT_THEME']=$mod_strings['DEFAULT_THEME'];
+		
+		$Cal_mod_strings = return_module_language($lang, "Calendar");
+		$cal_array=array(
+  			'LBL_REPEAT_TAB',
+  			'LBL_REPEAT_TYPE',
+  			'LBL_REPEAT_INTERVAL',
+  			'LBL_REPEAT_END',
+  			'LBL_REPEAT_END_AFTER',
+  			'LBL_REPEAT_OCCURRENCES',
+  			'LBL_REPEAT_END_BY',
+  			'LBL_REPEAT_DOW',
+  			'LBL_REPEAT_UNTIL',
+  			'LBL_REPEAT_COUNT',
+  			'LBL_REPEAT_LIMIT_ERROR',
+  			'LBL_EDIT_ALL_RECURRENCES',
+  			'LBL_REMOVE_ALL_RECURRENCES',
+  			'LBL_CONFIRM_REMOVE_ALL_RECURRING',
+  			'LBL_DATE_END_ERROR',
+  			'ERR_YEAR_BETWEEN',
+		);
+		foreach($cal_array as $key){
+			$str_app_array[$key] = str_replace('"','\\"',$Cal_mod_strings[$key]);
+		}
+				
 		$app_strings_encoded = $json->encode($str_app_array);
 		$str .= "var sugar_app_strings = $app_strings_encoded;";
       
-		$administration = new Administration();
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').$lang, base64_encode($str));
-		$in_file=(strlen ($str) > 49000?'1':'0');
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').$lang.'f', $in_file);
-// File will be used for sugarCRM < 6.3 or if string is too long for database.
-		if ($in_file == '1' || $sugar_config['sugar_version']<'6.3'){
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile'.($sugar_config['quickcrm_trial'] != false ?'_trial':'').'/fielddefs/');
-			if($fh = @fopen($saveDir . '/' .$lang . '.js', "w")){
+			if($fh = fopen($this->saveDir . '/' .$lang . '.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
 			}
-		}
     }
     
     function createModuleStringsCache($lst_mod,$lang,$module_def,$mobile_config) {
@@ -262,6 +330,7 @@ EOQ;
 							'LNK_SELECT_CONTACTS',
 							'LNK_NEW_ACCOUNT',
 							'LNK_NEW_CONTACT',
+							'LNK_NEW_OPPORTUNITY',
 						),
 			"Meetings" => array (
 							'LBL_REMINDER',
@@ -384,30 +453,24 @@ EOQ;
 					}
 				}
 			}
+			$mod_strings['NEW']='+';
 			$nodeModule = Q_new_bean($moduleName);
-			$new_label='LNK_NEW_' . strtoupper($nodeModule->getObjectName());
-			if (isset($tmp_mod_strings[$new_label]))
-				$mod_strings['NEW']=$tmp_mod_strings[$new_label];
-			else
-				$mod_strings['NEW']='+';	
-// 6.3+			$mod_strings['NEW']=$tmp_mod_strings['LNK_NEW_' . strtoupper(BeanFactory::getObjectName($moduleName))]
+			if ($nodeModule){
+				$new_label='LNK_NEW_' . strtoupper($nodeModule->getObjectName());
+				if (isset($tmp_mod_strings[$new_label])){
+					$mod_strings['NEW']=$tmp_mod_strings[$new_label];
+				}
+			}
+			
 			$mod_strings_encoded =  preg_replace("/'/","&#039;",$json->encode($mod_strings));
 			$str .= "sugar_mod_strings['$moduleName'] = $mod_strings_encoded;";
         }
 
 
-		$administration = new Administration();
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'modules_'.$lang, base64_encode($str));
-
-// KEEP IT for SugarCRM 6.1 and 6.2 support
-		if ($sugar_config['sugar_version']<'6.3'){
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile'.($sugar_config['quickcrm_trial'] != false ?'_trial':'').'/fielddefs/');
-        
-			if($fh = @fopen($saveDir .'/modules_'.$lang . '.js', "w")){
+			if($fh = fopen($this->saveDir .'/modules_'.$lang . '.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
 			}
-		}
 
 	}
 
@@ -446,54 +509,27 @@ EOQ;
 
 			$str .=$str_def;
         }
-
-// KEEP IT for SugarCRM 6.1 and 6.2 support
-		$str23 = $str;
 		
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'sugar_fields', base64_encode($str));
-		$in_file=(strlen ($str) > 49000?'1':'0');
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'sugar_fields'.'f', $in_file);
-// File will be used for sugarCRM < 6.3 or if string is too long for database.
-		if ($in_file == '1' || $sugar_config['sugar_version']<'6.3'){
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile'.($sugar_config['quickcrm_trial'] != false ?'_trial':'').'/fielddefs/');
-			if($fh = @fopen($saveDir . '/' .'sugar_fields' . '.js', "w")){
+		if($sugar_config['sugar_version']>'6.3'){
+			if($fh = fopen($this->saveDir . '/' .'sugar_fields' . '.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
 			}
-		}
-		
-		$str='';
-/*
-		foreach($QuickCRMTitleFields as $moduleName=>$contents)
-		{
-			if ($moduleName == 'Documents' || in_array($moduleName,$QuickCRM_simple_modules)) continue;
+			$str='';
+		}		
 
-			$str_fields="Beans['$moduleName'].TitleFields=['" . implode("','",$QuickCRMTitleFields[$moduleName]) . "'];";
-			$str .= $str_fields;
-						
-        }
-*/
-// fix bug in app 3.4.4 and earlier
-//		$str .= "Beans['Leads'].TitleFields=['first_name','last_name'];";
-		
-		// STORE MODULE TYPE (Person/Basic) AND TABLE
+		// STORE MODULE TYPE (Person/Basic) AND TABLES DATA
 		$str .= "var sugar_mod=". $json->encode($module_def) . ";";
 		
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'fields_std', base64_encode($str));
-		
-// KEEP IT for SugarCRM 6.1 and 6.2 support
-		if ($sugar_config['sugar_version']<'6.3'){
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile'.($sugar_config['quickcrm_trial'] != false ?'_trial':'').'/fielddefs/');
-			if($fh = @fopen($saveDir . '/fields_std.js', "w")){
-				fputs($fh, $str23 . $str);
-				fclose($fh);
-			}
+		if($fh = fopen($this->saveDir . '/fields_std.js', "w")){
+			fputs($fh, $str);
+			fclose($fh);
 		}
 
     }
 
     function createSugarConfig($mobile_config,$aos) {
-		global $sugar_config,$moduleList;
+		global $sugar_config,$moduleList,$db;
 		global $QuickCRM_modules,$QuickCRMDetailsFields,$QuickCRMTitleFields,$QuickCRMAddressesFields,$mod_fields_additional_arr;
 
 		$administration = new Administration();
@@ -501,12 +537,15 @@ EOQ;
 		
         $json = getJSONobj();
 
-		$str = "var mobile_edition = 'Pro',QServer='4.9.3', Q_API='5.0', module_access={}, sugar_mod_fields={},";
+		$str = "var mobile_edition = 'Pro',QServer='5.1.0', Q_API='5.0', module_access={}, sugar_mod_fields={},";
         $str .= " RES_OLD_VERSION = 'Please update your app to latest version on App Store or Google Play',"; // STRING MISSING IN VERSIONS 4.0.0 and lower
         $str .= ' sugar_version = "'.$sugar_config['sugar_version'].'",';
         $str .= ' sugar_name = "'.$administration->settings['system_name'].'",';
         $str .= ' default_language = "'.$sugar_config['default_language'].'",';
 		$lst_lang=get_languages();
+		if ($mobile_config['languages'] == 'default'){
+			$lst_lang= array($sugar_config['default_language']=>$lst_lang[$sugar_config['default_language']]);
+		}
         $str .= ' sugar_languages = '.$json->encode($lst_lang).',';
         $str .= ' default_currency_name = "'.$sugar_config['default_currency_name'].'",';
         $str .= ' default_currency_symbol = "'.$sugar_config['default_currency_symbol'].'",';
@@ -551,18 +590,26 @@ EOQ;
 			$str .= ' aos_installed = "' . $sugar_config['aos']['version'] . '",';
 			$str .= ' aos_params = '.$json->encode($sugar_config['aos']) . ',';
 		}
-		elseif ($aos) {
+		else if ($aos) {
 			$str .= ' aos_installed = "5.1",';
 			$str .= ' aos_params = false,';
 		}
 		else {
 			$str .= ' aos_installed = false,';
 		}
-		$str .= ' suitecrm = "' . suitecrmVersion() . '",';
+		if (isset($sugar_config['suitecrm_version'])){
+			$str .= 'suitecrm = "' . $sugar_config['suitecrm_version'] . '",';
+		}
+		else {
+			$str .= 'suitecrm = false,';
+		}
 
 		$str .= ' securitysuite = '.(in_array ('SecurityGroups',$moduleList)?'true':'false').',';
-		if (!isset($mobile_config['offline_max_days'])) $mobile_config['offline_max_days'] = 10;
-         $str .= ' offline_max_days = '.$mobile_config['offline_max_days'].';';
+		
+		$offline_max = 10;
+		if ($mobile_config && isset($mobile_config['offline_max_days'])) $offline_max = $mobile_config['offline_max_days'];
+        $str .= ' offline_max_days = '.$offline_max.';';
+         
 
 			$str .= 'var trial = false,';
 			if (isset($administration->settings['QuickCRM_InDt'])) {
@@ -592,6 +639,14 @@ EOQ;
         $str .= "QCRM.usersTable= true ;";
 
 
+		$autClass = 'SugarAuthenticate';
+		if (isset($sugar_config['quickcrm_authenticate'])){
+				$autClass = $sugar_config['quickcrm_authenticate'];
+		}
+		else if (isset($sugar_config['authenticationClass'])){
+				$autClass = $sugar_config['authenticationClass'];
+		}
+        $str .= 'QCRM.authentication = "'. $autClass .'";';
         $str .= 'QCRM.name_format = "'.$sugar_config['default_locale_name_format'].'";';
 // FIND PLUGINS		
 		$js_plugin="var js_plugins=[";
@@ -636,21 +691,47 @@ EOQ;
 		
 		$str .= "var CustomHTML=".(file_exists("custom/QuickCRM/home.html")?"true":"false").",";
 		$str .= " CustomJS=".(file_exists("custom/QuickCRM/custom.js")?"true":"false").";";
-		$str .= " QCRM.CustomCSS=".(file_exists("custom/QuickCRM/custom.css")?"true":"false").";";
+		if (file_exists("custom/QuickCRM/custom.css")){
+			$str .= " QCRM.CustomCSS=true;";
+		}
+		if (file_exists("custom/QuickCRM/theme.css")){
+			$str .= " QCRM.CustomTheme=true;";
+			$str .= " QCRM.ForceCustomTheme=".((isset($sugar_config['quickcrm_forcetheme']) && $sugar_config['quickcrm_forcetheme'])?"true":"false").";";
+		}
 		
-		$administration->saveSetting('QuickCRM', ($sugar_config['quickcrm_trial'] != false?'trial':'').'sugar_config', base64_encode($str));
-		
-// KEEP IT for SugarCRM 6.1 and 6.2 support
-		if ($sugar_config['sugar_version']<'6.3'){
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile'.($sugar_config['quickcrm_trial'] != false ?'_trial':'').'/');
-        
-			if($fh = @fopen($saveDir . '/config.js', "w")){
+			if($fh = fopen($this->saveDir . '/../config.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
 			}
-		}
     }
 
+	function AddProfile($module,$profile){
+		$fields = array();
+		if (!isset($profile['fields'][$module])) {$Add=array();} else {$Add=$profile['fields'][$module];}
+		if (isset($profile['detail'][$module]) && ($profile['detail'][$module] !=false)) {$Add=array_merge($Add,$profile['detail'][$module]);}
+		if (!isset($profile['search'][$module])) {$Search=array();} else {$Search=$profile['search'][$module];}
+		if (isset($profile['basic_search'][$module])) {$Search=array_merge($Search,$profile['basic_search'][$module]);}
+		if (!isset($profile['list'][$module])) {$List=array();} else {$List=$profile['list'][$module];}
+		if (isset($profile['highlighted'][$module])) {$List=array_merge($List,$profile['highlighted'][$module]);}
+
+		if (isset($profile['marked'][$module]) && ($profile['marked'][$module] !='') && ($profile['marked'][$module] !='none') && ($profile['marked'][$module] !='assigned_user_id')){
+			$fields[]=$profile['marked'][$module];
+		}
+		if (isset($profile['groupby'][$module]) && ($profile['groupby'][$module] !='')){
+			$fields[]=$profile['groupby'][$module];
+		}
+		if (isset($profile['totals'][$module]) && (count($profile['totals'][$module])>0)){
+			foreach($profile['totals'][$module] as $key=>$values){
+				$fields[]=$values['field'];
+			}
+		}
+
+		$fields = array_unique(array_merge($fields,$Add,$Search,$List));
+		
+		return $fields;
+
+	}
+	
 	function buildFieldArray($module,$module_def,$mobile_config){
 		global $QuickCRM_modules,$QuickCRMDetailsFields,$QuickCRMTitleFields,$QuickCRMAddressesFields,$QuickCRMExtraFields,$QuickCRM_AddressDef;
 		global $beanFiles, $beanList;
@@ -665,24 +746,47 @@ EOQ;
 		$nodeModule = Q_new_bean($module);
 		$excluded=array("id","created_by", "modified_user_id", "assigned_user_id","deleted");
 		$users_include=array("user_name","first_name", "last_name", "department", "phone_mobile","email1");
+				
+		// default profile
+		$allfields = $this->AddProfile($module,$mobile_config);
 		
+		// role or SG profile
+		if (isset($mobile_config['profiles'])){
+			foreach ($mobile_config['profiles'] as $profile){
+				$allfields = array_merge($allfields,$this->AddProfile($module,$profile));
+			}
+		}
+
+		// Add name or firstname/lastname for custom modules.
+		if (isset($module_def[$module]) && $module_def[$module]['type']=='person') {
+			$allfields[]='first_name';
+			$allfields[]='last_name';
+		}
+		elseif (isset($module_def[$module]) && $module_def[$module]['type']=='file') {
+			$allfields[]='document_name';
+			if ($module !='Documents'){
+				$allfields[]='filename';
+				$allfields[]='uploadfile';
+				$allfields[]='file_ext';
+				$allfields[]='file_mime_type';				
+			}
+		}
+		else {
+			$allfields[]='name';
+		}
+
 		if (!isset($QuickCRMDetailsFields[$module])) {$Details=array();} else {$Details=$QuickCRMDetailsFields[$module];}
 		if (!isset($QuickCRMTitleFields[$module])) {$Title=array();} else {$Title=$QuickCRMTitleFields[$module];}
 		if (!isset($QuickCRMExtraFields[$module])) {$Extra=array();} else {$Extra=$QuickCRMExtraFields[$module];}
-		$allfields=array_merge($Details,$Title); // ALL THESE DEFAULT FIELDS MUST BE LOADED. THEY MIGHT BE USED BY TEMPLATES.
 
-		if (!isset($mobile_config['fields'][$module])) {$Add=array();} else {$Add=$mobile_config['fields'][$module];}
-		if (isset($mobile_config['detail'][$module]) && ($mobile_config['detail'][$module] !=false)) {$Add=array_unique(array_merge($Add,$mobile_config['detail'][$module]));}
-		if (!isset($mobile_config['search'][$module])) {$Search=array();} else {$Search=$mobile_config['search'][$module];}
-		if (!isset($mobile_config['list'][$module])) {$List=array();} else {$List=$mobile_config['list'][$module];}
-		if (!isset($mobile_config['addresses'][$module])) {$Addr=array();} else {$Addr=$mobile_config['addresses'][$module];}
+		$allfields = array_unique(array_merge($allfields,$Details,$Title,$Extra,array('date_entered','date_modified','assigned_user_name')));
 
-		foreach ($Add as $A=>$val){
-
+		foreach ($allfields as $A=>$val){
 			if (substr($val,0,4)=='$ADD'){
 				$prefix=substr($val,4,strlen($val)-4);
 				foreach ($QuickCRM_AddressDef as $suffix) {
-					$allfields[]=$prefix."_address_".$suffix;
+					$addr_field = $prefix."_address_".$suffix;
+					if (!in_array($addr_field,$allfields)) $allfields[]=$addr_field;
 				}
 				// Add the virtual address fielddef
 				$modfields[$val] = array(
@@ -692,43 +796,9 @@ EOQ;
 									'source' => "non-db",
 							);
 			}
-			else
-				if (!in_array($val,$allfields)) $allfields[]=$val;
-		}
-		foreach ($Search as $S=>$val){
-			if (!in_array($val,$allfields)) $allfields[]=$val;
-		}
-		
-		foreach ($List as $S=>$val){
-			if (!in_array($val,$allfields)) $allfields[]=$val;
-		}
-		
-		foreach ($Extra as $S=>$val){
-			if (!in_array($val,$allfields)) $allfields[]=$val;
-		}
-		
-		// These fields are used internally. Add them if not already selected in customizations
-		if (!in_array('date_entered',$allfields)) $allfields[]='date_entered';
-		if (!in_array('date_modified',$allfields)) $allfields[]='date_modified';
-		if (!in_array('assigned_user_name',$allfields)) $allfields[]='assigned_user_name';
-		
-		// Add name or firstname/lastname for custom modules.
-		if (isset($module_def[$module]) && $module_def[$module]['type']=='person') {
-			if (!in_array('first_name',$allfields)) $allfields[]='first_name';
-			if (!in_array('last_name',$allfields)) $allfields[]='last_name';
-		}
-		elseif (isset($module_def[$module]) && $module_def[$module]['type']=='file') {
-			if (!in_array('document_name',$allfields)) $allfields[]='document_name';
-		}
-		else {
-			if (!in_array('name',$allfields)) $allfields[]='name';
 		}
 
-		// Add colorfield if it exists
-		if (isset($mobile_config['marked'][$module]) && ($mobile_config['marked'][$module] !='') && ($mobile_config['marked'][$module] !='none') && ($mobile_config['marked'][$module] !='assigned_user_id')){
-			if (!in_array($mobile_config['marked'][$module],$allfields)) $allfields[]=$mobile_config['marked'][$module];
-		}
-		
+
 		foreach($nodeModule->field_name_map as $field_name => $field_defs)
 		{	$source=(isset($field_defs['source'])?$field_defs['source']:"");
 
@@ -739,7 +809,7 @@ EOQ;
 				){
 				continue;
 			}
-			if ($field_defs['type'] == 'datetimecombo') { $field_defs['type'] = 'datetime'; }
+
 			if (($field_defs['type'] == 'relate')&&(isset($field_defs['module']))){
 				$modfields[$field_defs['name']] = array(
 									'type' => $field_defs['type'],
@@ -770,7 +840,6 @@ EOQ;
 				$modfields[$field_defs['name']] = array(
 									'type' => 'email',
 									'req' => (isset($field_defs['required']) && ($field_defs['required']==True||$field_defs['required']=='1')),
-//									'source' => "",
 									'label' => $field_defs['vname'],
 							);
 			}
@@ -781,7 +850,6 @@ EOQ;
 				$modfields[$field_defs['name']] = array(
 									'type' => $field_defs['type'],
 									'req' => (isset($field_defs['required']) && ($field_defs['required']==True||$field_defs['required']=='1')),
-//									'source' => ($field_defs['source'] == 'custom_fields') ? '_cstm' : ($field_defs['source'] == 'non-db' ? 'non-db' :""),
 									'label' => $field_defs['vname'],
 							);
 				if ($source == 'custom_fields') {
@@ -790,17 +858,11 @@ EOQ;
 				else {
 					$modfields[$field_defs['name']]['source']= $source;
 				}
-				if (strpos($field_defs['type'],'enum') !== false) {
-					$modfields[$field_defs['name']]['options']= $field_defs['options'];
-					if (!in_array ( $field_defs['options'] , $this->listOfLists )) $this->listOfLists[]= $field_defs['options'];
-					if ($field_defs['type'] == 'radioenum' ||($field_defs['type'] == 'dynamicenum')) {
-						$modfields[$field_defs['name']]['type']= 'enum';
-						if ($field_defs['type'] == 'dynamicenum') $modfields[$field_defs['name']]['parentenum']= $field_defs['parentenum'];
-					}
-				}
+
 				if (isset($field_defs['readonly']) && ($field_defs['readonly']==True||$field_defs['readonly']=='1')){
 					$modfields[$field_defs['name']]['readonly']= true;
 				}
+
 				$def='';
 				if (isset($field_defs['default_value'])&&($field_defs['default_value']!=null)) {
 					$def=$field_defs['default_value'];
@@ -814,37 +876,82 @@ EOQ;
 					$def=preg_replace("/\\n/","<br>",$def);
 					$modfields[$field_defs['name']]['def']=$def;
 				}
-				if ($field_defs['type'] == 'url' || $field_defs['type'] == 'iframe') {
-					if (isset($field_defs['gen'])&&($field_defs['gen']==1)){
-						$modfields[$field_defs['name']]['gen'] =1;
-						$modfields[$field_defs['name']]['source'] ='non-db'; // non editable field
-					}
-					else {
-						$modfields[$field_defs['name']]['gen'] =0;
-					}
-					if ($field_defs['type'] == 'iframe') {
+
+				switch ($field_defs['type']){
+					case 'datetimecombo':
+						$modfields[$field_defs['name']]['type']= 'datetime';
+						break;
+					
+					case 'dynamicenum':
+						$modfields[$field_defs['name']]['parentenum']= $field_defs['parentenum'];
+					case 'radioenum':
+					case 'enum':
+						$modfields[$field_defs['name']]['type']= 'enum';
+						$modfields[$field_defs['name']]['options']= $field_defs['options'];
+						if (!in_array ( $field_defs['options'] , $this->listOfLists )) $this->listOfLists[]= $field_defs['options'];
+						break;
+					
+					case 'multienum':
+						$modfields[$field_defs['name']]['options']= $field_defs['options'];
+						if (!in_array ( $field_defs['options'] , $this->listOfLists )) $this->listOfLists[]= $field_defs['options'];
+						break;
+
+					case 'float':
+					case 'double':
+					case 'decimal':
+						$modfields[$field_defs['name']]['precision'] =intval($field_defs['precision']);
+						break;
+
+					case 'iframe':
 						$modfields[$field_defs['name']]['height'] =$field_defs['height'];
-					}
-				}
-				else if ($field_defs['type'] == 'Drawing' || $field_defs['type'] == 'image') {
-					if (isset($field_defs['width'])&&($field_defs['width']!='')){
-						$modfields[$field_defs['name']]['width'] =$field_defs['width'];
-					}
-					else {
-						$modfields[$field_defs['name']]['width'] ='300px';
-					}
-					if (isset($field_defs['height'])&&($field_defs['height']!='')){
-						$modfields[$field_defs['name']]['height'] =$field_defs['height'];
-					}
-					else {
-						$modfields[$field_defs['name']]['height'] ='250px';
-					}
-				}
-				else if ($field_defs['type'] == 'photo') {
-					if ($field_defs['ext2']==1){
-						$modfields[$field_defs['name']]['width'] =$field_defs['ext3'];
-						$modfields[$field_defs['name']]['height'] =$field_defs['ext4'];
-					}
+					case 'url':
+						if (isset($field_defs['gen'])&&($field_defs['gen']==1)){
+							$modfields[$field_defs['name']]['gen'] =1;
+							$modfields[$field_defs['name']]['source'] ='non-db'; // non editable field
+						}
+						else {
+							$modfields[$field_defs['name']]['gen'] =0;
+						}
+						break;
+					
+					case 'Drawing':
+					case 'image':
+						if (isset($field_defs['width'])&&($field_defs['width']!='')){
+							$modfields[$field_defs['name']]['width'] =$field_defs['width'];
+						}
+						else {
+							$modfields[$field_defs['name']]['width'] ='300px';
+						}
+						if (isset($field_defs['height'])&&($field_defs['height']!='')){
+							$modfields[$field_defs['name']]['height'] =$field_defs['height'];
+						}
+						else {
+							$modfields[$field_defs['name']]['height'] ='250px';
+						}
+						break;
+					case 'photo':
+						if ($field_defs['ext2']==1){
+							$modfields[$field_defs['name']]['width'] =$field_defs['ext3'];
+							$modfields[$field_defs['name']]['height'] =$field_defs['ext4'];
+						}
+						break;
+					case 'text':
+					case 'longtext':
+					case 'TextOperators':
+						if (isset($field_defs['editor']) && $field_defs['editor'] == 'html'){
+							$modfields[$field_defs['name']]['html'] =True;
+						}
+						break;
+					case 'Rate':
+						$modfields[$field_defs['name']]['max'] =$field_defs['maximum'];
+						$modfields[$field_defs['name']]['allowHalfStar'] =$field_defs['allowHalfStar'];
+						break;
+					case 'ua_rating':
+						$modfields[$field_defs['name']]['max'] =$field_defs['max'];
+						$modfields[$field_defs['name']]['allowHalfStar'] =false;
+						break;
+					default:
+						break;
 				}
 			}
 		}
@@ -895,7 +1002,9 @@ EOQ;
 			array_push($lst2,'QCRM_SavedSearch');
 			array_push($lst2,'QCRM_Homepage');
 		}
-		if (isset($sugar_config['suitecrm_version']) && $sugar_config['suitecrm_version'] > '7.4'){
+		array_push($lst2,'QCRM_Tracker');
+		
+		if (isset($sugar_config['suitecrm_version']) && suitecrmVersionisAtLeast('7.4')){
 			array_push($lst2,'Favorites');
 		}
 
@@ -906,6 +1015,9 @@ EOQ;
 		$this->createSugarConfig($mobile_config,$aos);
 		$this->createModuleFieldsCache($lst2,$module_def);
 		$lst_lang=get_languages();
+		if ($mobile_config['languages'] == 'default'){
+			$lst_lang= array($sugar_config['default_language'] => $lst_lang[$sugar_config['default_language']]);
+		}
 		$required_list = $this->listOfLists; // List of application list strings used in the application (enums)
 		foreach($lst_lang as $language => $language_name){
 			$this->createAppStringsCache($required_list,$lst_mod,$language);

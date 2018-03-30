@@ -2956,6 +2956,43 @@ class SugarBean
         }
         /* BEGIN - SECURITY GROUPS */
         global $current_user, $sugar_config;
+
+	// Block from Michael Crews per email on 2018-02-22
+        //if($this->module_dir == "Accounts"){
+        //    if (empty($where)) {
+        //        $where = "accounts.account_type != 'Prospect'";
+        //    } else {
+        //        $where .= " AND accounts.account_type != 'Prospect'";
+        //    }
+        // }
+	// End added block
+
+//           if($this->module_dir  == "Accounts") {
+//             $RoleId = array();
+//             $roles = ACLRole::getUserRoles($current_user->id, false);
+//             foreach ($roles as $role) {
+//                 $RoleId[] = $role->id;
+//             }
+//             if (in_array($sugar_config['salesRoleId'], $RoleId)) {
+//                 if (empty($where)) {
+//                     $where = " ( accounts.account_type != 'Prospect') ";
+//                 } else {
+//                     $where .= " AND ( accounts.account_type != 'Prospect') ";
+//                 }
+//             }
+//         }
+
+        if(!$current_user->is_admin) {
+            $rulesWhere = SharedSecurityRules::buildRuleWhere($this);
+            if (!empty($rulesWhere)) {
+                if (empty($where)) {
+                    $where = $rulesWhere;
+                } else {
+                    $where .= " OR (".$rulesWhere.") ";
+                }
+            }
+        }
+
         if ($this->module_dir == 'Users' && !is_admin($current_user)
             && isset($sugar_config['securitysuite_filter_user_list'])
             && $sugar_config['securitysuite_filter_user_list']
@@ -5431,7 +5468,20 @@ class SugarBean
             require_once("modules/SecurityGroups/SecurityGroup.php");
             $in_group = SecurityGroup::groupHasAccess($this->module_dir, $this->id, $view);
         }
-        return ACLController::checkAccess($this->module_dir, $view, $is_owner, $this->acltype, $in_group);
+        $access = ACLController::checkAccess($this->module_dir, $view, $is_owner, $this->acltype, $in_group);
+        if($view != "list") {
+            $bean = BeanFactory::getBean("SharedSecurityRules");
+            if($bean != false) {
+                $ruleAccess = $bean->checkRules($this, $view);
+                if ($ruleAccess === false) {
+                    $access = false;
+                }elseif($ruleAccess === true){
+                    $access = true;
+                }
+            }
+        }
+
+        return $access;
     }
 
     /**

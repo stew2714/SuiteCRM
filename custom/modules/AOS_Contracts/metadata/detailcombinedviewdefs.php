@@ -278,7 +278,11 @@ $viewdefs = array (
           ),
           15 => 
           array (
-            1 => 't_c_version_c',
+            0 => 
+            array (
+              'name' => 't_c_version_c',
+              'label' => 'LBL_T_C_VERSION_C',
+            ),
           ),
           16 => 
           array (
@@ -521,15 +525,28 @@ $viewdefs = array (
           ),
           1 => 
           array (
-            1 => 'courior_tracking_number_c',
+            0 => 
+            array (
+              'name' => 'courior_tracking_number_c',
+              'label' => 'LBL_COURIOR_TRACKING_NUMBER_C',
+            ),
           ),
           2 => 
           array (
-            1 => 'apttus_activated_date_c',
+            0 => 
+            array (
+              'name' => 'apttus_activated_date_c',
+              'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
+            ),
           ),
           3 => 
           array (
-            1 => 'apttus_activated_by_c',
+            0 => 
+            array (
+              'name' => 'apttus_activated_by_name_c',
+              'studio' => 'visible',
+              'label' => 'LBL_APTTUS_ACTIVATED_BY_NAME_C',
+            ),
           ),
         ),
         'lbl_editview_panel4' => 
@@ -538,8 +555,9 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_company_signed_by_c',
-              'label' => 'LBL_APTTUS_COMPANY_SIGNED_BY_C',
+              'name' => 'apttus_company_signed_by_name_c',
+              'studio' => 'visible',
+              'label' => 'LBL_APTTUS_COMPANY_SIGNED_BY_NAME_C',
             ),
             1 => 'apttus_non_standard_legal_language_c',
           ),
@@ -550,6 +568,7 @@ $viewdefs = array (
               'name' => 'apttus_company_signed_date_c',
               'label' => 'LBL_APTTUS_COMPANY_SIGNED_DATE_C',
             ),
+            1 => 'apttus_initiation_type_c',
           ),
           2 => 
           array (
@@ -579,9 +598,6 @@ $viewdefs = array (
             1 => 'apttus_other_party_signed_title_c',
           ),
           5 => 
-          array (
-          ),
-          6 => 
           array (
             0 => 
             array (

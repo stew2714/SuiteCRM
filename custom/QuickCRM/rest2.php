@@ -8,4 +8,5 @@
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: POST,GET");
 header("Access-Control-Allow-Credentials: true");
-require_once('../../service/v2/rest.php');
+$rest_version = (file_exists('../../service/v3/rest.php')) ? 'v3' : 'v2';
+require_once('../../service/'.$rest_version.'/rest.php');

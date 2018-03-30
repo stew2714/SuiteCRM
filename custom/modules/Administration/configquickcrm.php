@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -20,12 +20,14 @@ global $mod_strings;
 global $app_strings;
 global $app_list_strings;
 global $current_language;
+global $titles;
 
 $MBmod_strings=return_module_language($current_language, 'ModuleBuilder');
 
 global $sugar_config;
 ini_set("display_errors", 0);
-if ($sugar_config['quickcrm_trial'] == false) {
+
+
 
 
 	require_once('modules/QuickCRM/license/OutfittersLicense.php');
@@ -36,13 +38,13 @@ if ($sugar_config['quickcrm_trial'] == false) {
 		die();
 	}
 
-}
+
 
 echo getClassicModuleTitle(
     "Administration",
     array(
         "<a href='index.php?module=Administration&action=index'>".translate('LBL_MODULE_NAME','Administration')."</a>",
-        $mod_strings['LBL_CONFIG_QUICKCRM_TITLE'],
+        'QuickCRM: ' . $mod_strings['LBL_CONFIG_QUICKCRM_TITLE'],
     ),
     false
 );
@@ -64,41 +66,15 @@ $QuickCRM_modules= $qutils->mobile['modules'];
 
 $conftree=new Tree('conftree');
 $conftree->set_param('module','Administration');
-foreach($QuickCRM_modules as $module){
-	$node=new Node($module, isset($app_list_strings["moduleList"][$module])?$app_list_strings["moduleList"][$module]:$module);
-
-    $nodeDisp =new Node($module."Display", $titles['detail']);
-    $nodeDisp->set_property("href", "javascript: checkModuleType('$module','detail')");
-
-    $nodeEdit =new Node($module."Fields", $titles['fields']);
-    $nodeEdit->set_property("href", "javascript: checkModuleType('$module','fields')");
-
-    $nodeSearch =new Node($module."Search", $titles['search']);
-    $nodeSearch->set_property("href", "javascript: checkModuleType('$module','search')");
-
-    $nodeList =new Node($module."List", $titles['list']);
-    $nodeList->set_property("href", "javascript: checkModuleType('$module','list')");
-
-    $nodeSubpanels =new Node($module."Subpanel", $titles['subpanels']);
-    $nodeSubpanels->set_property("href", "javascript: checkModuleType('$module','subpanels')");
-
-    $node->add_node($nodeEdit);       
-    $node->add_node($nodeDisp);       
-    $node->add_node($nodeSearch);       
-    $node->add_node($nodeList);       
-    $node->add_node($nodeSubpanels);       
-	
-    $conftree->add_node($node);       
-}
 
 echo $conftree->generate_header();
 
-if ($sugar_config['sugar_version']<'6.5'){
+if ($sugar_config['sugar_version']<'6.5.16'){
 	echo <<<EOQ
 	<script type="text/javascript" src="custom/QuickCRM/lib/js/jquery-1.7.2.min.js"></script>
 EOQ;
 }
-if (!suitecrmVersion() || suitecrmVersion() < '7.2') {
+if (!suitecrmVersion() || !suitecrmVersionisAtLeast('7.2')) {
 	echo <<<EOQ
 	<script type="text/javascript" src="custom/QuickCRM/lib/js/jquery-ui-1.8.21.custom.min.js"></script>
 EOQ;
@@ -106,20 +82,22 @@ EOQ;
 
 echo <<<EOQ
 <link rel="stylesheet" href="custom/QuickCRM/lib/css/ui-lightness/jquery-ui-1.8.21.custom.css" type="text/css" media="all" />
-<script type="text/javascript" src="custom/modules/Administration/conf_quickcrm.js?v=4.6.5"></script>
+<script type="text/javascript" src="custom/modules/Administration/conf_quickcrm.js?v=5.1.0"></script>
 <style>
     .myOverlayClass  {
         background:transparent !important;
+        z-index: 1000 !important;
     }
-	#conf_sortableD1, #conf_sortableD2 { border-color: black;border-style: solid; border-width:1px; text-align:center ;margin:10px; width: 180px;list-style-type: none; margin: 10px; padding: 0 0 2.5em; float: left; margin-right: 10px; }
-	#conf_sortableD1 li, #conf_sortableD2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 160px; text-align:left ;}
+    .ui-state-highlight  {
+	    height: auto !important;
+    }
 </style>
 <div id="StatusDiv" style="height:20px;text-align:center;"></div>
 <table cellpadding="0" cellspacing="0" style="border-left:1px solid; border-right:1px solid; border-bottom:1px solid" width="100%" class="edit view">
 <tr>
 	<td width="20%" valign="top" style="border-right: 1px solid">
 		<div id="conftree">
-			{$conftree->generate_nodes_array()}
+			
 		</div>
 	</td>
 	<td width="80%" valign="top" style="border-right: 1px">
@@ -144,29 +122,38 @@ EOQ;
     var confirm_message_text = '<?php echo $MBmod_strings['LBL_CONFIRM_DONT_SAVE'];?>';
     var currentType = 'none';
     var currentModule = 'none';
+    var currentProfile = '_default';
+    var currentProfileName = 'Default';
     var typetoredirect='none';
     var moduletoredirect='none';
+    var profiletoredirect='_default';
+    var profileNametoredirect='_default';
 
     var def = true;
     var def2 = true;
     $( window ).on( 'beforeunload' , function() {
-        return   check_condition(currentModule,currentType,true);
+        return   check_condition(currentModule,currentType,currentProfile,currentProfileName,true);
     } );
-    function checkModuleType(module,type){
+    function checkModuleType(module,type,profile,profile_name){
         typetoredirect=type;
         moduletoredirect=module;
-        if(check_condition(module,type,false)){
+        profiletoredirect=profile;
+        profileNametoredirect=profile;
+        if(check_condition(module,type,profile,profile_name,false)){
             currentType= type;
             currentModule= module;
+            currentProfile= profile;
+            currentProfileName= profile_name;
         }
     }
 
-    function check_condition(module,type,changebyrefresing){
-
-        if( currentType == 'none' &&   currentModule=='none')
+    function check_condition(module,type,profile,profile_name,changebyrefresing){
+        if( currentType == 'none' && currentModule=='none')
         {
             currentType=type;
             currentModule=module;
+            currentProfile= profile;
+            currentProfileName= profile_name;
         }
         if($('#conf_sortableD1 li').hasClass('ui-state-default') || $('#conf_sortableD2 li').hasClass('ui-state-highlight') || def!=def2){
             if(changebyrefresing==true){
@@ -185,7 +172,7 @@ EOQ;
                                 def=true;
                                 def2=true;
                                 if(changebyrefresing==false)
-                                    conf_get(module,type)
+                                    conf_get(module,type,profile,profile_name)
                                 $( this ).dialog( "close" );
                             },
                             '<?php echo $MBmod_strings['LBL_BTN_CANCEL']?>': function() {
@@ -193,7 +180,7 @@ EOQ;
                             },
                             '<?php echo $MBmod_strings['LBL_BTN_SAVE_CHANGES']?>': function() {
                                 $( this ).dialog( "close" );
-                                    return  SaveFields('changeModule',currentModule,currentType)
+                                    return  SaveFields('changeModule',currentModule,currentType,currentProfile,currentProfileName)
 
                             }
                         }
@@ -205,12 +192,14 @@ EOQ;
         }
         else {
 
-            if( currentType != type  ||  currentModule!=module)
+            if( currentType != type  ||  currentModule!=module ||  currentProfile!=profile)
             {
                 currentType=type;
                 currentModule=module;
+	            currentProfile= profile;
+	            currentProfileName= profile_name;
             }
-            conf_get(module,type)
+            conf_get(module,type,profile,profile_name)
 
         }
 

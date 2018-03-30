@@ -51,7 +51,7 @@ function display_updates($focus, $field, $value, $view){
 }
 
 function getUpdateDisplayHead(SugarBean $update){
-    global $mod_strings;
+    global $mod_strings,$timedate,$sugar_config,$current_user;
     if($update->contact_id){
         $name = $update->getUpdateContact()->name;
     }elseif($update->assigned_user_id){
@@ -59,8 +59,11 @@ function getUpdateDisplayHead(SugarBean $update){
     }else{
         $name = "Unknown";
     }
-    //$html = "<span>".($update->internal ? "<strong>" . $mod_strings['LBL_INTERNAL'] . "</strong> " : '') .$name . " ".$update->date_entered."</span><br>";
-    $html = "<span>" .$name . " ".$update->date_entered."</span><br>";
+
+    $datef = $sugar_config['default_date_format'];
+    $timef = $sugar_config['default_time_format'];
+
+    $html = "<span>" .$name . " ".$timedate->handle_offset($update->date_entered, $datef .' ' . $timef, true,$current_user,$current_user->getPreference('timezone'))."</span><br>";
     return $html;
 }
 

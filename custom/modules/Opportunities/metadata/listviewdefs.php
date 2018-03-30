@@ -8,34 +8,14 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'ACCOUNT_NAME' => 
+  'ACCOUNTS_OPPORTUNITIES_3_NAME' => 
   array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_ACCOUNT_NAME',
-    'id' => 'ACCOUNT_ID',
-    'module' => 'Accounts',
+    'type' => 'relate',
     'link' => true,
+    'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE',
+    'id' => 'ACCOUNTS_OPPORTUNITIES_3ACCOUNTS_IDA',
+    'width' => '10%',
     'default' => true,
-    'sortable' => true,
-    'ACLTag' => 'ACCOUNT',
-    'contextMenu' => 
-    array (
-      'objectType' => 'sugarAccount',
-      'metaData' => 
-      array (
-        'return_module' => 'Contacts',
-        'return_action' => 'ListView',
-        'module' => 'Accounts',
-        'parent_id' => '{$ACCOUNT_ID}',
-        'parent_name' => '{$ACCOUNT_NAME}',
-        'account_id' => '{$ACCOUNT_ID}',
-        'account_name' => '{$ACCOUNT_NAME}',
-      ),
-    ),
-    'related_fields' => 
-    array (
-      0 => 'account_id',
-    ),
   ),
   'SALES_STAGE' => 
   array (

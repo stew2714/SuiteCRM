@@ -71,6 +71,14 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'short_id_c' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'LBL_SHORT_ID_C',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'short_id_c',
+      ),
       'sales_stage' => 
       array (
         'name' => 'sales_stage',

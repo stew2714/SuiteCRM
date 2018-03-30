@@ -10,6 +10,8 @@ $hook_array['before_save'][] = Array(1, 'Contacts push feed', 'modules/Contacts/
 $hook_array['after_save'] = Array(); 
 $hook_array['after_save'][] = Array(1, 'Update Portal', 'modules/Contacts/updatePortal.php','updatePortal', 'updateUser'); 
 $hook_array['after_save'][] = Array(77, 'updateRelatedMeetingsGeocodeInfo', 'modules/Contacts/ContactsJjwg_MapsLogicHook.php','ContactsJjwg_MapsLogicHook', 'updateRelatedMeetingsGeocodeInfo'); 
+$hook_array['after_ui_frame'] = Array(); 
+$hook_array['after_ui_frame'][] = Array(1002, 'Document Templates after_ui_frame Hook', 'custom/modules/Contacts/DHA_DocumentTemplatesHooks.php','DHA_DocumentTemplatesContactsHook_class', 'after_ui_frame_method'); 
 
 
 

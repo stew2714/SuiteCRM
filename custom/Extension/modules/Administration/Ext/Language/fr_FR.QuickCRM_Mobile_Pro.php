@@ -37,13 +37,6 @@ $mod_strings['LBL_OFFLINE_MAX'] = 'Durée maximum Offline (jours)';
 $mod_strings['LBL_AUDIONOTES'] = 'Notes Audio';
 $mod_strings['LBL_ADD_JAVASCRIPT'] = 'Fichier Javascript supplémentaire';
 
-$mod_strings['LBL_DISPLAYED_FIELDS_TITLE'] = 'Champs affichés';
-$mod_strings['LBL_AVAILABLE_FIELDS'] = 'Disponibles';
-$mod_strings['LBL_DISPLAYED_FIELDS'] = 'Recherche';
-$mod_strings['LBL_STANDARD_FIELDS'] = 'Standard';
-$mod_strings['LBL_ADDRESSES'] = 'Adresses';
-$mod_strings['LBL_ADDITIONAL_FIELDS'] = 'Champs Additionels';
-
 $mod_strings['LBL_SEARCH_FIELDS_TITLE'] = 'Recherche';
 $mod_strings['LBL_CONFIG_SAVED'] = '... Sauvegarde ...';
 $mod_strings['LBL_NO_USER'] = 'Aucun utilisateur sélectionné';
@@ -54,13 +47,15 @@ $mod_strings['LBL_MARKERS'] = 'Marqueurs';
 $mod_strings['LBL_NATIVE_CAL'] = 'Calendrier du mobile';
 $mod_strings['LBL_FORCE_LOCK'] = "Forcer un code secret sur l'application";
 
-$mod_strings['LBL_DEFAULT'] = 'Défaut';
-$mod_strings['LBL_ADD_LAYOUT'] = 'Ajouter une présentation de groupe';
-$mod_strings['LBL_ADD_LAYOUTS'] = 'Ajouter une présentation de groupe';
-$mod_strings['LBL_QUESTION_ADD_LAYOUT'] = 'Sélectionnet un groupe à ajouter';
-$mod_strings['LBL_REMOVE_LAYOUT'] = 'Supprimer un groupe';
+$mod_strings['LBL_MULTIVIEW_DEFAULT'] = 'Les vues de groupe sont basées sur les rôles.<br>Rendez-vous sur la page Paramètres généraux pour baser les vues sur les groupes de sécurité';
+$mod_strings['LBL_MULTIVIEW'] = 'Baser les vues de groupe sur:';
+$mod_strings['LBL_QDEFAULT'] = 'Standard';
+$mod_strings['LBL_QADD_LAYOUT'] = 'Ajouter une présentation';
+$mod_strings['LBL_QQUESTION_ADD_LAYOUT'] = 'Sélectionner un groupe à ajouter';
+$mod_strings['LBL_QREMOVE_LAYOUT'] = 'Supprimer les vues';
+$mod_strings['LBL_QREMOVE_CONFIRM'] = 'Vos vues de groupe déjà définies seront supprimées';
+$mod_strings['LBL_HIGHLIGHTED'] = 'Mis en valeur';
 
-$mod_strings['LBL_SECURITYGROUP'] = 'Security Group:';
-$mod_strings['LBL_COPY_FROM'] = 'Copier:';
+$mod_strings['LBL_QCOPY_FROM'] = 'Copier:';
 
 $mod_strings['LBL_RESET_QUICKCRM_CONFIRMATION'] = 'Attention, votre configuration va être supprimée et sera remplacée par la configuration par défaut. Ceci ne pourra pas être annulé';

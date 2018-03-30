@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -26,8 +26,8 @@ $admin_option_defs['Administration']['quickcrm_modules']= array('Studio','LBL_MO
 $admin_option_defs['Administration']['quickcrm_config']= array('Studio','LBL_CONFIG_QUICKCRM_TITLE','LBL_CONFIG_QUICKCRM','./index.php?module=Administration&action=configquickcrm');
 $admin_option_defs['Administration']['quickcrm_update']= array('Repair','LBL_UPDATE_QUICKCRM_TITLE','LBL_UPDATE_QUICKCRM','./index.php?module=Administration&action=updatequickcrmpro');
 $admin_option_defs['Administration']['quickcrm_reset']= array('Repair','LBL_RESET_QUICKCRM_TITLE','LBL_RESET_QUICKCRM','./index.php?module=Administration&action=resetquickcrm');
-$admin_option_defs['Administration']['quickcrm_doc']= array('help','LBL_DOC_QUICKCRM_TITLE','LBL_DOC_QUICKCRM','http://www.quickcrm.fr/doc/mobile/latest/QuickCRM_Manual_english.htm?v=4.9.3');
-$admin_option_defs['Administration']['quickcrm_devguide']= array('help','LBL_DEVGUIDE_QUICKCRM_TITLE','LBL_DEVGUIDE_QUICKCRM','http://www.quickcrm.fr/doc/mobile/latest/QuickCRM_Developers_Guide.pdf?v=4.9.3');
+$admin_option_defs['Administration']['quickcrm_doc']= array('help','LBL_DOC_QUICKCRM_TITLE','LBL_DOC_QUICKCRM','https://www.quickcrm.fr/doc/mobile/latest/QuickCRM_Manual_english.htm?v=5.1.0');
+$admin_option_defs['Administration']['quickcrm_devguide']= array('help','LBL_DEVGUIDE_QUICKCRM_TITLE','LBL_DEVGUIDE_QUICKCRM','https://www.quickcrm.fr/doc/mobile/latest/QuickCRM_Developers_Guide.pdf?v=5.1.0');
 $admin_group_header[]= array('LBL_QUICKCRM_PRO','',false,$admin_option_defs, '');
 
 

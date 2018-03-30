@@ -4,6 +4,6 @@ $dictionary['A4_SITES']['fields']['name']['inline_edit']=true;
 $dictionary['A4_SITES']['fields']['name']['duplicate_merge']='disabled';
 $dictionary['A4_SITES']['fields']['name']['duplicate_merge_dom_value']='0';
 $dictionary['A4_SITES']['fields']['name']['merge_filter']='disabled';
-$dictionary['A4_SITES']['fields']['name']['unified_search']=false;
+$dictionary['A4_SITES']['fields']['name']['unified_search']=true;
 
  ?>

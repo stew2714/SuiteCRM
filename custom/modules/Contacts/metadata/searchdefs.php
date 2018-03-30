@@ -13,14 +13,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'active_c' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ACTIVE',
-        'width' => '10%',
-        'name' => 'active_c',
-      ),
     ),
     'advanced_search' => 
     array (
@@ -126,13 +118,39 @@ array (
         'width' => '10%',
         'name' => 'contact_association_c',
       ),
-      'active_c' => 
+      'referenced_emr_c' => 
       array (
-        'type' => 'bool',
+        'type' => 'multienum',
         'default' => true,
-        'label' => 'LBL_ACTIVE',
+        'studio' => 'visible',
+        'label' => 'LBL_REFERENCED_EMR',
         'width' => '10%',
-        'name' => 'active_c',
+        'name' => 'referenced_emr_c',
+      ),
+      'reference_start_date_c' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_REFERENCE_START_DATE',
+        'width' => '10%',
+        'name' => 'reference_start_date_c',
+      ),
+      'reference_end_date_c' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_REFERENCE_END_DATE',
+        'width' => '10%',
+        'name' => 'reference_end_date_c',
+      ),
+      'reference_association_c' => 
+      array (
+        'type' => 'multienum',
+        'default' => true,
+        'studio' => 'visible',
+        'label' => 'LBL_REFERENCE_ASSOCIATION',
+        'width' => '10%',
+        'name' => 'reference_association_c',
       ),
     ),
   ),
