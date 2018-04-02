@@ -44,11 +44,11 @@ class AdditionalSecurityGroups
     {
         $recordBean = BeanFactory::getBean($bean->module_dir, $bean->record_id);
         if(!empty($recordBean->id)) {
-            $recordBean->load_relationship('securitygroups_users');
+            $recordBean->load_relationship('SecurityGroups');
             $sql_query = "SELECT securitygroup_id FROM securitygroups_users WHERE user_id = '".$bean->user_id."' AND deleted = '0'";
             $results = $bean->db->query($sql_query);
             while($row = $bean->db->fetchByAssoc($results)) {
-                $recordBean->securitygroups_users->add($row['securitygroup_id']);
+                $recordBean->SecurityGroups->add($row['securitygroup_id']);
             }
         }
     }
