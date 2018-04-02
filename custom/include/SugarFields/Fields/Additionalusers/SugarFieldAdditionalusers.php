@@ -92,7 +92,8 @@ class SugarFieldAdditionalusers extends SugarFieldBase
 
 				if(!empty($params[$param_start.'_hidden_'.$field_index]) && !empty($params[$param_start.'_'.$field_index]))
 				{
-					$add_bean->module = $params['module'];
+                    $add_bean->module = $params['module'];
+					$add_bean->module_dir = $params['module'];
 					$add_bean->record_id = $bean->id;
 					$add_bean->user_id = $params[$param_start.'_hidden_'.$field_index];
 					$add_bean->save(false);
