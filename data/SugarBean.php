@@ -2982,7 +2982,7 @@ class SugarBean
 //             }
 //         }
 
-        if(!$current_user->is_admin) {
+        if(!$current_user->is_admin && ($_REQUEST['action'] != "Popup" && $parentbean->module_dir == "Users")) {
             $rulesWhere = SharedSecurityRules::buildRuleWhere($this);
             if (!empty($rulesWhere)) {
                 if (empty($where)) {
@@ -5479,6 +5479,9 @@ class SugarBean
                     $access = true;
                 }
             }
+        }
+        if($_REQUEST['action'] == "Popup") {
+            $access = true;
         }
 
         return $access;
