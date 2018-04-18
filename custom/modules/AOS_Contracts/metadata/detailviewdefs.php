@@ -28,7 +28,7 @@ array (
           ),
           7 => 
           array (
-            'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
+            'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept as Legal Request">{/if}',
           ),
           8 => 
           array (
@@ -46,16 +46,12 @@ array (
           array (
             'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="Submit to Comm Ops">{/if}',
           ),
-          12 => 
-          array (
-            'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept Request">{/if}',
-          ),
-          13 => 
+          12 =>
           array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
           ),
-          14 => 
-          array (
+          13 =>
+          array (LBL_BUTTON_ACCEPT_REQUEST
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUST}">{/if}',
           ),
         ),
