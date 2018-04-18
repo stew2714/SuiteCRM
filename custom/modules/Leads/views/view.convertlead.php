@@ -504,7 +504,11 @@ class customViewConvertLead extends ViewConvertLead
         // Relate Contact and Account using custom M2M relationship
         $relationship = $this->defs['Accounts']['ConvertLead']['relationship'];
         $beans['Contacts']->load_relationship($relationship);
-        $beans['Contacts']->$relationship->add($beans['Accounts']->id);
+        if(isset($beans['Accounts']->id) && !empty($beans['Accounts']->id)){
+            $beans['Contacts']->$relationship->add($beans['Accounts']->id);
+        }else if(isset($_REQUEST['account_id']) && !empty($_REQUEST['account_id'])){
+            $beans['Contacts']->$relationship->add($_REQUEST['account_id']);
+        }
 
         if (!empty($lead))
         {	//Mark the original Lead converted
