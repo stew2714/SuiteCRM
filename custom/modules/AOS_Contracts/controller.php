@@ -83,7 +83,8 @@ class AOS_ContractsController extends SugarController
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id = $sugar_config['Legal'];
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->add($sugar_config['Legal']);
             $bean->assigned_user_id = $current_user->id;
             $bean->status = "Accepted";
             $bean->save();
@@ -101,7 +102,8 @@ class AOS_ContractsController extends SugarController
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id = $sugar_config['CommOps'];
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->add($sugar_config['CommOps']);
             $bean->assigned_user_id = $current_user->id;
             $bean->status = "Contracts Pending Clearance";
             $bean->save();
@@ -119,7 +121,8 @@ class AOS_ContractsController extends SugarController
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id = $sugar_config['Sales'];
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->add($sugar_config['Sales']);
             $bean->assigned_user_id = $bean->user_id2;
             $bean->status = "Request";
             $bean->date_requested_c = '';
@@ -138,7 +141,8 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id = $sugar_config['Legal'];
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->add($sugar_config['Legal']);
             $bean->assigned_user_id = '';
             $bean->user_id2 = $current_user->id;
             $bean->date_requested_c = $timedate->nowDb();
@@ -191,7 +195,8 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->assigned_security_group_id = $sugar_config['CommOps'];
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->add($sugar_config['CommOps']);
             $bean->assigned_user_id = '';
             $bean->status = "Submitted for Comm Ops Processing";
             $bean->save();
