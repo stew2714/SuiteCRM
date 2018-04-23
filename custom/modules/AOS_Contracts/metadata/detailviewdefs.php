@@ -51,7 +51,7 @@ array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
           ),
           13 =>
-          array (LBL_BUTTON_ACCEPT_REQUEST
+          array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUST}">{/if}',
           ),
         ),
