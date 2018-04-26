@@ -47,7 +47,7 @@ $app_list_strings['moduleList']['SharedSecurityRulesActions'] = 'Shared Security
 $app_list_strings['sa_status_list']['Active'] = 'Active';
 $app_list_strings['sa_status_list']['Inactive'] = 'Inactive';
 
-//$app_list_strings['sharedGroupRule'][''] = '--none--';
+$app_list_strings['sharedGroupRule']['none'] = 'No Access';
 $app_list_strings['sharedGroupRule']['view'] = 'View Only';
 $app_list_strings['sharedGroupRule']['view_edit'] = 'View & Edit';
 $app_list_strings['sharedGroupRule']['view_edit_delete'] = 'View, Edit & Delete';

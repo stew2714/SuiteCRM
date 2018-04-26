@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -30,23 +30,35 @@ $qutils->LoadMobileConfig(true); // refresh first open only
 $qutils->LoadServerConfig(true); // refresh first open only
 
 $module = $_REQUEST['conf_module'];
+$profile = $_REQUEST['profile'];
+$profile_name = '';
+if ($qutils->mobile['profilemode'] != 'none'){
+	$profile_name = ' (' . str_replace ('&quot;','',$_REQUEST['profile_name']) . ')';
+}
 
 $MBmod_strings=return_module_language($current_language, 'ModuleBuilder');
 $ss = new Sugar_Smarty();
 $ss->assign('module', $module);
+$ss->assign('profile', $profile);
 $ss->assign('MOD', $mod_strings);
 $ss->assign('APP_STRINGS', $app_strings);
 $ss->assign('AVAILABLE', $MBmod_strings['LBL_AVAILABLE']);
 $ss->assign('HIDDEN', $MBmod_strings['LBL_HIDDEN']);
-$ss->assign('TITLE', $app_list_strings["moduleList"][$module] . ' - ' . $MBmod_strings['LBL_EDITVIEW']);
+$ss->assign('TITLE', $app_list_strings["moduleList"][$module] . ' - ' . $MBmod_strings['LBL_EDITVIEW'] . ' ' . $profile_name);
 
-$displayed = $qutils->mobile['fields'][$module];
+if ($profile == '_default') {
+	$views = $qutils->mobile;
+}
+else {
+	$views = $qutils->mobile['profiles'][$profile];
+}
+$displayed = $views['fields'][$module];
 
 // label doe not exist on old Sugar versions
 $sync_label = (isset($MBmod_strings['LBL_SYNC_TO_DETAILVIEW'])?$MBmod_strings['LBL_SYNC_TO_DETAILVIEW']:'Sync with Detail view');
 
 $ss->assign('SYNCTITLE', $sync_label);
-if (!isset($qutils->mobile['detail']) ||!isset($qutils->mobile['detail'][$module]) || $qutils->mobile['detail'][$module] == False){
+if (!isset($views['detail']) ||!isset($views['detail'][$module]) || $views['detail'][$module] == False){
 	$ss->assign('SYNCCHECKED', "checked='true'");
 }
 	

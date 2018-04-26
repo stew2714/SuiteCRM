@@ -45,12 +45,12 @@ $app_list_strings['record_type_dom'] = array(
     'Renewal' => 'Renewal',
 );
 
-$app_list_strings['product_type']=array (
-    '' => '',
-    'FFCC' => 'Fluency for Coding Capital',
-    'FFCT' => 'Fluency for Coding Trans',
-    'COS' => 'Coding Services',
-    'TOS' => 'TOS',
-    'Sub' => 'Sub',
-    'FD' => 'Fluency Direct',
-);
+//$app_list_strings['product_type']=array (
+//    '' => '',
+//    'FFCC' => 'Fluency for Coding Capital',
+//    'FFCT' => 'Fluency for Coding Trans',
+//    'COS' => 'Coding Services',
+//    'TOS' => 'TOS',
+//    'Sub' => 'Sub',
+//    'FD' => 'Fluency Direct',
+//);

@@ -16,6 +16,8 @@ $popupMeta = array (
   'address_city' => 'users.address_city',
   'address_state' => 'users.address_state',
   'address_country' => 'users.address_country',
+  'department' => 'users.department',
+  'payroll_company_c' => 'users_cstm.payroll_company_c',
 ),
     'searchInputs' => array (
   0 => 'first_name',
@@ -30,6 +32,8 @@ $popupMeta = array (
   12 => 'address_city',
   13 => 'address_state',
   15 => 'address_country',
+  16 => 'department',
+  17 => 'payroll_company_c',
 ),
     'searchdefs' => array (
   'first_name' => 
@@ -62,6 +66,20 @@ $popupMeta = array (
     'label' => 'LBL_EMPLOYEE_STATUS',
     'width' => '10%',
     'name' => 'employee_status',
+  ),
+  'department' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_DEPARTMENT',
+    'width' => '10%',
+    'name' => 'department',
+  ),
+  'payroll_company_c' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_PAYROLL_COMPANY',
+    'width' => '10%',
+    'name' => 'payroll_company_c',
   ),
   'title' => 
   array (

@@ -40,8 +40,8 @@
 require_once('modules/QCRM_Homepage/QCRM_Homepage_sugar.php');
 class QCRM_Homepage extends QCRM_Homepage_sugar {
 	
-	function QCRM_Homepage(){	
-		parent::QCRM_Homepage_sugar();
+	public function __construct(){
+		parent::__construct();
 	}
 	
 }

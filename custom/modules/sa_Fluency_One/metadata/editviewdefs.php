@@ -75,8 +75,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_232534532_c',
-            'label' => 'LBL_ACCOUNT_232534532_C',
+            'name' => 'accounts_sa_fluency_one_1_name',
+            'label' => 'LBL_ACCOUNTS_SA_FLUENCY_ONE_1_FROM_ACCOUNTS_TITLE',
           ),
           1 => 'assigned_user_name',
         ),
@@ -171,16 +171,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'f1_cdi_opp_c',
-            'label' => 'LBL_F1_CDI_OPP_C',
+            'name' => 'f1_cdi_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_F1_CDI_OPP_NAME_C',
           ),
         ),
         8 => 
         array (
           0 => 
           array (
-            'name' => 'f1radtosopp_c',
-            'label' => 'LBL_F1RADTOSOPP_C',
+            'name' => 'f1radtosopp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_F1RADTOSOPP_NAME_C',
           ),
           1 => '',
         ),
@@ -188,8 +190,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'f1_ffi_opp_c',
-            'label' => 'LBL_F1_FFI_OPP_C',
+            'name' => 'f1_ffi_opp_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_F1_FFI_OPP_NAME_C',
           ),
           1 => '',
         ),
@@ -649,6 +652,19 @@ array (
           array (
             'name' => 'pricedown_notes_c',
             'label' => 'LBL_PRICEDOWN_NOTES_C',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+          1 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
           ),
         ),
       ),

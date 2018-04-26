@@ -69,11 +69,12 @@ class QCRM_Homepage_sugar extends Basic {
 		var $creates;
 		var $shared_rec;
 		var $shared;
-		function QCRM_Homepage_sugar(){	
-		parent::Basic();
+	
+	public function __construct(){
+		parent::__construct();
 	}
 	
-	function bean_implements($interface){
+	public function bean_implements($interface){
 		switch($interface){
 			case 'ACL': return true;
 		}

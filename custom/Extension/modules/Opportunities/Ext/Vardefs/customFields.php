@@ -42,19 +42,6 @@ $dictionary['Opportunity']['fields']['gpo_c']['vname']='LBL_GPO_C';
 $dictionary['Opportunity']['fields']['gpo_c']['source']='custom_fields';
 
 
- // Vardef Created : winner_c 
-
-$dictionary['Opportunity']['fields']['winner_c']['name']='winner_c';
-$dictionary['Opportunity']['fields']['winner_c']['len']='18';
-$dictionary['Opportunity']['fields']['winner_c']['type']='varchar';
-$dictionary['Opportunity']['fields']['winner_c']['inline_edit']=1;
-$dictionary['Opportunity']['fields']['winner_c']['importable']='true';
-$dictionary['Opportunity']['fields']['winner_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['winner_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['winner_c']['vname']='LBL_WINNER_C';
-$dictionary['Opportunity']['fields']['winner_c']['source']='custom_fields';
-
-
  // Vardef Created : specialist_c 
 
 $dictionary['Opportunity']['fields']['specialist_c']['name']='specialist_c';
@@ -224,6 +211,68 @@ $dictionary['Opportunity']['fields']['new_partner_c']['vname']='LBL_NEW_PARTNER_
 $dictionary['Opportunity']['fields']['new_partner_c']['source']='custom_fields';
 
 
+ // Vardef Created : Oneincumbentx_c 
+
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['name']='Oneincumbentx_c';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['len']='18';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['type']='id';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['id']='OpportunitiesOneincumbentx_c';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['vname']='LBL_ONEINCUMBENTX_C';
+$dictionary['Opportunity']['fields']['Oneincumbentx_c']['source']='custom_fields';
+
+
+ // Vardef Created : incumbent_name_c 
+
+$dictionary['Opportunity']['fields']['incumbent_name_c']['name']='incumbent_name_c';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['len']='255';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['type']='relate';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['incumbent_name_c']['importable']='true';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['incumbent_name_c']['ext2']='Accounts';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['id']='Opportunitiesincumbent_name_c';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['module']='Accounts';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['studio']='visible';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['id_name']='Oneincumbentx_c';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['vname']='LBL_INCUMBENT_NAME_C';
+$dictionary['Opportunity']['fields']['incumbent_name_c']['source']='non-db';
+
+
+ // Vardef Created : Onewinner_c 
+
+$dictionary['Opportunity']['fields']['Onewinner_c']['name']='Onewinner_c';
+$dictionary['Opportunity']['fields']['Onewinner_c']['len']='36';
+$dictionary['Opportunity']['fields']['Onewinner_c']['type']='id';
+$dictionary['Opportunity']['fields']['Onewinner_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Onewinner_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Onewinner_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Onewinner_c']['id']='OpportunitiesOnewinner_c';
+$dictionary['Opportunity']['fields']['Onewinner_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Onewinner_c']['vname']='LBL_ONEWINNER_C';
+$dictionary['Opportunity']['fields']['Onewinner_c']['source']='custom_fields';
+
+
+ // Vardef Created : winner_name_c 
+
+$dictionary['Opportunity']['fields']['winner_name_c']['name']='winner_name_c';
+$dictionary['Opportunity']['fields']['winner_name_c']['len']='255';
+$dictionary['Opportunity']['fields']['winner_name_c']['type']='relate';
+$dictionary['Opportunity']['fields']['winner_name_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['winner_name_c']['importable']='true';
+$dictionary['Opportunity']['fields']['winner_name_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['winner_name_c']['ext2']='Users';
+$dictionary['Opportunity']['fields']['winner_name_c']['id']='Opportunitieswinner_name_c';
+$dictionary['Opportunity']['fields']['winner_name_c']['module']='Users';
+$dictionary['Opportunity']['fields']['winner_name_c']['studio']='visible';
+$dictionary['Opportunity']['fields']['winner_name_c']['id_name']='Onewinner_c';
+$dictionary['Opportunity']['fields']['winner_name_c']['vname']='LBL_WINNER_NAME_C';
+$dictionary['Opportunity']['fields']['winner_name_c']['source']='non-db';
+
+
  // Vardef Created : volume_commitment_c 
 
 
@@ -247,6 +296,7 @@ $dictionary['Opportunity']['fields']['sf_id_c']['source']='custom_fields';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['name']='recordtypeid_c';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['len']='18';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['type']='enum';
+$dictionary['Opportunity']['fields']['recordtypeid_c']['audited']=true;
 $dictionary['Opportunity']['fields']['recordtypeid_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['recordtypeid_c']['options']='opportunity_rectype_list';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['importable']='true';
@@ -286,9 +336,8 @@ $dictionary['Opportunity']['fields']['won_c']['source']='custom_fields';
 
 $dictionary['Opportunity']['fields']['forecastcategory_c']['name']='forecastcategory_c';
 $dictionary['Opportunity']['fields']['forecastcategory_c']['len']='40';
-$dictionary['Opportunity']['fields']['forecastcategory_c']['type']='enum';
+$dictionary['Opportunity']['fields']['forecastcategory_c']['type']='varchar';
 $dictionary['Opportunity']['fields']['forecastcategory_c']['inline_edit']=1;
-$dictionary['Opportunity']['fields']['forecastcategory_c']['options']='sales_forecast_cat_dom';
 $dictionary['Opportunity']['fields']['forecastcategory_c']['importable']='true';
 $dictionary['Opportunity']['fields']['forecastcategory_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['forecastcategory_c']['module']='Opportunities';
@@ -300,8 +349,9 @@ $dictionary['Opportunity']['fields']['forecastcategory_c']['source']='custom_fie
 
 $dictionary['Opportunity']['fields']['forecastcategoryname_c']['name']='forecastcategoryname_c';
 $dictionary['Opportunity']['fields']['forecastcategoryname_c']['len']='40';
-$dictionary['Opportunity']['fields']['forecastcategoryname_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['forecastcategoryname_c']['type']='enum';
 $dictionary['Opportunity']['fields']['forecastcategoryname_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['forecastcategoryname_c']['options']='sales_forecast_cat_dom';
 $dictionary['Opportunity']['fields']['forecastcategoryname_c']['importable']='true';
 $dictionary['Opportunity']['fields']['forecastcategoryname_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['forecastcategoryname_c']['module']='Opportunities';
@@ -451,7 +501,7 @@ $dictionary['Opportunity']['fields']['implementation_cost_c']['type']='float';
 $dictionary['Opportunity']['fields']['implementation_cost_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['implementation_cost_c']['importable']='true';
 $dictionary['Opportunity']['fields']['implementation_cost_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['implementation_cost_c']['precision']='8';
+$dictionary['Opportunity']['fields']['implementation_cost_c']['precision']='2';
 $dictionary['Opportunity']['fields']['implementation_cost_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['implementation_cost_c']['vname']='LBL_IMPLEMENTATION_COST_C';
 $dictionary['Opportunity']['fields']['implementation_cost_c']['source']='custom_fields';
@@ -465,7 +515,7 @@ $dictionary['Opportunity']['fields']['hwsw_cost_c']['type']='float';
 $dictionary['Opportunity']['fields']['hwsw_cost_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['hwsw_cost_c']['importable']='true';
 $dictionary['Opportunity']['fields']['hwsw_cost_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['hwsw_cost_c']['precision']='8';
+$dictionary['Opportunity']['fields']['hwsw_cost_c']['precision']='2';
 $dictionary['Opportunity']['fields']['hwsw_cost_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['hwsw_cost_c']['vname']='LBL_HWSW_COST_C';
 $dictionary['Opportunity']['fields']['hwsw_cost_c']['source']='custom_fields';
@@ -479,7 +529,7 @@ $dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['type']='f
 $dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['importable']='true';
 $dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['precision']='8';
+$dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['precision']='2';
 $dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['vname']='LBL_ANNUAL_MQ_SERVICES_ESTIMATE_C';
 $dictionary['Opportunity']['fields']['annual_mq_services_estimate_c']['source']='custom_fields';
@@ -493,7 +543,7 @@ $dictionary['Opportunity']['fields']['other_cost_c']['type']='float';
 $dictionary['Opportunity']['fields']['other_cost_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['other_cost_c']['importable']='true';
 $dictionary['Opportunity']['fields']['other_cost_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['other_cost_c']['precision']='8';
+$dictionary['Opportunity']['fields']['other_cost_c']['precision']='2';
 $dictionary['Opportunity']['fields']['other_cost_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['other_cost_c']['vname']='LBL_OTHER_COST_C';
 $dictionary['Opportunity']['fields']['other_cost_c']['source']='custom_fields';
@@ -502,14 +552,13 @@ $dictionary['Opportunity']['fields']['other_cost_c']['source']='custom_fields';
  // Vardef Created : Onegpo_c 
 
 $dictionary['Opportunity']['fields']['Onegpo_c']['name']='Onegpo_c';
-$dictionary['Opportunity']['fields']['Onegpo_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onegpo_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onegpo_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onegpo_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onegpo_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onegpo_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onegpo_c']['id']='OpportunitiesOnegpo_c';
 $dictionary['Opportunity']['fields']['Onegpo_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onegpo_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onegpo_c']['vname']='LBL_ONEGPO_C';
 $dictionary['Opportunity']['fields']['Onegpo_c']['source']='custom_fields';
 
@@ -608,7 +657,6 @@ $dictionary['Opportunity']['fields']['annual_volume_c']['type']='float';
 $dictionary['Opportunity']['fields']['annual_volume_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['annual_volume_c']['importable']='true';
 $dictionary['Opportunity']['fields']['annual_volume_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['annual_volume_c']['precision']='8';
 $dictionary['Opportunity']['fields']['annual_volume_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['annual_volume_c']['vname']='LBL_ANNUAL_VOLUME_C';
 $dictionary['Opportunity']['fields']['annual_volume_c']['source']='custom_fields';
@@ -636,7 +684,7 @@ $dictionary['Opportunity']['fields']['mq_unit_price_c']['type']='float';
 $dictionary['Opportunity']['fields']['mq_unit_price_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['mq_unit_price_c']['importable']='true';
 $dictionary['Opportunity']['fields']['mq_unit_price_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['mq_unit_price_c']['precision']='8';
+$dictionary['Opportunity']['fields']['mq_unit_price_c']['precision']='6';
 $dictionary['Opportunity']['fields']['mq_unit_price_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['mq_unit_price_c']['vname']='LBL_MQ_UNIT_PRICE_C';
 $dictionary['Opportunity']['fields']['mq_unit_price_c']['source']='custom_fields';
@@ -650,7 +698,6 @@ $dictionary['Opportunity']['fields']['adoption_services_c']['type']='float';
 $dictionary['Opportunity']['fields']['adoption_services_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['adoption_services_c']['importable']='true';
 $dictionary['Opportunity']['fields']['adoption_services_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['adoption_services_c']['precision']='8';
 $dictionary['Opportunity']['fields']['adoption_services_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['adoption_services_c']['vname']='LBL_ADOPTION_SERVICES_C';
 $dictionary['Opportunity']['fields']['adoption_services_c']['source']='custom_fields';
@@ -740,9 +787,8 @@ $dictionary['Opportunity']['fields']['implementation_timeframe_c']['source']='cu
 
 $dictionary['Opportunity']['fields']['region_c']['name']='region_c';
 $dictionary['Opportunity']['fields']['region_c']['len']='255';
-$dictionary['Opportunity']['fields']['region_c']['type']='enum';
+$dictionary['Opportunity']['fields']['region_c']['type']='text';
 $dictionary['Opportunity']['fields']['region_c']['inline_edit']=1;
-$dictionary['Opportunity']['fields']['region_c']['options']='ae_region_dom';
 $dictionary['Opportunity']['fields']['region_c']['importable']='true';
 $dictionary['Opportunity']['fields']['region_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['region_c']['module']='Opportunities';
@@ -988,7 +1034,7 @@ $dictionary['Opportunity']['fields']['total_amount_c']['type']='float';
 $dictionary['Opportunity']['fields']['total_amount_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['total_amount_c']['importable']='true';
 $dictionary['Opportunity']['fields']['total_amount_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['total_amount_c']['precision']='8';
+$dictionary['Opportunity']['fields']['total_amount_c']['precision']='2';
 $dictionary['Opportunity']['fields']['total_amount_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['total_amount_c']['vname']='LBL_TOTAL_AMOUNT_C';
 $dictionary['Opportunity']['fields']['total_amount_c']['source']='custom_fields';
@@ -1015,7 +1061,7 @@ $dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['type']='float
 $dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['importable']='true';
 $dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['precision']='8';
+$dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['precision']='2';
 $dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['vname']='LBL_ANNUAL_MAINTENANCE_COST_C';
 $dictionary['Opportunity']['fields']['annual_maintenance_cost_c']['source']='custom_fields';
@@ -1118,8 +1164,9 @@ $dictionary['Opportunity']['fields']['implemention_comments_c']['source']='custo
 
 $dictionary['Opportunity']['fields']['new_am_region_c']['name']='new_am_region_c';
 $dictionary['Opportunity']['fields']['new_am_region_c']['len']='255';
-$dictionary['Opportunity']['fields']['new_am_region_c']['type']='text';
+$dictionary['Opportunity']['fields']['new_am_region_c']['type']='enum';
 $dictionary['Opportunity']['fields']['new_am_region_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['new_am_region_c']['options']='new_am_region_list';
 $dictionary['Opportunity']['fields']['new_am_region_c']['importable']='true';
 $dictionary['Opportunity']['fields']['new_am_region_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['new_am_region_c']['module']='Opportunities';
@@ -1131,8 +1178,9 @@ $dictionary['Opportunity']['fields']['new_am_region_c']['source']='custom_fields
 
 $dictionary['Opportunity']['fields']['confidence_level_c']['name']='confidence_level_c';
 $dictionary['Opportunity']['fields']['confidence_level_c']['len']='255';
-$dictionary['Opportunity']['fields']['confidence_level_c']['type']='text';
+$dictionary['Opportunity']['fields']['confidence_level_c']['type']='enum';
 $dictionary['Opportunity']['fields']['confidence_level_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['confidence_level_c']['options']='confidence_level_list';
 $dictionary['Opportunity']['fields']['confidence_level_c']['importable']='true';
 $dictionary['Opportunity']['fields']['confidence_level_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['confidence_level_c']['module']='Opportunities';
@@ -1478,36 +1526,17 @@ $dictionary['Opportunity']['fields']['incumbentx_c']['vname']='LBL_INCUMBENTX_C'
 $dictionary['Opportunity']['fields']['incumbentx_c']['source']='custom_fields';
 
 
- // Vardef Created : Onewinner_c 
+ // Vardef Created : winner_c 
 
-$dictionary['Opportunity']['fields']['Onewinner_c']['name']='Onewinner_c';
-$dictionary['Opportunity']['fields']['Onewinner_c']['len']='18';
-$dictionary['Opportunity']['fields']['Onewinner_c']['type']='id';
-$dictionary['Opportunity']['fields']['Onewinner_c']['inline_edit']=1;
-$dictionary['Opportunity']['fields']['Onewinner_c']['importable']='true';
-$dictionary['Opportunity']['fields']['Onewinner_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['Onewinner_c']['id']='OpportunitiesOnewinner_c';
-$dictionary['Opportunity']['fields']['Onewinner_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onewinner_c']['custom_module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onewinner_c']['vname']='LBL_ONEWINNER_C';
-$dictionary['Opportunity']['fields']['Onewinner_c']['source']='custom_fields';
-
-
- // Vardef Created : winner_name_c 
-
-$dictionary['Opportunity']['fields']['winner_name_c']['name']='winner_name_c';
-$dictionary['Opportunity']['fields']['winner_name_c']['len']='255';
-$dictionary['Opportunity']['fields']['winner_name_c']['type']='relate';
-$dictionary['Opportunity']['fields']['winner_name_c']['inline_edit']=1;
-$dictionary['Opportunity']['fields']['winner_name_c']['importable']='true';
-$dictionary['Opportunity']['fields']['winner_name_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['winner_name_c']['ext2']='Users';
-$dictionary['Opportunity']['fields']['winner_name_c']['id']='Opportunitieswinner_name_c';
-$dictionary['Opportunity']['fields']['winner_name_c']['module']='Users';
-$dictionary['Opportunity']['fields']['winner_name_c']['studio']='visible';
-$dictionary['Opportunity']['fields']['winner_name_c']['id_name']='Onewinner_c';
-$dictionary['Opportunity']['fields']['winner_name_c']['vname']='LBL_WINNER_NAME_C';
-$dictionary['Opportunity']['fields']['winner_name_c']['source']='non-db';
+$dictionary['Opportunity']['fields']['winner_c']['name']='winner_c';
+$dictionary['Opportunity']['fields']['winner_c']['len']='18';
+$dictionary['Opportunity']['fields']['winner_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['winner_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['winner_c']['importable']='true';
+$dictionary['Opportunity']['fields']['winner_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['winner_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['winner_c']['vname']='LBL_WINNER_C';
+$dictionary['Opportunity']['fields']['winner_c']['source']='custom_fields';
 
 
  // Vardef Created : incumbent_unit_price_c 
@@ -1518,7 +1547,7 @@ $dictionary['Opportunity']['fields']['incumbent_unit_price_c']['type']='float';
 $dictionary['Opportunity']['fields']['incumbent_unit_price_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['incumbent_unit_price_c']['importable']='true';
 $dictionary['Opportunity']['fields']['incumbent_unit_price_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['incumbent_unit_price_c']['precision']='8';
+$dictionary['Opportunity']['fields']['incumbent_unit_price_c']['precision']='2';
 $dictionary['Opportunity']['fields']['incumbent_unit_price_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['incumbent_unit_price_c']['vname']='LBL_INCUMBENT_UNIT_PRICE_C';
 $dictionary['Opportunity']['fields']['incumbent_unit_price_c']['source']='custom_fields';
@@ -1532,7 +1561,7 @@ $dictionary['Opportunity']['fields']['winner_unit_price_c']['type']='float';
 $dictionary['Opportunity']['fields']['winner_unit_price_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['winner_unit_price_c']['importable']='true';
 $dictionary['Opportunity']['fields']['winner_unit_price_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['winner_unit_price_c']['precision']='8';
+$dictionary['Opportunity']['fields']['winner_unit_price_c']['precision']='2';
 $dictionary['Opportunity']['fields']['winner_unit_price_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['winner_unit_price_c']['vname']='LBL_WINNER_UNIT_PRICE_C';
 $dictionary['Opportunity']['fields']['winner_unit_price_c']['source']='custom_fields';
@@ -1588,7 +1617,6 @@ $dictionary['Opportunity']['fields']['number_of_licenses_c']['type']='float';
 $dictionary['Opportunity']['fields']['number_of_licenses_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['number_of_licenses_c']['importable']='true';
 $dictionary['Opportunity']['fields']['number_of_licenses_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['number_of_licenses_c']['precision']='8';
 $dictionary['Opportunity']['fields']['number_of_licenses_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['number_of_licenses_c']['vname']='LBL_NUMBER_OF_LICENSES_C';
 $dictionary['Opportunity']['fields']['number_of_licenses_c']['source']='custom_fields';
@@ -1764,7 +1792,6 @@ $dictionary['Opportunity']['fields']['license_cost_c']['type']='float';
 $dictionary['Opportunity']['fields']['license_cost_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['license_cost_c']['importable']='true';
 $dictionary['Opportunity']['fields']['license_cost_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['license_cost_c']['precision']='8';
 $dictionary['Opportunity']['fields']['license_cost_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['license_cost_c']['vname']='LBL_LICENSE_COST_C';
 $dictionary['Opportunity']['fields']['license_cost_c']['source']='custom_fields';
@@ -1919,14 +1946,13 @@ $dictionary['Opportunity']['fields']['pipeline_score_c']['source']='custom_field
  // Vardef Created : Onespecialist_c 
 
 $dictionary['Opportunity']['fields']['Onespecialist_c']['name']='Onespecialist_c';
-$dictionary['Opportunity']['fields']['Onespecialist_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onespecialist_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onespecialist_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onespecialist_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onespecialist_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onespecialist_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onespecialist_c']['id']='OpportunitiesOnespecialist_c';
 $dictionary['Opportunity']['fields']['Onespecialist_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onespecialist_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onespecialist_c']['vname']='LBL_ONESPECIALIST_C';
 $dictionary['Opportunity']['fields']['Onespecialist_c']['source']='custom_fields';
 
@@ -1956,7 +1982,6 @@ $dictionary['Opportunity']['fields']['number_of_ftes_c']['type']='float';
 $dictionary['Opportunity']['fields']['number_of_ftes_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['number_of_ftes_c']['importable']='true';
 $dictionary['Opportunity']['fields']['number_of_ftes_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['number_of_ftes_c']['precision']='8';
 $dictionary['Opportunity']['fields']['number_of_ftes_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['number_of_ftes_c']['vname']='LBL_NUMBER_OF_FTES_C';
 $dictionary['Opportunity']['fields']['number_of_ftes_c']['source']='custom_fields';
@@ -2154,14 +2179,13 @@ $dictionary['Opportunity']['fields']['coding_start_date_c']['source']='custom_fi
  // Vardef Created : Onenew_ae1_c 
 
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['name']='Onenew_ae1_c';
-$dictionary['Opportunity']['fields']['Onenew_ae1_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onenew_ae1_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['id']='OpportunitiesOnenew_ae1_c';
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onenew_ae1_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['vname']='LBL_ONENEW_AE1_C';
 $dictionary['Opportunity']['fields']['Onenew_ae1_c']['source']='custom_fields';
 
@@ -2186,14 +2210,13 @@ $dictionary['Opportunity']['fields']['new_ae1_name_c']['source']='non-db';
  // Vardef Created : Onenew_ae2_c 
 
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['name']='Onenew_ae2_c';
-$dictionary['Opportunity']['fields']['Onenew_ae2_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onenew_ae2_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['id']='OpportunitiesOnenew_ae2_c';
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onenew_ae2_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['vname']='LBL_ONENEW_AE2_C';
 $dictionary['Opportunity']['fields']['Onenew_ae2_c']['source']='custom_fields';
 
@@ -2249,7 +2272,6 @@ $dictionary['Opportunity']['fields']['count_c']['type']='float';
 $dictionary['Opportunity']['fields']['count_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['count_c']['importable']='true';
 $dictionary['Opportunity']['fields']['count_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['count_c']['precision']='8';
 $dictionary['Opportunity']['fields']['count_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['count_c']['vname']='LBL_COUNT_C';
 $dictionary['Opportunity']['fields']['count_c']['source']='custom_fields';
@@ -2550,7 +2572,6 @@ $dictionary['Opportunity']['fields']['co_license_cost_c']['type']='float';
 $dictionary['Opportunity']['fields']['co_license_cost_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_license_cost_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_license_cost_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_license_cost_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_license_cost_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_license_cost_c']['vname']='LBL_CO_LICENSE_COST_C';
 $dictionary['Opportunity']['fields']['co_license_cost_c']['source']='custom_fields';
@@ -2564,7 +2585,6 @@ $dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['type'
 $dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['vname']='LBL_CO_ANNUAL_PROD_SUBSCRIPTION_FEE_C';
 $dictionary['Opportunity']['fields']['co_annual_prod_subscription_fee_c']['source']='custom_fields';
@@ -2578,7 +2598,6 @@ $dictionary['Opportunity']['fields']['co_third_party_software_c']['type']='float
 $dictionary['Opportunity']['fields']['co_third_party_software_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_third_party_software_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_third_party_software_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_third_party_software_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_third_party_software_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_third_party_software_c']['vname']='LBL_CO_THIRD_PARTY_SOFTWARE_C';
 $dictionary['Opportunity']['fields']['co_third_party_software_c']['source']='custom_fields';
@@ -2592,7 +2611,6 @@ $dictionary['Opportunity']['fields']['co_speech_mics_c']['type']='float';
 $dictionary['Opportunity']['fields']['co_speech_mics_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_speech_mics_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_speech_mics_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_speech_mics_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_speech_mics_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_speech_mics_c']['vname']='LBL_CO_SPEECH_MICS_C';
 $dictionary['Opportunity']['fields']['co_speech_mics_c']['source']='custom_fields';
@@ -2606,7 +2624,6 @@ $dictionary['Opportunity']['fields']['co_other_hardware_server_c']['type']='floa
 $dictionary['Opportunity']['fields']['co_other_hardware_server_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_other_hardware_server_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_other_hardware_server_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_other_hardware_server_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_other_hardware_server_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_other_hardware_server_c']['vname']='LBL_CO_OTHER_HARDWARE_SERVER_C';
 $dictionary['Opportunity']['fields']['co_other_hardware_server_c']['source']='custom_fields';
@@ -2620,7 +2637,6 @@ $dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['t
 $dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['vname']='LBL_CO_IMPLEMENTATION_TRAINING_PRO_SERV_C';
 $dictionary['Opportunity']['fields']['co_implementation_training_pro_serv_c']['source']='custom_fields';
@@ -2634,7 +2650,6 @@ $dictionary['Opportunity']['fields']['co_annual_gma_c']['type']='float';
 $dictionary['Opportunity']['fields']['co_annual_gma_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_annual_gma_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_annual_gma_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_annual_gma_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_annual_gma_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_annual_gma_c']['vname']='LBL_CO_ANNUAL_GMA_C';
 $dictionary['Opportunity']['fields']['co_annual_gma_c']['source']='custom_fields';
@@ -2662,7 +2677,6 @@ $dictionary['Opportunity']['fields']['co_hosting_c']['type']='float';
 $dictionary['Opportunity']['fields']['co_hosting_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_hosting_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_hosting_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_hosting_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_hosting_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_hosting_c']['vname']='LBL_CO_HOSTING_C';
 $dictionary['Opportunity']['fields']['co_hosting_c']['source']='custom_fields';
@@ -2676,7 +2690,6 @@ $dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['type']='float'
 $dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['importable']='true';
 $dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['precision']='8';
 $dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['vname']='LBL_CO_ANNUAL_TOS_ESTIMATE_C';
 $dictionary['Opportunity']['fields']['co_annual_tos_estimate_c']['source']='custom_fields';
@@ -2713,14 +2726,13 @@ $dictionary['Opportunity']['fields']['backup_c']['source']='custom_fields';
  // Vardef Created : Onechannel_rep_c 
 
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['name']='Onechannel_rep_c';
-$dictionary['Opportunity']['fields']['Onechannel_rep_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onechannel_rep_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['id']='OpportunitiesOnechannel_rep_c';
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onechannel_rep_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['vname']='LBL_ONECHANNEL_REP_C';
 $dictionary['Opportunity']['fields']['Onechannel_rep_c']['source']='custom_fields';
 
@@ -2758,14 +2770,13 @@ $dictionary['Opportunity']['fields']['bundle_c']['source']='custom_fields';
  // Vardef Created : Oneinside_sales_ae_c 
 
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['name']='Oneinside_sales_ae_c';
-$dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['len']='18';
+$dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['len']='36';
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['type']='id';
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['id']='OpportunitiesOneinside_sales_ae_c';
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['vname']='LBL_ONEINSIDE_SALES_AE_C';
 $dictionary['Opportunity']['fields']['Oneinside_sales_ae_c']['source']='custom_fields';
 
@@ -2920,7 +2931,7 @@ $dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['type']='float';
 $dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['importable']='true';
 $dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['precision']='8';
+$dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['precision']='2';
 $dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['vname']='LBL_EB_TOS_ADJUSTMENT_C';
 $dictionary['Opportunity']['fields']['eb_tos_adjustment_c']['source']='custom_fields';
@@ -3102,7 +3113,6 @@ $dictionary['Opportunity']['fields']['term_length_mm_c']['type']='float';
 $dictionary['Opportunity']['fields']['term_length_mm_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['term_length_mm_c']['importable']='true';
 $dictionary['Opportunity']['fields']['term_length_mm_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['term_length_mm_c']['precision']='8';
 $dictionary['Opportunity']['fields']['term_length_mm_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['term_length_mm_c']['vname']='LBL_TERM_LENGTH_MM_C';
 $dictionary['Opportunity']['fields']['term_length_mm_c']['source']='custom_fields';
@@ -3138,14 +3148,13 @@ $dictionary['Opportunity']['fields']['ae1_perc_c']['source']='custom_fields';
  // Vardef Created : Oneae1_c 
 
 $dictionary['Opportunity']['fields']['Oneae1_c']['name']='Oneae1_c';
-$dictionary['Opportunity']['fields']['Oneae1_c']['len']='18';
+$dictionary['Opportunity']['fields']['Oneae1_c']['len']='36';
 $dictionary['Opportunity']['fields']['Oneae1_c']['type']='id';
 $dictionary['Opportunity']['fields']['Oneae1_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Oneae1_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Oneae1_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Oneae1_c']['id']='OpportunitiesOneae1_c';
 $dictionary['Opportunity']['fields']['Oneae1_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Oneae1_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Oneae1_c']['vname']='LBL_ONEAE1_C';
 $dictionary['Opportunity']['fields']['Oneae1_c']['source']='custom_fields';
 
@@ -3184,14 +3193,13 @@ $dictionary['Opportunity']['fields']['ae2_perc_c']['source']='custom_fields';
  // Vardef Created : Oneae2 
 
 $dictionary['Opportunity']['fields']['Oneae2']['name']='Oneae2';
-$dictionary['Opportunity']['fields']['Oneae2']['len']='18';
+$dictionary['Opportunity']['fields']['Oneae2']['len']='36';
 $dictionary['Opportunity']['fields']['Oneae2']['type']='id';
 $dictionary['Opportunity']['fields']['Oneae2']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Oneae2']['importable']='true';
 $dictionary['Opportunity']['fields']['Oneae2']['reportable']=true;
 $dictionary['Opportunity']['fields']['Oneae2']['id']='OpportunitiesOneae2';
 $dictionary['Opportunity']['fields']['Oneae2']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Oneae2']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Oneae2']['vname']='LBL_ONEAE2';
 $dictionary['Opportunity']['fields']['Oneae2']['source']='custom_fields';
 
@@ -3285,14 +3293,13 @@ $dictionary['Opportunity']['fields']['se2_perc_c']['source']='custom_fields';
  // Vardef Created : Onese2_c 
 
 $dictionary['Opportunity']['fields']['Onese2_c']['name']='Onese2_c';
-$dictionary['Opportunity']['fields']['Onese2_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onese2_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onese2_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onese2_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onese2_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onese2_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onese2_c']['id']='OpportunitiesOnese2_c';
 $dictionary['Opportunity']['fields']['Onese2_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onese2_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onese2_c']['vname']='LBL_ONESE2_C';
 $dictionary['Opportunity']['fields']['Onese2_c']['source']='custom_fields';
 
@@ -3336,7 +3343,6 @@ $dictionary['Opportunity']['fields']['est_platform_cost_c']['type']='float';
 $dictionary['Opportunity']['fields']['est_platform_cost_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['est_platform_cost_c']['importable']='true';
 $dictionary['Opportunity']['fields']['est_platform_cost_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['est_platform_cost_c']['precision']='8';
 $dictionary['Opportunity']['fields']['est_platform_cost_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['est_platform_cost_c']['vname']='LBL_EST_PLATFORM_COST_C';
 $dictionary['Opportunity']['fields']['est_platform_cost_c']['source']='custom_fields';
@@ -3698,14 +3704,13 @@ $dictionary['Opportunity']['fields']['blank_ae8_c']['source']='custom_fields';
  // Vardef Created : Onervp_override1_c 
 
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['name']='Onervp_override1_c';
-$dictionary['Opportunity']['fields']['Onervp_override1_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onervp_override1_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['id']='OpportunitiesOnervp_override1_c';
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onervp_override1_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['vname']='LBL_ONERVP_OVERRIDE1_C';
 $dictionary['Opportunity']['fields']['Onervp_override1_c']['source']='custom_fields';
 
@@ -3730,14 +3735,13 @@ $dictionary['Opportunity']['fields']['rvp_override1_name_c']['source']='non-db';
  // Vardef Created : Onervp_override2_c 
 
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['name']='Onervp_override2_c';
-$dictionary['Opportunity']['fields']['Onervp_override2_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onervp_override2_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['id']='OpportunitiesOnervp_override2_c';
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onervp_override2_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['vname']='LBL_ONERVP_OVERRIDE2_C';
 $dictionary['Opportunity']['fields']['Onervp_override2_c']['source']='custom_fields';
 
@@ -3845,14 +3849,13 @@ $dictionary['Opportunity']['fields']['svp_2_c']['source']='custom_fields';
  // Vardef Created : Onesvp_override1_c 
 
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['name']='Onesvp_override1_c';
-$dictionary['Opportunity']['fields']['Onesvp_override1_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onesvp_override1_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['id']='OpportunitiesOnesvp_override1_c';
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onesvp_override1_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['vname']='LBL_ONESVP_OVERRIDE1_C';
 $dictionary['Opportunity']['fields']['Onesvp_override1_c']['source']='custom_fields';
 
@@ -3877,14 +3880,13 @@ $dictionary['Opportunity']['fields']['svp_override1_name_c']['source']='non-db';
  // Vardef Created : Onesvp_override2_c 
 
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['name']='Onesvp_override2_c';
-$dictionary['Opportunity']['fields']['Onesvp_override2_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onesvp_override2_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['id']='OpportunitiesOnesvp_override2_c';
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onesvp_override2_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['vname']='LBL_ONESVP_OVERRIDE2_C';
 $dictionary['Opportunity']['fields']['Onesvp_override2_c']['source']='custom_fields';
 
@@ -4157,14 +4159,13 @@ $dictionary['Opportunity']['fields']['initial_license_purchase_c']['source']='cu
  // Vardef Created : Onese1_c 
 
 $dictionary['Opportunity']['fields']['Onese1_c']['name']='Onese1_c';
-$dictionary['Opportunity']['fields']['Onese1_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onese1_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onese1_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onese1_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onese1_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onese1_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onese1_c']['id']='OpportunitiesOnese1_c';
 $dictionary['Opportunity']['fields']['Onese1_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onese1_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onese1_c']['vname']='LBL_ONESE1_C';
 $dictionary['Opportunity']['fields']['Onese1_c']['source']='custom_fields';
 
@@ -4711,7 +4712,6 @@ $dictionary['Opportunity']['fields']['license_term_length_mm_c']['type']='float'
 $dictionary['Opportunity']['fields']['license_term_length_mm_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['license_term_length_mm_c']['importable']='true';
 $dictionary['Opportunity']['fields']['license_term_length_mm_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['license_term_length_mm_c']['precision']='8';
 $dictionary['Opportunity']['fields']['license_term_length_mm_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['license_term_length_mm_c']['vname']='LBL_LICENSE_TERM_LENGTH_MM_C';
 $dictionary['Opportunity']['fields']['license_term_length_mm_c']['source']='custom_fields';
@@ -4781,7 +4781,6 @@ $dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['type']=
 $dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['importable']='true';
 $dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['precision']='8';
 $dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['vname']='LBL_SW_MAINTENANCE_TERM_LENGTH_MM_C';
 $dictionary['Opportunity']['fields']['sw_maintenance_term_length_mm_c']['source']='custom_fields';
@@ -4821,7 +4820,6 @@ $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['type']=
 $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['importable']='true';
 $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['adoption_services_term_length_c']['precision']='8';
 $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['vname']='LBL_ADOPTION_SERVICES_TERM_LENGTH_C';
 $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['source']='custom_fields';
@@ -4830,14 +4828,13 @@ $dictionary['Opportunity']['fields']['adoption_services_term_length_c']['source'
  // Vardef Created : Onenew_partner_c 
 
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['name']='Onenew_partner_c';
-$dictionary['Opportunity']['fields']['Onenew_partner_c']['len']='18';
+$dictionary['Opportunity']['fields']['Onenew_partner_c']['len']='36';
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['type']='id';
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['id']='OpportunitiesOnenew_partner_c';
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['module']='Opportunities';
-$dictionary['Opportunity']['fields']['Onenew_partner_c']['custom_module']='Opportunities';
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['vname']='LBL_ONENEW_PARTNER_C';
 $dictionary['Opportunity']['fields']['Onenew_partner_c']['source']='custom_fields';
 
@@ -4934,7 +4931,6 @@ $dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['type']='fl
 $dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['importable']='true';
 $dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['precision']='8';
 $dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['vname']='LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C';
 $dictionary['Opportunity']['fields']['notifi_subscription_amount_c']['source']='custom_fields';
@@ -4974,7 +4970,6 @@ $dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c'][
 $dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c']['importable']='true';
 $dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c']['precision']='8';
 $dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c']['vname']='LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C';
 $dictionary['Opportunity']['fields']['extended_term_adoption_services_value_c']['source']='custom_fields';
@@ -5040,7 +5035,6 @@ $dictionary['Opportunity']['fields']['total_contract_value_c']['type']='float';
 $dictionary['Opportunity']['fields']['total_contract_value_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['total_contract_value_c']['importable']='true';
 $dictionary['Opportunity']['fields']['total_contract_value_c']['reportable']=true;
-$dictionary['Opportunity']['fields']['total_contract_value_c']['precision']='8';
 $dictionary['Opportunity']['fields']['total_contract_value_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['total_contract_value_c']['vname']='LBL_TOTAL_CONTRACT_VALUE_C';
 $dictionary['Opportunity']['fields']['total_contract_value_c']['source']='custom_fields';

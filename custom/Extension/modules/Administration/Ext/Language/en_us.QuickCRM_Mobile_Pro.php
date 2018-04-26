@@ -37,13 +37,6 @@ $mod_strings['LBL_OFFLINE_MAX'] = 'Maximum Offline duration (days)';
 
 $mod_strings['LBL_AUDIONOTES'] = 'Audio Notes';
 
-$mod_strings['LBL_DISPLAYED_FIELDS_TITLE'] = 'Displayed fields';
-$mod_strings['LBL_AVAILABLE_FIELDS'] = 'Available';
-$mod_strings['LBL_DISPLAYED_FIELDS'] = 'Search';
-$mod_strings['LBL_STANDARD_FIELDS'] = 'Standard';
-$mod_strings['LBL_ADDRESSES'] = 'Addresses';
-$mod_strings['LBL_ADDITIONAL_FIELDS'] = 'Additional Fields';
-
 $mod_strings['LBL_SEARCH_FIELDS_TITLE'] = 'Search Fields';
 $mod_strings['LBL_CONFIG_SAVED'] = '... Saving ...';
 $mod_strings['LBL_NO_USER'] = 'No User selected';
@@ -54,13 +47,15 @@ $mod_strings['LBL_MARKERS'] = 'Markers';
 $mod_strings['LBL_NATIVE_CAL'] = 'Device calendar';
 $mod_strings['LBL_FORCE_LOCK'] = "Force passcode in app";
 
-$mod_strings['LBL_DEFAULT'] = 'Default';
-$mod_strings['LBL_ADD_LAYOUT'] = 'Add Layout';
-$mod_strings['LBL_ADD_LAYOUTS'] = 'Add Layout';
-$mod_strings['LBL_QUESTION_ADD_LAYOUT'] = 'Select a Group Layout to Add.';
-$mod_strings['LBL_REMOVE_LAYOUT'] = 'Remove Group Layout';
+$mod_strings['LBL_MULTIVIEW_DEFAULT'] = 'Group views are based on Roles.<br>Go to General settings to base views on Security Groups';
+$mod_strings['LBL_MULTIVIEW'] = 'Base group views on:';
+$mod_strings['LBL_QDEFAULT'] = 'Default';
+$mod_strings['LBL_QADD_LAYOUT'] = 'Add Layout';
+$mod_strings['LBL_QQUESTION_ADD_LAYOUT'] = 'Select a Layout to Add.';
+$mod_strings['LBL_QREMOVE_LAYOUT'] = 'Remove Layouts';
+$mod_strings['LBL_QREMOVE_CONFIRM'] = 'Existing group views will be deleted';
+$mod_strings['LBL_HIGHLIGHTED'] = 'Emphasized';
 
-$mod_strings['LBL_SECURITYGROUP'] = 'Security Group:';
-$mod_strings['LBL_COPY_FROM'] = 'Copy From:';
+$mod_strings['LBL_QCOPY_FROM'] = 'Copy From:';
 
 $mod_strings['LBL_RESET_QUICKCRM_CONFIRMATION'] = 'Are you sure you want to reset configuration to default values? This cannot be undone.';

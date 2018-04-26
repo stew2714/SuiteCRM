@@ -37,6 +37,56 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
 global $sugar_config;
+
+if ($sugar_config['dbconfig']['db_type'] =='mssql'){
+	$shared_def = array (
+    'required' => false,
+    'name' => 'shared',
+    'vname' => 'LBL_SHARED',
+    'type' => 'int',
+    'massupdate' => 0,
+    'default' => '0',
+    'no_default' => false,
+    'comments' => '',
+    'help' => '',
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
+    'duplicate_merge_dom_value' => '0',
+    'audited' => false,
+    'reportable' => true,
+    'unified_search' => false,
+    'merge_filter' => 'disabled',
+    'len' => '255',
+    'size' => '20',
+    'enable_range_search' => false,
+    'disable_num_format' => '',
+    'min' => false,
+    'max' => false,
+	);
+}
+else{
+	$shared_def = array (
+		'required' => false,
+		'name' => 'shared',
+		'vname' => 'LBL_SHARED',
+		'type' => 'bool',
+		'massupdate' => 0,
+		'default' => '0',
+		'no_default' => false,
+		'comments' => '',
+		'help' => '',
+		'importable' => 'false',
+		'duplicate_merge' => 'disabled',
+		'duplicate_merge_dom_value' => '0',
+		'audited' => false,
+		'reportable' => true,
+		'unified_search' => false,
+		'merge_filter' => 'disabled',
+		'len' => '255',
+		'size' => '20',
+	);
+}
+
 $dictionary['QCRM_Homepage'] = array(
 	'table'=>'qcrm_homepage',
 	'audited'=>false,
@@ -130,60 +180,13 @@ $dictionary['QCRM_Homepage'] = array(
     'rows' => '4',
     'cols' => '20',
   ),
+  'shared' => $shared_def,
 ),
 	'relationships'=>array (
 ),
 	'optimistic_locking'=>true,
 		'unified_search'=>false,
 	);
-if ($sugar_config['dbconfig']['db_type'] =='mssql'){
-	$dictionary['QCRM_Homepage']['fields']['shared']=   array (
-    'required' => false,
-    'name' => 'shared',
-    'vname' => 'LBL_SHARED',
-    'type' => 'int',
-    'massupdate' => 0,
-    'default' => '0',
-    'no_default' => false,
-    'comments' => '',
-    'help' => '',
-    'importable' => 'true',
-    'duplicate_merge' => 'disabled',
-    'duplicate_merge_dom_value' => '0',
-    'audited' => false,
-    'reportable' => true,
-    'unified_search' => false,
-    'merge_filter' => 'disabled',
-    'len' => '255',
-    'size' => '20',
-    'enable_range_search' => false,
-    'disable_num_format' => '',
-    'min' => false,
-    'max' => false,
-	);
-}
-else{
-	$dictionary['QCRM_Homepage']['fields']['shared']=   array (
-		'required' => false,
-		'name' => 'shared',
-		'vname' => 'LBL_SHARED',
-		'type' => 'bool',
-		'massupdate' => 0,
-		'default' => '0',
-		'no_default' => false,
-		'comments' => '',
-		'help' => '',
-		'importable' => 'false',
-		'duplicate_merge' => 'disabled',
-		'duplicate_merge_dom_value' => '0',
-		'audited' => false,
-		'reportable' => true,
-		'unified_search' => false,
-		'merge_filter' => 'disabled',
-		'len' => '255',
-		'size' => '20',
-	);
-}
 
 
 if (!class_exists('VardefManager')){

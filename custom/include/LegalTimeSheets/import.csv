@@ -1,0 +1,3 @@
+column,Do not create,name,type,options,label,id_name,related module
+"   agreement_c varchar(36),",,Oneagreement_c,id,,,,
+,,agreement_name_c,relate,,Agreement,Oneagreement_c,AOS_Contracts

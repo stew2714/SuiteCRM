@@ -1,10 +1,10 @@
 <?php
 /*********************************************************************************
  * This file is part of QuickCRM Mobile Full.
- * QuickCRM Mobile Full is a mobile client for SugarCRM
+ * QuickCRM Mobile Full is a mobile client for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.ns-team.fr)
- * All rights (c) 2011-2016 by NS-Team
+ * All rights (c) 2011-2017 by NS-Team
  *
  * This Version of the QuickCRM Mobile Full is licensed software and may only be used in 
  * alignment with the License Agreement received with this Software.
@@ -16,15 +16,24 @@
  * 
  ********************************************************************************/
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 global $mod_strings;
 global $app_strings;
 global $app_list_strings;
 global $current_language;
 global $beanFiles, $beanList;
 global $sugar_config;
+
+require_once($beanFiles[$beanList['ACLRoles']]);
+$role_bean = new ACLRole();
+if (isset($app_list_strings["moduleList"]["SecurityGroups"])){
+	require_once($beanFiles[$beanList['SecurityGroups']]);
+	$group_bean = new SecurityGroup();
+}
 //$mod_strings=return_module_language($current_language, 'Administration');
 $MBmod_strings=return_module_language($current_language, 'ModuleBuilder');
 $Usersmod_strings=return_module_language($current_language, 'Users');
+$Schedulersmod_strings=return_module_language($current_language, 'Schedulers');
 $suitecrm = (isset($sugar_config['suitecrm_version']) );
 
 ini_set("display_errors", 0);
@@ -35,7 +44,7 @@ echo getClassicModuleTitle(
     "Administration",
     array(
         "<a href='index.php?module=Administration&action=index'>".translate('LBL_MODULE_NAME','Administration')."</a>",
-        $mod_strings['LBL_SETTINGS_QUICKCRM_TITLE'],
+        'QuickCRM: ' . $mod_strings['LBL_SETTINGS_QUICKCRM_TITLE'],
     ),
     false
 );
@@ -53,6 +62,77 @@ $documents_sync_checked=((!isset($qutils->mobile['documents_sync']) || $qutils->
 $documents_sync_title = $app_list_strings["moduleList"]["Documents"] . ': ' . $app_list_strings["moduleList"]["Sync"];
 $audio_notes_checked=((!isset($qutils->mobile['audio_notes']) || $qutils->mobile['audio_notes'])?' checked="checked"':'');
 $audio_notes_title = $mod_strings['LBL_AUDIONOTES'];
+
+$current_profile = $qutils->mobile['profilemode'];
+$profiles = '<option value="none" '.($current_profile == "none" ? 'selected="selected"' :'').'>' .$app_strings["LBL_NONE"] . '</option>';
+$profiles .= '<option value="ACLRoles" '.($current_profile == "ACLRoles" ? 'selected="selected"' :'').'>' .$app_list_strings["moduleList"]["ACLRoles"] . '</option>';
+$profile_display = 'style="display:none;"';
+if (isset($sugar_config['quickcrm_profiles']) && $sugar_config['quickcrm_profiles']){
+	$profile_display ='';
+}
+
+if (isset($app_list_strings["moduleList"]["SecurityGroups"])){
+	$profiles .= '<option value="SecurityGroups" '.($current_profile == "SecurityGroups" ? 'selected="selected"' :'').'>' .$app_list_strings["moduleList"]["SecurityGroups"] . '</option>';
+}
+
+$current_tracker = $qutils->mobile['trackermode'];
+$current_frequency = $qutils->mobile['trackerfreq'];
+$current_tracker_group = $qutils->mobile['trackergroup'];
+$current_tracker_role = $qutils->mobile['trackerrole'];
+
+$trackermodes = '<option value="none" '.($current_tracker == "none" ? 'selected="selected"' :'').'>' .$app_strings["LBL_NONE"] . '</option>';
+
+if (isset($app_list_strings['aor_assign_options']) && isset($app_list_strings['aor_assign_options']['role'])) $lbl_role = $app_list_strings['aor_assign_options']['role'];
+else $lbl_role = $app_list_strings["moduleList"]["ACLRoles"];
+
+$roles = $role_bean->get_full_list("name");
+if(!empty($roles)) {
+	$trackermodes .= '<option value="ACLRoles" '.($current_tracker == "ACLRoles" ? 'selected="selected"' :'').'>' . $lbl_role . '</option>';
+	$trackerroles ='';
+    foreach($roles as $group) {
+		$trackerroles .= '<option value="'.$group->id.'">' . $group->name . '</option>';
+    }
+}
+if (isset($app_list_strings["moduleList"]["SecurityGroups"])){
+	$groups = $group_bean->get_full_list("name");
+	if(!empty($groups)) {
+		if (isset($app_list_strings['aor_assign_options']) && isset($app_list_strings['aor_assign_options']['security_group'])) $lbl_group = $app_list_strings['aor_assign_options']['security_group'];
+		else $lbl_group = $app_list_strings["moduleList"]["SecurityGroups"];
+		$trackermodes .= '<option value="SecurityGroups" '.($current_tracker == "SecurityGroups" ? 'selected="selected"' :'').'>' . $lbl_group . '</option>';
+		$trackergroups ='';
+    	foreach($groups as $group) {
+			$trackergroups .= '<option value="'.$group->id.'">' . $group->name . '</option>';
+    	}
+    }
+}
+$lbl_all = 'All';
+if (isset($app_list_strings['aor_assign_options']) && isset($app_list_strings['aor_assign_options']['all'])) $lbl_all = $app_list_strings['aor_assign_options']['all'];
+else if (isset($app_strings['LBL_LISTVIEW_ALL'])) $lbl_all = $app_strings['LBL_LISTVIEW_ALL'];
+
+$trackermodes .= '<option value="all" '.($current_tracker == "all" ? 'selected="selected"' :'').'>' .$lbl_all . '</option>';
+
+$minutes = $Schedulersmod_strings['LBL_MINUTES'];
+$frequencies_arr = array(
+	'5' => '5 ' . $minutes,
+	'10' => '10 ' . $minutes,
+	'15' => '15 ' . $minutes,
+	'30' => '30 ' . $minutes,
+	'60' => '60 ' . $minutes,
+);
+$frequencies = '';
+foreach ($frequencies_arr as $val => $lbl){
+	$frequencies .= '<option value="'.$val.'" '.($current_frequency == $val ? 'selected="selected"' :'').'>' . $lbl . '</option>';
+}
+
+$tracker_display = 'style="display:none;"';
+if (isset($sugar_config['quickcrm_tracker']) && $sugar_config['quickcrm_tracker']){
+	$tracker_display ='';
+}
+
+$lst_lang = get_languages();
+$current_lang_opt=$qutils->mobile['languages'];
+$language_options = '<option value="default" '.($current_lang_opt == "default" ? 'selected="selected"' :'').'>' .$lst_lang[$sugar_config['default_language']] . '</option>';
+$language_options .= '<option value="all" '.($current_lang_opt == "all" ? 'selected="selected"' :'').'>' .$mod_strings["LBL_ENABLED_LANGS"] . '</option>';
 
 if ($suitecrm){
 	$AOSmod_strings=return_module_language($current_language, 'AOS_Products');
@@ -83,6 +163,39 @@ echo <<<EOQ
 				<br>
 				<br>
 				<table>
+					<tr {$profile_display}>
+						<td id="profilemode_label" width="10%" valign="top" scope="col">
+						<label for="profilemode">{$mod_strings['LBL_MULTIVIEW']}</label>
+						</td>
+						<td width="40%" valign="top">
+							<select id="profilemode" name="profilemode" onchange="alertRemove()">
+								$profiles
+							</select>
+						</td>	
+					</tr>
+					<tr {$tracker_display}>
+						<td id="trackermode_label" width="10%" valign="top" scope="col">
+						<label for="trackermode">{$app_list_strings["moduleList"]["QCRM_Tracker"]}</label>
+						</td>
+						<td width="40%" valign="top">
+							<select id="trackermode" name="trackermode" onchange="changeTracking()">
+								$trackermodes
+							</select>
+							<select style="display:none;" id="trackerrole" name="trackerrole">
+								$trackerroles
+							</select>
+							<select style="display:none;" id="trackergroup" name="trackergroup">
+								$trackergroups
+							</select>
+							<br>
+							<div id="trackerfreqgrp" style="display:none;">
+							<label for="trackerfreq">{$Schedulersmod_strings['LBL_EVERY']}</label>
+							<select id="trackerfreq" name="trackerfreq">
+								$frequencies
+							</select>
+							</div>
+						</td>	
+					</tr>
 					<tr>
 						<td id="rowsperpage_label" width="10%" valign="top" scope="col">
 						<label for="rowsperpage">{$mod_strings['LBL_ROWSPERPAGE']}</label>
@@ -121,6 +234,16 @@ echo <<<EOQ
 						</td>
 						<td width="40%" valign="top">
 						<input id="offline_max_days" type="text" tabindex="0" title="" value="{$qutils->mobile['offline_max_days']}" size="10" name="offline_max_days"/>
+						</td>	
+					</tr>
+					<tr style="display:none;">
+						<td width="10%" valign="top" scope="col">
+						<label for="languages">{$mod_strings['LBL_MANAGE_LANGUAGES']}</label>
+						</td>
+						<td width="40%" valign="top">
+							<select id="languages" name="languages" >
+								$language_options
+							</select>
 						</td>	
 					</tr>
 					<tr>
@@ -176,5 +299,49 @@ echo <<<EOQ
 	</td>
 </tr>
 </table>
+<script>
+var current_profile='{$current_profile}';
+ function alertRemove(){
+ 	if (current_profile !='none'){
+	 	if (confirm('{$mod_strings['LBL_QREMOVE_CONFIRM']}')){
+ 			current_profile = $('#profilemode').val();
+ 		}
+ 		else {
+ 			$('#profilemode').val(current_profile);
+ 		}
+ 	}
+ 	else{
+ 		current_profile = $('#profilemode').val();
+ 	}
+ }
+ function changeTracking(){
+ 	switch($('#trackermode').val()) {
+ 		case 'ACLRoles' :
+ 			$('#trackerrole').show();
+ 			$('#trackergroup').hide();
+ 			$('#trackerfreqgrp').show();
+ 			break;
+ 		case 'SecurityGroups' :
+ 			$('#trackerrole').hide();
+ 			$('#trackergroup').show();
+ 			$('#trackerfreqgrp').show();
+ 			break;
+ 		case 'all' :
+ 			$('#trackerrole').hide();
+ 			$('#trackergroup').hide();
+ 			$('#trackerfreqgrp').show();
+ 			break;
+ 		default :
+ 			$('#trackerrole').hide();
+ 			$('#trackergroup').hide();
+ 			$('#trackerfreqgrp').hide();
+ 			break;
+ 			
+ 	}
+ }
+ if ('{$current_tracker_role}' != '') $('#trackerrole').val('{$current_tracker_role}');
+ if ('{$current_tracker_group}' != '') $('#trackergroup').val('{$current_tracker_group}');
+ changeTracking();
+</script>
 EOQ;
 ?>

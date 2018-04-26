@@ -1,5 +1,5 @@
 <?php
-// created: 2017-11-10 19:00:02
+// created: 2018-02-23 21:24:19
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -33,4 +33,9 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL5' => 'CDI Information',
   'LBL_EDITVIEW_PANEL6' => 'Installed Products',
   'LBL_EDITVIEW_PANEL7' => 'System Information',
+  'LBL_EDITVIEW_PANEL8' => 'Prospecting',
+  'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_OPPORTUNITIES_TITLE' => 'Opportunities',
+  'LBL_TYPE' => 'Type:',
+  'LBL_BILLING_ADDRESS_COUNTRY' => 'Country',
+  'LBL_BILLING_ADDRESS_POSTALCODE' => 'Postal Code',
 );

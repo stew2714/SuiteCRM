@@ -36,13 +36,6 @@ $mod_strings['LBL_ROWSPERSUBPANEL'] ="Regels per Subpanel";
 $mod_strings['LBL_OFFLINE_MAX'] = 'Maximale Offline duur (dagen)';
 $mod_strings['LBL_AUDIONOTES'] = 'Audio Notities';
 
-$mod_strings['LBL_DISPLAYED_FIELDS_TITLE'] = 'Weergegeven velden';
-$mod_strings['LBL_AVAILABLE_FIELDS'] = 'Beschikbaar';
-$mod_strings['LBL_DISPLAYED_FIELDS'] = 'Zoek';
-$mod_strings['LBL_STANDARD_FIELDS'] = 'Standaard';
-$mod_strings['LBL_ADDRESSES'] = 'Adressen';
-$mod_strings['LBL_ADDITIONAL_FIELDS'] = 'Extra velden';
-
 $mod_strings['LBL_SEARCH_FIELDS_TITLE'] = 'Zoekvelden';
 $mod_strings['LBL_CONFIG_SAVED'] = '... Aan het opslaan...';
 $mod_strings['LBL_NO_USER'] = 'Er zijn geen gebruikers geselecteerd';
@@ -53,13 +46,15 @@ $mod_strings['LBL_MARKERS'] = 'Marker';
 $mod_strings['LBL_NATIVE_CAL'] = 'Apparaat kalender';
 $mod_strings['LBL_FORCE_LOCK'] = "Verplicht invoeren wachtwoord";
 
-$mod_strings['LBL_DEFAULT'] = 'Standaard';
-$mod_strings['LBL_ADD_LAYOUT'] = 'Voeg layout toe';
-$mod_strings['LBL_ADD_LAYOUTS'] = 'Voeg layout toe';
-$mod_strings['LBL_QUESTION_ADD_LAYOUT'] = 'Kies een Groep layout om toe te voegen.';
-$mod_strings['LBL_REMOVE_LAYOUT'] = 'Verwijder Groep layout';
+$mod_strings['LBL_MULTIVIEW_DEFAULT'] = 'Groepsweergaves zijn gebaseerd op Rollen.<br>Ga naar de algemene instellingen om dit aan te passen naar Security Groepen';
+$mod_strings['LBL_MULTIVIEW'] = 'Baseer groepsweergave op:';
+$mod_strings['LBL_QDEFAULT'] = 'Standaard';
+$mod_strings['LBL_QADD_LAYOUT'] = 'Voeg layout toe';
+$mod_strings['LBL_QQUESTION_ADD_LAYOUT'] = 'Kies een layout om toe te voegen.';
+$mod_strings['LBL_QREMOVE_LAYOUT'] = 'Verwijder layout';
+$mod_strings['LBL_QREMOVE_CONFIRM'] = 'Bestaande groepsweergaven worden verwijderd';
+$mod_strings['LBL_HIGHLIGHTED'] = 'Benadrukte';
 
-$mod_strings['LBL_SECURITYGROUP'] = 'Security Groep:';
-$mod_strings['LBL_COPY_FROM'] = 'Kopieer van:';
+$mod_strings['LBL_CQOPY_FROM'] = 'Kopieer van:';
 
 $mod_strings['LBL_RESET_QUICKCRM_CONFIRMATION'] = 'Weet u zeker dat u de configuratie terug te zetten naar de standaardwaarden ? Dit kan niet ongedaan worden.';

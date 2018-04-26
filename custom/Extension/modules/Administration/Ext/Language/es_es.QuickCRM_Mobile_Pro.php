@@ -35,12 +35,6 @@ $mod_strings['LBL_ROWSPERSUBPANEL'] ="Elementos por Subpaneles";
 $mod_strings['LBL_OFFLINE_MAX'] = 'Duración sin conexión máxima (días)';
 $mod_strings['LBL_AUDIONOTES'] = 'Notas de audio';
 
-$mod_strings['LBL_DISPLAYED_FIELDS_TITLE'] = 'Campos mostrados';
-$mod_strings['LBL_AVAILABLE_FIELDS'] = 'Disponible';
-$mod_strings['LBL_DISPLAYED_FIELDS'] = 'Buscar';
-$mod_strings['LBL_STANDARD_FIELDS'] = 'Estándar';
-$mod_strings['LBL_ADDRESSES'] = 'Direcciones';
-$mod_strings['LBL_ADDITIONAL_FIELDS'] = 'Campos adicionales';
 $mod_strings['LBL_SEARCH_FIELDS_TITLE'] = 'Campos de búsqueda';
 $mod_strings['LBL_CONFIG_SAVED'] = '... Guardando...';
 $mod_strings['LBL_NO_USER'] = 'Ningun usuario seleccionado';
@@ -51,13 +45,16 @@ $mod_strings['LBL_MARKERS'] = 'Marcadores';
 $mod_strings['LBL_NATIVE_CAL'] = 'Calendario del dispositivo';
 $mod_strings['LBL_FORCE_LOCK'] = "Fuerza código de acceso en la aplicación";
 
-$mod_strings['LBL_DEFAULT'] = 'Default';
-$mod_strings['LBL_ADD_LAYOUT'] = 'Add Layout';
-$mod_strings['LBL_ADD_LAYOUTS'] = 'Add Layout';
-$mod_strings['LBL_QUESTION_ADD_LAYOUT'] = 'Select a Group Layout to Add.';
-$mod_strings['LBL_REMOVE_LAYOUT'] = 'Remove Group Layout';
+$mod_strings['LBL_MULTIVIEW_DEFAULT'] = 'Variable views are based on roles.<br>Go to General settings to base views on Security Groups';
+$mod_strings['LBL_MULTIVIEW'] = 'Base group views on:';
+$mod_strings['LBL_QDEFAULT'] = 'Default';
+$mod_strings['LBL_QADD_LAYOUT'] = 'Add Layout';
+$mod_strings['LBL_QQUESTION_ADD_LAYOUT'] = 'Select a Group Layout to Add.';
+$mod_strings['LBL_QREMOVE_LAYOUT'] = 'Remove Group Layout';
+$mod_strings['LBL_QREMOVE_CONFIRM'] = 'Existing group views will be deleted';
+$mod_strings['LBL_HIGHLIGHTED'] = 'Subrayado';
 
-$mod_strings['LBL_SECURITYGROUP'] = 'Security Group:';
-$mod_strings['LBL_COPY_FROM'] = 'Copy From:';
+
+$mod_strings['LBL_QCOPY_FROM'] = 'Copy From:';
 $mod_strings['LBL_RESET_QUICKCRM_CONFIRMATION'] = 'Seguro que desea restablecer la configuración a los valores predeterminados? Esto no se puede deshacer.';
 

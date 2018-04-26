@@ -123,7 +123,7 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 						{
 							$function = $var['function']['name'];
 							require_once('custom/QuickCRM/Case_Updates.php');
-							$_REQUEST[$fieldname] = $value;
+							$_REQUEST[$var['name']] = $value;
 							$val = $function($value, $var['name'], '', 'DetailView');
 						}
 					
@@ -160,7 +160,7 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 
     function filter_fields($value, $fields)
     {
-        // fix bug with many2one relationship fields not returned
+        // fix bug with one2one or many2one relationship fields not returned
         $GLOBALS['log']->info('Begin: SoapHelperWebServices->filter_fields');
         global $invalid_contact_fields;
         $filterFields = array();
@@ -177,7 +177,7 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
             {
                 $var = $value->field_defs[$field];
                 //if($var['type'] == 'link') continue;
-                if($var['type'] == 'link' && (!isset($var['side']) || $var['side'] != 'right')) continue;
+                if($var['type'] == 'link' && !isset($var['side'])) continue;
                 if( isset($var['source'])
                     && ($var['source'] != 'db' && $var['source'] != 'custom_fields' && $var['source'] != 'non-db')
                     && $var['name'] != 'email1' && $var['name'] != 'email2'
@@ -233,7 +233,7 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 			$link_field_name = $link_name_value_fields['name'];
 			$link_module_fields = $link_name_value_fields['value'];
 			if (is_array($link_module_fields) && !empty($link_module_fields)) {
-				$result = $this->getRelationshipResults($bean, $link_field_name, $link_module_fields);
+				$result = $this->getRelationshipResults($bean, $link_field_name, $link_module_fields,'', '', 0, '', false);// do not return access rights
 				if (!$result) {
 					$link_output[] = array('name' => $link_field_name, 'records' => array());
 					continue;
@@ -332,7 +332,7 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
      *
 	 * NS-TEAM : - fix bug with order by 
      */
-    function get_data_list($seed, $order_by = "", $where = "", $row_offset = 0, $limit=-1, $max=-1, $show_deleted = 0, $favorites = false)
+    function get_data_list_query($seed, $order_by = "", $where = "", $row_offset = 0, $limit=-1, $max=-1, $show_deleted = 0, $favorites = false)
 	{
 		global $sugar_version;
 		$GLOBALS['log']->debug("get_list:  order_by = '$order_by' and where = '$where' and limit = '$limit'");
@@ -343,6 +343,12 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 		// Fix bug with sort order in get_entry_list
 		if ($sugar_version < '6.5.15') {
 			$order_by=$seed->process_order_by($order_by, null);
+		}
+		else {
+			if (!empty($order_by)){
+				// fix issue where order by date fields does not always return records in the same order for equal dates
+				$order_by .= ',id';
+			}
 		}
 
 		$params = array();
@@ -355,10 +361,16 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 		if ($seed->module_name == 'Meetings' && strpos($where, 'm_u.') !== false) // Allow searching participants
 			$query = str_replace ('FROM meetings','FROM meetings LEFT JOIN  meetings_users m_u on m_u.meeting_id = meetings.id',$query);
 		
+		return $query;
+	}
+	
+    function get_data_list($seed, $order_by = "", $where = "", $row_offset = 0, $limit=-1, $max=-1, $show_deleted = 0, $favorites = false)
+	{
+		$query = self::get_data_list_query($seed, $order_by, $where, $row_offset, $limit, $max, $show_deleted, $favorites);
 		return $seed->process_list_query($query, $row_offset, $limit, $max, $where);
 	}
 	
-    function get_data_list_with_relate($seed, $order_by = "", $where = "", $select_fields, $row_offset = 0, $limit=-1, $max=-1, $show_deleted = 0, $favorites = false)
+    function get_data_list_with_relate_qry($seed, $order_by = "", $where = "", $select_fields, $row_offset = 0, $limit=-1, $max=-1, $show_deleted = 0, $favorites = false)
 	{
 		global $sugar_version;
 		$GLOBALS['log']->debug("get_list:  order_by = '$order_by' and where = '$where' and limit = '$limit'");
@@ -369,6 +381,12 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 		// Fix bug with sort order in get_entry_list
 		if ($sugar_version < '6.5.15') {
 			$order_by=$seed->process_order_by($order_by, null);
+		}
+		else {
+			if (!empty($order_by)){
+				// fix issue where order by date fields does not always return records in the same order for equal dates
+				$order_by .= ',id';
+			}
 		}
 			   
 		$filter=array();
@@ -389,6 +407,12 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 		if ($seed->module_name == 'Meetings' && strpos($where, 'm_u.') !== false) // Allow searching participants
 			$query = str_replace ('FROM meetings','FROM meetings LEFT JOIN  meetings_users m_u on m_u.meeting_id = meetings.id',$query);
 
+		return $query;
+	}
+	
+    function get_data_list_with_relate($seed, $order_by = "", $where = "", $select_fields, $row_offset = 0, $limit=-1, $max=-1, $show_deleted = 0, $favorites = false)
+	{
+		$query = self::get_data_list_with_relate_qry($seed, $order_by, $where, $select_fields, $row_offset, $limit, $max, $show_deleted, $favorites);
 		return $seed->process_list_query($query, $row_offset, $limit, $max, $where);
 	}
 
@@ -546,8 +570,48 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
             return array('total_count'=> count($related_beans),'rows' => $list, 'fields_set_on_rows' => $filterFields);
 
 	} // fn
+
+    function getRelationshipIds($bean, $link_field_name, $link_module_fields, $optional_where = '', $order_by = '', $offset = 0, $limit = '', $with_access_rights=false) {
+		// fix bug with sort order and offset
+        $GLOBALS['log']->info('Begin: SoapHelperWebServices->getRelationshipResults');
+		require_once('include/TimeDate.php');
+		global $beanList, $beanFiles, $current_user;
+		global $disable_date_format, $timedate;
+
+		$bean->load_relationship($link_field_name);
+
+		if (isset($bean->$link_field_name)) {
+			//First get all the related beans
+            $params = array();
+            //$params['offset'] = $offset;
+            //$params['limit'] = $limit;
+
+            if (!empty($optional_where))
+            {
+                $params['where'] = $optional_where;
+            }
+
+            $related_beans = $bean->$link_field_name->getBeans($params);
+            //Create a list of field/value rows based on $link_module_fields
+			$list = array();
+            $filterFields = array();
+
+            foreach($related_beans as $id => $bean)
+            {
+				$row['id']= $bean->id;
+                $list[] = $row;
+            }
+            $GLOBALS['log']->info('End: SoapHelperWebServices->getRelationshipIds');
+            return array('total_count'=> count($related_beans), 'rows' => $list, 'fields_set_on_rows' => $filterFields);
+		} else {
+			$GLOBALS['log']->info('End: SoapHelperWebServices->getRelationshipIds - ' . $link_field_name . ' relationship does not exists');
+			return false;
+		} // else
+
+	} // fn
 	
-    function getRelationshipResults($bean, $link_field_name, $link_module_fields, $optional_where = '', $order_by = '', $offset = 0, $limit = '') {
+	
+    function getRelationshipResults($bean, $link_field_name, $link_module_fields, $optional_where = '', $order_by = '', $offset = 0, $limit = '', $with_access_rights=true) {
 		// fix bug with sort order and offset
         $GLOBALS['log']->info('Begin: SoapHelperWebServices->getRelationshipResults');
 		require_once('include/TimeDate.php');
@@ -609,10 +673,13 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
                         $row[$field] = "";
                     }
                 }
-				$row['edit_access']= $bean->ACLAccess("EditView");
-				$row['delete_access']= $bean->ACLAccess("Delete");
-				$filterFields[] = 'edit_access';
-				$filterFields[] = 'delete_access';
+                if ($with_access_rights){
+                	// Not needed during Offline Sync
+					$row['edit_access']= $bean->ACLAccess("EditView");
+					$row['delete_access']= $bean->ACLAccess("Delete");
+					$filterFields[] = 'edit_access';
+					$filterFields[] = 'delete_access';
+				}
                 //Users can't see other user's hashes
                 if(is_a($bean, 'User') && $current_user->id != $bean->id && isset($row['user_hash'])) {
                     $row['user_hash'] = "";
@@ -704,8 +771,101 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
 
 	} // fn
 	
+    public function buildChartImage($chart, array $reportData, array $fields,$asDataURI = true, $generateImageMapId = false){
+    	// used only with oldest SuiteCRM version when bug on render call was not fixed
+        global $current_user;
+        require_once 'modules/AOR_Charts/lib/pChart/pChart.php';
+
+        if($generateImageMapId !== false){
+            $generateImageMapId = $current_user->id."-".$generateImageMapId;
+        }
+
+        $html = '';
+        if(!in_array($chart->type, array('bar','line','pie','radar','rose', 'grouped_bar', 'stacked_bar'))){
+            return $html;
+        }
+        $x = $fields[$chart->x_field];
+        $y = $fields[$chart->y_field];
+        if(!$x || !$y){
+            //Malformed chart object - missing an axis field
+            return '';
+        }
+        $xName = str_replace(' ','_',$x->label) . $chart->x_field;
+        $yName = str_replace(' ','_',$y->label) . $chart->y_field;
+
+        $chartData = new pData();
+        $chartData->loadPalette("modules/AOR_Charts/lib/pChart/palettes/navy.color", TRUE);
+        $labels = array();
+        foreach($reportData as $row){
+            $chartData->addPoints($row[$yName],'data');
+            $chartData->addPoints($row[$xName],'Labels');
+            $labels[] = $row[$xName];
+        }
+
+        $chartData->setSerieDescription("Months","Month");
+        $chartData->setAbscissa("Labels");
+
+        $imageHeight = 700;
+        $imageWidth = 700;
+
+        $chartPicture = new pImage($imageWidth,$imageHeight,$chartData);
+        if($generateImageMapId){
+            $imageMapDir = create_cache_directory('modules/AOR_Charts/ImageMap/'.$current_user->id.'/');
+            $chartPicture->initialiseImageMap($generateImageMapId,IMAGE_MAP_STORAGE_FILE,$generateImageMapId,$imageMapDir);
+        }
+
+        $chartPicture->Antialias = True;
+
+        $chartPicture->drawFilledRectangle(0,0,$imageWidth-1,$imageHeight-1,array("R"=>240,"G"=>240,"B"=>240,"BorderR"=>0,"BorderG"=>0,"BorderB"=>0,));
+
+        $chartPicture->setFontProperties(array("FontName"=>"modules/AOR_Charts/lib/pChart/fonts/verdana.ttf","FontSize"=>14));
+
+        $chartPicture->drawText($imageWidth/2,20,$chart->name,array("R"=>0,"G"=>0,"B"=>0,'Align'=>TEXT_ALIGN_TOPMIDDLE));
+        $chartPicture->setFontProperties(array("FontName"=>"modules/AOR_Charts/lib/pChart/fonts/verdana.ttf","FontSize"=>6));
+
+        $chartPicture->setGraphArea(60,60,$imageWidth-60,$imageHeight-100);
+
+        switch($chart->type){
+            case 'radar':
+                $chart->buildChartImageRadar($chartPicture, $chartData, !empty($generateImageMapId));
+                break;
+            case 'pie':
+                $chart->buildChartImagePie($chartPicture,$chartData, $reportData,$imageHeight, $imageWidth, $xName, !empty($generateImageMapId));
+                break;
+            case 'line':
+                $chart->buildChartImageLine($chartPicture, !empty($generateImageMapId));
+                break;
+            case 'bar':
+            default:
+                $chart->buildChartImageBar($chartPicture, !empty($generateImageMapId));
+                break;
+        }
+        if($generateImageMapId) {
+            $chartPicture->replaceImageMapTitle("data", $labels);
+        }
+        ob_start();
+        // BUG in SuiteCRM
+        $chartPicture->render(NULL);
+        $img = ob_get_clean();
+        if($asDataURI){
+            return 'data:image/png;base64,'.base64_encode($img);
+        }else{
+            return $img;
+        }
+    }
+
     function buildChartHTMLPChart($chart,array $reportData, array $fields,$index = 0){
-        $imgUri = $chart->buildChartImage($reportData,$fields,true,$index);
+    	global $sugar_config;
+    	if (version_compare($sugar_config['suitecrm_version'], '7.9.8', '>=') 
+    			|| ( $sugar_config['suitecrm_version'] < '7.9' && version_compare($sugar_config['suitecrm_version'], '7.8.9', '>='))
+    		){
+    		// issue with render has been fixed in 7.9.8 and higher, and 7.8.9+ 
+ 			$imgUri = $chart->buildChartImage($reportData,$fields,true,$index);
+		}
+    	else {
+    		// not fixed. Use our workaround
+			$imgUri = $this->buildChartImage($chart,$reportData,$fields,true,$index);
+    	}
         $img = "<img id='{$chart->id}_img' src='{$imgUri}'>";
         return $img;
     }

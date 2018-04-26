@@ -27,10 +27,10 @@ $( document ).ready(function() {
 
   function checkRules() {
     //Item 3
-    if (assigned_to != $("#assigned_user_id").val() && assigned_to != "" ) {
-      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_PLEASE_CONTACT'));
-      return false //must be outside of validate array.
-    }
+//    if (assigned_to != $("#assigned_user_id").val() && assigned_to != "" ) {
+//      alert(SUGAR.language.get(module_sugar_grp1, 'LBL_PLEASE_CONTACT'));
+//      return false //must be outside of validate array.
+//    }
     //item 4
     if (
       $("#top_10_prospecting_c").length &&

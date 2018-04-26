@@ -132,11 +132,37 @@ class LayoutRules extends Basic
         $condition = new LayoutConditions();
         $condition->save_lines($_POST, $this, 'aow_conditions_');
     }
+
+    /**
+     *
+     * get me all SecurityGroups which exist within the users roles.
+     *
+     * @param $current_user
+     * @param $groups
+     *
+     * @return mixed
+     */
+    public function getFromRoles($current_user, $groups){
+      $bean = BeanFactory::getBean("ACLRoles");
+      $roles = $bean->getUserRoles($current_user, false);
+
+      foreach($roles as $role){
+
+            $sql = "SELECT securitygroup_id FROM securitygroups_acl_roles WHERE role_id = '{$role->id}'";
+            $result = $role->db->query($sql);
+            foreach($result as $id){
+                $groups[ $id['securitygroup_id'] ] = BeanFactory::getBean("SecurityGroups", $id['securitygroup_id']);
+            }
+      }
+      return $groups;
+    }
+
     function fetchLayout($bean, $metadata, $action){
         global $current_user;
         $sgroups = BeanFactory::getBean("SecurityGroups");
         $groups = $sgroups->getUserSecurityGroups($current_user->id);
 
+        $groups = $this->getFromRoles($current_user->id, $groups);
         $metadataArray['file'] = $metadata;
         $metadataArray['id'] = '';
         $layouts =

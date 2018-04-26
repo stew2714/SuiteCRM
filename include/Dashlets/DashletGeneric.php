@@ -374,6 +374,7 @@ class DashletGeneric extends Dashlet {
         {
             require_once('modules/SecurityGroups/SecurityGroupAdditionalUser.php');
             $addt_where = SecurityGroupAdditionalUser::getAdditionalOwnerWhere($this,$user_id,$this->seedBean->table_name . '.' . "assigned_user_id = '" . $current_user->id . "' ",$this->seedBean-->table_name);
+            array_push($returnArray, $addt_where);
         }
         /* END - SECURITY GROUPS - additional-users */  
 

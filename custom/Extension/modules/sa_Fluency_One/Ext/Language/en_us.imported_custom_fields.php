@@ -1,7 +1,8 @@
 <?php 
 $mod_strings['LBL_SF_ID_C'] = 'Sf Id';
 $mod_strings['LBL_LASTACTIVITYDATE_C'] = 'Lastactivitydate';
-$mod_strings['LBL_ACCOUNT_232534532_C'] = 'Account';
+$mod_strings['LBL_ONEACCOUNT_232534532_C'] = 'Oneaccount 232534532';
+$mod_strings['LBL_ACCOUNT_NAME_C'] = 'Account';
 $mod_strings['LBL_ANNUAL_OUTPATIENT_DAYS_C'] = 'Annual Outpatient Days';
 $mod_strings['LBL_BEDS_C'] = 'Beds';
 $mod_strings['LBL_CLIENT_LOCATIONS_C'] = 'Client Locations';
@@ -87,6 +88,9 @@ $mod_strings['LBL_ELF_CLOSE_DATE_C'] = 'Elf Close Date';
 $mod_strings['LBL_ELF_STAGE_C'] = 'Elf Stage';
 $mod_strings['LBL_WORKFLOWELFSTAGE_C'] = 'Workflowelfstage';
 $mod_strings['LBL_REASON_CUSTOMER_DECLINED_C'] = 'Reason Customer Declined';
-$mod_strings['LBL_F1_CDI_OPP_C'] = 'F1 Cdi Opp';
-$mod_strings['LBL_F1RADTOSOPP_C'] = 'F1 Rad TOS Opp';
-$mod_strings['LBL_F1_FFI_OPP_C'] = 'F1 Ffi Opp';
+$mod_strings['LBL_ONEF1_CDI_OPP_C'] = 'Onef1 Cdi Opp';
+$mod_strings['LBL_F1_CDI_OPP_NAME_C'] = 'F1 CDI Opp';
+$mod_strings['LBL_ONEF1RADTOSOPP_C'] = 'Onef1radtosopp';
+$mod_strings['LBL_F1RADTOSOPP_NAME_C'] = 'F1 RAD TOS Opp';
+$mod_strings['LBL_ONEF1_FFI_OPP_C'] = 'Onef1 Ffi Opp';
+$mod_strings['LBL_F1_FFI_OPP_NAME_C'] = 'F1 FFI Opp';

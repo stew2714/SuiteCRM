@@ -151,7 +151,11 @@ class convertCSV
         }
         if (!empty($vardefs['related module'])) {
             $vardef['related_module'] = $vardefs['related module'];
-            $vardef['ext2'] =  $vardefs['related module'];
+            if($vardefs['related module'] == "User") {
+                $vardef['ext2'] = "Users";
+            } else {
+                $vardef['ext2'] =  $vardefs['related module'];
+            }
         }
         if (!empty($vardefs['id'])) {
             $vardef['id'] = $vardefs['id'];
@@ -171,7 +175,7 @@ class convertCSV
         }
         if($vardefs['type'] == "id" || $vardefs['type'] == "relate"  ){
             $vardef['id'] = $vardef['module'] . $vardef['name'];
-            if($vardefs['type'] != "relate"){
+            if($vardefs['type'] != "relate" && $vardefs['type'] != "id"){
                 $vardef['custom_module'] = $vardef['module'];
             }
         }
@@ -387,19 +391,14 @@ class convertCSV
         $out .= override_value_to_string_recursive(array($vBean, "fields", $field->name, "source"), "dictionary", $field->source) . "\n";
         $out .= "\n ?>";
 
-        if (!isset($mod_strings[$field->vname])) {
-            $language_out = "";
+        $language_out = "";
 
-            if (!file_exists($languageLocation)) {
-                $language_out .= "<?php \n";
-            }
-
-            $language_out .= "\$mod_strings['$field->vname'] = '$field->label_english';\n";
-            file_put_contents($languageLocation, $language_out, FILE_APPEND | LOCK_EX);
-        }else{
-            //@todo 1
-            //requires loading the mod_strings and changing the label.
+        if (!file_exists($languageLocation)) {
+            $language_out .= "<?php \n";
         }
+
+        $language_out .= "\$mod_strings['$field->vname'] = '$field->label_english';\n";
+        file_put_contents($languageLocation, $language_out, FILE_APPEND | LOCK_EX);
 
         if (!file_exists("custom/Extension/modules/{$field->module}/Ext/Vardefs")) {
             mkdir_recursive("custom/Extension/modules/{$field->module}/Ext/Vardefs");

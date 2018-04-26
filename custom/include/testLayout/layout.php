@@ -36,6 +36,8 @@ $array =
         "AOR_Scheduled_Reports",
         "Documents",
         "Notes",
+        "Meetings",
+        "Calls"
     );
 if($params['module'] == "" || in_array($params['module'], $array)){
     echo json_encode(array( "found" => false,  "layout" => "" ));
@@ -49,10 +51,12 @@ $metadataFileArray = $layoutRules->fetchLayout($bean, $metadataFile, $view);
 $metadataFile = $metadataFileArray['file'];
 $_SESSION['groupLayout'] = $metadataFileArray['id'];
 
-if($_REQUEST['this_view'] == "EditView"){
-    loadEditview($bean, $metadataFile);
-}else{
-    loadQuickCreateView($bean, "QuickCreate");
+if(!empty($metadataFileArray['id'])){
+    if($_REQUEST['this_view'] == "EditView"){
+        loadEditview($bean, $metadataFile);
+    }else{
+        loadQuickCreateView($bean, "QuickCreate");
+    }
 }
 
 

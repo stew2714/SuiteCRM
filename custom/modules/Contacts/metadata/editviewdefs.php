@@ -357,11 +357,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'active_c',
-            'label' => 'LBL_ACTIVE',
-          ),
-          1 => 
-          array (
             'name' => 'do_not_call',
             'comment' => 'An indicator of whether contact can be called',
             'label' => 'LBL_DO_NOT_CALL',

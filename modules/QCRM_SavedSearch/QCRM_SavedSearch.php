@@ -43,9 +43,8 @@
 require_once('modules/QCRM_SavedSearch/QCRM_SavedSearch_sugar.php');
 class QCRM_SavedSearch extends QCRM_SavedSearch_sugar {
 	
-	function QCRM_SavedSearch(){	
-		parent::QCRM_SavedSearch_sugar();
+	public function __construct(){
+		parent::__construct();
 	}
-	
 }
 ?>

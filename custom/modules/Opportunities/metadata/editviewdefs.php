@@ -30,62 +30,62 @@ array (
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL3' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL9' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL10' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL11' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL13' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL12' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -119,7 +119,10 @@ array (
         ),
         2 => 
         array (
-          0 => 'account_name',
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_3_name',
+          ),
           1 => 
           array (
             'name' => 'inside_sales_ae_name_c',
@@ -149,8 +152,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'region_c',
-            'label' => 'LBL_REGION_C',
+            'name' => 'new_am_region_c',
+            'label' => 'LBL_NEW_AM_REGION_C',
           ),
         ),
         5 => 
@@ -215,8 +218,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'forecasting_category_c',
-            'label' => 'LBL_FORECASTING_CATEGORY_C',
+            'name' => 'forecastcategory_c',
+            'label' => 'LBL_FORECASTCATEGORY_C',
           ),
         ),
         11 => 
@@ -323,7 +326,6 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -332,7 +334,6 @@ array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -709,8 +710,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'incumbentx_c',
-            'label' => 'LBL_INCUMBENTX_C',
+            'name' => 'accounts_opportunities_2_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE',
           ),
           1 => 
           array (
@@ -950,8 +951,7 @@ array (
         ),
         10 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'sw_maint_renewal_term_c',
             'label' => 'LBL_SW_MAINT_RENEWAL_TERM_C',
@@ -1027,8 +1027,7 @@ array (
         ),
         5 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'previous_opportunity_stage_date_c',
             'label' => 'LBL_PREVIOUS_OPPORTUNITY_STAGE_DATE_C',
@@ -1065,8 +1064,7 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'first_commission_date_c',
             'label' => 'LBL_FIRST_COMMISSION_DATE_C',

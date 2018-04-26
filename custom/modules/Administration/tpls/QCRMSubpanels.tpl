@@ -5,7 +5,7 @@
 </style>
 {/literal}
 <h1 id="conftitle">{$TITLE}</h1><br>
-<input title='{$APP_STRINGS.LBL_SAVE_BUTTON_TITLE}' accessKey='M' class='button' onclick="return SaveFields(this,'{$module}','subpanels');" type='button' name='button' value='{$APP_STRINGS.LBL_SAVE_BUTTON_TITLE}'></input>
+<input title='{$APP_STRINGS.LBL_SAVE_BUTTON_TITLE}' accessKey='M' class='button' onclick="return SaveFields(this,'{$module}','subpanels','{$profile}');" type='button' name='button' value='{$APP_STRINGS.LBL_SAVE_BUTTON_TITLE}'></input>
 <input title='{$APP_STRINGS.LBL_CANCEL_BUTTON_TITLE}' accessKey='X' class='button' onclick="location.href='index.php?module=Administration&action=index';" type='button' name='button' value='{$APP_STRINGS.LBL_CANCEL_BUTTON_TITLE}'></input>
 <div id="confmodule">
 	<div style="float:left;width:200px;">
@@ -20,7 +20,7 @@
 		</div>
 	</div>
 	<div style="float:left;width:200px;">
-		<div id="selected_div">
+		<div id="hidden_div">
 			<h3></h3>
 			<input type="text" id="search_field_sortable2" name="search" placeholder="{$APP_STRINGS.LBL_SEARCH}" style="margin-left:10px;width:170px">
 			<ul id="conf_sortableD2" class="connectedSortable">{$HIDDEN}
