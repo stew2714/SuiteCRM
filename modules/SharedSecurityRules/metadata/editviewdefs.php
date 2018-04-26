@@ -39,6 +39,29 @@ $viewdefs [$module_name] =
                                         'panelDefault' => 'expanded',
                                     ),
                             ),
+                   //     'includes' =>
+                   //         array (
+                  //              0 =>
+                  //                  array (
+                  //                      'file' => 'custom/modules/AOR_Reports/preview.js',
+                  //                  ),
+                  //          ),
+                        'form' =>
+                            array (
+                    //            'headerTpl' => 'modules/SharedSecurityRules/tpls/EditViewHeader.tpl',
+                     //           'footerTpl' => 'modules/SharedSecurityRules/tpls/EditViewFooter.tpl',
+                                'buttons' =>
+                                    array (
+                                        0 => 'SAVE',
+                                        1 => 'CANCEL',
+                                        2 =>
+                                            array (
+                                                'customCode' => '<input type="button" class="button" onClick="var 
+_form = document.getElementById(\'EditView\');_form.return_action.value=\'EditView\' 
+;_form.action.value=\'Save\'; if(check_form(\'EditView\'))SUGAR.ajaxUI.submitForm(_form);return false;" value="{$MOD.LBL_UPDATE}">',
+                                            ),
+                                    ),
+                            ),
                     ),
                 'panels' =>
                     array (

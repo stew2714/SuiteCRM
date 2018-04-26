@@ -831,12 +831,12 @@ class ModuleBuilderController extends SugarController
     }
     /* End - Layout Rules */
 
-    /* BEGIN - SECURITY GROUPS */ 
+    /* BEGIN - SECURITY GROUPS */
     function action_addLayout ()
     {
         $this->view = 'addlayout' ;
     }
-    
+
 	/**
 	 * Layouts   --->    click for page with "Add Layout For...newline....SecurityGroup [Select ^]   Copy From [Default ^]
 	 * 	Default
@@ -856,24 +856,24 @@ class ModuleBuilderController extends SugarController
 	 * 		Search
 	 * 			Basic
 	 * 			Advanced
-	 * 	(save these in custom/modules/.../metadata/_GUID_/)	
+	 * 	(save these in custom/modules/.../metadata/_GUID_/)
 	 */
     function action_saveGroupLayout ()
     {
     	$create_for = $_REQUEST['securitygroup']; //the guid of the security group
     	$copy_from = $_REQUEST['copy_layout'];
     	$module = $_REQUEST['view_module'];
-    	
-    	if(empty($create_for)) return; 
-   
-		require_once('include/dir_inc.php'); 	
+
+    	if(empty($create_for)) return;
+
+		require_once('include/dir_inc.php');
         //$GLOBALS['log']->fatal("saving group layout for mod: $module for $create_for and from: $copy_from");
         //create destination dir
         $destDirectory = "custom/modules/".$module."/metadata/".$create_for."/";
         $GLOBALS['log']->debug("make dir: $destDirectory" );
         mkdir_recursive( $destDirectory ) ;
-        
-        //copy from source to new 
+
+        //copy from source to new
 		$baseDirectory = "modules/{$module}/metadata/";
 		if($copy_from != "Default") {
 			$baseDirectory .= $copy_from."/";
@@ -917,34 +917,34 @@ class ModuleBuilderController extends SugarController
 				}
 			}
 		} //end for each view
-		
 
-        $this->view = 'addlayoutdone';	
 
-    }    
-    
+        $this->view = 'addlayoutdone';
+
+    }
+
     function action_removeGroupLayoutPrompt()
     {
-		$this->view = 'removegrouplayoutprompt';	  
-    } 
-    
+		$this->view = 'removegrouplayoutprompt';
+    }
+
     function action_removeGroupLayoutConfirm()
     {
 		//do the deal...make sure to clear the cache as well
 		$securitygroup_id = $_REQUEST['grpLayout'];
 		$view_module = $_REQUEST['view_module'];
 		if(!isset($securitygroup_id) || !isset($view_module)) return;
-		
+
 		//delete custom/modules/MOD/grouplayout/***, cache/modules/MOD/grouplayout/***
 		require_once('include/dir_inc.php');
 		rmdir_recursive('custom/modules/'.$view_module .'/metadata/' . $securitygroup_id);
-		
+
 		$remove_dir = 'cache/modules/'.$view_module .'/' . $securitygroup_id;
 		if(file_exists($remove_dir)) rmdir_recursive($remove_dir);
 
-        $this->view = 'removelayoutdone';			
+        $this->view = 'removelayoutdone';
     }
-    /* END - SECURITY GROUPS */ 
+    /* END - SECURITY GROUPS */
 
     /**
      * Receive a layout through $_REQUEST and save it out to the working files directory

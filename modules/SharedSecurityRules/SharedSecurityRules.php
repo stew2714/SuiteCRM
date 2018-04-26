@@ -108,7 +108,7 @@ class SharedSecurityRules extends Basic
 
         require_once('modules/SharedSecurityRulesConditions/SharedSecurityRulesConditions.php');
         $condition = new SharedSecurityRulesConditions();
-        $condition->save_lines($_POST, $this, 'shared_rules_conditions_');
+        $condition->save_lines($_POST, $this, 'aor_conditions_');
 
         require_once('modules/SharedSecurityRulesActions/SharedSecurityRulesActions.php');
         $action = new SharedSecurityRulesActions();
@@ -370,5 +370,30 @@ class SharedSecurityRules extends Basic
             return true;
         }
         return false;
+    }
+
+
+    public function getFieldDefs($fieldDefs, $module)
+    {
+        if($module == null){
+            return array();
+        }
+        $defs[''] = "";
+        foreach ($fieldDefs as $field) {
+            $label = translate($field['vname'], $module);
+            if(in_array($field['type'], $this->exemptFields) || in_array($field['dbType'], $this->exemptFields)){
+                continue;
+            }
+            if( empty($label) ){
+                $label = $field['name'];
+            }
+            if(($module == "Leads" || $module == "Contacts") && ($field['name'] == "full_name" || $field['name'] == "name" ) ){
+                continue;
+            }
+            $defs[$field['name']] = $label;
+        }
+
+        asort($defs);
+        return $defs;
     }
 }

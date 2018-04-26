@@ -27,7 +27,14 @@ require_once("modules/AOW_WorkFlow/aow_utils.php");
 
 class SharedSecurityRulesController extends SugarController {
 
-
+    public function action_fielddefs(){
+        $bean = BeanFactory::getBean($_REQUEST['moduletype']);
+        $matrix = new SharedSecurityRules();
+        $fields = $matrix->getFieldDefs($bean->field_defs, $_REQUEST['moduletype']);
+        asort($fields);
+        echo get_select_options_with_id($fields, "");
+        die();
+    }
 
 
     protected function action_getAction(){
@@ -196,6 +203,109 @@ class SharedSecurityRulesController extends SugarController {
             echo "<select type='text'  name='$aow_field' id='$aow_field' title='' tabindex='116'>". get_select_options_with_id($app_list_strings['aow_condition_type_list'], $value) ."</select>";
         }else{
             echo $app_list_strings['aow_condition_type_list'][$value];
+        }
+        die;
+
+    }
+
+    protected function action_getModuleOperatorField()
+    {
+
+        global $app_list_strings, $beanFiles, $beanList;
+
+        if (isset($_REQUEST['rel_field']) && $_REQUEST['rel_field'] != '') {
+            $module = getRelatedModule($_REQUEST['aor_module'], $_REQUEST['rel_field']);
+        } else {
+            $module = $_REQUEST['aor_module'];
+        }
+        $fieldname = $_REQUEST['aor_fieldname'];
+        $aor_field = $_REQUEST['aor_newfieldname'];
+
+        if (isset($_REQUEST['view'])) {
+            $view = $_REQUEST['view'];
+        } else {
+            $view = 'EditView';
+        }
+
+        if (isset($_REQUEST['aor_value'])) {
+            $value = $_REQUEST['aor_value'];
+        } else {
+            $value = '';
+        }
+
+
+        require_once($beanFiles[$beanList[$module]]);
+        $focus = new $beanList[$module];
+        $vardef = $focus->getFieldDefinition($fieldname);
+
+        switch ($vardef['type']) {
+            case 'double':
+            case 'decimal':
+            case 'float':
+            case 'currency':
+                $valid_opp = array(
+                    'Equal_To',
+                    'Not_Equal_To',
+                    'Greater_Than',
+                    'Less_Than',
+                    'Greater_Than_or_Equal_To',
+                    'Less_Than_or_Equal_To'
+                );
+                break;
+            case 'uint':
+            case 'ulong':
+            case 'long':
+            case 'short':
+            case 'tinyint':
+            case 'int':
+                $valid_opp = array(
+                    'Equal_To',
+                    'Not_Equal_To',
+                    'Greater_Than',
+                    'Less_Than',
+                    'Greater_Than_or_Equal_To',
+                    'Less_Than_or_Equal_To'
+                );
+                break;
+            case 'date':
+            case 'datetime':
+            case 'datetimecombo':
+                $valid_opp = array(
+                    'Equal_To',
+                    'Not_Equal_To',
+                    'Greater_Than',
+                    'Less_Than',
+                    'Greater_Than_or_Equal_To',
+                    'Less_Than_or_Equal_To'
+                );
+                break;
+            case 'enum':
+            case 'multienum':
+                $valid_opp = array('Equal_To', 'Not_Equal_To');
+                break;
+            default:
+                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains','Not_Contains', 'Starts_With', 'Ends_With',);
+                break;
+        }
+
+        foreach ($app_list_strings['aor_operator_list'] as $key => $keyValue) {
+            if (!in_array($key, $valid_opp)) {
+                unset($app_list_strings['aor_operator_list'][$key]);
+            }
+        }
+
+        $onchange = "";
+        if($_REQUEST['m'] != "aomr"){
+            $onchange = "UpdatePreview(\"preview\");";
+        }
+
+        $app_list_strings['aor_operator_list'];
+        if ($view == 'EditView') {
+            echo "<select type='text' style='width:178px;' name='{$aor_field}' id='{$aor_field}' title='' 
+            onchange='{$onchange}' tabindex='116'>"
+                . get_select_options_with_id($app_list_strings['aor_operator_list'], $value) . "</select>";
+        } else {
+            echo $app_list_strings['aor_operator_list'][$value];
         }
         die;
 
