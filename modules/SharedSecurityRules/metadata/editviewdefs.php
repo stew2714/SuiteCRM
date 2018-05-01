@@ -48,8 +48,8 @@ $viewdefs [$module_name] =
                   //          ),
                         'form' =>
                             array (
-                    //            'headerTpl' => 'modules/SharedSecurityRules/tpls/EditViewHeader.tpl',
-                     //           'footerTpl' => 'modules/SharedSecurityRules/tpls/EditViewFooter.tpl',
+                                'headerTpl' => 'modules/SharedSecurityRules/tpls/EditViewHeader.tpl',
+                                'footerTpl' => 'modules/SharedSecurityRules/tpls/EditViewFooter.tpl',
                                 'buttons' =>
                                     array (
                                         0 => 'SAVE',

@@ -205,10 +205,14 @@ class SharedSecurityRulesConditions extends Basic
                                         $post_data[$key . $field_name][$i] = isset($post_data[$key . $field_name][$i]);
                                     } else {
                                         if ($field_name == 'module_path') {
-                                            $post_data[$key . $field_name][$i] =
-                                                base64_encode(
-                                                    serialize(explode(":", $post_data[$key . $field_name][$i]))
-                                                );
+                                            if($parent->fetched_row['flow_module'] !== $post_data['flow_module'])
+                                            {
+                                                $post_data[$key . $field_name][$i] =
+                                                    base64_encode(
+                                                        serialize(explode(":", $post_data[$key . $field_name][$i]))
+                                                    );
+                                            }
+
                                         }
                                     }
                                 }

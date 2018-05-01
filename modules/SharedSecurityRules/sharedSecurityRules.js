@@ -51,6 +51,8 @@ $(document).ready(function(){
             $('#module-name').html('(<span title="' + module_path_display + '">' + module_name + '</span>)');
             $('#fieldTreeLeafs').remove();
             $('#detailpanel_fields_select').append('<div id="fieldTreeLeafs" class="dragbox aor_dragbox" title="{/literal}{$MOD.LBL_TOOLTIP_DRAG_DROP_ELEMS}{literal}"></div>');
+
+
             $('#fieldTreeLeafs').tree({
                 data: treeDataLeafs,
                 dragAndDrop: true,
@@ -113,18 +115,24 @@ $(document).ready(function(){
                     function (fieldData) {
                         var treeData = [];
 
+
                         for (var field in fieldData) {
+
                             if (field) {
-                                treeData.push(
-                                    {
-                                        id: field,
-                                        label: fieldData[field],
-                                        'load_on_demand': false,
-                                        type: 'field',
-                                        module: node.module,
-                                        module_path: node.module_path,
-                                        module_path_display: node.module_path_display
-                                    });
+
+                                if (field != 'assigned_user_name' && field != 'created_by_name' && field != 'modified_by_name') {
+
+                                    treeData.push(
+                                        {
+                                            id: field,
+                                            label: fieldData[field],
+                                            'load_on_demand': false,
+                                            type: 'field',
+                                            module: node.module,
+                                            module_path: node.module_path,
+                                            module_path_display: node.module_path_display
+                                        });
+                                }
                             }
                         }
                         //$('#fieldTree').tree('loadData',treeData,node);
