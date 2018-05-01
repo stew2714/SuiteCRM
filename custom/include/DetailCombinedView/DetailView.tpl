@@ -343,7 +343,7 @@
                   $(function(){
                     $('#content ul.nav.nav-tabs > li > a[data-toggle="tab"]').click(function(e){
                       if(typeof $(this).parent().find('a').first().attr('id') != 'undefined') {
-                        var tab = parseInt($(this).parent().find('a').first().attr('id').match(/^tab(.)*$/)[1]);
+                        var tab = parseInt($(this).parent().find('a').first().attr('id').match(/\d+$/)[1]);
                         selectTab(tab);
                       }
                     });

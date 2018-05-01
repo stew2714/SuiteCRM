@@ -46,13 +46,13 @@ array (
           array (
             'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="{$MOD.LBL_BUTTON_SUBMIT_TO_COMM_OPS}">{/if}',
           ),
-          12 =>
+                12 =>
           array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
           ),
           13 =>
-          array (
-            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="Activate">{/if}',
+          array (LBL_BUTTON_ACCEPT_REQUEST
+            'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUST}">{/if}',
           ),
         ),
         'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
