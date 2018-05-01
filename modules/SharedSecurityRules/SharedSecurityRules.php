@@ -434,7 +434,7 @@ class SharedSecurityRules extends Basic
                         }
                     }
                 }else{
-                    if( $condition[''] !== "OR" ){
+                    if( $condition['logic_op'] !== "OR" ){
                         return $result;
                     }
                 }
