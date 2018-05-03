@@ -258,11 +258,11 @@ class SharedSecurityRules extends Basic
 
 
                 // Is it the starting parenthesis?
-                if($condition['parenthesis'] == "START")
-                {
-                   $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
-                   continue;
-                }
+               // if($condition['parenthesis'] == "START")
+               // {
+               //    $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
+               //    continue;
+               // }
 
                 if(unserialize(base64_decode($condition['module_path'])) != false) {
                     $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
@@ -317,31 +317,77 @@ class SharedSecurityRules extends Basic
                         !empty($moduleBean->{$condition['value']})) {
                         $condition['value'] = $moduleBean->{$condition['value']};
                     }
-                    if ($this->checkOperator(
+                  /*  if ($this->checkOperator(
                         $moduleBean->{$condition['field']},
                         $condition['value'],
                         $condition['operator']
                     )) {
                         if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-                            if($condition['logic_op'] == "OR"){
-                                return false;
+                            if($condition['logic_op'] != "OR"){
+                                //return false;
+                                //return null;
+                                $result = null;
                             }
                             $result = false;
                         } else {
                             $result = true;
                         }
 
-                    } else {
+                    } */
+
+
+                $conditionResult = $this->checkOperator($moduleBean->{$condition['field']}, $condition['value'], $condition['operator']);
+                $accessResult = $this->findAccess($view, $action['parameters']['accesslevel'][$key]);
+
+
+                   if ($conditionResult)
+                   {
+                       // If the condition is met and the user does have access
+                       if($accessResult)
+                       {
+
+                           if($condition['logic_op'] === "AND")
+                           {
+                                $result = true;
+                           }
+                           else{
+                               return true;
+                           }
+
+                       }
+
+                       //If the condition is met and the user doesn't have access
+                       if(!$accessResult)
+                       {
+
+                           if($condition['logic_op'] === "AND")
+                           {
+                               $result = false;
+                           }
+                           else{
+                               return false;
+                           }
+                       }
+
+                   }
+
+
+                  else {
                         if($rule->run == "Once True"){
                             if ($this->checkHistory($moduleBean,$condition['field'], $condition['value']) ) {
                                 if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
                                     $result = false;
                                 }
                             }
-                        }else{
-                            if( $condition['logic_op'] !== "OR" ){
+                        }
+                        else{
+                            if( $condition['logic_op'] === "AND" ){
+
+                               $result = null;
                                 return $result;
                             }
+                            $result = null;
+
                         }
                     }
                 }
@@ -356,6 +402,8 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
+
+    /*
     function tempFunction($condition, $rule, $moduleBean, $view, $action, $key, $related = false, $result = true)
     {
 
@@ -443,6 +491,8 @@ class SharedSecurityRules extends Basic
 
         return $result;
     }
+
+    */
 
     function buildRuleWhere($module){
         

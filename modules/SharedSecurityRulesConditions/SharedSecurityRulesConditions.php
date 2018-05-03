@@ -171,13 +171,18 @@ class SharedSecurityRulesConditions extends Basic
         require_once('modules/AOW_WorkFlow/aow_utils.php');
 
         $j = 0;
+        $conditionCounter = 0;
         if(isset($post_data[$key . 'field']) && !empty($post_data[$key . 'field'])) {
+
             foreach ($post_data[$key . 'field'] as $i => $field) {
 
                 if ($post_data[$key . 'deleted'][$i] == 1) {
                     $this->mark_deleted($post_data[$key . 'id'][$i]);
                 } else {
+
                     $condition = new SharedSecurityRulesConditions();
+
+
                     foreach ($this->field_defs as $field_def) {
                         $field_name = $field_def['name'];
                         if (isset($post_data[$key . $field_name][$i])) {
@@ -223,12 +228,15 @@ class SharedSecurityRulesConditions extends Basic
                                 }
                                 $condition->parenthesis = $lastParenthesisStartConditionId;
                             } else {
-                                $condition->$field_name = $post_data[$key . $field_name][$i];
+
+                                    $condition->$field_name = $post_data[$key . $field_name][$i];
+
                             }
                         } else {
                             if ($field_name == 'parameter') {
                                 $condition->$field_name = 0;
                             }
+
                         }
 
                     }
@@ -246,12 +254,25 @@ class SharedSecurityRulesConditions extends Basic
                             $condition->condition_order = ++$j;
                         }
                         $condition->sa_shared_sec_rules_id = $parent->id;
+
+                        // Set first condition logic operator to be null on the rule (first condition does not require a logic operator)
+                        if($conditionCounter == 0)
+                        {
+                            $condition->logic_op = "";
+                            $conditionCounter++;
+                        }
                         $conditionId = $condition->save();
+
+
+
                         if ($condition->parenthesis == 'START') {
                             $lastParenthesisStartConditionId = $conditionId;
                         }
                     }
+
+
                 }
+
             }
         }
     }
