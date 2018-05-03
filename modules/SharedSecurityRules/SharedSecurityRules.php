@@ -680,41 +680,61 @@ class SharedSecurityRules extends Basic
                 $related = false;
                 if($conditions_results->num_rows != 0) {
                     while ($condition = $module->db->fetchByAssoc($conditions_results)) {
-                        if(unserialize(base64_decode($condition['module_path'])) != false) {
-                            $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
-                        }
-                        
-                        if ($condition['module_path'][0] != $rule['flow_module']) {
-                            foreach ($condition['module_path'] as $rel) {
-                                if (empty($rel)) {
-                                    continue;
-                                }
-                                $module->load_relationship($rel);
-                                $related = $module->$rel->getBeans();
+                        if($accessLevel == 'none') {
+                            $parenthesis = null;
+                            if (unserialize(base64_decode($condition['module_path'])) != false) {
+                                $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
                             }
-                        }
-                        
-                        if($related == false) {
-                            if ($condition['value_type'] == "Field" &&
-                                isset($module->{$condition['value']}) &&
-                                !empty($module->{$condition['value']})) {
+
+                            if ($condition['module_path'][0] != $rule['flow_module']) {
+                                foreach ($condition['module_path'] as $rel) {
+                                    if (empty($rel)) {
+                                        continue;
+                                    }
+                                    $module->load_relationship($rel);
+                                    $related = $module->$rel->getBeans();
+                                }
+                            }
+
+                            if ($related == false) {
+                                if ($condition['value_type'] == "Field" &&
+                                    isset($module->{$condition['value']}) &&
+                                    !empty($module->{$condition['value']})) {
                                     $condition['value'] = $module->{$condition['value']};
                                 }
-                            $value = $condition['value'];
-                            if($accessLevel == 'none') {
-                                $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value, true);
-                            } else {
-                                $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value, false);
-                            }
-                            if($module->field_defs[$condition['field']]['source'] == "custom_fields") {
-                                $table = $module->table_name."_cstm";
-                            } else {
-                                $table = $module->table_name;
-                            }
-                            if(empty($where)){
-                                $where = " ( ".$table.".".$condition['field']." ".$operatorValue." ) ";
-                            } else {
-                                $where .= " AND ( ".$table.".".$condition['field']." ".$operatorValue." ) ";
+                                $value = $condition['value'];
+                                if ($accessLevel == 'none') {
+                                    $operatorValue =
+                                        SharedSecurityRules::changeOperator($condition['operator'], $value, true);
+                                } else {
+                                    $operatorValue =
+                                        SharedSecurityRules::changeOperator($condition['operator'], $value, false);
+                                }
+                                if ($module->field_defs[$condition['field']]['source'] == "custom_fields") {
+                                    $table = $module->table_name . "_cstm";
+                                } else {
+                                    $table = $module->table_name;
+                                }
+                                if ($condition['parenthesis'] == "START") {
+                                    $parenthesis = "(";
+                                } elseif ($condition['parenthesis'] != "START" && !empty($condition['parenthesis'])) {
+                                    $parenthesis = ")";
+                                }
+                                if (empty($where) && !empty($parenthesis)) {
+                                    $where = " $parenthesis ";
+                                } elseif (!empty($parenthesis)) {
+                                    $where .= " $parenthesis ";
+                                } elseif (empty($where)) {
+                                    $where = " " . $table . "." . $condition['field'] . " " . $operatorValue . " ";
+                                } else {
+                                    $where .= " AND " .
+                                              $table .
+                                              "." .
+                                              $condition['field'] .
+                                              " " .
+                                              $operatorValue .
+                                              " ";
+                                }
                             }
                         }
                     }
