@@ -191,7 +191,7 @@ class SharedSecurityRules extends Basic
      *
      * @return bool
      */
-    private function checkParenthesisConditions($originalCondition, $moduleBean, $allConditionsResults, $rule, $view, $action, $key, $related, $result)
+    private function checkParenthesisConditions($originalCondition, $moduleBean, $allConditionsResults, $rule)
     {
 
         // Just get the conditions we need to check for this.
@@ -408,13 +408,13 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
-    private function getConditionResult($allConditions,$moduleBean, $rule, $result = false)
+    private function getConditionResult($allConditions,$moduleBean, $rule,$conditions_results, $result = false)
     {
         foreach($allConditions as $condition) {
 
             // Is it the starting parenthesis?
             if ($condition['parenthesis'] == "START") {
-                $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
+                $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results);
                 continue;
             }
 
@@ -525,7 +525,7 @@ class SharedSecurityRules extends Basic
     }
 
 
-    private function checkConditions2($rule, $moduleBean,$view,$action,$key,  $result = true){
+    private function checkConditions2($rule, $moduleBean){
         $sql_query = "SELECT * FROM sharedsecurityrulesconditions WHERE sharedsecurityrulesconditions.sa_shared_sec_rules_id = '{$rule['id']}' && sharedsecurityrulesconditions.deleted = '0' ORDER BY sharedsecurityrulesconditions.condition_order ASC ";
         $conditions_results = $moduleBean->db->query($sql_query);
         $related = false;
@@ -537,7 +537,7 @@ class SharedSecurityRules extends Basic
             array_push($allConditions, $condition);
         }
 
-            $result = getConditionResult($allConditions, $moduleBean, $rule);
+            $result = $this->getConditionResult($allConditions, $moduleBean, $rule, $conditions_results);
 
             return $result;
         }
