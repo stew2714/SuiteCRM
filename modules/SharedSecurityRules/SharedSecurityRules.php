@@ -155,7 +155,7 @@ class SharedSecurityRules extends Basic
                         $users_roles_results = $module->db->query($users_roles_query);
                         $user_id = mysqli_fetch_row($users_roles_results);
                         if($user_id[0] == $current_user->id) {
-                            $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                            $conditionResult = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
 
                             if($conditionResult)
                             {
@@ -173,7 +173,7 @@ class SharedSecurityRules extends Basic
                             $users_roles_results = $module->db->query($users_roles_query);
                             $user_id = mysqli_fetch_row($users_roles_results);
                             if($user_id[0] == $current_user->id) {
-                                $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                                $conditionResult = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
 
                                 if($conditionResult)
                                 {
@@ -184,7 +184,7 @@ class SharedSecurityRules extends Basic
                             }
                         }else {
                             if($secgroup[0] == $current_user->id) {
-                                $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                                $conditionResult = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
 
                                 if($conditionResult)
                                 {
@@ -198,7 +198,7 @@ class SharedSecurityRules extends Basic
                              ($targetType == "Users" && in_array("all", $action['parameters']['email'][$key]) ) )
                     {
                         //we have found a possible record to check against.
-                        $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                        $conditionResult = $this->checkConditions($rule, $moduleBean,$view,$action,$key, $result);
 
                         if($conditionResult)
                         {
@@ -218,9 +218,9 @@ class SharedSecurityRules extends Basic
 
     private function getParenthesisConditions($originalCondition,$allConditionsResults)
     {
-        // Just get the conditions we need to check for this.
+        // Just get the conditions we need to check for this
         $allParenthesisConditions = array();
-        // while ($condition = $moduleBean->db->fetchByAssoc($allConditionsResults))
+
         foreach($allConditionsResults as $condition)
         {
             if($condition['condition_order'] > $originalCondition['condition_order'] && ($condition['parenthesis'] == "" || $condition['parenthesis'] == null))
@@ -245,7 +245,7 @@ class SharedSecurityRules extends Basic
      *
      * @return bool
      */
-    private function checkParenthesisConditions($originalCondition, $moduleBean, $allParenthesisConditions, $rule)
+    private function checkParenthesisConditions($allParenthesisConditions, $moduleBean, $rule)
     {
 
         $conditionsToCheck = array();
@@ -256,7 +256,8 @@ class SharedSecurityRules extends Basic
             // Check parenthesis is equal to start, if so then start this whole process again
             if($allParenthesisConditions[$j]['parenthesis'] == "START")
             {
-                checkParenthesisConditions($allParenthesisConditions[$j],$allParenthesisConditions);
+                $parenthesisConditionArray = $this->getParenthesisConditions($allParenthesisConditions[$j], $allParenthesisConditions);
+                checkParenthesisConditions($parenthesisConditionArray,$moduleBean, $rule);
             }
 
             // Check parenthesis is blank, if it is then process as normal...
@@ -288,178 +289,6 @@ class SharedSecurityRules extends Basic
         }
     }
 
-
-    /**
-     * @param $rule
-     * @param $moduleBean
-     * @param $view
-     * @param $action
-     * @param $key
-     * @param bool $result
-     *
-     * @return bool
-     */
-
-    private function checkConditions($rule, $moduleBean,$view,$action,$key,  $result = true){
-        $sql_query = "SELECT * FROM sharedsecurityrulesconditions WHERE sharedsecurityrulesconditions.sa_shared_sec_rules_id = '{$rule['id']}' && sharedsecurityrulesconditions.deleted = '0' ORDER BY sharedsecurityrulesconditions.condition_order ASC ";
-        $conditions_results = $moduleBean->db->query($sql_query);
-        $related = false;
-
-        if($conditions_results->num_rows != 0) {
-            while ($condition = $moduleBean->db->fetchByAssoc($conditions_results)) {
-
-                // Is it the starting parenthesis?
-                if($condition['parenthesis'] == "START")
-                {
-                   $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
-                   continue;
-                }
-
-                // Check if there is another condition and get the operator
-                $nextOrder = $condition['condition_order'] + 1;
-                $nextQuery = "select logic_op from sharedsecurityrulesconditions where sa_shared_sec_rules_id = '{$condition['sa_shared_sec_rules_id']}' and condition_order = $nextOrder and deleted=0";
-                $nextResult = $this->db->query($nextQuery, true, "Error retrieving next condition");
-                $nextRow = $this->db->fetchByAssoc($nextResult);
-                $nextConditionLogicOperator = $nextRow['logic_op'];
-
-                if(unserialize(base64_decode($condition['module_path'])) != false) {
-                    $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
-                }
-                if ($condition['module_path'][0] != $rule['flow_module']) {
-                    foreach ($condition['module_path'] as $rel) {
-                        if (empty($rel)) {
-                            continue;
-                        }
-                        $moduleBean->load_relationship($rel);
-                        $related = $moduleBean->$rel->getBeans();
-                    }
-                }
-
-
-                if($related !== false){
-                    foreach($related as $record){
-                        if($moduleBean->field_defs[ $condition['field'] ]['type'] == "relate"){
-                            $condition['field'] = $moduleBean->field_defs[ $condition['field'] ]['id_name'];
-                        }
-                        if($condition['value_type'] == "currentUser"){
-                            global $current_user;
-                            $condition['value_type'] = "Field";
-                            $condition['value'] = $current_user->id;
-
-                        }
-                        if ($this->checkOperator(
-                            $record->{$condition['field']},
-                            $condition['value'],
-                            $condition['operator']
-                        )) {
-                            if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-                                $result = false;
-                            } else {
-                                $result = true;
-                            }
-                        } else {
-                            if(count($related) <= 1) {
-                                $result = false;
-                            }
-                        }
-                    }
-                }else{
-                    if($condition['value_type'] == "currentUser"){
-                        global $current_user;
-                        $condition['value_type'] = "Field";
-                        $condition['value'] = $current_user->id;
-                    }
-                    //check and see if it is pointed at a field rather than a value.
-                    if ($condition['value_type'] == "Field" &&
-                        isset($moduleBean->{$condition['value']}) &&
-                        !empty($moduleBean->{$condition['value']})) {
-                        $condition['value'] = $moduleBean->{$condition['value']};
-                    }
-                  /*  if ($this->checkOperator(
-                        $moduleBean->{$condition['field']},
-                        $condition['value'],
-                        $condition['operator']
-                    )) {
-                        if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-                            if($condition['logic_op'] != "OR"){
-                                //return false;
-                                //return null;
-                                $result = null;
-                            }
-                            $result = false;
-                        } else {
-                            $result = true;
-                        }
-
-                    } */
-
-
-                $conditionResult = $this->checkOperator($moduleBean->{$condition['field']}, $condition['value'], $condition['operator']);
-                $accessResult = $this->findAccess($view, $action['parameters']['accesslevel'][$key]);
-
-
-                   if ($conditionResult)
-                   {
-                       // If the condition is met and the user does have access
-                       if($accessResult)
-                       {
-
-                           if($nextConditionLogicOperator === "AND")
-                           {
-                                $result = true;
-                           }
-                           else{
-                               return true;
-                           }
-
-                       }
-
-                       //If the condition is met and the user doesn't have access
-                       if(!$accessResult)
-                       {
-
-                           if($nextConditionLogicOperator === "AND")
-                           {
-                               $result = false;
-                           }
-                           else{
-                               return false;
-                           }
-                       }
-
-                   }
-
-
-                  else {
-                        if($rule->run == "Once True"){
-                            if ($this->checkHistory($moduleBean,$condition['field'], $condition['value']) ) {
-                                if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-                                    $result = false;
-                                }
-                            }
-                        }
-                        else{
-                            if( $nextConditionLogicOperator === "AND" ){
-
-                               $result = null;
-                                return $result;
-                            }
-                            $result = null;
-
-                        }
-                    }
-                }
-
-            }
-        }
-
-        elseif (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-            $result = false;
-        }
-
-        return $result;
-    }
-
     private function getConditionResult($allConditions,$moduleBean, $rule, $result = false)
     {
 
@@ -470,7 +299,7 @@ class SharedSecurityRules extends Basic
             if ($allConditions[$x]['parenthesis'] == "START") {
 
                 $parenthesisConditionArray = $this->getParenthesisConditions($allConditions[$x], $allConditions);
-                $overallResult = $this->checkParenthesisConditions($allConditions[$x], $moduleBean, $parenthesisConditionArray);
+                $overallResult = $this->checkParenthesisConditions($parenthesisConditionArray, $moduleBean, $rule);
 
                 // Retrieve the number of parenthesis conditions so we know how many conditions to skip for next run through
                 $x = $x + sizeof($parenthesisConditionArray);
@@ -548,11 +377,9 @@ class SharedSecurityRules extends Basic
                         $allConditions[$x]['value'],
                         $allConditions[$x]['operator']
                     )) {
-                        // if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-                        //     $result = false;
-                        // } else {
+
                         $result = true;
-                        // }
+
                     }
 
 
@@ -592,8 +419,6 @@ class SharedSecurityRules extends Basic
                     }
 
                 }
-
-
                 else {
                     if($rule->run == "Once True"){
                         if ($this->checkHistory($moduleBean,$allConditions[$x]['field'], $allConditions[$x]['value']) ) {
@@ -619,7 +444,7 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
-    private function checkConditions2($rule, $moduleBean){
+    private function checkConditions($rule, $moduleBean){
         $sql_query = "SELECT * FROM sharedsecurityrulesconditions WHERE sharedsecurityrulesconditions.sa_shared_sec_rules_id = '{$rule['id']}' && sharedsecurityrulesconditions.deleted = '0' ORDER BY sharedsecurityrulesconditions.condition_order ASC ";
         $conditions_results = $moduleBean->db->query($sql_query);
         $related = false;
@@ -635,130 +460,6 @@ class SharedSecurityRules extends Basic
 
             return $result;
         }
-
-  /*  function processParenthesisCondition($condition, $rule, $moduleBean, $view, $action, $key, $related = false, $result = true)
-    {
-        // Check if there is another condition and get the operator
-        $nextOrder = $condition['condition_order'] + 1;
-        $nextQuery = "select logic_op from sharedsecurityrulesconditions where sa_shared_sec_rules_id = '{$condition['sa_shared_sec_rules_id']}' and condition_order = $nextOrder and deleted=0";
-        $nextResult = $this->db->query($nextQuery, true, "Error retrieving next condition");
-        $nextRow = $this->db->fetchByAssoc($nextResult);
-        $nextConditionLogicOperator = $nextRow['logic_op'];
-
-        if(unserialize(base64_decode($condition['module_path'])) != false) {
-            $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
-        }
-        if ($condition['module_path'][0] != $rule['flow_module']) {
-            foreach ($condition['module_path'] as $rel) {
-                if (empty($rel)) {
-                    continue;
-                }
-                $moduleBean->load_relationship($rel);
-                $related = $moduleBean->$rel->getBeans();
-            }
-        }
-
-
-        if($related !== false){
-            foreach($related as $record){
-                if($moduleBean->field_defs[ $condition['field'] ]['type'] == "relate"){
-                    $condition['field'] = $moduleBean->field_defs[ $condition['field'] ]['id_name'];
-                }
-                if($condition['value_type'] == "currentUser"){
-                    global $current_user;
-                    $condition['value_type'] = "Field";
-                    $condition['value'] = $current_user->id;
-
-                }
-                if ($this->checkOperator(
-                    $record->{$condition['field']},
-                    $condition['value'],
-                    $condition['operator']
-                )) {
-                    if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-                        $result = false;
-                    } else {
-                        $result = true;
-                    }
-                } else {
-                    if(count($related) <= 1) {
-                        $result = false;
-                    }
-                }
-            }
-        }else{
-            if($condition['value_type'] == "currentUser"){
-                global $current_user;
-                $condition['value_type'] = "Field";
-                $condition['value'] = $current_user->id;
-            }
-            //check and see if it is pointed at a field rather than a value.
-            if ($condition['value_type'] == "Field" &&
-                isset($moduleBean->{$condition['value']}) &&
-                !empty($moduleBean->{$condition['value']})) {
-                $condition['value'] = $moduleBean->{$condition['value']};
-            }
-
-            $conditionResult = $this->checkOperator($moduleBean->{$condition['field']}, $condition['value'], $condition['operator']);
-            $accessResult = $this->findAccess($view, $action['parameters']['accesslevel'][$key]);
-
-
-            if ($conditionResult)
-            {
-                // If the condition is met and the user does have access
-                if($accessResult)
-                {
-
-                    if($nextConditionLogicOperator === "AND")
-                    {
-                        $result = true;
-                    }
-                    else{
-                        return true;
-                    }
-
-                }
-
-                //If the condition is met and the user doesn't have access
-                if(!$accessResult)
-                {
-
-                    if($nextConditionLogicOperator === "AND")
-                    {
-                        $result = false;
-                    }
-                    else{
-                        return false;
-                    }
-                }
-
-            }
-
-
-            else {
-                if($rule->run == "Once True"){
-                    if ($this->checkHistory($moduleBean,$condition['field'], $condition['value']) ) {
-                        if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
-                            $result = false;
-                        }
-                    }
-                }
-                else{
-                    if( $nextConditionLogicOperator === "AND" ){
-
-                        $result = null;
-                        return $result;
-                    }
-                    $result = null;
-
-                }
-            }
-        }
-
-        return $result;
-    }
-*/
-
 
     function buildRuleWhere($module)
     {
