@@ -115,6 +115,7 @@ class SharedSecurityRules extends Basic
         $action->save_lines($_POST, $this, 'shared_rules_actions_');
     }
 
+
     /**
      * @param $module
      * @param $view
@@ -154,7 +155,14 @@ class SharedSecurityRules extends Basic
                         $users_roles_results = $module->db->query($users_roles_query);
                         $user_id = mysqli_fetch_row($users_roles_results);
                         if($user_id[0] == $current_user->id) {
-                            $result = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                            $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+
+                            if($conditionResult)
+                            {
+                                if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                                    $result = false;
+                                }
+                            }
                         }
                     }elseif($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "security_group"){
                         $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
@@ -165,24 +173,56 @@ class SharedSecurityRules extends Basic
                             $users_roles_results = $module->db->query($users_roles_query);
                             $user_id = mysqli_fetch_row($users_roles_results);
                             if($user_id[0] == $current_user->id) {
-                                $result = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                                $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+
+                                if($conditionResult)
+                                {
+                                    if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                                        $result = false;
+                                    }
+                                }
                             }
                         }else {
                             if($secgroup[0] == $current_user->id) {
-                                $result = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                                $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+
+                                if($conditionResult)
+                                {
+                                    if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                                        $result = false;
+                                    }
+                                }
                             }
                         }
                     }elseif( ($targetType == "Specify User" && $current_user->id ==  $action['parameters']['email'][$key]) ||
                              ($targetType == "Users" && in_array("all", $action['parameters']['email'][$key]) ) )
                     {
                         //we have found a possible record to check against.
-                        $result = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+                        $conditionResult = $this->checkConditions2($rule, $moduleBean,$view,$action,$key, $result);
+
+                        if($conditionResult)
+                        {
+                            if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                                $result = false;
+                            }
+                        }
+
                     }
                 }
             }
 
         }
         return $result;
+    }
+
+
+    // Function to determine which view's should be visible
+    private function checkViewPermissions($view, $action, $key)
+    {
+        if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+            $result = false;
+        }
+
     }
 
     /**
@@ -428,6 +468,8 @@ class SharedSecurityRules extends Basic
             if (unserialize(base64_decode($condition['module_path'])) != false) {
                 $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
             }
+        /*this needs to be uncommented out and checked */
+
             if ($condition['module_path'][0] != $rule['flow_module']) {
                 foreach ($condition['module_path'] as $rel) {
                     if (empty($rel)) {
@@ -439,7 +481,7 @@ class SharedSecurityRules extends Basic
             }
 
 
-            if ($related !== false) {
+            if ($related !== false && $related !== null && $related !== "") {
                 foreach ($related as $record) {
                     if ($moduleBean->field_defs[$condition['field']]['type'] == "relate") {
                         $condition['field'] = $moduleBean->field_defs[$condition['field']]['id_name'];
@@ -470,7 +512,9 @@ class SharedSecurityRules extends Basic
                         }
                     }
                 }
-            } else {
+            }
+
+            else {
                 if ($condition['value_type'] == "currentUser") {
                     global $current_user;
                     $condition['value_type'] = "Field";
