@@ -222,10 +222,8 @@ class SharedSecurityRules extends Basic
             // Check parenthesis is blank, if it is then process as normal...
             if($allConditions[$j]['parenthesis'] == "")
             {
-
-                $temp =  $this->processParenthesisCondition($allConditions[$j], $rule, $moduleBean, $view, $action, $key, $related, $result);
-
-
+                // $temp =  $this->processParenthesisCondition($allConditions[$j], $rule, $moduleBean, $view, $action, $key, $related, $result);
+                $tempResult = $this->getConditionResult($allConditions, $moduleBean, $rule);
                 // return $temp;
             }
 
@@ -410,13 +408,13 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
-    private function getConditionResult($allConditions,$moduleBean, $result = false)
+    private function getConditionResult($allConditions,$moduleBean, $rule, $result = false)
     {
         foreach($allConditions as $condition) {
 
             // Is it the starting parenthesis?
             if ($condition['parenthesis'] == "START") {
-              //  $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
+                $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
                 continue;
             }
 
@@ -462,7 +460,7 @@ class SharedSecurityRules extends Basic
                        // } else {
                             $result = true;
                        // }
-                    } 
+                    }
 
 
 
@@ -539,7 +537,7 @@ class SharedSecurityRules extends Basic
             array_push($allConditions, $condition);
         }
 
-            $result = getConditionResult($allConditions, $moduleBean);
+            $result = getConditionResult($allConditions, $moduleBean, $rule);
 
             return $result;
         }
