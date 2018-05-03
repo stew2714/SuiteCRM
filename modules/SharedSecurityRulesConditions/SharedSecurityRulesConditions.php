@@ -171,7 +171,7 @@ class SharedSecurityRulesConditions extends Basic
         require_once('modules/AOW_WorkFlow/aow_utils.php');
 
         $j = 0;
-        $conditionCounter = 0;
+     //   $conditionCounter = 0;
         if(isset($post_data[$key . 'field']) && !empty($post_data[$key . 'field'])) {
 
             foreach ($post_data[$key . 'field'] as $i => $field) {
@@ -256,11 +256,11 @@ class SharedSecurityRulesConditions extends Basic
                         $condition->sa_shared_sec_rules_id = $parent->id;
 
                         // Set first condition logic operator to be null on the rule (first condition does not require a logic operator)
-                        if($conditionCounter == 0)
-                        {
-                            $condition->logic_op = "";
-                            $conditionCounter++;
-                        }
+                     //   if($conditionCounter == 0)
+                     //   {
+                     //       $condition->logic_op = "";
+                     //       $conditionCounter++;
+                     //   }
                         $conditionId = $condition->save();
 
 

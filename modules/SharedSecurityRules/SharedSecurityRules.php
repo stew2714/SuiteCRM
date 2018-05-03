@@ -224,8 +224,11 @@ class SharedSecurityRules extends Basic
             if($allConditions[$j]['parenthesis'] == "")
             {
 
-               $temp =  $this->tempFunction($condition, $rule, $moduleBean, $view, $action, $key, $related, $result);
-              // return $temp;
+               //$temp =  $this->tempFunction2($condition, $rule, $moduleBean, $view, $action, $key, $related, $result);
+                $temp =  $this->tempFunction2($allConditions[$j], $rule, $moduleBean, $view, $action, $key, $related, $result);
+
+
+                // return $temp;
             }
 
             // Check parenthesis is the condition id (indicates the end of the parenthesis and a success)
@@ -253,16 +256,24 @@ class SharedSecurityRules extends Basic
         $conditions_results = $moduleBean->db->query($sql_query);
         $related = false;
 
+
+
         if($conditions_results->num_rows != 0) {
             while ($condition = $moduleBean->db->fetchByAssoc($conditions_results)) {
 
-
                 // Is it the starting parenthesis?
-               // if($condition['parenthesis'] == "START")
-               // {
-               //    $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
-               //    continue;
-               // }
+                if($condition['parenthesis'] == "START")
+                {
+                   $result = $this->checkParenthesisConditions($condition, $moduleBean, $conditions_results, $rule, $view, $action, $key, $related, $result);
+                   continue;
+                }
+
+                // Check if there is another condition and get the operator
+                $nextOrder = $condition['condition_order'] + 1;
+                $nextQuery = "select logic_op from sharedsecurityrulesconditions where sa_shared_sec_rules_id = '{$condition['sa_shared_sec_rules_id']}' and condition_order = $nextOrder and deleted=0";
+                $nextResult = $this->db->query($nextQuery, true, "Error retrieving next condition");
+                $nextRow = $this->db->fetchByAssoc($nextResult);
+                $nextConditionLogicOperator = $nextRow['logic_op'];
 
                 if(unserialize(base64_decode($condition['module_path'])) != false) {
                     $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
@@ -346,7 +357,7 @@ class SharedSecurityRules extends Basic
                        if($accessResult)
                        {
 
-                           if($condition['logic_op'] === "AND")
+                           if($nextConditionLogicOperator === "AND")
                            {
                                 $result = true;
                            }
@@ -360,7 +371,7 @@ class SharedSecurityRules extends Basic
                        if(!$accessResult)
                        {
 
-                           if($condition['logic_op'] === "AND")
+                           if($nextConditionLogicOperator === "AND")
                            {
                                $result = false;
                            }
@@ -381,7 +392,7 @@ class SharedSecurityRules extends Basic
                             }
                         }
                         else{
-                            if( $condition['logic_op'] === "AND" ){
+                            if( $nextConditionLogicOperator === "AND" ){
 
                                $result = null;
                                 return $result;
@@ -403,7 +414,129 @@ class SharedSecurityRules extends Basic
     }
 
 
-    /*
+    function tempFunction2($condition, $rule, $moduleBean, $view, $action, $key, $related = false, $result = true)
+    {
+        // Check if there is another condition and get the operator
+        $nextOrder = $condition['condition_order'] + 1;
+        $nextQuery = "select logic_op from sharedsecurityrulesconditions where sa_shared_sec_rules_id = '{$condition['sa_shared_sec_rules_id']}' and condition_order = $nextOrder and deleted=0";
+        $nextResult = $this->db->query($nextQuery, true, "Error retrieving next condition");
+        $nextRow = $this->db->fetchByAssoc($nextResult);
+        $nextConditionLogicOperator = $nextRow['logic_op'];
+
+        if(unserialize(base64_decode($condition['module_path'])) != false) {
+            $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
+        }
+        if ($condition['module_path'][0] != $rule['flow_module']) {
+            foreach ($condition['module_path'] as $rel) {
+                if (empty($rel)) {
+                    continue;
+                }
+                $moduleBean->load_relationship($rel);
+                $related = $moduleBean->$rel->getBeans();
+            }
+        }
+
+
+        if($related !== false){
+            foreach($related as $record){
+                if($moduleBean->field_defs[ $condition['field'] ]['type'] == "relate"){
+                    $condition['field'] = $moduleBean->field_defs[ $condition['field'] ]['id_name'];
+                }
+                if($condition['value_type'] == "currentUser"){
+                    global $current_user;
+                    $condition['value_type'] = "Field";
+                    $condition['value'] = $current_user->id;
+
+                }
+                if ($this->checkOperator(
+                    $record->{$condition['field']},
+                    $condition['value'],
+                    $condition['operator']
+                )) {
+                    if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                        $result = false;
+                    } else {
+                        $result = true;
+                    }
+                } else {
+                    if(count($related) <= 1) {
+                        $result = false;
+                    }
+                }
+            }
+        }else{
+            if($condition['value_type'] == "currentUser"){
+                global $current_user;
+                $condition['value_type'] = "Field";
+                $condition['value'] = $current_user->id;
+            }
+            //check and see if it is pointed at a field rather than a value.
+            if ($condition['value_type'] == "Field" &&
+                isset($moduleBean->{$condition['value']}) &&
+                !empty($moduleBean->{$condition['value']})) {
+                $condition['value'] = $moduleBean->{$condition['value']};
+            }
+
+            $conditionResult = $this->checkOperator($moduleBean->{$condition['field']}, $condition['value'], $condition['operator']);
+            $accessResult = $this->findAccess($view, $action['parameters']['accesslevel'][$key]);
+
+
+            if ($conditionResult)
+            {
+                // If the condition is met and the user does have access
+                if($accessResult)
+                {
+
+                    if($nextConditionLogicOperator === "AND")
+                    {
+                        $result = true;
+                    }
+                    else{
+                        return true;
+                    }
+
+                }
+
+                //If the condition is met and the user doesn't have access
+                if(!$accessResult)
+                {
+
+                    if($nextConditionLogicOperator === "AND")
+                    {
+                        $result = false;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+
+            }
+
+
+            else {
+                if($rule->run == "Once True"){
+                    if ($this->checkHistory($moduleBean,$condition['field'], $condition['value']) ) {
+                        if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                            $result = false;
+                        }
+                    }
+                }
+                else{
+                    if( $nextConditionLogicOperator === "AND" ){
+
+                        $result = null;
+                        return $result;
+                    }
+                    $result = null;
+
+                }
+            }
+        }
+
+        return $result;
+    }
+
+
     function tempFunction($condition, $rule, $moduleBean, $view, $action, $key, $related = false, $result = true)
     {
 
@@ -492,7 +625,7 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
-    */
+
 
     function buildRuleWhere($module){
         
