@@ -39,16 +39,16 @@ array (
           ),
           4 =>
           array (
-            'customCode' => '{if $bean->aclAccess("edit")} <input type="hidden" name="cancelAndNotify" value="false"><input title="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}" class="button" onclick=";this.form.return_module.value=\'Meetings\';this.form.isDuplicate.value=true;this.form.cancelAndNotify.value=true;this.form.return_action.value=\'EditView\';this.form.return_id.value=\'{$fields.id.value}\';" id="cancel_notify_button" name="button"  value="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}"  type="submit">{/if}'
+            'customCode' => '{if $bean->aclAccess("edit")}<input title="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}" class="button" onclick="this.form.return_module.value=\'Meetings\';this.form.cancelAndNotify.value=true;this.form.action.value=\'cancelAndNotify\';this.form.return_action.value=\'DetailView\';this.form.return_id.value=\'{$fields.id.value}\';" id="cancel_notify_button" name="cancel_notify_button" value="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}"  type="submit">{/if}'
             ),
           5 =>
           array (
             'customCode' => '{if $fields.status.value != "Held" && $bean->aclAccess("edit")} <input type="hidden" name="isSave" value="false">  <input title="{$APP.LBL_CLOSE_BUTTON_TITLE}"  accesskey="{$APP.LBL_CLOSE_BUTTON_KEY}"  class="button"  onclick="this.form.status.value=\'Held\'; this.form.action.value=\'Save\';this.form.return_module.value=\'Meetings\';this.form.isSave.value=true;this.form.return_action.value=\'DetailView\'; this.form.return_id.value=\'{$fields.id.value}\'"  id="close_button" name="button1"  value="{$APP.LBL_CLOSE_BUTTON_TITLE}"  type="submit">{/if}',
-            'sugar_html' => 
+            'sugar_html' =>
             array (
               'type' => 'submit',
               'value' => '{$APP.LBL_CLOSE_BUTTON_TITLE}',
-              'htmlOptions' => 
+              'htmlOptions' =>
               array (
                 'title' => '{$APP.LBL_CLOSE_BUTTON_TITLE}',
                 'accesskey' => '{$APP.LBL_CLOSE_BUTTON_KEY}',
@@ -67,6 +67,7 @@ array (
           1 => '<input type="hidden" name="status">',
           2 => '<input type="hidden" name="isSaveFromDetailView">',
           3 => '<input type="hidden" name="isSave">',
+          4 => '<input type="hidden" name="cancelAndNotify">',
         ),
         'headerTpl' => 'modules/Meetings/tpls/detailHeader.tpl',
       ),

@@ -38,10 +38,21 @@
  * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-class CustomMeetingsController extends SugarController {
+require_once 'CustomMeetingFormBase.php';
 
-    public function cancelMeetingAndNotify()
+class CustomMeetingsController extends SugarController
+{
+
+    /**
+     *
+     */
+    public function action_cancelAndNotify()
     {
-        $b = 1;
+        $formBase = new CustomMeetingFormBase();
+
+        $this->bean->name = 'CANCELLED ' . $this->bean->name;
+        $this->bean->save();
+
+        $formBase->cancelAndNotify($this->bean);
     }
 }

@@ -73,15 +73,22 @@ class CustomMeetingFormBase extends MeetingFormBase
     public function handleSave($prefix, $redirect = true, $useRequired = false)
     {
         $focus = parent::handleSave($prefix, false, $useRequired);
-        $this->focus = BeanFactory::getBean('Meetings', $focus->id);
-
-        $this->focus->load_relationship('users');
 
         if ($this->meetingHasBeenCancelledNow()) {
-            $this->notifyAttendants();
+            $this->cancelAndNotify($focus);
         }
+    }
 
-        handleRedirect($this->focus->id, 'Meetings');
+    /**
+     * @param Meeting $bean
+     */
+    public function cancelAndNotify($bean)
+    {
+        $this->focus = $bean;
+
+        $this->notifyAttendants();
+
+        SugarApplication::redirect('index.php?module=Meetings&record=' . $this->focus->id . '&action=DetailView');
     }
 
     /**
