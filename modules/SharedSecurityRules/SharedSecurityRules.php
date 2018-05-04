@@ -631,6 +631,7 @@ class SharedSecurityRules extends Basic
         
         global $current_user, $db;
         $where = "";
+        $parenthesis = null;
         $sql = "SELECT * FROM sharedsecurityrules WHERE sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_dir}'";
         $results = $db->query($sql);
         while(($rule = $module->db->fetchByAssoc($results)) != null){
@@ -681,7 +682,6 @@ class SharedSecurityRules extends Basic
                 if($conditions_results->num_rows != 0) {
                     while ($condition = $module->db->fetchByAssoc($conditions_results)) {
                         if($accessLevel == 'none') {
-                            $parenthesis = null;
                             if (unserialize(base64_decode($condition['module_path'])) != false) {
                                 $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
                             }
@@ -715,26 +715,42 @@ class SharedSecurityRules extends Basic
                                 } else {
                                     $table = $module->table_name;
                                 }
+                                $conditionQuery = " " . $table . "." . $condition['field'] . " " . $operatorValue . " ";
                                 if ($condition['parenthesis'] == "START") {
-                                    $parenthesis = "(";
+                                    if (is_null($parenthesis)) {
+                                        $parenthesis = " ( ";
+                                        if(empty($where)) {
+                                            $where = $parenthesis;
+                                        } else {
+                                            $where .= " AND " . $parenthesis;
+                                        }
+                                    } else {
+                                        if(empty($where)) {
+                                            $where = $parenthesis;
+                                        } else {
+                                            $where .= $parenthesis;
+                                        }
+                                    }
                                 } elseif ($condition['parenthesis'] != "START" && !empty($condition['parenthesis'])) {
-                                    $parenthesis = ")";
-                                }
-                                if (empty($where) && !empty($parenthesis)) {
-                                    $where = " $parenthesis ";
-                                } elseif (!empty($parenthesis)) {
-                                    $where .= " $parenthesis ";
-                                } elseif (empty($where)) {
-                                    $where = " " . $table . "." . $condition['field'] . " " . $operatorValue . " ";
+                                    $parenthesis = " ) ";
+                                    if(empty($where)) {
+                                        $where = $parenthesis;
+                                    } else {
+                                        $where .= $parenthesis;
+                                    }
                                 } else {
-                                    $where .= " AND " .
-                                              $table .
-                                              "." .
-                                              $condition['field'] .
-                                              " " .
-                                              $operatorValue .
-                                              " ";
+                                    if(!empty($parenthesis)) {
+                                        if ($parenthesis == " ( ") {
+                                            $where .= $conditionQuery;
+                                            $parenthesis = null;
+                                        }
+                                    } elseif (empty($where)) {
+                                        $where = $conditionQuery;
+                                    } else {
+                                        $where .= " AND " . $conditionQuery;
+                                    }
                                 }
+
                             }
                         }
                     }
