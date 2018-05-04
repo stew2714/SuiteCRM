@@ -643,36 +643,42 @@ class SharedSecurityRules extends Basic
                     $action['parameters'] = unserialize(base64_decode($action['parameters']));
                 }
                 foreach($action['parameters']['accesslevel'] as $key => $accessLevel){
+                    if($accessLevel == 'none') {
                         $targetType = $action['parameters']['email_target_type'][$key];
 
-                        if($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "role"){
-                            $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
+                        if ($targetType == "Users" && $action['parameters']['email'][$key]['0'] == "role") {
+                            $users_roles_query =
+                                "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
                             $users_roles_results = $module->db->query($users_roles_query);
                             $user_id = mysqli_fetch_row($users_roles_results);
-                            if($user_id[0] == $current_user->id) {
-                                $actionIsUser =  true;
+                            if ($user_id[0] == $current_user->id) {
+                                $actionIsUser = true;
                             }
-                        }elseif($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "security_group"){
-                            $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
+                        } elseif ($targetType == "Users" &&
+                                  $action['parameters']['email'][$key]['0'] == "security_group") {
+                            $sec_group_query =
+                                "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
                             $sec_group_results = $module->db->query($sec_group_query);
                             $secgroup = mysqli_fetch_row($sec_group_results);
-                            if(!empty($action['parameters']['email'][ $key ]['2'])){
-                                $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
+                            if (!empty($action['parameters']['email'][$key]['2'])) {
+                                $users_roles_query =
+                                    "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
                                 $users_roles_results = $module->db->query($users_roles_query);
                                 $user_id = mysqli_fetch_row($users_roles_results);
-                                if($user_id[0] == $current_user->id) {
+                                if ($user_id[0] == $current_user->id) {
                                     $actionIsUser = true;
                                 }
-                            }else {
-                                if($secgroup[0] == $current_user->id) {
+                            } else {
+                                if ($secgroup[0] == $current_user->id) {
                                     $actionIsUser = true;
                                 }
                             }
-                        }elseif( ($targetType == "Specify User" && $current_user->id ==  $action['parameters']['email'][$key]) ||
-                            ($targetType == "Users" && in_array("all", $action['parameters']['email'][$key]) ) )
-                        {
+                        } elseif (($targetType == "Specify User" &&
+                                   $current_user->id == $action['parameters']['email'][$key]) ||
+                                  ($targetType == "Users" && in_array("all", $action['parameters']['email'][$key]))) {
                             $actionIsUser = true;
                         }
+                    }
                 }
             }
             if($actionIsUser == true){
