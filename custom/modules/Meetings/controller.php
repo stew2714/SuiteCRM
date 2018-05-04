@@ -38,5 +38,10 @@
  * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$mod_strings['LBL_CANCEL_MEETING_NOTIFY'] = 'CANCEL MEETING & NOTIFY';
-$mod_strings['LBL_CANCEL_MEETING_NOTIFY_DETAIL'] = 'Cancel Meeting & Notify';
+class CustomMeetingsController extends SugarController {
+
+    public function cancelMeetingAndNotify()
+    {
+        $b = 1;
+    }
+}
