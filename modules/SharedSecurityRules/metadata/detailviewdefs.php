@@ -15,7 +15,6 @@ $viewdefs [$module_name] =
                                         2 => 'DELETE',
                                         3 => 'FIND_DUPLICATES',
                                     ),
-                                'footerTpl' => 'modules/AOR_MatrixReporting/tpls/report.tpl',
                             ),
                         'maxColumns' => '2',
                         'widths' =>
