@@ -465,6 +465,7 @@ class SharedSecurityRules extends Basic
 
         global $current_user, $db;
         $where = "";
+        $parenthesis = null;
         $sql = "SELECT * FROM sharedsecurityrules WHERE sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_dir}'";
         $results = $db->query($sql);
         while (($rule = $module->db->fetchByAssoc($results)) != null) {
@@ -475,36 +476,37 @@ class SharedSecurityRules extends Basic
                 if (unserialize(base64_decode($action['parameters'])) != false) {
                     $action['parameters'] = unserialize(base64_decode($action['parameters']));
                 }
-                foreach ($action['parameters']['accesslevel'] as $key => $accessLevel) {
-                    $targetType = $action['parameters']['email_target_type'][$key];
+                foreach($action['parameters']['accesslevel'] as $key => $accessLevel){
+                        if($accessLevel == 'none') {$targetType = $action['parameters']['email_target_type'][$key];
 
-                    if ($targetType == "Users" && $action['parameters']['email'][$key]['0'] == "role") {
-                        $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
-                        $users_roles_results = $module->db->query($users_roles_query);
-                        $user_id = mysqli_fetch_row($users_roles_results);
-                        if ($user_id[0] == $current_user->id) {
-                            $actionIsUser = true;
-                        }
-                    } elseif ($targetType == "Users" && $action['parameters']['email'][$key]['0'] == "security_group") {
-                        $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
-                        $sec_group_results = $module->db->query($sec_group_query);
-                        $secgroup = mysqli_fetch_row($sec_group_results);
-                        if (!empty($action['parameters']['email'][$key]['2'])) {
+                        if($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "role"){
                             $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
                             $users_roles_results = $module->db->query($users_roles_query);
                             $user_id = mysqli_fetch_row($users_roles_results);
-                            if ($user_id[0] == $current_user->id) {
-                                $actionIsUser = true;
+                            if($user_id[0] == $current_user->id) {
+                                $actionIsUser =  true;
                             }
-                        } else {
-                            if ($secgroup[0] == $current_user->id) {
-                                $actionIsUser = true;
+                        }elseif($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "security_group"){
+                            $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
+                            $sec_group_results = $module->db->query($sec_group_query);
+                            $secgroup = mysqli_fetch_row($sec_group_results);
+                            if(!empty($action['parameters']['email'][ $key ]['2'])){
+                                $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
+                                $users_roles_results = $module->db->query($users_roles_query);
+                                $user_id = mysqli_fetch_row($users_roles_results);
+                                if($user_id[0] == $current_user->id) {
+                                    $actionIsUser = true;
+                                }
+                            }else {
+                                if($secgroup[0] == $current_user->id) {
+                                    $actionIsUser = true;
+                                }
                             }
-                        }
-                    } elseif (($targetType == "Specify User" && $current_user->id == $action['parameters']['email'][$key]) ||
-                        ($targetType == "Users" && in_array("all", $action['parameters']['email'][$key]))) {
-                        $actionIsUser = true;
-                    }
+                        }elseif( ($targetType == "Specify User" && $current_user->id ==  $action['parameters']['email'][$key]) ||
+                            ($targetType == "Users" && in_array("all", $action['parameters']['email'][$key]) ) ){
+
+                            $actionIsUser = true;
+                        }}
                 }
             }
             if ($actionIsUser == true) {
@@ -513,7 +515,7 @@ class SharedSecurityRules extends Basic
                 $related = false;
                 if ($conditions_results->num_rows != 0) {
                     while ($condition = $module->db->fetchByAssoc($conditions_results)) {
-                        if (unserialize(base64_decode($condition['module_path'])) != false) {
+                        if($accessLevel == 'none') {if(unserialize(base64_decode($condition['module_path'])) != false) {
                             $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
                         }
 
@@ -527,27 +529,57 @@ class SharedSecurityRules extends Basic
                             }
                         }
 
-                        if ($related == false) {
+                        if($related == false) {
                             if ($condition['value_type'] == "Field" &&
                                 isset($module->{$condition['value']}) &&
                                 !empty($module->{$condition['value']})) {
-                                $condition['value'] = $module->{$condition['value']};
-                            }
+                                    $condition['value'] = $module->{$condition['value']};
+                                }
                             $value = $condition['value'];
-                            if ($accessLevel == 'none') {
+                            if($accessLevel == 'none') {
                                 $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value, true);
                             } else {
                                 $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value, false);
                             }
-                            if ($module->field_defs[$condition['field']]['source'] == "custom_fields") {
-                                $table = $module->table_name . "_cstm";
+                            if($module->field_defs[$condition['field']]['source'] == "custom_fields") {
+                                $table = $module->table_name."_cstm";
                             } else {
                                 $table = $module->table_name;
                             }
-                            if (empty($where)) {
-                                $where = " ( " . $table . "." . $condition['field'] . " " . $operatorValue . " ) ";
+                            $conditionQuery = " " . $table . "." . $condition['field'] . " " . $operatorValue . " ";
+                                if ($condition['parenthesis'] == "START") {
+                                    if (is_null($parenthesis)) {
+                                        $parenthesis = " ( ";if(empty($where)){
+                                $where = $parenthesis;
                             } else {
-                                $where .= " AND ( " . $table . "." . $condition['field'] . " " . $operatorValue . " ) ";
+                                $where .= " AND  ".$parenthesis;
+                                        }
+                                    } else {
+                                        if(empty($where)) {
+                                            $where = $parenthesis;
+                                        } else {
+                                            $where .= $parenthesis;
+                                        }
+                                    }
+                                } elseif ($condition['parenthesis'] != "START" && !empty($condition['parenthesis'])) {
+                                    $parenthesis = " ) ";
+                                    if(empty($where)) {
+                                        $where = $parenthesis;
+                                    } else {
+                                        $where .= $parenthesis;
+                                    }
+                                } else {
+                                    if(!empty($parenthesis)) {
+                                        if ($parenthesis == " ( ") {
+                                            $where .= $conditionQuery;
+                                            $parenthesis = null;
+                                        }
+                                    } elseif (empty($where)) {
+                                        $where = $conditionQuery;
+                                    } else {
+                                        $where .= " AND " . $conditionQuery;
+                                    }
+                                }
                             }
                         }
                     }
