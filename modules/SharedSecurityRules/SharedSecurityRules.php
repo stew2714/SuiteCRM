@@ -728,7 +728,7 @@ class SharedSecurityRules extends Basic
                                         if(empty($where)) {
                                             $where = $parenthesis;
                                         } else {
-                                            $where .= " AND " . $parenthesis;
+                                            $where .= $condition['logic_op'] . " " . $parenthesis;
                                         }
                                     } else {
                                         if(empty($where)) {
@@ -753,7 +753,7 @@ class SharedSecurityRules extends Basic
                                     } elseif (empty($where)) {
                                         $where = $conditionQuery;
                                     } else {
-                                        $where .= " AND " . $conditionQuery;
+                                        $where .= $condition['logic_op'] . " " . $conditionQuery;
                                     }
                                 }
 
