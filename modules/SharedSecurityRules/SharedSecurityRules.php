@@ -292,7 +292,7 @@ class SharedSecurityRules extends Basic
     {
 
         //   foreach($allConditions as $condition) {
-        for($x = 0; $x <= sizeof($allConditions); $x++)
+        for($x = 0; $x < sizeof($allConditions); $x++)
         {
             // Is it the starting parenthesis?
             if ($allConditions[$x]['parenthesis'] == "START") {
