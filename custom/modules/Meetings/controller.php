@@ -54,5 +54,7 @@ class CustomMeetingsController extends SugarController
         $this->bean->save();
 
         $formBase->cancelAndNotify($this->bean);
+
+        SugarApplication::redirect('index.php?module=Meetings&record=' . $this->bean->id . '&action=DetailView');
     }
 }

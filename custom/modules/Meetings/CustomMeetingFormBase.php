@@ -74,9 +74,11 @@ class CustomMeetingFormBase extends MeetingFormBase
     {
         $focus = parent::handleSave($prefix, false, $useRequired);
 
-        if ($this->meetingHasBeenCancelledNow()) {
+        if ($this->meetingHasBeenCancelledNow($focus)) {
             $this->cancelAndNotify($focus);
         }
+
+        SugarApplication::redirect('index.php?module=Meetings&record=' . $focus->id . '&action=DetailView');
     }
 
     /**
@@ -87,27 +89,26 @@ class CustomMeetingFormBase extends MeetingFormBase
         $this->focus = $bean;
 
         $this->notifyAttendants();
-
-        SugarApplication::redirect('index.php?module=Meetings&record=' . $this->focus->id . '&action=DetailView');
     }
 
     /**
+     * @param Meeting $focus
      * @return bool
      */
-    private function meetingHasBeenCancelledNow()
+    private function meetingHasBeenCancelledNow($focus)
     {
         // new record?
-        if (!$this->focus->fetched_row) {
+        if (!$focus->fetched_row) {
             return false;
         }
 
         // is not cancelled now
-        if (substr($this->focus->name, 0, 9) !== 'CANCELLED') {
+        if (substr($focus->name, 0, 9) !== 'CANCELLED') {
             return false;
         }
 
         // was cancelled before
-        if (substr($this->focus->fetched_row['name'], 0, 9) === 'CANCELLED') {
+        if (substr($focus->fetched_row['name'], 0, 9) === 'CANCELLED') {
             return false;
         }
 
@@ -123,21 +124,19 @@ class CustomMeetingFormBase extends MeetingFormBase
             return;
         }
 
-        if ($this->focus->load_relationship('contacts')) {
-            foreach ($this->focus->contacts->getBeans() as $contact) {
-                $this->sendEmailToInvitee($contact->email1);
-            }
-        }
+        $this->notifyRelatedBeans('contacts');
+        $this->notifyRelatedBeans('leads');
+        $this->notifyRelatedBeans('users');
+    }
 
-        if ($this->focus->load_relationship('leads')) {
-            foreach ($this->focus->leads->getBeans() as $lead) {
-                $this->sendEmailToInvitee($lead->email1);
-            }
-        }
-
-        if ($this->focus->load_relationship('users')) {
-            foreach ($this->focus->users->getBeans() as $user) {
-                $this->sendEmailToInvitee($user->email1);
+    /**
+     * @param string $relationship
+     */
+    private function notifyRelatedBeans($relationship)
+    {
+        if ($this->focus->load_relationship($relationship)) {
+            foreach ($this->focus->$relationship->getBeans() as $relatedBean) {
+                $this->sendEmailToInvitee($relatedBean->email1);
             }
         }
     }
