@@ -120,7 +120,7 @@ $(document).ready(function(){
 
                             if (field) {
 
-                                if (field != 'assigned_user_name' && field != 'created_by_name' && field != 'modified_by_name') {
+                                if (field != 'created_by_name' && field != 'modified_by_name'){ //&& field != 'assigned_user_name') {
 
                                     treeData.push(
                                         {

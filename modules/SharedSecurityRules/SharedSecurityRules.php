@@ -292,7 +292,7 @@ class SharedSecurityRules extends Basic
     {
 
         //   foreach($allConditions as $condition) {
-        for($x = 0; $x <= sizeof($allConditions); $x++)
+        for($x = 0; $x < sizeof($allConditions); $x++)
         {
             // Is it the starting parenthesis?
             if ($allConditions[$x]['parenthesis'] == "START") {
@@ -371,6 +371,11 @@ class SharedSecurityRules extends Basic
                         $allConditions[$x]['value'] = $current_user->id;
 
                     }
+
+                    if($allConditions[$x]['field'] == 'assigned_user_name')
+                    {
+                        $allConditions[$x]['field'] = 'assigned_user_id';
+                    }
                     if ($this->checkOperator(
                         $record->{$allConditions[$x]['field']},
                         $allConditions[$x]['value'],
@@ -402,6 +407,11 @@ class SharedSecurityRules extends Basic
                     isset($moduleBean->{$allConditions[$x]['value']}) &&
                     !empty($moduleBean->{$allConditions[$x]['value']})) {
                     $allConditions[$x]['value'] = $moduleBean->{$allConditions[$x]['value']};
+                }
+
+                if($allConditions[$x]['field'] == 'assigned_user_name')
+                {
+                    $allConditions[$x]['field'] = 'assigned_user_id';
                 }
 
                 $conditionResult = $this->checkOperator($moduleBean->{$allConditions[$x]['field']}, $allConditions[$x]['value'], $allConditions[$x]['operator']);
@@ -685,6 +695,7 @@ class SharedSecurityRules extends Basic
             if(($module == "Leads" || $module == "Contacts") && ($field['name'] == "full_name" || $field['name'] == "name" ) ){
                 continue;
             }
+
             $defs[$field['name']] = $label;
         }
 
