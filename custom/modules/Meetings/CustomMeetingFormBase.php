@@ -217,7 +217,7 @@ class CustomMeetingFormBase extends MeetingFormBase
         $ret = [];
         $ret['subject'] = from_html(aop_parse_template($template->subject, $beans));
         $ret['body'] = from_html(
-            $app_strings['LBL_AOP_EMAIL_REPLY_DELIMITER'] . aop_parse_template(
+            aop_parse_template(
                 str_replace(
                     '$sugarurl',
                     $sugar_config['site_url'],
