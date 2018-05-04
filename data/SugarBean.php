@@ -2982,7 +2982,7 @@ class SugarBean
 //             }
 //         }
 
-        if(!$current_user->is_admin && ($_REQUEST['action'] != "Popup" && $parentbean->module_dir != "Users")) {
+        if(!$current_user->is_admin && ($_REQUEST['action'] != "Popup" && $parentbean->module_dir != "Users" && ($_REQUEST['action'] != "DetailView" && $this->module_dir != "Users"))) {
             $rulesWhere = SharedSecurityRules::buildRuleWhere($this);
             if (!empty($rulesWhere)) {
                 if (empty($where)) {
