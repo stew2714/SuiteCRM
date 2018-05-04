@@ -549,10 +549,11 @@ class SharedSecurityRules extends Basic
                             $conditionQuery = " " . $table . "." . $condition['field'] . " " . $operatorValue . " ";
                                 if ($condition['parenthesis'] == "START") {
                                     if (is_null($parenthesis)) {
-                                        $parenthesis = " ( ";if(empty($where)){
-                                $where = $parenthesis;
-                            } else {
-                                $where .= " AND  ".$parenthesis;
+                                        $parenthesis = " ( ";
+                                        if(empty($where)) {
+                                            $where = $parenthesis;
+                                        } else {
+                                            $where .= $condition['logic_op'] . " " . $parenthesis;
                                         }
                                     } else {
                                         if(empty($where)) {
@@ -577,7 +578,7 @@ class SharedSecurityRules extends Basic
                                     } elseif (empty($where)) {
                                         $where = $conditionQuery;
                                     } else {
-                                        $where .= " AND " . $conditionQuery;
+                                        $where .= $condition['logic_op'] . " " . $conditionQuery;
                                     }
                                 }
                             }
