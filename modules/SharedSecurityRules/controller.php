@@ -156,6 +156,14 @@ class SharedSecurityRulesController extends SugarController {
         $focus = new $beanList[$module];
         $vardef = $focus->getFieldDefinition($fieldname);
 
+        // Usetting these as they are not required
+        unset($app_list_strings['aow_condition_type_list']['Field']);
+        unset($app_list_strings['aow_condition_type_list']['Any_Change']);
+        unset($app_list_strings['aow_condition_type_list']['SecurityGroup']);
+        unset($app_list_strings['aow_condition_type_list']['Date']);
+        unset($app_list_strings['aow_condition_type_list']['Multi']);
+
+
         switch($vardef['type']) {
             case 'double':
             case 'decimal':

@@ -617,6 +617,31 @@ class SharedSecurityRules extends Basic
                     return true;
                 }
                 break;
+
+            case "Greater_Than":
+                if ($rowField > $field) {
+                    return true;
+                }
+                break;
+
+            case "Less_Than":
+                if ($rowField < $field) {
+                    return true;
+                }
+                break;
+
+            case "Greater_Than_or_Equal_To":
+                if ($rowField >= $field) {
+                    return true;
+                }
+                break;
+
+            case "Less_Than_or_Equal_To":
+                if ($rowField <= $field) {
+                    return true;
+                }
+                break;
+
             case "is_null":
                 if($rowField == null || $rowField == ""){
                     return true;
