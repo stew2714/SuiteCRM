@@ -1,7 +1,7 @@
 <?php
  // created: 2017-06-08 10:36:22
 $layout_defs["Accounts"]["subpanel_setup"]['accounts_sa_fluency_one_1'] = array (
-  'order' => 100,
+  'order' => 1,
   'module' => 'sa_Fluency_One',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

@@ -20,72 +20,72 @@ array (
         ),
       ),
       'javascript' => '{$PROBABILITY_SCRIPT} {$LOCK_FILES} {$BEAN_DATA}',
-      'useTabs' => true,
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL3' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL9' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL10' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL11' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL13' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL12' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -272,6 +272,7 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
+          1 => '',
         ),
         1 => 
         array (
@@ -280,6 +281,7 @@ array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -369,6 +371,7 @@ array (
             'name' => 'co_annual_prod_subscription_fee_c',
             'label' => 'LBL_CO_ANNUAL_PROD_SUBSCRIPTION_FEE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -497,6 +500,7 @@ array (
             'name' => 'number_of_ftes_c',
             'label' => 'LBL_NUMBER_OF_FTES_C',
           ),
+          1 => '',
         ),
         10 => 
         array (
@@ -505,6 +509,7 @@ array (
             'name' => 'coding_start_date_c',
             'label' => 'LBL_CODING_START_DATE_C',
           ),
+          1 => '',
         ),
         11 => 
         array (
@@ -513,6 +518,7 @@ array (
             'name' => 'coding_end_date_c',
             'label' => 'LBL_CODING_END_DATE_C',
           ),
+          1 => '',
         ),
         12 => 
         array (
@@ -521,6 +527,7 @@ array (
             'name' => 'coding_specialty_c',
             'label' => 'LBL_CODING_SPECIALTY_C',
           ),
+          1 => '',
         ),
         13 => 
         array (
@@ -530,6 +537,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_GPO_NAME_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel5' => 

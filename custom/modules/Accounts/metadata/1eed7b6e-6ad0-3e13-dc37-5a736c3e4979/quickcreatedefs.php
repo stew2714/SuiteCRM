@@ -37,7 +37,17 @@ array (
       'useTabs' => false,
       'tabDefs' => 
       array (
-        'DEFAULT' => 
+        'LBL_ACCOUNT_INFORMATION' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_PANEL_ADVANCED' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL7' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -46,7 +56,7 @@ array (
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_account_information' => 
       array (
         0 => 
         array (
@@ -58,12 +68,18 @@ array (
               'required' => true,
             ),
           ),
+          1 => 
+          array (
+            'name' => 'account_type',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'website',
+            'name' => 'facility_type_dd_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE_DD',
           ),
           1 => 
           array (
@@ -74,7 +90,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'email1',
+            'name' => 'parent_name',
+            'label' => 'LBL_MEMBER_OF',
           ),
           1 => 
           array (
@@ -85,27 +102,110 @@ array (
         array (
           0 => 
           array (
-            'name' => 'industry',
+            'name' => 'billing_address_street',
+            'comment' => 'The street address used for billing address',
+            'label' => 'LBL_BILLING_ADDRESS_STREET',
           ),
           1 => 
           array (
-            'name' => 'account_type',
+            'name' => 'billing_address_city',
+            'comment' => 'The city used for billing address',
+            'label' => 'LBL_BILLING_ADDRESS_CITY',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
+            'name' => 'billing_address_state',
+            'comment' => 'The state used for billing address',
+            'label' => 'LBL_BILLING_ADDRESS_STATE',
+          ),
+          1 => 
+          array (
+            'name' => 'billing_address_postalcode',
+            'comment' => 'The postal code used for billing address',
+            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'facility_type_dd_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FACILITY_TYPE_DD',
+            'name' => 'billing_address_country',
+            'comment' => 'The country used for the billing address',
+            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
+          ),
+          1 => 
+          array (
+            'name' => 'website',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'latitude_c',
+            'label' => 'Latitude',
+          ),
+          1 => '',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'geostatus_c',
+            'label' => 'Geostatus',
+          ),
+          1 => '',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fiscal_end_date_month_c',
+            'label' => 'Fiscal End Date Month',
+          ),
+          1 => '',
+        ),
+      ),
+      'LBL_PANEL_ADVANCED' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+        ),
+      ),
+      'lbl_editview_panel7' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'slx_account_id_c',
+            'label' => 'SLX Account ID',
           ),
         ),
       ),

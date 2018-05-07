@@ -39,14 +39,19 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'STATUS' => 
+  'APTTUS_STATUS_CATEGORY_C' => 
   array (
     'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_STATUS',
-    'sortable' => false,
+    'label' => 'LBL_APTTUS_STATUS_CATEGORY_C',
     'width' => '10%',
+    'default' => true,
+  ),
+  'APTTUS_STATUS_C' => 
+  array (
+    'type' => 'dynamicenum',
+    'label' => 'LBL_APTTUS_STATUS_C',
+    'width' => '10%',
+    'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
   array (

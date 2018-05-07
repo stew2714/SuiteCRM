@@ -1,7 +1,7 @@
 <?php
  // created: 2017-07-26 14:09:30
 $layout_defs["AOS_Contracts"]["subpanel_setup"]['aos_contracts_documents_1'] = array (
-  'order' => 100,
+  'order' => 1,
   'module' => 'Documents',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

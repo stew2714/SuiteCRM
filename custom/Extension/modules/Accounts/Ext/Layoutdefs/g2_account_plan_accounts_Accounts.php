@@ -1,7 +1,7 @@
 <?php
  // created: 2017-09-07 13:04:44
 $layout_defs["Accounts"]["subpanel_setup"]['g2_account_plan_accounts'] = array (
-  'order' => 100,
+  'order' => 2,
   'module' => 'g2_Account_Plan',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

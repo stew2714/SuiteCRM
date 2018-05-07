@@ -11,7 +11,7 @@ array (
         array (
           'file' => 'modules/Reminders/Reminders.js',
         ),
-        1 =>
+        1 => 
         array (
           'file' => 'custom/include/javascript/remove_create_invitees.js',
         ),
@@ -143,6 +143,12 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
               'updateCallback' => 'SugarWidgetScheduler.update_time();',
             ),
           ),
+          1 => 
+          array (
+            'name' => 'location',
+            'comment' => 'Meeting location',
+            'label' => 'LBL_LOCATION',
+          ),
         ),
         3 => 
         array (
@@ -166,23 +172,62 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             ',
             'customCodeReadOnly' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
           ),
+          1 => '',
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
-          ),
-        ),
-        5 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
