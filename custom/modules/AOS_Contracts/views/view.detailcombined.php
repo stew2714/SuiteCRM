@@ -38,15 +38,15 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         $securityGroups = BeanFactory::getBean("SecurityGroups");
         $groups = $securityGroups->getUserSecurityGroups($current_user->id);
 
-        if (array_key_exists($sugar_config['CommOps'],$groups) || is_admin($current_user)) {
+        if (array_key_exists($sugar_config['CommOpsGroup'],$groups) || is_admin($current_user)) {
             $this->ss->assign('COMMS_OP', true);
         }
 
-        if (array_key_exists($sugar_config['Legal'],$groups) || is_admin($current_user)) {
+        if (array_key_exists($sugar_config['LegalGroup'],$groups) || is_admin($current_user)) {
             $this->ss->assign('LEGAL_TEAM', true);
         }
 
-        if (array_key_exists($sugar_config['Sales'],$groups) || is_admin($current_user)) {
+        if (array_key_exists($sugar_config['SalesGroup'],$groups) || is_admin($current_user)) {
             $this->ss->assign('SALES_TEAM', true);
         }
         //add custom fields to work with email compose setup.
