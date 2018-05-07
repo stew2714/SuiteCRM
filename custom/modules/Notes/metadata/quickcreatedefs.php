@@ -1,10 +1,14 @@
 <?php
 $viewdefs ['Notes'] = 
 array (
-  'DetailView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'enctype' => 'multipart/form-data',
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -19,6 +23,8 @@ array (
           'field' => '30',
         ),
       ),
+      'javascript' => '{sugar_getscript file="include/javascript/dashlets.js"}
+<script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>',
       'useTabs' => false,
       'tabDefs' => 
       array (
@@ -28,7 +34,6 @@ array (
           'panelDefault' => 'expanded',
         ),
       ),
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -36,11 +41,7 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
-          ),
+          0 => 'parent_name',
         ),
         1 => 
         array (
@@ -48,14 +49,16 @@ array (
           array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
+            'displayParams' => 
+            array (
+              'size' => 50,
+              'required' => true,
+            ),
           ),
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'filename',
-          ),
+          0 => 'filename',
         ),
         3 => 
         array (
@@ -63,11 +66,20 @@ array (
           array (
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
+            'displayParams' => 
+            array (
+              'rows' => 6,
+              'cols' => 75,
+            ),
           ),
         ),
         4 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
           1 => 
           array (
             'name' => 'additionalusers',

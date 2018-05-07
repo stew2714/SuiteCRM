@@ -1,7 +1,7 @@
 <?php
-// created: 2018-05-07 17:44:07
+// created: 2018-05-07 21:26:46
 $dictionary["m1_tech_deployments_accounts_1"] = array (
-  'true_relationship_type' => 'one-to-many',
+  'true_relationship_type' => 'many-to-many',
   'from_studio' => true,
   'relationships' => 
   array (
@@ -67,20 +67,12 @@ $dictionary["m1_tech_deployments_accounts_1"] = array (
     ),
     1 => 
     array (
-      'name' => 'm1_tech_deployments_accounts_1_ida1',
-      'type' => 'index',
-      'fields' => 
-      array (
-        0 => 'm1_tech_deployments_accounts_1m1_tech_deployments_ida',
-      ),
-    ),
-    2 => 
-    array (
       'name' => 'm1_tech_deployments_accounts_1_alt',
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'm1_tech_deployments_accounts_1accounts_idb',
+        0 => 'm1_tech_deployments_accounts_1m1_tech_deployments_ida',
+        1 => 'm1_tech_deployments_accounts_1accounts_idb',
       ),
     ),
   ),

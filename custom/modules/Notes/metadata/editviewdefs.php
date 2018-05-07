@@ -46,11 +46,6 @@ function deleteAttachmentCallBack(text)
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -60,8 +55,7 @@ function deleteAttachmentCallBack(text)
       array (
         0 => 
         array (
-          0 => 'contact_name',
-          1 => 'parent_name',
+          0 => 'parent_name',
         ),
         1 => 
         array (
@@ -85,38 +79,35 @@ function deleteAttachmentCallBack(text)
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
           ),
-          1 => 
-          array (
-            'name' => 'sa_legal_timesheets_notes_1_name',
-          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'sa_legal_vendors_notes_1_name',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
           1 => 
           array (
-            'name' => 'sa_legal_vendors_activities_1_notes_name',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'aos_contracts_activities_1_notes_name',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

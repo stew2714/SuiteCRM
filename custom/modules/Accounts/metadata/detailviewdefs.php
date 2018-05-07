@@ -157,13 +157,6 @@ array (
             'label' => 'LBL_UCID',
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'm1_tech_deployments_accounts_1_name',
-          ),
-        ),
       ),
       'LBL_PANEL_ADVANCED' => 
       array (
