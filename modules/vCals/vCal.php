@@ -361,6 +361,7 @@
             $ical_array[] = array("BEGIN", "VCALENDAR");
             $ical_array[] = array("VERSION", "2.0");
             $ical_array[] = array("PRODID", "-//SugarCRM//SugarCRM Calendar//EN");
+            $ical_array[] = array("METHOD", "REQUEST");
             $ical_array[] = array("BEGIN", "VEVENT");
             $ical_array[] = array("UID", $bean->id);
             $ical_array[] = array("ORGANIZED;CN=" . $user->full_name, $user->email1);
