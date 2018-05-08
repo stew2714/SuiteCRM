@@ -1,5 +1,5 @@
 <?php
-// created: 2018-02-23 21:24:19
+// created: 2018-05-08 03:32:28
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -38,4 +38,5 @@ $mod_strings = array (
   'LBL_TYPE' => 'Type:',
   'LBL_BILLING_ADDRESS_COUNTRY' => 'Country',
   'LBL_BILLING_ADDRESS_POSTALCODE' => 'Postal Code',
+  'LBL_LIST_ASSIGNED_USER' => 'Owner',
 );
