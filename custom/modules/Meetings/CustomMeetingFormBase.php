@@ -192,6 +192,16 @@ class CustomMeetingFormBase extends MeetingFormBase
 
         $mailer->addAddress($emailAddress);
 
+
+        $path = SugarConfig::getInstance()->get('upload_dir','upload/') . $this->focus->id;
+
+        require_once("custom/modules/Meetings/vCal.php");
+        $content = customvCal::get_ical_event($this->focus, $GLOBALS['current_user']);
+
+        if(file_put_contents($path,$content)){
+            $mailer->AddAttachment($path, 'meeting.ics', 'base64', 'text/calendar');
+        }
+
         try {
             if ($mailer->send()) {
                 return true;
