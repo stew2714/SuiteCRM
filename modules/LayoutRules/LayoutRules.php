@@ -174,11 +174,11 @@ class LayoutRules extends Basic
             foreach ($layouts as $layout) {
                 if ((key_exists($layout->group_to_assign, $groups) || $layout->group_to_assign == "all") &&
                     $this->checkConditions($layout, $bean) == true) {
-                    if ($layout->layout_to_show == "default") {
-                        $metadataArray['file'] = "custom/modules/{$bean->module_dir}/metadata/{$action}.php";
-                    } else {
+                    if (file_exists("custom/modules/{$bean->module_dir}/metadata/{$layout->layout_to_show}/{$action}.php")) {
                         $metadataArray['file'] =
                             "custom/modules/{$bean->module_dir}/metadata/{$layout->layout_to_show}/{$action}.php";
+                    } else {
+                        $metadataArray['file'] = "custom/modules/{$bean->module_dir}/metadata/{$action}.php";
                     }
                     $metadataArray['id'] = $layout->layout_to_show;
                 }
