@@ -199,7 +199,7 @@ class CustomMeetingFormBase extends MeetingFormBase
         $content = customvCal::get_ical_event($this->focus, $GLOBALS['current_user']);
 
         if(file_put_contents($path,$content)){
-            $mailer->AddAttachment($path, 'meeting.ics', 'base64', 'text/calendar');
+           // $mailer->AddAttachment($path, 'meeting.ics', 'base64', 'text/calendar');
         }
 
         try {
