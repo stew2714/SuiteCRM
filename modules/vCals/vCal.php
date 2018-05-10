@@ -359,23 +359,31 @@
             $ical_array = array();
 
             $ical_array[] = array("BEGIN", "VCALENDAR");
-            $ical_array[] = array("VERSION", "2.0");
             $ical_array[] = array("PRODID", "-//SugarCRM//SugarCRM Calendar//EN");
+            $ical_array[] = array("VERSION", "2.0");
+            $ical_array[] = array("CALSCALE", "GREGORIAN");
+            $ical_array[] = array("METHOD", "REQUEST");
             $ical_array[] = array("BEGIN", "VEVENT");
-            $ical_array[] = array("UID", $bean->id);
-            $ical_array[] = array("ORGANIZED;CN=" . $user->full_name, $user->email1);
             $ical_array[] = array("DTSTART", $timedate->fromDb($bean->date_start)->format(self::UTC_FORMAT));
             $ical_array[] = array("DTEND", $timedate->fromDb($bean->date_end)->format(self::UTC_FORMAT));
-
             $ical_array[] = array(
                 "DTSTAMP", $GLOBALS['timedate']->getNow(false)->format(self::UTC_FORMAT)
             );
-            $ical_array[] = array("SUMMARY", $bean->name);
-            $ical_array[] = array("LOCATION", $bean->location);
-
+            $ical_array[] = array("ORGANIZER;CN=" . $user->email1, "mailto:" . $user->email1);
+            $ical_array[] = array("UID", $bean->id);
+            //attendee
+//            $ical_array[] = array("ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=sean.flynn@salesagility.com"
+//                                  . ";X-NUM-GUESTS=0", "mailto:sean.flynn@salesagility.com" );
+            //attemdee
+            //CREATED
             $descPrepend = empty($bean->join_url) ? "" : $bean->join_url . self::EOL . self::EOL;
             $ical_array[] = array("DESCRIPTION", $descPrepend . $bean->description);
-
+            //LAST MODIFIED
+            $ical_array[] = array("LOCATION", $bean->location);
+            $ical_array[] = array("SEQUENCE", "0");
+            $ical_array[] = array("STATUS", "CONFIRMED");
+            $ical_array[] = array("SUMMARY", $bean->name);
+            $ical_array[] = array("TRANSP", "OPAQUE");
             $ical_array[] = array("END", "VEVENT");
             $ical_array[] = array("END", "VCALENDAR");
 

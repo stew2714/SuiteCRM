@@ -31,6 +31,7 @@ $sugar_config['addAjaxBannedModules'][0] = 'Accounts';
 $sugar_config['addAjaxBannedModules'][2] = 'SecurityGroups';
 $sugar_config['addAjaxBannedModules'][3] = 'AnalyticReporting';
 $sugar_config['AgreementsEmailTemplate'] = 'efa77cb1-819d-2a0a-0b78-597850cb15ef';
+$sugar_config['MeetingCancelEmailTemplate'] = '15e76853-885d-d2e0-3e5f-5aec39ddd067';
 $sugar_config['eloqua_company'] = 'MModalIncSandbox';
 $sugar_config['eloqua_username'] = 'Kieran.Monaghan';
 $sugar_config['eloqua_password'] = 'SalesAgility01';
