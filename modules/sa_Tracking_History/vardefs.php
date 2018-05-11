@@ -41,6 +41,7 @@
 $dictionary['sa_Tracking_History'] = array(
     'table'              => 'sa_tracking_history',
     'audited'            => true,
+    'custom_fields' => true,
     'inline_edit'        => true,
     'duplicate_merge'    => true,
     'custom_fields' => true,

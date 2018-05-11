@@ -42,9 +42,24 @@ function display_condition_lines($focus, $field, $value, $view){
                  . "\";</script>";
         $html .= "<table border='0' cellspacing='4' width='100%' id='conditionLines'></table>";
 
-        $html .= "<div style='padding-top: 10px; padding-bottom:10px;'>";
-        $html .= "<input type=\"button\" tabindex=\"116\" class=\"button\" value=\"".$mod_strings['LBL_ADD_CONDITION']."\" id=\"btn_ConditionLine\" onclick=\"insertConditionLine()\" disabled/>";
-        $html .= "</div>";
+    //    $html .= "<div style='padding-top: 10px; padding-bottom:10px;'>";
+    //    $html .= "<input type=\"button\" tabindex=\"116\" class=\"button\" value=\"".$mod_strings['LBL_ADD_CONDITION']."\" id=\"btn_ConditionLine\" onclick=\"insertSecurityConditionLine()\" disabled/>";
+    //    $html .= "</div>";
+
+            $html .=     '<div class="tab-panels" style="width:100%">';
+            $html .=     '<div class="edit view edit508" id="detailpanel_conditions">';
+            $html .= '<hr>';
+            $html .=   '<table>';
+            $html .=  '<tbody id="aor_condition_parenthesis_btn" class="connectedSortableConditions">';
+            $html .=      '<tr class="parentheses-btn"><td class="condition-sortable-handle">' . $mod_strings["LBL_ADD_PARENTHESIS"] . '</td></tr>';
+            $html .=   '</tbody>';
+            $html .=  '</table>';
+            $html .=  '</div>';
+            $html .= '</div>';
+
+            $html .= '<script src="modules/SharedSecurityRulesConditions/parenthesis.js"></script>';
+
+
 
 
         if(isset($focus->flow_module) && $focus->flow_module != ''){

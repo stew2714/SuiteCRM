@@ -39,6 +39,23 @@ $viewdefs [$module_name] =
                                         'panelDefault' => 'expanded',
                                     ),
                             ),
+                   //     'includes' =>
+                   //         array (
+                  //              0 =>
+                  //                  array (
+                  //                      'file' => 'custom/modules/AOR_Reports/preview.js',
+                  //                  ),
+                  //          ),
+                        'form' =>
+                            array (
+                                'headerTpl' => 'modules/SharedSecurityRules/tpls/EditViewHeader.tpl',
+                                'footerTpl' => 'modules/SharedSecurityRules/tpls/EditViewFooter.tpl',
+                                'buttons' =>
+                                    array (
+                                        0 => 'SAVE',
+                                        1 => 'CANCEL',
+                                    ),
+                            ),
                     ),
                 'panels' =>
                     array (

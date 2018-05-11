@@ -39,4 +39,4 @@ $dictionary['Account']['fields']['billing_address_country']['options']='eloqua_c
 $dictionary['Account']['fields']['shipping_address_country']['type']='enum';
 $dictionary['Account']['fields']['shipping_address_country']['options']='eloqua_country_list';
 $dictionary['Account']['fields']['industry']['type']='enum';
-$dictionary['Account']['fields']['industry']['options']='eloqua_industry_options';
+$dictionary['Account']['fields']['industry']['options']='eloqua_industry_options_c';

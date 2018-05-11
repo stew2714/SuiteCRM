@@ -46,7 +46,7 @@ array (
           array (
             'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="{$MOD.LBL_BUTTON_SUBMIT_TO_COMM_OPS}">{/if}',
           ),
-          12 => 
+          12 =>
           array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
           ),
