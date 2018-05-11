@@ -68,4 +68,5 @@ $sugar_config['salesRoleId'] = '97fd0408-2b26-720b-f753-5a7f78fd6c4b';
 $sugar_config['log_memory_usage'] = true;
 $sugar_config['securitysuite_filter_user_list'] = false;
 $sugar_config['enable_line_editing_detail'] = false;
+$sugar_config['MeetingCancelEmailTemplate'] = '4e5a4f8f-dde4-09c9-9a79-5af5c16b1ec5';
 /***CONFIGURATOR***/
