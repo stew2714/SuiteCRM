@@ -122,6 +122,9 @@ CAL.lbl_sending = "{$MOD.LBL_SENDING_INVITES}";
 CAL.lbl_confirm_remove = "{$MOD.LBL_CONFIRM_REMOVE}";
 CAL.lbl_confirm_remove_all_recurring = "{$MOD.LBL_CONFIRM_REMOVE_ALL_RECURRING}";
 CAL.lbl_confirm_cancel = "{$MOD.LBL_CONFIRM_CANCEL}";
+CAL.lbl_cancel_new_record = "{$MOD.LBL_CANCEL_NEW_RECORD}";
+CAL.lbl_cancel_already_cancelled = "{$MOD.LBL_CANCEL_ALREADY_CANCELLED}";
+CAL.lbl_cancel_already_held = "{$MOD.LBL_CANCEL_ALREADY_HELD}";
 
 CAL.lbl_error_saving = "{$MOD.LBL_ERROR_SAVING}";
 CAL.lbl_error_loading = "{$MOD.LBL_ERROR_LOADING}";
@@ -189,17 +192,27 @@ CAL.get("form_settings").submit();
 YAHOO.util.Event.on(CAL.get("btn-cancel-notify"), 'click', function(){
 
   if(CAL.get("record").value != ""){
-    if(confirm(CAL.lbl_confirm_cancel)){
-      $.ajax({
-        type: "POST",
-        url: "index.php?module=Meetings&action=cancelAndNotifyCalendar",
-        dataType: "text",
-        data: {record_id: CAL.get("record").value},
-        success: function (result) {
-          location.reload();
+    if(!CAL.get("name").value.startsWith("CANCELLED")) {
+      if(CAL.get("status").value != "Held") {
+        if (confirm(CAL.lbl_confirm_cancel)) {
+          $.ajax({
+            type: "POST",
+            url: "index.php?module=Meetings&action=cancelAndNotifyCalendar",
+            dataType: "text",
+            data: {record_id: CAL.get("record").value},
+            success: function (result) {
+              location.reload();
+            }
+          });
         }
-      });
+      } else {
+        alert(CAL.lbl_cancel_already_held);
+      }
+    } else {
+      alert(CAL.lbl_cancel_already_cancelled);
     }
+  } else {
+    alert(CAL.lbl_cancel_new_record);
   }
 });
 

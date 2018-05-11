@@ -39,7 +39,7 @@ array (
           ),
           4 =>
           array (
-            'customCode' => '{if $bean->aclAccess("edit")}<input title="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}" class="button" onclick="this.form.return_module.value=\'Meetings\';this.form.cancelAndNotify.value=true;this.form.action.value=\'cancelAndNotify\';this.form.return_action.value=\'DetailView\';this.form.return_id.value=\'{$fields.id.value}\';" id="cancel_notify_button" name="cancel_notify_button" value="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}"  type="submit">{/if}'
+            'customCode' => '{if $fields.status.value != "Held" && $fields.name.value|substr:0:9 != "CANCELLED" && $bean->aclAccess("edit")}<input title="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}" class="button" onclick="this.form.return_module.value=\'Meetings\';this.form.cancelAndNotify.value=true;this.form.action.value=\'cancelAndNotify\';this.form.return_action.value=\'DetailView\';this.form.return_id.value=\'{$fields.id.value}\';" id="cancel_notify_button" name="cancel_notify_button" value="{$MOD.LBL_CANCEL_MEETING_NOTIFY_DETAIL}"  type="submit">{/if}'
             ),
           5 =>
           array (

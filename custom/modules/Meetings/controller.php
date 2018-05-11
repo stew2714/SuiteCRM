@@ -51,6 +51,7 @@ class CustomMeetingsController extends SugarController
         $formBase = new CustomMeetingFormBase();
 
         $this->bean->name = 'CANCELLED ' . $this->bean->name;
+        $this->bean->status = 'Not Held';
         $this->bean->save();
 
         $formBase->cancelAndNotify($this->bean);
@@ -68,6 +69,7 @@ class CustomMeetingsController extends SugarController
         $meetingBean->retrieve($_REQUEST['record_id']);
 
         $meetingBean->name = 'CANCELLED ' . $meetingBean->name;
+        $meetingBean->status = 'Not Held';
         $meetingBean->save();
 
         $formBase->cancelAndNotify($meetingBean);
