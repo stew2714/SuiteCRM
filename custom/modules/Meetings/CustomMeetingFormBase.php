@@ -156,7 +156,7 @@ class CustomMeetingFormBase extends MeetingFormBase
         $this->emailTemplate = new EmailTemplate();
         $this->emailTemplate->retrieve($sugar_config['MeetingCancelEmailTemplate']);
 
-        if (empty($this->emailTemplate->id)) {
+        if (!$this->emailTemplate) {
             $log->error('Email Template for notifying attendants of meeting cancellation not found in db.');
             return false;
         }
@@ -197,8 +197,6 @@ class CustomMeetingFormBase extends MeetingFormBase
 
         require_once("custom/modules/Meetings/vCal.php");
         $content = customvCal::get_ical_event($this->focus, $GLOBALS['current_user']);
-
-        $mailer->Ical = $content;
 
         if(file_put_contents($path,$content)){
            // $mailer->AddAttachment($path, 'meeting.ics', 'base64', 'text/calendar');
