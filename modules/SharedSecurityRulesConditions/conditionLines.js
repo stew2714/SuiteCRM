@@ -268,6 +268,8 @@ function loadConditionLine(condition, overrideView){
     showConditionModuleField(ln, condition['operator'], condition['value_type'], condition['value'],overrideView, condition['logic_op'], condition['condition_order'], condition['parenthesis']);
   }
 
+
+
   return $('#product_line'+ln);
 }
 
@@ -392,8 +394,10 @@ function showConditionModuleField(ln, operator_value, type_value, field_value, o
     moduleFieldsPendingFinished++; YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getFieldTypeOptions&view="+overrideView+"&aow_module="+report_module+"&aow_fieldname="+aor_field+"&aow_newfieldname="+aor_field_type_name+"&aow_value="+type_value+"&rel_field="+rel_field,callback2);
     moduleFieldsPendingFinished++; YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=SharedSecurityRules&action=getModuleFieldType&view="+overrideView+"&aow_module="+report_module+"&aow_fieldname="+aor_field+"&aow_newfieldname="+aor_field_name+"&aow_value="+field_value+"&aow_type="+type_value+"&rel_field="+rel_field,callback3);
 
-  } else {
-    document.getElementById('aor_conditions_logicInput'+ln).innerHTML = ''
+  }
+
+  else {
+   // document.getElementById('aor_conditions_logicInput'+ln).innerHTML = ''
     document.getElementById('aor_conditions_operatorInput'+ln).innerHTML = ''
     document.getElementById('aor_conditions_fieldTypeInput'+ln).innerHTML = '';
     document.getElementById('aor_conditions_fieldInput'+ln).innerHTML = '';
@@ -408,21 +412,21 @@ function showConditionModuleFieldType(ln, value, overrideView){
 
   var callback = {
     success: function(result) {
-      document.getElementById('aow_conditions_fieldInput'+ln).innerHTML = result.responseText;
+      document.getElementById('aor_conditions_fieldInput'+ln).innerHTML = result.responseText;
       SUGAR.util.evalScript(result.responseText);
       enableQS(false);
     },
     failure: function(result) {
-      document.getElementById('aow_conditions_fieldInput'+ln).innerHTML = '';
+      document.getElementById('aor_conditions_fieldInput'+ln).innerHTML = '';
     }
   }
 
-  var rel_field = document.getElementById('aow_conditions_module_path'+ln).value;
-  var aor_field = document.getElementById('aow_conditions_field'+ln).value;
-  var type_value = document.getElementById("aow_conditions_value_type["+ln+"]").value;
-  var aor_field_name = "aow_conditions_value["+ln+"]";
+  var rel_field = document.getElementById('aor_conditions_module_path'+ln).value;
+  var aor_field = document.getElementById('aor_conditions_field'+ln).value;
+  var type_value = document.getElementById("aor_conditions_value_type["+ln+"]").value;
+  var aor_field_name = "aor_conditions_value["+ln+"]";
 
-  YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getModuleFieldType&view="+overrideView+"&aow_module="+report_module+"&aow_fieldname="+aor_field+"&aow_newfieldname="+aor_field_name+"&aow_value="+value+"&aow_type="+type_value+"&rel_field="+rel_field,callback);
+  YAHOO.util.Connect.asyncRequest ("GET", "index.php?module=AOR_Reports&action=getModuleFieldType&view="+overrideView+"&aor_module="+report_module+"&aor_fieldname="+aor_field+"&aor_newfieldname="+aor_field_name+"&aor_value="+value+"&aor_type="+type_value+"&rel_field="+rel_field,callback);
 
 }
 
@@ -468,6 +472,13 @@ function insertConditionHeader(){
   var f=x.insertCell(nxtCell++);
   f.style.color="rgb(0,0,0)";
   f.innerHTML=SUGAR.language.get('SharedSecurityRules', 'LBL_VALUE');
+    if(view === 'DetailView') {
+        var g=x.insertCell(nxtCell++);
+        g.style.color="rgb(0,0,0)";
+        g.style.width='14%';
+        g.innerHTML=SUGAR.language.get('SharedSecurityRules', 'LBL_LOGIC_OP');
+    }
+
 
   // if(view === 'EditView') {
   //   var h = x.insertCell(-1);
@@ -565,7 +576,13 @@ function insertConditionLine(condition){
 
     var f = x.insertCell(nxtCell++);
     f.id = 'aor_conditions_fieldInput' + condln;
-    f.style.width = '30%';
+    f.style.width = '25%';
+
+      if(view === 'DetailView') {
+          var g = x.insertCell(nxtCell++);
+          g.id = 'aor_conditions_logic_op' + condln;
+          g.style.width = '10%';
+      }
 
 
     // if (view === 'EditView') {
@@ -627,7 +644,7 @@ function clearConditionLines(){
 
 
 function hideElem(id){
-  if(document.getElementById(id)){
+  if(document.getElementById(id)){conditionLines_head
     document.getElementById(id).style.display = "none";
     document.getElementById(id).value = "";
   }
@@ -649,6 +666,18 @@ function date_field_change(field){
   }
 }
 
+function UpdatePreview(panel){
+    var numberOfConditions = $("#aor_conditions_body tr").length;
+    var url = "index.php?module=AOR_Reports&action=getPreview";
+    $.ajax({
+        url: url,
+        data: {id:$("input[name='record']").val(), formdata: $('#EditView').serialize()},
+        context: document.body
+    }).done(function(data) {
+        $("#" + panel).html(data);
+    });
+}
+
 function addNodeToConditions(node){
   return loadConditionLine(
     {
@@ -657,4 +686,5 @@ function addNodeToConditions(node){
       'module_path_display' : node.module_path_display,
       'field' : node.id,
       'field_label' : node.name});
+
 }
