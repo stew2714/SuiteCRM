@@ -211,23 +211,25 @@ class SharedSecurityRules extends Basic
             }
 
         }
+
         return $result;
     }
 
 
     private function getParenthesisConditions($originalCondition,$allConditionsResults)
     {
+
         // Just get the conditions we need to check for this
         $allParenthesisConditions = array();
 
         foreach($allConditionsResults as $condition)
         {
-            if($condition['condition_order'] > $originalCondition['condition_order'] && ($condition['parenthesis'] == "" || $condition['parenthesis'] == null))
+            if($condition['condition_order'] > $originalCondition['condition_order'] && $condition['parenthesis']  != $originalCondition['id'])
             {
                 array_push($allParenthesisConditions, $condition);
             }
 
-            if($condition['condition_order'] > $originalCondition['condition_order'] && ($condition['parenthesis'] == $originalCondition['id']))
+            if($condition['condition_order'] > $originalCondition['condition_order'] && $condition['parenthesis'] == $originalCondition['id'])
             {
                 array_push($allParenthesisConditions, $condition);
                 return $allParenthesisConditions;
@@ -244,7 +246,7 @@ class SharedSecurityRules extends Basic
      *
      * @return bool
      */
-    private function checkParenthesisConditions($allParenthesisConditions, $moduleBean, $rule)
+    private function checkParenthesisConditions($allParenthesisConditions, $moduleBean, $rule, $view,$action,$key)
     {
 
         $conditionsToCheck = array();
@@ -256,7 +258,7 @@ class SharedSecurityRules extends Basic
             if($allParenthesisConditions[$j]['parenthesis'] == "START")
             {
                 $parenthesisConditionArray = $this->getParenthesisConditions($allParenthesisConditions[$j], $allParenthesisConditions);
-                checkParenthesisConditions($parenthesisConditionArray,$moduleBean, $rule);
+                $this->checkParenthesisConditions($parenthesisConditionArray,$moduleBean, $rule, $view,$action,$key);
             }
 
             // Check parenthesis is blank, if it is then process as normal...
@@ -277,7 +279,7 @@ class SharedSecurityRules extends Basic
         if(sizeof($conditionsToCheck) > 0)
         {
             // Get results of searching all conditions within the perms (true = condition met)
-            $tempResult = $this->getConditionResult($conditionsToCheck, $moduleBean, $rule);
+            $tempResult = $this->getConditionResult($conditionsToCheck, $moduleBean, $rule, $view,$action,$key);
             if(!$tempResult)// && $allParenthesisConditions[$j]['logic_op'] === "AND")
             {
                 return false;
@@ -288,7 +290,7 @@ class SharedSecurityRules extends Basic
         }
     }
 
-    private function getConditionResult($allConditions,$moduleBean, $rule, $result = false)
+    private function getConditionResult($allConditions,$moduleBean, $rule, $view,$action,$key, $result = false)
     {
 
         //   foreach($allConditions as $condition) {
@@ -298,7 +300,7 @@ class SharedSecurityRules extends Basic
             if ($allConditions[$x]['parenthesis'] == "START") {
 
                 $parenthesisConditionArray = $this->getParenthesisConditions($allConditions[$x], $allConditions);
-                $overallResult = $this->checkParenthesisConditions($parenthesisConditionArray, $moduleBean, $rule);
+                $overallResult = $this->checkParenthesisConditions($parenthesisConditionArray, $moduleBean, $rule, $view,$action,$key);
 
                 // Retrieve the number of parenthesis conditions so we know how many conditions to skip for next run through
                 $x = $x + sizeof($parenthesisConditionArray);
@@ -429,11 +431,18 @@ class SharedSecurityRules extends Basic
 
                 }
                 else {
-                    if($rule->run == "Once True"){
+                    if($rule['run'] == "Once True"){
                         if ($this->checkHistory($moduleBean,$allConditions[$x]['field'], $allConditions[$x]['value']) ) {
-                            //    if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                               // if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
+                                      $result = true;
+                              //  }
+                              //  else{
+                              //      $result = true;
+                              //  }
+                        }
+                        else
+                        {
                             $result = false;
-                            //    }
                         }
                     }
                     else{
@@ -453,7 +462,7 @@ class SharedSecurityRules extends Basic
         return $result;
     }
 
-    private function checkConditions($rule, $moduleBean){
+    private function checkConditions($rule, $moduleBean,$view,$action,$key, $result){
         $sql_query = "SELECT * FROM sharedsecurityrulesconditions WHERE sharedsecurityrulesconditions.sa_shared_sec_rules_id = '{$rule['id']}' && sharedsecurityrulesconditions.deleted = '0' ORDER BY sharedsecurityrulesconditions.condition_order ASC ";
         $conditions_results = $moduleBean->db->query($sql_query);
         $related = false;
@@ -465,7 +474,7 @@ class SharedSecurityRules extends Basic
             array_push($allConditions, $condition);
         }
 
-            $result = $this->getConditionResult($allConditions, $moduleBean, $rule, $conditions_results);
+            $result = $this->getConditionResult($allConditions, $moduleBean, $rule,$view,$action,$key, $conditions_results);
 
             return $result;
         }
@@ -606,9 +615,11 @@ class SharedSecurityRules extends Basic
             $value = $db->quote($value);
             $field = $db->quote($field);
 
-            $sql = "SELECT * FROM {$module->table_name}_audit WHERE field_name = '{$field}' AND (before_value_string = '{$value}'
+            $sql = "SELECT * FROM {$module->table_name}_audit WHERE field_name = '{$field}' AND parent_id = '{$module->id}' AND (before_value_string = '{$value}'
                     OR after_value_string = '{$value}' )";
             $results = $db->getOne($sql);
+
+
             if($results !== false){
                 return true;
             }
