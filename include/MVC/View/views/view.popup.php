@@ -209,7 +209,16 @@ class ViewPopup extends SugarView{
 	    	$popup->filter_fields = $filter_fields;
 	    	$popup->mergeDisplayColumns = true;
 	    	//check to see if popupdefs contains searchdefs
+
+            //if user has access.
+            globals $current_user;
+            if( !ACLController::checkAccess($this->module, 'create', true) && !is_admin($current_user)){
+                unset($popupMeta['create']);
+            }
+
 	    	$popup->_popupMeta = $popupMeta;
+
+
             $popup->listviewdefs = $listViewDefs;
 	    	$popup->searchdefs = $searchdefs;
 
