@@ -5400,6 +5400,7 @@ class SugarBean
         //BEGIN - SECURITY GROUPS - sub-admins
         require_once('modules/SecurityGroups/SecurityGroup.php');
         $current_plan = SecurityGroup::get_current_plan();
+
         if (!empty($current_plan) && ($current_plan == 'professional' || $current_plan == 'enterprise'))
         {
             //only allow edit rights to Employees if own record
@@ -5474,6 +5475,7 @@ class SugarBean
         if($view != "list") {
             $bean = BeanFactory::getBean("SharedSecurityRules");
             if($bean != false) {
+                $GLOBALS['log']->fatal('SharedSecurityRules: Entering checkRules.');
                 $ruleAccess = $bean->checkRules($this, $view);
                 if ($ruleAccess === false) {
                     $access = false;
