@@ -2987,10 +2987,8 @@ class SugarBean
             if (!empty($rulesWhere)) {
                 if (empty($where)) {
                     $where = $rulesWhere;
-                } elseif ($_REQUEST['action'] == "DetailView") {
-                    $where .= " AND (".$rulesWhere.") ";
                 } else {
-                    $where .= " OR (".$rulesWhere.") ";
+                    $where .= " AND (".$rulesWhere.") ";
                 }
             }
         }
