@@ -61,6 +61,24 @@ class AOS_ContractsController extends SugarController
         global $app_list_strings;
         $related = $app_list_strings['CreateViewRelatedModule'][ $this->module ];
 
+        if(empty($this->bean->agreements_number_and_amendment_c) && empty($this->record)) {
+            $sql = "SELECT agreements_number_and_amendment_c, agreements_number_c, amendment_c 
+                     FROM aos_contracts_cstm WHERE agreements_number_and_amendment_c IS NOT NULL ORDER BY agreements_number_c DESC";
+            $result = $this->bean->db->query($sql);
+            $numberRow = mysqli_fetch_row($result);
+            if(empty($numberRow['0'])) {
+                $this->bean->agreements_number_c = "500000";
+                $this->bean->amendment_c = "1";
+                $this->bean->agreements_number_and_amendment_c = "00500000.01";
+            } else {
+                $newNumber = $numberRow['1'] + 1;
+                $this->bean->agreements_number_c = $newNumber;
+                $newNumber = str_pad($newNumber, 8, '0', STR_PAD_LEFT);
+                $this->bean->amendment_c = "1";
+                $this->bean->agreements_number_and_amendment_c = $newNumber . ".01";
+            }
+        }
+
         foreach($related as $key => $relationship){
             $bean = BeanFactory::getBean($relationship['module']);
 
