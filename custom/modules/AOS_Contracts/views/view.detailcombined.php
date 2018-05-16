@@ -50,7 +50,7 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
             $this->ss->assign('SALES_TEAM', true);
         }
 
-        if ($this->bean->status == "Activated") {
+        if ($this->bean->apttus_status_c == "eff_act") {
             $this->ss->assign('ACTIVATED', true);
             $this->ss->assign('recordID', $this->bean->id);
         }

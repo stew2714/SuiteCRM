@@ -137,7 +137,7 @@ class AOS_ContractsViewCreate extends ViewCreate
             }
         }
 
-        if(isset($_REQUEST['isAmendment']) && $_REQUEST['isAmendment'] == true) {
+        if(isset($_REQUEST['isAmendment']) && $_REQUEST['isAmendment'] === "true") {
             $agreementNumber = $this->bean->agreements_number_c;
             $agreementNumber = str_pad($agreementNumber, 8, '0', STR_PAD_LEFT);
             $amendment = $this->bean->amendment_c;
@@ -145,8 +145,13 @@ class AOS_ContractsViewCreate extends ViewCreate
             $this->bean->amendment_c = $amendment;
             $amendment = str_pad($amendment, 2, '0', STR_PAD_LEFT);
             $this->bean->agreements_number_and_amendment_c = $agreementNumber.".".$amendment;
-            $this->bean->apttus_parent_agreement_name_c = $this->bean->name;
-            $this->bean->Oneapttus_parent_agreement_c = $_REQUEST['record'];
+            $sql = "SELECT aos_contracts.id, aos_contracts.name FROM aos_contracts LEFT JOIN aos_contracts_cstm ON aos_contracts_cstm.id_c = aos_contracts.id WHERE aos_contracts.deleted = '0' AND aos_contracts_cstm.agreements_number_c = '$agreementNumber' AND aos_contracts_cstm.amendment_c = '0'";
+            $result = $this->bean->db->query($sql);
+            $contractsRow = mysqli_fetch_row($result);
+            $this->bean->apttus_parent_agreement_name_c = $contractsRow[1];
+            $this->bean->Oneapttus_parent_agreement_c = $contractsRow[0];
+            $this->bean->apttus_status_category_c = "req";
+            $this->bean->apttus_status_c = "req_sr";
         }
 
         parent::preDisplay();

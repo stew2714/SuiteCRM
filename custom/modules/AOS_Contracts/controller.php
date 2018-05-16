@@ -74,9 +74,12 @@ class AOS_ContractsController extends SugarController
                 $newNumber = $numberRow['1'] + 1;
                 $this->bean->agreements_number_c = $newNumber;
                 $newNumber = str_pad($newNumber, 8, '0', STR_PAD_LEFT);
-                $this->bean->amendment_c = "1";
+                $this->bean->amendment_c = "0";
                 $this->bean->agreements_number_and_amendment_c = $newNumber . ".00";
             }
+        } elseif(!empty($this->bean->Oneapttus_parent_agreement_c)) {
+            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_c = 'eff_ba' WHERE aos_contracts_cstm.id_c = '$this->bean->Oneapttus_parent_agreement_c'";
+            $this->bean->db->query($sql);
         }
 
         foreach($related as $key => $relationship){
@@ -232,8 +235,11 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->status = "Activated";
+            $bean->apttus_status_category_c = "eff";
+            $bean->apttus_status_c = "eff_act";
             $bean->save();
+            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'ame', aos_contracts_cstm.apttus_status_c = 'ame_sup' WHERE aos_contracts_cstm.id_c = '$bean->Oneapttus_parent_agreement_c'";
+            $bean->db->query($sql);
             echo "success";
             die();
         } else {
