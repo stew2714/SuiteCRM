@@ -46,13 +46,17 @@ array (
           array (
             'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="submitToCommOps" value="Submit to Comm Ops">{/if}',
           ),
-          12 =>
+          12 => 
           array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST}">{/if}',
           ),
-          13 =>
+          13 => 
           array (
             'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUST}">{/if}',
+          ),
+          14 => 
+          array (
+            'customCode' => '{if $ACTIVATED === true && $bean->aclAccess("edit")}<input title="{$MOD.LBL_AMEND_BUTTON}" accessKey="{$APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.isAmendment.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Amend" value="{$MOD.LBL_AMEND_BUTTON}" id="amend_button">{/if} ',
           ),
         ),
         'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
@@ -118,6 +122,15 @@ array (
         array (
           0 => 
           array (
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'recordtypeid_c',
             'label' => 'LBL_RECORDTYPEID_C',
           ),
@@ -127,7 +140,7 @@ array (
             'label' => 'LBL_CONTRACT_ACCOUNT',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 'name',
           1 => 
@@ -136,7 +149,7 @@ array (
             'label' => 'LBL_OPPORTUNITY',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -149,7 +162,7 @@ array (
             'label' => 'LBL_APTTUS_AGREEMENT_CATEGORY_C',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -162,7 +175,7 @@ array (
             'label' => 'LBL_TYPE_OF_REQUEST_C',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -175,7 +188,7 @@ array (
             'label' => 'LBL_APTTUS_STATUS_CATEGORY_C',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -188,7 +201,7 @@ array (
             'label' => 'LBL_APTTUS_STATUS_C',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -202,7 +215,7 @@ array (
             'label' => 'LBL_REGION_C',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -215,7 +228,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -229,7 +242,7 @@ array (
             'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -242,7 +255,7 @@ array (
             'label' => 'LBL_OWNERSHIP_GROUP_C',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -255,7 +268,7 @@ array (
             'label' => 'LBL_AWAITING_INFORMATION_DETAIL_C',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -268,7 +281,7 @@ array (
             'label' => 'LBL_CANCELLATION_REASON_C',
           ),
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
@@ -281,7 +294,7 @@ array (
             'label' => 'LBL_APTTUS_TERMINATION_NOTICE_ISSUE_DATE_C',
           ),
         ),
-        13 => 
+        14 => 
         array (
           0 => 
           array (
@@ -294,7 +307,7 @@ array (
             'label' => 'LBL_APTTUS_TERMINATION_DATE_C',
           ),
         ),
-        14 => 
+        15 => 
         array (
           0 => 
           array (
@@ -307,7 +320,7 @@ array (
             'label' => 'LBL_GENERAL_TERMS_AND_CONDITIONS_C',
           ),
         ),
-        15 => 
+        16 => 
         array (
           0 => 
           array (
@@ -315,7 +328,7 @@ array (
             'label' => 'LBL_T_C_VERSION_C',
           ),
         ),
-        16 => 
+        17 => 
         array (
           0 => 
           array (
@@ -328,7 +341,7 @@ array (
             'label' => 'LBL_STRATEGIC_DEAL_C',
           ),
         ),
-        17 => 
+        18 => 
         array (
           0 => 
           array (
@@ -341,7 +354,7 @@ array (
             'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
           ),
         ),
-        18 => 
+        19 => 
         array (
           0 => 
           array (

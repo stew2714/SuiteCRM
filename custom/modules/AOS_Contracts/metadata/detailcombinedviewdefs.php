@@ -28,7 +28,7 @@ $viewdefs = array (
             ),
             7 => 
             array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST_LEGAL}">{/if}',
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="Accept as Legal Request">{/if}',
             ),
             8 => 
             array (
@@ -53,6 +53,10 @@ $viewdefs = array (
             13 =>
             array (
               'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUST}">{/if}',
+            ),
+            14 => 
+            array (
+              'customCode' => '{if $ACTIVATED === true && $bean->aclAccess("edit")}<input title="{$MOD.LBL_AMEND_BUTTON}" accessKey="{$APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.isAmendment.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Amend" value="{$MOD.LBL_AMEND_BUTTON}" id="amend_button">{/if} ',
             ),
           ),
           'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',
@@ -148,17 +152,25 @@ $viewdefs = array (
           array (
             0 => 
             array (
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+            ),
+          ),
+          1 => 
+          array (
+            0 => 
+            array (
               'name' => 'recordtypeid_c',
               'label' => 'LBL_RECORDTYPEID_C',
             ),
             1 => 'contract_account',
           ),
-          1 => 
+          2 => 
           array (
             0 => 'name',
             1 => 'opportunity',
           ),
-          2 => 
+          3 => 
           array (
             0 => 
             array (
@@ -167,16 +179,16 @@ $viewdefs = array (
             ),
             1 => 'apttus_agreement_category_c',
           ),
-          3 => 
+          4 => 
           array (
             0 => 
             array (
-              'name' => 'legacy_agreement_number_c',
-              'label' => 'LBL_LEGACY_AGREEMENT_NUMBER_C',
+              'name' => 'apttus_agreement_number_c',
+              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
             ),
             1 => 'type_of_request_c',
           ),
-          4 => 
+          5 => 
           array (
             0 => 
             array (
@@ -185,7 +197,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_status_category_c',
           ),
-          5 => 
+          6 => 
           array (
             0 => 
             array (
@@ -194,7 +206,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_status_c',
           ),
-          6 => 
+          7 => 
           array (
             0 => 
             array (
@@ -204,7 +216,7 @@ $viewdefs = array (
             ),
             1 => 'region_c',
           ),
-          7 => 
+          8 => 
           array (
             0 => 
             array (
@@ -213,7 +225,7 @@ $viewdefs = array (
             ),
             1 => 'assigned_user_name',
           ),
-          8 => 
+          9 => 
           array (
             0 => 
             array (
@@ -222,7 +234,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_requestor_name_c',
           ),
-          9 => 
+          10 => 
           array (
             0 => 
             array (
@@ -231,7 +243,7 @@ $viewdefs = array (
             ),
             1 => 'ownership_group_c',
           ),
-          10 => 
+          11 => 
           array (
             0 => 
             array (
@@ -240,7 +252,7 @@ $viewdefs = array (
             ),
             1 => 'awaiting_information_detail_c',
           ),
-          11 => 
+          12 => 
           array (
             0 => 
             array (
@@ -249,7 +261,7 @@ $viewdefs = array (
             ),
             1 => 'cancellation_reason_c',
           ),
-          12 => 
+          13 => 
           array (
             0 => 
             array (
@@ -258,7 +270,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_termination_notice_issue_date_c',
           ),
-          13 => 
+          14 => 
           array (
             0 => 
             array (
@@ -267,7 +279,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_termination_date_c',
           ),
-          14 => 
+          15 => 
           array (
             0 => 
             array (
@@ -276,7 +288,7 @@ $viewdefs = array (
             ),
             1 => 'general_terms_and_conditions_c',
           ),
-          15 => 
+          16 => 
           array (
             0 => 
             array (
@@ -284,7 +296,7 @@ $viewdefs = array (
               'label' => 'LBL_T_C_VERSION_C',
             ),
           ),
-          16 => 
+          17 => 
           array (
             0 => 
             array (
@@ -293,7 +305,7 @@ $viewdefs = array (
             ),
             1 => 'strategic_deal_c',
           ),
-          17 => 
+          18 => 
           array (
             0 => 
             array (
@@ -302,7 +314,7 @@ $viewdefs = array (
             ),
             1 => 'strategic_deal_description_c',
           ),
-          18 => 
+          19 => 
           array (
             0 => 
             array (

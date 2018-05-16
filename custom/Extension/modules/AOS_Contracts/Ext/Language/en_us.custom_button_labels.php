@@ -9,3 +9,4 @@ $mod_strings['LBL_BUTTON_SUBMIT_TO_COMM_OPS'] = 'Submit to Comm Ops';
 $mod_strings['LBL_BUTTON_SENT_FOR_SIGNATURES'] = 'Sent for Signatures';
 $mod_strings['LBL_BUTTON_ACTIVATE_REQUST'] = 'Activate';
 $mod_strings['LBL_FIELD_TRACKING_HISTORY'] = 'Field Tracking History';
+$mod_strings['LBL_AMEND_BUTTON'] = 'Amend Agreement';

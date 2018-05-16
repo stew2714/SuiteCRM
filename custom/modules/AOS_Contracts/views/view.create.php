@@ -137,6 +137,15 @@ class AOS_ContractsViewCreate extends ViewCreate
             }
         }
 
+        if(isset($_REQUEST['isAmendment']) && $_REQUEST['isAmendment'] == true) {
+            $agreementNumber = $this->bean->agreements_number_c;
+            $agreementNumber = str_pad($agreementNumber, 8, '0', STR_PAD_LEFT);
+            $amendment = $this->bean->amendment_c;
+            $amendment += 1;
+            $amendment = str_pad($amendment, 2, '0', STR_PAD_LEFT);
+            $this->bean->agreements_number_and_amendment_c = $agreementNumber.".".$amendment;
+        }
+
         parent::preDisplay();
 
     }
