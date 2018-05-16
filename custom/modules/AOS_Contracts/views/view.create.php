@@ -142,8 +142,11 @@ class AOS_ContractsViewCreate extends ViewCreate
             $agreementNumber = str_pad($agreementNumber, 8, '0', STR_PAD_LEFT);
             $amendment = $this->bean->amendment_c;
             $amendment += 1;
+            $this->bean->amendment_c = $amendment;
             $amendment = str_pad($amendment, 2, '0', STR_PAD_LEFT);
             $this->bean->agreements_number_and_amendment_c = $agreementNumber.".".$amendment;
+            $this->bean->apttus_parent_agreement_name_c = $this->bean->name;
+            $this->bean->Oneapttus_parent_agreement_c = $_REQUEST['record'];
         }
 
         parent::preDisplay();

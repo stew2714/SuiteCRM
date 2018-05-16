@@ -1,7 +1,7 @@
 <?php
 $dictionary["AOS_Contracts"]["fields"]["agreements_number_and_amendment_c"] = array (
     'name' => 'agreements_number_and_amendment_c',
-    'type' => 'readonly',
+    'type' => 'customreadonly',
     'dbtype' => 'varchar',
     'len' => '12',
     'source' => 'custom_fields',
