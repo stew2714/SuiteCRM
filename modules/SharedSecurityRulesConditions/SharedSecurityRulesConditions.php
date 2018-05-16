@@ -172,6 +172,7 @@ class SharedSecurityRulesConditions extends Basic
 
         $j = 0;
      //   $conditionCounter = 0;
+        $lastParenthesisStartConditionIdArray = array();
         if(isset($post_data[$key . 'field']) && !empty($post_data[$key . 'field'])) {
 
             foreach ($post_data[$key . 'field'] as $i => $field) {
@@ -223,10 +224,12 @@ class SharedSecurityRulesConditions extends Basic
                                 }
                             }
                             if ($field_name == 'parenthesis' && $post_data[$key . $field_name][$i] == 'END') {
-                                if (!isset($lastParenthesisStartConditionId)) {
+                                if (empty($lastParenthesisStartConditionIdArray)){//(!isset($lastParenthesisStartConditionId)) {
                                     throw new Exception('a closure parenthesis has no starter pair');
-                                }
-                                $condition->parenthesis = $lastParenthesisStartConditionId;
+                                       }
+
+                                $condition->parenthesis=  array_pop($lastParenthesisStartConditionIdArray);
+
                             } else {
 
                                     $condition->$field_name = $post_data[$key . $field_name][$i];
@@ -266,7 +269,9 @@ class SharedSecurityRulesConditions extends Basic
 
 
                         if ($condition->parenthesis == 'START') {
-                            $lastParenthesisStartConditionId = $conditionId;
+                           // $lastParenthesisStartConditionId = $conditionId;
+
+                            array_push($lastParenthesisStartConditionIdArray, $conditionId);
                         }
                     }
 
