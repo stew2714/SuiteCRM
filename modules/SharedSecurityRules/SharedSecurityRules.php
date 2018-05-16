@@ -128,11 +128,17 @@ class SharedSecurityRules extends Basic
         $GLOBALS['log']->fatal('SharedSecurityRules: In checkRules for module: ' . $module->name . ' and view: ' . $view);
 
         $class = get_class($module);
+        $GLOBALS['log']->fatal('SharedSecurityRules: Class is: ' . $class);
+
         $moduleBean = new $class();
         if (!empty($module->fetched_row) && !empty($module->fetched_row['id']) && !empty($module->fetched_row['assigned_user_id']) && !empty($module->fetched_row['created_by'])) {
             $moduleBean->populateFromRow($module->fetched_row);
         }
+        elseif($moduleBean->module_name != 'Documents') {
+            $moduleBean->retrieve($module->id);
+        }
 
+        $GLOBALS['log']->fatal('SharedSecurityRules: Module bean ID: ' . $moduleBean->id);
         $result = null;
         if(empty($moduleBean->id) || $moduleBean->id == "[SELECT_ID_LIST]"){
             return $result;
@@ -546,7 +552,7 @@ class SharedSecurityRules extends Basic
         global $current_user, $db;
         $where = "";
         $parenthesis = null;
-        $sql = "SELECT * FROM sharedsecurityrules WHERE sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_dir}'";
+        $sql = "SELECT * FROM sharedsecurityrules WHERE sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_dir}'&& sharedsecurityrules.deleted ='0'";
         $results = $db->query($sql);
         while (($rule = $module->db->fetchByAssoc($results)) != null) {
             $sql_query = "SELECT * FROM sharedsecurityrulesactions WHERE sharedsecurityrulesactions.sa_shared_security_rules_id = '{$rule['id']}' && sharedsecurityrulesactions.deleted = '0'";
@@ -557,7 +563,8 @@ class SharedSecurityRules extends Basic
                     $action['parameters'] = unserialize(base64_decode($action['parameters']));
                 }
                 foreach($action['parameters']['accesslevel'] as $key => $accessLevel){
-                        if($accessLevel == 'none') {$targetType = $action['parameters']['email_target_type'][$key];
+                        if($accessLevel == 'none') {
+                            $targetType = $action['parameters']['email_target_type'][$key];
 
                         if($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "role"){
                             $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
