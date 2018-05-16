@@ -68,14 +68,14 @@ class AOS_ContractsController extends SugarController
             $numberRow = mysqli_fetch_row($result);
             if(empty($numberRow['0'])) {
                 $this->bean->agreements_number_c = "500000";
-                $this->bean->amendment_c = "1";
+                $this->bean->amendment_c = "0";
                 $this->bean->agreements_number_and_amendment_c = "00500000.01";
             } else {
                 $newNumber = $numberRow['1'] + 1;
                 $this->bean->agreements_number_c = $newNumber;
                 $newNumber = str_pad($newNumber, 8, '0', STR_PAD_LEFT);
                 $this->bean->amendment_c = "1";
-                $this->bean->agreements_number_and_amendment_c = $newNumber . ".01";
+                $this->bean->agreements_number_and_amendment_c = $newNumber . ".00";
             }
         }
 
