@@ -26,3 +26,12 @@ $dictionary["AOS_Contracts"]["fields"]["amendment_c"] = array (
     'studio' => false,
     'vname' => 'LBL_AMENDMENT_C',
 );
+
+$dictionary["AOS_Contracts"]["fields"]["is_latest_c"] = array (
+    'name' => 'is_latest_c',
+    'type' => 'bool',
+    'len' => '10',
+    'source' => 'custom_fields',
+    'studio' => false,
+    'vname' => 'LBL_IS_LATEST_C',
+);
