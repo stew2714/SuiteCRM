@@ -10,7 +10,9 @@ $viewdefs = array (
         array (
           'buttons' => 
           array (
-            0 => 'EDIT',
+            0 => array(
+              'customCode' => '{if $ACTIVATED === false}<input title="Edit" accesskey="i" class="button primary" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.return_id.value=\'{$recordID}\'; _form.action.value=\'EditView\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Edit" id="edit_button" value="Edit">{/if}'
+            ),
             1 => 'DUPLICATE',
             2 => 'DELETE',
             3 => 'FIND_DUPLICATES',
@@ -56,7 +58,8 @@ $viewdefs = array (
             ),
             14 => 
             array (
-              'customCode' => '{if $ACTIVATED === true && $bean->aclAccess("edit")}<input title="{$MOD.LBL_AMEND_BUTTON}" accessKey="{$APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.isAmendment.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Amend" value="{$MOD.LBL_AMEND_BUTTON}" id="amend_button">{/if} ',
+              'customCode' => '{if $ACTIVATED === true && $bean->aclAccess("edit") && $OLD_AMENDMENT === false}<input title="{$MOD.LBL_AMEND_BUTTON}" accessKey="{$APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.isAmendment.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Amend" value="{$MOD.LBL_AMEND_BUTTON}" id="amend_button">
+                               {elseif $OLD_AMENDMENT === true}<input title="{$MOD.LBL_AMEND_BUTTON}" class="button" onclick="alert(\'{$MOD.LBL_OLD_AMENDMENT_WARNING}\')" type="button" name="Amend" value="{$MOD.LBL_AMEND_BUTTON}" id="amend_button">{/if} ',
             ),
           ),
           'footerTpl' => 'custom/modules/AOS_Contracts/tpls/modal.tpl',

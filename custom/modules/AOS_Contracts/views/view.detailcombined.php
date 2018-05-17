@@ -50,9 +50,20 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
             $this->ss->assign('SALES_TEAM', true);
         }
 
+        $this->ss->assign('recordID', $this->bean->id);
         if ($this->bean->apttus_status_c == "eff_act") {
             $this->ss->assign('ACTIVATED', true);
-            $this->ss->assign('recordID', $this->bean->id);
+            $sql = "SELECT aos_contracts_cstm.amendment_c FROM aos_contracts_cstm LEFT JOIN aos_contracts ON aos_contracts.id = aos_contracts_cstm.id_c 
+                    WHERE aos_contracts.deleted = '0' AND aos_contracts_cstm.Oneapttus_parent_agreement_c = '".$this->bean->Oneapttus_parent_agreement_c."' ORDER BY aos_contracts_cstm.amendment_c DESC";
+            $result = $this->bean->db->query($sql);
+            $row = mysqli_fetch_row($result);
+            if($row[0] != $this->bean->amendment_c) {
+                $this->ss->assign('OLD_AMENDMENT', true);
+            } else {
+                $this->ss->assign('OLD_AMENDMENT', false);
+            }
+        } else {
+            $this->ss->assign('ACTIVATED', false);
         }
         //add custom fields to work with email compose setup.
         $contact  = BeanFactory::getBean("Contacts", $this->bean->contact_id);
