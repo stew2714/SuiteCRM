@@ -211,6 +211,9 @@ class SharedSecurityRules extends Basic
                             if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
                                 $result = false;
                             }
+                            else {
+                                $result = true;
+                            }
                         }
 
                     }
@@ -602,7 +605,8 @@ class SharedSecurityRules extends Basic
                 $related = false;
                 if ($conditions_results->num_rows != 0) {
                     while ($condition = $module->db->fetchByAssoc($conditions_results)) {
-                        if($accessLevel == 'none') {if(unserialize(base64_decode($condition['module_path'])) != false) {
+                        if($accessLevel == 'none') {
+                            if(unserialize(base64_decode($condition['module_path'])) != false) {
                             $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
                         }
 
