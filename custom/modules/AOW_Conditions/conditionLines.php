@@ -66,7 +66,7 @@ function display_condition_lines($focus, $field, $value, $view){
                     asort($fields);
                     $fields = get_select_options($fields, "");
                     $fields = json_encode($fields);
-                    $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', $fields))."\";";
+                    $html .= "flow_fields = ".trim(preg_replace('/\s+/', ' ', $fields)).";";
                     if($condition_name->value_type == 'Date'){
                         $condition_name->value = unserialize(base64_decode($condition_name->value));
                     }
