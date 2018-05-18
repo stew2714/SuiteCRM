@@ -70,6 +70,7 @@ class CustomSearchForm extends SearchForm
         $table_name = $this->seed->object_name;
         $this->seed->fill_in_additional_detail_fields();
 
+        unset($this->searchFields['account_name']);
         //rrs check for team_id
 
         foreach ((array)$this->searchFields as $field => $parms) {
@@ -634,6 +635,7 @@ class CustomSearchForm extends SearchForm
 
             return $whereClauses;
         }
+        return $whereClauses;
     }
 
 }
