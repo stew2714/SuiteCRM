@@ -211,6 +211,9 @@ class SharedSecurityRules extends Basic
                             if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
                                 $result = false;
                             }
+                            else {
+                                $result = true;
+                            }
                         }
 
                     }
