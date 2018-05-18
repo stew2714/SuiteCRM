@@ -1,5 +1,5 @@
 <?php
-// created: 2018-05-11 11:50:18
+// created: 2018-05-17 19:32:24
 $searchFields['AOS_Contracts'] = array (
   'name' => 
   array (
@@ -56,19 +56,16 @@ $searchFields['AOS_Contracts'] = array (
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
-    'is_date_field' => true,
   ),
   'start_range_total_contract_value' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
-    'is_date_field' => true,
   ),
   'end_range_total_contract_value' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
-    'is_date_field' => true,
   ),
   'range_apttus_total_contract_value_c' => 
   array (

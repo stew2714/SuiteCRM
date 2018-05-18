@@ -476,23 +476,6 @@ $GLOBALS['app_list_strings']['referenced_emr_list']=array (
   'NextGen' => 'NextGen',
   'SRS_Health' => 'SRS Health',
 );
-$GLOBALS['app_list_strings']['opportunity_rectype_list']=array (
-  '' => '',
-  'B2B' => 'B2B',
-  'CBay_Opportunity' => 'CBay Opportunity',
-  'GMA_Opportunity' => 'GMA Opportunity',
-  'Lead_Stage_Opportunity' => 'Lead Stage Opportunity',
-  'Partner_Opportunity' => 'Partner Opportunity',
-  'SpeechQ_Editing_Opportunity' => 'SpeechQ Editing Opportunity',
-  'Standard_Opportunity' => 'Standard Opportunity',
-  'TOS_Renewal_Opportunity' => 'TOS Renewal Opportunity',
-);
-$GLOBALS['app_list_strings']['agreement_rectype_list']=array (
-  '' => '',
-  'Add_on_Agreement' => 'Add-on Agreement',
-  'Master_Services_Agreement' => 'Master Services Agreement',
-  'NDA' => 'NDA',
-);
 $GLOBALS['app_list_strings']['acct_rectype_list']=array (
   '' => '',
   'B2B_Account' => 'B2B Account',
@@ -1053,18 +1036,6 @@ $GLOBALS['app_list_strings']['acct_pacs_list']=array (
 $GLOBALS['app_list_strings']['training_list']=array (
   'training_two' => 'Training 2',
   'training_with_spaces' => 'Training With Spaces',
-);
-$GLOBALS['app_list_strings']['contract_status_category_list']=array (
-  '' => '',
-  'ame' => 'Amended',
-  'can' => 'Cancelled',
-  'exp' => 'Expired',
-  'aut' => 'In Authoring',
-  'eff' => 'In Effect',
-  'fil' => 'In Filing',
-  'sig' => 'In Signatures',
-  'req' => 'Request',
-  'ter' => 'Terminated',
 );
 $GLOBALS['app_list_strings']['imp_timeframe_comments_list']=array (
 );
@@ -1827,13 +1798,13 @@ $GLOBALS['app_list_strings']['contract_type_of_request_list']=array (
   'Renewal' => 'Renewal',
   'Zero_Based' => 'Zero Based',
 );
+
 $GLOBALS['app_list_strings']['contract_status_list']=array (
   'req_req' => 'Request',
   'aut_ar' => 'Accepted Request',
   'eff_act' => 'Activated',
   'req_asd' => 'Approved and Submitted for Drafting',
   'aut_ac' => 'Author Contract',
-  'fil_ad' => 'Awaiting Distribution',
   'sig_ai' => 'Awaiting Information',
   'aut_ai' => 'Awaiting Information',
   'req_ai' => 'Awaiting Information',
@@ -1851,7 +1822,6 @@ $GLOBALS['app_list_strings']['contract_status_list']=array (
   'sig_coi' => 'In Comm Ops Initial Review',
   'sig_ior' => 'In Comm Ops Issue Resolution',
   'aut_la' => 'Language Approval',
-  'aut_lad' => 'Language Approved',
   'aut_mrr' => 'M*Modal Redline Review',
   'sig_opr' => 'Other Party Review',
   'aut_opr' => 'Other Party Review',
@@ -1864,5 +1834,30 @@ $GLOBALS['app_list_strings']['contract_status_list']=array (
   'ame_sup' => 'Superseded',
   'eff_sup' => 'Superseded',
   'ter_ter' => 'Terminated',
-  'req_sa' => 'Submitted for Approval',
+);
+$GLOBALS['app_list_strings']['agreement_rectype_list']=array (
+  'Master_Services_Agreement' => 'Master Services Agreement',
+  'Add_on_Agreement' => 'Add-on Agreement',
+  'NDA' => 'NDA',
+);
+$GLOBALS['app_list_strings']['opportunity_rectype_list']=array (
+  'B2B' => 'B2B',
+  'CBay_Opportunity' => 'CBay Opportunity',
+  'GMA_Opportunity' => 'GMA Opportunity',
+  'Lead_Stage_Opportunity' => 'Lead Stage Opportunity',
+  'Partner_Opportunity' => 'Partner Opportunity',
+  'SpeechQ_Editing_Opportunity' => 'SpeechQ Editing Opportunity',
+  'Standard_Opportunity' => 'Standard Opportunity',
+  'TOS_Renewal_Opportunity' => 'TOS Renewal Opportunity',
+);
+$GLOBALS['app_list_strings']['contract_status_category_list']=array (
+  'ame' => 'Amended',
+  'can' => 'Cancelled',
+  'exp' => 'Expired',
+  'aut' => 'In Authoring',
+  'eff' => 'In Effect',
+  'fil' => 'In Filing',
+  'sig' => 'In Signatures',
+  'req' => 'Request',
+  'ter' => 'Terminated',
 );

@@ -83,13 +83,13 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'syncDetailEditViews' => true,
       'tabDefs' => 
       array (
         'DEFAULT' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
@@ -138,11 +138,7 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'agreement_chevron_c',
-            'label' => 'LBL_AGREEMENT_CHEVRON_C',
-          ),
+          0 => 'name',
           1 => 
           array (
             'name' => 'opportunity',
@@ -151,7 +147,11 @@ array (
         ),
         2 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'legal_entity_c',
+            'label' => 'LBL_LEGAL_ENTITY_C',
+          ),
           1 => 
           array (
             'name' => 'apttus_agreement_category_c',
@@ -162,8 +162,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'legal_entity_c',
-            'label' => 'LBL_LEGAL_ENTITY_C',
+            'name' => 'apttus_ff_agreement_number_c',
+            'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
           ),
           1 => 
           array (
@@ -175,8 +175,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_ff_agreement_number_c',
-            'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+            'name' => 'legacy_agreement_number_c',
+            'label' => 'LBL_LEGACY_AGREEMENT_NUMBER_C',
           ),
           1 => 
           array (
@@ -188,8 +188,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'legacy_agreement_number_c',
-            'label' => 'LBL_LEGACY_AGREEMENT_NUMBER_C',
+            'name' => 'client_agreement_number_c',
+            'label' => 'LBL_CLIENT_AGREEMENT_NUMBER_C',
           ),
           1 => 
           array (
@@ -201,8 +201,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'client_agreement_number_c',
-            'label' => 'LBL_CLIENT_AGREEMENT_NUMBER_C',
+            'name' => 'type_of_product_services_c',
+            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
           ),
           1 => 
           array (
@@ -214,8 +214,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'type_of_product_services_c',
-            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
+            'name' => 'apttus_parent_agreement_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_PARENT_AGREEMENT_NAME_C',
           ),
           1 => 
           array (
@@ -224,21 +225,6 @@ array (
           ),
         ),
         8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'apttus_parent_agreement_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APTTUS_PARENT_AGREEMENT_NAME_C',
-          ),
-          1 => 
-          array (
-            'name' => 'apttus_requestor_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
-          ),
-        ),
-        9 => 
         array (
           0 => 
           array (
@@ -251,12 +237,12 @@ array (
             'label' => 'LBL_OWNERSHIP_GROUP_C',
           ),
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
-            'name' => 'apttus_total_contract_value_c',
-            'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+            'name' => 'total_contract_value',
+            'label' => 'LBL_TOTAL_CONTRACT_VALUE',
           ),
           1 => 
           array (
@@ -264,7 +250,7 @@ array (
             'label' => 'LBL_AWAITING_INFORMATION_DETAIL_C',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -277,7 +263,7 @@ array (
             'label' => 'LBL_CANCELLATION_REASON_C',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -290,7 +276,7 @@ array (
             'label' => 'LBL_APTTUS_TERMINATION_NOTICE_ISSUE_DATE_C',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
@@ -303,7 +289,7 @@ array (
             'label' => 'LBL_APTTUS_TERMINATION_DATE_C',
           ),
         ),
-        14 => 
+        13 => 
         array (
           0 => 
           array (
@@ -316,7 +302,7 @@ array (
             'label' => 'LBL_GENERAL_TERMS_AND_CONDITIONS_C',
           ),
         ),
-        15 => 
+        14 => 
         array (
           0 => 
           array (
@@ -329,7 +315,7 @@ array (
             'label' => 'LBL_T_C_VERSION_C',
           ),
         ),
-        16 => 
+        15 => 
         array (
           0 => 
           array (
@@ -342,7 +328,7 @@ array (
             'label' => 'LBL_STRATEGIC_DEAL_C',
           ),
         ),
-        17 => 
+        16 => 
         array (
           0 => 
           array (
@@ -355,7 +341,7 @@ array (
             'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
           ),
         ),
-        18 => 
+        17 => 
         array (
           0 => 
           array (
@@ -364,6 +350,53 @@ array (
           ),
           1 => '',
         ),
+        18 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
+        ),
       ),
       'lbl_editview_panel1' => 
       array (
@@ -371,8 +404,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_contract_start_date_c',
-            'label' => 'LBL_APTTUS_CONTRACT_START_DATE_C',
+            'name' => 'start_date',
+            'label' => 'LBL_START_DATE',
           ),
           1 => 
           array (
@@ -384,8 +417,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_contract_end_date_c',
-            'label' => 'LBL_APTTUS_CONTRACT_END_DATE_C',
+            'name' => 'end_date',
+            'label' => 'LBL_END_DATE',
           ),
           1 => 
           array (
@@ -566,8 +599,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'passive_adaptation_type_c',
-            'label' => 'LBL_PASSIVE_ADAPTATION_TYPE_C',
+            'name' => 'enhanced_data_use_rights_language_c',
+            'label' => 'LBL_ENHANCED_DATA_USE_RIGHTS_LANGUAGE_C',
           ),
           1 => 
           array (
@@ -579,8 +612,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'enhanced_data_use_rights_language_c',
-            'label' => 'LBL_ENHANCED_DATA_USE_RIGHTS_LANGUAGE_C',
+            'name' => 'legal_notices_c',
+            'label' => 'LBL_LEGAL_NOTICES_C',
           ),
           1 => 
           array (
@@ -592,37 +625,27 @@ array (
         array (
           0 => 
           array (
+            'name' => 'passive_adaptation_type_c',
+            'label' => 'LBL_PASSIVE_ADAPTATION_TYPE_C',
+          ),
+          1 => 
+          array (
             'name' => 'service_or_product_warranty_c',
             'label' => 'LBL_SERVICE_OR_PRODUCT_WARRANTY_C',
           ),
-          1 => '',
         ),
         18 => 
-        array (
-          0 => 
-          array (
-            'name' => 'legal_notices_c',
-            'label' => 'LBL_LEGAL_NOTICES_C',
-          ),
-          1 => '',
-        ),
-        19 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assignment_permitted_c',
-            'label' => 'LBL_ASSIGNMENT_PERMITTED_C',
-          ),
-          1 => '',
-        ),
-        20 => 
         array (
           0 => 
           array (
             'name' => 'master_general_notes_c',
             'label' => 'LBL_MASTER_GENERAL_NOTES_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'assignment_permitted_c',
+            'label' => 'LBL_ASSIGNMENT_PERMITTED_C',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -748,34 +771,24 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_NAME_C',
           ),
-          1 => '',
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'apttus_other_party_signed_by_unlisted_c',
             'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_UNLISTED_C',
           ),
-          1 => '',
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
             'name' => 'apttus_other_party_signed_date_c',
             'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_DATE_C',
           ),
-          1 => '',
-        ),
-        6 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'apttus_other_party_signed_title_c',
             'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_TITLE_C',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel5' => 
@@ -800,18 +813,13 @@ array (
             'name' => 'comm_ops_age_c',
             'label' => 'LBL_COMM_OPS_AGE_C',
           ),
-          1 => '',
-        ),
-        2 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'date_submitted_to_comm_ops_c',
             'label' => 'LBL_DATE_SUBMITTED_TO_COMM_OPS_C',
           ),
-          1 => '',
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (

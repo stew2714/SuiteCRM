@@ -92,6 +92,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_DETAILVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
     ),
     'panels' => 
@@ -135,15 +140,23 @@ array (
         ),
         3 => 
         array (
-          0 => '',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'type_of_product_services_c',
+            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
+          ),
+          1 => 
+          array (
+            'name' => 'apttus_status_c',
+            'label' => 'LBL_APTTUS_STATUS_C',
+          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'type_of_product_services_c',
-            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
+            'name' => 'apttus_description_c',
+            'label' => 'LBL_APTTUS_DESCRIPTION_C',
           ),
           1 => 
           array (
@@ -155,8 +168,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_description_c',
-            'label' => 'LBL_APTTUS_DESCRIPTION_C',
+            'name' => 'apttus_requestor_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
           1 => 
           array (
@@ -168,27 +182,22 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_special_terms_c',
-            'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
+            'name' => 'apttus_request_date_c',
+            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
           ),
-          1 => 
-          array (
-            'name' => 'apttus_requestor_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
-          ),
+          1 => '',
         ),
         7 => 
         array (
           0 => 
           array (
-            'name' => 'requires_po_c',
-            'label' => 'LBL_REQUIRES_PO_C',
+            'name' => 'apttus_special_terms_c',
+            'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
           ),
           1 => 
           array (
-            'name' => 'apttus_request_date_c',
-            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
+            'name' => 'requires_po_c',
+            'label' => 'LBL_REQUIRES_PO_C',
           ),
         ),
         8 => 
@@ -213,11 +222,40 @@ array (
           ),
           1 => 
           array (
-            'name' => 'strategic_deal_description_c',
-            'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
+            'name' => 'awaiting_information_detail_c',
+            'label' => 'LBL_AWAITING_INFORMATION_DETAIL_C',
           ),
         ),
         10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'strategic_deal_description_c',
+            'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
+          ),
+          1 => 
+          array (
+            'name' => 'cancellation_reason_c',
+            'label' => 'LBL_CANCELLATION_REASON_C',
+          ),
+        ),
+      ),
+      'lbl_detailview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+          1 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
+        ),
+        1 => 
         array (
           0 => 
           array (

@@ -79,8 +79,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_description_c',
-            'label' => 'LBL_APTTUS_DESCRIPTION_C',
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
           ),
           1 => 
           array (
@@ -92,8 +93,21 @@ array (
         array (
           0 => 
           array (
+            'name' => 'requires_po_c',
+            'label' => 'LBL_REQUIRES_PO_C',
+          ),
+          1 => 
+          array (
             'name' => 'apttus_special_terms_c',
             'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'total_contract_value',
+            'label' => 'LBL_TOTAL_CONTRACT_VALUE',
           ),
           1 => 
           array (
@@ -102,33 +116,7 @@ array (
             'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'requires_po_c',
-            'label' => 'LBL_REQUIRES_PO_C',
-          ),
-          1 => 
-          array (
-            'name' => 'apttus_request_date_c',
-            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
-          ),
-        ),
         6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'apttus_total_contract_value_c',
-            'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
-          ),
-          1 => 
-          array (
-            'name' => 'apttus_termination_notice_issue_date_c',
-            'label' => 'LBL_APTTUS_TERMINATION_NOTICE_ISSUE_DATE_C',
-          ),
-        ),
-        7 => 
         array (
           0 => 
           array (
@@ -141,7 +129,7 @@ array (
             'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
