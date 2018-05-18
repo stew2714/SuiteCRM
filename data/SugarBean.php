@@ -2996,12 +2996,6 @@ class SugarBean
 //            }
         }
 
-        $endWhere = "";
-        $resWhere = "";
-        if(!empty($rules_where['resWhere'])) {
-            $resWhere = $rules_where['resWhere'];
-            $endWhere = ")";
-        }
         $sgWhere = "";
         if(!empty($group_where)) {
             if(!empty($owner_where)) {
@@ -3012,18 +3006,25 @@ class SugarBean
         } elseif (!empty($owner_where)) {
             $sgWhere  = " (" . $owner_where . ") ";
         }
-        $addWhere = "";
-        if(!empty($rules_where['addWhere'])) {
-            $addWhere = $rules_where['addWhere'];
+        $permWhere = "";
+        if(!empty($sgWhere) && !empty($rules_where['addWhere'])) {
+            $permWhere = " ( " . $sgWhere . " OR (" . $rules_where['addWhere'] . ") ) ";
+        } elseif (!empty($sgWhere) || !empty($rules_where['addWhere'])) {
+            $permWhere = " ( " . $sgWhere . "" . $rules_where['addWhere'] . " ) ";
         }
+        if(!empty($rules_where['resWhere']) && !empty($permWhere)) {
+            $permWhere = " ( " . $rules_where['resWhere'] . " AND " . $permWhere . " ) ";
+        } elseif (!empty($rules_where['resWhere']) || !empty($permWhere)) {
+            $permWhere = " ( " . $rules_where['resWhere'] . "" . $permWhere . " ) ";
+        }
+
         if(empty($where)) {
-            $where = " (" . $resWhere . " AND (" . $sgWhere . " OR " . $addWhere . ") " . $endWhere;
+            $where = $permWhere;
         } else {
-            $where .= " AND (" . $resWhere . " AND (" . $sgWhere . " OR " . $addWhere . ") " . $endWhere;
+            $where .= " AND " . $permWhere;
         }
-
-
         /* END - SECURITY GROUPS */
+
         if (!empty($params['distinct'])) {
             $distinct = ' DISTINCT ';
         }
