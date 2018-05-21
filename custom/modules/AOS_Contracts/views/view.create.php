@@ -154,6 +154,14 @@ class AOS_ContractsViewCreate extends ViewCreate
             $this->bean->apttus_status_c = "req_sr";
         }
 
+        if($this->bean->apttus_status_c == "eff_act" && $_REQUEST['isAmendment'] != "true") {
+            $redirectURL = "index.php?module=AOS_Contracts&action=DetailView&record=".$this->bean->id;
+            echo "<script>
+                alert('This agreement has been activated. You are not allowed to edit it further.');
+                window.location.href='$redirectURL';
+                </script>";
+        }
+
         parent::preDisplay();
 
     }

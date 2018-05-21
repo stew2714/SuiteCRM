@@ -32,6 +32,14 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         parent::construct();
     }
 
+    function preDisplay(){
+        global $sugar_config;
+        if ($this->bean->apttus_status_c == "eff_act") {
+            $sugar_config['enable_line_editing_detail'] = false;
+        }
+        parent::preDisplay();
+    }
+
     public function display(){
         global $current_user, $sugar_config;
 		$this->loadRelated();
