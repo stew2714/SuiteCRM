@@ -61,30 +61,6 @@ class AOS_ContractsController extends SugarController
         global $app_list_strings;
         $related = $app_list_strings['CreateViewRelatedModule'][ $this->module ];
 
-        if(empty($this->bean->agreements_number_and_amendment_c) && empty($this->record)) {
-            $sql = "SELECT agreements_number_and_amendment_c, agreements_number_c, amendment_c 
-                     FROM aos_contracts_cstm WHERE agreements_number_and_amendment_c IS NOT NULL ORDER BY agreements_number_c DESC";
-            $result = $this->bean->db->query($sql);
-            $numberRow = mysqli_fetch_row($result);
-            if(empty($numberRow['0'])) {
-                $this->bean->agreements_number_c = "500000";
-                $this->bean->amendment_c = "0";
-                $this->bean->agreements_number_and_amendment_c = "00500000.00";
-            } else {
-                $newNumber = $numberRow['1'] + 1;
-                $this->bean->agreements_number_c = $newNumber;
-                $newNumber = str_pad($newNumber, 8, '0', STR_PAD_LEFT);
-                $this->bean->amendment_c = "0";
-                $this->bean->agreements_number_and_amendment_c = $newNumber . ".00";
-            }
-        } elseif(!empty($this->bean->Oneapttus_parent_agreement_c)) {
-            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_c = 'eff_ba' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
-            $this->bean->db->query($sql);
-            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.is_latest_c = FALSE WHERE aos_contracts_cstm.agreements_number_c = '".$this->bean->agreements_number_c."'";
-            $this->bean->db->query($sql);
-            $this->bean->is_latest_c = true;
-        }
-
         foreach($related as $key => $relationship){
             $bean = BeanFactory::getBean($relationship['module']);
 
@@ -110,7 +86,8 @@ class AOS_ContractsController extends SugarController
             $bean->load_relationship('g1_group_queue_aos_contracts');
             $bean->g1_group_queue_aos_contracts->add($sugar_config['Legal']);
             $bean->assigned_user_id = $current_user->id;
-            $bean->status = "Accepted";
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_ar";
             $bean->save();
             echo "success";
             die();
@@ -129,7 +106,8 @@ class AOS_ContractsController extends SugarController
             $bean->load_relationship('g1_group_queue_aos_contracts');
             $bean->g1_group_queue_aos_contracts->add($sugar_config['CommOps']);
             $bean->assigned_user_id = $current_user->id;
-            $bean->status = "Contracts Pending Clearance";
+            $bean->apttus_status_category_c = "sig";
+            $bean->apttus_status_c = "sig_fco";
             $bean->save();
             echo "success";
             die();
@@ -148,7 +126,8 @@ class AOS_ContractsController extends SugarController
             $bean->load_relationship('g1_group_queue_aos_contracts');
             $bean->g1_group_queue_aos_contracts->add($sugar_config['Sales']);
             $bean->assigned_user_id = $bean->user_id2;
-            $bean->status = "Request";
+            $bean->apttus_status_category_c = "req";
+            $bean->apttus_status_c = "req_ai";
             $bean->date_requested_c = '';
             $bean->save();
             echo "success";
@@ -170,7 +149,8 @@ class AOS_ContractsController extends SugarController
             $bean->assigned_user_id = '';
             $bean->user_id2 = $current_user->id;
             $bean->date_requested_c = $timedate->nowDb();
-            $bean->status = 'In Queue';
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_ai";
             $bean->save();
             echo "success";
             die();
@@ -186,7 +166,8 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->status = 'M*Modal Redline Review';
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_mrr";
             $bean->ts_mmodal_redline_review_c = $timedate->nowDb();
             $bean->save();
             echo "success";
@@ -203,7 +184,8 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->status = 'Sent for Signatures';
+            $bean->apttus_status_category_c = "sig";
+            $bean->apttus_status_c = "sig_fco";
             $bean->save();
             echo "success";
             die();
@@ -222,7 +204,8 @@ class AOS_ContractsController extends SugarController
             $bean->load_relationship('g1_group_queue_aos_contracts');
             $bean->g1_group_queue_aos_contracts->add($sugar_config['CommOps']);
             $bean->assigned_user_id = '';
-            $bean->status = "Submitted for Comm Ops Processing";
+            $bean->apttus_status_category_c = "sig";
+            $bean->apttus_status_c = "sig_fco";
             $bean->save();
             echo "success";
             die();
@@ -238,11 +221,27 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->apttus_status_category_c = "eff";
-            $bean->apttus_status_c = "eff_act";
+            $bean->status = "Activated";
             $bean->save();
-            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'ame', aos_contracts_cstm.apttus_status_c = 'ame_sup' WHERE aos_contracts_cstm.id_c = '$bean->Oneapttus_parent_agreement_c'";
-            $bean->db->query($sql);
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+    public function action_acceptRequestLegal()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->remove($sugar_config['Legal']);
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_ar";
+            $bean->save();
             echo "success";
             die();
         } else {
