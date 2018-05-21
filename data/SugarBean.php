@@ -2992,10 +2992,12 @@ class SugarBean
             $permWhere = " ( " . $rules_where['resWhere'] . "" . $permWhere . " ) ";
         }
 
-        if(empty($where)) {
-            $where = $permWhere;
-        } else {
-            $where .= " AND " . $permWhere;
+        if(!empty($permWhere)) {
+            if(empty($where)) {
+                $where = $permWhere;
+            } else {
+                $where .= " AND " . $permWhere;
+            }
         }
         /* END - SECURITY GROUPS */
 
