@@ -728,12 +728,12 @@ class SharedSecurityRules extends Basic
         $GLOBALS['log']->fatal('SharedSecurityRules: In checkOperator() with row: ' . $rowField . ' field: ' . $field . ' operator: ' . $operator);
         switch ($operator) {
             case "Equal_To":
-                if ($rowField == $field) {
+                if (strcasecmp($rowField, $field) == 0) {
                     return true;
                 }
                 break;
             case "Not_Equal_To":
-                if ($rowField !== $field) {
+                if (strcasecmp($rowField, $field) != 0) {
                     return true;
                 }
                 break;

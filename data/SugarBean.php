@@ -2948,24 +2948,12 @@ class SugarBean
         if ($this->bean_implements('ACL') && ACLController::requireOwner($this->module_dir, 'list')) {
             global $current_user;
             $owner_where = $this->getOwnerWhere($current_user->id);
-//            if (empty($where)) {
-//                $where = $owner_where;
-//            } else {
-//                $where .= ' AND ' . $owner_where;
-//            }
         }
         /* BEGIN - SECURITY GROUPS */
         global $current_user, $sugar_config;
 
         if(!$current_user->is_admin && ($_REQUEST['action'] != "Popup" && $parentbean->module_dir != "Users" && ($_REQUEST['action'] != "DetailView" && $this->module_dir != "Users"))) {
             $rules_where = SharedSecurityRules::buildRuleWhere($this);
-//            if (!empty($rulesWhere['addWhere']) || !empty($rulesWhere['resWhere'])) {
-//                if (empty($where)) {
-//                    $where = $rulesWhere;
-//                } else {
-//                    $where .= " AND (".$rulesWhere.") ";
-//                }
-//            }
         }
 
         if ($this->module_dir == 'Users' && !is_admin($current_user)
@@ -2975,25 +2963,11 @@ class SugarBean
             require_once('modules/SecurityGroups/SecurityGroup.php');
             global $current_user;
             $group_where = SecurityGroup::getGroupUsersWhere($current_user->id);
-//            if (empty($where)) {
-//                $where = " (" . $group_where . ") ";
-//            } else {
-//                $where .= " AND (" . $group_where . ") ";
-//            }
         } elseif ($this->bean_implements('ACL') && ACLController::requireSecurityGroup($this->module_dir, 'list')) {
             require_once('modules/SecurityGroups/SecurityGroup.php');
             global $current_user;
             $owner_where = $this->getOwnerWhere($current_user->id);
             $group_where = SecurityGroup::getGroupWhere($this->table_name, $this->module_dir, $current_user->id);
-//            if (!empty($owner_where)) {
-//                if (empty($where)) {
-//                    $where = " (" . $owner_where . " or " . $group_where . ") ";
-//                } else {
-//                    $where .= " AND (" . $owner_where . " or " . $group_where . ") ";
-//                }
-//            } else {
-//                $where .= ' AND ' . $group_where;
-//            }
         }
 
         $sgWhere = "";
