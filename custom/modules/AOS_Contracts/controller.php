@@ -69,7 +69,7 @@ class AOS_ContractsController extends SugarController
             if(empty($numberRow['0'])) {
                 $this->bean->agreements_number_c = "500000";
                 $this->bean->amendment_c = "0";
-                $this->bean->agreements_number_and_amendment_c = "00500000.01";
+                $this->bean->agreements_number_and_amendment_c = "00500000.00";
             } else {
                 $newNumber = $numberRow['1'] + 1;
                 $this->bean->agreements_number_c = $newNumber;
