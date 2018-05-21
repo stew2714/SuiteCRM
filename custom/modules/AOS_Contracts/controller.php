@@ -123,8 +123,6 @@ class AOS_ContractsController extends SugarController
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->load_relationship('g1_group_queue_aos_contracts');
-            $bean->g1_group_queue_aos_contracts->add($sugar_config['Sales']);
             $bean->assigned_user_id = $bean->user_id2;
             $bean->apttus_status_category_c = "req";
             $bean->apttus_status_c = "req_ai";
@@ -241,6 +239,24 @@ class AOS_ContractsController extends SugarController
             $bean->g1_group_queue_aos_contracts->remove($sugar_config['Legal']);
             $bean->apttus_status_category_c = "aut";
             $bean->apttus_status_c = "aut_ar";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+
+    public function action_sendForReview()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_opr";
             $bean->save();
             echo "success";
             die();

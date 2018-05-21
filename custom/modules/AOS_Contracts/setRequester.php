@@ -50,6 +50,9 @@ class RequesterManagement
             $bean->date_requested_c = $timedate->nowDb();
             $bean->assigned_user_id = '';
             $bean->assigned_security_group_id = $sugar_config['Sales'];
+        } elseif (empty($bean->date_requested_c)) {
+            global $timedate;
+            $bean->date_requested_c = $timedate->nowDb();
         }
     }
 }
