@@ -76,15 +76,65 @@ class AOS_ContractsController extends SugarController
         parent::action_save();
 
     }
+      /********************/
+     /* BUTTON FUNCTIONS */
+    /********************/
 
-    public function action_accept()
+      /**************/
+     /* SALES USER */
+    /**************/
+
+    public function action_submitRequest()
     {
-        global $current_user, $sugar_config;
+        global $current_user, $sugar_config, $timedate;
 
-        if ($_REQUEST['record']) {
+        if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->load_relationship('g1_group_queue_aos_contracts');
             $bean->g1_group_queue_aos_contracts->add($sugar_config['Legal']);
+            $bean->assigned_user_id = '';
+            $bean->user_id2 = $current_user->id;
+            $bean->date_requested_c = $timedate->nowDb();
+            $bean->apttus_status_category_c = "req";
+            $bean->apttus_status_c = "req_sr";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+    public function action_cancelRequest()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->apttus_status_category_c = "req";
+            $bean->apttus_status_c = "req_cr";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+      /**************/
+     /* LEGAL USER */
+    /**************/
+
+    public function action_acceptRequestLegal()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->remove($sugar_config['Legal']);
             $bean->assigned_user_id = $current_user->id;
             $bean->apttus_status_category_c = "aut";
             $bean->apttus_status_c = "aut_ar";
@@ -97,58 +147,16 @@ class AOS_ContractsController extends SugarController
         }
     }
 
-    public function action_acceptCommOps()
-    {
-        global $current_user, $current_date, $sugar_config;
-
-        if ($_REQUEST['record']) {
-            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->load_relationship('g1_group_queue_aos_contracts');
-            $bean->g1_group_queue_aos_contracts->add($sugar_config['CommOps']);
-            $bean->assigned_user_id = $current_user->id;
-            $bean->apttus_status_category_c = "sig";
-            $bean->apttus_status_c = "sig_fco";
-            $bean->save();
-            echo "success";
-            die();
-        } else {
-            echo "fail";
-            die();
-        }
-    }
-
     public function action_returnToRequester()
     {
-        global $current_user, $sugar_config;
+        global $current_user, $sugar_config, $timedate;
 
         if ($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->assigned_user_id = $bean->user_id2;
+            $bean->date_requested_c = $timedate->nowDb();
             $bean->apttus_status_category_c = "req";
             $bean->apttus_status_c = "req_ai";
-            $bean->date_requested_c = '';
-            $bean->save();
-            echo "success";
-            die();
-        } else {
-            echo "fail";
-            die();
-        }
-    }
-
-    public function action_assignToLegal()
-    {
-        global $current_user, $sugar_config, $timedate;
-
-        if($_REQUEST['record']) {
-            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->load_relationship('g1_group_queue_aos_contracts');
-            $bean->g1_group_queue_aos_contracts->add($sugar_config['Legal']);
-            $bean->assigned_user_id = '';
-            $bean->user_id2 = $current_user->id;
-            $bean->date_requested_c = $timedate->nowDb();
-            $bean->apttus_status_category_c = "aut";
-            $bean->apttus_status_c = "aut_ai";
             $bean->save();
             echo "success";
             die();
@@ -176,7 +184,71 @@ class AOS_ContractsController extends SugarController
         }
     }
 
-    public function action_informCommOps()
+    public function action_sendForSignatures()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        /** PLUGIN DEV REQUIRED - EMAIL TEMPLATE **/
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->apttus_status_category_c = "sig";
+            $bean->apttus_status_c = "sig_fco";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+    public function action_sendForReview()
+    {
+        global $current_user, $sugar_config, $timedate;
+
+        /** PLUGIN DEV REQUIRED - EMAIL TEMPLATE **/
+
+        if($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_opr";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+     /** Amend Button Function would be here **/
+
+    public function action_sendToCommOps()
+    {
+        global $current_user, $current_date, $sugar_config;
+
+        if ($_REQUEST['record']) {
+            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->add($sugar_config['CommOps']);
+            $bean->assigned_user_id = $current_user->id;
+            $bean->apttus_status_category_c = "sig";
+            $bean->apttus_status_c = "sig_fco";
+            $bean->save();
+            echo "success";
+            die();
+        } else {
+            echo "fail";
+            die();
+        }
+    }
+
+      /*****************/
+     /* COMM OPS USER */
+    /*****************/
+
+    public function action_acceptRequestCommOps()
     {
         global $current_user, $sugar_config, $timedate;
 
@@ -193,17 +265,19 @@ class AOS_ContractsController extends SugarController
         }
     }
 
-    public function action_assignToCommOps()
+
+    public function action_sendLegal()
     {
         global $current_user, $sugar_config, $timedate;
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->load_relationship('g1_group_queue_aos_contracts');
-            $bean->g1_group_queue_aos_contracts->add($sugar_config['CommOps']);
+            $bean->g1_group_queue_aos_contracts->add($sugar_config['Legal']);
             $bean->assigned_user_id = '';
-            $bean->apttus_status_category_c = "sig";
-            $bean->apttus_status_c = "sig_fco";
+            $bean->user_id2 = $current_user->id;
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_ai";
             $bean->save();
             echo "success";
             die();
@@ -219,7 +293,8 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->status = "Activated";
+            $bean->apttus_status_category_c = "eff";
+            $bean->apttus_status_c = "eff_act";
             $bean->save();
             echo "success";
             die();
@@ -229,41 +304,5 @@ class AOS_ContractsController extends SugarController
         }
     }
 
-    public function action_acceptRequestLegal()
-    {
-        global $current_user, $sugar_config, $timedate;
-
-        if($_REQUEST['record']) {
-            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->load_relationship('g1_group_queue_aos_contracts');
-            $bean->g1_group_queue_aos_contracts->remove($sugar_config['Legal']);
-            $bean->apttus_status_category_c = "aut";
-            $bean->apttus_status_c = "aut_ar";
-            $bean->save();
-            echo "success";
-            die();
-        } else {
-            echo "fail";
-            die();
-        }
-    }
-
-
-    public function action_sendForReview()
-    {
-        global $current_user, $sugar_config, $timedate;
-
-        if($_REQUEST['record']) {
-            $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->apttus_status_category_c = "aut";
-            $bean->apttus_status_c = "aut_opr";
-            $bean->save();
-            echo "success";
-            die();
-        } else {
-            echo "fail";
-            die();
-        }
-    }
 }
 ?>
