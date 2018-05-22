@@ -604,7 +604,7 @@ class CustomSearchForm extends SearchForm
         global $current_user;
 
         // Build where conditions if the user is not an Administrator Account
-        if (!is_admin($current_user)) {
+        if (!is_admin($current_user) && $this->module == "AOR_Reports") {
             // Return the security group id's this user belongs to.
             $security_group = new SecurityGroup();
             $groups = $security_group->getUserSecurityGroups($current_user->id);
