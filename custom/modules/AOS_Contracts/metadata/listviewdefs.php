@@ -35,11 +35,10 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'APTTUS_FF_AGREEMENT_NUMBER_C' => 
+  'AGREEMENTS_NUMBER_AND_AMENDMENT_C' =>
   array (
-    'type' => 'text',
-    'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
-    'sortable' => false,
+    'type' => 'customreadonly',
+    'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
     'width' => '10%',
     'default' => true,
   ),
