@@ -211,6 +211,9 @@ class SharedSecurityRules extends Basic
                             if (!$this->findAccess($view, $action['parameters']['accesslevel'][$key])) {
                                 $result = false;
                             }
+                            else {
+                                $result = true;
+                            }
                         }
 
                     }
@@ -551,6 +554,8 @@ class SharedSecurityRules extends Basic
 
         global $current_user, $db;
         $where = "";
+        $addWhere = "";
+        $resWhere = "";
         $parenthesis = null;
         $sql = "SELECT * FROM sharedsecurityrules WHERE sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_dir}'&& sharedsecurityrules.deleted ='0'";
         $results = $db->query($sql);
@@ -563,7 +568,7 @@ class SharedSecurityRules extends Basic
                     $action['parameters'] = unserialize(base64_decode($action['parameters']));
                 }
                 foreach($action['parameters']['accesslevel'] as $key => $accessLevel){
-                        if($accessLevel == 'none') {
+//                        if($accessLevel == 'none') {
                             $targetType = $action['parameters']['email_target_type'][$key];
 
                         if($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "role"){
@@ -593,7 +598,8 @@ class SharedSecurityRules extends Basic
                             ($targetType == "Users" && in_array("all", $action['parameters']['email'][$key]) ) ){
 
                             $actionIsUser = true;
-                        }}
+                        }
+//                    }
                 }
             }
             if ($actionIsUser == true) {
@@ -602,8 +608,9 @@ class SharedSecurityRules extends Basic
                 $related = false;
                 if ($conditions_results->num_rows != 0) {
                     while ($condition = $module->db->fetchByAssoc($conditions_results)) {
-                        if($accessLevel == 'none') {if(unserialize(base64_decode($condition['module_path'])) != false) {
-                            $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
+//                        if($accessLevel == 'none') {
+                            if(unserialize(base64_decode($condition['module_path'])) != false) {
+                                $condition['module_path'] = unserialize(base64_decode($condition['module_path']));
                         }
 
                         if ($condition['module_path'][0] != $rule['flow_module']) {
@@ -634,6 +641,11 @@ class SharedSecurityRules extends Basic
                                 $table = $module->table_name;
                             }
                             $conditionQuery = " " . $table . "." . $condition['field'] . " " . $operatorValue . " ";
+                            if($accessLevel == 'none') {
+                                $where = $resWhere;
+                            } else {
+                                $where = $addWhere;
+                            }
                                 if ($condition['parenthesis'] == "START") {
                                     if (is_null($parenthesis)) {
                                         $parenthesis = " ( ";
@@ -664,17 +676,27 @@ class SharedSecurityRules extends Basic
                                         }
                                     } elseif (empty($where)) {
                                         $where = $conditionQuery;
-                                    } else {
+                                    } elseif(!empty($condition['logic_op'])) {
                                         $where .= $condition['logic_op'] . " " . $conditionQuery;
+                                    } else {
+                                        $where .= " OR " . $conditionQuery;
                                     }
                                 }
+                            if($accessLevel == 'none') {
+                                $resWhere = $where;
+                            } else {
+                                $addWhere = $where;
+                            }
                             }
                         }
                     }
                 }
-            }
+//            }
         }
-        return $where;
+        $whereArray = array();
+        $whereArray['resWhere'] = $resWhere;
+        $whereArray['addWhere'] = $addWhere;
+        return $whereArray;
     }
     
     public function checkHistory($module, $field, $value){
@@ -706,12 +728,12 @@ class SharedSecurityRules extends Basic
         $GLOBALS['log']->fatal('SharedSecurityRules: In checkOperator() with row: ' . $rowField . ' field: ' . $field . ' operator: ' . $operator);
         switch ($operator) {
             case "Equal_To":
-                if ($rowField == $field) {
+                if (strcasecmp($rowField, $field) == 0) {
                     return true;
                 }
                 break;
             case "Not_Equal_To":
-                if ($rowField !== $field) {
+                if (strcasecmp($rowField, $field) != 0) {
                     return true;
                 }
                 break;
