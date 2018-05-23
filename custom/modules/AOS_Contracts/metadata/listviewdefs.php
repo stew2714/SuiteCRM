@@ -35,7 +35,7 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'AGREEMENTS_NUMBER_AND_AMENDMENT_C' =>
+  'AGREEMENTS_NUMBER_AND_AMENDMENT_C' => 
   array (
     'type' => 'customreadonly',
     'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
@@ -122,6 +122,14 @@ array (
     'label' => 'LBL_OPPORTUNITY',
     'id' => 'OPPORTUNITY_ID',
     'link' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'APTTUS_FF_AGREEMENT_NUMBER_C' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+    'sortable' => false,
     'width' => '10%',
     'default' => false,
   ),
