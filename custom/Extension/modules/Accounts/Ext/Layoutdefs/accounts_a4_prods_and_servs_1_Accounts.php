@@ -1,7 +1,7 @@
 <?php
  // created: 2016-05-10 20:11:47
 $layout_defs["Accounts"]["subpanel_setup"]['accounts_a4_prods_and_servs_1'] = array (
-  'order' => 100,
+  'order' => 9,
   'module' => 'A4_PRODS_AND_SERVS',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

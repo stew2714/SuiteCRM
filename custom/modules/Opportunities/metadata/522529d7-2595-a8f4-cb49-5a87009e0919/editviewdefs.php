@@ -20,17 +20,17 @@ array (
         ),
       ),
       'javascript' => '{$PROBABILITY_SCRIPT} {$LOCK_FILES} {$BEAN_DATA}',
-      'useTabs' => true,
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL15' => 
@@ -45,37 +45,37 @@ array (
         ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL9' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL11' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL13' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL12' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -260,6 +260,53 @@ array (
           ),
           1 => '',
         ),
+        15 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
+        ),
       ),
       'lbl_editview_panel1' => 
       array (
@@ -270,6 +317,7 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
+          1 => '',
         ),
         1 => 
         array (
@@ -278,6 +326,7 @@ array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel15' => 
@@ -749,6 +798,7 @@ array (
             'name' => 'first_commission_date_c',
             'label' => 'LBL_FIRST_COMMISSION_DATE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel13' => 

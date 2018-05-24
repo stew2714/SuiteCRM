@@ -27,11 +27,6 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -41,8 +36,7 @@ array (
       array (
         0 => 
         array (
-          0 => 'contact_name',
-          1 => 
+          0 => 
           array (
             'name' => 'parent_name',
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
@@ -70,35 +64,32 @@ array (
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
           ),
-          1 => 
-          array (
-            'name' => 'sa_legal_timesheets_notes_1_name',
-          ),
         ),
         4 => 
         array (
-          0 => 
-          array (
-            'name' => 'sa_legal_vendors_notes_1_name',
-          ),
+          0 => 'assigned_user_name',
           1 => 
           array (
-            'name' => 'sa_legal_vendors_activities_1_notes_name',
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'aos_contracts_activities_1_notes_name',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
-          0 => 'assigned_user_name',
         ),
       ),
     ),

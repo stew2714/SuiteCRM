@@ -1,7 +1,7 @@
 <?php
  // created: 2017-08-25 12:35:24
 $layout_defs["Accounts"]["subpanel_setup"]['accounts_contacts_1'] = array (
-  'order' => 100,
+  'order' => 4,
   'module' => 'Contacts',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

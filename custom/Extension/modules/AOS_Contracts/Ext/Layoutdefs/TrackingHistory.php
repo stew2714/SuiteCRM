@@ -1,7 +1,7 @@
 <?php
  // created: 2016-05-10 20:11:06
 $layout_defs["AOS_Contracts"]["subpanel_setup"]['trackinghistory'] = array (
-  'order' => 100,
+  'order' => 9,
   'module' => 'sa_Tracking_History',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

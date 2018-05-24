@@ -1,5 +1,5 @@
 <?php
-// created: 2018-02-27 14:58:55
+// created: 2018-05-11 12:14:39
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -31,4 +31,12 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL3' => 'Key Dates',
   'LBL_EDITVIEW_PANEL4' => 'Miscellaneous',
   'LBL_EDITVIEW_PANEL5' => 'System Information',
+  'LBL_CONTRACT_ACCOUNT_ACCOUNT_ID' => 'Account (related Account ID)',
+  'LBL_CONTRACT_ACCOUNT' => 'Account',
+  'LBL_DESCRIPTION' => 'Description',
+  'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C' => 'Total Contract Value',
+  'LBL_REGION_C' => 'Region',
+  'LBL_OPPORTUNITY_OPPORTUNITY_ID' => 'Opportunity (related Opportunity ID)',
+  'LBL_OPPORTUNITY' => 'Related Opportunity',
+  'LBL_DETAILVIEW_PANEL2' => 'New Panel 2',
 );

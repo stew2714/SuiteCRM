@@ -77,6 +77,14 @@ array (
     'label' => 'LBL_DEFINTIVE_ID',
     'width' => '10%',
   ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
   'BILLING_ADDRESS_POSTALCODE' => 
   array (
     'width' => '10%',
@@ -101,6 +109,20 @@ array (
   array (
     'width' => '15%',
     'label' => 'LBL_SHIPPING_ADDRESS_STREET',
+    'default' => false,
+  ),
+  'SHORT_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SHORT_ID_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCOUNT_TYPE_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'Account Type',
+    'width' => '10%',
     'default' => false,
   ),
   'SHIPPING_ADDRESS_CITY' => 

@@ -1,9 +1,9 @@
-<?php
-
-/** BEGIN SECURITY GROUPS */
-//array_unshift($defaultDashlets, array('MessageDashlet'=>'Home'));	
-$defaultDashlets = array_reverse($defaultDashlets, true);
-$defaultDashlets['MessageDashlet'] = 'Home';
-$defaultDashlets = array_reverse($defaultDashlets, true);  
-/** END SECURITY GROUPS */	
-    
+<?php 
+$defaultDashlets =array (
+  'MessageDashlet' => 'Home',
+  'MyCallsDashlet' => 'Calls',
+  'MyMeetingsDashlet' => 'Meetings',
+  'MyOpportunitiesDashlet' => 'Opportunities',
+  'MyAccountsDashlet' => 'Accounts',
+  'MyLeadsDashlet' => 'Leads',
+);
