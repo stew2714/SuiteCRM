@@ -371,11 +371,28 @@
             );
             $ical_array[] = array("ORGANIZER;CN=" . $user->email1, "mailto:" . $user->email1);
             $ical_array[] = array("UID", $bean->id);
-            //attendee
-//            $ical_array[] = array("ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=sean.flynn@salesagility.com"
-//                                  . ";X-NUM-GUESTS=0", "mailto:sean.flynn@salesagility.com" );
-            //attemdee
-            //CREATED
+
+            if ($bean->object_name == "Meeting")
+            {
+
+                $eventAttendees = $bean->get_notification_recipients();
+
+                if (is_array($eventAttendees))
+                {
+                    foreach($eventAttendees as $attendee)
+                    {
+                        if ($attendee->id != $user->id && !empty($attendee->id))
+                        {
+                            // Define the participant status
+                            $ical_array[] = array(
+                                'ATTENDEE;CUTYPE=INDIVIDUAL;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN="'.$attendee->get_summary_text().'"',
+                                'mailto:'.(!empty($attendee->email1) ? $attendee->email1:'none@none.tld')
+                            );
+                        }
+                    }
+                }
+            }
+
             $descPrepend = empty($bean->join_url) ? "" : $bean->join_url . self::EOL . self::EOL;
             $ical_array[] = array("DESCRIPTION", $descPrepend . $bean->description);
             //LAST MODIFIED
