@@ -668,12 +668,11 @@ class SharedSecurityRules extends Basic
                                     } else {
                                         $where .= $parenthesis;
                                     }
+                                    $parenthesis = null;
                                 } else {
-                                    if(!empty($parenthesis)) {
-                                        if ($parenthesis == " ( ") {
-                                            $where .= $conditionQuery;
-                                            $parenthesis = null;
-                                        }
+                                    if(!empty($parenthesis) && $parenthesis == " ( ") {
+                                        $where .= $conditionQuery;
+                                        $parenthesis = null;
                                     } elseif (empty($where)) {
                                         $where = $conditionQuery;
                                     } elseif(!empty($condition['logic_op'])) {
