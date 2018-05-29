@@ -14,9 +14,9 @@ CAL.disable_buttons = function () {
 CAL.enable_buttons = function () {
   CAL.get("btn-save").removeAttribute("disabled");
   CAL.get("btn-send-invites").removeAttribute("disabled");
-  if (CAL.get("record").value != "") {
+  if (CAL.get("record").value !== "") {
     CAL.get("btn-delete").removeAttribute("disabled");
-    if (CAL.get("type").value == "Meeting") {
+    if (CAL.get("current_module").value === "Meetings") {
       CAL.get("btn-cancel-notify").removeAttribute("disabled");
     }
   }
