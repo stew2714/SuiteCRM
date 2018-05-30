@@ -226,7 +226,7 @@ cal_loaded = null;
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
 <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CAL.close_edit_dialog();"><span aria-hidden="true">×</span></button>
 <h4 class="modal-title" id="title-cal-edit"></h4>
 </div>
 <div class="modal-body">
@@ -354,3 +354,4 @@ width: auto !important;
 
 <div id='calendarContainer'></div>
 {sugar_getscript file="modules/Calendar/Cal.js"}
+{sugar_getscript file="custom/modules/Calendar/js/cancelMeetingButton.js"}
