@@ -26,10 +26,10 @@ $viewdefs = array (
             array (
               'customCode' => '<input type="button" class="button" onClick="showPopup(\'pdf\');" value="{$MOD.LBL_PRINT_AS_PDF}">',
             ),
-            5 => 
-            array (
-              'customCode' => '<input type="button" class="button" onClick="showPopup(\'emailpdf\');" value="{$MOD.LBL_EMAIL_PDF}">',
-            ),
+//            5 =>
+//            array (
+//              'customCode' => '<input type="button" class="button" onClick="showPopup(\'emailpdf\');" value="{$MOD.LBL_EMAIL_PDF}">',
+//            ),
             6 => 
             array (
               'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="submitRequest" value="{$MOD.LBL_BUTTON_SUBMIT_REQUEST}">{/if}',
@@ -52,11 +52,11 @@ $viewdefs = array (
             ),
             11 =>
             array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForSignatures" value="{$MOD.LBL_BUTTON_SEND_FOR_SIGNATURES}">{/if}',
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForSignatures" onclick="showMassGenerateDocumentForm();" value="{$MOD.LBL_BUTTON_SEND_FOR_SIGNATURES}">{/if}',
             ),
             12 =>
             array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForReview" value="{$MOD.LBL_BUTTON_SEND_FOR_REVIEW}">{/if}',
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForReview" onClick="showPopup(\'emailpdf\');" value="{$MOD.LBL_BUTTON_SEND_FOR_REVIEW}">{/if}',
             ),
             13 =>
             array (
