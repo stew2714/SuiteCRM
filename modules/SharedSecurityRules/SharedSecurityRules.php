@@ -176,7 +176,7 @@ class SharedSecurityRules extends Basic
                         $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
                         $sec_group_results = $module->db->query($sec_group_query);
                         $secgroup = mysqli_fetch_row($sec_group_results);
-                        if(!empty($action['parameters']['email'][ $key ]['2'])){
+                        if(!empty($action['parameters']['email'][ $key ]['2']) && $secgroup[0] == $current_user->id){
                             $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
                             $users_roles_results = $module->db->query($users_roles_query);
                             $user_id = mysqli_fetch_row($users_roles_results);
@@ -588,7 +588,7 @@ class SharedSecurityRules extends Basic
                             $sec_group_query = "SELECT securitygroups_users.user_id FROM securitygroups_users WHERE securitygroups_users.securitygroup_id = '{$action['parameters']['email'][ $key ]['1']}' && securitygroups_users.user_id = '{$current_user->id}' && securitygroups_users.deleted = '0'";
                             $sec_group_results = $module->db->query($sec_group_query);
                             $secgroup = mysqli_fetch_row($sec_group_results);
-                            if(!empty($action['parameters']['email'][ $key ]['2'])){
+                            if(!empty($action['parameters']['email'][ $key ]['2']) && $secgroup[0] == $current_user->id){
                                 $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
                                 $users_roles_results = $module->db->query($users_roles_query);
                                 $user_id = mysqli_fetch_row($users_roles_results);
