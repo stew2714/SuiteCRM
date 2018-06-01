@@ -103,6 +103,7 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
 
 
         $this->ss->assign('mod_strings', 	$lang );
+        $this->populateContractTemplates();
         $this->displayPopupHtml();
         parent::display();
 
@@ -120,6 +121,18 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
 		    }
 
 	    }
+    }
+
+    function populateContractTemplates(){
+        global $app_list_strings;
+
+        $sql = "SELECT id, name FROM aos_pdf_templates WHERE deleted = 0 AND type='AOS_Contracts' AND active = 1";
+
+        $res = $this->bean->db->query($sql);
+        $app_list_strings['template_ddown_c_list'] = array();
+        while($row = $this->bean->db->fetchByAssoc($res)){
+            $app_list_strings['template_ddown_c_list'][$row['id']] = $row['name'];
+        }
     }
 
     function displayPopupHtml(){
