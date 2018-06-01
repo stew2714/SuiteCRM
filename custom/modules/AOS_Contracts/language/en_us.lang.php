@@ -1,5 +1,5 @@
 <?php
-// created: 2018-05-18 16:26:12
+// created: 2018-06-01 14:45:48
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -42,10 +42,11 @@ $mod_strings = array (
   'LBL_LEGAL_ENTITY_C' => 'Legal Entity',
   'LBL_APTTUS_AGREEMENT_CATEGORY_C' => 'Agreement Category',
   'LBL_TYPE_OF_PRODUCT_SERVICES_C' => 'Type Of Product Services',
-  'LBL_STATUS' => 'Status',
+  'LBL_STATUS' => 'Status OLD',
   'LBL_APTTUS_DESCRIPTION_C' => 'Description',
-  'LBL_TOTAL_CONTRACT_VALUE' => 'Contract Value',
+  'LBL_TOTAL_CONTRACT_VALUE' => 'Total Contract Value',
   'LBL_DETAILVIEW_PANEL1' => 'System Information',
   'LBL_START_DATE' => 'Agreement Start Date',
   'LBL_END_DATE' => 'Agreement End Date',
+  'LBL_SHIPPING_TAX_AMT' => 'Shipping Tax ($$)',
 );

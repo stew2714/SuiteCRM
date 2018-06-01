@@ -1,5 +1,5 @@
 <?php
- // created: 2018-05-17 19:27:10
+ // created: 2018-06-01 14:44:24
 $dictionary['AOS_Contracts']['fields']['status']['default']='';
 $dictionary['AOS_Contracts']['fields']['status']['required']=false;
 $dictionary['AOS_Contracts']['fields']['status']['inline_edit']='';
