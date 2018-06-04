@@ -32,41 +32,59 @@ array (
       array (
         'name' => 'name',
         'default' => true,
+        'width' => '10%',
       ),
       'contract_account' => 
       array (
         'name' => 'contract_account',
         'default' => true,
+        'width' => '10%',
       ),
       'opportunity' => 
       array (
         'name' => 'opportunity',
         'default' => true,
+        'width' => '10%',
       ),
       'start_date' => 
       array (
         'name' => 'start_date',
         'default' => true,
+        'width' => '10%',
       ),
       'end_date' => 
       array (
         'name' => 'end_date',
         'default' => true,
+        'width' => '10%',
       ),
       'total_contract_value' => 
       array (
         'name' => 'total_contract_value',
         'default' => true,
+        'width' => '10%',
       ),
-      'status' => 
+      'apttus_status_category_c' => 
       array (
-        'name' => 'status',
         'default' => true,
+        'type' => 'enum',
+        'label' => 'LBL_APTTUS_STATUS_CATEGORY_C',
+        'width' => '10%',
+        'name' => 'apttus_status_category_c',
+      ),
+      'apttus_status_c' => 
+      array (
+        'type' => 'dynamicenum',
+        'label' => 'LBL_APTTUS_STATUS_C',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'apttus_status_c',
       ),
       'contract_type' => 
       array (
         'name' => 'contract_type',
         'default' => true,
+        'width' => '10%',
       ),
       'assigned_user_id' => 
       array (
@@ -82,6 +100,7 @@ array (
           ),
         ),
         'default' => true,
+        'width' => '10%',
       ),
     ),
   ),

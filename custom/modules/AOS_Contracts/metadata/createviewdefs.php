@@ -118,16 +118,16 @@ $viewdefs = array (
           2 => 
           array (
             0 => 'name',
-            1 => 'apttus_agreement_category_c',
+            1 => 'opportunity',
           ),
           3 => 
           array (
             0 => 
             array (
-              'name' => 'contract_account',
-              'label' => 'LBL_CONTRACT_ACCOUNT',
+              'name' => 'legal_entity_c',
+              'label' => 'LBL_LEGAL_ENTITY_C',
             ),
-            1 => 'apttus_status_category_c',
+            1 => 'apttus_agreement_category_c',
           ),
           4 => 
           array (
@@ -136,37 +136,42 @@ $viewdefs = array (
               'name' => 'apttus_agreement_number_c',
               'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
             ),
-            1 => 'apttus_status_c',
+            1 => 'type_of_request_c',
           ),
           5 => 
           array (
             0 => 
             array (
-              'name' => 'apttus_total_contract_value_c',
-              'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+              'name' => 'contract_account',
+              'label' => 'LBL_CONTRACT_ACCOUNT',
             ),
-            1 => 'apttus_subtype_c',
+            1 => 'apttus_status_category_c',
           ),
           6 => 
           array (
-            0 => 'description',
-            1 => 'apttus_parent_agreement_name_c',
+            0 => 
+            array (
+              'name' => 'opportunity',
+              'label' => 'LBL_OPPORTUNITY',
+            ),
+            1 => 'apttus_status_c',
           ),
           7 => 
           array (
             0 => 
             array (
-              'name' => 'apttus_special_terms_c',
-              'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
+              'name' => 'apttus_parent_agreement_name_c',
+              'studio' => 'visible',
+              'label' => 'LBL_APTTUS_PARENT_AGREEMENT_NAME_C',
             ),
-            1 => 'apttus_requestor_name_c',
+            1 => 'region_c',
           ),
           8 => 
           array (
             0 => 
             array (
-              'name' => 'apttus_business_hours_c',
-              'label' => 'LBL_APTTUS_BUSINESS_HOURS_C',
+              'name' => 'amendment_number_c',
+              'label' => 'LBL_AMENDMENT_NUMBER_C',
             ),
             1 => 'assigned_user_name',
           ),
@@ -208,12 +213,8 @@ $viewdefs = array (
           ),
           13 => 
           array (
-            0 => 
-            array (
-              'name' => 'apttus_description_c',
-              'label' => 'LBL_APTTUS_DESCRIPTION_C',
-            ),
-            1 => 'apttus_termination_notice_issue_date_c',
+            0 => 'description',
+            1 => 'apttus_parent_agreement_name_c',
           ),
           14 => 
           array (
@@ -245,10 +246,10 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'requires_po_c',
-              'label' => 'LBL_REQUIRES_PO_C',
+              'name' => 'apttus_business_hours_c',
+              'label' => 'LBL_APTTUS_BUSINESS_HOURS_C',
             ),
-            1 => 'strategic_deal_c',
+            1 => 'assigned_user_name',
           ),
           18 => 
           array (

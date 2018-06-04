@@ -65,7 +65,7 @@ $viewdefs = array (
             13 => 
             array (
               'customCode' => '{if $LEGAL_TEAM === true && $ACTIVATED === true && $bean->aclAccess("edit") && $OLD_AMENDMENT === false}<input title="{$MOD.LBL_BUTTON_AMEND}" accessKey="{$APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.isAmendment.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Amend" value="{$MOD.LBL_BUTTON_AMEND}" id="amend_button">
-                               {elseif $OLD_AMENDMENT === true}<input title="{$MOD.LBL_BUTTON_AMEND}" class="button" onclick="alert(\'{$MOD.LBL_OLD_AMENDMENT_WARNING}\')" type="button" name="Amend" value="{$MOD.LBL_BUTTON_AMEND}" id="amend_button">{/if} ',
+                            {elseif $OLD_AMENDMENT === true}<input title="{$MOD.LBL_BUTTON_AMEND}" class="button" onclick="alert(\'{$MOD.LBL_OLD_AMENDMENT_WARNING}\')" type="button" name="Amend" value="{$MOD.LBL_BUTTON_AMEND}" id="amend_button">{/if} ',
             ),
             14 => 
             array (
@@ -191,8 +191,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_ff_agreement_number_c',
-              'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+              'name' => 'apttus_agreement_number_c',
+              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
             ),
             1 => 'apttus_status_category_c',
           ),
@@ -209,8 +209,9 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_description_c',
-              'label' => 'LBL_APTTUS_DESCRIPTION_C',
+              'name' => 'description',
+              'comment' => 'Full text of the note',
+              'label' => 'LBL_DESCRIPTION',
             ),
             1 => 'type_of_request_c',
           ),
@@ -245,8 +246,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_total_contract_value_c',
-              'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+              'name' => 'total_contract_value',
+              'label' => 'LBL_TOTAL_CONTRACT_VALUE',
             ),
             1 => 'apttus_termination_notice_issue_date_c',
           ),
