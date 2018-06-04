@@ -1,11 +1,11 @@
 <?php
-/**
- *
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- *
- * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -36,23 +36,33 @@
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- */
+ ********************************************************************************/
 
-class RequesterManagement
-{
-    public function SetRequester($bean, $event, $arg)
+
+require_once('include/utils/array_utils.php');
+class TemplateCustomreadonly extends TemplateText{
+    var $max_size = 12;
+    var $len = 12;
+    var $type='customreadonly';
+    var $ext1 = '';
+    var $default_value = '';
+    var $dependency ; // any dependency information
+    var $supports_unified_search = true;
+
+    function __construct ()
     {
-        // If it's a new record (on creation), assign the record to the Legal team.
-        if ($bean->date_entered == $bean->date_modified) {
-            global $current_user, $sugar_config, $timedate;
-            $bean->user_id2 = $current_user->id;
-            $bean->status = 'In Queue';
-            $bean->date_requested_c = $timedate->nowDb();
-            $bean->assigned_user_id = '';
-            $bean->assigned_security_group_id = $sugar_config['Sales'];
-        } elseif (empty($bean->date_requested_c)) {
-            global $timedate;
-            $bean->date_requested_c = $timedate->nowDb();
-        }
+  		parent::__construct();
     }
+
+    function get_field_def(){
+        $def = parent::get_field_def();
+        $def['dbType'] = 'varchar';
+        $def['studio'] = 'hidden';
+        return $def;
+    }
+
+
 }
+
+
+?>

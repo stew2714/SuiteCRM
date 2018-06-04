@@ -64,8 +64,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_agreement_number_c',
-            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'recordtypeid_c',
+            'label' => 'LBL_RECORDTYPEID_C',
           ),
           1 => 
           array (
@@ -73,16 +82,42 @@ array (
             'label' => 'LBL_RECORDTYPEID_C',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 'name',
+          1 => 
+          array (
+            'name' => 'opportunity',
+            'label' => 'LBL_OPPORTUNITY',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'legal_entity_c',
+            'label' => 'LBL_LEGAL_ENTITY_C',
+          ),
           1 => 
           array (
             'name' => 'apttus_agreement_category_c',
             'label' => 'LBL_APTTUS_AGREEMENT_CATEGORY_C',
           ),
         ),
-        2 => 
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apttus_agreement_number_c',
+            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+          ),
+          1 => 
+          array (
+            'name' => 'type_of_request_c',
+            'label' => 'LBL_TYPE_OF_REQUEST_C',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -95,7 +130,7 @@ array (
             'label' => 'LBL_APTTUS_STATUS_CATEGORY_C',
           ),
         ),
-        3 => 
+        6 => 
         array (
           0 => 
           array (
@@ -108,7 +143,34 @@ array (
             'label' => 'LBL_APTTUS_STATUS_C',
           ),
         ),
-        4 => 
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apttus_parent_agreement_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_PARENT_AGREEMENT_NAME_C',
+          ),
+          1 => 
+          array (
+            'name' => 'region_c',
+            'label' => 'LBL_REGION_C',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'amendment_number_c',
+            'label' => 'LBL_AMENDMENT_NUMBER_C',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        9 => 
         array (
           0 => 
           array (
@@ -117,11 +179,51 @@ array (
           ),
           1 => 
           array (
-            'name' => 'apttus_subtype_c',
-            'label' => 'LBL_APTTUS_SUBTYPE_C',
+            'name' => 'apttus_requestor_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
-        5 => 
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'gpo_affiliation_c',
+            'label' => 'LBL_GPO_AFFILIATION_C',
+          ),
+          1 => 
+          array (
+            'name' => 'ownership_group_c',
+            'label' => 'LBL_OWNERSHIP_GROUP_C',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'idn_affiliation_c',
+            'label' => 'LBL_IDN_AFFILIATION_C',
+          ),
+          1 => 
+          array (
+            'name' => 'awaiting_information_detail_c',
+            'label' => 'LBL_AWAITING_INFORMATION_DETAIL_C',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'federal_agency_c',
+            'label' => 'LBL_FEDERAL_AGENCY_C',
+          ),
+          1 => 
+          array (
+            'name' => 'cancellation_reason_c',
+            'label' => 'LBL_CANCELLATION_REASON_C',
+          ),
+        ),
+        13 => 
         array (
           0 => 'description',
           1 => 
@@ -131,7 +233,7 @@ array (
             'label' => 'LBL_APTTUS_PARENT_AGREEMENT_NAME_C',
           ),
         ),
-        6 => 
+        14 => 
         array (
           0 => 
           array (
@@ -140,12 +242,32 @@ array (
           ),
           1 => 
           array (
-            'name' => 'apttus_requestor_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
+            'name' => 'apttus_termination_date_c',
+            'label' => 'LBL_APTTUS_TERMINATION_DATE_C',
           ),
         ),
-        7 => 
+        15 => 
+        array (
+          0 => 
+          array (
+            'name' => 'probability_c',
+            'label' => 'LBL_PROBABILITY_C',
+          ),
+          1 => 
+          array (
+            'name' => 'general_terms_and_conditions_c',
+            'label' => 'LBL_GENERAL_TERMS_AND_CONDITIONS_C',
+          ),
+        ),
+        16 => 
+        array (
+          0 => 
+          array (
+            'name' => 't_c_version_c',
+            'label' => 'LBL_T_C_VERSION_C',
+          ),
+        ),
+        17 => 
         array (
           0 => 
           array (
@@ -158,7 +280,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
-        8 => 
+        18 => 
         array (
           0 => 
           array (
@@ -167,7 +289,7 @@ array (
           ),
           1 => '',
         ),
-        9 => 
+        19 => 
         array (
           0 => 
           array (

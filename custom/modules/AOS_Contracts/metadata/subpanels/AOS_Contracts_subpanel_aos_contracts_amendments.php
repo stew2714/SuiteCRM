@@ -1,5 +1,5 @@
 <?php
-// created: 2018-05-17 10:49:44
+// created: 2018-05-23 14:56:05
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -10,9 +10,9 @@ $subpanel_layout['list_fields'] = array (
   ),
   'agreements_number_and_amendment_c' => 
   array (
+    'type' => 'customreadonly',
     'vname' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
-    'type' => 'varchar',
-    'width' => '25%',
+    'width' => '10%',
     'default' => true,
   ),
   'contract_account' => 

@@ -10,21 +10,17 @@ $viewdefs = array (
         array (
           'buttons' => 
           array (
-            0 => 
-            array (
-              'customCode' => '{if $ACTIVATED === false}<input title="Edit" accesskey="i" class="button primary" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.return_id.value=\'{$recordID}\'; _form.action.value=\'EditView\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Edit" id="edit_button" value="Edit">{/if}',
+            0 => array(
+              'customCode' => '{if $ACTIVATED === false}<input title="Edit" accesskey="i" class="button primary" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.return_id.value=\'{$recordID}\'; _form.action.value=\'EditView\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Edit" id="edit_button" value="Edit">{/if}'
             ),
-            1 => 
-            array (
-              'customCode' => '<input title="Duplicate" accesskey="u" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Duplicate" value="Duplicate" id="duplicate_button">',
+            1 => array(
+              'customCode' => '<input title="Duplicate" accesskey="u" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Duplicate" value="Duplicate" id="duplicate_button">'
             ),
-            2 => 
-            array (
-              'customCode' => '<input title="Delete" accesskey="d" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'ListView\'; _form.action.value=\'Delete\'; if(confirm(\'Are you sure you want to delete this record?\')) SUGAR.ajaxUI.submitForm(_form); return false;" type="submit" name="Delete" value="Delete" id="delete_button">',
+            2 => array(
+              'customCode' => '<input title="Delete" accesskey="d" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'ListView\'; _form.action.value=\'Delete\'; if(confirm(\'Are you sure you want to delete this record?\')) SUGAR.ajaxUI.submitForm(_form); return false;" type="submit" name="Delete" value="Delete" id="delete_button">'
             ),
-            3 => 
-            array (
-              'customCode' => '<input title="Find Duplicates" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.return_id.value=\'{$recordID}\'; _form.action.value=\'Step1\'; _form.module.value=\'MergeRecords\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Merge" value="Find Duplicates" id="merge_duplicate_button">',
+            3 => array(
+              'customCode' => '<input title="Find Duplicates" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.return_id.value=\'{$recordID}\'; _form.action.value=\'Step1\'; _form.module.value=\'MergeRecords\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Merge" value="Find Duplicates" id="merge_duplicate_button">'
             ),
             4 => 
             array (
@@ -38,23 +34,23 @@ $viewdefs = array (
             array (
               'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="submitRequest" value="{$MOD.LBL_BUTTON_SUBMIT_REQUEST}">{/if}',
             ),
-            7 => 
+            7 =>
             array (
               'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="cancelRequest" value="{$MOD.LBL_BUTTON_CANCEL_REQUEST}">{/if}',
             ),
-            8 => 
+            8 =>
             array (
               'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="acceptRequestLegal" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST_LEGAL}">{/if}',
             ),
-            9 => 
+            9 =>
             array (
               'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="returnToRequester" value="{$MOD.LBL_BUTTON_RETURN_TO_REQUESTER}">{/if}',
             ),
-            10 => 
+            10 =>
             array (
               'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="redlineReview" value="{$MOD.LBL_BUTTON_MMODAL_RED_LINE_REVIEW}">{/if}',
             ),
-            11 => 
+            11 =>
             array (
               'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForSignatures" value="{$MOD.LBL_BUTTON_SEND_FOR_SIGNATURES}">{/if}',
             ),
@@ -73,13 +69,30 @@ $viewdefs = array (
             ),
             15 => 
             array (
-              'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST_COMMS}">{/if}',
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForReview" value="{$MOD.LBL_BUTTON_SEND_FOR_REVIEW}">{/if}',
             ),
             16 => 
             array (
               'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="sendLegal" value="{$MOD.LBL_BUTTON_SEND_TO_LEGAL_QUEUE}">{/if}',
             ),
             17 => 
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true && $ACTIVATED === true && $bean->aclAccess("edit") && $OLD_AMENDMENT === false}<input title="{$MOD.LBL_BUTTON_AMEND}" accessKey="{$APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.isDuplicate.value=true; _form.isAmendment.value=true; _form.action.value=\'EditView\'; _form.return_id.value=\'{$recordID}\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Amend" value="{$MOD.LBL_BUTTON_AMEND}" id="amend_button">
+                               {elseif $OLD_AMENDMENT === true}<input title="{$MOD.LBL_BUTTON_AMEND}" class="button" onclick="alert(\'{$MOD.LBL_OLD_AMENDMENT_WARNING}\')" type="button" name="Amend" value="{$MOD.LBL_BUTTON_AMEND}" id="amend_button">{/if} ',
+            ),
+            14 =>
+            array (
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendToCommOps" value="{$MOD.LBL_BUTTON_SEND_TO_COMM_OPS}">{/if}',
+            ),
+            15 =>
+            array (
+              'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="acceptRequestCommsOps" value="{$MOD.LBL_BUTTON_ACCEPT_REQUEST_COMMS}">{/if}',
+            ),
+            16 =>
+            array (
+              'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="sendLegal" value="{$MOD.LBL_BUTTON_SEND_TO_LEGAL_QUEUE}">{/if}',
+            ),
+            17 =>
             array (
               'customCode' => '{if $COMMS_OP === true}<input type="button" class="button" id="activateRequest" value="{$MOD.LBL_BUTTON_ACTIVATE_REQUEST}">{/if}',
             ),
@@ -177,17 +190,25 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_agreement_number_c',
-              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+            ),
+          ),
+          1 => 
+          array (
+            0 => 
+            array (
+              'name' => 'recordtypeid_c',
+              'label' => 'LBL_RECORDTYPEID_C',
             ),
             1 => 'recordtypeid_c',
           ),
-          1 => 
+          2 => 
           array (
             0 => 'name',
             1 => 'apttus_agreement_category_c',
           ),
-          2 => 
+          3 => 
           array (
             0 => 
             array (
@@ -196,16 +217,16 @@ $viewdefs = array (
             ),
             1 => 'apttus_status_category_c',
           ),
-          3 => 
+          4 => 
           array (
             0 => 
             array (
-              'name' => 'opportunity',
-              'label' => 'LBL_OPPORTUNITY',
+              'name' => 'apttus_agreement_number_c',
+              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
             ),
             1 => 'apttus_status_c',
           ),
-          4 => 
+          5 => 
           array (
             0 => 
             array (
@@ -214,12 +235,12 @@ $viewdefs = array (
             ),
             1 => 'apttus_subtype_c',
           ),
-          5 => 
+          6 => 
           array (
             0 => 'description',
             1 => 'apttus_parent_agreement_name_c',
           ),
-          6 => 
+          7 => 
           array (
             0 => 
             array (
@@ -228,7 +249,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_requestor_name_c',
           ),
-          7 => 
+          8 => 
           array (
             0 => 
             array (
@@ -237,7 +258,87 @@ $viewdefs = array (
             ),
             1 => 'assigned_user_name',
           ),
-          8 => 
+          9 => 
+          array (
+            0 => 
+            array (
+              'name' => 'apttus_total_contract_value_c',
+              'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+            ),
+            1 => 'apttus_requestor_name_c',
+          ),
+          10 => 
+          array (
+            0 => 
+            array (
+              'name' => 'gpo_affiliation_c',
+              'label' => 'LBL_GPO_AFFILIATION_C',
+            ),
+            1 => 'ownership_group_c',
+          ),
+          11 => 
+          array (
+            0 => 
+            array (
+              'name' => 'idn_affiliation_c',
+              'label' => 'LBL_IDN_AFFILIATION_C',
+            ),
+            1 => 'awaiting_information_detail_c',
+          ),
+          12 => 
+          array (
+            0 => 
+            array (
+              'name' => 'federal_agency_c',
+              'label' => 'LBL_FEDERAL_AGENCY_C',
+            ),
+            1 => 'cancellation_reason_c',
+          ),
+          13 => 
+          array (
+            0 => 
+            array (
+              'name' => 'apttus_description_c',
+              'label' => 'LBL_APTTUS_DESCRIPTION_C',
+            ),
+            1 => 'apttus_termination_notice_issue_date_c',
+          ),
+          14 => 
+          array (
+            0 => 
+            array (
+              'name' => 'apttus_special_terms_c',
+              'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
+            ),
+            1 => 'apttus_termination_date_c',
+          ),
+          15 => 
+          array (
+            0 => 
+            array (
+              'name' => 'probability_c',
+              'label' => 'LBL_PROBABILITY_C',
+            ),
+            1 => 'general_terms_and_conditions_c',
+          ),
+          16 => 
+          array (
+            0 => 
+            array (
+              'name' => 't_c_version_c',
+              'label' => 'LBL_T_C_VERSION_C',
+            ),
+          ),
+          17 => 
+          array (
+            0 => 
+            array (
+              'name' => 'requires_po_c',
+              'label' => 'LBL_REQUIRES_PO_C',
+            ),
+            1 => 'strategic_deal_c',
+          ),
+          18 => 
           array (
             0 => 
             array (
@@ -245,7 +346,7 @@ $viewdefs = array (
               'label' => 'LBL_AGREEMENT_SUMMARY_C',
             ),
           ),
-          9 => 
+          19 => 
           array (
             0 => 
             array (

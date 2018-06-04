@@ -62,6 +62,7 @@
                     <input type="hidden" name="return_id">
                     <input type="hidden" name="module_tab">
                     <input type="hidden" name="isDuplicate" value="false">
+                    <input type="hidden" name="isAmendment" value="false">
                     <input type="hidden" name="offset" value="{$offset}">
                     <input type="hidden" name="action" value="EditView">
                     <input type="hidden" name="sugar_body_only">
