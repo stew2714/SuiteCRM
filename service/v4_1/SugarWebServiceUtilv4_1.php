@@ -127,7 +127,7 @@ class SugarWebServiceUtilv4_1 extends SugarWebServiceUtilv4
             $params['limit'] = $limit;
 
             /* BEGIN - SECURITY GROUPS */
-            $module = BeanFactory::newBean($bean->$link_field_name->module_dir);
+            $module = BeanFactory::newBean($bean->$link_field_name->def['module']);
 
             global $current_user, $sugar_config;
 

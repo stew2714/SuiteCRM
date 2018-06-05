@@ -18,7 +18,7 @@ $debug = true;
 //$baseUrl = 'http://172.19.0.8/html/SuiteCRM-7.8.18/'; /////
 //$baseUrl = 'https://outlookcrm.staging.suitecrm.com/';
 //$baseUrl = 'https://crmqa.mmodal.com/SuiteCRM/';
-$baseUrl = 'http://172.19.0.11/mmodal/';
+$baseUrl = 'http://'.$_SERVER['SERVER_ADDR'].'/mmodal/';
 $url = $baseUrl.'service/v4_1/rest.php';
 $curl = curl_init($url);
 
