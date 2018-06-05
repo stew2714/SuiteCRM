@@ -314,4 +314,31 @@ $(document).ready(function() {
     $('#modal-dialog').modal("toggle");
   });
 
+  // Send For Signatures
+  $("#sendForSignatures").click(function(){
+    var url = "index.php?module=AOS_Contracts&action=sendForSignatures";
+    var data = {record:$('[name=record]').val()};
+    var query = $.ajax({
+      dataType: "json",
+      url: url,
+      data: data,
+      success: function(data){
+        return data;
+      }
+    });
+  });
+
+  // Send For Review
+  $("#sendForReview").click(function(){
+    var url = "index.php?module=AOS_Contracts&action=sendForReview";
+    var data = {record:$('[name=record]').val()};
+    var query = $.ajax({
+      dataType: "json",
+      url: url,
+      data: data,
+      success: function(data){
+        return data;
+      }
+    });
+  });
 });
