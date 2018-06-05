@@ -60,7 +60,7 @@ array (
             ),
             12 =>
             array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForReview" onclick="showMassGenerateDocumentForm();" value="{$MOD.LBL_BUTTON_SEND_FOR_REVIEW}">{/if}',
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForReview" onclick="showPopup(\'emailpdf\');" value="{$MOD.LBL_BUTTON_SEND_FOR_REVIEW}">{/if}',
             ),
             13 =>
             array (
