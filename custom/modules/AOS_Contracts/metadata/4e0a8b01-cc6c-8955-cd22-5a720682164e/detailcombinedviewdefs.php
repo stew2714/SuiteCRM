@@ -200,8 +200,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_agreement_number_c',
-              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
             ),
             1 => 'type_of_request_c',
           ),

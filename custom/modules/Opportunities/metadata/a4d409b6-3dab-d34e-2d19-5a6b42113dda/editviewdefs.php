@@ -104,7 +104,11 @@ array (
         ),
         2 => 
         array (
-          0 => 'account_name',
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_3_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE',
+          ),
           1 => 
           array (
             'name' => 'inside_sales_ae_name_c',

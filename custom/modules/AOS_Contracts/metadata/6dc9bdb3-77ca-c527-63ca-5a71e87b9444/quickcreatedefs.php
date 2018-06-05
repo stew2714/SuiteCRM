@@ -49,8 +49,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_ff_agreement_number_c',
-            'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+            'name' => 'apttus_agreement_number_c',
+            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
           ),
           1 => 
           array (
@@ -103,8 +103,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_total_contract_value_c',
-            'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+            'name' => 'total_contract_value',
+            'label' => 'LBL_TOTAL_CONTRACT_VALUE',
           ),
           1 => 
           array (

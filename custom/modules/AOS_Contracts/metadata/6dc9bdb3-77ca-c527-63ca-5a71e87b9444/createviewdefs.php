@@ -107,8 +107,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_ff_agreement_number_c',
-              'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+              'name' => 'apttus_agreement_number_c',
+              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
             ),
             1 => 'opportunity',
           ),

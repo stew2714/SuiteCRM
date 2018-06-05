@@ -125,8 +125,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_ff_agreement_number_c',
-              'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
             ),
             1 => 'type_of_request_c',
           ),
@@ -216,8 +216,9 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_description_c',
-              'label' => 'LBL_APTTUS_DESCRIPTION_C',
+              'name' => 'description',
+              'comment' => 'Full text of the note',
+              'label' => 'LBL_DESCRIPTION',
             ),
             1 => 'general_terms_and_conditions_c',
           ),
