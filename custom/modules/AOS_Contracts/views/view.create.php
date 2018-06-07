@@ -81,6 +81,16 @@ class AOS_ContractsViewCreate extends ViewCreate
         if ($_REQUEST['parent_type'] == "Opportunities" && !empty($_REQUEST['parent_id']) && empty($this->bean->opportunity_id)) {
             $this->bean->opportunity_id = $_REQUEST['parent_id'];
             $this->bean->opportunity = $_REQUEST['opportunity_name'];
+            if(!empty($this->bean->opportunity_id)){
+                $sql = "SELECT a_o.accounts_opportunities_3accounts_ida FROM accounts_opportunities_3_c a_o WHERE a_o.accounts_opportunities_3opportunities_idb = '".$this->bean->opportunity_id."' AND a_o.deleted = '0'";
+                $result = $this->bean->db->query($sql);
+                $accountRow = mysqli_fetch_row($result);
+                if(!empty($accountRow['0'])) {
+                    $accountBean = BeanFactory::getBean("Accounts", $accountRow['0']);
+                    $this->bean->contract_account = $accountBean->name;
+                    $this->bean->contract_account_id = $accountBean->id;
+                }
+            }
         }
     }
 
