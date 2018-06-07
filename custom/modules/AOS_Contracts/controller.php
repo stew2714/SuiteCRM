@@ -140,6 +140,7 @@ class AOS_ContractsController extends SugarController
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->apttus_status_category_c = "req";
             $bean->apttus_status_c = "req_cr";
+            $bean->assigned_user_id = $bean->user_id2;
             $bean->save();
             echo "success";
             die();
