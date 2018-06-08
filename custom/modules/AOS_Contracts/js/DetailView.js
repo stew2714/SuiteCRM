@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // Accept Request as a Legal Team User
     $("#acceptRequestLegal").click(function(){
-        var url = "index.php?module=AOS_Contracts&action=accept";
+        var url = "index.php?module=AOS_Contracts&action=acceptRequestLegal";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
