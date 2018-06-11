@@ -273,6 +273,10 @@ $dictionary['Opportunity']['fields']['winner_name_c']['vname']='LBL_WINNER_NAME_
 $dictionary['Opportunity']['fields']['winner_name_c']['source']='non-db';
 
 
+ // Vardef Created : Sales_Dependent_Revenue_c 
+
+
+
  // Vardef Created : sf_id_c 
 
 $dictionary['Opportunity']['fields']['sf_id_c']['name']='sf_id_c';
@@ -5239,8 +5243,8 @@ $dictionary['Opportunity']['fields']['volume_commitment_c']['source']='custom_fi
  // Vardef Created : Ambulatory_EMR_Other_c 
 
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['name']='Ambulatory_EMR_Other_c';
-$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['len']='244';
-$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['type']='VARCHAR';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['len']='255';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['type']='text';
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['reportable']=true;
@@ -5253,7 +5257,7 @@ $dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['source']='custom
 
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['name']='Ambulatory_EMR_c';
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['len']='255';
-$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['type']='VARCHAR';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['type']='text';
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['reportable']=true;
@@ -5266,7 +5270,7 @@ $dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['source']='custom_field
 
 $dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['name']='Ambulatory_Lead_Source_c';
 $dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['len']='18';
-$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['type']='VARCHAR';
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['type']='varchar';
 $dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['reportable']=true;
@@ -5279,7 +5283,7 @@ $dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['source']='cust
 
 $dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['name']='Avg_hrs_mo_per_Provider_Scribe_opps_c';
 $dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['len']='180';
-$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['type']='double';
 $dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['reportable']=true;
@@ -5293,7 +5297,7 @@ $dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['s
 
 $dictionary['Opportunity']['fields']['CIA_Fee_c']['name']='CIA_Fee_c';
 $dictionary['Opportunity']['fields']['CIA_Fee_c']['len']='180';
-$dictionary['Opportunity']['fields']['CIA_Fee_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['type']='double';
 $dictionary['Opportunity']['fields']['CIA_Fee_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['CIA_Fee_c']['importable']='true';
 $dictionary['Opportunity']['fields']['CIA_Fee_c']['reportable']=true;
@@ -5307,7 +5311,7 @@ $dictionary['Opportunity']['fields']['CIA_Fee_c']['source']='custom_fields';
 
 $dictionary['Opportunity']['fields']['Currency_c']['name']='Currency_c';
 $dictionary['Opportunity']['fields']['Currency_c']['len']='255';
-$dictionary['Opportunity']['fields']['Currency_c']['type']='VARCHAR';
+$dictionary['Opportunity']['fields']['Currency_c']['type']='text';
 $dictionary['Opportunity']['fields']['Currency_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Currency_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Currency_c']['reportable']=true;
@@ -5333,7 +5337,7 @@ $dictionary['Opportunity']['fields']['Create_Quarter_c']['source']='custom_field
 
 $dictionary['Opportunity']['fields']['Contract_Signatory_c']['name']='Contract_Signatory_c';
 $dictionary['Opportunity']['fields']['Contract_Signatory_c']['len']='18';
-$dictionary['Opportunity']['fields']['Contract_Signatory_c']['type']='VARCHAR';
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['type']='varchar';
 $dictionary['Opportunity']['fields']['Contract_Signatory_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Contract_Signatory_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Contract_Signatory_c']['reportable']=true;
@@ -5400,7 +5404,7 @@ $dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['s
 
 $dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['name']='Number_of_Providers_Proposed_c';
 $dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['len']='180';
-$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['type']='double';
 $dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['reportable']=true;
@@ -5413,8 +5417,8 @@ $dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['source']
  // Vardef Created : RVP_Segment_c 
 
 $dictionary['Opportunity']['fields']['RVP_Segment_c']['name']='RVP_Segment_c';
-$dictionary['Opportunity']['fields']['RVP_Segment_c']['len']='1300';
-$dictionary['Opportunity']['fields']['RVP_Segment_c']['type']='VARCHAR';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['len']='255';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['type']='text';
 $dictionary['Opportunity']['fields']['RVP_Segment_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['RVP_Segment_c']['importable']='true';
 $dictionary['Opportunity']['fields']['RVP_Segment_c']['reportable']=true;
@@ -5453,7 +5457,7 @@ $dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['source']='custom_
 
 $dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['name']='Revenue_Multiplier_c';
 $dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['len']='180';
-$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['type']='double';
 $dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['reportable']=true;
@@ -5493,7 +5497,7 @@ $dictionary['Opportunity']['fields']['Risks_c']['source']='custom_fields';
 
 $dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['name']='Sales_Sub_Term_Until_Contract_Out_MM_c';
 $dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['len']='30';
-$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['type']='double';
 $dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['reportable']=true;
@@ -5507,7 +5511,7 @@ $dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['
 
 $dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['name']='Sales_Subscription_Term_Length_MM_c';
 $dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['len']='30';
-$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['type']='double';
 $dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['reportable']=true;
@@ -5521,7 +5525,7 @@ $dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['sou
 
 $dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['name']='Scribes_Needed_Scribe_opps_c';
 $dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['len']='180';
-$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['type']='double';
 $dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['reportable']=true;
@@ -5548,7 +5552,7 @@ $dictionary['Opportunity']['fields']['Self_Created_c']['source']='custom_fields'
 
 $dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['name']='Total_Providers_in_Practice_c';
 $dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['len']='180';
-$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['type']='double';
 $dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['reportable']=true;
@@ -5562,7 +5566,7 @@ $dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['source']=
 
 $dictionary['Opportunity']['fields']['Term_Round_c']['name']='Term_Round_c';
 $dictionary['Opportunity']['fields']['Term_Round_c']['len']='180';
-$dictionary['Opportunity']['fields']['Term_Round_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Term_Round_c']['type']='double';
 $dictionary['Opportunity']['fields']['Term_Round_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Term_Round_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Term_Round_c']['reportable']=true;
@@ -5576,7 +5580,7 @@ $dictionary['Opportunity']['fields']['Term_Round_c']['source']='custom_fields';
 
 $dictionary['Opportunity']['fields']['Actual_Term_c']['name']='Actual_Term_c';
 $dictionary['Opportunity']['fields']['Actual_Term_c']['len']='180';
-$dictionary['Opportunity']['fields']['Actual_Term_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['type']='double';
 $dictionary['Opportunity']['fields']['Actual_Term_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Actual_Term_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Actual_Term_c']['reportable']=true;
@@ -5590,7 +5594,7 @@ $dictionary['Opportunity']['fields']['Actual_Term_c']['source']='custom_fields';
 
 $dictionary['Opportunity']['fields']['Executive_Sponsor_c']['name']='Executive_Sponsor_c';
 $dictionary['Opportunity']['fields']['Executive_Sponsor_c']['len']='18';
-$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['type']='VARCHAR';
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['type']='varchar';
 $dictionary['Opportunity']['fields']['Executive_Sponsor_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Executive_Sponsor_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Executive_Sponsor_c']['reportable']=true;
@@ -5603,7 +5607,7 @@ $dictionary['Opportunity']['fields']['Executive_Sponsor_c']['source']='custom_fi
 
 $dictionary['Opportunity']['fields']['FX_Rate_c']['name']='FX_Rate_c';
 $dictionary['Opportunity']['fields']['FX_Rate_c']['len']='70';
-$dictionary['Opportunity']['fields']['FX_Rate_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['type']='double';
 $dictionary['Opportunity']['fields']['FX_Rate_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['FX_Rate_c']['importable']='true';
 $dictionary['Opportunity']['fields']['FX_Rate_c']['reportable']=true;
@@ -5617,7 +5621,7 @@ $dictionary['Opportunity']['fields']['FX_Rate_c']['source']='custom_fields';
 
 $dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['name']='Providers_Scribe_opps_c';
 $dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['len']='70';
-$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['type']='double';
 $dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['reportable']=true;
@@ -5627,7 +5631,7 @@ $dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['vname']='LBL_PR
 $dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['source']='custom_fields';
 $dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['name']='Sales_Dependent_Revenue_c';
 $dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['len']='180';
-$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['type']='DOUBLE';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['type']='double';
 $dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['inline_edit']=1;
 $dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['importable']='true';
 $dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['reportable']=true;
