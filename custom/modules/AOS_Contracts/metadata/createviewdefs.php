@@ -102,25 +102,17 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'agreements_number_and_amendment_c',
-              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
-            ),
-          ),
-          1 => 
-          array (
-            0 => 
-            array (
-              'name' => 'recordtypeid_c',
-              'label' => 'LBL_RECORDTYPEID_C',
+              'name' => 'apttus_agreement_number_c',
+              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
             ),
             1 => 'recordtypeid_c',
           ),
-          2 => 
+          1 => 
           array (
             0 => 'name',
             1 => 'opportunity',
           ),
-          3 => 
+          2 => 
           array (
             0 => 
             array (
@@ -129,16 +121,16 @@ $viewdefs = array (
             ),
             1 => 'apttus_agreement_category_c',
           ),
-          4 => 
+          3 => 
           array (
             0 => 
             array (
-              'name' => 'apttus_agreement_number_c',
-              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
             ),
             1 => 'type_of_request_c',
           ),
-          5 => 
+          4 => 
           array (
             0 => 
             array (
@@ -147,7 +139,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_status_category_c',
           ),
-          6 => 
+          5 => 
           array (
             0 => 
             array (
@@ -156,7 +148,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_status_c',
           ),
-          7 => 
+          6 => 
           array (
             0 => 
             array (
@@ -166,7 +158,7 @@ $viewdefs = array (
             ),
             1 => 'region_c',
           ),
-          8 => 
+          7 => 
           array (
             0 => 
             array (
@@ -175,7 +167,7 @@ $viewdefs = array (
             ),
             1 => 'assigned_user_name',
           ),
-          9 => 
+          8 => 
           array (
             0 => 
             array (
@@ -184,7 +176,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_requestor_name_c',
           ),
-          10 => 
+          9 => 
           array (
             0 => 
             array (
@@ -193,7 +185,7 @@ $viewdefs = array (
             ),
             1 => 'ownership_group_c',
           ),
-          11 => 
+          10 => 
           array (
             0 => 
             array (
@@ -202,7 +194,7 @@ $viewdefs = array (
             ),
             1 => 'awaiting_information_detail_c',
           ),
-          12 => 
+          11 => 
           array (
             0 => 
             array (
@@ -211,12 +203,12 @@ $viewdefs = array (
             ),
             1 => 'cancellation_reason_c',
           ),
-          13 => 
+          12 => 
           array (
             0 => 'description',
             1 => 'apttus_parent_agreement_name_c',
           ),
-          14 => 
+          13 => 
           array (
             0 => 
             array (
@@ -225,7 +217,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_termination_date_c',
           ),
-          15 => 
+          14 => 
           array (
             0 => 
             array (
@@ -234,7 +226,7 @@ $viewdefs = array (
             ),
             1 => 'general_terms_and_conditions_c',
           ),
-          16 => 
+          15 => 
           array (
             0 => 
             array (
@@ -242,7 +234,7 @@ $viewdefs = array (
               'label' => 'LBL_T_C_VERSION_C',
             ),
           ),
-          17 => 
+          16 => 
           array (
             0 => 
             array (
@@ -251,7 +243,7 @@ $viewdefs = array (
             ),
             1 => 'assigned_user_name',
           ),
-          18 => 
+          17 => 
           array (
             0 => 
             array (
@@ -259,7 +251,7 @@ $viewdefs = array (
               'label' => 'LBL_AGREEMENT_SUMMARY_C',
             ),
           ),
-          19 => 
+          18 => 
           array (
             0 => 
             array (
@@ -540,8 +532,9 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_other_party_signed_by_c',
-              'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_C',
+              'name' => 'apttus_other_party_signed_by_name_c',
+              'studio' => 'visible',
+              'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_NAME_C',
             ),
             1 => 'apttus_other_party_signed_by_unlisted_c',
           ),

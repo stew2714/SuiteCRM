@@ -1037,8 +1037,6 @@ $GLOBALS['app_list_strings']['training_list']=array (
   'training_two' => 'Training 2',
   'training_with_spaces' => 'Training With Spaces',
 );
-$GLOBALS['app_list_strings']['imp_timeframe_comments_list']=array (
-);
 $GLOBALS['app_list_strings']['capital_license_type_list']=array (
   '' => '',
   'Term' => 'Term',
@@ -1131,17 +1129,6 @@ $GLOBALS['app_list_strings']['encoder_list']=array (
   'Quantim' => 'Quantim (Quadramed)',
   'Webstrat' => 'Webstrat (HHS/Inguenix)',
   'Other' => 'Other',
-);
-$GLOBALS['app_list_strings']['imp_timeframe_list']=array (
-  'work_request' => 'Work Request - estimate 30 day implementation',
-  'standard' => 'Standard - estimate 120 day implementation',
-  'phased' => 'Phased - Phase 1 starts in 0-3 Months',
-  'other' => 'Other',
-  'phased2' => 'Phased - Phase 1 starts in 4-6 Months',
-  'emr' => 'EMR Dependency - implementation date TBD',
-  '' => '',
-  'phased3' => 'Phased - Phase 1 starts in 7-9 Months',
-  'phased4' => 'Phased - Phase 1 starts after 9 Months',
 );
 $GLOBALS['app_list_strings']['primary_reason_for_winloss_list']=array (
   'customer_experience_support' => 'Customer Experience (Support)',
@@ -1860,4 +1847,33 @@ $GLOBALS['app_list_strings']['contract_status_category_list']=array (
   'sig' => 'In Signatures',
   'req' => 'Request',
   'ter' => 'Terminated',
+);
+$GLOBALS['app_list_strings']['sales_stage_dom']=array (
+  '1_Lead' => '1. Lead',
+  '2_Discovery' => '2. Discovery',
+  '3_Qualified' => '3. Qualified',
+  '4_Proposal' => '4. Proposal',
+  '5_Contract' => '5. Contract',
+  'Closed_No_Oppty' => 'Closed - No Oppty',
+  'Closed_Nurturing' => 'Closed - Nuturing',
+  'Closed_Won' => 'Closed - Won',
+  'Closed_Won_not_in_Pipeline' => 'Closed - Won (not in Pipeline)',
+  'Closed_Inactive' => 'Closed Inactive',
+  'Closed_Lost' => 'Closed Lost',
+  'Pilot' => 'Pilot',
+);
+
+$GLOBALS['app_list_strings']['imp_timeframe_comments_list']=array (
+  '' => '',
+  '2_phases' => '2 phases',
+);
+$GLOBALS['app_list_strings']['imp_timeframe_list']=array (
+  'standard' => 'Standard - estimate 120 day implementation',
+  'work_request' => 'Work Request - estimate 30 day implementation',
+  'emr' => 'EMR Dependency - implementation date TBD',
+  'phased' => 'Phased - Phase 1 starts in 0-3 Months',
+  'phased2' => 'Phased - Phase 1 starts in 4-6 Months',
+  'phased3' => 'Phased - Phase 1 starts in 7-9 Months',
+  'phased4' => 'Phased - Phase 1 starts after 9 Months',
+  'other' => 'Other',
 );

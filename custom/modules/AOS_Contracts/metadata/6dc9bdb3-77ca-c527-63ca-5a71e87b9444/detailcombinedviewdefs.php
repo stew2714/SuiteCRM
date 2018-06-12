@@ -56,11 +56,11 @@ $viewdefs = array (
             ),
             11 => 
             array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForSignatures" value="{$MOD.LBL_BUTTON_SEND_FOR_SIGNATURES}">{/if}',
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForSignatures" onclick="showMassGenerateDocumentForm();" value="{$MOD.LBL_BUTTON_SEND_FOR_SIGNATURES}">{/if}',
             ),
             12 => 
             array (
-              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForReview" value="{$MOD.LBL_BUTTON_SEND_FOR_REVIEW}">{/if}',
+              'customCode' => '{if $LEGAL_TEAM === true}<input type="button" class="button" id="sendForReview" onclick="showPopup(\'emailpdf\');" value="{$MOD.LBL_BUTTON_SEND_FOR_REVIEW}">{/if}',
             ),
             13 => 
             array (
@@ -175,11 +175,6 @@ $viewdefs = array (
         array (
           0 => 
           array (
-            0 => 
-            array (
-              'name' => 'agreement_chevron_c',
-              'label' => 'LBL_AGREEMENT_CHEVRON_C',
-            ),
             1 => 'contract_account',
           ),
           1 => 
@@ -191,8 +186,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_agreement_number_c',
-              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
             ),
             1 => 'apttus_status_category_c',
           ),
@@ -232,6 +227,7 @@ $viewdefs = array (
               'name' => 'apttus_request_date_c',
               'label' => 'LBL_APTTUS_REQUEST_DATE_C',
             ),
+            1 => 'assigned_user_name',
           ),
           7 => 
           array (

@@ -4,7 +4,7 @@ $dashletData['AOS_ContractsDashlet']['searchFields'] = array (
   array (
     'default' => '',
   ),
-  'apttus_ff_agreement_number_c' => 
+  'agreements_number_and_amendment_c' => 
   array (
     'default' => '',
   ),
@@ -17,10 +17,6 @@ $dashletData['AOS_ContractsDashlet']['searchFields'] = array (
     'default' => '',
   ),
   'opportunity' => 
-  array (
-    'default' => '',
-  ),
-  'contact' => 
   array (
     'default' => '',
   ),

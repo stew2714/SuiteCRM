@@ -130,11 +130,7 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'agreement_chevron_c',
-            'label' => 'LBL_AGREEMENT_CHEVRON_C',
-          ),
+          0 => '',
           1 => 
           array (
             'name' => 'contract_account',
@@ -154,8 +150,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_agreement_number_c',
-            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
           ),
           1 => 
           array (
@@ -211,7 +207,11 @@ array (
             'name' => 'apttus_request_date_c',
             'label' => 'LBL_APTTUS_REQUEST_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
         ),
         7 => 
         array (

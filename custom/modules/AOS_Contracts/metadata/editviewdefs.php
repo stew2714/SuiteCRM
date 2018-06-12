@@ -64,17 +64,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'agreements_number_and_amendment_c',
-            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
-          ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'recordtypeid_c',
-            'label' => 'LBL_RECORDTYPEID_C',
+            'name' => 'apttus_agreement_number_c',
+            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
           ),
           1 => 
           array (
@@ -82,7 +73,7 @@ array (
             'label' => 'LBL_RECORDTYPEID_C',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 'name',
           1 => 
@@ -91,7 +82,7 @@ array (
             'label' => 'LBL_OPPORTUNITY',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -104,12 +95,12 @@ array (
             'label' => 'LBL_APTTUS_AGREEMENT_CATEGORY_C',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
-            'name' => 'apttus_agreement_number_c',
-            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
           ),
           1 => 
           array (
@@ -117,7 +108,7 @@ array (
             'label' => 'LBL_TYPE_OF_REQUEST_C',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -130,7 +121,7 @@ array (
             'label' => 'LBL_APTTUS_STATUS_CATEGORY_C',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -143,7 +134,7 @@ array (
             'label' => 'LBL_APTTUS_STATUS_C',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -157,7 +148,7 @@ array (
             'label' => 'LBL_REGION_C',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -170,7 +161,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -184,7 +175,7 @@ array (
             'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -197,7 +188,7 @@ array (
             'label' => 'LBL_OWNERSHIP_GROUP_C',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -210,7 +201,7 @@ array (
             'label' => 'LBL_AWAITING_INFORMATION_DETAIL_C',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -223,7 +214,7 @@ array (
             'label' => 'LBL_CANCELLATION_REASON_C',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 'description',
           1 => 
@@ -233,7 +224,7 @@ array (
             'label' => 'LBL_APTTUS_PARENT_AGREEMENT_NAME_C',
           ),
         ),
-        14 => 
+        13 => 
         array (
           0 => 
           array (
@@ -246,7 +237,7 @@ array (
             'label' => 'LBL_APTTUS_TERMINATION_DATE_C',
           ),
         ),
-        15 => 
+        14 => 
         array (
           0 => 
           array (
@@ -259,7 +250,7 @@ array (
             'label' => 'LBL_GENERAL_TERMS_AND_CONDITIONS_C',
           ),
         ),
-        16 => 
+        15 => 
         array (
           0 => 
           array (
@@ -267,7 +258,7 @@ array (
             'label' => 'LBL_T_C_VERSION_C',
           ),
         ),
-        17 => 
+        16 => 
         array (
           0 => 
           array (
@@ -280,7 +271,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
-        18 => 
+        17 => 
         array (
           0 => 
           array (
@@ -289,7 +280,7 @@ array (
           ),
           1 => '',
         ),
-        19 => 
+        18 => 
         array (
           0 => 
           array (
@@ -678,8 +669,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_other_party_signed_by_c',
-            'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_C',
+            'name' => 'apttus_other_party_signed_by_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_NAME_C',
           ),
           1 => 
           array (

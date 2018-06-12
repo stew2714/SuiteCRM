@@ -1,5 +1,5 @@
 <?php
-// created: 2018-02-22 02:13:54
+// created: 2018-06-12 15:02:05
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -45,7 +45,7 @@ $mod_strings = array (
   'LBL_CAMPAIGN' => 'Primary Campaign',
   'LBL_EDITVIEW_PANEL15' => 'Renewal Pricedowns',
   'LBL_EDITVIEW_PANEL16' => 'Competitive Details',
-  'LBL_RECORDTYPEID_C' => 'Recordtypeid',
+  'LBL_RECORDTYPEID_C' => 'Record Type',
   'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE' => 'Accounts (Won)',
   'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE' => 'Accounts (Incumbent)',
   'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE' => 'Account',
@@ -89,4 +89,21 @@ $mod_strings = array (
   'LBL_ADOPTION_SERVICES_TERM_LENGTH_C' => 'Adoption Services Term',
   'LBL_LICENSE_TERM_LENGTH_MM_C' => 'Capital License Term',
   'LBL_SW_MAINTENANCE_TERM_LENGTH_MM_C' => 'M&S Initial Term (MM)',
+  'LBL_OPPORTUNITY_NAME' => 'Opportunity Name:',
+  'LBL_SHORT_ID_C' => 'Short Id',
+  'LBL_DATE_CLOSED' => 'Expected Close Date:',
+  'LBL_NEW_AM_REGION_C' => 'AE Region',
+  'LBL_PRODUCT_C' => 'Product/Service',
+  'LBL_SALES_STAGE' => 'Sales Stage:',
+  'LBL_INCUMBENT_NAME_C' => 'LBL_INCUMBENT_NAME_C',
+  'LBL_INCUMBENTX_C' => 'Incumbentx',
+  'LBL_IMPLEMENTATION_TIMEFRAME_C' => 'Implementation Timeframe',
+  'LBL_IMPLEMENTATION_TIMEFRAME_COMMENTS_C' => 'Implementation Timeframe Comments',
+  'LBL_CHANGE_IN_MIX_C' => 'Change In Mix',
+  'LBL_GLOBAL_USE_PROBABILITY_PERCENT_C' => 'Global Use Probability (%)',
+  'LBL_FORECASTING_CATEGORY_C' => 'Forecasting Category',
+  'LBL_PARTNER_C' => 'Partner',
+  'LBL_PROJECTED_PRICEDOWN_C' => 'Projected Pricedown',
+  'LBL_PROJECTED_RENEWAL_DATE_C' => 'Projected Renewal Date',
+  'LBL_SPECIALIST_NAME_C' => 'Solution Sales Executive',
 );
