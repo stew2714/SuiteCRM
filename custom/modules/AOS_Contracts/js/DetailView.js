@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     // Accept Request as a Comms Op User
     $("#acceptRequestCommsOps").click(function(){
-        var url = "index.php?module=AOS_Contracts&action=acceptCommOps";
+        var url = "index.php?module=AOS_Contracts&action=acceptRequestCommOps";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
