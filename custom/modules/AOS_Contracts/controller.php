@@ -283,6 +283,9 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
+            $bean->load_relationship('g1_group_queue_aos_contracts');
+            $bean->g1_group_queue_aos_contracts->delete($sugar_config['CommOps']);
+            $bean->assigned_user_id = $current_user->id;
             $bean->apttus_status_category_c = "sig";
             $bean->apttus_status_c = "sig_fco";
             $bean->save();
