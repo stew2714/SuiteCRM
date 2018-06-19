@@ -2,6 +2,10 @@
  // Vardefs Creator : 
 
 
+ // Vardef Created : deal_quality_report_c 
+
+
+
  // Vardef Created : sf_id_c 
 
 $dictionary['AOS_Contracts']['fields']['sf_id_c']['name']='sf_id_c';

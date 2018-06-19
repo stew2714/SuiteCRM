@@ -208,8 +208,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_request_date_c',
-            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
+            'name' => 'apts_request_date_c',
+            'label' => 'LBL_APTS_REQUEST_DATE_C',
           ),
           1 => 
           array (

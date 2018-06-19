@@ -595,8 +595,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apts_request_date_c',
-            'label' => 'LBL_APTS_REQUEST_DATE_C',
+            'name' => 'request_date_c',
+            'label' => 'LBL_REQUEST_DATE_C',
           ),
           1 => 
           array (
