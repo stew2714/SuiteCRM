@@ -58,7 +58,7 @@ class AOS_ContractsController extends SugarController
     }
 
     public function action_save(){
-        global $app_list_strings, $current_user;
+        global $app_list_strings, $current_user, $timedate;
         $related = $app_list_strings['CreateViewRelatedModule'][ $this->module ];
 
         if(empty($this->bean->agreements_number_and_amendment_c) && empty($this->record)) {
@@ -80,6 +80,7 @@ class AOS_ContractsController extends SugarController
             $this->bean->apttus_status_category_c = "req";
             $this->bean->apttus_status_c = "req_req";
             $this->bean->assigned_user_id = $current_user->id;
+            $this->bean->date_requested_c = $timedate->nowDb();
         } elseif(!empty($this->bean->Oneapttus_parent_agreement_c)) {
             $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_c = 'eff_ba' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
             $this->bean->db->query($sql);
