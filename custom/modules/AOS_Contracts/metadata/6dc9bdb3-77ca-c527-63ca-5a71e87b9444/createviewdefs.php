@@ -33,7 +33,7 @@ $viewdefs = array (
           ),
         ),
         'useTabs' => false,
-        'syncDetailEditViews' => true,
+        'syncDetailEditViews' => false,
         'javascript' => '{$LOCK_FILES} {$BEAN_DATA}',
         'tabDefs' => 
         array (
@@ -100,10 +100,18 @@ $viewdefs = array (
         array (
           0 => 
           array (
+            0 => 
+            array (
+              'name' => 'recordtypeid_c',
+              'label' => 'LBL_RECORDTYPEID_C',
+            ),
+          ),
+          1 => 
+          array (
             0 => 'name',
             1 => 'contract_account',
           ),
-          1 => 
+          2 => 
           array (
             0 => 
             array (
@@ -112,7 +120,7 @@ $viewdefs = array (
             ),
             1 => 'opportunity',
           ),
-          2 => 
+          3 => 
           array (
             0 => 
             array (
@@ -121,7 +129,7 @@ $viewdefs = array (
             ),
             1 => 'type_of_request_c',
           ),
-          3 => 
+          4 => 
           array (
             0 => 
             array (
@@ -131,7 +139,7 @@ $viewdefs = array (
             ),
             1 => 'region_c',
           ),
-          4 => 
+          5 => 
           array (
             0 => 
             array (
@@ -140,7 +148,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_special_terms_c',
           ),
-          5 => 
+          6 => 
           array (
             0 => 
             array (
@@ -149,7 +157,7 @@ $viewdefs = array (
             ),
             1 => 'apttus_requestor_name_c',
           ),
-          6 => 
+          7 => 
           array (
             0 => 
             array (
@@ -158,7 +166,7 @@ $viewdefs = array (
             ),
             1 => 'strategic_deal_description_c',
           ),
-          7 => 
+          8 => 
           array (
             0 => 
             array (

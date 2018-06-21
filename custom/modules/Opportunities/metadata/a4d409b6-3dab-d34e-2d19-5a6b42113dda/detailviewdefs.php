@@ -140,8 +140,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'total_amount_c',
-            'label' => 'LBL_TOTAL_AMOUNT_C',
+            'name' => 'total_contract_value_c',
+            'label' => 'LBL_TOTAL_CONTRACT_VALUE_C',
           ),
           1 => 
           array (

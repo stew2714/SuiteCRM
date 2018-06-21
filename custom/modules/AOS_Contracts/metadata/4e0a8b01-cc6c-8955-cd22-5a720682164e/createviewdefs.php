@@ -33,7 +33,7 @@ $viewdefs = array (
           ),
         ),
         'useTabs' => false,
-        'syncDetailEditViews' => true,
+        'syncDetailEditViews' => false,
         'javascript' => '{$LOCK_FILES} {$BEAN_DATA}',
         'tabDefs' => 
         array (
@@ -467,8 +467,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'request_date_c',
-              'label' => 'LBL_REQUEST_DATE_C',
+              'name' => 'apttus_request_date_c',
+              'label' => 'LBL_APTTUS_REQUEST_DATE_C',
             ),
             1 => 'apttus_executed_copy_mailed_out_date_c',
           ),

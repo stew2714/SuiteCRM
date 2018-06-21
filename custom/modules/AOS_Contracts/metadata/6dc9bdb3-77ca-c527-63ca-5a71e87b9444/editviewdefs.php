@@ -42,6 +42,15 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'recordtypeid_c',
+            'label' => 'LBL_RECORDTYPEID_C',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
           0 => 'name',
           1 => 
           array (
@@ -49,7 +58,7 @@ array (
             'label' => 'LBL_CONTRACT_ACCOUNT',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -62,7 +71,7 @@ array (
             'label' => 'LBL_OPPORTUNITY',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -75,7 +84,7 @@ array (
             'label' => 'LBL_TYPE_OF_REQUEST_C',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -89,7 +98,7 @@ array (
             'label' => 'LBL_REGION_C',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -102,7 +111,7 @@ array (
             'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -116,7 +125,7 @@ array (
             'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -129,7 +138,7 @@ array (
             'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (

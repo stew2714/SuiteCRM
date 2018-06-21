@@ -147,8 +147,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_agreement_number_c',
-            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
           ),
           1 => 
           array (
@@ -182,8 +182,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'agreements_number_and_amendment_c',
-            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+            'name' => 'type_of_product_services_c',
+            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
           ),
           1 => 
           array (
@@ -248,8 +248,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_total_contract_value_c',
-            'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+            'name' => 'total_contract_value',
+            'label' => 'LBL_TOTAL_CONTRACT_VALUE',
           ),
           1 => 
           array (
@@ -340,6 +340,7 @@ array (
             'name' => 't_c_version_c',
             'label' => 'LBL_T_C_VERSION_C',
           ),
+          1 => '',
         ),
         16 => 
         array (
@@ -671,8 +672,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apts_request_date_c',
-            'label' => 'LBL_APTS_REQUEST_DATE_C',
+            'name' => 'apttus_request_date_c',
+            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
           ),
           1 => 
           array (
@@ -682,7 +683,8 @@ array (
         ),
         1 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'courior_tracking_number_c',
             'label' => 'LBL_COURIOR_TRACKING_NUMBER_C',
@@ -695,10 +697,7 @@ array (
             'name' => 'apttus_activated_date_c',
             'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'apttus_activated_by_name_c',
             'studio' => 'visible',

@@ -177,8 +177,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_agreement_number_c',
-              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
             ),
             1 => 'recordtypeid_c',
           ),
@@ -200,8 +200,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'agreements_number_and_amendment_c',
-              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+              'name' => 'type_of_product_services_c',
+              'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
             ),
             1 => 'type_of_request_c',
           ),
@@ -246,8 +246,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_total_contract_value_c',
-              'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+              'name' => 'total_contract_value',
+              'label' => 'LBL_TOTAL_CONTRACT_VALUE',
             ),
             1 => 'apttus_requestor_name_c',
           ),
@@ -542,35 +542,22 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apts_request_date_c',
-              'label' => 'LBL_APTS_REQUEST_DATE_C',
+              'name' => 'apttus_request_date_c',
+              'label' => 'LBL_APTTUS_REQUEST_DATE_C',
             ),
             1 => 'apttus_executed_copy_mailed_out_date_c',
           ),
           1 => 
           array (
-            0 => 
-            array (
-              'name' => 'courior_tracking_number_c',
-              'label' => 'LBL_COURIOR_TRACKING_NUMBER_C',
-            ),
+            1 => 'courior_tracking_number_c',
           ),
           2 => 
           array (
-            0 => 
-            array (
-              'name' => 'apttus_activated_date_c',
-              'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
-            ),
+            1 => 'apttus_activated_date_c',
           ),
           3 => 
           array (
-            0 => 
-            array (
-              'name' => 'apttus_activated_by_name_c',
-              'studio' => 'visible',
-              'label' => 'LBL_APTTUS_ACTIVATED_BY_NAME_C',
-            ),
+            1 => 'apttus_activated_by_name_c',
           ),
         ),
         'lbl_editview_panel4' => 

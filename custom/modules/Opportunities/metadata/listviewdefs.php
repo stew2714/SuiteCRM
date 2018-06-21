@@ -57,6 +57,13 @@ array (
     'label' => 'LBL_TYPE',
     'default' => false,
   ),
+  'SHORT_ID_C' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SHORT_ID_C',
+    'width' => '10%',
+    'default' => false,
+  ),
   'LEAD_SOURCE' => 
   array (
     'width' => '15%',

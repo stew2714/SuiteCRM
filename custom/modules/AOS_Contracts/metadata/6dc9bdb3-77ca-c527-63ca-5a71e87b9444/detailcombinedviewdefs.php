@@ -180,12 +180,12 @@ $viewdefs = array (
               'name' => 'recordtypeid_c',
               'label' => 'LBL_RECORDTYPEID_C',
             ),
-            1 => 'contract_account',
+            1 => 'apts_request_date_c',
           ),
           1 => 
           array (
             0 => 'name',
-            1 => 'opportunity',
+            1 => 'contract_account',
           ),
           2 => 
           array (
@@ -229,8 +229,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apts_request_date_c',
-              'label' => 'LBL_APTS_REQUEST_DATE_C',
+              'name' => 'apttus_request_date_c',
+              'label' => 'LBL_APTTUS_REQUEST_DATE_C',
             ),
             1 => 'assigned_user_name',
           ),
