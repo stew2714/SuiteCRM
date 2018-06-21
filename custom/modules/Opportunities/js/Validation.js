@@ -351,6 +351,22 @@ $( document ).ready(function() {
         removeFromValidate("EditView","sw_maintenance_term_length_mm_c" );
       }
     }
+    //Item 29 - AMB_EMR_Other_Required -------- AND( ISPICKVAL(Ambulatory_EMR__c, "Other"),ISBLANK(Ambulatory_EMR_Other_c)
+    if ( $("#Ambulatory_EMR_c").val() == "Other" &&  $("#Ambulatory_EMR_Other_c").val() == "" ) {
+      addToValidate('EditView',"Ambulatory_EMR_Other_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_AMB_EMR_OTHER_REQUIRED'));
+    }else{
+      if( checkValidate("EditView", "Ambulatory_EMR_Other_c")){
+        removeFromValidate("EditView","Ambulatory_EMR_Other_c" );
+      }
+    }
+    //Item 30 - Sub_Term_Required_for_Commits -------- forecasting_category_c = “Commit” and CO_Annual_Prod_Subscription_fee_c > 0 and sales_sub_term_until_contract_out_mm_c is null
+    if ( $("#forecasting_category_c").val() == "Commit" && $("#co_annual_prod_subscription_fee_c").val() > 0 && $("#Sales_Sub_Term_Until_Contract_Out_MM_c").val() == "" ) {
+      addToValidate('EditView',"Ambulatory_EMR_Other_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_AMBULATORY_EMR_OTHER'));
+    }else{
+      if( checkValidate("EditView", "Ambulatory_EMR_Other_c")){
+        removeFromValidate("EditView","Ambulatory_EMR_Other_c" );
+      }
+    }
     return true;
   }
 
