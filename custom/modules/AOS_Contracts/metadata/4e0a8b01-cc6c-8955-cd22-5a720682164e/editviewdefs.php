@@ -163,6 +163,16 @@ array (
         ),
         8 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'apttus_requestor_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
+          ),
+        ),
+        9 => 
+        array (
           0 => 
           array (
             'name' => 'amendment_number_c',
@@ -174,7 +184,7 @@ array (
             'label' => 'LBL_OWNERSHIP_GROUP_C',
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -187,7 +197,7 @@ array (
             'label' => 'LBL_AWAITING_INFORMATION_DETAIL_C',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -200,7 +210,7 @@ array (
             'label' => 'LBL_CANCELLATION_REASON_C',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -213,7 +223,7 @@ array (
             'label' => 'LBL_APTTUS_TERMINATION_NOTICE_ISSUE_DATE_C',
           ),
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
@@ -226,7 +236,7 @@ array (
             'label' => 'LBL_APTTUS_TERMINATION_DATE_C',
           ),
         ),
-        13 => 
+        14 => 
         array (
           0 => 
           array (
@@ -240,7 +250,7 @@ array (
             'label' => 'LBL_GENERAL_TERMS_AND_CONDITIONS_C',
           ),
         ),
-        14 => 
+        15 => 
         array (
           0 => 
           array (
@@ -253,7 +263,7 @@ array (
             'label' => 'LBL_T_C_VERSION_C',
           ),
         ),
-        15 => 
+        16 => 
         array (
           0 => 
           array (
@@ -266,7 +276,7 @@ array (
             'label' => 'LBL_STRATEGIC_DEAL_C',
           ),
         ),
-        16 => 
+        17 => 
         array (
           0 => 
           array (
