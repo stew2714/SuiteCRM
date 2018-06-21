@@ -96,8 +96,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_agreement_number_c',
-            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
           ),
           1 => 
           array (
@@ -227,8 +227,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_description_c',
-            'label' => 'LBL_APTTUS_DESCRIPTION_C',
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
           ),
           1 => 
           array (
@@ -273,53 +274,6 @@ array (
           array (
             'name' => 'strategic_deal_description_c',
             'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
-          ),
-        ),
-        17 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -591,8 +545,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apts_request_date_c',
-            'label' => 'LBL_APTS_REQUEST_DATE_C',
+            'name' => 'apttus_request_date_c',
+            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
           ),
           1 => 
           array (
@@ -691,6 +645,53 @@ array (
           array (
             'name' => 'apttus_other_party_signed_by_unlisted_c',
             'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_UNLISTED_C',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
