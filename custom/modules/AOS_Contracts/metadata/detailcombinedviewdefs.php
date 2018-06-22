@@ -305,28 +305,21 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 't_c_version_c',
-              'label' => 'LBL_T_C_VERSION_C',
-            ),
-          ),
-          16 => 
-          array (
-            0 => 
-            array (
               'name' => 'apttus_business_hours_c',
               'label' => 'LBL_APTTUS_BUSINESS_HOURS_C',
             ),
-            1 => 'assigned_user_name',
+            1 => 't_c_version_c',
           ),
-          17 => 
+          16 => 
           array (
             0 => 
             array (
               'name' => 'agreement_summary_c',
               'label' => 'LBL_AGREEMENT_SUMMARY_C',
             ),
+            1 => 'assigned_user_name',
           ),
-          18 => 
+          17 => 
           array (
             0 => 
             array (
@@ -476,28 +469,21 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'intellectual_property_general_informatio_c',
-              'label' => 'LBL_INTELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C',
-            ),
-          ),
-          14 => 
-          array (
-            0 => 
-            array (
               'name' => 'passive_adaptation_c',
               'label' => 'LBL_PASSIVE_ADAPTATION_C',
             ),
             1 => 'passive_adaptation_type_c',
           ),
-          15 => 
+          14 => 
           array (
             0 => 
             array (
               'name' => 'enhanced_data_use_rights_language_c',
               'label' => 'LBL_ENHANCED_DATA_USE_RIGHTS_LANGUAGE_C',
             ),
+            1 => 'intellectual_property_general_informatio_c',
           ),
-          16 => 
+          15 => 
           array (
             0 => 
             array (
@@ -505,7 +491,7 @@ $viewdefs = array (
               'label' => 'LBL_LEGAL_NOTICES_C',
             ),
           ),
-          17 => 
+          16 => 
           array (
             0 => 
             array (
@@ -553,10 +539,11 @@ $viewdefs = array (
           ),
           2 => 
           array (
-            1 => 'apttus_activated_date_c',
-          ),
-          3 => 
-          array (
+            0 => 
+            array (
+              'name' => 'apttus_activated_date_c',
+              'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
+            ),
             1 => 'apttus_activated_by_name_c',
           ),
         ),

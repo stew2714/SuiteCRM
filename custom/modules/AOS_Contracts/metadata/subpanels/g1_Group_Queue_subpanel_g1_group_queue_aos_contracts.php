@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-11 19:54:56
+// created: 2018-06-21 19:04:51
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -34,6 +34,13 @@ $subpanel_layout['list_fields'] = array (
   array (
     'type' => 'dynamicenum',
     'vname' => 'LBL_APTTUS_STATUS_C',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'apttus_request_date_c' => 
+  array (
+    'type' => 'datetimecombo',
+    'vname' => 'LBL_APTTUS_REQUEST_DATE_C',
     'width' => '10%',
     'default' => true,
   ),

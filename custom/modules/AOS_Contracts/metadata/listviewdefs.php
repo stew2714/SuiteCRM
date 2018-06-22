@@ -14,13 +14,6 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'APTTUS_REQUEST_DATE_C' => 
-  array (
-    'type' => 'datetimecombo',
-    'label' => 'LBL_APTTUS_REQUEST_DATE_C',
-    'width' => '10%',
-    'default' => true,
-  ),
   'TOTAL_CONTRACT_VALUE' => 
   array (
     'label' => 'LBL_TOTAL_CONTRACT_VALUE',
@@ -122,6 +115,13 @@ array (
     'label' => 'LBL_OPPORTUNITY',
     'id' => 'OPPORTUNITY_ID',
     'link' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'APTTUS_REQUEST_DATE_C' => 
+  array (
+    'type' => 'datetimecombo',
+    'label' => 'LBL_APTTUS_REQUEST_DATE_C',
     'width' => '10%',
     'default' => false,
   ),

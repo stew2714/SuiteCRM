@@ -105,6 +105,7 @@ $viewdefs = array (
               'name' => 'recordtypeid_c',
               'label' => 'LBL_RECORDTYPEID_C',
             ),
+            1 => 'apttus_request_date_c',
           ),
           1 => 
           array (

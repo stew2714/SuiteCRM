@@ -47,7 +47,11 @@ array (
             'name' => 'recordtypeid_c',
             'label' => 'LBL_RECORDTYPEID_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'apttus_request_date_c',
+            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
+          ),
         ),
         1 => 
         array (

@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-12 15:02:05
+// created: 2018-06-21 17:25:01
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -106,4 +106,5 @@ $mod_strings = array (
   'LBL_PROJECTED_PRICEDOWN_C' => 'Projected Pricedown',
   'LBL_PROJECTED_RENEWAL_DATE_C' => 'Projected Renewal Date',
   'LBL_SPECIALIST_NAME_C' => 'Solution Sales Executive',
+  'AOS_Contracts' => 'Agreements',
 );
