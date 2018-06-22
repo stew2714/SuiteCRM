@@ -1,5 +1,5 @@
 <?php
-// created: 2018-01-31 20:53:29
+// created: 2018-06-22 19:03:50
 $mod_strings = array (
   'LBL_FVM' => 'Fluency Voice Manager',
   'LBL_FD' => 'Fluency Direct',
@@ -25,4 +25,7 @@ $mod_strings = array (
   'LBL_TERM_DATE' => 'Inactivity Date',
   'LBL_OPS_REGION' => 'OPs Region',
   'LBL_LIST_NAME' => 'Site',
+  'LBL_CLIENT_ALERT' => 'Client Alert',
+  'LBL_EDITVIEW_PANEL3' => 'Client Alert',
+  'LBL_DETAILVIEW_PANEL3' => 'Client Alert',
 );

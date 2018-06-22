@@ -12,8 +12,8 @@ $popupMeta = array (
   'apttus_status_category_c' => 'aos_contracts_cstm.apttus_status_category_c',
   'apttus_status_c' => 'aos_contracts_cstm.apttus_status_c',
   'apttus_activated_date_c' => 'aos_contracts_cstm.apttus_activated_date_c',
-  'apttus_agreement_number_c' => 'aos_contracts_cstm.apttus_agreement_number_c',
   'opportunity' => 'aos_contracts.opportunity',
+  'agreements_number_and_amendment_c' => 'aos_contracts_cstm.agreements_number_and_amendment_c',
 ),
     'searchInputs' => array (
   1 => 'name',
@@ -24,8 +24,8 @@ $popupMeta = array (
   10 => 'apttus_status_category_c',
   11 => 'apttus_status_c',
   12 => 'apttus_activated_date_c',
-  13 => 'apttus_agreement_number_c',
   14 => 'opportunity',
+  15 => 'agreements_number_and_amendment_c',
 ),
     'searchdefs' => array (
   'contract_account' => 
@@ -45,21 +45,12 @@ $popupMeta = array (
     'width' => '10%',
     'name' => 'name',
   ),
-  'apttus_agreement_number_c' => 
+  'agreements_number_and_amendment_c' => 
   array (
-    'type' => 'varchar',
-    'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+    'type' => 'customreadonly',
+    'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
     'width' => '10%',
-    'name' => 'apttus_agreement_number_c',
-  ),
-  'assigned_user_name' => 
-  array (
-    'link' => true,
-    'type' => 'relate',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
-    'width' => '10%',
-    'name' => 'assigned_user_name',
+    'name' => 'agreements_number_and_amendment_c',
   ),
   'opportunity' => 
   array (
@@ -105,6 +96,15 @@ $popupMeta = array (
     'label' => 'LBL_END_DATE',
     'width' => '10%',
     'name' => 'end_date',
+  ),
+  'assigned_user_name' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'name' => 'assigned_user_name',
   ),
 ),
 );

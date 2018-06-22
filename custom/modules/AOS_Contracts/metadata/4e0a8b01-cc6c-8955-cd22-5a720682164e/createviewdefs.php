@@ -174,7 +174,7 @@ $viewdefs = array (
               'name' => 'amendment_number_c',
               'label' => 'LBL_AMENDMENT_NUMBER_C',
             ),
-            1 => 'ownership_group_c',
+            1 => 'apttus_requestor_name_c',
           ),
           9 => 
           array (
@@ -183,16 +183,17 @@ $viewdefs = array (
               'name' => 'total_contract_value',
               'label' => 'LBL_TOTAL_CONTRACT_VALUE',
             ),
-            1 => 'awaiting_information_detail_c',
+            1 => 'ownership_group_c',
           ),
           10 => 
           array (
             0 => 
             array (
-              'name' => 'gpo_affiliation_c',
-              'label' => 'LBL_GPO_AFFILIATION_C',
+              'name' => 'description',
+              'comment' => 'Full text of the note',
+              'label' => 'LBL_DESCRIPTION',
             ),
-            1 => 'cancellation_reason_c',
+            1 => 'awaiting_information_detail_c',
           ),
           11 => 
           array (
@@ -201,7 +202,7 @@ $viewdefs = array (
               'name' => 'idn_affiliation_c',
               'label' => 'LBL_IDN_AFFILIATION_C',
             ),
-            1 => 'apttus_termination_notice_issue_date_c',
+            1 => 'cancellation_reason_c',
           ),
           12 => 
           array (
@@ -210,24 +211,23 @@ $viewdefs = array (
               'name' => 'federal_agency_c',
               'label' => 'LBL_FEDERAL_AGENCY_C',
             ),
-            1 => 'apttus_termination_date_c',
+            1 => 'apttus_termination_notice_issue_date_c',
           ),
           13 => 
           array (
             0 => 
             array (
-              'name' => 'description',
-              'comment' => 'Full text of the note',
-              'label' => 'LBL_DESCRIPTION',
+              'name' => 'gpo_affiliation_c',
+              'label' => 'LBL_GPO_AFFILIATION_C',
             ),
-            1 => 'general_terms_and_conditions_c',
+            1 => 'apttus_termination_date_c',
           ),
           14 => 
           array (
             0 => 
             array (
-              'name' => 'apttus_special_terms_c',
-              'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
+              'name' => 'general_terms_and_conditions_c',
+              'label' => 'LBL_GENERAL_TERMS_AND_CONDITIONS_C',
             ),
             1 => 't_c_version_c',
           ),
@@ -235,8 +235,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'requires_po_c',
-              'label' => 'LBL_REQUIRES_PO_C',
+              'name' => 'apttus_special_terms_c',
+              'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
             ),
             1 => 'strategic_deal_c',
           ),
@@ -244,10 +244,18 @@ $viewdefs = array (
           array (
             0 => 
             array (
+              'name' => 'requires_po_c',
+              'label' => 'LBL_REQUIRES_PO_C',
+            ),
+            1 => 'strategic_deal_description_c',
+          ),
+          17 => 
+          array (
+            0 => 
+            array (
               'name' => 'agreement_summary_c',
               'label' => 'LBL_AGREEMENT_SUMMARY_C',
             ),
-            1 => 'strategic_deal_description_c',
           ),
         ),
         'lbl_editview_panel1' => 

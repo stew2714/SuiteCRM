@@ -319,32 +319,6 @@ $viewdefs = array (
             ),
             1 => 'assigned_user_name',
           ),
-          17 => 
-          array (
-            0 => 
-            array (
-              'name' => 'securitygroup_display',
-              'comment' => 'Used for adding to the list, detail, and edit views',
-              'studio' => 
-              array (
-                'visible' => false,
-                'listview' => true,
-                'searchview' => false,
-                'detailview' => true,
-                'editview' => true,
-                'formula' => false,
-                'related' => false,
-                'basic_search' => false,
-                'advanced_search' => false,
-                'popuplist' => true,
-                'popupsearch' => false,
-                'dashletsearch' => false,
-                'dashlet' => false,
-              ),
-              'label' => 'LBL_SECURITYGROUP',
-            ),
-            1 => 'additionalusers',
-          ),
         ),
         'lbl_editview_panel1' => 
         array (
@@ -604,6 +578,32 @@ $viewdefs = array (
               'label' => 'LBL_DATE_SUBMITTED_TO_COMM_OPS_C',
             ),
             1 => 'total_time_with_comm_ops_c',
+          ),
+          6 => 
+          array (
+            0 => 
+            array (
+              'name' => 'securitygroup_display',
+              'comment' => 'Used for adding to the list, detail, and edit views',
+              'studio' => 
+              array (
+                'visible' => false,
+                'listview' => true,
+                'searchview' => false,
+                'detailview' => true,
+                'editview' => true,
+                'formula' => false,
+                'related' => false,
+                'basic_search' => false,
+                'advanced_search' => false,
+                'popuplist' => true,
+                'popupsearch' => false,
+                'dashletsearch' => false,
+                'dashlet' => false,
+              ),
+              'label' => 'LBL_SECURITYGROUP',
+            ),
+            1 => 'additionalusers',
           ),
         ),
         'acc_lbl_editview_panel1' => 

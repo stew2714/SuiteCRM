@@ -80,12 +80,6 @@ array (
         'default' => true,
         'name' => 'apttus_status_c',
       ),
-      'contract_type' => 
-      array (
-        'name' => 'contract_type',
-        'default' => true,
-        'width' => '10%',
-      ),
       'assigned_user_id' => 
       array (
         'name' => 'assigned_user_id',
