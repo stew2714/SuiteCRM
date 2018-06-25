@@ -1,0 +1,28 @@
+<?php
+// created: 2018-06-25 17:07:00
+$mod_strings = array (
+  'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
+  'LBL_EMR_1' => 'EMR #1',
+  'LBL_EMR_2_M1_EMR_ID' => 'EMR #2 (related  ID)',
+  'LBL_EMR_2' => 'EMR #2',
+  'LBL_EMR_3_M1_EMR_ID' => 'EMR #3 (related  ID)',
+  'LBL_EMR_3' => 'EMR #3',
+  'LBL_EMR_4_M1_EMR_ID' => 'EMR #4 (related  ID)',
+  'LBL_EMR_4' => 'EMR #4',
+  'LBL_EMR_5_M1_EMR_ID' => 'EMR #5 (related  ID)',
+  'LBL_EMR_5' => 'EMR #5',
+  'LBL_EMR_OTHER' => 'EMR Other',
+  'LBL_EDITVIEW_PANEL7' => 'EMR(s)',
+  'LBL_PRIMARY_EMR_DESCRIPTION' => 'EMR #1 Description',
+  'LBL_EDITVIEW_PANEL8' => 'New Panel 8',
+  'LBL_SECONDARY_EMR_DESCRIPTION' => 'EMR #2 Description',
+  'LBL_OTHER_EMR_DESCRIPTION' => 'Other Description',
+  'LBL_EDITVIEW_PANEL9' => 'Other Deployment Info',
+  'LBL_MATCH_EMR' => 'Login must match EMR',
+  'LBL_MATCH_WINDOWS' => 'Login must match windows',
+  'LBL_EDITVIEW_PANEL10' => 'New Panel 10',
+  'LBL_EMR_3_DESCRIPTION' => 'EMR #3 Description',
+  'LBL_EMR_4_DESCRIPTION' => 'EMR #4 Description',
+  'LBL_EMR_5_DESCRIPTION' => 'EMR #5 Description',
+  'LBL_M1_TECH_DEPLOYMENTS_ACCOUNTS_1_FROM_ACCOUNTS_TITLE' => 'Accounts',
+);

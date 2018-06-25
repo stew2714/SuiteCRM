@@ -140,5 +140,15 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'APTTUS_REQUESTOR_NAME_C' => 
+  array (
+    'type' => 'relate',
+    'studio' => 'visible',
+    'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
+    'id' => 'ONEAPTTUS_REQUESTOR_C',
+    'link' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
 );
 ?>
