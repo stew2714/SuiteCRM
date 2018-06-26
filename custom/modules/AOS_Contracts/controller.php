@@ -118,7 +118,7 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            if($bean->apttus_status_c == "req_sr") {
+            if($bean->apttus_status_c != "req_sr") {
                 $bean->load_relationship('g1_group_queue_aos_contracts');
                 $bean->g1_group_queue_aos_contracts->add($sugar_config['Legal']);
                 $bean->user_id2 = $current_user->id;
@@ -144,7 +144,7 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            if ($bean->apptus_status_c == "req_cr") {
+            if ($bean->apptus_status_c != "req_cr") {
                 $bean->load_relationship('g1_group_queue_aos_contracts');
                 $bean->g1_group_queue_aos_contracts->delete($bean->id, $sugar_config['Legal']);
                 $bean->apttus_status_category_c = "req";
