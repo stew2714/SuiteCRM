@@ -3,9 +3,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
-
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2016 Salesagility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -33,9 +30,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  *
  * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
  * these Appropriate Legal Notices must retain the display of the "Powered by
- * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
- * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ * SugarCRM" logo. If the display of the logo is not reasonably feasible for
+ * technical reasons, the Appropriate Legal Notices must display the words
+ * "Powered by SugarCRM".
  ********************************************************************************/
 
 
@@ -99,18 +96,30 @@ if(!$hasUserPreferences){
         $current_user->setPreference('dashlets', $old_dashlets, 0, 'home');
     }
     else{
-        $dashlets[create_guid()] = array ('className' => 'SuiteFeedDashlet',
-                                          'module' => 'SuiteFeed',
-                                          'forceColumn' => 1,
-                                          'fileLocation' => $dashletsFiles['SuiteFeedDashlet']['file'],
-        );
         // This is here to get Sugar dashlets added above the rest
+        $dashlets[create_guid()] = array('className' => 'iFrameDashlet',
+            'module' => 'Home',
+            'forceColumn' => 0,
+            'fileLocation' => $dashletsFiles['iFrameDashlet']['file'],
+            'options' => array('titleLabel' => 'LBL_DASHLET_DISCOVER_SUGAR_PRO',
+                'url' => 'https://www.sugarcrm.com/crm/product/gopro',
+                'height' => 315,
+            ));
+
         $dashlets[create_guid()] = array ('className' => 'SugarFeedDashlet',
             'module' => 'SugarFeed',
             'forceColumn' => 1,
             'fileLocation' => $dashletsFiles['SugarFeedDashlet']['file'],
         );
 
+        $dashlets[create_guid()] = array('className' => 'iFrameDashlet',
+            'module' => 'Home',
+            'forceColumn' => 1,
+            'fileLocation' => $dashletsFiles['iFrameDashlet']['file'],
+            'options' => array('titleLabel' => 'LBL_DASHLET_SUGAR_NEWS',
+                'url' => 'https://www.sugarcrm.com/crm/product/news',
+                'height' => 315,
+            ));
 
         foreach($defaultDashlets as $dashletName=>$module){
             // clint - fixes bug #20398
@@ -177,7 +186,7 @@ if (empty($pages)){
     $pages = array();
     $pageIndex = 0;
     $pages[0]['columns'] = $columns;
-    $pages[0]['numColumns'] = '3';
+    $pages[0]['numColumns'] = '2';
     $pages[0]['pageTitleLabel'] = 'LBL_HOME_PAGE_1_NAME';	// "My Sugar"
     $pageIndex++;
     $current_user->setPreference('pages', $pages, 0, 'Home');
@@ -186,7 +195,7 @@ if (empty($pages)){
 
 $sugar_smarty = new Sugar_Smarty();
 
-$activePage = 0;
+$activePage = isset($_REQUEST['page_id']) && $_REQUEST['page_id'] ? $_REQUEST['page_id'] : 0;
 
 $divPages[] = $activePage;
 
@@ -218,10 +227,7 @@ foreach($pages[$activePage]['columns'] as $colNum => $column) {
             $myDashlet = new MySugar($module);
 
             if($myDashlet->checkDashletDisplay()) {
-
                 require_once(get_custom_file_if_exists($dashlets[$id]['fileLocation']));
-
-
                 $dashlet = new $dashlets[$id]['className']($id, (isset($dashlets[$id]['options']) ? $dashlets[$id]['options'] : array()));
                 // Need to add support to dynamically display/hide dashlets
                 // If it has a method 'shouldDisplay' we will call it to see if we should display it or not
@@ -235,12 +241,30 @@ foreach($pages[$activePage]['columns'] as $colNum => $column) {
                 array_push($dashletIds, $id);
 
                 $dashlets = $current_user->getPreference('dashlets', 'Home'); // Using hardcoded 'Home' because DynamicAction.php $_REQUEST['module'] value is always Home
+
+                if(!empty($_REQUEST['id']) && $_REQUEST['id'] == $id) {
+                    $sortOrder = '';
+                    $orderBy = '';
+                    foreach($_REQUEST as $k => $v){
+                        if($k == 'lvso'){
+                            $sortOrder = $v;
+                        }
+                        else if(preg_match('/Home2_.+_ORDER_BY/', $k)){
+                            $orderBy = $v;
+                        }
+                    }
+                    if(!empty($sortOrder) && !empty($orderBy)){
+                        $dashlets[$id]['sort_options'] = array('sortOrder' => $sortOrder, 'orderBy' => $orderBy);
+                        $current_user->setPreference('dashlets', $dashlets, 0, 'Home');
+                    }
+                }
+
                 $lvsParams = array();
                 if(!empty($dashlets[$id]['sort_options'])){
                     $lvsParams = $dashlets[$id]['sort_options'];
                 }
 
-                $dashlet->process($lvsParams);
+                $dashlet->process($lvsParams, $id);
                 try {
                     $display[$colNum]['dashlets'][$id]['display'] = $dashlet->display();
                     $display[$colNum]['dashlets'][$id]['displayHeader'] = $dashlet->getHeader();
@@ -258,25 +282,14 @@ foreach($pages[$activePage]['columns'] as $colNum => $column) {
     }
 }
 
+$_SESSION['current_tab'] = $activePage;
 
-$i = 0;
-    while($i < count($pages)){
-        if($i == 0){
-            $pageTabs[$i]['pageTitle'] = $GLOBALS['app_strings']['LBL_SUITE_DASHBOARD'];
-//            $pageTabs[$i]['active'] = 'current';
-        }else{
-            $pageTabs[$i]['pageTitle'] = $pages[$i]['pageTitle'];
-            $divPages[] = $i;
-        }
-        $i++;
-    }
 
 if(!empty($sugar_config['lock_homepage']) && $sugar_config['lock_homepage'] == true) $sugar_smarty->assign('lock_homepage', true);
 
-$dashboardActions = $GLOBALS['app_strings']['LBL_SUITE_DASHBOARD_ACTIONS'];
 
+$sugar_smarty->assign('colNum', $numCols);
 $sugar_smarty->assign('sugarVersion', $sugar_version);
-$sugar_smarty->assign('sugarFlavor', $sugar_flavor);
 $sugar_smarty->assign('currentLanguage', $GLOBALS['current_language']);
 $sugar_smarty->assign('serverUniqueKey', $GLOBALS['server_unique_key']);
 $sugar_smarty->assign('imagePath', $GLOBALS['image_path']);
@@ -291,52 +304,29 @@ $sugar_smarty->assign('theme', $theme);
 
 $sugar_smarty->assign('divPages', $divPages);
 $sugar_smarty->assign('activePage', $activePage);
-$sugar_smarty->assign('dashboardPages', $pageTabs);
-$sugar_smarty->assign('dashboardActions', $dashboardActions);
+
 $sugar_smarty->assign('current_user', $current_user->id);
 
 $sugar_smarty->assign('lblAdd', $GLOBALS['app_strings']['LBL_ADD_BUTTON']);
-$sugar_smarty->assign('lblAddTab', $GLOBALS['app_strings']['LBL_ADD_TAB']);
 $sugar_smarty->assign('lblAddDashlets', $GLOBALS['app_strings']['LBL_ADD_DASHLETS']);
 $sugar_smarty->assign('lblLnkHelp', $GLOBALS['app_strings']['LNK_HELP']);
 
 $sugar_smarty->assign('mod', return_module_language($GLOBALS['current_language'], 'Home'));
 $sugar_smarty->assign('app', $GLOBALS['app_strings']);
 $sugar_smarty->assign('module', 'Home');
-
 //custom chart code
-//Get the RGraph libraries (add this more elegantly later to check exactly what is needed, not just all).
-require_once('include/SuiteGraphs/RGraphIncludes.php');
-
 require_once('include/SugarCharts/SugarChartFactory.php');
 $sugarChart = SugarChartFactory::getInstance();
 $resources = $sugarChart->getChartResources();
 $mySugarResources = $sugarChart->getMySugarChartResources();
 $sugar_smarty->assign('chartResources', $resources);
 $sugar_smarty->assign('mySugarChartResources', $mySugarResources);
-
-if (file_exists("custom/themes/" . $theme ."/tpls/MySugar.tpl")) {
-    echo $sugar_smarty->fetch('custom/include/MySugar/tpls/MySugar.tpl');
+if (file_exists("custom/include/MySugar/tpls/MySugar2.tpl")) {
+    echo $sugar_smarty->fetch('custom/include/MySugar/tpls/MySugar2.tpl');
+} else {
+    echo $sugar_smarty->fetch('include/MySugar/tpls/MySugar2.tpl');
 }
-else if(file_exists('custom/include/MySugar/tpls/MySugar.tpl')) {
-    echo $sugar_smarty->fetch('custom/include/MySugar/tpls/MySugar.tpl');
-}
-elseif (file_exists("themes/" . $theme ."/tpls/MySugar.tpl")) {
-    echo $sugar_smarty->fetch("themes/" . $theme ."/tpls/MySugar.tpl");
-}
-else if(file_exists('include/MySugar/tpls/MySugar.tpl')) {
-    echo $sugar_smarty->fetch('include/MySugar/tpls/MySugar.tpl');
-}
-else if(file_exists("custom/themes/" . $theme .'include/MySugar/tpls/MySugar.tpl')) {
-    echo $sugar_smarty->fetch('include/MySugar/tpls/MySugar.tpl');
-}
-else {
-    $GLOBALS['log']->fatal('MySugar.tpl not found');
-}
-
 
 //init the quickEdit listeners after the dashlets have loaded on home page the first time
 echo"<script>if(typeof(qe_init) != 'undefined'){qe_init();}</script>";
-echo"<script> $( '#pageNum_'+ 0 +'_anchor').addClass( 'current' );</script>";
-echo"<script> $( '#pageNum_'+ 0).addClass( 'active' );</script>";
 ?>
