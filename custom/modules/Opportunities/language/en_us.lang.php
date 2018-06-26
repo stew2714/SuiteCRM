@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-21 17:25:01
+// created: 2018-06-26 13:48:44
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
@@ -43,8 +43,8 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL14' => 'Volumes',
   'LBL_ASSIGNED_TO_NAME' => 'Opportunity Owner',
   'LBL_CAMPAIGN' => 'Primary Campaign',
-  'LBL_EDITVIEW_PANEL15' => 'Renewal Pricedowns',
-  'LBL_EDITVIEW_PANEL16' => 'Competitive Details',
+  'LBL_EDITVIEW_PANEL15' => 'Opportunity Status',
+  'LBL_EDITVIEW_PANEL16' => 'Pricing Details',
   'LBL_RECORDTYPEID_C' => 'Record Type',
   'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE' => 'Accounts (Won)',
   'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE' => 'Accounts (Incumbent)',
@@ -84,7 +84,7 @@ $mod_strings = array (
   'LBL_ANNUAL_MQ_SERVICES_ESTIMATE_C' => 'Annual M*Modal Services Estimate',
   'LBL_OTHER_COST_C' => 'Other Cost',
   'LBL_ANNUAL_MAINTENANCE_COST_C' => 'Annual Maintenance Cost',
-  'LBL_EDITVIEW_PANEL17' => 'Terms',
+  'LBL_EDITVIEW_PANEL17' => 'Opportunity Status',
   'LBL_TERM_LENGTH_MM_C' => 'Subscr./TOS/Coding Term (MM)',
   'LBL_ADOPTION_SERVICES_TERM_LENGTH_C' => 'Adoption Services Term',
   'LBL_LICENSE_TERM_LENGTH_MM_C' => 'Capital License Term',
@@ -107,4 +107,13 @@ $mod_strings = array (
   'LBL_PROJECTED_RENEWAL_DATE_C' => 'Projected Renewal Date',
   'LBL_SPECIALIST_NAME_C' => 'Solution Sales Executive',
   'AOS_Contracts' => 'Agreements',
+  'LBL_VENDOR_OF_CHOICE_C' => 'Vendor Of Choice',
+  'LBL_TOS_OUT_FOR_CONVENIENCE_C' => 'TOS No Out for Convenience',
+  'LBL_TIP_SOURCE_C' => 'Tip Source',
+  'LBL_EXCLUSIVITY_C' => 'TOS Exclusivity',
+  'LBL_LATEST_UPDATE_C' => 'Latest Update',
+  'LBL_AMOUNT' => 'Opportunity Amount:',
+  'LBL_ASSIGNED_TO' => 'Owner',
+  'LBL_DETAILVIEW_PANEL15' => 'Opportunity Status',
+  'LBL_AVG_HRS_MO_PER_PROVIDER_SCRIBE_OPPS_C' => 'Avg Hrs/Mo Per Provider Scribe Opps',
 );
