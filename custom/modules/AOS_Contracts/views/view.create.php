@@ -165,7 +165,7 @@ class AOS_ContractsViewCreate extends ViewCreate
             $this->bean->apttus_parent_agreement_name_c = $contractsRow[1];
             $this->bean->Oneapttus_parent_agreement_c = $contractsRow[0];
             $this->bean->apttus_status_category_c = "req";
-            $this->bean->apttus_status_c = "req_sr";
+            $this->bean->apttus_status_c = "req_ia";
         }
 
         if($this->bean->apttus_status_c == "eff_act" && $_REQUEST['isAmendment'] != "true") {
