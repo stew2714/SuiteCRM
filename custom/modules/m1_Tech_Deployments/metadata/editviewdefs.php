@@ -171,7 +171,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_OTHER_CONFIG_NEEDS',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
