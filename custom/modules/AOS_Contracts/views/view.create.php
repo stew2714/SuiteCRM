@@ -140,11 +140,12 @@ class AOS_ContractsViewCreate extends ViewCreate
 
     public function preDisplay()
     {
+        global $sugar_config, $current_user;
         if (isset($_REQUEST["return_id"]) && $_REQUEST["return_id"] !== '' && isset($_REQUEST["return_module"]) && $_REQUEST["return_module"] !== '') {
             $reqBeanId = $_REQUEST["return_id"];
             $reqBeanType = $_REQUEST["return_module"];
             $returnBean = BeanFactory::getBean($reqBeanType, $reqBeanId);
-            if ($returnBean->id !== ('' || null)) {
+            if ($returnBean->id !== ('' || null) && $reqBeanType == "Opportunities") {
                 $this->bean->apttus_requestor_name_c = $returnBean->assigned_user_name;
                 $this->bean->Oneapttus_requestor_c = $returnBean->assigned_user_id;
                 $this->bean->probability_c = $returnBean->probability;
@@ -168,7 +169,10 @@ class AOS_ContractsViewCreate extends ViewCreate
             $this->bean->apttus_status_c = "req_ia";
         }
 
-        if($this->bean->apttus_status_c == "eff_act" && $_REQUEST['isAmendment'] != "true") {
+        $securityGroups = BeanFactory::getBean("SecurityGroups");
+        $groups = $securityGroups->getUserSecurityGroups($current_user->id);
+
+        if($this->bean->apttus_status_c == "eff_act" && $_REQUEST['isAmendment'] != "true" && !is_admin($current_user) && !array_key_exists($sugar_config['LegalGroup'],$groups)) {
             $redirectURL = "index.php?module=AOS_Contracts&action=DetailView&record=".$this->bean->id;
             echo "<script>
                 alert('This agreement has been activated. You are not allowed to edit it further.');
