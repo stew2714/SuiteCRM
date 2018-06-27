@@ -15,7 +15,7 @@ function checkRules(){
 
   //31 -------- AND(ISPICKVAL(Apttus__Status_Category__c,"In Effect"),AND(ISNULL(Apttus__Contract_End_Date__c),
   // NOT(Apttus__Perpetual__c)),OR(ISNULL(Apttus__Term_Months__c),Apttus__Term_Months__c<=0))
-  if( ($("#apttus_status_category_c").val() == "In Effect" && $("#apttus_contract_end_date_c").val() == "" &&
+  if( ($("#apttus_status_category_c").val() == "eff" && $("#apttus_contract_end_date_c").val() == "" &&
       $("#apttus_perpetual_c").val() != "") && ($("#apttus_term_months_c").val() == "" || $("#apttus_term_months_c").val() <= 0 ) ){
     addToValidate('CreateView',"apttus_contract_end_date_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_END_DATE_PERPETUAL'));
   }
@@ -31,7 +31,7 @@ function checkRules(){
   }
 
   //33 ----- AND(ISPICKVAL(Apttus__Status_Category__c,"In Effect"),ISNULL(Apttus__Contract_Start_Date__c))
-  if($("#apttus_status_category_c").val() == "In Effect"  && $("#apttus_contract_start_date_c").val() == "" ){
+  if($("#apttus_status_category_c").val() == "eff"  && $("#apttus_contract_start_date_c").val() == "" ){
     addToValidate('CreateView',"apttus_contract_start_date_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_DATE'));
   }else{
     if( checkValidate("CreateView", "apttus_contract_start_date_c")){
@@ -71,6 +71,20 @@ function checkRules(){
   }else{
     if( checkValidate("CreateView", "acc_tos_renewal_notification_period_dd_c")){
       removeFromValidate("CreateView","acc_tos_renewal_notification_period_dd_c" )
+    }
+  }
+  if($("#apttus_status_c").val() == "eff_act" && $("#apttus_company_signed_by_name_c").val() == "" ){
+    addToValidate('CreateView',"apttus_company_signed_by_name_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_SIGNED'));
+  }else{
+    if( checkValidate("CreateView", "apttus_company_signed_by_name_c")){
+      removeFromValidate("CreateView","apttus_company_signed_by_name_c" )
+    }
+  }
+  if($("#apttus_status_c").val() == "eff_act" && $("#apttus_contract_end_date_c").val() == "" ){
+    addToValidate('CreateView',"apttus_contract_end_date_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_END_DATE'));
+  }else{
+    if( checkValidate("CreateView", "apttus_contract_end_date_c")){
+      removeFromValidate("CreateView","apttus_contract_end_date_c" )
     }
   }
   return true;

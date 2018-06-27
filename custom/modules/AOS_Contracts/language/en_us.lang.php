@@ -49,4 +49,6 @@ $mod_strings = array (
   'LBL_START_DATE' => 'Agreement Start Date',
   'LBL_END_DATE' => 'Agreement End Date',
   'LBL_SHIPPING_TAX_AMT' => 'Shipping Tax ($$)',
+  'LBL_REQUIRED_FIELD_SIGNED' => 'Please enter the Company Signed By field prior to activating the agreement.',
+  'LBL_REQUIRED_FIELD_END_DATE' => 'Please enter the Contract End Date field prior to activating the agreement.',
 );
