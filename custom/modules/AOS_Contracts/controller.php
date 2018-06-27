@@ -78,7 +78,7 @@ class AOS_ContractsController extends SugarController
                 $this->bean->agreements_number_and_amendment_c = $newNumber . ".00";
             }
             $this->bean->apttus_status_category_c = "req";
-            $this->bean->apttus_status_c = "req_ia";
+            $this->bean->apttus_status_c = "req_req";
             $this->bean->assigned_user_id = $current_user->id;
             $this->bean->date_requested_c = $timedate->nowDb();
         } elseif(!empty($this->bean->Oneapttus_parent_agreement_c)) {
@@ -87,6 +87,7 @@ class AOS_ContractsController extends SugarController
             $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.is_latest_c = FALSE WHERE aos_contracts_cstm.agreements_number_c = '".$this->bean->agreements_number_c."'";
             $this->bean->db->query($sql);
             $this->bean->is_latest_c = true;
+            $this->bean->assigned_user_id = $current_user->id;
         }
 
         foreach($related as $key => $relationship){
