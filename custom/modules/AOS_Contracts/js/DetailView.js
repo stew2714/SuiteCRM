@@ -258,6 +258,9 @@ $(document).ready(function() {
         if (response === "success") {
             $("#modal-title").text("Activated Successfully");
             $("#modal-content").text("This record has been successfully activated.");
+        } else if (response === "validate_fail") {
+            $("#modal-title").text("Activate Validation Failed");
+            $("#modal-content").text("The Contract Start Date and the Company Signed By fields have not been filled in. Please fill these fields in to activate.");
         } else {
             $("#modal-title").text("Activation Failed");
             $("#modal-content").text("There was a problem activating this record. If the problem persists please contact your System Administrator.");
