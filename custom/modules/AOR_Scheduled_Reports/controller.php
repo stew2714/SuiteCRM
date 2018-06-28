@@ -26,6 +26,7 @@ class AOR_Scheduled_ReportsController extends SugarController {
             return false;
         }
 
+        $emailTemplate = BeanFactory::getBean('EmailTemplates',$bean->report_email_template_id_c);
         $emailObj = new Email();
         $defaults = $emailObj->getSystemDefaultEmail();
         $mail = new SugarPHPMailer();
@@ -48,14 +49,15 @@ class AOR_Scheduled_ReportsController extends SugarController {
                 if($pdf !== false){
                     $mail->addAttachment($pdf['location'],$pdf['name']);
                 }
-                $mail->Body = '<h1>hello world!</h1>';
+
+                $mail->Body = $emailTemplate->body_html;
                 break;
             case 'csv':
                 $csv = $report->build_report_csv_to_file();
                 if($csv !== false){
                     $mail->addAttachment($csv['location'],$csv['name']);
                 }
-                $mail->Body = '<h1>hello world!</h1>';
+                $mail->Body = $emailTemplate->body_html;
                 break;
             default:
                 break;

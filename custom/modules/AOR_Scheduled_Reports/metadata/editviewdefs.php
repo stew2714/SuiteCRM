@@ -53,7 +53,12 @@ array (
       array (
         0 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'report_email_template_c',
+            'studio' => 'visible',
+            'label' => 'LBL_REPORT_EMAIL_TEMPLATE_C',
+          ),
           1 => 
           array (
             'name' => 'report_format_c',
