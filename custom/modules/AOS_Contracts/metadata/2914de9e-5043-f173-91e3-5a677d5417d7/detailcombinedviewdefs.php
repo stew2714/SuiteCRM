@@ -32,11 +32,11 @@ $viewdefs = array (
             ),
             6 => 
             array (
-              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="submitRequest" value="{$MOD.LBL_BUTTON_SUBMIT_REQUEST}">{/if}',
+              'customCode' => '{if $SALES_TEAM === true || $LEGAL_TEAM === true}<input type="button" class="button" id="submitRequest" value="{$MOD.LBL_BUTTON_SUBMIT_REQUEST}">{/if}',
             ),
             7 =>
             array (
-              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="cancelRequest" value="{$MOD.LBL_BUTTON_CANCEL_REQUEST}">{/if}',
+              'customCode' => '{if $SALES_TEAM === true || $LEGAL_TEAM === true}<input type="button" class="button" id="cancelRequest" value="{$MOD.LBL_BUTTON_CANCEL_REQUEST}">{/if}',
             ),
             8 =>
             array (

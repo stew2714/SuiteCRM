@@ -43,11 +43,15 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'account_name' => 
+      'accounts_opportunities_3_name' => 
       array (
-        'name' => 'account_name',
-        'default' => true,
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE',
+        'id' => 'ACCOUNTS_OPPORTUNITIES_3ACCOUNTS_IDA',
         'width' => '10%',
+        'default' => true,
+        'name' => 'accounts_opportunities_3_name',
       ),
       'amount' => 
       array (
