@@ -43,12 +43,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL5' => 
+        'LBL_EDITVIEW_PANEL7' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL7' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -68,10 +68,6 @@ array (
         0 => 
         array (
           0 => 'name',
-        ),
-        1 => 
-        array (
-          0 => 'assigned_user_name',
           1 => 
           array (
             'name' => 'accounts_m1_tech_deployments_1_name',
@@ -163,15 +159,6 @@ array (
             'label' => 'LBL_IF_YES_PASS_THROUGH_INFO',
           ),
         ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'other_config_needs',
-            'studio' => 'visible',
-            'label' => 'LBL_OTHER_CONFIG_NEEDS',
-          ),
-        ),
       ),
       'lbl_editview_panel4' => 
       array (
@@ -218,6 +205,146 @@ array (
           ),
         ),
       ),
+      'lbl_editview_panel7' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_1_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_1',
+          ),
+          1 => 
+          array (
+            'name' => 'emr_hosted_by',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_HOSTED_BY',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'primary_emr_description',
+            'label' => 'LBL_PRIMARY_EMR_DESCRIPTION',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_2_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_2',
+          ),
+          1 => 
+          array (
+            'name' => 'emr2_hosted_by_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR2_HOSTED_BY',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'secondary_emr_description',
+            'label' => 'LBL_SECONDARY_EMR_DESCRIPTION',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_3_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_3',
+          ),
+          1 => 
+          array (
+            'name' => 'emr3_hosted_by_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR3_HOSTED_BY',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_3_description_c',
+            'label' => 'LBL_EMR_3_DESCRIPTION',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_4_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_4',
+          ),
+          1 => 
+          array (
+            'name' => 'emr4_hosted_by_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR4_HOSTED_BY',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_4_description_c',
+            'label' => 'LBL_EMR_4_DESCRIPTION',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_5_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_5',
+          ),
+          1 => 
+          array (
+            'name' => 'emr5_hosted_by_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR5_HOSTED_BY',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_5_description_c',
+            'label' => 'LBL_EMR_5_DESCRIPTION',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_other_c',
+            'label' => 'LBL_EMR_OTHER',
+          ),
+          1 => 
+          array (
+            'name' => 'emr_other_hosted_by_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_OTHER_HOSTED_BY',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'other_emr_description',
+            'label' => 'LBL_OTHER_EMR_DESCRIPTION',
+          ),
+        ),
+      ),
       'lbl_editview_panel5' => 
       array (
         0 => 
@@ -251,14 +378,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'keyboard_mode_required',
-            'label' => 'LBL_KEYBOARD_MODE_REQUIRED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'primary_mic',
             'studio' => 'visible',
             'label' => 'LBL_PRIMARY_MIC',
@@ -269,7 +388,7 @@ array (
             'label' => 'LBL_PRIMARY_MIC_DESC',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -283,7 +402,7 @@ array (
             'label' => 'LBL_SECONDARY_MIC_DESCRIPTION',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -297,100 +416,14 @@ array (
             'label' => 'LBL_OTHER_MIC_DESCRIPTION',
           ),
         ),
-      ),
-      'lbl_editview_panel7' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'emr_1_c',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR_1',
-          ),
-          1 => 
-          array (
-            'name' => 'primary_emr_description',
-            'label' => 'LBL_PRIMARY_EMR_DESCRIPTION',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'emr_2_c',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR_2',
-          ),
-          1 => 
-          array (
-            'name' => 'secondary_emr_description',
-            'label' => 'LBL_SECONDARY_EMR_DESCRIPTION',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'emr_3_c',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR_3',
-          ),
-          1 => 
-          array (
-            'name' => 'emr_3_description_c',
-            'label' => 'LBL_EMR_3_DESCRIPTION',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'emr_4_c',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR_4',
-          ),
-          1 => 
-          array (
-            'name' => 'emr_4_description_c',
-            'label' => 'LBL_EMR_4_DESCRIPTION',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'emr_5_c',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR_5',
-          ),
-          1 => 
-          array (
-            'name' => 'emr_5_description_c',
-            'label' => 'LBL_EMR_5_DESCRIPTION',
-          ),
-        ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'emr_other_c',
-            'label' => 'LBL_EMR_OTHER',
+            'name' => 'keyboard_mode_required',
+            'label' => 'LBL_KEYBOARD_MODE_REQUIRED',
           ),
-          1 => 
-          array (
-            'name' => 'other_emr_description',
-            'label' => 'LBL_OTHER_EMR_DESCRIPTION',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'emr_hosted_by',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR_HOSTED_BY',
-          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel9' => 
@@ -464,6 +497,16 @@ array (
           ),
         ),
         5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'other_config_needs',
+            'studio' => 'visible',
+            'label' => 'LBL_OTHER_CONFIG_NEEDS',
+          ),
+          1 => 'assigned_user_name',
+        ),
+        6 => 
         array (
           0 => 
           array (

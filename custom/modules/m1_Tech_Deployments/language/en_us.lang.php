@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-25 17:07:00
+// created: 2018-06-28 19:20:00
 $mod_strings = array (
   'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
   'LBL_EMR_1' => 'EMR #1',
@@ -25,4 +25,11 @@ $mod_strings = array (
   'LBL_EMR_4_DESCRIPTION' => 'EMR #4 Description',
   'LBL_EMR_5_DESCRIPTION' => 'EMR #5 Description',
   'LBL_M1_TECH_DEPLOYMENTS_ACCOUNTS_1_FROM_ACCOUNTS_TITLE' => 'Accounts',
+  'LBL_EMR_HOSTED_BY' => 'EMR #1 hosted by',
+  'LBL_EMR2_HOSTED_BY' => 'EMR #2 hosted by',
+  'LBL_EMR3_HOSTED_BY' => 'EMR #3 hosted by',
+  'LBL_EMR4_HOSTED_BY' => 'EMR #4 hosted by',
+  'LBL_EMR5_HOSTED_BY' => 'EMR #5 hosted by',
+  'LBL_EMR_OTHER_HOSTED_BY' => 'EMR Other hosted by',
+  'LBL_ASSIGNED_TO_NAME' => 'Owner',
 );
