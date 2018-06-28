@@ -52,7 +52,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL14' => 
+        'LBL_DETAILVIEW_PANEL15' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -67,17 +67,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL10' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_EDITVIEW_PANEL11' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL13' => 
+        'LBL_EDITVIEW_PANEL10' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -255,52 +250,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
+            'name' => 'CIA_Fee_c',
+            'label' => 'LBL_CIA_FEE_C',
           ),
-        ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
@@ -312,16 +264,11 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -513,7 +460,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel14' => 
+      'lbl_detailview_panel15' => 
       array (
         0 => 
         array (
@@ -613,6 +560,44 @@ array (
           ),
         ),
       ),
+      'lbl_editview_panel11' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'baseline_c',
+            'label' => 'LBL_BASELINE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'approved_go_live_date_c',
+            'label' => 'LBL_APPROVED_GO_LIVE_DATE_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ig_number_c',
+            'label' => 'LBL_IG_NUMBER_C',
+          ),
+          1 => 
+          array (
+            'name' => 'completion_of_implementation_c',
+            'label' => 'LBL_COMPLETION_OF_IMPLEMENTATION_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'first_commission_date_c',
+            'label' => 'LBL_FIRST_COMMISSION_DATE_C',
+          ),
+        ),
+      ),
       'lbl_editview_panel10' => 
       array (
         0 => 
@@ -680,54 +665,14 @@ array (
             'label' => 'LBL_PROSPECT_DATE_C',
           ),
         ),
-      ),
-      'lbl_editview_panel11' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'baseline_c',
-            'label' => 'LBL_BASELINE_C',
-          ),
-          1 => 
-          array (
-            'name' => 'approved_go_live_date_c',
-            'label' => 'LBL_APPROVED_GO_LIVE_DATE_C',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ig_number_c',
-            'label' => 'LBL_IG_NUMBER_C',
-          ),
-          1 => 
-          array (
-            'name' => 'completion_of_implementation_c',
-            'label' => 'LBL_COMPLETION_OF_IMPLEMENTATION_C',
-          ),
-        ),
-        2 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'first_commission_date_c',
-            'label' => 'LBL_FIRST_COMMISSION_DATE_C',
-          ),
-        ),
-      ),
-      'lbl_editview_panel13' => 
-      array (
-        0 => 
+        5 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'nl2br' => true,
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel12' => 
@@ -743,6 +688,53 @@ array (
           array (
             'name' => 'modified_by_name',
             'label' => 'LBL_MODIFIED_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

@@ -372,4 +372,16 @@ $searchFields['Opportunities'] = array (
   array (
     'query_type' => 'default',
   ),
+  'tos_out_for_convenience_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'tip_source_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'latest_update_c' => 
+  array (
+    'query_type' => 'default',
+  ),
 );

@@ -161,28 +161,19 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_NEW_AE1_NAME_C',
           ),
-          1 => '',
-        ),
-        9 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'new_ae2_name_c',
             'studio' => 'visible',
             'label' => 'LBL_NEW_AE2_NAME_C',
           ),
-          1 => 
-          array (
-            'name' => 'count_c',
-            'label' => 'LBL_COUNT_C',
-          ),
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
-            'name' => 'notifi_subscription_amount_c',
-            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
+            'name' => 'count_c',
+            'label' => 'LBL_COUNT_C',
           ),
           1 => 
           array (
@@ -190,7 +181,7 @@ array (
             'label' => 'LBL_NUMBER_OF_FTES_C',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -199,16 +190,16 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coding_start_date_c',
-            'label' => 'LBL_CODING_START_DATE_C',
+            'name' => 'notifi_subscription_amount_c',
+            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
-            'name' => 'statdx_c',
-            'label' => 'LBL_STATDX_C',
+            'name' => 'coding_start_date_c',
+            'label' => 'LBL_CODING_START_DATE_C',
           ),
           1 => 
           array (
@@ -216,17 +207,30 @@ array (
             'label' => 'LBL_CODING_END_DATE_C',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
+          array (
+            'name' => 'coding_specialty_c',
+            'label' => 'LBL_CODING_SPECIALTY_C',
+          ),
+          1 => 
           array (
             'name' => 'extended_term_adoption_services_value_c',
             'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
           ),
+        ),
+        13 => 
+        array (
+          0 => 
+          array (
+            'name' => 'modlink_c',
+            'label' => 'LBL_MODLINK_C',
+          ),
           1 => 
           array (
-            'name' => 'coding_specialty_c',
-            'label' => 'LBL_CODING_SPECIALTY_C',
+            'name' => 'gp_contract_order_c',
+            'label' => 'LBL_GP_CONTRACT_ORDER_C',
           ),
         ),
         14 => 
@@ -238,31 +242,22 @@ array (
           ),
           1 => 
           array (
-            'name' => 'modlink_c',
-            'label' => 'LBL_MODLINK_C',
+            'name' => 'commissions_notes_c',
+            'label' => 'LBL_COMMISSIONS_NOTES_C',
           ),
         ),
         15 => 
         array (
           0 => 
           array (
-            'name' => 'commissions_notes_c',
-            'label' => 'LBL_COMMISSIONS_NOTES_C',
-          ),
-          1 => 
-          array (
-            'name' => 'gp_contract_order_c',
-            'label' => 'LBL_GP_CONTRACT_ORDER_C',
-          ),
-        ),
-        16 => 
-        array (
-          0 => 
-          array (
             'name' => 'total_contract_value_c',
             'label' => 'LBL_TOTAL_CONTRACT_VALUE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'statdx_c',
+            'label' => 'LBL_STATDX_C',
+          ),
         ),
       ),
       'lbl_editview_panel4' => 
@@ -413,7 +408,12 @@ array (
       array (
         0 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
           1 => 
           array (
             'name' => 'is_source_c',
@@ -432,8 +432,64 @@ array (
           ),
           1 => 
           array (
+            'name' => 'sage_opportunity_id_c',
+            'label' => 'LBL_SAGE_OPPORTUNITY_ID_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'modified_by_name',
             'label' => 'LBL_MODIFIED_NAME',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

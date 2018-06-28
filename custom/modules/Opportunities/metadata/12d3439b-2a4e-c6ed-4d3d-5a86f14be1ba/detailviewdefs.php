@@ -188,93 +188,68 @@ array (
         array (
           0 => 
           array (
-            'name' => 'crm_c',
-            'label' => 'LBL_CRM_C',
-          ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
-          array (
             'name' => 'count_c',
             'label' => 'LBL_COUNT_C',
           ),
-          1 => '',
-        ),
-        13 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'modlink_c',
             'label' => 'LBL_MODLINK_C',
           ),
-          1 => '',
         ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'notifi_subscription_amount_c',
-            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
-          ),
-          1 => '',
-        ),
-        15 => 
+        12 => 
         array (
           0 => 
           array (
             'name' => 'notifi_c',
             'label' => 'LBL_NOTIFI_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'notifi_subscription_amount_c',
+            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
+          ),
         ),
-        16 => 
+        13 => 
         array (
           0 => 
+          array (
+            'name' => 'crm_c',
+            'label' => 'LBL_CRM_C',
+          ),
+          1 => 
           array (
             'name' => 'statdx_c',
             'label' => 'LBL_STATDX_C',
           ),
-          1 => '',
         ),
-        17 => 
+        14 => 
         array (
           0 => 
           array (
             'name' => 'extended_term_adoption_services_value_c',
             'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'gp_contract_order_c',
+            'label' => 'LBL_GP_CONTRACT_ORDER_C',
+          ),
         ),
-        18 => 
+        15 => 
         array (
           0 => 
           array (
             'name' => 'non_standard_commissions_release_c',
             'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
           ),
-          1 => '',
-        ),
-        19 => 
-        array (
-          0 => 
-          array (
-            'name' => 'gp_contract_order_c',
-            'label' => 'LBL_GP_CONTRACT_ORDER_C',
-          ),
-          1 => '',
-        ),
-        20 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'commissions_notes_c',
             'label' => 'LBL_COMMISSIONS_NOTES_C',
           ),
-          1 => '',
         ),
-        21 => 
+        16 => 
         array (
           0 => 
           array (
@@ -282,53 +257,6 @@ array (
             'label' => 'LBL_TOTAL_CONTRACT_VALUE_C',
           ),
           1 => '',
-        ),
-        22 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
-          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -340,10 +268,7 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
@@ -405,6 +330,53 @@ array (
           array (
             'name' => 'slx_create_date_c',
             'label' => 'LBL_SLX_CREATE_DATE_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
