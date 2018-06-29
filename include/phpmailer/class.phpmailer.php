@@ -388,7 +388,7 @@ class PHPMailer
      *        it must be used via self::CRLF.
      * @var string
      */
-    public $LE = "\n";
+    public $LE = "\r\n";
 
     /**
      * DKIM selector.
@@ -2294,6 +2294,7 @@ class PHPMailer
                 $body .= $this->LE . $this->LE;
                 $body .= $this->attachAll('inline', $this->boundary[2]);
                 $body .= $this->LE;
+
                 $body .= $this->endBoundary($this->boundary[1]);
                 break;
             case 'alt_attach':
@@ -2308,6 +2309,13 @@ class PHPMailer
                 $body .= $this->getBoundary($this->boundary[2], $bodyCharSet, 'text/html', $bodyEncoding);
                 $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
+
+                if (!empty($this->Ical)) {
+                    $body .= $this->getBoundary($this->boundary[2], '', 'text/calendar; method=REQUEST', '');
+                    $body .= $this->encodeString($this->Ical, $this->Encoding);
+                    $body .= $this->LE . $this->LE;
+                }
+
                 $body .= $this->endBoundary($this->boundary[2]);
                 $body .= $this->LE;
                 $body .= $this->attachAll('attachment', $this->boundary[1]);

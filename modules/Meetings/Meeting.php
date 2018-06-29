@@ -661,8 +661,9 @@ class Meeting extends SugarBean {
 
 		if(file_put_contents($path,$content)){
 
-			//$notify_mail->addStringAttachment($content, 'meeting.ics', 'base64', 'text/calendar; charset=utf-8; method=REQUEST');
+			$notify_mail->addStringAttachment($content, 'meeting.ics', 'base64', 'text/calendar; charset=utf-8; method=REQUEST');
 		}
+
         $notify_mail->Ical = $content;
 
 		return $notify_mail;
