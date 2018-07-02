@@ -81,8 +81,8 @@ class AOS_ContractsController extends SugarController
             $this->bean->apttus_status_c = "req_req";
             $this->bean->assigned_user_id = $current_user->id;
             $this->bean->date_requested_c = $timedate->nowDb();
-        } elseif(!empty($this->bean->Oneapttus_parent_agreement_c)) {
-            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'ame', aos_contracts_cstm.apttus_status_c = 'ame_sup' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
+        } elseif(!empty($this->bean->Oneapttus_parent_agreement_c) && empty($this->record)) {
+            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'eff', aos_contracts_cstm.apttus_status_c = 'eff_ba' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
             $this->bean->db->query($sql);
             $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.is_latest_c = FALSE WHERE aos_contracts_cstm.agreements_number_c = '".$this->bean->agreements_number_c."'";
             $this->bean->db->query($sql);
@@ -236,7 +236,7 @@ class AOS_ContractsController extends SugarController
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
             $bean->apttus_status_category_c = "sig";
-            $bean->apttus_status_c = "sig_fco";
+            $bean->apttus_status_c = "sig_ops";
             $bean->save();
             echo "success";
             die();
@@ -342,6 +342,10 @@ class AOS_ContractsController extends SugarController
                 $bean->apttus_status_category_c = "eff";
                 $bean->apttus_status_c = "eff_act";
                 $bean->save();
+                if(!empty($bean->Oneapttus_parent_agreement_c)) {
+                    $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'ame', aos_contracts_cstm.apttus_status_c = 'ame_sup' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
+                    $bean->db->query($sql);
+                }
                 echo "success";
                 die();
             } else {
