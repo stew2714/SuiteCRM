@@ -1756,13 +1756,6 @@ $GLOBALS['app_list_strings']['operating_system_list']=array (
   'WXP' => 'Windows XP',
   'MOSX' => 'Mac OS X',
 );
-
-$GLOBALS['app_list_strings']['emr_hosted_by_list']=array (
-  '' => '',
-  'Customer' => 'Customer',
-  'EMR_Vendor' => 'EMR Vendor',
-  'Third_Party' => 'Third Party',
-);
 $GLOBALS['app_list_strings']['virtualization_tools_list']=array (
   '' => '',
   'CR' => 'Citrix Receiver',
@@ -1898,4 +1891,10 @@ $GLOBALS['app_list_strings']['gpo_list']=array (
   'VHA' => 'VHA',
   'VHA_Texas' => 'VHA Texas',
   'Vizient' => 'Vizient',
+);
+$GLOBALS['app_list_strings']['emr_hosted_by_list']=array (
+  '' => '',
+  'Customer' => 'Customer',
+  'EMR_Vendor' => 'EMR Vendor',
+  'Third_Party' => 'Third Party',
 );
