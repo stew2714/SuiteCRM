@@ -19,6 +19,7 @@ $viewdefs ['Meetings'] =
                         'maxColumns' => '2',
                         'form' =>
                             array(
+                                'enctype' => 'multipart/form-data',
                                 'hidden' =>
                                     array(
                                         0 => '<input type="hidden" name="isSaveAndNew" value="false">',
@@ -167,6 +168,7 @@ $viewdefs ['Meetings'] =
                                                 'label' => 'LBL_DESCRIPTION',
                                             ),
                                     ),
+                                6 => array('file_create')
                             ),
                     ),
             ),

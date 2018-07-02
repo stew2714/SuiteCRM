@@ -19,6 +19,7 @@ array (
       'maxColumns' => '2',
       'form' => 
       array (
+        'enctype' => 'multipart/form-data',
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
@@ -234,6 +235,10 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
+          6 =>
+          array(
+              0 => 'file_create',
+          ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (

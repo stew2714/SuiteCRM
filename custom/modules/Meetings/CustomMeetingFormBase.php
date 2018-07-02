@@ -67,6 +67,8 @@ class CustomMeetingFormBase extends MeetingFormBase
      */
     private $admin;
 
+
+    private $inviteChange = false;
     /**
      * @inheritdoc
      */
@@ -77,6 +79,30 @@ class CustomMeetingFormBase extends MeetingFormBase
         if($_REQUEST['send_invites'] == true){
             $_REQUEST['send_invites'] = false;
             $sendInvites = true;
+            if(!empty($_REQUEST['record']) ){
+                $tempBean = BeanFactory::getBean("Meetings", $_REQUEST['record']);
+                if($tempBean != false && $tempBean->load_relationship("users")){
+                    $tempObject = $tempBean->users->getBeans();
+                    $tempObjectContact = [];
+                    if( $tempBean->load_relationship("contacts") ){
+                        $tempObjectContact = $tempBean->contacts->getBeans();
+                    }
+                    $tempObjectLeads = [];
+                    if( $tempBean->load_relationship("contacts") ){
+                        $tempObjectLeads = $tempBean->contacts->getBeans();
+                    }
+                    $list = array_filter(explode(",", $_REQUEST['user_invitees']));
+                    foreach($list as $key => $value){
+                        if(!is_object($tempObject[ $value ]) &&
+                           !is_object($tempObjectContact[ $value ]) &&
+                           !is_object($tempObjectLeads[ $value ]) ){
+                            $this->inviteChange = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            $this->totalInvites = explode(",", $_REQUEST["user_invitees"]);
         }
         $focus = parent::handleSave($prefix, false, $useRequired);
 
@@ -106,6 +132,9 @@ class CustomMeetingFormBase extends MeetingFormBase
 
     private function addAttachments($notify_mail , $bean){
         $rel = "attachment_notes";
+
+
+
         if($bean->load_relationship($rel)) {
             $results = $bean->{$rel}->getBeans();
             if(count($results) > 0 ){
@@ -113,13 +142,17 @@ class CustomMeetingFormBase extends MeetingFormBase
 //                $notify_mail->addCustomHeader("Content-Transfer-Encoding: base64");
 //                $notify_mail->addCustomHeader("Content-Transfer-Encoding: 8bit;");
                 foreach($results as $relatedBean){
-                    $file = file_get_contents("upload/{$relatedBean->id}");
-                    $notify_mail->addStringAttachment(
-                        $file,
-                        $relatedBean->filename,
-                        'base64',
-                        "{$relatedBean->file_mime_type}; charset=utf-8;"
-                    );
+                    if(in_array($relatedBean->filename, $_FILES["file_create_file"]["name"]) ||
+                        $this->inviteChange  == true)
+                    {
+                        $file = file_get_contents("upload/{$relatedBean->id}");
+                        $notify_mail->addStringAttachment(
+                            $file,
+                            $relatedBean->filename,
+                            'base64',
+                            "{$relatedBean->file_mime_type}; charset=utf-8;"
+                        );
+                    }
 //                    $notify_mail->addAttachment();
                 }
             }
