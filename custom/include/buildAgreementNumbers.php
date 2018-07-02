@@ -8,10 +8,10 @@ $sql = "SELECT a.id, a_c.apttus_agreement_number_c, a_c.amendment_number_c FROM 
 $results = $db->query($sql);
 echo "<pre>".print_r($results, true)."</pre><br>";
 $GLOBALS['log']->fatal(print_r($results, true));
-//    $sugar_config['jobs']['timeout'] = 172800;
+$sugar_config['jobs']['timeout'] = 172800;
 $i = 0;
 foreach($results as $row){
-    //        if($i == 50) return true;
+    if($i == 50) return true;
     $newNumber = str_pad($row['apttus_agreement_number_c'], 8, '0', STR_PAD_LEFT);
     if(!empty($row['amendment_number_c'])) {
         $amendment = $row['amendment_number_c'];
