@@ -338,7 +338,7 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            if(!empty($bean->apttus_contract_start_date_c) && !empty($bean->apttus_company_signed_by_name_c)) {
+            if(!empty($bean->apttus_contract_start_date_c) && !empty($bean->Oneapttus_company_signed_by)) {
                 $bean->apttus_status_category_c = "eff";
                 $bean->apttus_status_c = "eff_act";
                 $bean->save();

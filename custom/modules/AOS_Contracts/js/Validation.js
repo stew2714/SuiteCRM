@@ -73,6 +73,21 @@ function checkRules(){
   //     removeFromValidate("CreateView","acc_tos_renewal_notification_period_dd_c" )
   //   }
   // }
+  // Activation Rule Check
+  if($("#apttus_status_c").val() == "eff_act" && $("#Oneapttus_company_signed_by").val() == ""){
+    addToValidate('CreateView',"Oneapttus_company_signed_by",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_SIGNED'));
+  }else{
+    if( checkValidate("CreateView", "Oneapttus_company_signed_by")){
+      removeFromValidate("CreateView","Oneapttus_company_signed_by" )
+    }
+  }
+  if($("#apttus_status_category_c").val() == "eff"  && $("#apttus_contract_start_date_c").val() == "" ){
+    addToValidate('CreateView',"apttus_contract_start_date_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_END_DATE'));
+  }else{
+    if( checkValidate("CreateView", "apttus_contract_start_date_c")){
+      removeFromValidate("CreateView","apttus_contract_start_date_c" )
+    }
+  }
   return true;
 
 }
