@@ -43,6 +43,42 @@ require_once 'CustomMeetingFormBase.php';
 class CustomMeetingsController extends SugarController
 {
 
+    public function action_fetchData(){
+
+        if ($_REQUEST['id']) {
+            $bean = BeanFactory::getBean("Meetings", $_REQUEST['id']);
+            $rel = "attachment_notes";
+            if ($bean->load_relationship($rel)) {
+                $results = $bean->{$rel}->getBeans();
+                $result = [];
+                foreach ($results as $beanResult) {
+                    //                    $result[ ] = $beanResult->toArray();
+                    $result[] = array(
+                        "id"   => $beanResult->id,
+                        "name" => $beanResult->name,
+                        "url"  => "index.php?module=Notes&action=DetailView&record={$beanResult->id}"
+                    );
+                }
+                echo json_encode(array("message" => "success", "results" => $result));
+                die();
+            }
+        }
+        echo json_encode(array("message" => "fail", "results" => array()));
+        die();
+    }
+
+    public function action_removeAttachment(){
+        if ($_REQUEST['id']) {
+            $bean = BeanFactory::getBean("Notes", $_REQUEST['id']);
+            $bean->deleted = 1;
+            $array = array("message" => "success", "id" => $bean->id);
+            $bean->save();
+                echo json_encode($array);
+                die();
+        }
+        echo json_encode(array("message" => "fail"));
+        die();
+    }
     /**
      *
      */

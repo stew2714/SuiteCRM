@@ -67,12 +67,48 @@ class CustomMeetingFormBase extends MeetingFormBase
      */
     private $admin;
 
+
+    private $inviteChange = false;
     /**
      * @inheritdoc
      */
     public function handleSave($prefix, $redirect = true, $useRequired = false)
     {
+        //stop sending the invites as we know currently.
+        $sendInvites = false;
+        if($_REQUEST['send_invites'] == true){
+            $_REQUEST['send_invites'] = false;
+            $sendInvites = true;
+            if(!empty($_REQUEST['record']) ){
+                $tempBean = BeanFactory::getBean("Meetings", $_REQUEST['record']);
+                if($tempBean != false && $tempBean->load_relationship("users")){
+                    $tempObject = $tempBean->users->getBeans();
+                    $tempObjectContact = [];
+                    if( $tempBean->load_relationship("contacts") ){
+                        $tempObjectContact = $tempBean->contacts->getBeans();
+                    }
+                    $tempObjectLeads = [];
+                    if( $tempBean->load_relationship("contacts") ){
+                        $tempObjectLeads = $tempBean->contacts->getBeans();
+                    }
+                    $list = array_filter(explode(",", $_REQUEST['user_invitees']));
+                    foreach($list as $key => $value){
+                        if(!is_object($tempObject[ $value ]) &&
+                           !is_object($tempObjectContact[ $value ]) &&
+                           !is_object($tempObjectLeads[ $value ]) ){
+                            $this->inviteChange = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            $this->totalInvites = explode(",", $_REQUEST["user_invitees"]);
+        }
         $focus = parent::handleSave($prefix, false, $useRequired);
+
+        if($sendInvites == true){
+            $this->sendNotifications($focus);
+        }
 
         if ($this->meetingHasBeenCancelledNow($focus)) {
             $this->cancelAndNotify($focus);
@@ -81,6 +117,116 @@ class CustomMeetingFormBase extends MeetingFormBase
         SugarApplication::redirect('index.php?module=Meetings&record=' . $focus->id . '&action=DetailView');
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private function sendNotifications($bean)
+    {
+        //we want to send the invites to the same people as the core would.
+        $notify_list = $bean->get_notification_recipients();
+        $admin = new Administration();
+        $admin->retrieveSettings();
+
+        foreach ($notify_list as $notify_user) {
+            $this->send_assignment_notifications($notify_user, $admin, $bean);
+        }
+    }
+
+    private function addAttachments($notify_mail , $bean){
+        $rel = "attachment_notes";
+
+
+
+        if($bean->load_relationship($rel)) {
+            $results = $bean->{$rel}->getBeans();
+            if(count($results) > 0 ){
+//                $notify_mail->addCustomHeader("Content-Type: text/calendar; charset=\"utf-8\"; method=REQUEST");
+//                $notify_mail->addCustomHeader("Content-Transfer-Encoding: base64");
+//                $notify_mail->addCustomHeader("Content-Transfer-Encoding: 8bit;");
+                foreach($results as $relatedBean){
+                    if(in_array($relatedBean->filename, $_FILES["file_create_file"]["name"]) ||
+                        $this->inviteChange  == true)
+                    {
+                        $file = file_get_contents("upload/{$relatedBean->id}");
+                        $notify_mail->addStringAttachment(
+                            $file,
+                            $relatedBean->filename,
+                            'base64',
+                            "{$relatedBean->file_mime_type}; charset=utf-8;"
+                        );
+                    }
+//                    $notify_mail->addAttachment();
+                }
+            }
+        }
+        return $notify_mail;
+    }
+    public function send_assignment_notifications($notify_user, $admin, $bean){
+        global $current_user;
+
+        if (($this->object_name == 'Meeting' || $this->object_name == 'Call') || $notify_user->receive_notifications) {
+            $sendToEmail = $notify_user->emailAddress->getPrimaryAddress($notify_user);
+            $sendEmail = true;
+            if (empty($sendToEmail)) {
+                $GLOBALS['log']->warn("Notifications: no e-mail address set for user {$notify_user->user_name}, cancelling send");
+                $sendEmail = false;
+            }
+
+            $notify_mail = $bean->create_notification_email($notify_user);
+            $notify_mail = $this->addAttachments($notify_mail, $bean);
+//            $notify_mail->ContentType = 'multipart/alternative';
+            $notify_mail->setMailerForSystem();
+
+            if (empty($admin->settings['notify_send_from_assigning_user'])) {
+                $notify_mail->From = $admin->settings['notify_fromaddress'];
+                $notify_mail->FromName = (empty($admin->settings['notify_fromname'])) ? "" : $admin->settings['notify_fromname'];
+            } else {
+                // Send notifications from the current user's e-mail (if set)
+                $fromAddress = $current_user->emailAddress->getReplyToAddress($current_user);
+                $fromAddress = !empty($fromAddress) ? $fromAddress : $admin->settings['notify_fromaddress'];
+                $notify_mail->From = $fromAddress;
+                //Use the users full name is available otherwise default to system name
+                $from_name = !empty($admin->settings['notify_fromname']) ? $admin->settings['notify_fromname'] : "";
+                $from_name = !empty($current_user->full_name) ? $current_user->full_name : $from_name;
+                $notify_mail->FromName = $from_name;
+            }
+
+            $oe = new OutboundEmail();
+            $oe = $oe->getUserMailerSettings($current_user);
+            //only send if smtp server is defined
+            if ($sendEmail) {
+                $smtpVerified = false;
+
+                //first check the user settings
+                if (!empty($oe->mail_smtpserver)) {
+                    $smtpVerified = true;
+                }
+
+                //if still not verified, check against the system settings
+                if (!$smtpVerified) {
+                    $oe = $oe->getSystemMailerSettings();
+                    if (!empty($oe->mail_smtpserver)) {
+                        $smtpVerified = true;
+                    }
+                }
+                //if smtp was not verified against user or system, then do not send out email
+                if (!$smtpVerified) {
+                    $GLOBALS['log']->fatal("Notifications: error sending e-mail, smtp server was not found ");
+                    //break out
+                    return;
+                }
+
+                if (!$notify_mail->send()) {
+                    $GLOBALS['log']->fatal("Notifications: error sending e-mail (method: {$notify_mail->Mailer}), (error: {$notify_mail->ErrorInfo})");
+                } else {
+                    $GLOBALS['log']->info("Notifications: e-mail successfully sent");
+                }
+            }
+        }
+
+        $path = SugarConfig::getInstance()->get('upload_dir','upload/') . $this->id;
+        unlink($path);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      * @param Meeting $bean
      */

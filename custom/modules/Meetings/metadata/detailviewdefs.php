@@ -197,6 +197,7 @@ array (
             'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
+        6 => array('file_create'),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (
