@@ -72,7 +72,16 @@ class ViewDetailCombined extends SugarView
     {
         $this->options['show_subpanels'] = true;
     	global $app_list_strings;
- 	    $metadataFile = $this->getMetaDataFile();
+
+        $metadataFile = $this->getMetaDataFile();
+
+        /* START Layout Rules */
+        $bean = BeanFactory::getBean("LayoutRules");
+        $metadata =  $bean->fetchLayout($this->bean, $metadataFile,'detailcombinedviewdefs');
+        $metadataFile = $metadata['file'];
+        $_SESSION['groupLayout'] = $metadata['id'];
+        /* END Layout Rules */
+
  	    $this->dv = new DetailCombined2();
 	    $relatedModules = $app_list_strings['CreateViewRelatedModule'][ $this->bean->module_name ];
 	    foreach($relatedModules as $product => $value) {
@@ -97,8 +106,11 @@ class ViewDetailCombined extends SugarView
 				    $arr['options'] = array_merge(array($arr['default_empty'] => $arr['default_empty']), $arr['options']);
 			    }
 
-			    $arr['name'] = $prefix . $arr['name'];
+                if($arr['type'] == "relate" && !empty($arr['id_name'])){
+                    $arr['id_name'] = $prefix . $arr['id_name'];
+                }
 
+			    $arr['name'] = $prefix . $arr['name'];
 
 			    $this->bean->field_defs[$prefix . $name] = $arr;
 			    $this->bean->field_defs[$prefix . $name]['moduleCore'] = $mod->module_name;

@@ -20,12 +20,12 @@ array (
         ),
       ),
       'javascript' => '{$PROBABILITY_SCRIPT}',
-      'useTabs' => true,
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
@@ -91,19 +91,20 @@ array (
         ),
         1 => 
         array (
-          0 => 'date_closed',
+          0 => 
+          array (
+            'name' => 'accounts_opportunities_3_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_3_FROM_ACCOUNTS_TITLE',
+          ),
           1 => 
           array (
-            'name' => 'region_c',
-            'label' => 'LBL_REGION_C',
+            'name' => 'new_am_region_c',
+            'label' => 'LBL_NEW_AM_REGION_C',
           ),
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'account_name',
-          ),
+          0 => 'date_closed',
           1 => 
           array (
             'name' => 'recordtypeid_c',
@@ -247,7 +248,11 @@ array (
             'name' => 'coding_specialty_c',
             'label' => 'LBL_CODING_SPECIALTY_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'extended_term_adoption_services_value_c',
+            'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
+          ),
         ),
         16 => 
         array (
@@ -258,8 +263,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'extended_term_adoption_services_value_c',
-            'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
+            'name' => 'non_standard_commissions_release_c',
+            'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
           ),
         ),
         17 => 
@@ -271,8 +276,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'non_standard_commissions_release_c',
-            'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
+            'name' => 'gp_contract_order_c',
+            'label' => 'LBL_GP_CONTRACT_ORDER_C',
           ),
         ),
         18 => 
@@ -284,8 +289,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'gp_contract_order_c',
-            'label' => 'LBL_GP_CONTRACT_ORDER_C',
+            'name' => 'commissions_notes_c',
+            'label' => 'LBL_COMMISSIONS_NOTES_C',
           ),
         ),
         19 => 
@@ -295,15 +300,6 @@ array (
             'name' => 'statdx_c',
             'label' => 'LBL_STATDX_C',
           ),
-          1 => 
-          array (
-            'name' => 'commissions_notes_c',
-            'label' => 'LBL_COMMISSIONS_NOTES_C',
-          ),
-        ),
-        20 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'total_contract_value_c',
@@ -333,61 +329,6 @@ array (
           array (
             'name' => 'business_type_c',
             'label' => 'LBL_BUSINESS_TYPE_C',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'g1_group_queue_opportunities_name',
-            'label' => 'LBL_G1_GROUP_QUEUE_OPPORTUNITIES_FROM_G1_GROUP_QUEUE_TITLE',
           ),
         ),
       ),
@@ -463,8 +404,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'incumbentx_c',
-            'label' => 'LBL_INCUMBENTX_C',
+            'name' => 'accounts_opportunities_2_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE',
           ),
           1 => 
           array (

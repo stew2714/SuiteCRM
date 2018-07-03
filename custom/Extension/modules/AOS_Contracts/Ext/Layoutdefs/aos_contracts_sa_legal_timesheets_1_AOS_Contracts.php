@@ -1,7 +1,7 @@
 <?php
  // created: 2017-07-17 14:06:24
 $layout_defs["AOS_Contracts"]["subpanel_setup"]['aos_contracts_sa_legal_timesheets_1'] = array (
-  'order' => 100,
+  'order' => 4,
   'module' => 'SA_Legal_Timesheets',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

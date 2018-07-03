@@ -1,7 +1,7 @@
 <?php
  // created: 2016-05-10 20:11:06
 $layout_defs["Accounts"]["subpanel_setup"]['eloqua_tracking'] = array (
-  'order' => 100,
+  'order' => 6,
   'module' => 'SA_eloqua_activity',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',

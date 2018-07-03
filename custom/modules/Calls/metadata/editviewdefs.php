@@ -11,6 +11,10 @@ array (
         array (
           'file' => 'modules/Reminders/Reminders.js',
         ),
+        1 =>
+        array (
+          'file' => 'custom/include/javascript/remove_create_invitees.js',
+        ),
       ),
       'maxColumns' => '2',
       'form' => 

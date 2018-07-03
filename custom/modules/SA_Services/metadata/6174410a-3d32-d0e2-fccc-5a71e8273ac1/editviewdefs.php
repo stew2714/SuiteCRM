@@ -132,8 +132,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'qa_program_c',
-            'label' => 'LBL_QA_PROGRAM_C',
+            'name' => 'hire_client_mt_s_c',
+            'label' => 'LBL_HIRE_CLIENT_MT_S_C',
           ),
           1 => 
           array (
@@ -145,10 +145,48 @@ array (
         array (
           0 => 
           array (
-            'name' => 'hire_client_mt_s_c',
-            'label' => 'LBL_HIRE_CLIENT_MT_S_C',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -194,20 +232,15 @@ array (
         ),
         3 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'fft_revenue_c',
+            'label' => 'LBL_FFT_REVENUE_C',
+          ),
           1 => 
           array (
             'name' => 'estimated_fft_new_volume_c',
             'label' => 'LBL_ESTIMATED_FFT_NEW_VOLUME_C',
-          ),
-        ),
-        4 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'fft_revenue_c',
-            'label' => 'LBL_FFT_REVENUE_C',
           ),
         ),
       ),
@@ -246,18 +279,13 @@ array (
             'name' => 'coding_commitment_c',
             'label' => 'LBL_CODING_COMMITMENT_C',
           ),
-          1 => '',
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'coding_price_book_rate_c',
             'label' => 'LBL_CODING_PRICE_BOOK_RATE_C',
           ),
-          1 => '',
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (

@@ -29,22 +29,22 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL6' => 

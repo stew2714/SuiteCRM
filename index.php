@@ -41,8 +41,6 @@ if (!defined('sugarEntry')) {
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
 
 include 'include/MVC/preDispatch.php';
 $startTime = microtime(true);

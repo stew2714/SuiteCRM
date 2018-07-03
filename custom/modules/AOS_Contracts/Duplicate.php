@@ -21,8 +21,14 @@ class duplicate {
     function activities($bean, $event, $arguments)
     {
         $date = new DateTime();
-        $bean->retrieve($bean->id);
-        if($bean->date_entered == $bean->date_modified && isset($bean->opportunity_id) && !empty($bean->opportunity_id)
+        $class = get_class($bean);
+        $bean = new $class();
+
+        $documents = 0;
+        if($bean->load_relationship("aos_contracts_documents_1") ){
+            $documents =$bean->aos_contracts_documents_1->getBeans();
+        }
+        if($bean->date_entered == $bean->date_modified || count($documents) < 1
         ) {
             $rel = "documents";
             $opportunityBean = BeanFactory::getBean("Opportunities", $bean->opportunity_id);

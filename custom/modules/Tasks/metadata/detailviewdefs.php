@@ -77,11 +77,6 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -110,11 +105,6 @@ array (
         2 => 
         array (
           0 => 'date_due',
-          1 => 
-          array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT',
-          ),
         ),
         3 => 
         array (
@@ -123,22 +113,8 @@ array (
         4 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'sa_legal_vendors_activities_1_tasks_name',
-          ),
         ),
         5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'aos_contracts_activities_1_tasks_name',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
         array (
           0 => 
           array (

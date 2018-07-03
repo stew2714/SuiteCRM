@@ -83,13 +83,13 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'syncDetailEditViews' => true,
       'tabDefs' => 
       array (
         'DEFAULT' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -135,23 +135,15 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'type_of_product_services_c',
-            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
-          ),
-          1 => 
-          array (
-            'name' => 'apttus_status_c',
-            'label' => 'LBL_APTTUS_STATUS_C',
-          ),
+          0 => '',
+          1 => '',
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'apttus_description_c',
-            'label' => 'LBL_APTTUS_DESCRIPTION_C',
+            'name' => 'type_of_product_services_c',
+            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
           ),
           1 => 
           array (
@@ -163,8 +155,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_special_terms_c',
-            'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
+            'name' => 'apttus_description_c',
+            'label' => 'LBL_APTTUS_DESCRIPTION_C',
           ),
           1 => 
           array (
@@ -176,13 +168,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'request_date_c',
-            'label' => 'LBL_REQUEST_DATE_C',
+            'name' => 'apttus_special_terms_c',
+            'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
           ),
           1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'apttus_requestor_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
         7 => 
@@ -194,9 +187,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'apttus_requestor_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
+            'name' => 'apttus_request_date_c',
+            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
           ),
         ),
         8 => 
@@ -208,8 +200,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'apttus_request_date_c',
-            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
+            'name' => 'apttus_termination_notice_issue_date_c',
+            'label' => 'LBL_APTTUS_TERMINATION_NOTICE_ISSUE_DATE_C',
           ),
         ),
         9 => 
@@ -221,34 +213,55 @@ array (
           ),
           1 => 
           array (
-            'name' => 'awaiting_information_detail_c',
-            'label' => 'LBL_AWAITING_INFORMATION_DETAIL_C',
+            'name' => 'strategic_deal_description_c',
+            'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
           ),
         ),
         10 => 
         array (
           0 => 
           array (
-            'name' => 'strategic_deal_description_c',
-            'label' => 'LBL_STRATEGIC_DEAL_DESCRIPTION_C',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
           ),
           1 => 
           array (
-            'name' => 'cancellation_reason_c',
-            'label' => 'LBL_CANCELLATION_REASON_C',
-          ),
-        ),
-        11 => 
-        array (
-          0 => 
-          array (
-            'name' => 'baa_effective_date_c',
-            'label' => 'LBL_BAA_EFFECTIVE_DATE_C',
-          ),
-          1 => 
-          array (
-            'name' => 'apttus_termination_notice_issue_date_c',
-            'label' => 'LBL_APTTUS_TERMINATION_NOTICE_ISSUE_DATE_C',
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

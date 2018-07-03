@@ -79,6 +79,8 @@ class SharedSecurityRulesActions extends Basic
     function save_lines($post_data, $parent, $key = '')
     {
 
+        // THIS IS WHERE THE ISSUE IS - should be shared_rules_actions_action (but do i change that in the call to this save lines function or in here
+        // need to look at the other post data calls in here
         $line_count = count($post_data[$key . 'action']);
         $j = 0;
         for ($i = 0; $i < $line_count; ++$i) {

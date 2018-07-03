@@ -71,3 +71,5 @@ Desktop.ini
 # sql
 *.sql
 *.sqlite
+
+custom/blowfish/*

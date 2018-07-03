@@ -29,12 +29,12 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
@@ -550,9 +550,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'incumbent_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_INCUMBENT_NAME_C',
+            'name' => 'accounts_opportunities_2_name',
+            'label' => 'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE',
           ),
           1 => 
           array (

@@ -71,6 +71,15 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
   'BILLING_ADDRESS_STREET' => 
   array (
     'width' => '15%',

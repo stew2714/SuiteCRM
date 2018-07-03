@@ -1,7 +1,7 @@
 <?php
  // created: 2017-07-26 09:14:15
 $layout_defs["AOS_Contracts"]["subpanel_setup"]['activities'] = array (
-  'order' => 10,
+  'order' => 5,
   'sort_order' => 'desc',
   'sort_by' => 'date_start',
   'title_key' => 'LBL_ACTIVITIES_SUBPANEL_TITLE',
@@ -51,7 +51,7 @@ $layout_defs["AOS_Contracts"]["subpanel_setup"]['activities'] = array (
   'get_subpanel_data' => 'activities',
 );
 $layout_defs["AOS_Contracts"]["subpanel_setup"]['history'] = array (
-  'order' => 20,
+  'order' => 6,
   'sort_order' => 'desc',
   'sort_by' => 'date_modified',
   'title_key' => 'LBL_HISTORY',
