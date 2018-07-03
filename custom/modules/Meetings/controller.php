@@ -75,6 +75,5 @@ class CustomMeetingsController extends SugarController
 
         echo 'true';
     }
-
 }
 
