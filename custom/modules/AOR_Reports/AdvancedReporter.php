@@ -447,6 +447,268 @@ class AdvancedReporter extends AOR_Report
         return $query;
     }
 
+    function build_report_query_select_advanced($query = array(), $group_value = '')
+    {
+        global $beanList, $timedate;
+
+        if ($beanList[$this->report_module]) {
+            $module = new $beanList[$this->report_module]();
+
+            $query['id_select'][$module->table_name] =
+                $this->db->quoteIdentifier($module->table_name) . ".id AS '" . $module->table_name . "_id'";
+            $query['id_select_group'][$module->table_name] = $this->db->quoteIdentifier($module->table_name) . ".id";
+
+            if($this->requestData != false){
+                $rows = $this->getViewParams();
+            }else {
+                $sql =
+                    "SELECT id FROM aor_fields WHERE aor_report_id = '" .
+                    $this->bean->id .
+                    "' AND deleted = 0 ORDER BY field_order ASC";
+                $result = $this->db->query($sql);
+                $rows = array();
+                while ($row = $this->db->fetchByAssoc($result)) {
+                    $field = new AOR_Field();
+                    $field->retrieve($row['id']);
+                    $rows[] = $field;
+                }
+            }
+
+            $i = 0;
+            foreach ($rows as $field) {
+
+                $field->label = str_replace(' ', '_', $field->label) . $i;
+
+                $path = unserialize(base64_decode($field->module_path));
+
+                $field_module = $module;
+                $table_alias = $field_module->table_name;
+                $oldAlias = $table_alias;
+                if (!empty($path[0]) && $path[0] != $module->module_dir) {
+                    foreach ($path as $rel) {
+                        $new_field_module = new $beanList[getRelatedModule($field_module->module_dir, $rel)];
+                        $oldAlias = $table_alias;
+                        $table_alias = $table_alias . ":" . $rel;
+                        $query = $this->build_report_query_join(
+                            $rel,
+                            $table_alias,
+                            $oldAlias,
+                            $field_module,
+                            'relationship',
+                            $query,
+                            $new_field_module
+                        );
+                        $field_module = $new_field_module;
+                    }
+                }
+                $data = $field_module->field_defs[$field->field];
+
+                if ($data['type'] == 'relate' && isset($data['id_name'])) {
+                    $field->field = $data['id_name'];
+                    $data_new = $field_module->field_defs[$field->field];
+                    if (isset($data_new['source']) &&
+                        $data_new['source'] == 'non-db' &&
+                        $data_new['type'] != 'link' &&
+                        isset($data['link'])
+                    ) {
+                        $data_new['type'] = 'link';
+                        $data_new['relationship'] = $data['link'];
+                    }
+                    $data = $data_new;
+                }
+
+                if ($data['type'] == 'link' && $data['source'] == 'non-db') {
+                    $new_field_module = new $beanList[getRelatedModule(
+                        $field_module->module_dir,
+                        $data['relationship']
+                    )];
+                    $table_alias = $data['relationship'];
+                    $query = $this->build_report_query_join(
+                        $data['relationship'],
+                        $table_alias,
+                        $oldAlias,
+                        $field_module,
+                        'relationship',
+                        $query,
+                        $new_field_module
+                    );
+                    $field_module = $new_field_module;
+                    $field->field = 'id';
+                }
+
+                if ($data['type'] == 'currency' && isset($field_module->field_defs['currency_id'])) {
+                    if ((isset($field_module->field_defs['currency_id']['source']) &&
+                         $field_module->field_defs['currency_id']['source'] == 'custom_fields')
+                    ) {
+                        $query['select'][$table_alias . '_currency_id'] =
+                            $this->db->quoteIdentifier($table_alias . '_cstm') .
+                            ".currency_id AS '" .
+                            $table_alias .
+                            "_currency_id'";
+                        $query['second_group_by'][] =
+                            $this->db->quoteIdentifier($table_alias . '_cstm') . ".currency_id";
+                    } else {
+                        $query['select'][$table_alias . '_currency_id'] =
+                            $this->db->quoteIdentifier($table_alias) .
+                            ".currency_id AS '" .
+                            $table_alias .
+                            "_currency_id'";
+                        $query['second_group_by'][] = $this->db->quoteIdentifier($table_alias) . ".currency_id";
+                    }
+                }
+
+                if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
+                    $select_field = $this->db->quoteIdentifier($table_alias . '_cstm') . '.' . $field->field;
+                    $query = $this->build_report_query_join(
+                        $table_alias . '_cstm',
+                        $table_alias . '_cstm',
+                        $table_alias,
+                        $field_module,
+                        'custom',
+                        $query
+                    );
+                } else {
+                    $select_field = $this->db->quoteIdentifier($table_alias) . '.' . $field->field;
+                }
+
+                if ($field->format && in_array($data['type'], array('date', 'datetime', 'datetimecombo'))) {
+                    if (in_array($data['type'], array('datetime', 'datetimecombo'))) {
+                        $select_field = $this->db->convert($select_field, 'add_tz_offset');
+                    }
+                    $select_field = $this->db->convert(
+                        $select_field,
+                        'date_format',
+                        array($timedate->getCalFormat($field->format))
+                    );
+                }
+
+                if ($field->link && isset($query['id_select'][$table_alias])) {
+                    $query['select'][] = $query['id_select'][$table_alias];
+                    $query['second_group_by'][] = $query['id_select_group'][$table_alias];
+                    unset($query['id_select'][$table_alias]);
+                }
+
+                if ($field->group_by == 1) {
+                    if($data['type'] == "datetime"){
+                        $format = preg_replace("/[a-zA-Z]/",'%$0',$field->format);
+                        $query['group_by'][] = "DATE_FORMAT(" . $select_field . ", '" . $format . "')";
+                    } else {
+                        $query['group_by'][] = $select_field;
+                    }
+                } elseif ($field->field_function != null) {
+                    $select_field = $field->field_function . '(' . $select_field . ')';
+                } else {
+                    $query['second_group_by'][] = $select_field;
+                }
+
+                if ($field->sort_by != '') {
+                    $query['sort_by'][] = $select_field . " " . $field->sort_by;
+                }
+
+
+
+                if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                                                      !empty($this->bean->snapshot_date) )){
+                    if(empty($this->requestData['snapshot_date'])){
+                        $date = $timedate->fromUser($this->bean->snapshot_date)->asDb();
+                    }else{
+                        $date = $timedate->fromUser($this->requestData['snapshot_date'])->asDb();
+                    }
+
+                    $query['select'][] = "
+                                    (
+                                    CASE
+                                    WHEN EXISTS (
+                                    (SELECT after_value_string
+                                    FROM opportunities_audit
+                                    WHERE parent_id = " . $table_alias . ".id AND 
+                                          date_created < '" . $date . "' AND 
+                                          field_name = '" . $field->field . "'
+                                    ORDER BY date_created DESC
+                                    limit 1)
+                                    )
+                                    THEN (SELECT after_value_string
+                                    FROM opportunities_audit
+                                    WHERE parent_id = " . $table_alias . ".id AND 
+                                          date_created < '" . $date . "'AND 
+                                          field_name = '" . $field->field . "'
+                                    ORDER BY date_created DESC
+                                    limit 1)
+                                            WHEN EXISTS (
+                                (SELECT before_value_string
+                                FROM opportunities_audit
+                                WHERE parent_id = " . $table_alias . ".id AND
+                                      date_created > '" . $date . "' AND 
+                                      field_name = '" . $field->field . "'
+                                ORDER BY date_created ASC
+                                limit 1)
+                            )
+                            THEN (SELECT before_value_string
+                                FROM opportunities_audit
+                                WHERE parent_id = " . $table_alias . ".id AND 
+                                      date_created > '" . $date . "' AND 
+                                      field_name = '" . $field->field . "'
+                                ORDER BY date_created ASC
+                                limit 1)
+                                   else " . $select_field . " END
+                    )  as '" . $field->label . "'" ;
+                }else{
+                    $query['select'][] = $select_field . " AS '" . $field->label . "'";
+                }
+
+
+                /***** check type *****/
+
+                switch($data['type']){
+                    case "enum":
+                    case "dynamicenum":
+                    case "multienum":
+                        $start_case = "IFNULL ({$select_field}, '') AS  '{$field->label}',";
+                        $start_case .= " CASE {$select_field} WHEN 'NULL' THEN ''";
+                        $middle_case = '';
+                        foreach($GLOBALS['app_list_strings'][$data['options']] as $key =>  $option){
+                            $middle_case .= " WHEN '{$key}' THEN '{$option}' ";
+                        }
+                        $end_case = " ELSE {$select_field} END as '{$field->label}'";
+                        $final = $start_case .  $middle_case . $end_case;
+                        $query['select'][] = $final;
+                        break;
+                    case "datetime":
+                    case "date":
+                    case "datetimecombo":
+                        $start_case = "CASE WHEN date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/",'%$0',$field->format) . "') = 00000000 THEN '' ";
+                        $middle_case = "WHEN isnull({$select_field}) THEN '' ";
+                        $end_case = "ELSE date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/",'%$0',$field->format) . "') END AS  '{$field->label}' ";
+                        $final = $start_case .  $middle_case . $end_case;
+                        $query['select'][] = $final;
+                        break;
+
+                    default:
+                        //$query['select'][] = $select_field ." AS '".$field->label."'";
+                        $query['select'][] = "IFNULL({$select_field},'')  AS '{$field->label}'";
+                        break;
+                }
+                /***** END CHECK type *****/
+
+
+                if ($field->group_display == 1 && $group_value) {
+                    $query['where'][] = $select_field . " = '" . $group_value . "' AND ";
+                }
+
+                ++$i;
+            }
+
+            //if a snap shot asked for we do not want to display anything after that time.
+            if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                                                  !empty($this->bean->snapshot_date) )){
+                $query['where'][] = $table_alias . ".date_entered < '" . $date . "' AND ";
+            }
+
+        }
+
+        return $query;
+    }
+
     function build_report_html($offset = -1, $links = true, $group_value = '', $tableIdentifier = '', $extra = array())
     {
 
@@ -1383,7 +1645,7 @@ class AdvancedReporter extends AOR_Report
             ++$i;
         }
 
-        $sql = $this->build_report_query();
+        $sql = $this->build_export_report_query();
         $result = $this->db->query($sql);
 
         while ($row = $this->db->fetchByAssoc($result)) {
@@ -1419,6 +1681,79 @@ class AdvancedReporter extends AOR_Report
         print $csv;
 
         sugar_cleanup(true);
+    }
+
+    function build_export_report_query($group_value = '', $extra = array())
+    {
+        global $beanList;
+
+        $module = new $beanList[$this->report_module]();
+
+        $query = '';
+        $query_array = array();
+
+        //Check if the user has access to the target module
+        if (!(ACLController::checkAccess($this->report_module, 'list', true))) {
+            return false;
+        }
+
+        $query_array = $this->build_report_query_select_advanced($query_array, $group_value);
+        if (isset($extra['where']) && $extra['where']) {
+            $query_array['where'][] = implode(' AND ', $extra['where']) . ' AND ';
+        }
+        $query_array = $this->build_report_query_where($query_array);
+
+        foreach ($query_array['select'] as $select) {
+            $query .= ($query == '' ? 'SELECT ' : ', ') . $select;
+        }
+
+        if (empty($query_array['group_by'])) {
+            foreach ($query_array['id_select'] as $select) {
+                $query .= ', ' . $select;
+            }
+        }
+
+        $query .= ' FROM ' . $this->db->quoteIdentifier($module->table_name) . ' ';
+
+        if (isset($query_array['join'])) {
+            foreach ($query_array['join'] as $join) {
+                $query .= $join;
+            }
+        }
+        if (isset($query_array['where'])) {
+            $query_where = '';
+            foreach ($query_array['where'] as $where) {
+                $query_where .= ($query_where == '' ? 'WHERE ' : ' ') . $where;
+            }
+
+            $query_where = $this->queryWhereRepair($query_where);
+
+            $query .= ' ' . $query_where;
+        }
+
+        if (isset($query_array['group_by'])) {
+            $query_group_by = '';
+            foreach ($query_array['group_by'] as $group_by) {
+                $query_group_by .= ($query_group_by == '' ? 'GROUP BY ' : ', ') . $group_by;
+            }
+            if (isset($query_array['second_group_by']) && $query_group_by != '') {
+                foreach ($query_array['second_group_by'] as $group_by) {
+                    $query_group_by .= ', ' . $group_by;
+                }
+            }
+            $query .= ' ' . $query_group_by;
+        }
+
+        if (isset($query_array['sort_by'])) {
+            $query_sort_by = '';
+            foreach ($query_array['sort_by'] as $sort_by) {
+                $query_sort_by .= ($query_sort_by == '' ? 'ORDER BY ' : ', ') . $sort_by;
+            }
+            $query .= ' ' . $query_sort_by;
+        }
+
+        return $query;
+
     }
 
     private function encloseForCSV($field)
