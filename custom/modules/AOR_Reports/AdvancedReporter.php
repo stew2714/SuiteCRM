@@ -1653,12 +1653,8 @@ class AdvancedReporter extends AOR_Report
             foreach ($fields as $name => $att) {
                 $currency_id = isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
                 if ($att['display']) {
-                    if ($att['function'] != '' || $att['params'] != '') {
-                        $csv .= $this->encloseForCSV($row[$name]);
-                    } else {
-                        $csv .= $this->encloseForCSV(trim(strip_tags(getModuleField($att['module'], $att['field'],
-                                                                                    $att['field'], 'DetailView', $row[$name], '', $currency_id))));
-                    }
+                    $row[$name] = html_entity_decode_utf8($row[$name]);
+                    $csv .= $this->encloseForCSV($row[$name]);
                     $csv .= $delimiter;
                 }
             }
@@ -1758,6 +1754,12 @@ class AdvancedReporter extends AOR_Report
 
     private function encloseForCSV($field)
     {
-        return '"' . $field . '"';
+        if($this->bean->text_delimit_disabled_c == 1){
+            return $field;
+        }elseif(!empty($this->bean->text_delimiter_c)){
+            return trim(html_entity_decode($this->bean->text_delimiter_c)).$field.trim(html_entity_decode($this->bean->text_delimiter_c));
+        }else{
+            return '"'.$field.'"';
+        }
     }
 }
