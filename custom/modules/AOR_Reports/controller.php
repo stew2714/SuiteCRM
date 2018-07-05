@@ -72,6 +72,88 @@ class customAOR_ReportsController extends AOR_ReportsController
         $advancedReporter->build_report_csv();
         die;
     }
+
+    protected function action_downloadPDF()
+    {
+        error_reporting(0);
+        require_once('modules/AOS_PDF_Templates/PDF_Lib/mpdf.php');
+        $advancedReporter = new AdvancedReporter($this->bean);
+
+        $d_image = explode('?', SugarThemeRegistry::current()->getImageURL('company_logo.png'));
+        $graphs = $_POST["graphsForPDF"];
+        $graphHtml = "<div class='reportGraphs' style='width:100%; text-align:center;'>";
+
+        $chartsPerRow = $advancedReporter->graphs_per_row;
+        $countOfCharts = count($graphs);
+        if ($countOfCharts > 0) {
+            $width = ((int)100 / $chartsPerRow);
+
+            $modulusRemainder = $countOfCharts % $chartsPerRow;
+
+            if ($modulusRemainder > 0) {
+                $modulusWidth = ((int)100 / $modulusRemainder);
+                $itemsWithModulus = $countOfCharts - $modulusRemainder;
+            }
+
+
+            for ($x = 0; $x < $countOfCharts; $x++) {
+                if (is_null($itemsWithModulus) || $x < $itemsWithModulus) {
+                    $graphHtml .= "<img src='.$graphs[$x].' style='width:$width%;' />";
+                } else {
+                    $graphHtml .= "<img src='.$graphs[$x].' style='width:$modulusWidth%;' />";
+                }
+            }
+
+            /*            foreach($graphs as $g)
+                        {
+                            $graphHtml.="<img src='.$g.' style='width:$width%;' />";
+                        }*/
+            $graphHtml .= "</div>";
+        }
+
+        $head = '<table style="width: 100%; font-family: Arial; text-align: center;" border="0" cellpadding="2" cellspacing="2">
+                <tbody style="text-align: left;">
+                <tr style="text-align: left;">
+                <td style="text-align: left;">
+                <p><img src="' . $d_image[0] . '" style="float: left;"/>&nbsp;</p>
+                </td>
+                <tr style="text-align: left;">
+                <td style="text-align: left;"></td>
+                </tr>
+                 <tr style="text-align: left;">
+                <td style="text-align: left;">
+                </td>
+                <tr style="text-align: left;">
+                <td style="text-align: left;"></td>
+                </tr>
+                <tr style="text-align: left;">
+                <td style="text-align: left;">
+                <b>' . strtoupper($advancedReporter->name) . '</b>
+                </td>
+                </tr>
+                </tbody>
+                </table><br />' . $graphHtml;
+
+        $advancedReporter->user_parameters = requestToUserParameters();
+
+        $printable = $advancedReporter->build_group_report(-1, false);
+        $stylesheet = file_get_contents(SugarThemeRegistry::current()->getCSSURL('style.css', false));
+        ob_clean();
+        try {
+            $pdf = new mPDF('en', 'A4', '', 'DejaVuSansCondensed');
+            $pdf->setAutoFont();
+            $pdf->WriteHTML($stylesheet, 1);
+            $pdf->WriteHTML($head, 2);
+            $pdf->WriteHTML($printable, 3);
+            $pdf->Output($advancedReporter->name . '.pdf', "D");
+
+        } catch (mPDF_exception $e) {
+            echo $e;
+        }
+
+        die;
+    }
+
     protected function action_changeReportPage()
     {
         $offset = !empty($_REQUEST['offset']) ? $_REQUEST['offset'] : 0;
