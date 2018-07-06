@@ -89,6 +89,10 @@ class AOS_ContractsController extends SugarController
             $this->bean->is_latest_c = true;
             $this->bean->assigned_user_id = $current_user->id;
         }
+        if(!empty($this->bean->Oneapttus_parent_agreement_c) && $this->bean->apttus_status_c == 'eff_act') {
+            $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'ame', aos_contracts_cstm.apttus_status_c = 'ame_sup' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
+            $this->bean->db->query($sql);
+        }
 
         foreach($related as $key => $relationship){
             $bean = BeanFactory::getBean($relationship['module']);
@@ -338,13 +342,13 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            if(!empty($bean->apttus_contract_start_date_c) && !empty($bean->apttus_company_signed_by_name_c)) {
+            if(!empty($bean->apttus_contract_start_date_c) && !empty($bean->Oneapttus_company_signed_by)) {
                 $bean->apttus_status_category_c = "eff";
                 $bean->apttus_status_c = "eff_act";
                 $bean->save();
-                if(!empty($bean->Oneapttus_parent_agreement_c)) {
+                if(!empty($this->bean->Oneapttus_parent_agreement_c) && $this->bean->apttus_status_c == 'eff_act') {
                     $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'ame', aos_contracts_cstm.apttus_status_c = 'ame_sup' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
-                    $bean->db->query($sql);
+                    $this->bean->db->query($sql);
                 }
                 echo "success";
                 die();
