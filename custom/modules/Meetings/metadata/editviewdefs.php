@@ -39,7 +39,7 @@ array (
           array (
               'customCode' => '{if $fields.name.value|substr:0:9 != "CANCELLED" && $fields.status.value != "Held"}<input 
 title="{$MOD.LBL_CANCEL_MEETING_NOTIFY}" id="cancel_meeting_and_notify" class="button" 
-onclick="SUGAR.meetings.fill_invitees();document.EditView.name.value=\'CANCELLED \' + \'{$fields.name.value}\';document.EditView.status.value=\'Not Held\';document.EditView.action.value=\'Save\';document.EditView.return_action.value=\'EditView\';document.EditView.return_module.value=\'{$smarty.request.return_module}\'; formSubmitCheck();"type="button" name="button" value="{$MOD.LBL_CANCEL_MEETING_NOTIFY}">{/if}',
+onclick="cancelMeeting()" type="button" name="button" value="{$MOD.LBL_CANCEL_MEETING_NOTIFY}">{/if}',
           ),
           4 => 
           array (
