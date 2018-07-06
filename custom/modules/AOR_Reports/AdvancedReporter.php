@@ -922,16 +922,14 @@ class AdvancedReporter extends AOR_Report
 
         $row_class = 'oddListRowS1';
 
-        $j = 0;
+        $j = 1;
 
         $totals = array();
         while ($row = $this->db->fetchByAssoc($result)) {
             $GLOBALS['log']->fatal('Row Number '.$j.' START');
-            $GLOBALS['log']->fatal(print_r($row, 1));
             $html .= "<tr class='" . $row_class . "' height='20'>";
 
             foreach ($fields as $name => $att) {
-                $GLOBALS['log']->fatal('Row Number '.$j.' CURRENT FIELD : '.$name);
                 if ($att['display']) {
                     $html .= "<td class='' valign='top' align='left'>";
                     if ($att['link'] && $links) {
@@ -950,17 +948,25 @@ class AdvancedReporter extends AOR_Report
                     if ($att['function'] == 'COUNT' || !empty($att['params'])) {
                         $html .= $row[$name];
                     } else {
-                        $GLOBALS['log']->fatal('Row Number '.$j.' BEFORE GETMODULEFIELD');
-                        $html .= getModuleField(
-                            $att['module'],
-                            $att['field'],
-                            $att['field'],
-                            'DetailView',
-                            $row[$name],
-                            '',
-                            $currency_id
-                        );
-                        $GLOBALS['log']->fatal('Row Number '.$j.' AFTER GETMODULEFIELD');
+                        $vardef = $field_bean->getFieldDefinition($att['field']);
+                        if($vardef['type'] == 'relate') {
+                            $relateSQL = "SELECT rel.name FROM ".$vardef['table']." rel WHERE rel.id = '".$row[$name]."' AND rel.deleted = '0'";
+                            $relateResult = $field_bean->db->query($relateSQL);
+                            $relateRow = mysqli_fetch_row($relateResult);
+                            $relateName = $relateRow['name'];
+                        }
+                        $html .= $row[$name];
+//                        $html .= getModuleField(
+//                            $att['module'],
+//                            $att['field'],
+//                            $att['field'],
+//                            'DetailView',
+//                            $row[$name],
+//                            '',
+//                            $currency_id,
+//                            array(),
+//                            $j
+//                        );
                     }
 
                     if ($att['total']) {
@@ -975,7 +981,6 @@ class AdvancedReporter extends AOR_Report
             $html .= "</tr>";
 
             $row_class = $row_class == 'oddListRowS1' ? 'evenListRowS1' : 'oddListRowS1';
-            $GLOBALS['log']->fatal('Row Number '.$j.' END');
             $j++;
         }
         $html .= "</tbody>";
