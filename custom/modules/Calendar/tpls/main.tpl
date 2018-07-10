@@ -156,8 +156,7 @@ height: "{/literal}{$editview_height}{literal}"
 YAHOO.util.Event.on("btn-save","click",function(){
 if(!CAL.check_forms())
 return false;
-CAL.upload_attachments();
-CAL.dialog_save();
+CAL.dialog_save_with_attachments();
 });
 YAHOO.util.Event.on("btn-send-invites","click",function(){
 if(!CAL.check_forms())

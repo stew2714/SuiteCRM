@@ -41,8 +41,6 @@
 <form id="CalendarEditView" name="CalendarEditView" method="POST" enctype="multipart/form-data">
 
 	<input type="hidden" name="current_module" id="current_module" value="Meetings">
-    <input type="hidden" name="module" id="module" value="Meetings">
-    <input type="hidden" name="action" id="action" value="save">
 	<input type="hidden" name="record" id="record" value="">
 	<input type="hidden" name="full_form" value="">
 	<input type="hidden" name="user_invitees" id="user_invitees">
