@@ -125,10 +125,10 @@ class SharedSecurityRules extends Basic
     function checkRules(&$module,$view ){
 
         //        $moduleBean = clone $module;
-        $GLOBALS['log']->fatal('SharedSecurityRules: In checkRules for module: ' . $module->name . ' and view: ' . $view);
+//        $GLOBALS['log']->fatal('SharedSecurityRules: In checkRules for module: ' . $module->name . ' and view: ' . $view);
 
         $class = get_class($module);
-        $GLOBALS['log']->fatal('SharedSecurityRules: Class is: ' . $class);
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Class is: ' . $class);
 
         $moduleBean = new $class();
         if (!empty($module->fetched_row) && !empty($module->fetched_row['id']) && !empty($module->fetched_row['assigned_user_id']) && !empty($module->fetched_row['created_by'])) {
@@ -138,7 +138,7 @@ class SharedSecurityRules extends Basic
             $moduleBean->retrieve($module->id);
         }
 
-        $GLOBALS['log']->fatal('SharedSecurityRules: Module bean ID: ' . $moduleBean->id);
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Module bean ID: ' . $moduleBean->id);
         $result = null;
         if(empty($moduleBean->id) || $moduleBean->id == "[SELECT_ID_LIST]"){
             return $result;
@@ -242,14 +242,14 @@ class SharedSecurityRules extends Basic
         }
 
 
-        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting CheckRules with result: ' . $converted_res . ' for view: ' . $view . ' and action: ' . $action['parameters']['accesslevel'][$key]);
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting CheckRules with result: ' . $converted_res . ' for view: ' . $view . ' and action: ' . $action['parameters']['accesslevel'][$key]);
         return $result;
     }
 
 
     private function getParenthesisConditions($originalCondition,$allConditionsResults)
     {
-        $GLOBALS['log']->fatal('SharedSecurityRules: Entering getParenthesisConditions()');
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Entering getParenthesisConditions()');
         // Just get the conditions we need to check for this
         $allParenthesisConditions = array();
 
@@ -268,7 +268,7 @@ class SharedSecurityRules extends Basic
 
         }
 
-        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting getParenthesisConditions() with all parenthesis conditions');
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting getParenthesisConditions() with all parenthesis conditions');
         return $allParenthesisConditions;
     }
 
@@ -281,7 +281,7 @@ class SharedSecurityRules extends Basic
     private function checkParenthesisConditions($allParenthesisConditions, $moduleBean, $rule, $view,$action,$key)
     {
 
-        $GLOBALS['log']->fatal('SharedSecurityRules: Entering checkParenthesisConditions()');
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Entering checkParenthesisConditions()');
 
         $conditionsToCheck = array();
 
@@ -316,21 +316,21 @@ class SharedSecurityRules extends Basic
             $tempResult = $this->getConditionResult($conditionsToCheck, $moduleBean, $rule, $view,$action,$key);
             if(!$tempResult)// && $allParenthesisConditions[$j]['logic_op'] === "AND")
             {
-                $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkParenthesisConditions returning false.');
+//                $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkParenthesisConditions returning false.');
                 return false;
             }
             else {
-                $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkParenthesisConditions returning true.');
+//                $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkParenthesisConditions returning true.');
                 return true;
             }
         }
 
-        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkParenthesisConditions with no conditions to check.');
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkParenthesisConditions with no conditions to check.');
     }
 
     private function getConditionResult($allConditions,$moduleBean, $rule, $view,$action,$key, $result = false)
     {
-        $GLOBALS['log']->fatal('SharedSecurityRules: Entering getConditionResult()');
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Entering getConditionResult()');
 
         //   foreach($allConditions as $condition) {
         for($x = 0; $x < sizeof($allConditions); $x++)
@@ -338,7 +338,7 @@ class SharedSecurityRules extends Basic
             // Is it the starting parenthesis?
             if ($allConditions[$x]['parenthesis'] == "START") {
 
-                $GLOBALS['log']->fatal('SharedSecurityRules: Parenthesis condition found.');
+//                $GLOBALS['log']->fatal('SharedSecurityRules: Parenthesis condition found.');
 
                 $parenthesisConditionArray = $this->getParenthesisConditions($allConditions[$x], $allConditions);
                 $overallResult = $this->checkParenthesisConditions($parenthesisConditionArray, $moduleBean, $rule, $view,$action,$key);
@@ -358,24 +358,24 @@ class SharedSecurityRules extends Basic
                 {
                     if($nextConditionLogicOperator === "AND")
                     {
-                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis setting result to true');
+//                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis setting result to true');
                         $result = true;
                     }
                     else
                     {
-                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis returning true');
+//                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis returning true');
                         return true;
                     }
                 }
                 else {
                     if($nextConditionLogicOperator === "AND")
                     {
-                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis returning false');
+//                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis returning false');
                         return false;
                     }
                     else
                     {
-                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis setting result to false');
+//                        $GLOBALS['log']->fatal('SharedSecurityRules: In getConditionResult() within parenthesis setting result to false');
                         $result = false;
                     }
                 }
@@ -385,7 +385,7 @@ class SharedSecurityRules extends Basic
             }
 
             // Check if there is another condition and get the operator
-            $GLOBALS['log']->fatal('SharedSecurityRules: All parenthesis looked at now working out next order number to be processed');
+//            $GLOBALS['log']->fatal('SharedSecurityRules: All parenthesis looked at now working out next order number to be processed');
             $nextOrder = $allConditions[$x]['condition_order'] + 1;
             $nextQuery = "select logic_op from sharedsecurityrulesconditions where sa_shared_sec_rules_id = '{$allConditions[$x]['sa_shared_sec_rules_id']}' and condition_order = $nextOrder and deleted=0";
             $nextResult = $this->db->query($nextQuery, true, "Error retrieving next condition");
@@ -517,13 +517,13 @@ class SharedSecurityRules extends Basic
                 $converted_res = 'true';
             }
         }
-        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting getConditionResult() with result: ' . $converted_res);
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting getConditionResult() with result: ' . $converted_res);
         return $result;
     }
 
     private function checkConditions($rule, $moduleBean,$view,$action,$key, $result){
 
-        $GLOBALS['log']->fatal('SharedSecurityRules: Entered checkConditions() for rule name: ' . $rule['name']);
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Entered checkConditions() for rule name: ' . $rule['name']);
 
         $sql_query = "SELECT * FROM sharedsecurityrulesconditions WHERE sharedsecurityrulesconditions.sa_shared_sec_rules_id = '{$rule['id']}' && sharedsecurityrulesconditions.deleted = '0' ORDER BY sharedsecurityrulesconditions.condition_order ASC ";
         $conditions_results = $moduleBean->db->query($sql_query);
@@ -551,7 +551,7 @@ class SharedSecurityRules extends Basic
                 $converted_res = 'true';
             }
         }
-        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkConditions() with result: ' . $converted_res . '  ');
+//        $GLOBALS['log']->fatal('SharedSecurityRules: Exiting checkConditions() with result: ' . $converted_res . '  ');
         return $result;
     }
 
@@ -730,7 +730,7 @@ class SharedSecurityRules extends Basic
      * @return bool
      */
     private function checkOperator($rowField, $field, $operator){
-        $GLOBALS['log']->fatal('SharedSecurityRules: In checkOperator() with row: ' . $rowField . ' field: ' . $field . ' operator: ' . $operator);
+//        $GLOBALS['log']->fatal('SharedSecurityRules: In checkOperator() with row: ' . $rowField . ' field: ' . $field . ' operator: ' . $operator);
         switch ($operator) {
             case "Equal_To":
                 if (strcasecmp($rowField, $field) == 0) {
