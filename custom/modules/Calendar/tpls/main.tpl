@@ -156,6 +156,7 @@ height: "{/literal}{$editview_height}{literal}"
 YAHOO.util.Event.on("btn-save","click",function(){
 if(!CAL.check_forms())
 return false;
+CAL.upload_attachments();
 CAL.dialog_save();
 });
 YAHOO.util.Event.on("btn-send-invites","click",function(){
@@ -355,3 +356,4 @@ width: auto !important;
 <div id='calendarContainer'></div>
 {sugar_getscript file="modules/Calendar/Cal.js"}
 {sugar_getscript file="custom/modules/Calendar/js/cancelMeetingButton.js"}
+{sugar_getscript file="custom/modules/Calendar/js/meetingAttachments.js"}

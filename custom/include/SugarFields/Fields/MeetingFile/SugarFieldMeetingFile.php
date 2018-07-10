@@ -124,6 +124,8 @@ class SugarFieldMeetingFile extends SugarFieldBase {
                 $noteBean->filename = $file;
                 $noteBean->meeting_link_c = $bean->id;
                 $noteBean->file_mime_type = $upload_file->mime_type;
+                $noteBean->parent_id = $bean->id;
+                $noteBean->parent_type = $bean->module_dir;
                 $noteBean->save();
                 //@todo relate the note bean back to the meeting.
 
