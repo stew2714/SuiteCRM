@@ -10,6 +10,15 @@ array (
       array (
         'name' => 'name',
         'default' => true,
+        'width' => '10%',
+      ),
+      'agreements_number_and_amendment_c' => 
+      array (
+        'type' => 'customreadonly',
+        'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'agreements_number_and_amendment_c',
       ),
       'current_user_only' => 
       array (
@@ -17,6 +26,7 @@ array (
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
       'favorites_only' => 
       array (
@@ -24,6 +34,7 @@ array (
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
     ),
     'advanced_search' => 
@@ -45,6 +56,14 @@ array (
         'name' => 'opportunity',
         'default' => true,
         'width' => '10%',
+      ),
+      'agreements_number_and_amendment_c' => 
+      array (
+        'type' => 'customreadonly',
+        'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'agreements_number_and_amendment_c',
       ),
       'start_date' => 
       array (

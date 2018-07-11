@@ -12,7 +12,7 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'customCode' => '{if $ACTIVATED === false || $LEGAL_TEAM === true}<input title="Edit" accesskey="i" class="button primary" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.return_id.value=\'{$recordID}\'; _form.action.value=\'EditView\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Edit" id="edit_button" value="Edit">{/if}',
+              'customCode' => '{if $ACTIVATED === false}<input title="Edit" accesskey="i" class="button primary" onclick="var _form = document.getElementById(\'formDetailView\'); _form.return_module.value=\'AOS_Contracts\'; _form.return_action.value=\'DetailView\'; _form.return_id.value=\'{$recordID}\'; _form.action.value=\'EditView\';SUGAR.ajaxUI.submitForm(_form);" type="button" name="Edit" id="edit_button" value="Edit">{/if}',
             ),
             1 => 
             array (
@@ -36,11 +36,11 @@ $viewdefs = array (
             ),
             6 => 
             array (
-              'customCode' => '{if $SALES_TEAM === true || $LEGAL_TEAM === true}<input type="button" class="button" id="submitRequest" value="{$MOD.LBL_BUTTON_SUBMIT_REQUEST}">{/if}',
+              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="submitRequest" value="{$MOD.LBL_BUTTON_SUBMIT_REQUEST}">{/if}',
             ),
             7 => 
             array (
-              'customCode' => '{if $SALES_TEAM === true || $LEGAL_TEAM === true}<input type="button" class="button" id="cancelRequest" value="{$MOD.LBL_BUTTON_CANCEL_REQUEST}">{/if}',
+              'customCode' => '{if $SALES_TEAM === true}<input type="button" class="button" id="cancelRequest" value="{$MOD.LBL_BUTTON_CANCEL_REQUEST}">{/if}',
             ),
             8 => 
             array (
@@ -366,8 +366,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'start_date',
-              'label' => 'LBL_START_DATE',
+              'name' => 'apttus_contract_start_date_c',
+              'label' => 'LBL_APTTUS_CONTRACT_START_DATE_C',
             ),
             1 => 'apttus_contract_duration_days_c',
           ),
@@ -375,8 +375,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'end_date',
-              'label' => 'LBL_END_DATE',
+              'name' => 'apttus_contract_end_date_c',
+              'label' => 'LBL_APTTUS_CONTRACT_END_DATE_C',
             ),
             1 => 'apttus_contracted_days_c',
           ),

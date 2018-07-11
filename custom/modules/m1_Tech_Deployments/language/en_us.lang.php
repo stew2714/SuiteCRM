@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-28 19:20:00
+// created: 2018-07-10 14:58:37
 $mod_strings = array (
   'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
   'LBL_EMR_1' => 'EMR #1',
@@ -32,4 +32,6 @@ $mod_strings = array (
   'LBL_EMR5_HOSTED_BY' => 'EMR #5 hosted by',
   'LBL_EMR_OTHER_HOSTED_BY' => 'EMR Other hosted by',
   'LBL_ASSIGNED_TO_NAME' => 'Owner',
+  'LBL_CURR_FD_VERSION' => 'Current FD Version',
+  'LBL_PREVIOUS_FD_VERSION' => 'Previous FD Version',
 );

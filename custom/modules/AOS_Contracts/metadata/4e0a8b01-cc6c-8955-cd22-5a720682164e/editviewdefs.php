@@ -295,8 +295,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'start_date',
-            'label' => 'LBL_START_DATE',
+            'name' => 'apttus_contract_start_date_c',
+            'label' => 'LBL_APTTUS_CONTRACT_START_DATE_C',
           ),
           1 => 
           array (
@@ -308,8 +308,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'end_date',
-            'label' => 'LBL_END_DATE',
+            'name' => 'apttus_contract_end_date_c',
+            'label' => 'LBL_APTTUS_CONTRACT_END_DATE_C',
           ),
           1 => 
           array (
