@@ -8,17 +8,137 @@
 
 require_once("modules/AOR_Reports/AOR_Report.php");
 require_once("custom/modules/AOR_Reports/dateHelper.php");
+require_once('include/SugarFields/SugarFieldHandler.php');
+require_once("include/TemplateHandler/TemplateHandler.php");
 
 class AdvancedReporter extends AOR_Report
 {
 
 
-    var $bean;
-    var $db;
-    var $requestData;
-    var $report_module;
-    var $id;
-    var $groupBy;
+    public $bean;
+    public $db;
+    public $requestData;
+    public $report_module;
+    public $id;
+    public $groupBy;
+    private $_focus = null;
+    private $_fieldList = array();
+    private $_timedate = null;
+    private $_currentuser = null;
+    private $_beanFiles = null;
+    private $_beanList = null;
+    private $_app_strings = null;
+    private $_current_language = null;
+
+    /**
+     * @return null
+     */
+    public function getBeanList()
+    {
+        return $this->_beanList;
+    }
+
+    /**
+     * @param null $beanList
+     * @return AdvancedReporter
+     */
+    public function setBeanList($beanList)
+    {
+        $this->_beanList = $beanList;
+        return $this;
+    }
+
+
+    /**
+     * @return null
+     */
+    public function getTimedate()
+    {
+        return $this->_timedate;
+    }
+
+    /**
+     * @param null $timedate
+     * @return AdvancedReporter
+     */
+    public function setTimedate($timedate)
+    {
+        $this->_timedate = $timedate;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCurrentuser()
+    {
+        return $this->_currentuser;
+    }
+
+    /**
+     * @param null $currentuser
+     * @return AdvancedReporter
+     */
+    public function setCurrentuser($currentuser)
+    {
+        $this->_currentuser = $currentuser;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBeanFiles()
+    {
+        return $this->_beanFiles;
+    }
+
+    /**
+     * @param null $beanFiles
+     * @return AdvancedReporter
+     */
+    public function setBeanFiles($beanFiles)
+    {
+        $this->_beanFiles = $beanFiles;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getAppStrings()
+    {
+        return $this->_app_strings;
+    }
+
+    /**
+     * @param null $app_strings
+     * @return AdvancedReporter
+     */
+    public function setAppStrings($app_strings)
+    {
+        $this->_app_strings = $app_strings;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCurrentLanguage()
+    {
+        return $this->_current_language;
+    }
+
+    /**
+     * @param null $current_language
+     * @return AdvancedReporter
+     */
+    public function setCurrentLanguage($current_language)
+    {
+        $this->_current_language = $current_language;
+        return $this;
+    }
+
 
     function __construct($bean, $requestData = false)
     {
@@ -27,11 +147,11 @@ class AdvancedReporter extends AOR_Report
         $this->id = $bean->id; //this is to handle the pagination
         $this->db = $db;
         $this->requestData = $requestData;
-        if($requestData != false){
+        if ($requestData != false) {
             $this->report_module = $requestData['report_module'];
             $this->id = $requestData['record'];
             $this->groupBy = $requestData['fieldView']['0']['aor_fields_group_display'];
-        }else{
+        } else {
             $this->report_module = $bean->report_module;
         }
 
@@ -126,7 +246,7 @@ class AdvancedReporter extends AOR_Report
         // get results array
         //gets the title.
         if ($this->requestData != false) {
-            if($level != "2"){
+            if ($level != "2") {
                 $rows = $this->getViewParams(true, true, $level);
             }
         } else {
@@ -149,6 +269,7 @@ class AdvancedReporter extends AOR_Report
 
         return $rows;
     }
+
     private function getModuleFieldByGroupValue($beanList, $group_value)
     {
         $moduleFieldByGroupValues = array();
@@ -163,8 +284,8 @@ class AdvancedReporter extends AOR_Report
 
         foreach ($rows as $field) {
 
-            if ( (!isset($field->field_function) || $field->field_function != 'COUNT') || (isset($field->format) &&
-                                                                                 $field->format != '') ) {
+            if ((!isset($field->field_function) || $field->field_function != 'COUNT') || (isset($field->format) &&
+                    $field->format != '')) {
                 $moduleFieldByGroupValues[] = $group_value;
                 continue;
             }
@@ -232,9 +353,9 @@ class AdvancedReporter extends AOR_Report
                 $this->db->quoteIdentifier($module->table_name) . ".id AS '" . $module->table_name . "_id'";
             $query['id_select_group'][$module->table_name] = $this->db->quoteIdentifier($module->table_name) . ".id";
 
-            if($this->requestData != false){
+            if ($this->requestData != false) {
                 $rows = $this->getViewParams();
-            }else {
+            } else {
                 $sql =
                     "SELECT id FROM aor_fields WHERE aor_report_id = '" .
                     $this->bean->id .
@@ -312,7 +433,7 @@ class AdvancedReporter extends AOR_Report
 
                 if ($data['type'] == 'currency' && isset($field_module->field_defs['currency_id'])) {
                     if ((isset($field_module->field_defs['currency_id']['source']) &&
-                         $field_module->field_defs['currency_id']['source'] == 'custom_fields')
+                        $field_module->field_defs['currency_id']['source'] == 'custom_fields')
                     ) {
                         $query['select'][$table_alias . '_currency_id'] =
                             $this->db->quoteIdentifier($table_alias . '_cstm') .
@@ -375,12 +496,11 @@ class AdvancedReporter extends AOR_Report
                 }
 
 
-
-                if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
-                                                      !empty($this->bean->snapshot_date) )){
-                    if(empty($this->requestData['snapshot_date'])){
+                if ($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                        !empty($this->bean->snapshot_date))) {
+                    if (empty($this->requestData['snapshot_date'])) {
                         $date = $timedate->fromUser($this->bean->snapshot_date)->asDb();
-                    }else{
+                    } else {
                         $date = $timedate->fromUser($this->requestData['snapshot_date'])->asDb();
                     }
 
@@ -420,13 +540,10 @@ class AdvancedReporter extends AOR_Report
                                 ORDER BY date_created ASC
                                 limit 1)
                                    else " . $select_field . " END
-                    )  as '" . $field->label . "'" ;
-                }else{
+                    )  as '" . $field->label . "'";
+                } else {
                     $query['select'][] = $select_field . " AS '" . $field->label . "'";
                 }
-
-
-
 
 
                 if ($field->group_display == 1 && $group_value) {
@@ -437,8 +554,8 @@ class AdvancedReporter extends AOR_Report
             }
 
             //if a snap shot asked for we do not want to display anything after that time.
-            if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
-                                                  !empty($this->bean->snapshot_date) )){
+            if ($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                    !empty($this->bean->snapshot_date))) {
                 $query['where'][] = $table_alias . ".date_entered < '" . $date . "' AND ";
             }
 
@@ -458,9 +575,9 @@ class AdvancedReporter extends AOR_Report
                 $this->db->quoteIdentifier($module->table_name) . ".id AS '" . $module->table_name . "_id'";
             $query['id_select_group'][$module->table_name] = $this->db->quoteIdentifier($module->table_name) . ".id";
 
-            if($this->requestData != false){
+            if ($this->requestData != false) {
                 $rows = $this->getViewParams();
-            }else {
+            } else {
                 $sql =
                     "SELECT id FROM aor_fields WHERE aor_report_id = '" .
                     $this->bean->id .
@@ -538,7 +655,7 @@ class AdvancedReporter extends AOR_Report
 
                 if ($data['type'] == 'currency' && isset($field_module->field_defs['currency_id'])) {
                     if ((isset($field_module->field_defs['currency_id']['source']) &&
-                         $field_module->field_defs['currency_id']['source'] == 'custom_fields')
+                        $field_module->field_defs['currency_id']['source'] == 'custom_fields')
                     ) {
                         $query['select'][$table_alias . '_currency_id'] =
                             $this->db->quoteIdentifier($table_alias . '_cstm') .
@@ -589,8 +706,8 @@ class AdvancedReporter extends AOR_Report
                 }
 
                 if ($field->group_by == 1) {
-                    if($data['type'] == "datetime"){
-                        $format = preg_replace("/[a-zA-Z]/",'%$0',$field->format);
+                    if ($data['type'] == "datetime") {
+                        $format = preg_replace("/[a-zA-Z]/", '%$0', $field->format);
                         $query['group_by'][] = "DATE_FORMAT(" . $select_field . ", '" . $format . "')";
                     } else {
                         $query['group_by'][] = $select_field;
@@ -606,12 +723,11 @@ class AdvancedReporter extends AOR_Report
                 }
 
 
-
-                if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
-                                                      !empty($this->bean->snapshot_date) )){
-                    if(empty($this->requestData['snapshot_date'])){
+                if ($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                        !empty($this->bean->snapshot_date))) {
+                    if (empty($this->requestData['snapshot_date'])) {
                         $date = $timedate->fromUser($this->bean->snapshot_date)->asDb();
-                    }else{
+                    } else {
                         $date = $timedate->fromUser($this->requestData['snapshot_date'])->asDb();
                     }
 
@@ -651,35 +767,35 @@ class AdvancedReporter extends AOR_Report
                                 ORDER BY date_created ASC
                                 limit 1)
                                    else " . $select_field . " END
-                    )  as '" . $field->label . "'" ;
-                }else{
+                    )  as '" . $field->label . "'";
+                } else {
                     $query['select'][] = $select_field . " AS '" . $field->label . "'";
                 }
 
 
                 /***** check type *****/
 
-                switch($data['type']){
+                switch ($data['type']) {
                     case "enum":
                     case "dynamicenum":
                     case "multienum":
                         $start_case = "IFNULL ({$select_field}, '') AS  '{$field->label}',";
                         $start_case .= " CASE {$select_field} WHEN 'NULL' THEN ''";
                         $middle_case = '';
-                        foreach($GLOBALS['app_list_strings'][$data['options']] as $key =>  $option){
+                        foreach ($GLOBALS['app_list_strings'][$data['options']] as $key => $option) {
                             $middle_case .= " WHEN '{$key}' THEN '{$option}' ";
                         }
                         $end_case = " ELSE {$select_field} END as '{$field->label}'";
-                        $final = $start_case .  $middle_case . $end_case;
+                        $final = $start_case . $middle_case . $end_case;
                         $query['select'][] = $final;
                         break;
                     case "datetime":
                     case "date":
                     case "datetimecombo":
-                        $start_case = "CASE WHEN date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/",'%$0',$field->format) . "') = 00000000 THEN '' ";
+                        $start_case = "CASE WHEN date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/", '%$0', $field->format) . "') = 00000000 THEN '' ";
                         $middle_case = "WHEN isnull({$select_field}) THEN '' ";
-                        $end_case = "ELSE date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/",'%$0',$field->format) . "') END AS  '{$field->label}' ";
-                        $final = $start_case .  $middle_case . $end_case;
+                        $end_case = "ELSE date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/", '%$0', $field->format) . "') END AS  '{$field->label}' ";
+                        $final = $start_case . $middle_case . $end_case;
                         $query['select'][] = $final;
                         break;
 
@@ -699,8 +815,8 @@ class AdvancedReporter extends AOR_Report
             }
 
             //if a snap shot asked for we do not want to display anything after that time.
-            if($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
-                                                  !empty($this->bean->snapshot_date) )){
+            if ($this->bean->is_AuditEnabled() && (!empty($this->requestData['snapshot_date']) ||
+                    !empty($this->bean->snapshot_date))) {
                 $query['where'][] = $table_alias . ".date_entered < '" . $date . "' AND ";
             }
 
@@ -779,57 +895,57 @@ class AdvancedReporter extends AOR_Report
                 </button>";
             } else {
                 $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\",0,\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\",0,\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                     <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('start.gif') .
-                         "' alt='Start' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('start.gif') .
+                    "' alt='Start' align='absmiddle' border='0'>
                 </button>
                 <button type='button' id='listViewPrevButton_top' name='listViewPrevButton' class='button' title='Previous' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\"," .
-                         $previous_offset .
-                         ",\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\"," .
+                    $previous_offset .
+                    ",\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                     <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('previous.gif') .
-                         "' alt='Previous' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('previous.gif') .
+                    "' alt='Previous' align='absmiddle' border='0'>
                 </button>";
             }
             $html .= " <span class='pageNumbers'>(" . $start . " - " . $end . " of " . $total_rows . ")</span>";
             if ($next_offset < $total_rows) {
                 $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\"," .
-                         $next_offset .
-                         ",\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\"," .
+                    $next_offset .
+                    ",\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                         <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('next.gif') .
-                         "' alt='Next' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('next.gif') .
+                    "' alt='Next' align='absmiddle' border='0'>
                     </button>
                      <button type='button' id='listViewEndButton_top' name='listViewEndButton' title='End' class='button' onclick='changeReportPage(\"" .
-                         $this->id .
-                         "\"," .
-                         $last_offset .
-                         ",\"" .
-                         $group_value .
-                         "\",\"" .
-                         $tableIdentifier .
-                         "\")'>
+                    $this->id .
+                    "\"," .
+                    $last_offset .
+                    ",\"" .
+                    $group_value .
+                    "\",\"" .
+                    $tableIdentifier .
+                    "\")'>
                         <img src='" .
-                         SugarThemeRegistry::current()->getImageURL('end.gif') .
-                         "' alt='End' align='absmiddle' border='0'>
+                    SugarThemeRegistry::current()->getImageURL('end.gif') .
+                    "' alt='End' align='absmiddle' border='0'>
                     </button>";
             } else {
                 $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button'  disabled='disabled'>
@@ -853,9 +969,9 @@ class AdvancedReporter extends AOR_Report
             $html = "<H3>$moduleFieldByGroupValue</H3>" . $html;
         }
 
-        if($this->requestData != false){
+        if ($this->requestData != false) {
             $rows = $this->getViewParams();
-        }else{
+        } else {
             $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND deleted = 0 ORDER BY field_order ASC";
             $result = $this->db->query($sql);
             while ($row = $this->db->fetchByAssoc($result)) {
@@ -914,19 +1030,19 @@ class AdvancedReporter extends AOR_Report
 
         if ($offset >= 0) {
             $result = $this->db->limitQuery($report_sql, $offset, $max_rows);
-        } elseif($offset == "-2") {
+        } elseif ($offset == "-2") {
             $result = $this->db->limitQuery($report_sql, 0, "10");
-        }else{
+        } else {
             $result = $this->db->query($report_sql);
         }
 
         $row_class = 'oddListRowS1';
 
-        $j = 1;
+        $j = 0;
 
         $totals = array();
         while ($row = $this->db->fetchByAssoc($result)) {
-            $GLOBALS['log']->fatal('Row Number '.$j.' START');
+            $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
             $html .= "<tr class='" . $row_class . "' height='20'>";
 
             foreach ($fields as $name => $att) {
@@ -934,12 +1050,12 @@ class AdvancedReporter extends AOR_Report
                     $html .= "<td class='' valign='top' align='left'>";
                     if ($att['link'] && $links) {
                         $html .= "<a href='" .
-                                 $sugar_config['site_url'] .
-                                 "/index.php?module=" .
-                                 $att['module'] .
-                                 "&action=DetailView&record=" .
-                                 $row[$att['alias'] . '_id'] .
-                                 "'>";
+                            $sugar_config['site_url'] .
+                            "/index.php?module=" .
+                            $att['module'] .
+                            "&action=DetailView&record=" .
+                            $row[$att['alias'] . '_id'] .
+                            "'>";
                     }
 
                     $currency_id =
@@ -949,24 +1065,25 @@ class AdvancedReporter extends AOR_Report
                         $html .= $row[$name];
                     } else {
                         $vardef = $field_bean->getFieldDefinition($att['field']);
-                        if($vardef['type'] == 'relate') {
-                            $relateSQL = "SELECT rel.name FROM ".$vardef['table']." rel WHERE rel.id = '".$row[$name]."' AND rel.deleted = '0'";
+                        if ($vardef['type'] == 'relate') {
+                            $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
                             $relateResult = $field_bean->db->query($relateSQL);
                             $relateRow = mysqli_fetch_row($relateResult);
                             $relateName = $relateRow['name'];
                         }
-                        $html .= $row[$name];
+//                        $html .= $row[$name];
+                        $html .= $this->customGetModuleField(
 //                        $html .= getModuleField(
-//                            $att['module'],
-//                            $att['field'],
-//                            $att['field'],
-//                            'DetailView',
-//                            $row[$name],
-//                            '',
-//                            $currency_id,
-//                            array(),
-//                            $j
-//                        );
+                            $att['module'],
+                            $att['field'],
+                            $att['field'],
+                            'DetailView',
+                            $row[$name],
+                            '',
+                            $currency_id,
+                            array(),
+                            $j
+                        );
                     }
 
                     if ($att['total']) {
@@ -1012,17 +1129,303 @@ class AdvancedReporter extends AOR_Report
         return $html;
     }
 
+
+    public function generateFieldMarkup($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file)
+    {
+
+        $timedate = $this->getTimedate();
+        $current_user = $this->getCurrentuser();
+        $beanFiles = $this->getBeanFiles();
+        $beanList = $this->getBeanList();
+        $app_strings = $this->getAppStrings();
+        $current_language = $this->getCurrentLanguage();
+
+        $mod_strings = return_module_language($current_language, $module);
+        $focus = $this->getFocus($module);
+
+
+        $fieldList = $this->getFieldList($fieldName, $mod_strings, $module);
+
+        // fill in function return values
+        if (!in_array($fieldName, array('email1', 'email2'))) {
+            if (!empty($fieldList[$fieldName]['function']['returns']) && $fieldList[$fieldName]['function']['returns'] == 'html') {
+                $function = $fieldList[$fieldName]['function']['name'];
+                // include various functions required in the various vardefs
+                if (isset($fieldList[$fieldName]['function']['include']) && is_file($fieldList[$fieldName]['function']['include']))
+                    require_once($fieldList[$fieldName]['function']['include']);
+                $_REQUEST[$fieldName] = $value;
+                $value = $function($focus, $fieldName, $value, $view);
+
+                $value = str_ireplace($fieldName, $aow_field, $value);
+            }
+        }
+
+
+        if (isset($fieldList[$fieldName]['type']) && $fieldList[$fieldName]['type'] == 'link') {
+            $fieldList[$fieldName]['id_name'] = $fieldList[$fieldName]['name'] . '_id';
+
+            if ((!isset($fieldList[$fieldName]['module']) || $fieldList[$fieldName]['module'] == '') && $focus->load_relationship($fieldList[$fieldName]['name'])) {
+                $relName = $fieldList[$fieldName]['name'];
+                $fieldList[$fieldName]['module'] = $focus->$relName->getRelatedModuleName();
+            }
+        }
+
+
+        if (isset($fieldList[$fieldName]['name']) && ($fieldList[$fieldName]['name'] == 'date_entered' || $fieldList[$fieldName]['name'] == 'date_modified')) {
+            $fieldList[$fieldName]['name'] = 'aow_temp_date';
+            $fieldList['aow_temp_date'] = $fieldList[$fieldName];
+            $fieldName = 'aow_temp_date';
+        }
+
+
+        $quicksearch_js = '';
+        if (isset($fieldList[$fieldName]['id_name']) && $fieldList[$fieldName]['id_name'] != '' && $fieldList[$fieldName]['id_name'] != $fieldList[$fieldName]['name']) {
+            $rel_value = $value;
+
+
+            $template_handler = new TemplateHandler();
+            $quicksearch_js = $template_handler->createQuickSearchCode($fieldList, $fieldList, $view);
+            $quicksearch_js = str_replace($fieldName, $aow_field . '_display', $quicksearch_js);
+            $quicksearch_js = str_replace($fieldList[$fieldName]['id_name'], $aow_field, $quicksearch_js);
+
+            echo $quicksearch_js;
+
+            if (isset($fieldList[$fieldName]['module']) && $fieldList[$fieldName]['module'] == 'Users') {
+                $rel_value = get_assigned_user_name($value);
+            } else if (isset($fieldList[$fieldName]['module'])) {
+                require_once($beanFiles[$beanList[$fieldList[$fieldName]['module']]]);
+                $rel_focus = new $beanList[$fieldList[$fieldName]['module']];
+                $rel_focus->retrieve($value);
+                if (isset($fieldList[$fieldName]['rname']) && $fieldList[$fieldName]['rname'] != '') {
+                    $relDisplayField = $fieldList[$fieldName]['rname'];
+                } else {
+                    $relDisplayField = 'name';
+                }
+                $rel_value = $rel_focus->$relDisplayField;
+            }
+
+            $fieldList[$fieldList[$fieldName]['id_name']]['value'] = $value;
+            $fieldList[$fieldName]['value'] = $rel_value;
+            $fieldList[$fieldName]['id_name'] = $aow_field;
+            $fieldList[$fieldList[$fieldName]['id_name']]['name'] = $aow_field;
+            $fieldList[$fieldName]['name'] = $aow_field . '_display';
+        } else if (isset($fieldList[$fieldName]['type']) && $view == 'DetailView' && ($fieldList[$fieldName]['type'] == 'datetimecombo' || $fieldList[$fieldName]['type'] == 'datetime' || $fieldList[$fieldName]['type'] == 'date')) {
+            $value = $focus->convertField($value, $fieldList[$fieldName]);
+            if (!empty($params['date_format']) && isset($params['date_format'])) {
+                $convert_format = "Y-m-d H:i:s";
+                if ($fieldList[$fieldName]['type'] == 'date') $convert_format = "Y-m-d";
+                $fieldList[$fieldName]['value'] = $timedate->to_display($value, $convert_format, $params['date_format']);
+            } else {
+                $fieldList[$fieldName]['value'] = $timedate->to_display_date_time($value, true, true);
+            }
+            $fieldList[$fieldName]['name'] = $aow_field;
+        } else if (isset($fieldList[$fieldName]['type']) && ($fieldList[$fieldName]['type'] == 'datetimecombo' || $fieldList[$fieldName]['type'] == 'datetime' || $fieldList[$fieldName]['type'] == 'date')) {
+            $value = $focus->convertField($value, $fieldList[$fieldName]);
+            $fieldList[$fieldName]['value'] = $timedate->to_display_date($value);
+            $fieldList[$fieldName]['name'] = $aow_field;
+        } else {
+            $fieldList[$fieldName]['value'] = $value;
+            $fieldList[$fieldName]['name'] = $aow_field;
+
+        }
+
+
+        $ss = new Sugar_Smarty();
+        $ss = $this->setDateFormats($ss);
+
+        if (isset($fieldList[$fieldName]['type']) && $fieldList[$fieldName]['type'] == 'currency' && $view != 'EditView') {
+            static $sfh;
+
+            if (!isset($sfh)) {
+
+                $sfh = new SugarFieldHandler();
+            }
+
+            if ($currency_id != '' && !stripos($fieldName, '_USD')) {
+                $userCurrencyId = $current_user->getPreference('currency');
+                if ($currency_id != $userCurrencyId) {
+                    $currency = new Currency();
+                    $currency->retrieve($currency_id);
+                    $value = $currency->convertToDollar($value);
+                    $currency->retrieve($userCurrencyId);
+                    $value = $currency->convertFromDollar($value);
+                }
+            }
+            $parentfieldlist[strtoupper($fieldName)] = $value;
+            $markup = $sfh->displaySmarty($parentfieldlist, $fieldList[$fieldName], 'ListView', array());
+        } else {
+            $ss->assign("QS_JS", $quicksearch_js);
+            $ss->assign("fields", $fieldList);
+            $ss->assign("form_name", $view);
+            $ss->assign("bean", $focus);
+
+            // add in any additional strings
+            $ss->assign("MOD", $mod_strings);
+            $ss->assign("APP", $app_strings);
+
+            $markup = $ss->fetch($file);
+        }
+        return $markup;
+    }
+
+
+    /**
+     * @param $module
+     * @param $fieldName
+     * @param $view
+     * @param $alt_type
+     * @param $file
+     * @return void
+     */
+    public function createCache($module, $fieldName, $view, $alt_type, $file)
+    {
+        $beanFiles = $this->getBeanFiles();
+        $beanList = $this->getBeanList();
+        $moduleName = $beanList[$module];
+        $moduleClassLocation = $beanFiles[$moduleName];
+
+
+        $focus = new $moduleName;
+        $vardef = $focus->getFieldDefinition($fieldName);
+
+        // Bug: check for AOR value SecurityGroups value missing
+        $fieldIsSecurityGroup = (stristr($fieldName, 'securitygroups') != false && empty($vardef));
+        if ($fieldIsSecurityGroup) {
+            $module = 'SecurityGroups';
+            $moduleName = $beanList[$module];
+            $moduleClassLocation = $beanFiles[$moduleName];
+            $focus = new $moduleName;
+        }
+
+        require_once($moduleClassLocation);
+
+        // if this is the id relation field, then don't have a pop-up selector.
+        if ($vardef['type'] == 'relate' && $vardef['id_name'] == $vardef['name']) {
+            $vardef['type'] = 'varchar';
+        }
+
+        if (isset($vardef['precision'])) {
+            unset($vardef['precision']);
+        }
+
+        //TODO Fix datetimecomebo
+        //temp work around
+        if ($vardef['type'] == 'datetimecombo') {
+            $vardef['type'] = 'datetime';
+        }
+
+        // trim down textbox display
+        if ($vardef['type'] == 'text') {
+            $vardef['rows'] = 2;
+            $vardef['cols'] = 32;
+        }
+
+        // create the dropdowns for the parent type fields
+        if ($vardef['type'] == 'parent_type') {
+            $vardef['type'] = 'enum';
+        }
+
+        if ($vardef['type'] == 'link') {
+            $vardef['type'] = 'relate';
+            $vardef['rname'] = 'name';
+            $vardef['id_name'] = $vardef['name'] . '_id';
+            if ((!isset($vardef['module']) || $vardef['module'] == '') && $focus->load_relationship($vardef['name'])) {
+                $relName = $vardef['name'];
+                $vardef['module'] = $focus->$relName->getRelatedModuleName();
+            }
+
+        }
+
+        //check for $alt_type
+        if ($alt_type != '') {
+            $vardef['type'] = $alt_type;
+        }
+
+        // remove the special text entry field function 'getEmailAddressWidget'
+        if (isset($vardef['function'])
+            && ($vardef['function'] == 'getEmailAddressWidget'
+                || $vardef['function']['name'] == 'getEmailAddressWidget')) {
+            unset($vardef['function']);
+        }
+
+
+        if (isset($vardef['name']) && ($vardef['name'] == 'date_entered' || $vardef['name'] == 'date_modified')) {
+            $vardef['name'] = 'aow_temp_date';
+        }
+
+        // load SugarFieldHandler to render the field tpl file
+        static $sfh;
+
+        if (!isset($sfh)) {
+            $sfh = new SugarFieldHandler();
+        }
+
+        $contents = $sfh->displaySmarty('fields', $vardef, $view, array());
+
+        // Remove all the copyright comments
+        $contents = preg_replace('/\{\*[^\}]*?\*\}/', '', $contents);
+
+        if ($view == 'EditView' && ($vardef['type'] == 'relate' || $vardef['type'] == 'parent')) {
+            $contents = str_replace('"' . $vardef['id_name'] . '"', '{/literal}"{$fields.' . $vardef['name'] . '.id_name}"{literal}', $contents);
+            $contents = str_replace('"' . $vardef['name'] . '"', '{/literal}"{$fields.' . $vardef['name'] . '.name}"{literal}', $contents);
+        }
+
+        // hack to disable one of the js calls in this control
+        if (isset($vardef['function']) && ($vardef['function'] == 'getCurrencyDropDown' || $vardef['function']['name'] == 'getCurrencyDropDown'))
+            $contents .= "{literal}<script>function CurrencyConvertAll() { return; }</script>{/literal}";
+
+        // Save it to the cache file
+        if ($fh = @sugar_fopen($file, 'w')) {
+            fputs($fh, $contents);
+            fclose($fh);
+        }
+
+        return $focus;
+    }
+
+
+    function customGetModuleField($module, $fieldName, $aow_field, $view = 'EditView', $value = '', $alt_type = '', $currency_id = '', $params = array())
+    {
+        global $timedate;
+        global $current_user;
+        global $beanFiles;
+        global $beanList;
+        global $app_strings;
+        global $current_language;
+
+        $this->setTimedate($timedate);
+        $this->setCurrentuser($current_user);
+        $this->setBeanFiles($beanFiles);
+        $this->setBeanList($beanList);
+        $this->setAppStrings($app_strings);
+        $this->setCurrentLanguage($current_language);
+
+
+        $file = create_cache_directory('modules/AOW_WorkFlow/') . $module . $view . $alt_type . $fieldName . '.tpl';
+
+        $shouldCreateCache = !is_file($file) || inDeveloperMode() || !empty($_SESSION['developerMode']);
+
+        if ($shouldCreateCache) {
+
+            $focus = $this->createCache($module, $fieldName, $view, $alt_type, $file);
+            $this->_focus = $focus;
+        }
+        $markup = $this->generateFieldMarkup($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file);
+        return $markup;
+    }
+
+
     function getViewParams($group = false, $array = false, $level = false)
     {
         $rows = array();
-        if(isset($this->requestData['fieldView']) && !empty($this->requestData['fieldView'])) {
+        if (isset($this->requestData['fieldView']) && !empty($this->requestData['fieldView'])) {
             foreach ($this->requestData['fieldView'] as $row) {
                 if (isset($row['aor_fields_deleted']) &&
                     $row['aor_fields_deleted'] == 0 &&
                     $row['aor_fields_deleted'] != null &&
                     ($level == $row['aor_fields_group_display'] ||
-                     $level == false ||
-                     ($row['aor_fields_group_display'] == null && $this->groupBy == $row['aor_fields_field_order']))) {
+                        $level == false ||
+                        ($row['aor_fields_group_display'] == null && $this->groupBy == $row['aor_fields_field_order']))) {
                     $field = new AOR_Field();
                     foreach ($row as $key => $item) {
                         $newKey = substr($key, 11);
@@ -1057,10 +1460,11 @@ class AdvancedReporter extends AOR_Report
         }
         return $rows;
     }
+
     function getConditionParams()
     {
         $rows = array();
-        if(isset($this->requestData['conditionView']) && !empty($this->requestData['conditionView'])) {
+        if (isset($this->requestData['conditionView']) && !empty($this->requestData['conditionView'])) {
             foreach ($this->requestData['conditionView'] as $row) {
                 if ($row['aor_conditions_deleted'] == 0 && $row['aor_conditions_deleted'] != null) {
                     $field = new AOR_Condition();
@@ -1090,12 +1494,12 @@ class AdvancedReporter extends AOR_Report
         $module = new $beanList[$this->report_module]();
         $field = false;
         //get the group field.
-        if($this->requestData != false){
+        if ($this->requestData != false) {
             $field = $this->getViewParams(true, false, 1);
-        }else{
+        } else {
             $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
             $field_id = $this->db->getOne($sql);
-            if(!empty($field_id)){
+            if (!empty($field_id)) {
                 $field = BeanFactory::getBean("AOR_Fields", $field_id);
             }
         }
@@ -1143,7 +1547,7 @@ class AdvancedReporter extends AOR_Report
                 ) && isset($field_module->field_defs['currency_id'])
             ) {
                 if ((isset($field_module->field_defs['currency_id']['source']) &&
-                     $field_module->field_defs['currency_id']['source'] == 'custom_fields')
+                    $field_module->field_defs['currency_id']['source'] == 'custom_fields')
                 ) {
                     $query['select'][$table_alias . '_currency_id'] =
                         $table_alias . '_cstm' . ".currency_id AS '" . $table_alias . "_currency_id'";
@@ -1251,7 +1655,7 @@ class AdvancedReporter extends AOR_Report
                 if ($html != '') {
                     $html .= '<br />';
                 }
-                if(!isset($checkListed[$row[$field_label]]) ) {
+                if (!isset($checkListed[$row[$field_label]])) {
                     $checkListed[$row[$field_label]] = $row[$field_label];
                     $html .= $this->build_report_html($offset, $links, $row[$field_label], create_guid(), $extra);
                 }
@@ -1291,9 +1695,9 @@ class AdvancedReporter extends AOR_Report
         if ($beanList[$this->report_module]) {
             $module = new $beanList[$this->report_module]();
 
-            if($this->requestData != false){
+            if ($this->requestData != false) {
                 $rows = $this->getConditionParams();
-            }else {
+            } else {
                 $sql =
                     "SELECT id FROM aor_conditions WHERE aor_report_id = '" .
                     $this->id .
@@ -1309,7 +1713,7 @@ class AdvancedReporter extends AOR_Report
 
             $tiltLogicOp = true;
 
-            foreach($rows as $condition){
+            foreach ($rows as $condition) {
 
                 $path = unserialize(base64_decode($condition->module_path));
 
@@ -1330,7 +1734,7 @@ class AdvancedReporter extends AOR_Report
                         $oldAlias = $table_alias;
                         $table_alias = $table_alias . ":" . $rel;
                         $query = $this->build_report_query_join($rel, $table_alias, $oldAlias, $condition_module,
-                                                                'relationship', $query, $new_condition_module);
+                            'relationship', $query, $new_condition_module);
                         $condition_module = $new_condition_module;
                     }
                 }
@@ -1351,10 +1755,10 @@ class AdvancedReporter extends AOR_Report
 
                     if ($data['type'] == 'link' && $data['source'] == 'non-db') {
                         $new_field_module = new $beanList[getRelatedModule($condition_module->module_dir,
-                                                                           $data['relationship'])];
+                            $data['relationship'])];
                         $table_alias = $data['relationship'];
                         $query = $this->build_report_query_join($data['relationship'], $table_alias, $oldAlias,
-                                                                $condition_module, 'relationship', $query, $new_field_module);
+                            $condition_module, 'relationship', $query, $new_field_module);
                         $condition_module = $new_field_module;
 
                         // Debugging: security groups conditions - It's a hack to just get the query working
@@ -1366,7 +1770,7 @@ class AdvancedReporter extends AOR_Report
                     if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                         $field = $this->db->quoteIdentifier($table_alias . '_cstm') . '.' . $condition->field;
                         $query = $this->build_report_query_join($table_alias . '_cstm', $table_alias . '_cstm',
-                                                                $table_alias, $condition_module, 'custom', $query);
+                            $table_alias, $condition_module, 'custom', $query);
                     } else {
                         $field = $this->db->quoteIdentifier($table_alias) . '.' . $condition->field;
                     }
@@ -1394,17 +1798,17 @@ class AdvancedReporter extends AOR_Report
 
                             if ($data['type'] == 'link' && $data['source'] == 'non-db') {
                                 $new_field_module = new $beanList[getRelatedModule($condition_module->module_dir,
-                                                                                   $data['relationship'])];
+                                    $data['relationship'])];
                                 $table_alias = $data['relationship'];
                                 $query = $this->build_report_query_join($data['relationship'], $table_alias, $oldAlias,
-                                                                        $condition_module, 'relationship', $query, $new_field_module);
+                                    $condition_module, 'relationship', $query, $new_field_module);
                                 $condition_module = $new_field_module;
                                 $condition->field = 'id';
                             }
                             if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                                 $value = $condition_module->table_name . '_cstm.' . $condition->value;
                                 $query = $this->build_report_query_join($condition_module->table_name . '_cstm',
-                                                                        $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
+                                    $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
                             } else {
                                 $value = ($table_alias ? $this->db->quoteIdentifier($table_alias) : $condition_module->table_name) . '.' . $condition->value;
                             }
@@ -1438,7 +1842,7 @@ class AdvancedReporter extends AOR_Report
                                     if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                                         $value = $condition_module->table_name . '_cstm.' . $params[0];
                                         $query = $this->build_report_query_join($condition_module->table_name . '_cstm',
-                                                                                $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
+                                            $table_alias . '_cstm', $table_alias, $condition_module, 'custom', $query);
                                     } else {
                                         $value = $condition_module->table_name . '.' . $params[0];
                                     }
@@ -1487,14 +1891,14 @@ class AdvancedReporter extends AOR_Report
                                 $params = base64_decode($condition->value);
                             }
 
-                            $value = '"' . DateHelper::getPeriodDate($params,$condition->condition_period_length)
+                            $value = '"' . DateHelper::getPeriodDate($params, $condition->condition_period_length)
                                     ->format('Y-m-d H:i:s') . '"';
                             break;
                         case "CurrentUserID":
                             global $current_user;
-                            if(!empty($this->view_as) ){
+                            if (!empty($this->view_as)) {
                                 $value = '"' . $this->view_as . '"';
-                            }else{
+                            } else {
                                 $value = '"' . $current_user->id . '"';
                             }
                             break;
@@ -1529,8 +1933,8 @@ class AdvancedReporter extends AOR_Report
                             } else {
                                 $params = base64_decode($condition->value);
                             }
-                            $date = DateHelper::getPeriodEndDate($params,$condition->condition_period_length)->format('Y-m-d H:i:s');
-                            $value = '"' . DateHelper::getPeriodDate($params,$condition->condition_period_length)->format('Y-m-d H:i:s') . '"';
+                            $date = DateHelper::getPeriodEndDate($params, $condition->condition_period_length)->format('Y-m-d H:i:s');
+                            $value = '"' . DateHelper::getPeriodDate($params, $condition->condition_period_length)->format('Y-m-d H:i:s') . '"';
 
                             $query['where'][] = ($tiltLogicOp ? '' : ($condition->logic_op ? $condition->logic_op . ' ' : 'AND '));
                             $tiltLogicOp = false;
@@ -1577,7 +1981,7 @@ class AdvancedReporter extends AOR_Report
                 $query['where'][] = ') AND ';
             }
             $query['where'][] = $module->table_name . ".deleted = 0 " . $this->build_report_access_query($module,
-                                                                                                         $module->table_name);
+                    $module->table_name);
 
         }
 
@@ -1768,12 +2172,102 @@ class AdvancedReporter extends AOR_Report
 
     private function encloseForCSV($field)
     {
-        if($this->bean->text_delimit_disabled_c == 1){
+        if ($this->bean->text_delimit_disabled_c == 1) {
             return $field;
-        }elseif(!empty($this->bean->text_delimiter_c)){
-            return trim(html_entity_decode($this->bean->text_delimiter_c)).$field.trim(html_entity_decode($this->bean->text_delimiter_c));
-        }else{
-            return '"'.$field.'"';
+        } elseif (!empty($this->bean->text_delimiter_c)) {
+            return trim(html_entity_decode($this->bean->text_delimiter_c)) . $field . trim(html_entity_decode($this->bean->text_delimiter_c));
+        } else {
+            return '"' . $field . '"';
         }
     }
+
+    /**
+     * @param $timedate
+     * @param $ss
+     * @param $current_user
+     */
+    public function setDateFormats($ss)
+    {
+        global $timedate, $current_user;
+
+        $time_format = $timedate->get_user_time_format();
+        $date_format = $timedate->get_cal_date_format();
+        $ss->assign('USER_DATEFORMAT', $timedate->get_user_date_format());
+        $ss->assign('TIME_FORMAT', $time_format);
+        $time_separator = ":";
+        $match = array();
+        if (preg_match('/\d+([^\d])\d+([^\d]*)/s', $time_format, $match)) {
+            $time_separator = $match[1];
+        }
+        $t23 = strpos($time_format, '23') !== false ? '%H' : '%I';
+        if (!isset($match[2]) || $match[2] == '') {
+            $ss->assign('CALENDAR_FORMAT', $date_format . ' ' . $t23 . $time_separator . "%M");
+        } else {
+            $pm = $match[2] == "pm" ? "%P" : "%p";
+            $ss->assign('CALENDAR_FORMAT', $date_format . ' ' . $t23 . $time_separator . "%M" . $pm);
+        }
+
+        $ss->assign('CALENDAR_FDOW', $current_user->get_first_day_of_week());
+
+        return $ss;
+    }
+
+    /**
+     * @param $module
+     * @param $focus
+     * @return mixed
+     */
+    public function getFocus($module)
+    {
+        global $beanList;
+        $moduleName = $beanList[$module];
+        if ($this->_focus == null || !is_a($this->_focus, $moduleName)) {
+            global $beanFiles;
+            global $beanList;
+
+            $moduleName = $beanList[$module];
+            $moduleClassLocation = $beanFiles[$moduleName];
+
+            require_once($moduleClassLocation);
+            $focus = new $moduleName;
+            $this->_focus = $focus;
+        }
+        return $this->_focus;
+    }
+
+
+    public function getFieldList($fieldName, $mod_strings, $module)
+    {
+        $varDefLoaded = false;
+        foreach($this->_fieldList as $item){
+            if($item['module']==$module){
+                $varDefLoaded = true;
+            }
+        }
+        if(!$varDefLoaded){
+            global $app_list_strings;
+            $focus = $this->getFocus($module);
+            $vardefFields = $focus->getFieldDefinitions();
+            $fieldList = array();
+            if (isset($vardefFields[$fieldName]['type']) && $vardefFields[$fieldName]['type'] == 'parent_type') {
+                $focus->field_defs[$fieldName]['options'] = $focus->field_defs[$vardefFields[$fieldName]['group']]['options'];
+            }
+            foreach ($vardefFields as $name => $properties) {
+                $fieldList[$name] = $properties;
+                // fill in enums
+                if (isset($fieldList[$name]['options']) && is_string($fieldList[$name]['options']) && isset($app_list_strings[$fieldList[$name]['options']]))
+                    $fieldList[$name]['options'] = $app_list_strings[$fieldList[$name]['options']];
+                // Bug 32626: fall back on checking the mod_strings if not in the app_list_strings
+                elseif (isset($fieldList[$name]['options']) && is_string($fieldList[$name]['options']) && isset($mod_strings[$fieldList[$name]['options']]))
+                    $fieldList[$name]['options'] = $mod_strings[$fieldList[$name]['options']];
+                // Bug 22730: make sure all enums have the ability to select blank as the default value.
+                if (!isset($fieldList[$name]['options']['']))
+                    $fieldList[$name]['options'][''] = '';
+            }
+            array_push($this->_fieldList, array('module' => $module, 'fieldlist' => $fieldList));
+        }
+        return $this->_fieldList;
+    }
+
+
 }
