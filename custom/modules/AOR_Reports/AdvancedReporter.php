@@ -35,6 +35,10 @@ class AdvancedReporter extends AOR_Report
      */
     public function getBeanList()
     {
+        if ($this->_beanList == null) {
+            global $beanList;
+            $this->setBeanList($beanList);
+        }
         return $this->_beanList;
     }
 
@@ -54,6 +58,11 @@ class AdvancedReporter extends AOR_Report
      */
     public function getTimedate()
     {
+        if ($this->_timedate == null) {
+            global $timedate;
+            $this->setTimedate($timedate);
+        }
+
         return $this->_timedate;
     }
 
@@ -72,6 +81,11 @@ class AdvancedReporter extends AOR_Report
      */
     public function getCurrentuser()
     {
+        if ($this->_currentuser == null) {
+            global $current_user;
+            $this->setCurrentuser($current_user);
+        }
+
         return $this->_currentuser;
     }
 
@@ -90,6 +104,10 @@ class AdvancedReporter extends AOR_Report
      */
     public function getBeanFiles()
     {
+        if ($this->_beanFiles == null) {
+            global $beanFiles;
+            $this->setBeanFiles($beanFiles);
+        }
         return $this->_beanFiles;
     }
 
@@ -108,6 +126,10 @@ class AdvancedReporter extends AOR_Report
      */
     public function getAppStrings()
     {
+        if ($this->_app_strings == null) {
+            global $app_strings;
+            $this->setAppStrings($app_strings);
+        }
         return $this->_app_strings;
     }
 
@@ -126,6 +148,10 @@ class AdvancedReporter extends AOR_Report
      */
     public function getCurrentLanguage()
     {
+        if ($this->_current_language == null) {
+            global $current_language;
+            $this->setCurrentLanguage($current_language);
+        }
         return $this->_current_language;
     }
 
@@ -1130,6 +1156,132 @@ class AdvancedReporter extends AOR_Report
     }
 
 
+    public function generateFieldMarkupPDF($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file)
+    {
+
+        $timedate = $this->getTimedate();
+        $current_user = $this->getCurrentuser();
+        $beanFiles = $this->getBeanFiles();
+        $beanList = $this->getBeanList();
+        $app_strings = $this->getAppStrings();
+        $current_language = $this->getCurrentLanguage();
+
+        $mod_strings = return_module_language($current_language, $module);
+        $focus = $this->getFocus($module);
+
+
+        $fieldList = $this->getFieldList($fieldName, $mod_strings, $module);
+
+        // fill in function return values
+        if (!in_array($fieldName, array('email1', 'email2'))) {
+            if (!empty($fieldList[$fieldName]['function']['returns']) && $fieldList[$fieldName]['function']['returns'] == 'html') {
+                $function = $fieldList[$fieldName]['function']['name'];
+                // include various functions required in the various vardefs
+                if (isset($fieldList[$fieldName]['function']['include']) && is_file($fieldList[$fieldName]['function']['include']))
+                    require_once($fieldList[$fieldName]['function']['include']);
+                $_REQUEST[$fieldName] = $value;
+                $value = $function($focus, $fieldName, $value, $view);
+
+                $value = str_ireplace($fieldName, $aow_field, $value);
+                return $value;
+            }
+        }
+
+
+        if (isset($fieldList[$fieldName]['type']) && $fieldList[$fieldName]['type'] == 'link') {
+            $fieldList[$fieldName]['id_name'] = $fieldList[$fieldName]['name'] . '_id';
+
+            if ((!isset($fieldList[$fieldName]['module']) || $fieldList[$fieldName]['module'] == '') && $focus->load_relationship($fieldList[$fieldName]['name'])) {
+                $relName = $fieldList[$fieldName]['name'];
+                $fieldList[$fieldName]['module'] = $focus->$relName->getRelatedModuleName();
+                return $fieldList[$fieldName]['module'];
+            }
+        }
+
+
+        if (isset($fieldList[$fieldName]['name']) && ($fieldList[$fieldName]['name'] == 'date_entered' || $fieldList[$fieldName]['name'] == 'date_modified')) {
+            $fieldList[$fieldName]['name'] = 'aow_temp_date';
+            $fieldList['aow_temp_date'] = $fieldList[$fieldName];
+            $fieldName = 'aow_temp_date';
+            return $fieldList['aow_temp_date'];
+        }
+
+
+        $quicksearch_js = '';
+        if (isset($fieldList[$fieldName]['id_name']) && $fieldList[$fieldName]['id_name'] != '' && $fieldList[$fieldName]['id_name'] != $fieldList[$fieldName]['name']) {
+            $rel_value = $value;
+
+//            $template_handler = new TemplateHandler();
+//            $quicksearch_js = $template_handler->createQuickSearchCode($fieldList, $fieldList, $view);
+//            $quicksearch_js = str_replace($fieldName, $aow_field . '_display', $quicksearch_js);
+//            $quicksearch_js = str_replace($fieldList[$fieldName]['id_name'], $aow_field, $quicksearch_js);
+
+//            echo $quicksearch_js;
+
+//            if (isset($fieldList[$fieldName]['module']) && $fieldList[$fieldName]['module'] == 'Users') {
+//                $rel_value = get_assigned_user_name($value);
+//            } else if (isset($fieldList[$fieldName]['module'])) {
+//                require_once($beanFiles[$beanList[$fieldList[$fieldName]['module']]]);
+//                $rel_focus = new $beanList[$fieldList[$fieldName]['module']];
+//                $rel_focus->retrieve($value);
+//                if (isset($fieldList[$fieldName]['rname']) && $fieldList[$fieldName]['rname'] != '') {
+//                    $relDisplayField = $fieldList[$fieldName]['rname'];
+//                } else {
+//                    $relDisplayField = 'name';
+//                }
+//                $rel_value = $rel_focus->$relDisplayField;
+//            }
+
+            $fieldList[$fieldList[$fieldName]['id_name']]['value'] = $value;
+            $fieldList[$fieldName]['value'] = $rel_value;
+            $fieldList[$fieldName]['id_name'] = $aow_field;
+            $fieldList[$fieldList[$fieldName]['id_name']]['name'] = $aow_field;
+            $fieldList[$fieldName]['name'] = $aow_field . '_display';
+
+            return $value;
+        }
+
+        if (isset($fieldList[$fieldName]['type']) && $view == 'DetailView' && ($fieldList[$fieldName]['type'] == 'datetimecombo' || $fieldList[$fieldName]['type'] == 'datetime' || $fieldList[$fieldName]['type'] == 'date')) {
+            $value = $focus->convertField($value, $fieldList[$fieldName]);
+            if (!empty($params['date_format']) && isset($params['date_format'])) {
+                $convert_format = "Y-m-d H:i:s";
+                if ($fieldList[$fieldName]['type'] == 'date') $convert_format = "Y-m-d";
+                $fieldList[$fieldName]['value'] = $timedate->to_display($value, $convert_format, $params['date_format']);
+            } else {
+                $fieldList[$fieldName]['value'] = $timedate->to_display_date_time($value, true, true);
+            }
+            $fieldList[$fieldName]['name'] = $aow_field;
+        }
+
+        if (isset($fieldList[$fieldName]['type']) && ($fieldList[$fieldName]['type'] == 'datetimecombo' || $fieldList[$fieldName]['type'] == 'datetime' || $fieldList[$fieldName]['type'] == 'date')) {
+            $value = $focus->convertField($value, $fieldList[$fieldName]);
+            $fieldList[$fieldName]['value'] = $timedate->to_display_date($value);
+            $fieldList[$fieldName]['name'] = $aow_field;
+        }
+
+        if (isset($fieldList[$fieldName]['type']) && $fieldList[$fieldName]['type'] == 'currency' && $view != 'EditView') {
+
+            if ($currency_id != '' && !stripos($fieldName, '_USD')) {
+                $userCurrencyId = $current_user->getPreference('currency');
+                if ($currency_id != $userCurrencyId) {
+                    $currency = new Currency();
+                    $currency->retrieve($currency_id);
+                    $value = $currency->convertToDollar($value);
+                    $currency->retrieve($userCurrencyId);
+                    $value = $currency->convertFromDollar($value);
+                }
+            }
+            $parentfieldlist[strtoupper($fieldName)] = $value;
+            return $value;
+        }
+
+        $fieldList[$fieldName]['value'] = $value;
+        $fieldList[$fieldName]['name'] = $aow_field;
+
+        return $value;
+    }
+
+
     public function generateFieldMarkup($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file)
     {
 
@@ -1157,6 +1309,7 @@ class AdvancedReporter extends AOR_Report
                 $value = $function($focus, $fieldName, $value, $view);
 
                 $value = str_ireplace($fieldName, $aow_field, $value);
+//                return $value;
             }
         }
 
@@ -1167,6 +1320,7 @@ class AdvancedReporter extends AOR_Report
             if ((!isset($fieldList[$fieldName]['module']) || $fieldList[$fieldName]['module'] == '') && $focus->load_relationship($fieldList[$fieldName]['name'])) {
                 $relName = $fieldList[$fieldName]['name'];
                 $fieldList[$fieldName]['module'] = $focus->$relName->getRelatedModuleName();
+//                return $fieldList[$fieldName]['module'];
             }
         }
 
@@ -1175,6 +1329,7 @@ class AdvancedReporter extends AOR_Report
             $fieldList[$fieldName]['name'] = 'aow_temp_date';
             $fieldList['aow_temp_date'] = $fieldList[$fieldName];
             $fieldName = 'aow_temp_date';
+//            return $fieldList['aow_temp_date'];
         }
 
 
@@ -1209,6 +1364,8 @@ class AdvancedReporter extends AOR_Report
             $fieldList[$fieldName]['id_name'] = $aow_field;
             $fieldList[$fieldList[$fieldName]['id_name']]['name'] = $aow_field;
             $fieldList[$fieldName]['name'] = $aow_field . '_display';
+
+//            return $value;
         } else if (isset($fieldList[$fieldName]['type']) && $view == 'DetailView' && ($fieldList[$fieldName]['type'] == 'datetimecombo' || $fieldList[$fieldName]['type'] == 'datetime' || $fieldList[$fieldName]['type'] == 'date')) {
             $value = $focus->convertField($value, $fieldList[$fieldName]);
             if (!empty($params['date_format']) && isset($params['date_format'])) {
@@ -1386,21 +1543,6 @@ class AdvancedReporter extends AOR_Report
 
     function customGetModuleField($module, $fieldName, $aow_field, $view = 'EditView', $value = '', $alt_type = '', $currency_id = '', $params = array())
     {
-        global $timedate;
-        global $current_user;
-        global $beanFiles;
-        global $beanList;
-        global $app_strings;
-        global $current_language;
-
-        $this->setTimedate($timedate);
-        $this->setCurrentuser($current_user);
-        $this->setBeanFiles($beanFiles);
-        $this->setBeanList($beanList);
-        $this->setAppStrings($app_strings);
-        $this->setCurrentLanguage($current_language);
-
-
         $file = create_cache_directory('modules/AOW_WorkFlow/') . $module . $view . $alt_type . $fieldName . '.tpl';
 
         $shouldCreateCache = !is_file($file) || inDeveloperMode() || !empty($_SESSION['developerMode']);
@@ -1410,7 +1552,12 @@ class AdvancedReporter extends AOR_Report
             $focus = $this->createCache($module, $fieldName, $view, $alt_type, $file);
             $this->_focus = $focus;
         }
-        $markup = $this->generateFieldMarkup($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file);
+        if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
+            $markup = $this->generateFieldMarkupPDF($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file);
+        } else {
+            $markup = $this->generateFieldMarkup($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file);
+        }
+
         return $markup;
     }
 
@@ -2239,12 +2386,12 @@ class AdvancedReporter extends AOR_Report
     public function getFieldList($fieldName, $mod_strings, $module)
     {
         $varDefLoaded = false;
-        foreach($this->_fieldList as $item){
-            if($item['module']==$module){
+        foreach ($this->_fieldList as $item) {
+            if ($item['module'] == $module) {
                 $varDefLoaded = true;
             }
         }
-        if(!$varDefLoaded){
+        if (!$varDefLoaded) {
             global $app_list_strings;
             $focus = $this->getFocus($module);
             $vardefFields = $focus->getFieldDefinitions();
