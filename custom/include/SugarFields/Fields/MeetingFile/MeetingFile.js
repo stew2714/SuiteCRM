@@ -39,7 +39,7 @@ var callback = function(data){
   if(data.message == "success"){
     $( data.results ).each(function( index, value ) {
       var button = "";
-      if( $("#EditView [name='record']").length > 0){
+      if( $("#EditView [name='record']").length > 0 || $("#CalendarEditView [name='record']").length > 0){
         button = "<a href='#' onclick='removeAttachment( \"" + value.id + "\" );return false' class='button'>Remove</a> - ";
       }
       $( "#file_create_file_list" ).append( "<li id='file_list_" + value.id + "'>" + button + "<a href='" + value.url + "'>" + value.name + "</a></li>" );
