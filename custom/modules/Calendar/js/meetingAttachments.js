@@ -61,16 +61,20 @@ CAL.dialog_save_with_attachments = function () {
   };
   var url = "index.php?module=Calendar&action=SaveActivity&sugar_body_only=true";
 
-  // FILE ATTACHMENTS
-  var files = $('#file_create_file').prop('files');
   var fileFormData = new FormData(CAL.get("CalendarEditView"));
-  // Loop through each of the selected files.
-  for (var i = 0; i < files.length; i++) {
-    var file = files[i];
 
-    // Add the file to the request.
-    fileFormData.append('files[]', file);
+  if (res.module_name == "Meetings") {
+    // FILE ATTACHMENTS
+    // Loop through each of the selected files.
+    var files = $('#file_create_file').prop('files');
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+
+      // Add the file to the request.
+      fileFormData.append('files[]', file);
+    }
   }
+
   $.ajax({
     url: url,
     type: 'POST',

@@ -162,7 +162,7 @@ YAHOO.util.Event.on("btn-send-invites","click",function(){
 if(!CAL.check_forms())
 return false;
 CAL.get("send_invites").value = "1";
-CAL.dialog_save();
+CAL.dialog_save_with_attachments();
 });
 YAHOO.util.Event.on("btn-delete","click",function(){
 if(CAL.get("record").value != "")
