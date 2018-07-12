@@ -32,14 +32,14 @@ $viewdefs = array (
             'field' => '30',
           ),
         ),
-        'useTabs' => true,
-        'syncDetailEditViews' => true,
+        'useTabs' => false,
+        'syncDetailEditViews' => false,
         'javascript' => '{$LOCK_FILES} {$BEAN_DATA}',
         'tabDefs' => 
         array (
           'DEFAULT' => 
           array (
-            'newTab' => true,
+            'newTab' => false,
             'panelDefault' => 'expanded',
           ),
           'LBL_EDITVIEW_PANEL1' => 
@@ -102,10 +102,10 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'recordtypeid_c',
-              'label' => 'LBL_RECORDTYPEID_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
             ),
-            1 => 'contract_account',
+            1 => 'recordtypeid_c',
           ),
           1 => 
           array (
@@ -125,8 +125,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'legacy_agreement_number_c',
-              'label' => 'LBL_LEGACY_AGREEMENT_NUMBER_C',
+              'name' => 'type_of_product_services_c',
+              'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
             ),
             1 => 'type_of_request_c',
           ),
@@ -134,8 +134,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'client_agreement_number_c',
-              'label' => 'LBL_CLIENT_AGREEMENT_NUMBER_C',
+              'name' => 'contract_account',
+              'label' => 'LBL_CONTRACT_ACCOUNT',
             ),
             1 => 'apttus_status_category_c',
           ),
@@ -143,8 +143,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'type_of_product_services_c',
-              'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
+              'name' => 'opportunity',
+              'label' => 'LBL_OPPORTUNITY',
             ),
             1 => 'apttus_status_c',
           ),
@@ -171,8 +171,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_total_contract_value_c',
-              'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+              'name' => 'total_contract_value',
+              'label' => 'LBL_TOTAL_CONTRACT_VALUE',
             ),
             1 => 'apttus_requestor_name_c',
           ),
@@ -205,12 +205,8 @@ $viewdefs = array (
           ),
           12 => 
           array (
-            0 => 
-            array (
-              'name' => 'apttus_description_c',
-              'label' => 'LBL_APTTUS_DESCRIPTION_C',
-            ),
-            1 => 'apttus_termination_notice_issue_date_c',
+            0 => 'description',
+            1 => 'apttus_parent_agreement_name_c',
           ),
           13 => 
           array (
@@ -242,10 +238,10 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'requires_po_c',
-              'label' => 'LBL_REQUIRES_PO_C',
+              'name' => 'apttus_business_hours_c',
+              'label' => 'LBL_APTTUS_BUSINESS_HOURS_C',
             ),
-            1 => 'strategic_deal_c',
+            1 => 'assigned_user_name',
           ),
           17 => 
           array (
@@ -254,7 +250,6 @@ $viewdefs = array (
               'name' => 'agreement_summary_c',
               'label' => 'LBL_AGREEMENT_SUMMARY_C',
             ),
-            1 => 'strategic_deal_description_c',
           ),
           18 => 
           array (
@@ -472,35 +467,22 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apts_request_date_c',
-              'label' => 'LBL_APTS_REQUEST_DATE_C',
+              'name' => 'apttus_request_date_c',
+              'label' => 'LBL_APTTUS_REQUEST_DATE_C',
             ),
             1 => 'apttus_executed_copy_mailed_out_date_c',
           ),
           1 => 
           array (
-            0 => 
-            array (
-              'name' => 'courior_tracking_number_c',
-              'label' => 'LBL_COURIOR_TRACKING_NUMBER_C',
-            ),
+            1 => 'courior_tracking_number_c',
           ),
           2 => 
           array (
-            0 => 
-            array (
-              'name' => 'apttus_activated_date_c',
-              'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
-            ),
+            1 => 'apttus_activated_date_c',
           ),
           3 => 
           array (
-            0 => 
-            array (
-              'name' => 'apttus_activated_by_name_c',
-              'studio' => 'visible',
-              'label' => 'LBL_APTTUS_ACTIVATED_BY_NAME_C',
-            ),
+            1 => 'apttus_activated_by_name_c',
           ),
         ),
         'lbl_editview_panel4' => 
@@ -537,8 +519,9 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_other_party_signed_by_c',
-              'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_C',
+              'name' => 'apttus_other_party_signed_by_name_c',
+              'studio' => 'visible',
+              'label' => 'LBL_APTTUS_OTHER_PARTY_SIGNED_BY_NAME_C',
             ),
             1 => 'apttus_other_party_signed_by_unlisted_c',
           ),

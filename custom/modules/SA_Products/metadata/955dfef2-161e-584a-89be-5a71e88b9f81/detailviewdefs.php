@@ -62,8 +62,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'product_hosted_c',
-            'label' => 'LBL_PRODUCT_HOSTED_C',
+            'name' => 'hardware_pricing_discount_c',
+            'label' => 'LBL_HARDWARE_PRICING_DISCOUNT_C',
           ),
           1 => 
           array (
@@ -75,8 +75,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'hardware_pricing_discount_c',
-            'label' => 'LBL_HARDWARE_PRICING_DISCOUNT_C',
+            'name' => 'software_pricing_discount_c',
+            'label' => 'LBL_SOFTWARE_PRICING_DISCOUNT_C',
           ),
           1 => 
           array (
@@ -88,8 +88,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'software_pricing_discount_c',
-            'label' => 'LBL_SOFTWARE_PRICING_DISCOUNT_C',
+            'name' => 'implementation_and_training_discount_c',
+            'label' => 'LBL_IMPLEMENTATION_AND_TRAINING_DISCOUNT_C',
           ),
           1 => 
           array (

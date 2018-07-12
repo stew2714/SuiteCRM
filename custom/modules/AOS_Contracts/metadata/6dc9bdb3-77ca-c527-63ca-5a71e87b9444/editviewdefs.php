@@ -42,6 +42,19 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'recordtypeid_c',
+            'label' => 'LBL_RECORDTYPEID_C',
+          ),
+          1 => 
+          array (
+            'name' => 'apttus_request_date_c',
+            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
+          ),
+        ),
+        1 => 
+        array (
           0 => 'name',
           1 => 
           array (
@@ -49,12 +62,12 @@ array (
             'label' => 'LBL_CONTRACT_ACCOUNT',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'apttus_ff_agreement_number_c',
-            'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
           ),
           1 => 
           array (
@@ -62,7 +75,7 @@ array (
             'label' => 'LBL_OPPORTUNITY',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -75,31 +88,18 @@ array (
             'label' => 'LBL_TYPE_OF_REQUEST_C',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
-            'name' => 'apttus_description_c',
-            'label' => 'LBL_APTTUS_DESCRIPTION_C',
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
           ),
           1 => 
           array (
             'name' => 'region_c',
             'label' => 'LBL_REGION_C',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'apttus_special_terms_c',
-            'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
-          ),
-          1 => 
-          array (
-            'name' => 'apttus_requestor_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
         5 => 
@@ -111,21 +111,22 @@ array (
           ),
           1 => 
           array (
-            'name' => 'apttus_request_date_c',
-            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
+            'name' => 'apttus_special_terms_c',
+            'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
           ),
         ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'apttus_total_contract_value_c',
-            'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+            'name' => 'total_contract_value',
+            'label' => 'LBL_TOTAL_CONTRACT_VALUE',
           ),
           1 => 
           array (
-            'name' => 'apttus_termination_notice_issue_date_c',
-            'label' => 'LBL_APTTUS_TERMINATION_NOTICE_ISSUE_DATE_C',
+            'name' => 'apttus_requestor_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
           ),
         ),
         7 => 

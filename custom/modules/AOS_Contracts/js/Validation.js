@@ -13,25 +13,25 @@ function checkRules(){
     }
   }
 
-  //31 -------- AND(ISPICKVAL(Apttus__Status_Category__c,"In Effect"),AND(ISNULL(Apttus__Contract_End_Date__c),
-  // NOT(Apttus__Perpetual__c)),OR(ISNULL(Apttus__Term_Months__c),Apttus__Term_Months__c<=0))
-  if( ($("#apttus_status_category_c").val() == "In Effect" && $("#apttus_contract_end_date_c").val() == "" &&
-      $("#apttus_perpetual_c").val() != "") && ($("#apttus_term_months_c").val() == "" || $("#apttus_term_months_c").val() <= 0 ) ){
-    addToValidate('CreateView',"apttus_contract_end_date_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_END_DATE_PERPETUAL'));
-  }
+  // //31 -------- AND(ISPICKVAL(Apttus__Status_Category__c,"In Effect"),AND(ISNULL(Apttus__Contract_End_Date__c),
+  // // NOT(Apttus__Perpetual__c)),OR(ISNULL(Apttus__Term_Months__c),Apttus__Term_Months__c<=0))
+  // if( ($("#apttus_status_category_c").val() == "eff" && $("#apttus_contract_end_date_c").val() == "" &&
+  //     $("#apttus_perpetual_c").val() != "") && ($("#apttus_term_months_c").val() == "" || $("#apttus_term_months_c").val() <= 0 ) ){
+  //   addToValidate('CreateView',"apttus_contract_end_date_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_END_DATE_PERPETUAL'));
+  // }
 
-  //32
-  if($("#limitation_of_liability_c").is(":checked") &&
-    $("#limited_liability_cap_c").val() == "" ){
-    addToValidate('CreateView',"limited_liability_cap_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_PLEASE_FILL_LIMITED_LIABILITY_CAP'));
-  }else{
-    if( checkValidate("CreateView", "limited_liability_cap_c")){
-      removeFromValidate("CreateView","limited_liability_cap_c" )
-    }
-  }
+  // //32
+  // if($("#limitation_of_liability_c").is(":checked") &&
+  //   $("#limited_liability_cap_c").val() == "" ){
+  //   addToValidate('CreateView',"limited_liability_cap_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_PLEASE_FILL_LIMITED_LIABILITY_CAP'));
+  // }else{
+  //   if( checkValidate("CreateView", "limited_liability_cap_c")){
+  //     removeFromValidate("CreateView","limited_liability_cap_c" )
+  //   }
+  // }
 
   //33 ----- AND(ISPICKVAL(Apttus__Status_Category__c,"In Effect"),ISNULL(Apttus__Contract_Start_Date__c))
-  if($("#apttus_status_category_c").val() == "In Effect"  && $("#apttus_contract_start_date_c").val() == "" ){
+  if($("#apttus_status_category_c").val() == "eff"  && $("#apttus_contract_start_date_c").val() == "" ){
     addToValidate('CreateView',"apttus_contract_start_date_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_REQUIRED_FIELD_DATE'));
   }else{
     if( checkValidate("CreateView", "apttus_contract_start_date_c")){
@@ -46,33 +46,33 @@ function checkRules(){
       removeFromValidate("CreateView","strategic_deal_description_c" )
     }
   }
-  //35 -----
-  if($("#apttus_perpetual_c").is(":checked")  && $("#apttus_term_months_c").val() != ""
-  ){
-    alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_ONE_CAN_BE_ENTERED_DATE'));
-    return false;
-  }
-  //36 ----
-  if($("#apttus_perpetual_c").is(":checked")  && $("#apttus_contract_end_date_c_date").val() != ""
-  ){
-    alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_ONE_CAN_BE_ENTERED'));
-    return false;
-  }
-  //37 ----
-  if( $("#apttus_term_months_c").val() > 0 && $("#apttus_contract_end_date_c_date").val() != ""
-  ){
-    alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_ONE_TERM_END'));
-    return false;
-  }
-  //38 -----
-  if($("#type_of_product_services_c").val() == "Transcription Outsource Services"  &&
-    $("#acc_tos_renewal_notification_period_dd_c").val() == "" ){
-    addToValidate('CreateView',"acc_tos_renewal_notification_period_dd_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_VALUE_IS_REQUIRED'));
-  }else{
-    if( checkValidate("CreateView", "acc_tos_renewal_notification_period_dd_c")){
-      removeFromValidate("CreateView","acc_tos_renewal_notification_period_dd_c" )
-    }
-  }
+  // //35 -----
+  // if($("#apttus_perpetual_c").is(":checked")  && $("#apttus_term_months_c").val() != ""
+  // ){
+  //   alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_ONE_CAN_BE_ENTERED_DATE'));
+  //   return false;
+  // }
+  // //36 ----
+  // if($("#apttus_perpetual_c").is(":checked")  && $("#apttus_contract_end_date_c_date").val() != ""
+  // ){
+  //   alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_ONE_CAN_BE_ENTERED'));
+  //   return false;
+  // }
+  // //37 ----
+  // if( $("#apttus_term_months_c").val() > 0 && $("#apttus_contract_end_date_c_date").val() != ""
+  // ){
+  //   alert(SUGAR.language.get(module_sugar_grp1, 'LBL_ONLY_ONE_TERM_END'));
+  //   return false;
+  // }
+  // //38 -----
+  // if($("#type_of_product_services_c").val() == "Transcription Outsource Services"  &&
+  //   $("#acc_tos_renewal_notification_period_dd_c").val() == "" ){
+  //   addToValidate('CreateView',"acc_tos_renewal_notification_period_dd_c",'varchar',true,SUGAR.language.get('AOS_Contracts', 'LBL_VALUE_IS_REQUIRED'));
+  // }else{
+  //   if( checkValidate("CreateView", "acc_tos_renewal_notification_period_dd_c")){
+  //     removeFromValidate("CreateView","acc_tos_renewal_notification_period_dd_c" )
+  //   }
+  // }
   return true;
 
 }

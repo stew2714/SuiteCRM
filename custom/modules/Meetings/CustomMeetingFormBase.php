@@ -156,7 +156,7 @@ class CustomMeetingFormBase extends MeetingFormBase
         $this->emailTemplate = new EmailTemplate();
         $this->emailTemplate->retrieve($sugar_config['MeetingCancelEmailTemplate']);
 
-        if (!$this->emailTemplate) {
+        if (empty($this->emailTemplate->id)) {
             $log->error('Email Template for notifying attendants of meeting cancellation not found in db.');
             return false;
         }
@@ -192,14 +192,24 @@ class CustomMeetingFormBase extends MeetingFormBase
 
         $mailer->addAddress($emailAddress);
 
+        $organizer = new User();
+        if(isset($this->assigned_user_id) && !empty($this->assigned_user_id)){
+            $organizer->retrieve($this->assigned_user_id);
+        }
+        else{
+            $organizer = $GLOBALS['current_user']; // Why this would happen no idea - this was the default originally
+        }
 
-        $path = SugarConfig::getInstance()->get('upload_dir','upload/') . $this->focus->id;
+
+        $path = SugarConfig::getInstance()->get('upload_dir','upload/') . $this->focus->id."-cancel";
 
         require_once("custom/modules/Meetings/vCal.php");
-        $content = customvCal::get_ical_event($this->focus, $GLOBALS['current_user']);
+        $content = customvCal::get_ical_event($this->focus, $organizer);
+
+        $mailer->Ical = $content;
 
         if(file_put_contents($path,$content)){
-           // $mailer->AddAttachment($path, 'meeting.ics', 'base64', 'text/calendar');
+            //$mailer->addStringAttachment($content, 'meeting-cancel.ics', 'base64', 'text/calendar');
         }
 
         try {

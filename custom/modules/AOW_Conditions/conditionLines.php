@@ -66,7 +66,7 @@ function display_condition_lines($focus, $field, $value, $view){
                     asort($fields);
                     $fields = get_select_options($fields, "");
                     $fields = json_encode($fields);
-                    $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', $fields))."\";";
+                    $html .= "flow_fields = ".trim(preg_replace('/\s+/', ' ', $fields)).";";
                     if($condition_name->value_type == 'Date'){
                         $condition_name->value = unserialize(base64_decode($condition_name->value));
                     }
@@ -74,7 +74,12 @@ function display_condition_lines($focus, $field, $value, $view){
                     $html .= "loadConditionLine(".$condition_item.");";
                 }
             }
-            $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', getModuleFields($focus->flow_module)))."\";";
+            $flowfields = getModuleFields($focus->flow_module, "JSON");
+            $flowfields = json_decode($flowfields, true);
+            asort($flowfields);
+            $flowfields = get_select_options_with_id($flowfields, "");
+//            $flowfields = json_encode($flowfields);
+            $html .= "flow_fields = \"".trim(preg_replace('/\s+/', ' ', $flowfields))."\";";
             $html .= "</script>";
         }
 

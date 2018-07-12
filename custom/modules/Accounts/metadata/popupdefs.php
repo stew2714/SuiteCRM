@@ -11,6 +11,7 @@ $popupMeta = array (
   'parent_name' => 'accounts.parent_name',
   'ucid_c' => 'accounts_cstm.ucid_c',
   'facility_type_dd_c' => 'accounts_cstm.facility_type_dd_c',
+  'account_type' => 'accounts.account_type',
 ),
     'searchInputs' => array (
   0 => 'name',
@@ -20,6 +21,7 @@ $popupMeta = array (
   10 => 'parent_name',
   11 => 'ucid_c',
   12 => 'facility_type_dd_c',
+  13 => 'account_type',
 ),
     'create' => array (
   'formBase' => 'AccountFormBase.php',
@@ -38,13 +40,12 @@ $popupMeta = array (
     'name' => 'name',
     'width' => '10%',
   ),
-  'facility_type_dd_c' => 
+  'account_type' => 
   array (
     'type' => 'enum',
-    'studio' => 'visible',
-    'label' => 'LBL_FACILITY_TYPE_DD',
+    'label' => 'LBL_TYPE',
     'width' => '10%',
-    'name' => 'facility_type_dd_c',
+    'name' => 'account_type',
   ),
   'parent_name' => 
   array (
@@ -61,6 +62,14 @@ $popupMeta = array (
     'label' => 'LBL_UCID',
     'width' => '10%',
     'name' => 'ucid_c',
+  ),
+  'facility_type_dd_c' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'label' => 'LBL_FACILITY_TYPE_DD',
+    'width' => '10%',
+    'name' => 'facility_type_dd_c',
   ),
   'billing_address_city' => 
   array (
@@ -87,13 +96,22 @@ $popupMeta = array (
     'default' => true,
     'name' => 'name',
   ),
-  'FACILITY_TYPE_DD_C' => 
+  'PARENT_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_MEMBER_OF',
+    'id' => 'PARENT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ACCOUNT_TYPE' => 
   array (
     'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_FACILITY_TYPE_DD',
+    'label' => 'LBL_TYPE',
     'width' => '10%',
+    'default' => true,
+    'name' => 'account_type',
   ),
   'UCID_C' => 
   array (
@@ -110,6 +128,15 @@ $popupMeta = array (
     'label' => 'LBL_HIMSS_ID',
     'width' => '10%',
     'name' => 'himss_id_c',
+  ),
+  'FACILITY_TYPE_DD_C' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_FACILITY_TYPE_DD',
+    'width' => '10%',
+    'name' => 'facility_type_dd_c',
   ),
   'BILLING_ADDRESS_CITY' => 
   array (

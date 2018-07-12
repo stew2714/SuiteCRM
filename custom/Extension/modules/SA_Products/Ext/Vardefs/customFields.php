@@ -2,6 +2,19 @@
  // Vardefs Creator : 
 
 
+ // Vardef Created : maintenance_general_notes_c 
+
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['name']='maintenance_general_notes_c';
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['len']='255';
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['type']='text';
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['importable']='true';
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['module']='SA_Products';
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['vname']='LBL_MAINTENANCE_GENERAL_NOTES_C';
+$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['source']='custom_fields';
+
+
  // Vardef Created : sf_id_c 
 
 
@@ -929,19 +942,6 @@ $dictionary['SA_Products']['fields']['product_general_notes_c']['reportable']=tr
 $dictionary['SA_Products']['fields']['product_general_notes_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_general_notes_c']['vname']='LBL_PRODUCT_GENERAL_NOTES_C';
 $dictionary['SA_Products']['fields']['product_general_notes_c']['source']='custom_fields';
-
-
- // Vardef Created : maintenance_general_notes_c 
-
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['name']='maintenance_general_notes_c';
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['len']='255';
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['type']='text';
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['inline_edit']=1;
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['importable']='true';
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['reportable']=true;
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['module']='SA_Products';
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['vname']='LBL_MAINTENANCE_GENERAL_NOTES_C';
-$dictionary['SA_Products']['fields']['maintenance_general_notes_c']['source']='custom_fields';
 
 
  // Vardef Created : ff_fix_send_to_other_party_for_review_c 

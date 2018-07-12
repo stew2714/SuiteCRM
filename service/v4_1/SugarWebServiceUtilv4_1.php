@@ -126,6 +126,61 @@ class SugarWebServiceUtilv4_1 extends SugarWebServiceUtilv4
             $params['offset'] = $offset;
             $params['limit'] = $limit;
 
+            /* BEGIN - SECURITY GROUPS */
+            $module = BeanFactory::newBean($bean->$link_field_name->def['module']);
+
+            global $current_user, $sugar_config;
+
+            if(!is_admin($current_user)) {
+                $rules_where = SharedSecurityRules::buildRuleWhere($module);
+            }
+
+            $GLOBALS['log']->fatal("ruleswhere: ".print_r($rules_where, true));
+            if ($module->module_dir == 'Users' && !is_admin($current_user)
+                && isset($sugar_config['securitysuite_filter_user_list'])
+                && $sugar_config['securitysuite_filter_user_list']
+            ) {
+                require_once('modules/SecurityGroups/SecurityGroup.php');
+                global $current_user;
+                $group_where = SecurityGroup::getGroupUsersWhere($current_user->id);
+            } elseif ($module->bean_implements('ACL') && ACLController::requireSecurityGroup($module->module_dir, 'list')) {
+                require_once('modules/SecurityGroups/SecurityGroup.php');
+                global $current_user;
+                $owner_where = $this->getOwnerWhere($current_user->id);
+                $group_where = SecurityGroup::getGroupWhere($module->table_name, $module->module_dir, $current_user->id);
+            }
+
+            $sgWhere = "";
+            if(!empty($group_where)) {
+                if(!empty($owner_where)) {
+                    $sgWhere = " (" . $owner_where . " OR " . $group_where . ") ";
+                } else {
+                    $sgWhere  = " (" . $group_where . ") ";
+                }
+            } elseif (!empty($owner_where)) {
+                $sgWhere  = " (" . $owner_where . ") ";
+            }
+            $permWhere = "";
+            if(!empty($sgWhere) && !empty($rules_where['addWhere'])) {
+                $permWhere = " ( " . $sgWhere . " OR (" . $rules_where['addWhere'] . ") ) ";
+            } elseif (!empty($sgWhere) || !empty($rules_where['addWhere'])) {
+                $permWhere = " ( " . $sgWhere . "" . $rules_where['addWhere'] . " ) ";
+            }
+            if(!empty($rules_where['resWhere']) && !empty($permWhere)) {
+                $permWhere = " ( " . $rules_where['resWhere'] . " AND " . $permWhere . " ) ";
+            } elseif (!empty($rules_where['resWhere']) || !empty($permWhere)) {
+                $permWhere = " ( " . $rules_where['resWhere'] . "" . $permWhere . " ) ";
+            }
+
+            if(!empty($permWhere)) {
+                if(empty($optional_where)) {
+                    $optional_where = $permWhere;
+                } else {
+                    $optional_where .= " AND " . $permWhere;
+                }
+            }
+            /* END - SECURITY GROUPS */
+
             if (!empty($optional_where))
             {
                 $params['where'] = $optional_where;

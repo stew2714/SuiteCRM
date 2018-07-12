@@ -273,7 +273,7 @@ $dictionary['Opportunity']['fields']['winner_name_c']['vname']='LBL_WINNER_NAME_
 $dictionary['Opportunity']['fields']['winner_name_c']['source']='non-db';
 
 
- // Vardef Created : volume_commitment_c 
+ // Vardef Created : Sales_Dependent_Revenue_c 
 
 
 
@@ -291,7 +291,6 @@ $dictionary['Opportunity']['fields']['sf_id_c']['source']='custom_fields';
 
 
  // Vardef Created : recordtypeid_c 
-
 
 $dictionary['Opportunity']['fields']['recordtypeid_c']['name']='recordtypeid_c';
 $dictionary['Opportunity']['fields']['recordtypeid_c']['len']='18';
@@ -3360,7 +3359,6 @@ $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['precision']='8
 $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['vname']='LBL_NEW_COST_COMPONENT_SUM_C';
 $dictionary['Opportunity']['fields']['new_cost_component_sum_c']['source']='custom_fields';
-$dictionary['Opportunity']['fields']['new_cost_component_sum_c']['default']=0;
 
 
  // Vardef Created : validation_comments_c 
@@ -4241,7 +4239,6 @@ $dictionary['Opportunity']['fields']['renewal_value_c']['precision']='8';
 $dictionary['Opportunity']['fields']['renewal_value_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['renewal_value_c']['vname']='LBL_RENEWAL_VALUE_C';
 $dictionary['Opportunity']['fields']['renewal_value_c']['source']='custom_fields';
-$dictionary['Opportunity']['fields']['renewal_value_c']['default']=0;
 
 
  // Vardef Created : total_amount_hardware_c 
@@ -5228,6 +5225,10 @@ $dictionary['Opportunity']['fields']['tos_out_for_convenience_c']['reportable']=
 $dictionary['Opportunity']['fields']['tos_out_for_convenience_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['tos_out_for_convenience_c']['vname']='LBL_TOS_OUT_FOR_CONVENIENCE_C';
 $dictionary['Opportunity']['fields']['tos_out_for_convenience_c']['source']='custom_fields';
+
+
+ // Vardef Created : volume_commitment_c 
+
 $dictionary['Opportunity']['fields']['volume_commitment_c']['name']='volume_commitment_c';
 $dictionary['Opportunity']['fields']['volume_commitment_c']['len']='255';
 $dictionary['Opportunity']['fields']['volume_commitment_c']['type']='bool';
@@ -5237,5 +5238,406 @@ $dictionary['Opportunity']['fields']['volume_commitment_c']['reportable']=true;
 $dictionary['Opportunity']['fields']['volume_commitment_c']['module']='Opportunities';
 $dictionary['Opportunity']['fields']['volume_commitment_c']['vname']='LBL_VOLUME_COMMITMENT_C';
 $dictionary['Opportunity']['fields']['volume_commitment_c']['source']='custom_fields';
+
+
+ // Vardef Created : Ambulatory_EMR_Other_c 
+
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['name']='Ambulatory_EMR_Other_c';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['len']='255';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['type']='text';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['vname']='LBL_AMBULATORY_EMR_OTHER_C';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_Other_c']['source']='custom_fields';
+
+
+ // Vardef Created : Ambulatory_EMR_c 
+
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['name']='Ambulatory_EMR_c';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['len']='255';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['type']='text';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['vname']='LBL_AMBULATORY_EMR_C';
+$dictionary['Opportunity']['fields']['Ambulatory_EMR_c']['source']='custom_fields';
+
+
+ // Vardef Created : Ambulatory_Lead_Source_c 
+
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['name']='Ambulatory_Lead_Source_c';
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['len']='18';
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['vname']='LBL_AMBULATORY_LEAD_SOURCE_C';
+$dictionary['Opportunity']['fields']['Ambulatory_Lead_Source_c']['source']='custom_fields';
+
+
+ // Vardef Created : Avg_hrs_mo_per_Provider_Scribe_opps_c 
+
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['name']='Avg_hrs_mo_per_Provider_Scribe_opps_c';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['len']='180';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['type']='double';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['vname']='LBL_AVG_HRS_MO_PER_PROVIDER_SCRIBE_OPPS_C';
+$dictionary['Opportunity']['fields']['Avg_hrs_mo_per_Provider_Scribe_opps_c']['source']='custom_fields';
+
+
+ // Vardef Created : CIA_Fee_c 
+
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['name']='CIA_Fee_c';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['len']='180';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['type']='double';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['importable']='true';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['precision']='8';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['vname']='LBL_CIA_FEE_C';
+$dictionary['Opportunity']['fields']['CIA_Fee_c']['source']='custom_fields';
+
+
+ // Vardef Created : Currency_c 
+
+$dictionary['Opportunity']['fields']['Currency_c']['name']='Currency_c';
+$dictionary['Opportunity']['fields']['Currency_c']['len']='255';
+$dictionary['Opportunity']['fields']['Currency_c']['type']='text';
+$dictionary['Opportunity']['fields']['Currency_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Currency_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Currency_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Currency_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Currency_c']['vname']='LBL_CURRENCY_C';
+$dictionary['Opportunity']['fields']['Currency_c']['source']='custom_fields';
+
+
+ // Vardef Created : Create_Quarter_c 
+
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['name']='Create_Quarter_c';
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['len']='255';
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['type']='TEXT';
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['vname']='LBL_CREATE_QUARTER_C';
+$dictionary['Opportunity']['fields']['Create_Quarter_c']['source']='custom_fields';
+
+
+ // Vardef Created : Contract_Signatory_c 
+
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['name']='Contract_Signatory_c';
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['len']='18';
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['vname']='LBL_CONTRACT_SIGNATORY_C';
+$dictionary['Opportunity']['fields']['Contract_Signatory_c']['source']='custom_fields';
+
+
+ // Vardef Created : Impl_Proj_End_Date_Scribe_opps_c 
+
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['name']='Impl_Proj_End_Date_Scribe_opps_c';
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['len']='255';
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['type']='datetimecombo';
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['dbType']='datetime';
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['vname']='LBL_IMPL_PROJ_END_DATE_SCRIBE_OPPS_C';
+$dictionary['Opportunity']['fields']['Impl_Proj_End_Date_Scribe_opps_c']['source']='custom_fields';
+
+
+ // Vardef Created : Impl_Proj_Start_Date_Scribe_opps_c 
+
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['name']='Impl_Proj_Start_Date_Scribe_opps_c';
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['len']='255';
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['type']='datetimecombo';
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['dbType']='datetime';
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['vname']='LBL_IMPL_PROJ_START_DATE_SCRIBE_OPPS_C';
+$dictionary['Opportunity']['fields']['Impl_Proj_Start_Date_Scribe_opps_c']['source']='custom_fields';
+
+
+ // Vardef Created : In_or_After_Quarter_c 
+
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['name']='In_or_After_Quarter_c';
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['len']='255';
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['type']='int';
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['importable']='true';
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['vname']='LBL_IN_OR_AFTER_QUARTER_C';
+$dictionary['Opportunity']['fields']['In_or_After_Quarter_c']['source']='custom_fields';
+
+
+ // Vardef Created : Key_Activities_Accomplished_to_Date_c 
+
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['name']='Key_Activities_Accomplished_to_Date_c';
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['len']='255';
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['type']='TEXT';
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['vname']='LBL_KEY_ACTIVITIES_ACCOMPLISHED_TO_DATE_C';
+$dictionary['Opportunity']['fields']['Key_Activities_Accomplished_to_Date_c']['source']='custom_fields';
+
+
+ // Vardef Created : Number_of_Providers_Proposed_c 
+
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['name']='Number_of_Providers_Proposed_c';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['len']='180';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['type']='double';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['vname']='LBL_NUMBER_OF_PROVIDERS_PROPOSED_C';
+$dictionary['Opportunity']['fields']['Number_of_Providers_Proposed_c']['source']='custom_fields';
+
+
+ // Vardef Created : RVP_Segment_c 
+
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['name']='RVP_Segment_c';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['len']='255';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['type']='text';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['importable']='true';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['vname']='LBL_RVP_SEGMENT_C';
+$dictionary['Opportunity']['fields']['RVP_Segment_c']['source']='custom_fields';
+
+
+ // Vardef Created : Reason_for_Interest_c 
+
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['name']='Reason_for_Interest_c';
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['len']='255';
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['type']='TEXT';
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['vname']='LBL_REASON_FOR_INTEREST_C';
+$dictionary['Opportunity']['fields']['Reason_for_Interest_c']['source']='custom_fields';
+
+
+ // Vardef Created : Remaining_Key_Steps_c 
+
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['name']='Remaining_Key_Steps_c';
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['len']='255';
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['type']='TEXT';
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['vname']='LBL_REMAINING_KEY_STEPS_C';
+$dictionary['Opportunity']['fields']['Remaining_Key_Steps_c']['source']='custom_fields';
+
+
+ // Vardef Created : Revenue_Multiplier_c 
+
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['name']='Revenue_Multiplier_c';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['len']='180';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['type']='double';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['vname']='LBL_REVENUE_MULTIPLIER_C';
+$dictionary['Opportunity']['fields']['Revenue_Multiplier_c']['source']='custom_fields';
+
+
+ // Vardef Created : Revenue_Product_Type_c 
+
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['name']='Revenue_Product_Type_c';
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['len']='255';
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['type']='TEXT';
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['vname']='LBL_REVENUE_PRODUCT_TYPE_C';
+$dictionary['Opportunity']['fields']['Revenue_Product_Type_c']['source']='custom_fields';
+
+
+ // Vardef Created : Risks_c 
+
+$dictionary['Opportunity']['fields']['Risks_c']['name']='Risks_c';
+$dictionary['Opportunity']['fields']['Risks_c']['len']='255';
+$dictionary['Opportunity']['fields']['Risks_c']['type']='TEXT';
+$dictionary['Opportunity']['fields']['Risks_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Risks_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Risks_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Risks_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Risks_c']['vname']='LBL_RISKS_C';
+$dictionary['Opportunity']['fields']['Risks_c']['source']='custom_fields';
+
+
+ // Vardef Created : Sales_Sub_Term_Until_Contract_Out_MM_c 
+
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['name']='Sales_Sub_Term_Until_Contract_Out_MM_c';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['len']='30';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['type']='double';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['vname']='LBL_SALES_SUB_TERM_UNTIL_CONTRACT_OUT_MM_C';
+$dictionary['Opportunity']['fields']['Sales_Sub_Term_Until_Contract_Out_MM_c']['source']='custom_fields';
+
+
+ // Vardef Created : Sales_Subscription_Term_Length_MM_c 
+
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['name']='Sales_Subscription_Term_Length_MM_c';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['len']='30';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['type']='double';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['vname']='LBL_SALES_SUBSCRIPTION_TERM_LENGTH_MM_C';
+$dictionary['Opportunity']['fields']['Sales_Subscription_Term_Length_MM_c']['source']='custom_fields';
+
+
+ // Vardef Created : Scribes_Needed_Scribe_opps_c 
+
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['name']='Scribes_Needed_Scribe_opps_c';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['len']='180';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['type']='double';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['vname']='LBL_SCRIBES_NEEDED_SCRIBE_OPPS_C';
+$dictionary['Opportunity']['fields']['Scribes_Needed_Scribe_opps_c']['source']='custom_fields';
+
+
+ // Vardef Created : Self_Created_c 
+
+$dictionary['Opportunity']['fields']['Self_Created_c']['name']='Self_Created_c';
+$dictionary['Opportunity']['fields']['Self_Created_c']['len']='255';
+$dictionary['Opportunity']['fields']['Self_Created_c']['type']='int';
+$dictionary['Opportunity']['fields']['Self_Created_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Self_Created_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Self_Created_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Self_Created_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Self_Created_c']['vname']='LBL_SELF_CREATED_C';
+$dictionary['Opportunity']['fields']['Self_Created_c']['source']='custom_fields';
+
+
+ // Vardef Created : Total_Providers_in_Practice_c 
+
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['name']='Total_Providers_in_Practice_c';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['len']='180';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['type']='double';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['vname']='LBL_TOTAL_PROVIDERS_IN_PRACTICE_C';
+$dictionary['Opportunity']['fields']['Total_Providers_in_Practice_c']['source']='custom_fields';
+
+
+ // Vardef Created : Term_Round_c 
+
+$dictionary['Opportunity']['fields']['Term_Round_c']['name']='Term_Round_c';
+$dictionary['Opportunity']['fields']['Term_Round_c']['len']='180';
+$dictionary['Opportunity']['fields']['Term_Round_c']['type']='double';
+$dictionary['Opportunity']['fields']['Term_Round_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Term_Round_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Term_Round_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Term_Round_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Term_Round_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Term_Round_c']['vname']='LBL_TERM_ROUND_C';
+$dictionary['Opportunity']['fields']['Term_Round_c']['source']='custom_fields';
+
+
+ // Vardef Created : Actual_Term_c 
+
+$dictionary['Opportunity']['fields']['Actual_Term_c']['name']='Actual_Term_c';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['len']='180';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['type']='double';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Actual_Term_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Actual_Term_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['vname']='LBL_ACTUAL_TERM_C';
+$dictionary['Opportunity']['fields']['Actual_Term_c']['source']='custom_fields';
+
+
+ // Vardef Created : Executive_Sponsor_c 
+
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['name']='Executive_Sponsor_c';
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['len']='18';
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['type']='varchar';
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['vname']='LBL_EXECUTIVE_SPONSOR_C';
+$dictionary['Opportunity']['fields']['Executive_Sponsor_c']['source']='custom_fields';
+
+
+ // Vardef Created : FX_Rate_c 
+
+$dictionary['Opportunity']['fields']['FX_Rate_c']['name']='FX_Rate_c';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['len']='70';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['type']='double';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['FX_Rate_c']['importable']='true';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['FX_Rate_c']['precision']='8';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['vname']='LBL_FX_RATE_C';
+$dictionary['Opportunity']['fields']['FX_Rate_c']['source']='custom_fields';
+
+
+ // Vardef Created : Providers_Scribe_opps_c 
+
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['name']='Providers_Scribe_opps_c';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['len']='70';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['type']='double';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['vname']='LBL_PROVIDERS_SCRIBE_OPPS_C';
+$dictionary['Opportunity']['fields']['Providers_Scribe_opps_c']['source']='custom_fields';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['name']='Sales_Dependent_Revenue_c';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['len']='180';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['type']='double';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['inline_edit']=1;
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['importable']='true';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['reportable']=true;
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['precision']='8';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['module']='Opportunities';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['vname']='LBL_SALES_DEPENDENT_REVENUE_C';
+$dictionary['Opportunity']['fields']['Sales_Dependent_Revenue_c']['source']='custom_fields';
 
  ?>

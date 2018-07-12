@@ -1,5 +1,5 @@
 <?php
-// created: 2018-05-11 12:14:39
+// created: 2018-06-18 14:01:06
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -21,8 +21,8 @@ $mod_strings = array (
   'LBL_VALUE_IS_REQUIRED' => 'Value is required in this field ',
   'LBL_C1_CUST_CONTACTS1_AOS_CONTRACTS_FROM_C1_CUST_CONTACTS1_TITLE' => 'Cust Cust_Contacts',
   'LBL_EDITVIEW_PANEL2' => 'Business Associate Agreement',
-  'LBL_APTTUS_STATUS_C' => 'Apttus Status',
-  'LBL_APTTUS_STATUS_CATEGORY_C' => 'Apttus Status Category',
+  'LBL_APTTUS_STATUS_C' => 'Status',
+  'LBL_APTTUS_STATUS_CATEGORY_C' => 'Status Category',
   'LBL_TYPE_OF_REQUEST_C' => 'Type Of Request',
   'LBL_OWNERSHIP_GROUP_EXPIRATION_NOTICE_C' => 'Ownership Group Expiration Notice',
   'LBL_APTTUS_FF_AGREEMENT_NUMBER_C' => 'Agreement Number',
@@ -39,4 +39,17 @@ $mod_strings = array (
   'LBL_OPPORTUNITY_OPPORTUNITY_ID' => 'Opportunity (related Opportunity ID)',
   'LBL_OPPORTUNITY' => 'Related Opportunity',
   'LBL_DETAILVIEW_PANEL2' => 'New Panel 2',
+  'LBL_LEGAL_ENTITY_C' => 'Legal Entity',
+  'LBL_APTTUS_AGREEMENT_CATEGORY_C' => 'Agreement Category',
+  'LBL_TYPE_OF_PRODUCT_SERVICES_C' => 'Type Of Product Services',
+  'LBL_STATUS' => 'Status OLD',
+  'LBL_APTTUS_DESCRIPTION_C' => 'Description',
+  'LBL_TOTAL_CONTRACT_VALUE' => 'Total Contract Value',
+  'LBL_DETAILVIEW_PANEL1' => 'System Information',
+  'LBL_START_DATE' => 'Agreement Start Date',
+  'LBL_END_DATE' => 'Agreement End Date',
+  'LBL_SHIPPING_TAX_AMT' => 'Shipping Tax ($$)',
+  'LBL_APTTUS_REQUEST_DATE_C' => 'Request Date*',
+  'LBL_REQUIRED_FIELD_SIGNED' => 'Please enter the Company Signed By field prior to activating the agreement.',
+  'LBL_REQUIRED_FIELD_END_DATE' => 'Please enter the Contract End Date field prior to activating the agreement.',
 );

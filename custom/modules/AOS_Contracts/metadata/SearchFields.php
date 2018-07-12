@@ -1,5 +1,5 @@
 <?php
-// created: 2018-05-11 11:50:18
+// created: 2018-06-22 18:18:46
 $searchFields['AOS_Contracts'] = array (
   'name' => 
   array (
@@ -56,19 +56,16 @@ $searchFields['AOS_Contracts'] = array (
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
-    'is_date_field' => true,
   ),
   'start_range_total_contract_value' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
-    'is_date_field' => true,
   ),
   'end_range_total_contract_value' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
-    'is_date_field' => true,
   ),
   'range_apttus_total_contract_value_c' => 
   array (
@@ -81,6 +78,93 @@ $searchFields['AOS_Contracts'] = array (
     'enable_range_search' => true,
   ),
   'end_range_apttus_total_contract_value_c' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+  ),
+  'range_date_entered' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_date_entered' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_date_entered' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_date_modified' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_date_modified' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_date_modified' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_start_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_start_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_start_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_renewal_reminder_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_renewal_reminder_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_renewal_reminder_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_total_amount' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+  ),
+  'start_range_total_amount' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+  ),
+  'end_range_total_amount' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,

@@ -78,9 +78,23 @@ class AOS_ContractsViewCreate extends ViewCreate
 
     public function populateRelatedFields()
     {
-        if ($_REQUEST['parent_type'] == "Opportunities" && !empty($_REQUEST['parent_id']) && empty($this->bean->opportunity_id)) {
+        global $timedate;
+        if ($_REQUEST['parent_type'] == "Opportunities" && !empty($_REQUEST['parent_id']) && empty($this->bean->id)) {
+            $spareBean = BeanFactory::getBean($_REQUEST['parent_type'], $_REQUEST['parent_id']);
             $this->bean->opportunity_id = $_REQUEST['parent_id'];
             $this->bean->opportunity = $_REQUEST['opportunity_name'];
+            $this->bean->assigned_user_id = $spareBean->assigned_user_id;
+            $this->bean->apttus_request_date_c = $timedate->asUser($timedate->getNow());
+            if(!empty($this->bean->opportunity_id)){
+                $sql = "SELECT a_o.accounts_opportunities_3accounts_ida FROM accounts_opportunities_3_c a_o WHERE a_o.accounts_opportunities_3opportunities_idb = '".$this->bean->opportunity_id."' AND a_o.deleted = '0'";
+                $result = $this->bean->db->query($sql);
+                $accountRow = mysqli_fetch_row($result);
+                if(!empty($accountRow['0'])) {
+                    $accountBean = BeanFactory::getBean("Accounts", $accountRow['0']);
+                    $this->bean->contract_account = $accountBean->name;
+                    $this->bean->contract_account_id = $accountBean->id;
+                }
+            }
         }
     }
 
@@ -126,15 +140,44 @@ class AOS_ContractsViewCreate extends ViewCreate
 
     public function preDisplay()
     {
+        global $sugar_config, $current_user;
         if (isset($_REQUEST["return_id"]) && $_REQUEST["return_id"] !== '' && isset($_REQUEST["return_module"]) && $_REQUEST["return_module"] !== '') {
             $reqBeanId = $_REQUEST["return_id"];
             $reqBeanType = $_REQUEST["return_module"];
             $returnBean = BeanFactory::getBean($reqBeanType, $reqBeanId);
-            if ($returnBean->id !== ('' || null)) {
+            if ($returnBean->id !== ('' || null) && $reqBeanType == "Opportunities") {
                 $this->bean->apttus_requestor_name_c = $returnBean->assigned_user_name;
                 $this->bean->Oneapttus_requestor_c = $returnBean->assigned_user_id;
                 $this->bean->probability_c = $returnBean->probability;
             }
+        }
+
+        if(isset($_REQUEST['isAmendment']) && $_REQUEST['isAmendment'] === "true") {
+            $agreementNumber = $this->bean->agreements_number_c;
+            $agreementNumber = str_pad($agreementNumber, 8, '0', STR_PAD_LEFT);
+            $amendment = $this->bean->amendment_c;
+            $amendment += 1;
+            $this->bean->amendment_c = $amendment;
+            $amendment = str_pad($amendment, 2, '0', STR_PAD_LEFT);
+            $this->bean->agreements_number_and_amendment_c = $agreementNumber.".".$amendment;
+            $sql = "SELECT aos_contracts.id, aos_contracts.name FROM aos_contracts LEFT JOIN aos_contracts_cstm ON aos_contracts_cstm.id_c = aos_contracts.id WHERE aos_contracts.deleted = '0' AND aos_contracts_cstm.agreements_number_c = '$agreementNumber' AND aos_contracts_cstm.amendment_c = '0'";
+            $result = $this->bean->db->query($sql);
+            $contractsRow = mysqli_fetch_row($result);
+            $this->bean->apttus_parent_agreement_name_c = $contractsRow[1];
+            $this->bean->Oneapttus_parent_agreement_c = $contractsRow[0];
+            $this->bean->apttus_status_category_c = "req";
+            $this->bean->apttus_status_c = "req_ia";
+        }
+
+        $securityGroups = BeanFactory::getBean("SecurityGroups");
+        $groups = $securityGroups->getUserSecurityGroups($current_user->id);
+
+        if($this->bean->apttus_status_c == "eff_act" && $_REQUEST['isAmendment'] != "true" && !is_admin($current_user) && !array_key_exists($sugar_config['LegalGroup'],$groups)) {
+            $redirectURL = "index.php?module=AOS_Contracts&action=DetailView&record=".$this->bean->id;
+            echo "<script>
+                alert('This agreement has been activated. You are not allowed to edit it further.');
+                window.location.href='$redirectURL';
+                </script>";
         }
 
         parent::preDisplay();

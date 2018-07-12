@@ -9,6 +9,14 @@ array (
     'default' => true,
     'link' => true,
   ),
+  'FLOW_MODULE' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_FLOW_MODULE',
+    'width' => '10%',
+  ),
   'STATUS' => 
   array (
     'type' => 'enum',

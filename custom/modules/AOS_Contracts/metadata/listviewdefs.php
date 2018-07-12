@@ -14,13 +14,6 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'APTTUS_REQUEST_DATE_C' => 
-  array (
-    'type' => 'datetimecombo',
-    'label' => 'LBL_APTTUS_REQUEST_DATE_C',
-    'width' => '10%',
-    'default' => true,
-  ),
   'TOTAL_CONTRACT_VALUE' => 
   array (
     'label' => 'LBL_TOTAL_CONTRACT_VALUE',
@@ -35,11 +28,10 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'APTTUS_FF_AGREEMENT_NUMBER_C' => 
+  'AGREEMENTS_NUMBER_AND_AMENDMENT_C' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
-    'sortable' => false,
+    'type' => 'customreadonly',
+    'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
     'width' => '10%',
     'default' => true,
   ),
@@ -126,10 +118,35 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'APTTUS_REQUEST_DATE_C' => 
+  array (
+    'type' => 'datetimecombo',
+    'label' => 'LBL_APTTUS_REQUEST_DATE_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'APTTUS_FF_AGREEMENT_NUMBER_C' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+  ),
   'APTTUS_ACTIVATED_DATE_C' => 
   array (
     'type' => 'datetimecombo',
     'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'APTTUS_REQUESTOR_NAME_C' => 
+  array (
+    'type' => 'relate',
+    'studio' => 'visible',
+    'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
+    'id' => 'ONEAPTTUS_REQUESTOR_C',
+    'link' => true,
     'width' => '10%',
     'default' => false,
   ),

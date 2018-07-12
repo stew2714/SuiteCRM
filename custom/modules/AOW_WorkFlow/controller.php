@@ -37,10 +37,17 @@ class customAOW_WorkFlowController extends AOW_WorkFlowController {
                 $module = $_REQUEST['aow_module'];
             }
             //echo getModuleFields($module,$_REQUEST['view'],$_REQUEST['aow_value']);
-            $results =  getModuleFields($module,"JSON",$_REQUEST['aow_value']);
+            $results = getModuleFields($module,"JSON",$_REQUEST['aow_value']);
             $results = json_decode($results, TRUE);
             asort($results);
-            $results = get_select_options_with_id($results, "");
+            if($_REQUEST['view'] == 'JSON'){
+                $results = json_encode($results);
+            }
+            elseif($_REQUEST['view'] == 'EditView'){
+                $results = get_select_options_with_id($results, "");
+            } else {
+                $results = $results[""];
+            }
 
             echo $results;
         }

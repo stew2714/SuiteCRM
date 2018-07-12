@@ -60,6 +60,7 @@
 {else}
 <input type="hidden" name="record" value="{$fields.id.value}">
 {/if}
+<input type="hidden" name="isAmendment" value="false">
 <input type="hidden" name="isDuplicate" value="false">
 <input type="hidden" name="action">
 <input type="hidden" name="return_module" value="{$smarty.request.return_module}">

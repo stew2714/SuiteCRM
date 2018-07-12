@@ -4,7 +4,7 @@ $dashletData['AOS_ContractsDashlet']['searchFields'] = array (
   array (
     'default' => '',
   ),
-  'apttus_ff_agreement_number_c' => 
+  'agreements_number_and_amendment_c' => 
   array (
     'default' => '',
   ),
@@ -17,10 +17,6 @@ $dashletData['AOS_ContractsDashlet']['searchFields'] = array (
     'default' => '',
   ),
   'opportunity' => 
-  array (
-    'default' => '',
-  ),
-  'contact' => 
   array (
     'default' => '',
   ),
@@ -45,14 +41,6 @@ $dashletData['AOS_ContractsDashlet']['columns'] = array (
     'default' => true,
     'name' => 'contract_account',
   ),
-  'apttus_agreement_number_c' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
-    'width' => '10%',
-    'default' => true,
-    'name' => 'apttus_agreement_number_c',
-  ),
   'name' => 
   array (
     'type' => 'name',
@@ -61,6 +49,13 @@ $dashletData['AOS_ContractsDashlet']['columns'] = array (
     'link' => true,
     'default' => true,
     'name' => 'name',
+  ),
+  'agreements_number_and_amendment_c' => 
+  array (
+    'type' => 'customreadonly',
+    'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+    'width' => '10%',
+    'default' => true,
   ),
   'apttus_status_category_c' => 
   array (
@@ -149,6 +144,14 @@ $dashletData['AOS_ContractsDashlet']['columns'] = array (
     'width' => '10%',
     'default' => false,
     'name' => 'securitygroup_display',
+  ),
+  'apttus_agreement_number_c' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+    'width' => '10%',
+    'default' => false,
+    'name' => 'apttus_agreement_number_c',
   ),
   'total_amt' => 
   array (

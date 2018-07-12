@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // Accept Request as a Legal Team User
     $("#acceptRequestLegal").click(function(){
-        var url = "index.php?module=AOS_Contracts&action=accept";
+        var url = "index.php?module=AOS_Contracts&action=acceptRequestLegal";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     // Accept Request as a Comms Op User
     $("#acceptRequestCommsOps").click(function(){
-        var url = "index.php?module=AOS_Contracts&action=acceptCommOps";
+        var url = "index.php?module=AOS_Contracts&action=acceptRequestCommOps";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
@@ -75,8 +75,8 @@ $(document).ready(function() {
     });
 
     // Send to Legal Queue
-    $("#sendToLegal").click(function (){
-        var url = "index.php?module=AOS_Contracts&action=assignToLegal";
+    $("#sendLegal").click(function (){
+        var url = "index.php?module=AOS_Contracts&action=sendLegal";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
@@ -218,8 +218,8 @@ $(document).ready(function() {
     });
 
     // Send to Comm Ops
-    $("#submitToCommOps").click(function(){
-        var url = "index.php?module=AOS_Contracts&action=assignToCommOps";
+    $("#sendToCommOps").click(function(){
+        var url = "index.php?module=AOS_Contracts&action=sendToCommOps";
         var data = {record:$('[name=record]').val()};
         var query = $.ajax({
             dataType: "json",
@@ -256,12 +256,98 @@ $(document).ready(function() {
         var response = query.responseText;
 
         if (response === "success") {
-            $("#modal-title").text("Sent Successfully");
-            $("#modal-content").text("This record has been successfully sent over to the Comm Ops Queue.");
+            $("#modal-title").text("Activated Successfully");
+            $("#modal-content").text("This record has been successfully activated.");
+        } else if (response === "validate_fail") {
+            $("#modal-title").text("Activate Validation Failed");
+            $("#modal-content").text("The Contract Start Date and the Company Signed By fields have not been filled in. Please fill these fields in to activate.");
         } else {
-            $("#modal-title").text("Sending Failed");
-            $("#modal-content").text("There was a problem sending this record to the Comm Ops Queue as there was no record ID passed to the operation. If the problem persists please contact your System Administrator.");
+            $("#modal-title").text("Activation Failed");
+            $("#modal-content").text("There was a problem activating this record. If the problem persists please contact your System Administrator.");
         }
         $('#modal-dialog').modal("toggle");
     });
+
+
+  // Submit Request
+  $("#submitRequest").click(function(){
+    var url = "index.php?module=AOS_Contracts&action=submitRequest";
+    var data = {record:$('[name=record]').val()};
+    var query = $.ajax({
+      dataType: "json",
+      url: url,
+      data: data,
+      success: function(data){
+        return data;
+      }
+    });
+    var response = query.responseText;
+
+    if (response === "success") {
+      $("#modal-title").text("Submitted Successfully");
+      $("#modal-content").text("This request has been successfully submitted to the Legal Queue.");
+    } else if (response === "already_submitted") {
+      $("#modal-title").text("Already Submitted");
+      $("#modal-content").text("This request has already been submitted.");
+    } else {
+      $("#modal-title").text("Submit Failed");
+      $("#modal-content").text("There was a problem submitting this request. If the problem persists please contact your System Administrator.");
+    }
+    $('#modal-dialog').modal("toggle");
+  });
+
+  // Cancel Request
+  $("#cancelRequest").click(function(){
+    var url = "index.php?module=AOS_Contracts&action=cancelRequest";
+    var data = {record:$('[name=record]').val()};
+    var query = $.ajax({
+      dataType: "json",
+      url: url,
+      data: data,
+      success: function(data){
+        return data;
+      }
+    });
+    var response = query.responseText;
+
+    if (response === "success") {
+      $("#modal-title").text("Cancelled Successfully");
+      $("#modal-content").text("This request has been cancelled successfully.");
+    } else if (response === "already_cancelled") {
+      $("#modal-title").text("Already Cancelled");
+      $("#modal-content").text("This request has already been cancelled.");
+    } else {
+      $("#modal-title").text("Cancel Failed");
+      $("#modal-content").text("There was a problem cancelling this request. If the problem persists please contact your System Administrator.");
+    }
+    $('#modal-dialog').modal("toggle");
+  });
+
+  // Send For Signatures
+  $("#sendForSignatures").click(function(){
+    var url = "index.php?module=AOS_Contracts&action=sendForSignatures";
+    var data = {record:$('[name=record]').val()};
+    var query = $.ajax({
+      dataType: "json",
+      url: url,
+      data: data,
+      success: function(data){
+        return data;
+      }
+    });
+  });
+
+  // Send For Review
+  $("#sendForReview").click(function(){
+    var url = "index.php?module=AOS_Contracts&action=sendForReview";
+    var data = {record:$('[name=record]').val()};
+    var query = $.ajax({
+      dataType: "json",
+      url: url,
+      data: data,
+      success: function(data){
+        return data;
+      }
+    });
+  });
 });

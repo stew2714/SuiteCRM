@@ -42,12 +42,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL15' => 
+        'LBL_EDITVIEW_PANEL16' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL14' => 
+        'LBL_EDITVIEW_PANEL17' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -77,12 +77,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL13' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL12' => 
+        'LBL_DETAILVIEW_PANEL19' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -168,7 +163,11 @@ array (
         ),
         6 => 
         array (
-          0 => 'campaign_name',
+          0 => 
+          array (
+            'name' => 'tip_source_c',
+            'label' => 'LBL_TIP_SOURCE_C',
+          ),
           1 => 
           array (
             'name' => 'recordtypeid_c',
@@ -179,8 +178,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'tip_source_c',
-            'label' => 'LBL_TIP_SOURCE_C',
+            'name' => 'partner_c',
+            'label' => 'LBL_PARTNER_C',
           ),
           1 => 'sales_stage',
         ),
@@ -188,8 +187,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'partner_c',
-            'label' => 'LBL_PARTNER_C',
+            'name' => 'rfp_required_c',
+            'label' => 'LBL_RFP_REQUIRED_C',
           ),
           1 => 'probability',
         ),
@@ -197,8 +196,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_required_c',
-            'label' => 'LBL_RFP_REQUIRED_C',
+            'name' => 'rfp_due_date_c',
+            'label' => 'LBL_RFP_DUE_DATE_C',
           ),
           1 => 
           array (
@@ -210,21 +209,21 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_due_date_c',
-            'label' => 'LBL_RFP_DUE_DATE_C',
+            'name' => 'preferred_follow_up_c',
+            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
           ),
           1 => 
           array (
-            'name' => 'forecastcategory_c',
-            'label' => 'LBL_FORECASTCATEGORY_C',
+            'name' => 'forecasting_category_c',
+            'label' => 'LBL_FORECASTING_CATEGORY_C',
           ),
         ),
         11 => 
         array (
           0 => 
           array (
-            'name' => 'preferred_follow_up_c',
-            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
+            'name' => 'crm_c',
+            'label' => 'LBL_CRM_C',
           ),
           1 => 
           array (
@@ -234,11 +233,7 @@ array (
         ),
         12 => 
         array (
-          0 => 
-          array (
-            'name' => 'crm_c',
-            'label' => 'LBL_CRM_C',
-          ),
+          0 => 'campaign_name',
           1 => 
           array (
             'name' => 'vendor_of_choice_c',
@@ -267,53 +262,6 @@ array (
           ),
           1 => '',
         ),
-        15 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
-          ),
-        ),
       ),
       'lbl_editview_panel1' => 
       array (
@@ -324,19 +272,14 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'latest_update_c',
             'label' => 'LBL_LATEST_UPDATE_C',
           ),
-          1 => '',
         ),
       ),
-      'lbl_editview_panel15' => 
+      'lbl_editview_panel16' => 
       array (
         0 => 
         array (
@@ -482,7 +425,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel14' => 
+      'lbl_editview_panel17' => 
       array (
         0 => 
         array (
@@ -808,7 +751,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel13' => 
+      'lbl_detailview_panel19' => 
       array (
         0 => 
         array (
@@ -818,10 +761,7 @@ array (
             'nl2br' => true,
           ),
         ),
-      ),
-      'lbl_editview_panel12' => 
-      array (
-        0 => 
+        1 => 
         array (
           0 => 
           array (
@@ -830,8 +770,55 @@ array (
           ),
           1 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'last_modified_by_owner_c',
+            'label' => 'LBL_LAST_MODIFIED_BY_OWNER_C',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

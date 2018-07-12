@@ -9,4 +9,10 @@ class AOS_ContractsViewList extends ViewList
     {
         parent::preDisplay();
     }
+
+    function Display(){
+        global $sugar_config;
+        $sugar_config['enable_line_editing_list'] = false;
+        parent::Display();
+    }
 }

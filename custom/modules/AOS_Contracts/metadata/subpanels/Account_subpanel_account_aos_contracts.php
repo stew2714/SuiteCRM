@@ -1,10 +1,17 @@
 <?php
-// created: 2017-06-09 14:38:43
+// created: 2018-06-25 11:45:54
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
+    'width' => '25%',
+    'default' => true,
+  ),
+  'agreements_number_and_amendment_c' => 
+  array (
+    'vname' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+    'type' => 'varchar',
     'width' => '25%',
     'default' => true,
   ),

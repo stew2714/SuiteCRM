@@ -73,6 +73,22 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'assigned_user_id' => 
+      array (
+        'name' => 'assigned_user_id',
+        'type' => 'enum',
+        'label' => 'LBL_ASSIGNED_TO',
+        'function' => 
+        array (
+          'name' => 'get_user_array',
+          'params' => 
+          array (
+            0 => false,
+          ),
+        ),
+        'default' => true,
+        'width' => '10%',
+      ),
       'ucid_c' => 
       array (
         'type' => 'varchar',
@@ -80,6 +96,47 @@ array (
         'label' => 'LBL_UCID',
         'width' => '10%',
         'name' => 'ucid_c',
+      ),
+      'zba_sss_c' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'ZBA SSS',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'zba_sss_c',
+      ),
+      'securitygroup' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'sortable' => false,
+        'studio' => 
+        array (
+          'visible' => false,
+          'listview' => true,
+          'searchview' => true,
+          'detailview' => false,
+          'editview' => false,
+          'formula' => false,
+          'related' => false,
+          'basic_search' => true,
+          'advanced_search' => true,
+          'popuplist' => false,
+          'popupsearch' => true,
+          'dashletsearch' => true,
+          'dashlet' => false,
+        ),
+        'label' => 'LBL_SECURITYGROUP',
+        'width' => '10%',
+        'name' => 'securitygroup',
+      ),
+      'sales_territory_c' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'Sales Territory',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'sales_territory_c',
       ),
       'himss_id_c' => 
       array (
