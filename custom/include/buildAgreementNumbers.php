@@ -19,7 +19,7 @@ foreach($results as $row){
     $agreements_number_and_amendment = $newNumber . "." . str_pad($amendment, 2, '0', STR_PAD_LEFT);
     echo "<pre>Number ".$i. ": ".print_r($row, true)."</pre><br>";
     $GLOBALS['log']->fatal("Number ".$i. ": ".print_r($row, true));
-    $updateSQL = "UPDATE aos_contracts_cstm SET agreements_number_c = '".$newNumber."', agreements_number_c = '".$amendment."', agreements_number_and_amendment_c = '".$agreements_number_and_amendment."' 
+    $updateSQL = "UPDATE aos_contracts_cstm SET agreements_number_c = '".$newNumber."', amendment_c = '".$amendment."', agreements_number_and_amendment_c = '".$agreements_number_and_amendment."' 
             WHERE id_c = '".$row['id']."' ";
     $db->query($updateSQL);
     $i++;
