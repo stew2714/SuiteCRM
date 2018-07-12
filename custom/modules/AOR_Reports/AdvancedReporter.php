@@ -29,6 +29,95 @@ class AdvancedReporter extends AOR_Report
     private $_beanList = null;
     private $_app_strings = null;
     private $_current_language = null;
+    private $_reportModuleBean = null;
+    private $_app_list_strings = null;
+    private $_sugar_config = null;
+    private $_fieldArrayForReport = null;
+    private $_conditionArrayForReport = null;
+    private $_reportQuery = null;
+
+    /**
+     * @return null
+     */
+    public function getFieldArrayForReport()
+    {
+        if ($this->_fieldArrayForReport == null) {
+            $sql =
+                "SELECT id FROM aor_fields WHERE aor_report_id = '" .
+                $this->bean->id .
+                "' AND deleted = 0 ORDER BY field_order ASC";
+            $result = $this->db->query($sql);
+            $rows = array();
+            while ($row = $this->db->fetchByAssoc($result)) {
+                $field = new AOR_Field();
+                $field->retrieve($row['id']);
+                $rows[] = $field;
+            }
+            $this->setFieldArrayForReport($rows);
+        }
+        return $this->_fieldArrayForReport;
+    }
+
+
+    public function setConditionArrayForReport($conditionArrayForReport)
+    {
+        $this->_conditionArrayForReport = $conditionArrayForReport;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getConditionArrayForReport()
+    {
+        if ($this->_conditionArrayForReport == null) {
+            $sql =
+                "SELECT id FROM aor_conditions WHERE aor_report_id = '" .
+                $this->id .
+                "' AND deleted = 0 ORDER BY condition_order ASC";
+            $result = $this->db->query($sql);
+            $rows = array();
+            while ($row = $this->db->fetchByAssoc($result)) {
+                $condition = new AOR_Condition();
+                $condition->retrieve($row['id']);
+                $rows[] = $condition;
+            }
+            $this->setConditionArrayForReport($rows);
+        }
+        return $this->_conditionArrayForReport;
+    }
+
+    /**
+     * @param null $fieldArrayForReport
+     * @return AdvancedReporter
+     */
+    public function setFieldArrayForReport($fieldArrayForReport)
+    {
+        $this->_fieldArrayForReport = $fieldArrayForReport;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getReportModuleBean()
+    {
+        if ($this->_reportModuleBean == null) {
+            $beanList = $this->getBeanList();
+            $this->setReportModuleBean(new $beanList[$this->report_module]());
+        }
+        return $this->_reportModuleBean;
+    }
+
+    /**
+     * @param null $_reportModuleBean
+     * @return AdvancedReporter
+     */
+    public function setReportModuleBean($_reportModuleBean)
+    {
+        $this->_reportModuleBean = $_reportModuleBean;
+        return $this;
+    }
 
     /**
      * @return null
@@ -140,6 +229,67 @@ class AdvancedReporter extends AOR_Report
     public function setAppStrings($app_strings)
     {
         $this->_app_strings = $app_strings;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getAppListStrings()
+    {
+        if ($this->_app_list_strings == null) {
+            global $app_list_strings;
+            $this->setAppStrings($app_list_strings);
+        }
+        return $this->_app_list_strings;
+    }
+
+    /**
+     * @param null $app_strings
+     * @return AdvancedReporter
+     */
+    public function setAppListStrings($app_list_strings)
+    {
+        $this->_app_list_strings = $app_list_strings;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getSugarConfig()
+    {
+        if ($this->_sugar_config == null) {
+            global $sugar_config;
+            $this->setSugarConfig($sugar_config);
+        }
+        return $this->_sugar_config;
+    }
+
+    /**
+     * @param null $app_strings
+     * @return AdvancedReporter
+     */
+    public function setSugarConfig($sugar_config)
+    {
+        $this->_sugar_config = $sugar_config;
+        return $this;
+    }
+
+
+    public function getReportQuery()
+    {
+        if ($this->_reportQuery == null) {
+
+            $this->setReportQuery('');
+        }
+        return $this->_sugar_config;
+    }
+
+
+    public function setReportQuery($reportQuery)
+    {
+        $this->_reportQuery = $reportQuery;
         return $this;
     }
 
@@ -368,12 +518,14 @@ class AdvancedReporter extends AOR_Report
         return $html;
     }
 
+
     function build_report_query_select($query = array(), $group_value = '')
     {
-        global $beanList, $timedate;
+        $beanList = $this->getBeanList();
+        $timedate = $this->getTimedate();
 
         if ($beanList[$this->report_module]) {
-            $module = new $beanList[$this->report_module]();
+            $module = $this->getReportModuleBean();
 
             $query['id_select'][$module->table_name] =
                 $this->db->quoteIdentifier($module->table_name) . ".id AS '" . $module->table_name . "_id'";
@@ -382,17 +534,7 @@ class AdvancedReporter extends AOR_Report
             if ($this->requestData != false) {
                 $rows = $this->getViewParams();
             } else {
-                $sql =
-                    "SELECT id FROM aor_fields WHERE aor_report_id = '" .
-                    $this->bean->id .
-                    "' AND deleted = 0 ORDER BY field_order ASC";
-                $result = $this->db->query($sql);
-                $rows = array();
-                while ($row = $this->db->fetchByAssoc($result)) {
-                    $field = new AOR_Field();
-                    $field->retrieve($row['id']);
-                    $rows[] = $field;
-                }
+                $rows = $this->getFieldArrayForReport();
             }
 
             $i = 0;
@@ -1155,6 +1297,211 @@ class AdvancedReporter extends AOR_Report
         return $html;
     }
 
+    public function build_report_query($group_value = '', $extra = array())
+    {
+        $module = $this->getReportModuleBean();
+
+        $query = '';
+        $query_array = array();
+
+        //Check if the user has access to the target module
+        if (!(ACLController::checkAccess($this->report_module, 'list', true))) {
+            return false;
+        }
+
+        $query_array = $this->build_report_query_select($query_array, $group_value);
+        if (isset($extra['where']) && $extra['where']) {
+            $query_array['where'][] = implode(' AND ', $extra['where']) . ' AND ';
+        }
+        $query_array = $this->build_report_query_where($query_array);
+
+        foreach ($query_array['select'] as $select) {
+            $query .= ($query == '' ? 'SELECT ' : ', ') . $select;
+        }
+
+        if (empty($query_array['group_by'])) {
+            foreach ($query_array['id_select'] as $select) {
+                $query .= ', ' . $select;
+            }
+        }
+
+        $query .= ' FROM ' . $this->db->quoteIdentifier($module->table_name) . ' ';
+
+        if (isset($query_array['join'])) {
+            foreach ($query_array['join'] as $join) {
+                $query .= $join;
+            }
+        }
+        if (isset($query_array['where'])) {
+            $query_where = '';
+            foreach ($query_array['where'] as $where) {
+                $query_where .= ($query_where == '' ? 'WHERE ' : ' ') . $where;
+            }
+
+            $query_where = $this->queryWhereRepair($query_where);
+
+            $query .= ' ' . $query_where;
+        }
+
+        if (isset($query_array['group_by'])) {
+            $query_group_by = '';
+            foreach ($query_array['group_by'] as $group_by) {
+                $query_group_by .= ($query_group_by == '' ? 'GROUP BY ' : ', ') . $group_by;
+            }
+            if (isset($query_array['second_group_by']) && $query_group_by != '') {
+                foreach ($query_array['second_group_by'] as $group_by) {
+                    $query_group_by .= ', ' . $group_by;
+                }
+            }
+            $query .= ' ' . $query_group_by;
+        }
+
+        if (isset($query_array['sort_by'])) {
+            $query_sort_by = '';
+            foreach ($query_array['sort_by'] as $sort_by) {
+                $query_sort_by .= ($query_sort_by == '' ? 'ORDER BY ' : ', ') . $sort_by;
+            }
+            $query .= ' ' . $query_sort_by;
+        }
+
+        return $query;
+
+    }
+
+    public function build_report_query($offset = -1, $links = true, $from = null, $limit = null, $group_value = '', $tableIdentifier = '', $extra = array())
+    {
+
+
+        $_group_value = $this->db->quote($group_value);
+
+        $report_sql = $this->build_report_query($_group_value, $extra);
+        return $report_sql;
+    }
+
+    public function execute_report_query_with_limit($report_sql, $from = null, $limit = null)
+    {
+        if ($from !== null) {
+            $report_sql .= ' LIMIT ' . $from;
+        }
+        if ($from !== null && $limit !== null) {
+            $report_sql .= ', ' . $limit;
+        }
+        return $this->db->query($report_sql);
+    }
+
+
+    function build_report_html_with_limit($offset = -1, $links = true, $from = null, $limit = null, $group_value = '', $tableIdentifier = '', $extra = array())
+    {
+        $sugar_config = $this->getSugarConfig();
+
+        $_group_value = $this->db->quote($group_value);
+
+        $report_sql = $this->build_report_query($_group_value, $extra);
+
+        $total_rows = $this->getCountForReportRowNumbers($report_sql);
+
+        $fieldNameArray = $this->getFieldNames();
+
+        $fields = $this->getReportTableFieldArray($fieldNameArray);
+//
+//        $html = $this->getTitleMarkup($fields);
+
+        $field_bean = $this->getReportModuleBean();
+        $result = $this->execute_report_query_with_limit($report_sql, $from, $limit);
+
+        $row_class = 'oddListRowS1';
+
+        $j = 0;
+
+        $totals = array();
+        while ($row = $this->db->fetchByAssoc($result)) {
+            $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
+            $html .= "<tr class='" . $row_class . "' height='20'>";
+
+            foreach ($fields as $name => $att) {
+                if ($att['display']) {
+                    $html .= "<td class='' valign='top' align='left'>";
+                    if ($att['link'] && $links) {
+                        $html .= "<a href='" .
+                            $sugar_config['site_url'] .
+                            "/index.php?module=" .
+                            $att['module'] .
+                            "&action=DetailView&record=" .
+                            $row[$att['alias'] . '_id'] .
+                            "'>";
+                    }
+
+                    $currency_id =
+                        isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
+
+                    if ($att['function'] == 'COUNT' || !empty($att['params'])) {
+                        $html .= $row[$name];
+                    } else {
+                        $vardef = $field_bean->getFieldDefinition($att['field']);
+                        if ($vardef['type'] == 'relate') {
+                            $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
+                            $relateResult = $field_bean->db->query($relateSQL);
+                            $relateRow = mysqli_fetch_row($relateResult);
+                            $relateName = $relateRow['name'];
+                        }
+//                        $html .= $row[$name];
+                        $html .= $this->customGetModuleField(
+//                        $html .= getModuleField(
+                            $att['module'],
+                            $att['field'],
+                            $att['field'],
+                            'DetailView',
+                            $row[$name],
+                            '',
+                            $currency_id,
+                            array(),
+                            $j
+                        );
+                    }
+
+                    if ($att['total']) {
+                        $totals[$name][] = $row[$name];
+                    }
+                    if ($att['link'] && $links) {
+                        $html .= "</a>";
+                    }
+                    $html .= "</td>";
+                }
+            }
+            $html .= "</tr>";
+
+            $row_class = $row_class == 'oddListRowS1' ? 'evenListRowS1' : 'oddListRowS1';
+            $j++;
+        }
+        $html .= "</tbody>";
+
+        $html .= $this->getTotalHTML($fields, $totals);
+
+        $html .= "</table>";
+
+        $html .= "    <script type=\"text/javascript\">
+                            groupedReportToggler = {
+
+                                toggleList: function(elem) {
+                                    $(elem).closest('table.list').find('thead, tbody').each(function(i, e){
+                                        if(i>1) {
+                                            $(e).toggle();
+                                        }
+                                    });
+                                    if($(elem).find('img').first().attr('src') == 'themes/SuiteR/images/basic_search.gif') {
+                                        $(elem).find('img').first().attr('src', 'themes/SuiteR/images/advanced_search.gif');
+                                    }
+                                    else {
+                                        $(elem).find('img').first().attr('src', 'themes/SuiteR/images/basic_search.gif');
+                                    }
+                                }
+
+                            };
+                        </script>";
+
+        return $html;
+    }
+
 
     public function generateFieldMarkupPDF($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file)
     {
@@ -1818,9 +2165,63 @@ class AdvancedReporter extends AOR_Report
 
     }
 
+    function build_group_report_with_limit($offset = -1, $links = true, $from = null, $limit = null, $extra = array())
+    {
+
+
+        $html = '';
+
+        $query_array = array();
+        $module = $this->getReportModuleBean();
+        $field = false;
+
+        //get the group field.
+        if ($this->requestData != false) {
+            $field = $this->getViewParams(true, false, 1);
+        } else {
+            $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
+
+            $field_id = $this->db->getOne($sql);
+            if (!empty($field_id)) {
+                $field = BeanFactory::getBean("AOR_Fields", $field_id);
+            }
+        }
+
+        if (!$field) {
+            $query_array['select'][] = $module->table_name . ".id AS '" . $module->table_name . "_id'";
+        }
+
+        if ($field != false) {
+
+            $field_label = str_replace(' ', '_', $field->label);
+            $result = $this->buildGroupQuery($extra, $field, $query_array);
+
+            $checkListed = array();
+            while ($row = $this->db->fetchByAssoc($result)) {
+                if ($html != '') {
+                    $html .= '<br />';
+                }
+                if (!isset($checkListed[$row[$field_label]])) {
+                    $checkListed[$row[$field_label]] = $row[$field_label];
+                    $html .= $this->build_report_html_with_limit($offset, $links, $from, $limit, $row[$field_label], create_guid(), $extra);
+                }
+
+            }
+        }
+
+        if ($html == '') {
+            $html = $this->build_report_html_with_limit($offset, $links, $from, $limit, '', create_guid(), $extra);
+        }
+
+        return $html;
+
+    }
+
     function build_report_query_where($query = array())
     {
-        global $beanList, $app_list_strings, $sugar_config;
+        $sugar_config = $this->getSugarConfig();
+        $beanList = $this->getBeanList();
+        $app_list_strings = $this->getAppListStrings();
 
         $aor_sql_operator_list['Equal_To'] = '=';
         $aor_sql_operator_list['Not_Equal_To'] = '!=';
@@ -1845,17 +2246,7 @@ class AdvancedReporter extends AOR_Report
             if ($this->requestData != false) {
                 $rows = $this->getConditionParams();
             } else {
-                $sql =
-                    "SELECT id FROM aor_conditions WHERE aor_report_id = '" .
-                    $this->id .
-                    "' AND deleted = 0 ORDER BY condition_order ASC";
-                $result = $this->db->query($sql);
-                $rows = array();
-                while ($row = $this->db->fetchByAssoc($result)) {
-                    $condition = new AOR_Condition();
-                    $condition->retrieve($row['id']);
-                    $rows[] = $condition;
-                }
+                $rows = $this->getConditionArrayForReport();
             }
 
             $tiltLogicOp = true;
@@ -2414,6 +2805,398 @@ class AdvancedReporter extends AOR_Report
             array_push($this->_fieldList, array('module' => $module, 'fieldlist' => $fieldList));
         }
         return $this->_fieldList;
+    }
+
+    /**
+     * @param $offset
+     * @param $group_value
+     * @param $tableIdentifier
+     * @param $total_rows
+     * @param $max_rows
+     * @param $html
+     * @param $beanList
+     * @param $dashletPaginationButtons
+     * @return string
+     */
+    public function markupPageHead($offset, $group_value, $tableIdentifier, $total_rows, $max_rows, $beanList): string
+    {
+        $html =
+            "<table class='list aor_reports' id='report_table_" .
+            $tableIdentifier .
+            "' width='100%' cellspacing='0' cellpadding='0' border='0' repeat_header='1'>";
+
+
+        $start = 0;
+        $end = 0;
+        $previous_offset = 0;
+        $next_offset = 0;
+        $last_offset = 0;
+
+        if ($total_rows > 0) {
+            $start = $offset + 1;
+            $end = (($offset + $max_rows) < $total_rows) ? $offset + $max_rows : $total_rows;
+            $previous_offset = ($offset - $max_rows) < 0 ? 0 : $offset - $max_rows;
+            $next_offset = $offset + $max_rows;
+            if (is_int($total_rows / $max_rows)) {
+                $last_offset = $max_rows * ($total_rows / $max_rows - 1);
+            } else {
+                $last_offset = $max_rows * floor($total_rows / $max_rows);
+            }
+
+        }
+
+        $html .= "<thead><tr class='pagination'>";
+
+        $moduleFieldByGroupValue = $this->getModuleFieldByGroupValue($beanList, $group_value);
+
+        $html .= "<td colspan='18'>
+                       <table class='paginationTable' border='0' cellpadding='0' cellspacing='0' width='100%'>
+                        <td style='text-align:left' ><H3><a href=\"javascript:void(0)\" class=\"collapseLink\" onclick=\"groupedReportToggler.toggleList(this);\"><img border=\"0\" id=\"detailpanel_1_img_hide\" src=\"themes/SuiteR/images/basic_search.gif\"></a>$moduleFieldByGroupValue</H3></td>
+                        <td class='paginationChangeButtons' align='right' nowrap='nowrap' width='1%'>";
+
+        if ($offset == 0 || $offset == "-2") {
+            $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' disabled='disabled'>
+                    <img src='" . SugarThemeRegistry::current()->getImageURL('start_off.gif') . "' alt='Start' align='absmiddle' border='0'>
+                </button>
+                <button type='button' id='listViewPrevButton_top' name='listViewPrevButton' class='button' title='Previous' disabled='disabled'>
+                    <img src='" . SugarThemeRegistry::current()->getImageURL('previous_off.gif') . "' alt='Previous' align='absmiddle' border='0'>
+                </button>";
+        } else {
+            $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' onclick='changeReportPage(\"" .
+                $this->id .
+                "\",0,\"" .
+                $group_value .
+                "\",\"" .
+                $tableIdentifier .
+                "\")'>
+                    <img src='" .
+                SugarThemeRegistry::current()->getImageURL('start.gif') .
+                "' alt='Start' align='absmiddle' border='0'>
+                </button>
+                <button type='button' id='listViewPrevButton_top' name='listViewPrevButton' class='button' title='Previous' onclick='changeReportPage(\"" .
+                $this->id .
+                "\"," .
+                $previous_offset .
+                ",\"" .
+                $group_value .
+                "\",\"" .
+                $tableIdentifier .
+                "\")'>
+                    <img src='" .
+                SugarThemeRegistry::current()->getImageURL('previous.gif') .
+                "' alt='Previous' align='absmiddle' border='0'>
+                </button>";
+        }
+        $html .= " <span class='pageNumbers'>(" . $start . " - " . $end . " of " . $total_rows . ")</span>";
+        if ($next_offset < $total_rows) {
+            $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button' onclick='changeReportPage(\"" .
+                $this->id .
+                "\"," .
+                $next_offset .
+                ",\"" .
+                $group_value .
+                "\",\"" .
+                $tableIdentifier .
+                "\")'>
+                        <img src='" .
+                SugarThemeRegistry::current()->getImageURL('next.gif') .
+                "' alt='Next' align='absmiddle' border='0'>
+                    </button>
+                     <button type='button' id='listViewEndButton_top' name='listViewEndButton' title='End' class='button' onclick='changeReportPage(\"" .
+                $this->id .
+                "\"," .
+                $last_offset .
+                ",\"" .
+                $group_value .
+                "\",\"" .
+                $tableIdentifier .
+                "\")'>
+                        <img src='" .
+                SugarThemeRegistry::current()->getImageURL('end.gif') .
+                "' alt='End' align='absmiddle' border='0'>
+                    </button>";
+        } else {
+            $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button'  disabled='disabled'>
+                        <img src='" . SugarThemeRegistry::current()->getImageURL('next_off.gif') . "' alt='Next' align='absmiddle' border='0'>
+                    </button>
+                     <button type='button' id='listViewEndButton_top$dashletPaginationButtons' name='listViewEndButton' title='End' class='button'  disabled='disabled'>
+                        <img src='" . SugarThemeRegistry::current()->getImageURL('end_off.gif') . "' alt='End' align='absmiddle' border='0'>
+                    </button>";
+
+        }
+
+        $html .= "</td>
+                       </table>
+                      </td>";
+
+        $html .= "</tr></thead>";
+
+
+        $moduleFieldByGroupValue = $this->getModuleFieldByGroupValue($beanList, $group_value);
+
+        $html = "<H3>$moduleFieldByGroupValue</H3>" . $html;
+
+
+        $html .= "<thead>";
+        $html .= "<tr>";
+        return $html;
+    }
+
+    /**
+     * @param array $rows
+     * @return array
+     */
+    public function getFieldNames($rows = array()): array
+    {
+        if ($this->requestData != false) {
+            $rows = $this->getViewParams();
+        } else {
+            $rows = $this->getFieldArrayForReport();
+        }
+        return $rows;
+    }
+
+
+    public function getReportTableFieldTitleRowMarkup($fields): array
+    {
+        $html = '';
+        foreach ($fields as $field) {
+            if ($field['display']) {
+                $html .= "<th scope='col'>" . PHP_EOL;
+                $html .= "<div style='white-space: normal;' width='100%' align='left'>";
+                $html .= $field->label;
+                $html .= "</div>" . PHP_EOL;
+                $html .= "</th>" . PHP_EOL;
+            }
+        }
+        return $html;
+    }
+
+    public function getReportTableFieldArray($fieldNameArray)
+    {
+
+        $fields = array();
+        $i = 0;
+
+        foreach ($fieldNameArray as $field) {
+            $path = unserialize(base64_decode($field->module_path));
+            $field_bean = $this->getReportModuleBean();
+            $field_module = $this->report_module;
+            $field_alias = $field_bean->table_name;
+            if ($path[0] != $this->report_module) {
+                foreach ($path as $rel) {
+                    if (empty($rel)) {
+                        continue;
+                    }
+                    $field_module = getRelatedModule($field_module, $rel);
+                    $field_alias = $field_alias . ':' . $rel;
+                }
+            }
+            $label = str_replace(' ', '_', $field->label) . $i;
+            $fields[$label]['field'] = $field->field;
+            $fields[$label]['label'] = $field->label;
+            $fields[$label]['display'] = $field->display;
+            $fields[$label]['function'] = $field->field_function;
+            $fields[$label]['module'] = $field_module;
+            $fields[$label]['alias'] = $field_alias;
+            $fields[$label]['link'] = $field->link;
+            $fields[$label]['total'] = $field->total;
+            $fields[$label]['params'] = $field->format;
+            ++$i;
+        }
+
+        return $fields;
+    }
+
+    /**
+     * @param $fields
+     * @return string
+     */
+    public function getTitleMarkup($fields): string
+    {
+        $html = '';
+        $html .= '<tr>' . PHP_EOL;
+        $html .= '<thead>' . PHP_EOL;
+        $html .= '<tbody>' . PHP_EOL;
+        $html .= $this->getReportTableFieldTitleRowMarkup($fields);
+        $html .= $html .= '</tr>' . PHP_EOL;
+        $html .= '</thead>' . PHP_EOL;
+        $html .= '</tbody>' . PHP_EOL;
+        return $html;
+    }
+
+    /**
+     * @param $report_sql
+     * @return bool|resource
+     */
+    public function getCountForReportRowNumbers($report_sql)
+    {
+        $total_rows = 0;
+        $count_sql = explode('ORDER BY', $report_sql);
+        $count_query = 'SELECT count(*) c FROM (' . $count_sql[0];
+        $count_query .= ') as n';
+        $result = $this->db->query($count_query);
+        $assoc = $this->db->fetchByAssoc($result);
+        if (!empty($assoc['c'])) {
+            $total_rows = $assoc['c'];
+        }
+        return $total_rows;
+    }
+
+    /**
+     * @param $extra
+     * @param $field
+     * @param $query_array
+     * @return array
+     */
+    public function buildGroupQuery($extra, $field, $query_array): array
+    {
+        $timedate = $this->getTimedate();
+        $beanList = $this->getBeanList();
+        $module = $this->getReportModuleBean();
+        $query = '';
+        $field_label = str_replace(' ', '_', $field->label);
+
+        $path = unserialize(base64_decode($field->module_path));
+
+        $field_module = $module;
+        $table_alias = $field_module->table_name;
+        if (!empty($path[0]) && $path[0] != $module->module_dir) {
+            foreach ($path as $rel) {
+                $new_field_module = new $beanList[getRelatedModule($field_module->module_dir, $rel)];
+                $oldAlias = $table_alias;
+                $table_alias = $table_alias . ":" . $rel;
+
+                $query_array = $this->build_report_query_join(
+                    $rel,
+                    $table_alias,
+                    $oldAlias,
+                    $field_module,
+                    'relationship',
+                    $query_array,
+                    $new_field_module
+                );
+                $field_module = $new_field_module;
+            }
+        }
+
+        $data = $field_module->field_defs[$field->field];
+
+        if ($data['type'] == 'relate' && isset($data['id_name'])) {
+            $field->field = $data['id_name'];
+        }
+
+        if ($data['type'] == 'currency' && !stripos(
+                $field->field,
+                '_USD'
+            ) && isset($field_module->field_defs['currency_id'])
+        ) {
+            if ((isset($field_module->field_defs['currency_id']['source']) &&
+                $field_module->field_defs['currency_id']['source'] == 'custom_fields')
+            ) {
+                $query['select'][$table_alias . '_currency_id'] =
+                    $table_alias . '_cstm' . ".currency_id AS '" . $table_alias . "_currency_id'";
+            } else {
+                $query_array['select'][$table_alias . '_currency_id'] =
+                    $table_alias . ".currency_id AS '" . $table_alias . "_currency_id'";
+            }
+        }
+
+        if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
+            $select_field = $this->db->quoteIdentifier($table_alias . '_cstm') . '.' . $field->field;
+            // Fix for #1251 - added a missing parameter to the function call
+            $query_array = $this->build_report_query_join(
+                $table_alias . '_cstm',
+                $table_alias . '_cstm',
+                $table_alias,
+                $field_module,
+                'custom',
+                $query
+            );
+        } else {
+            $select_field = $this->db->quoteIdentifier($table_alias) . '.' . $field->field;
+        }
+
+        if ($field->sort_by != '') {
+            $query_array['sort_by'][] = $field_label . ' ' . $field->sort_by;
+        }
+
+        if ($field->format && in_array($data['type'], array('date', 'datetime', 'datetimecombo'))) {
+            if (in_array($data['type'], array('datetime', 'datetimecombo'))) {
+                $select_field = $this->db->convert($select_field, 'add_tz_offset');
+            }
+            $select_field = $this->db->convert(
+                $select_field,
+                'date_format',
+                array($timedate->getCalFormat($field->format))
+            );
+        }
+
+        if ($field->field_function != null) {
+            $select_field = $field->field_function . '(' . $select_field . ')';
+        }
+
+        if ($field->group_by == 1) {
+            $query_array['group_by'][] = $select_field;
+        }
+
+        $query_array['select'][] = $select_field . " AS '" . $field_label . "'";
+        if (isset($extra['select']) && $extra['select']) {
+            foreach ($extra['select'] as $selectField => $selectAlias) {
+                if ($selectAlias) {
+                    $query_array['select'][] = $selectField . " AS " . $selectAlias;
+                } else {
+                    $query_array['select'][] = $selectField;
+                }
+            }
+        }
+        $query_array['where'][] = $select_field . " IS NOT NULL AND ";
+        if (isset($extra['where']) && $extra['where']) {
+            $query_array['where'][] = implode(' AND ', $extra['where']) . ' AND ';
+        }
+
+        $query_array = $this->build_report_query_where($query_array);
+
+        foreach ($query_array['select'] as $select) {
+            $query .= ($query == '' ? 'SELECT ' : ', ') . $select;
+        }
+
+        $query .= ' FROM ' . $module->table_name . ' ';
+
+        if (isset($query_array['join'])) {
+            foreach ($query_array['join'] as $join) {
+                $query .= $join;
+            }
+        }
+        if (isset($query_array['where'])) {
+            $query_where = '';
+            foreach ($query_array['where'] as $where) {
+                $query_where .= ($query_where == '' ? 'WHERE ' : ' ') . $where;
+            }
+
+            $query_where = $this->queryWhereRepair($query_where);
+
+            $query .= ' ' . $query_where;
+        }
+
+        if (isset($query_array['group_by'])) {
+            $query_group_by = '';
+            foreach ($query_array['group_by'] as $group_by) {
+                $query_group_by .= ($query_group_by == '' ? 'GROUP BY ' : ', ') . $group_by;
+            }
+            $query .= ' ' . $query_group_by;
+        }
+
+        if (isset($query_array['sort_by'])) {
+            $query_sort_by = '';
+            foreach ($query_array['sort_by'] as $sort_by) {
+                $query_sort_by .= ($query_sort_by == '' ? 'ORDER BY ' : ', ') . $sort_by;
+            }
+            $query .= ' ' . $query_sort_by;
+        }
+
+        $result = $this->db->query($query);
+        return $result;
     }
 
 
