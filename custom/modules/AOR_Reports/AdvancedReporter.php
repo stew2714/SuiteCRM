@@ -35,6 +35,98 @@ class AdvancedReporter extends AOR_Report
     private $_fieldArrayForReport = null;
     private $_conditionArrayForReport = null;
     private $_reportQuery = null;
+    private $_reportTableFieldArray = null;
+    private $_groupedByField = null;
+    private $_userCurrency = null;
+
+    public function getUserCurrency()
+    {
+        if ($this->_userCurrency == null) {
+            $currency = new Currency();
+            $currentUser = $this->getCurrentuser();
+            $currency->retrieve($currentUser->getPreference('currency'));
+            $this->setUserCurrency($currency);
+        }
+        return $this->_userCurrency;
+    }
+
+    public function setUserCurrency($currency)
+    {
+        $this->_userCurrency = $currency;
+        return $this;
+    }
+
+
+    public function getGroupedByField()
+    {
+        if ($this->_groupedByField == null) {
+            if ($this->requestData != false) {
+                $field = $this->getViewParams(true, false, 1);
+                $this->setGroupedByField($field);
+            } else {
+                $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
+                $field_id = $this->db->getOne($sql);
+                if (!empty($field_id)) {
+                    $field = BeanFactory::getBean("AOR_Fields", $field_id);
+                    $this->setGroupedByField($field);
+                }
+            }
+        }
+
+        return $this->_groupedByField;
+    }
+
+    public function setGroupedByField($field)
+    {
+        $this->_groupedByField = $field;
+        return $this;
+    }
+
+
+    public function getReportTableFieldArray()
+    {
+
+        if ($this->_reportTableFieldArray == null) {
+            $fieldNameArray = $this->getFieldNames();
+            $fields = array();
+            $i = 0;
+
+            foreach ($fieldNameArray as $field) {
+                $path = unserialize(base64_decode($field->module_path));
+                $field_bean = $this->getReportModuleBean();
+                $field_module = $this->report_module;
+                $field_alias = $field_bean->table_name;
+                if ($path[0] != $this->report_module) {
+                    foreach ($path as $rel) {
+                        if (empty($rel)) {
+                            continue;
+                        }
+                        $field_module = getRelatedModule($field_module, $rel);
+                        $field_alias = $field_alias . ':' . $rel;
+                    }
+                }
+                $label = str_replace(' ', '_', $field->label) . $i;
+                $fields[$label]['field'] = $field->field;
+                $fields[$label]['label'] = $field->label;
+                $fields[$label]['display'] = $field->display;
+                $fields[$label]['function'] = $field->field_function;
+                $fields[$label]['module'] = $field_module;
+                $fields[$label]['alias'] = $field_alias;
+                $fields[$label]['link'] = $field->link;
+                $fields[$label]['total'] = $field->total;
+                $fields[$label]['params'] = $field->format;
+                ++$i;
+            }
+            $this->setReportTableFieldArray($fields);
+        }
+        return $this->_reportTableFieldArray;
+    }
+
+    public function setReportTableFieldArray($fieldArray)
+    {
+        $this->_reportTableFieldArray = $fieldArray;
+        return $this;
+    }
 
     /**
      * @return null
@@ -273,23 +365,6 @@ class AdvancedReporter extends AOR_Report
     public function setSugarConfig($sugar_config)
     {
         $this->_sugar_config = $sugar_config;
-        return $this;
-    }
-
-
-    public function getReportQuery()
-    {
-        if ($this->_reportQuery == null) {
-
-            $this->setReportQuery('');
-        }
-        return $this->_sugar_config;
-    }
-
-
-    public function setReportQuery($reportQuery)
-    {
-        $this->_reportQuery = $reportQuery;
         return $this;
     }
 
@@ -1213,26 +1288,26 @@ class AdvancedReporter extends AOR_Report
             $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
             $html .= "<tr class='" . $row_class . "' height='20'>";
 
-            foreach ($fields as $name => $att) {
-                if ($att['display']) {
+            foreach ($fields as $name => $attribute) {
+                if ($attribute['display']) {
                     $html .= "<td class='' valign='top' align='left'>";
-                    if ($att['link'] && $links) {
+                    if ($attribute['link'] && $links) {
                         $html .= "<a href='" .
                             $sugar_config['site_url'] .
                             "/index.php?module=" .
-                            $att['module'] .
+                            $attribute['module'] .
                             "&action=DetailView&record=" .
-                            $row[$att['alias'] . '_id'] .
+                            $row[$attribute['alias'] . '_id'] .
                             "'>";
                     }
 
                     $currency_id =
-                        isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
+                        isset($row[$attribute['alias'] . '_currency_id']) ? $row[$attribute['alias'] . '_currency_id'] : '';
 
-                    if ($att['function'] == 'COUNT' || !empty($att['params'])) {
+                    if ($attribute['function'] == 'COUNT' || !empty($attribute['params'])) {
                         $html .= $row[$name];
                     } else {
-                        $vardef = $field_bean->getFieldDefinition($att['field']);
+                        $vardef = $field_bean->getFieldDefinition($attribute['field']);
                         if ($vardef['type'] == 'relate') {
                             $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
                             $relateResult = $field_bean->db->query($relateSQL);
@@ -1240,11 +1315,13 @@ class AdvancedReporter extends AOR_Report
                             $relateName = $relateRow['name'];
                         }
 //                        $html .= $row[$name];
-                        $html .= $this->customGetModuleField(
-//                        $html .= getModuleField(
-                            $att['module'],
-                            $att['field'],
-                            $att['field'],
+
+                        $this->checkIfCacheExists($attribute['module'], $attribute['field'], 'DetailView', '');
+
+                        $html .= $this->customGetModuleFieldMarkup(
+                            $attribute['module'],
+                            $attribute['field'],
+                            $attribute['field'],
                             'DetailView',
                             $row[$name],
                             '',
@@ -1254,10 +1331,10 @@ class AdvancedReporter extends AOR_Report
                         );
                     }
 
-                    if ($att['total']) {
+                    if ($attribute['total']) {
                         $totals[$name][] = $row[$name];
                     }
-                    if ($att['link'] && $links) {
+                    if ($attribute['link'] && $links) {
                         $html .= "</a>";
                     }
                     $html .= "</td>";
@@ -1368,15 +1445,15 @@ class AdvancedReporter extends AOR_Report
 
     }
 
-    public function build_report_query($offset = -1, $links = true, $from = null, $limit = null, $group_value = '', $tableIdentifier = '', $extra = array())
-    {
-
-
-        $_group_value = $this->db->quote($group_value);
-
-        $report_sql = $this->build_report_query($_group_value, $extra);
-        return $report_sql;
-    }
+//    public function build_report_query($offset = -1, $links = true, $from = null, $limit = null, $group_value = '', $tableIdentifier = '', $extra = array())
+//    {
+//
+//
+//        $_group_value = $this->db->quote($group_value);
+//
+//        $report_sql = $this->build_report_query($_group_value, $extra);
+//        return $report_sql;
+//    }
 
     public function execute_report_query_with_limit($report_sql, $from = null, $limit = null)
     {
@@ -1390,7 +1467,109 @@ class AdvancedReporter extends AOR_Report
     }
 
 
-    function build_report_html_with_limit($offset = -1, $links = true, $from = null, $limit = null, $group_value = '', $tableIdentifier = '', $extra = array())
+    function ReportFormatFields($result)
+    {
+
+        $field_bean = $this->getReportModuleBean();
+        $fields = $this->getReportTableFieldArray();
+        $totals = array();
+        $data_returned = array();
+        while ($row = $this->db->fetchByAssoc($result)) {
+            $rowArr = array();
+
+            foreach ($fields as $name => $attribute) {
+                $fieldArr = array();
+                foreach ($attribute as $k => $v) {
+                    $fieldArr[$k] = $v;
+                }
+                if ($attribute['display']) {
+                    $currency_id = null;
+                    if (isset($row[$attribute['alias'] . '_currency_id'])) {
+                        $currency_id = $row[$attribute['alias'] . '_currency_id'];
+                    }
+                    $fieldArr['currency_id'] = $currency_id;
+
+                    $vardef = $field_bean->getFieldDefinition($attribute['field']);
+                    $relateName = null;
+                    if ($vardef['type'] == 'relate') {
+                        $relateName = $this->getRelationshipName($row, $name, $attribute);
+                    }
+                    $fieldArr['relate_name'] = $relateName;
+
+                    $this->checkIfCacheExists($attribute['module'], $attribute['field'], 'DetailView', '');
+
+                    if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
+                        $formattedValue = $this->getFieldInFormattedValue($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+                    } else {
+                        $formattedValue = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+                    }
+                    $fieldArr['formattedvalue'] = $formattedValue;
+
+                    if ($attribute['total']) {
+                        $totals[$name][] = $row[$name];
+                    }
+                }
+                $rowArr[$name] = $fieldArr;
+            }
+            array_push($data_returned, $rowArr);
+        }
+        $data_returned['totals'] = $totals;
+        return $data_returned;
+    }
+
+
+    function buildReportRows($fieldsArray, $links = true)
+    {
+        unset($fieldsArray['totals']);
+        $sugar_config = $this->getSugarConfig();
+        $row_class = 'oddListRowS1';
+        $j = 0;
+        $html = '';
+        foreach ($fieldsArray as $row) {
+//            $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
+            $html .= "<tr class='" . $row_class . "' height='20'>";
+            foreach ($row as $field => $attribute) {
+                if ($attribute['display']) {
+                    $html .= "<td class='' valign='top' align='left'>";
+                    if ($attribute['link'] && $links) {
+                        $html .= "<a href='" .
+                            $sugar_config['site_url'] .
+                            "/index.php?module=" .
+                            $attribute['module'] .
+                            "&action=DetailView&record=" .
+                            $row[$attribute['alias'] . '_id'] .
+                            "'>";
+                    }
+
+                    if (isset($row[$attribute['alias'] . '_currency_id'])) {
+                        $currency_id = $row[$attribute['alias'] . '_currency_id'];
+                    }
+
+
+                    if ($attribute['function'] == 'COUNT' || !empty($attribute['params'])) {
+                        $html .= $row[$name];
+                    } else {
+                        $relateName = $attribute["relate_name"];
+                        $html .= $attribute["formattedvalue"];
+                    }
+                    if ($attribute['link'] && $links) {
+                        $html .= "</a>";
+                    }
+                    $html .= "</td>";
+                }
+
+
+            }
+
+            $html .= "</tr>";
+            $row_class = $row_class == 'oddListRowS1' ? 'evenListRowS1' : 'oddListRowS1';
+            $j++;
+        }
+        return $html;
+    }
+
+
+    function build_report_html_with_limit($links = true, $from = null, $limit = null, $group_value = '', $extra = array())
     {
         $sugar_config = $this->getSugarConfig();
 
@@ -1400,9 +1579,7 @@ class AdvancedReporter extends AOR_Report
 
         $total_rows = $this->getCountForReportRowNumbers($report_sql);
 
-        $fieldNameArray = $this->getFieldNames();
-
-        $fields = $this->getReportTableFieldArray($fieldNameArray);
+        $fields = $this->getReportTableFieldArray();
 //
 //        $html = $this->getTitleMarkup($fields);
 
@@ -1412,57 +1589,52 @@ class AdvancedReporter extends AOR_Report
         $row_class = 'oddListRowS1';
 
         $j = 0;
-
+        $html = '';
         $totals = array();
         while ($row = $this->db->fetchByAssoc($result)) {
             $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
             $html .= "<tr class='" . $row_class . "' height='20'>";
 
-            foreach ($fields as $name => $att) {
-                if ($att['display']) {
+            foreach ($fields as $name => $attribute) {
+                if ($attribute['display']) {
                     $html .= "<td class='' valign='top' align='left'>";
-                    if ($att['link'] && $links) {
+                    if ($attribute['link'] && $links) {
                         $html .= "<a href='" .
                             $sugar_config['site_url'] .
                             "/index.php?module=" .
-                            $att['module'] .
+                            $attribute['module'] .
                             "&action=DetailView&record=" .
-                            $row[$att['alias'] . '_id'] .
+                            $row[$attribute['alias'] . '_id'] .
                             "'>";
                     }
 
-                    $currency_id =
-                        isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
+                    $currency_id = '';
+                    if (isset($row[$attribute['alias'] . '_currency_id'])) {
+                        $currency_id = $row[$attribute['alias'] . '_currency_id'];
+                    }
 
-                    if ($att['function'] == 'COUNT' || !empty($att['params'])) {
+
+                    if ($attribute['function'] == 'COUNT' || !empty($attribute['params'])) {
                         $html .= $row[$name];
                     } else {
-                        $vardef = $field_bean->getFieldDefinition($att['field']);
+                        $vardef = $field_bean->getFieldDefinition($attribute['field']);
                         if ($vardef['type'] == 'relate') {
-                            $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
-                            $relateResult = $field_bean->db->query($relateSQL);
-                            $relateRow = mysqli_fetch_row($relateResult);
-                            $relateName = $relateRow['name'];
+                            $relateName = $this->getRelationshipName($row, $name, $attribute);
                         }
-//                        $html .= $row[$name];
-                        $html .= $this->customGetModuleField(
-//                        $html .= getModuleField(
-                            $att['module'],
-                            $att['field'],
-                            $att['field'],
-                            'DetailView',
-                            $row[$name],
-                            '',
-                            $currency_id,
-                            array(),
-                            $j
-                        );
+
+                        $this->checkIfCacheExists($attribute['module'], $attribute['field'], 'DetailView', '');
+
+                        if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
+                            $html = $this->getFieldInFormattedValue($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+                        } else {
+                            $html = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+                        }
                     }
 
-                    if ($att['total']) {
+                    if ($attribute['total']) {
                         $totals[$name][] = $row[$name];
                     }
-                    if ($att['link'] && $links) {
+                    if ($attribute['link'] && $links) {
                         $html .= "</a>";
                     }
                     $html .= "</td>";
@@ -1503,14 +1675,14 @@ class AdvancedReporter extends AOR_Report
     }
 
 
-    public function generateFieldMarkupPDF($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file)
+    public function getFieldInFormattedValue($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $alt_type)
     {
-
+//        $file = create_cache_directory('modules/AOW_WorkFlow/') . $module . $view . $alt_type . $fieldName . '.tpl';
         $timedate = $this->getTimedate();
         $current_user = $this->getCurrentuser();
-        $beanFiles = $this->getBeanFiles();
-        $beanList = $this->getBeanList();
-        $app_strings = $this->getAppStrings();
+//        $beanFiles = $this->getBeanFiles();
+//        $beanList = $this->getBeanList();
+//        $app_strings = $this->getAppStrings();
         $current_language = $this->getCurrentLanguage();
 
         $mod_strings = return_module_language($current_language, $module);
@@ -1629,9 +1801,9 @@ class AdvancedReporter extends AOR_Report
     }
 
 
-    public function generateFieldMarkup($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file)
+    public function generateFieldMarkupUsingTemplateEngine($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $alt_type)
     {
-
+        $file = create_cache_directory('modules/AOW_WorkFlow/') . $module . $view . $alt_type . $fieldName . '.tpl';
         $timedate = $this->getTimedate();
         $current_user = $this->getCurrentuser();
         $beanFiles = $this->getBeanFiles();
@@ -1656,7 +1828,6 @@ class AdvancedReporter extends AOR_Report
                 $value = $function($focus, $fieldName, $value, $view);
 
                 $value = str_ireplace($fieldName, $aow_field, $value);
-//                return $value;
             }
         }
 
@@ -1667,7 +1838,6 @@ class AdvancedReporter extends AOR_Report
             if ((!isset($fieldList[$fieldName]['module']) || $fieldList[$fieldName]['module'] == '') && $focus->load_relationship($fieldList[$fieldName]['name'])) {
                 $relName = $fieldList[$fieldName]['name'];
                 $fieldList[$fieldName]['module'] = $focus->$relName->getRelatedModuleName();
-//                return $fieldList[$fieldName]['module'];
             }
         }
 
@@ -1676,7 +1846,6 @@ class AdvancedReporter extends AOR_Report
             $fieldList[$fieldName]['name'] = 'aow_temp_date';
             $fieldList['aow_temp_date'] = $fieldList[$fieldName];
             $fieldName = 'aow_temp_date';
-//            return $fieldList['aow_temp_date'];
         }
 
 
@@ -1712,7 +1881,6 @@ class AdvancedReporter extends AOR_Report
             $fieldList[$fieldList[$fieldName]['id_name']]['name'] = $aow_field;
             $fieldList[$fieldName]['name'] = $aow_field . '_display';
 
-//            return $value;
         } else if (isset($fieldList[$fieldName]['type']) && $view == 'DetailView' && ($fieldList[$fieldName]['type'] == 'datetimecombo' || $fieldList[$fieldName]['type'] == 'datetime' || $fieldList[$fieldName]['type'] == 'date')) {
             $value = $focus->convertField($value, $fieldList[$fieldName]);
             if (!empty($params['date_format']) && isset($params['date_format'])) {
@@ -1888,21 +2056,14 @@ class AdvancedReporter extends AOR_Report
     }
 
 
-    function customGetModuleField($module, $fieldName, $aow_field, $view = 'EditView', $value = '', $alt_type = '', $currency_id = '', $params = array())
+    function customGetModuleFieldMarkup($module, $fieldName, $aow_field, $view = 'EditView', $value = '', $alt_type = '', $currency_id = '', $params = array())
     {
-        $file = create_cache_directory('modules/AOW_WorkFlow/') . $module . $view . $alt_type . $fieldName . '.tpl';
 
-        $shouldCreateCache = !is_file($file) || inDeveloperMode() || !empty($_SESSION['developerMode']);
 
-        if ($shouldCreateCache) {
-
-            $focus = $this->createCache($module, $fieldName, $view, $alt_type, $file);
-            $this->_focus = $focus;
-        }
         if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
-            $markup = $this->generateFieldMarkupPDF($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file);
+            $markup = $this->getFieldInFormattedValue($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $alt_type);
         } else {
-            $markup = $this->generateFieldMarkup($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $file);
+            $markup = $this->generateFieldMarkupUsingTemplateEngine($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $alt_type);
         }
 
         return $markup;
@@ -2165,52 +2326,45 @@ class AdvancedReporter extends AOR_Report
 
     }
 
-    function build_group_report_with_limit($offset = -1, $links = true, $from = null, $limit = null, $extra = array())
+    public function build_group_report_with_limit($links = true, $from = null, $limit = null, $extra = array())
     {
 
 
         $html = '';
-
-        $query_array = array();
-        $module = $this->getReportModuleBean();
-        $field = false;
-
-        //get the group field.
-        if ($this->requestData != false) {
-            $field = $this->getViewParams(true, false, 1);
-        } else {
-            $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
-
-            $field_id = $this->db->getOne($sql);
-            if (!empty($field_id)) {
-                $field = BeanFactory::getBean("AOR_Fields", $field_id);
-            }
-        }
-
-        if (!$field) {
-            $query_array['select'][] = $module->table_name . ".id AS '" . $module->table_name . "_id'";
+        $field = $this->getGroupedByField();
+        if ($field != false) {
+            $groupQueryResult = $this->getGroupReportQueryResult($extra);
         }
 
         if ($field != false) {
-
             $field_label = str_replace(' ', '_', $field->label);
-            $result = $this->buildGroupQuery($extra, $field, $query_array);
-
             $checkListed = array();
-            while ($row = $this->db->fetchByAssoc($result)) {
+            while ($row = $this->db->fetchByAssoc($groupQueryResult)) {
                 if ($html != '') {
                     $html .= '<br />';
                 }
                 if (!isset($checkListed[$row[$field_label]])) {
                     $checkListed[$row[$field_label]] = $row[$field_label];
-                    $html .= $this->build_report_html_with_limit($offset, $links, $from, $limit, $row[$field_label], create_guid(), $extra);
+//                    $html .= $this->build_report_html_with_limit($links, $from, $limit, $row[$field_label], $extra);
+                    $report_sql = $this->getReportQuery('', $extra);
+                    $result = $this->getReportQueryResult($from, $limit, $report_sql);
+                    $resultArray = $this->ReportFormatFields($result);
+                    $html .= $this->buildReportRows($resultArray, $links);
+                    $html .= $this->getReportFooter($resultArray['totals']);
                 }
-
             }
+
         }
 
+
         if ($html == '') {
-            $html = $this->build_report_html_with_limit($offset, $links, $from, $limit, '', create_guid(), $extra);
+//            $html = $this->build_report_html_with_limit($offset, $links, $from, $limit, '', create_guid(), $extra);
+            $report_sql = $this->getReportQuery('', $extra);
+            $result = $this->getReportQueryResult($from, $limit, $report_sql);
+            $resultArray = $this->ReportFormatFields($result);
+            $html .= $this->buildReportRows($resultArray, $links);
+            $html .= $this->getReportFooter($resultArray['totals']);
+            return $html;
         }
 
         return $html;
@@ -2957,55 +3111,19 @@ class AdvancedReporter extends AOR_Report
     }
 
 
-    public function getReportTableFieldTitleRowMarkup($fields): array
+    public function getReportTableFieldTitleRowMarkup($fields): string
     {
         $html = '';
         foreach ($fields as $field) {
             if ($field['display']) {
                 $html .= "<th scope='col'>" . PHP_EOL;
                 $html .= "<div style='white-space: normal;' width='100%' align='left'>";
-                $html .= $field->label;
+                $html .= $field['label'];
                 $html .= "</div>" . PHP_EOL;
                 $html .= "</th>" . PHP_EOL;
             }
         }
         return $html;
-    }
-
-    public function getReportTableFieldArray($fieldNameArray)
-    {
-
-        $fields = array();
-        $i = 0;
-
-        foreach ($fieldNameArray as $field) {
-            $path = unserialize(base64_decode($field->module_path));
-            $field_bean = $this->getReportModuleBean();
-            $field_module = $this->report_module;
-            $field_alias = $field_bean->table_name;
-            if ($path[0] != $this->report_module) {
-                foreach ($path as $rel) {
-                    if (empty($rel)) {
-                        continue;
-                    }
-                    $field_module = getRelatedModule($field_module, $rel);
-                    $field_alias = $field_alias . ':' . $rel;
-                }
-            }
-            $label = str_replace(' ', '_', $field->label) . $i;
-            $fields[$label]['field'] = $field->field;
-            $fields[$label]['label'] = $field->label;
-            $fields[$label]['display'] = $field->display;
-            $fields[$label]['function'] = $field->field_function;
-            $fields[$label]['module'] = $field_module;
-            $fields[$label]['alias'] = $field_alias;
-            $fields[$label]['link'] = $field->link;
-            $fields[$label]['total'] = $field->total;
-            $fields[$label]['params'] = $field->format;
-            ++$i;
-        }
-
-        return $fields;
     }
 
     /**
@@ -3015,20 +3133,14 @@ class AdvancedReporter extends AOR_Report
     public function getTitleMarkup($fields): string
     {
         $html = '';
-        $html .= '<tr>' . PHP_EOL;
         $html .= '<thead>' . PHP_EOL;
-        $html .= '<tbody>' . PHP_EOL;
+        $html .= '<tr>' . PHP_EOL;
         $html .= $this->getReportTableFieldTitleRowMarkup($fields);
-        $html .= $html .= '</tr>' . PHP_EOL;
+        $html .= '</tr>' . PHP_EOL;
         $html .= '</thead>' . PHP_EOL;
-        $html .= '</tbody>' . PHP_EOL;
         return $html;
     }
 
-    /**
-     * @param $report_sql
-     * @return bool|resource
-     */
     public function getCountForReportRowNumbers($report_sql)
     {
         $total_rows = 0;
@@ -3197,6 +3309,179 @@ class AdvancedReporter extends AOR_Report
 
         $result = $this->db->query($query);
         return $result;
+    }
+
+
+    public function getRelationshipName($row, $name, $attribute)
+    {
+        $field_bean = $this->getReportModuleBean();
+        $vardef = $field_bean->getFieldDefinition($attribute['field']);
+        $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
+        $relateResult = $field_bean->db->query($relateSQL);
+        $relateRow = mysqli_fetch_row($relateResult);
+        $relateName = $relateRow['name'];
+        return $relateName;
+    }
+
+    /**
+     * @param $module
+     * @param $fieldName
+     * @param $view
+     * @param $alt_type
+     * @return string
+     */
+    public function checkIfCacheExists($module, $fieldName, $view, $alt_type): string
+    {
+        $file = create_cache_directory('modules/AOW_WorkFlow/') . $module . $view . $alt_type . $fieldName . '.tpl';
+
+        $shouldCreateCache = !is_file($file) || inDeveloperMode() || !empty($_SESSION['developerMode']);
+
+        if ($shouldCreateCache) {
+
+            $focus = $this->createCache($module, $fieldName, $view, $alt_type, $file);
+            $this->_focus = $focus;
+        }
+        return $shouldCreateCache;
+    }
+
+
+    public function getReportQueryResult($from, $limit, $report_sql): mysqli_result
+    {
+        $result = $this->execute_report_query_with_limit($report_sql, $from, $limit);
+        return $result;
+    }
+
+    /**
+     * @param $totals
+     * @return string
+     */
+    public function getReportFooter($totals): string
+    {
+        $html = '';
+        $fields = $this->getReportTableFieldArray();
+        $html .= $this->getTotalHTML($fields, $totals);
+        return $html;
+    }
+
+    /**
+     * @param $extra
+     * @return array
+     */
+    public function getGroupReportQueryResult($extra): array
+    {
+        $query_array = array();
+        $module = $this->getReportModuleBean();
+        $field = $this->getGroupedByField();
+        if (!$field) {
+            $query_array['select'][] = $module->table_name . ".id AS '" . $module->table_name . "_id'";
+        }
+        if ($field != false) {
+            $result = $this->buildGroupQuery($extra, $field, $query_array);
+        }
+        return $result;
+    }
+
+    /**
+     * @param $html
+     * @return string
+     */
+    public function getFooterScript($html): string
+    {
+        $html .= "    <script type=\"text/javascript\">
+                            groupedReportToggler = {
+
+                                toggleList: function(elem) {
+                                    $(elem).closest('table.list').find('thead, tbody').each(function(i, e){
+                                        if(i>1) {
+                                            $(e).toggle();
+                                        }
+                                    });
+                                    if($(elem).find('img').first().attr('src') == 'themes/SuiteR/images/basic_search.gif') {
+                                        $(elem).find('img').first().attr('src', 'themes/SuiteR/images/advanced_search.gif');
+                                    }
+                                    else {
+                                        $(elem).find('img').first().attr('src', 'themes/SuiteR/images/basic_search.gif');
+                                    }
+                                }
+
+                            };
+                        </script>";
+        return $html;
+    }
+
+
+    function getTotalHTML($fields, $totals)
+    {
+        $app_list_strings = $this->getAppListStrings();
+        $currency = $this->getUserCurrency();
+
+        $html = '';
+        $html .= "<tr>";
+        foreach ($fields as $label => $field) {
+            if (!$field['display']) {
+                continue;
+            }
+            if ($field['total']) {
+                $totalLabel = $field['label'] . " " . $app_list_strings['aor_total_options'][$field['total']];
+                $html .= "<th>{$totalLabel}</th>";
+            } else {
+                $html .= "<th></th>";
+            }
+        }
+        $html .= "</tr>";
+        $html .= "<tr>";
+        foreach ($fields as $label => $field) {
+            if (!$field['display']) {
+                continue;
+            }
+            if ($field['total'] && isset($totals[$label])) {
+                $type = $field['total'];
+                $total = $this->calculateTotal($type, $totals[$label]);
+                // Customise display based on the field type
+                $moduleBean = BeanFactory::newBean($field['module']);
+                $fieldDefinition = $moduleBean->field_defs[$field['field']];
+                $fieldDefinitionType = $fieldDefinition['type'];
+                switch ($fieldDefinitionType) {
+                    case "currency":
+                        // Customise based on type of function
+                        switch ($type) {
+                            case 'SUM':
+                            case 'AVG':
+                                if ($currency->id == -99) {
+                                    $total = $currency->symbol . format_number($total, null, null);
+                                } else {
+                                    $total = $currency->symbol . format_number($total, null, null,
+                                            array('convert' => true));
+                                }
+                                break;
+                            case 'COUNT':
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                $html .= "<td>" . $total . "</td>";
+            } else {
+                $html .= "<td></td>";
+            }
+        }
+        $html .= "</tr>";
+
+        return $html;
+    }
+
+    /**
+     * @param $group_value
+     * @param $extra
+     * @return string
+     */
+    public function getReportQuery($group_value, $extra): string
+    {
+        $_group_value = $this->db->quote($group_value);
+        $report_sql = $this->build_report_query($_group_value, $extra);
+        return $report_sql;
     }
 
 
