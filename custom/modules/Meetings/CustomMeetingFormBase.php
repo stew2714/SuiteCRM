@@ -74,6 +74,8 @@ class CustomMeetingFormBase extends MeetingFormBase
      */
     public function handleSave($prefix, $redirect = true, $useRequired = false)
     {
+        $this->removeDeletedAttachments();
+
         //stop sending the invites as we know currently.
         $sendInvites = false;
         if($_REQUEST['send_invites'] == true){
@@ -118,6 +120,21 @@ class CustomMeetingFormBase extends MeetingFormBase
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     *
+     */
+    private function removeDeletedAttachments()
+    {
+        if (!empty($_REQUEST['deleteMeetingAttachment']) && is_array($_REQUEST['deleteMeetingAttachment'])) {
+            foreach ($_REQUEST['deleteMeetingAttachment'] as $attachmentId) {
+                $bean = BeanFactory::getBean("Notes", $attachmentId);
+                $bean->deleted = 1;
+                $bean->save();
+            }
+        }
+    }
+
     private function sendNotifications($bean)
     {
         //we want to send the invites to the same people as the core would.
