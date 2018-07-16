@@ -12,31 +12,47 @@ function checkArray(item, array){
   return false;
 }
 
+function customSaveValidation(e)
+{
+  e.preventDefault();
+  if (checkRules()) {
+    var _form = document.getElementById('EditView');
+    _form.action.value = 'Save';
+    if (check_form('EditView')) {
+      SUGAR.ajaxUI.submitForm(_form);
+    }
+  }
+  return false;
+}
+
+function customSaveContinueValidation(e)
+{
+  e.preventDefault();
+  if( checkRules( ) ) {
+    SUGAR.saveAndContinue(this);
+  }
+}
 
 $( document ).ready(function() {
   removeFromValidate("EditView","probability")
   /******* get the first version of the field ************/
 
-  $("[id='SAVE']").unbind("click").removeAttr("onclick").click(function(e) {
-    e.preventDefault();
-    if( checkRules() ) {
-      var _form = document.getElementById('EditView');
-      _form.action.value = 'Save';
-      if (check_form('EditView')) {
-        SUGAR.ajaxUI.submitForm(_form);
-      }
-    }
-    return false;
-  });
+  setInterval(function () {
+    $("input[id='SAVE']").each(function () {
+      $(this).unbind("click").attr("onclick", "customSaveValidation(event);");
+    });
+  }, 500);
 
-  $("[id='save_and_continue']").unbind("click").removeAttr("onclick").click(function(e) {
-    e.preventDefault();
-    if( checkRules( ) ) {
-      SUGAR.saveAndContinue(this);
-    }
-  });
+  setInterval(function () {
+    $("input[id='save_and_continue']").each(function () {
+      $(this).unbind("click").attr("onclick", "customSaveContinueValidation(event);");
+    });
+  }, 500);
 
-  function checkRules(){
+});
+
+  function checkRules()
+  {
     //Item 5 - Cannot_change_forecasting
 //    if (beanData.forecasting_category_c != $("#forecasting_category_c").val() && (
 //        !checkArray("VP", beanData.current_user.roles) &&
@@ -90,14 +106,13 @@ $( document ).ready(function() {
       return false //must be outside of validate array.
     }
 
-    //Item 9 - AND( (Product__r.Name = "Fluency for Coding Capital" || Product__r.Name = "Fluency for Coding Trans" || Product__r.Name = "Coding Services"), $RecordType.Name = "Standard Opportunity", ISPICKVAL ( Encoder__c ,"") )
+    //Item 9 - AND( (Product__r.Name = "Fluency for Coding Capital" || Product__r.Name = "Fluency for Coding Trans"
+    // || Product__r.Name = "Coding Services"), $RecordType.Name = "Standard Opportunity", ISPICKVAL ( Encoder__c ,"") )
+    var productVal = document.getElementById("product_c").value;
     if (
-      (document.getElementById("product_c").value == "FFCC" ||
-        document.getElementById("product_c").value == "FFCT" ||
-        document.getElementById("product_c").value == "COS"
-      ) &&
-      document.getElementById("recordtypeid_c").value == "Standard Opportunity" &&
-      document.getElementById("encoder_c").value == ""){
+      (productVal === 'Coding_Services' || productVal === 'Fluency_for_Coding_Capital')
+      && document.getElementById("recordtypeid_c").value == "Standard_Opportunity"
+      && document.getElementById("encoder_c").value == ""){
       addToValidate('EditView',"encoder_c",'varchar',true,SUGAR.language.get('Opportunities', 'LBL_ENCODER_REQUIRED_FOR_CODING_OPPS'));
     }else{
       if( checkValidate("EditView", "encoder_c")){
@@ -370,4 +385,3 @@ $( document ).ready(function() {
     return true;
   }
 
-});
