@@ -9,7 +9,7 @@ CAL.dialog_save_with_attachments = function () {
   }
   CAL.fill_invitees();
   CAL.fill_repeat_data();
-  function callback (o) {
+  function callback (res) {
     if (res.access == 'yes') {
       if (typeof res.limit_error != "undefined") {
         var alert_msg = CAL.lbl_repeat_limit_error;
