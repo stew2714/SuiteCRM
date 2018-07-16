@@ -116,7 +116,11 @@ class CustomMeetingFormBase extends MeetingFormBase
             $this->cancelAndNotify($focus);
         }
 
-        SugarApplication::redirect('index.php?module=Meetings&record=' . $focus->id . '&action=DetailView');
+        if ($_REQUEST['module'] !== 'Calendar') {
+            SugarApplication::redirect('index.php?module=Meetings&record=' . $focus->id . '&action=DetailView');
+        }
+
+        return $focus;
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
