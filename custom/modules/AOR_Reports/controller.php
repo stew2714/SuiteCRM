@@ -63,7 +63,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         }
         $bean = BeanFactory::getBean("AOR_Reports", $requestData['id']);
         $preview = new AdvancedReporter($bean, $requestData);
-        echo $preview->buildMultiGroupReport("-2", true);
+        echo $preview->buildMultiGroupReport("-2",null, true);
         die();
     }
 
@@ -157,8 +157,9 @@ class customAOR_ReportsController extends AOR_ReportsController
 
         $links = false;
         $from = 0;
-        $limit = 1000;
-        $maxNumberRows = 40000;
+        $limit = 20;
+//        $maxNumberRows = 40000;
+        $maxNumberRows = 8000;
         $extra = array();
         $html = '';
 //        $field = $advancedReporter->getGroupedByField();
@@ -254,7 +255,7 @@ class customAOR_ReportsController extends AOR_ReportsController
             $this->bean->user_parameters = requestToUserParameters();
             $advancedReporter = new AdvancedReporter($this->bean);
             $advancedReporter->view_as = $_REQUEST['view_as'];
-            echo $advancedReporter->build_group_report($offset, true);
+            echo $advancedReporter->build_group_report($offset,null, true);
         }
         die();
     }

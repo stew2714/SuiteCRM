@@ -135,7 +135,7 @@ class AOR_ReportsViewDetail extends ViewDetail {
 
         //$reportHTML = $this->bean->build_group_report(0,true);
         $advancedReporter = new AdvancedReporter($this->bean);
-        $reportHTML = $advancedReporter->buildMultiGroupReport(0,true);
+        $reportHTML = $advancedReporter->buildMultiGroupReport(0, null, true);
 
         $chartsHTML = $this->bean->build_report_chart(null, AOR_Report::CHART_TYPE_RGRAPH);
 
