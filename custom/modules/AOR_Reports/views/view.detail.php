@@ -101,17 +101,12 @@ class AOR_ReportsViewDetail extends ViewDetail {
             }
         }
 
+        $userList = $this->getFullUserList();
 
-
-        // Fetch the bean to return all Users
-        $user = BeanFactory::getBean("Users");
-        $userList = $user->get_full_list();
-        $users = array();
 
         // Fetch the bean to return all User Groups (Security Groups)
         $group = BeanFactory::getBean("SecurityGroups");
         $groupsList = $group->get_full_list();
-        $groups = array();
 
         $app_list_strings['report_private_users'][''] = '';
         $app_list_strings['report_private_groups'][''] = '';
@@ -239,6 +234,39 @@ EOD;
         } else {
             return true;
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getFullUserList(): array
+    {
+        global $sugar_config;
+
+        if (isset($sugar_config['reportsCacheUserList']) && $sugar_config['reportsCacheUserList'] != '') {
+            $sessionTimeOut = $sugar_config['reportsCacheUserList'];
+            $sessionIsNotDisabled = strtolower($sessionTimeOut) !== 'disabled';
+            if ($sessionIsNotDisabled) {
+                $sessionTimeOut = intval($sessionTimeOut);
+            }else{
+                $user = BeanFactory::getBean("Users");
+                $userList = $user->get_full_list();
+                return $userList;
+            }
+        } else {
+            $sessionTimeOut = 1800;
+        }
+
+        $userList = null;
+        if (!isset($_SESSION['CREATED']) || (time() - $_SESSION['CREATED'] > $sessionTimeOut)) {
+            $_SESSION['CREATED'] = time();
+            $user = BeanFactory::getBean("Users");
+            $userList = $_SESSION['fullUserList'] = $user->get_full_list();
+        } else {
+            $userList = $_SESSION['fullUserList'];
+        }
+
+        return $userList;
     }
 
 }
