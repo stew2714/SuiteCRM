@@ -25,45 +25,49 @@
 require_once 'include/MVC/View/views/view.detail.php';
 require_once 'modules/AOW_WorkFlow/aow_utils.php';
 require_once 'modules/AOR_Reports/aor_utils.php';
-class AOR_ReportsViewDetail extends ViewDetail {
 
-    private function getReportParameters(){
-        if(!$this->bean->id){
+class AOR_ReportsViewDetail extends ViewDetail
+{
+
+    private function getReportParameters()
+    {
+        if (!$this->bean->id) {
             return array();
         }
-        $conditions = $this->bean->get_linked_beans('aor_conditions','AOR_Conditions', 'condition_order');
+        $conditions = $this->bean->get_linked_beans('aor_conditions', 'AOR_Conditions', 'condition_order');
         $parameters = array();
-        foreach($conditions as $condition){
-            if(!$condition->parameter){
+        foreach ($conditions as $condition) {
+            if (!$condition->parameter) {
                 continue;
             }
-            $condition->module_path = implode(":",unserialize(base64_decode($condition->module_path)));
-            if($condition->value_type == 'Date'){
+            $condition->module_path = implode(":", unserialize(base64_decode($condition->module_path)));
+            if ($condition->value_type == 'Date') {
                 $condition->value = unserialize(base64_decode($condition->value));
             }
             $condition_item = $condition->toArray();
             $display = getDisplayForField($condition->module_path, $condition->field, $this->bean->report_module);
             $condition_item['module_path_display'] = $display['module'];
             $condition_item['field_label'] = $display['field'];
-            if(!empty($this->bean->user_parameters[$condition->id])){
+            if (!empty($this->bean->user_parameters[$condition->id])) {
                 $param = $this->bean->user_parameters[$condition->id];
                 $condition_item['operator'] = $param['operator'];
                 $condition_item['value_type'] = $param['type'];
                 $condition_item['value'] = $param['value'];
             }
-            if(isset($parameters[$condition_item['condition_order']])) {
+            if (isset($parameters[$condition_item['condition_order']])) {
                 $parameters[] = $condition_item;
-            }
-            else {
+            } else {
                 $parameters[$condition_item['condition_order']] = $condition_item;
             }
         }
         return $parameters;
     }
 
-    public function preDisplay() {
+    public function preDisplay()
+    {
         global $app_list_strings;
         global $current_user;
+        global $sugar_config;
         $security_group = new SecurityGroup();
         $groups = $security_group->getUserSecurityGroups($current_user->id);
         $group_ids = array();
@@ -88,7 +92,7 @@ class AOR_ReportsViewDetail extends ViewDetail {
                 $redirect_flags['assigned_user'] = true;
             }
 
-            if (!in_array($this->bean->private_group_list,$group_ids)) {
+            if (!in_array($this->bean->private_group_list, $group_ids)) {
                 $redirect_flags['private_group'] = false;
             } else {
                 $redirect_flags['private_group'] = true;
@@ -101,17 +105,12 @@ class AOR_ReportsViewDetail extends ViewDetail {
             }
         }
 
+        $userList = $this->getFullUserList();
 
-
-        // Fetch the bean to return all Users
-        $user = BeanFactory::getBean("Users");
-        $userList = $user->get_full_list();
-        $users = array();
 
         // Fetch the bean to return all User Groups (Security Groups)
         $group = BeanFactory::getBean("SecurityGroups");
         $groupsList = $group->get_full_list();
-        $groups = array();
 
         $app_list_strings['report_private_users'][''] = '';
         $app_list_strings['report_private_groups'][''] = '';
@@ -127,15 +126,12 @@ class AOR_ReportsViewDetail extends ViewDetail {
         }
 
         parent::preDisplay();
-        $this->ss->assign('report_module',$this->bean->report_module);
-
-
+        $this->ss->assign('report_module', $this->bean->report_module);
 
         $this->bean->user_parameters = requestToUserParameters();
 
-        //$reportHTML = $this->bean->build_group_report(0,true);
         $advancedReporter = new AdvancedReporter($this->bean);
-        $reportHTML = $advancedReporter->buildMultiGroupReport(0,true);
+        $reportHTML = $advancedReporter->buildMultiGroupReport(0, null, true);
 
         $chartsHTML = $this->bean->build_report_chart(null, AOR_Report::CHART_TYPE_RGRAPH);
 
@@ -147,13 +143,13 @@ class AOR_ReportsViewDetail extends ViewDetail {
 
         echo "<input type='hidden' name='report_module' id='report_module' value='{$this->bean->report_module}'>";
         if (!is_file('cache/jsLanguage/AOR_Conditions/' . $GLOBALS['current_language'] . '.js')) {
-            require_once ('include/language/jsLanguage.php');
+            require_once('include/language/jsLanguage.php');
             jsLanguage::createModuleStringsCache('AOR_Conditions', $GLOBALS['current_language']);
         }
-        echo '<script src="cache/jsLanguage/AOR_Conditions/'. $GLOBALS['current_language'] . '.js"></script>';
+        echo '<script src="cache/jsLanguage/AOR_Conditions/' . $GLOBALS['current_language'] . '.js"></script>';
 
         $params = $this->getReportParameters();
-        echo "<script>var reportParameters = ".json_encode($params).";</script>";
+        echo "<script>var reportParameters = " . json_encode($params) . ";</script>";
 
         $resizeGraphsPerRow = <<<EOD
 
@@ -179,25 +175,6 @@ class AOR_ReportsViewDetail extends ViewDetail {
                 else
                     graphs[i].height = graphWidth * 0.9;
 
-
-                /*
-                var text_size = Math.min(12, (graphWidth / 1000) * 12 );
-                if(text_size < 6)text_size=6;
-                if(text_size > maxTextSize) text_size = maxTextSize;
-
-                if(     graphs[i] !== undefined
-                    &&  graphs[i].__object__ !== undefined
-                    &&  graphs[i].__object__["properties"] !== undefined
-                    &&  graphs[i].__object__["properties"]["chart.text.size"] !== undefined
-                    &&  graphs[i].__object__["properties"]["chart.key.text.size"] !== undefined)
-                 {
-                    graphs[i].__object__["properties"]["chart.text.size"] = text_size;
-                    graphs[i].__object__["properties"]["chart.key.text.size"] = text_size;
-                 }
-                //http://www.rgraph.net/docs/issues.html
-                //As per Google Chrome not initially drawing charts
-                RGraph.redrawCanvas(graphs[i]);
-                */
                 }
                 if (typeof RGraph !== 'undefined') {
                     RGraph.redraw();
@@ -206,7 +183,6 @@ class AOR_ReportsViewDetail extends ViewDetail {
         </script>
 
 EOD;
-
 
 
         echo $resizeGraphsPerRow;
@@ -218,7 +194,8 @@ EOD;
     }
 
     // Redirection script
-    function redirectFlags($flags) {
+    function redirectFlags($flags)
+    {
         if ($flags['admin'] === false) {
             if ($flags['assigned_user'] === false) {
                 if ($this->bean->private_to_user_or_group == 'private_group' && $flags['private_group'] === false) {
@@ -239,6 +216,39 @@ EOD;
         } else {
             return true;
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getFullUserList(): array
+    {
+        global $sugar_config;
+
+        if (isset($sugar_config['reportsCacheUserList']) && $sugar_config['reportsCacheUserList'] != '') {
+            $sessionTimeOut = $sugar_config['reportsCacheUserList'];
+            $sessionIsNotDisabled = strtolower($sessionTimeOut) !== 'disabled';
+            if ($sessionIsNotDisabled) {
+                $sessionTimeOut = intval($sessionTimeOut);
+            }else{
+                $user = BeanFactory::getBean("Users");
+                $userList = $user->get_full_list();
+                return $userList;
+            }
+        } else {
+            $sessionTimeOut = 1800;
+        }
+
+        $userList = null;
+        if (!isset($_SESSION['CREATED']) || (time() - $_SESSION['CREATED'] > $sessionTimeOut)) {
+            $_SESSION['CREATED'] = time();
+            $user = BeanFactory::getBean("Users");
+            $userList = $_SESSION['fullUserList'] = $user->get_full_list();
+        } else {
+            $userList = $_SESSION['fullUserList'];
+        }
+
+        return $userList;
     }
 
 }

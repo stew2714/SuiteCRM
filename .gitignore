@@ -73,3 +73,5 @@ Desktop.ini
 *.sqlite
 
 custom/blowfish/*
+
+vendor/

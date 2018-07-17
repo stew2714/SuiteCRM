@@ -403,7 +403,7 @@ class AOR_Report extends Basic
     }
 
 
-    function build_group_report($offset = -1, $links = true, $extra = array())
+    function build_group_report($from = -1, $links = true, $extra = array())
     {
         global $beanList, $timedate;
 
@@ -547,13 +547,13 @@ class AOR_Report extends Basic
                     $html .= '<br />';
                 }
 
-                $html .= $this->build_report_html($offset, $links, $row[$field_label], create_guid(), $extra);
+                $html .= $this->build_report_html($from, $links, $row[$field_label], create_guid(), $extra);
 
             }
         }
 
         if ($html == '') {
-            $html = $this->build_report_html($offset, $links, '', create_guid(), $extra);
+            $html = $this->build_report_html($from, $links, '', create_guid(), $extra);
         }
 
         return $html;
@@ -561,7 +561,7 @@ class AOR_Report extends Basic
     }
 
 
-    function build_report_html($offset = -1, $links = true, $group_value = '', $tableIdentifier = '', $extra = array())
+    function build_report_html($from = -1, $links = true, $group_value = '', $tableIdentifier = '', $extra = array())
     {
 
         global $beanList, $sugar_config;
@@ -590,7 +590,7 @@ class AOR_Report extends Basic
 
         $html = "<table class='list aor_reports' id='report_table_" . $tableIdentifier . "' width='100%' cellspacing='0' cellpadding='0' border='0' repeat_header='1'>";
 
-        if ($offset >= 0) {
+        if ($from >= 0) {
             $start = 0;
             $end = 0;
             $previous_offset = 0;
@@ -598,10 +598,10 @@ class AOR_Report extends Basic
             $last_offset = 0;
 
             if ($total_rows > 0) {
-                $start = $offset + 1;
-                $end = (($offset + $max_rows) < $total_rows) ? $offset + $max_rows : $total_rows;
-                $previous_offset = ($offset - $max_rows) < 0 ? 0 : $offset - $max_rows;
-                $next_offset = $offset + $max_rows;
+                $start = $from + 1;
+                $end = (($from + $max_rows) < $total_rows) ? $from + $max_rows : $total_rows;
+                $previous_offset = ($from - $max_rows) < 0 ? 0 : $from - $max_rows;
+                $next_offset = $from + $max_rows;
                 if (is_int($total_rows / $max_rows)) {
                     $last_offset = $max_rows * ($total_rows / $max_rows - 1);
                 } else {
@@ -620,7 +620,7 @@ class AOR_Report extends Basic
                         <td style='text-align:left' ><H3><a href=\"javascript:void(0)\" class=\"collapseLink\" onclick=\"groupedReportToggler.toggleList(this);\"><img border=\"0\" id=\"detailpanel_1_img_hide\" src=\"themes/SuiteR/images/basic_search.gif\"></a>$moduleFieldByGroupValue</H3></td>
                         <td class='paginationChangeButtons' align='right' nowrap='nowrap' width='1%'>";
 
-            if ($offset == 0) {
+            if ($from == 0) {
                 $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' disabled='disabled'>
                     <img src='" . SugarThemeRegistry::current()->getImageURL('start_off.gif') . "' alt='Start' align='absmiddle' border='0'>
                 </button>
@@ -719,8 +719,8 @@ class AOR_Report extends Basic
         $html .= "</thead>";
         $html .= "<tbody>";
 
-        if ($offset >= 0) {
-            $result = $this->db->limitQuery($report_sql, $offset, $max_rows);
+        if ($from >= 0) {
+            $result = $this->db->limitQuery($report_sql, $from, $max_rows);
         } else {
             $result = $this->db->query($report_sql);
         }

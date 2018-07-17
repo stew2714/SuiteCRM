@@ -103,7 +103,7 @@ class customAOR_ReportsViewEdit extends AOR_ReportsViewEdit
 
         if(!empty($this->bean->id) ){
             $preview = new AdvancedReporter($this->bean);
-            $reportHTML = '<div id="preview">' . $preview->buildMultiGroupReport('-2', true) . '</div>';
+            $reportHTML = '<div id="preview">' . $preview->buildMultiGroupReport('-2',null, true) . '</div>';
         }else{
             $reportHTML = '<div id="preview"></div>';
         }
