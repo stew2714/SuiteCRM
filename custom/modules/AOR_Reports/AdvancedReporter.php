@@ -39,6 +39,16 @@ class AdvancedReporter extends AOR_Report
     private $_groupedByField = null;
     private $_userCurrency = null;
 
+    public function array_copy($arr) {
+        $newArray = array();
+        foreach($arr as $key => $value) {
+            if(is_array($value)) $newArray[$key] = array_copy($value);
+            else if(is_object($value)) $newArray[$key] = clone $value;
+            else $newArray[$key] = $value;
+        }
+        return $newArray;
+    }
+
     public function getUserCurrency()
     {
         if ($this->_userCurrency == null) {
@@ -610,10 +620,11 @@ class AdvancedReporter extends AOR_Report
                 $rows = $this->getViewParams();
             } else {
                 $rows = $this->getFieldArrayForReport();
+                $rowsCopy = $this->array_copy($rows);
             }
 
             $i = 0;
-            foreach ($rows as $field) {
+            foreach ($rowsCopy as $field) {
 
                 $field->label = str_replace(' ', '_', $field->label) . $i;
 
@@ -804,6 +815,7 @@ class AdvancedReporter extends AOR_Report
 
         }
 
+        unset ($rowsCopy);
         return $query;
     }
 
