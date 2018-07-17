@@ -67,15 +67,19 @@ array (
       ),
       'start_date' => 
       array (
-        'name' => 'start_date',
-        'default' => true,
+        'type' => 'date',
+        'label' => 'LBL_START_DATE',
         'width' => '10%',
+        'default' => true,
+        'name' => 'start_date',
       ),
       'end_date' => 
       array (
-        'name' => 'end_date',
-        'default' => true,
+        'type' => 'date',
+        'label' => 'LBL_END_DATE',
         'width' => '10%',
+        'default' => true,
+        'name' => 'end_date',
       ),
       'total_contract_value' => 
       array (

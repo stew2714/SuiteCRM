@@ -452,19 +452,6 @@ array (
             'label' => 'LBL_GMA_ANNUAL_INCREASE_C',
           ),
         ),
-        7 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'maintenance_general_notes_c',
-            'label' => 'LBL_MAINTENANCE_GENERAL_NOTES_C',
-          ),
-        ),
-        8 => 
-        array (
-          0 => '',
-        ),
       ),
     ),
   ),

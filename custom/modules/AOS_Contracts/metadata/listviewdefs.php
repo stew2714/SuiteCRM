@@ -55,6 +55,13 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'APTTUS_STATUS_C' => 
+  array (
+    'type' => 'dynamicenum',
+    'label' => 'LBL_APTTUS_STATUS_C',
+    'width' => '10%',
+    'default' => true,
+  ),
   'APTTUS_CONTRACT_START_DATE_C' => 
   array (
     'type' => 'datetimecombo',
@@ -66,13 +73,6 @@ array (
   array (
     'type' => 'datetimecombo',
     'label' => 'LBL_APTTUS_CONTRACT_END_DATE_C',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'APTTUS_STATUS_C' => 
-  array (
-    'type' => 'dynamicenum',
-    'label' => 'LBL_APTTUS_STATUS_C',
     'width' => '10%',
     'default' => true,
   ),

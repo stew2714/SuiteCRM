@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-18 14:01:06
+// created: 2018-07-16 21:06:27
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -52,4 +52,7 @@ $mod_strings = array (
   'LBL_APTTUS_REQUEST_DATE_C' => 'Request Date*',
   'LBL_REQUIRED_FIELD_SIGNED' => 'Please enter the Company Signed By field prior to activating the agreement.',
   'LBL_REQUIRED_FIELD_END_DATE' => 'Please enter the Contract End Date field prior to activating the agreement.',
+  'LBL_AOS_CONTRACTS_SA_RELATEDAGREEMENTS_2_FROM_SA_RELATEDAGREEMENTS_TITLE' => 'Parent Agreements',
+  'LBL_AOS_CONTRACTS_SA_RELATEDAGREEMENTS_1_FROM_SA_RELATEDAGREEMENTS_TITLE' => 'Child Agreements',
+  'LBL_FIELD_TRACKING_HISTORY' => 'Tracking History',
 );

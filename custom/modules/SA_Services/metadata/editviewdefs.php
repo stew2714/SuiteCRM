@@ -187,7 +187,11 @@ array (
             'name' => 'tat_credit_details_c',
             'label' => 'LBL_TAT_CREDIT_DETAILS_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'tos_commitment_c',
+            'label' => 'LBL_TOS_COMMITMENT_C',
+          ),
         ),
         11 => 
         array (
@@ -196,7 +200,11 @@ array (
             'name' => 'qa_program_c',
             'label' => 'LBL_QA_PROGRAM_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'tos_billing_c',
+            'label' => 'LBL_TOS_BILLING_C',
+          ),
         ),
         12 => 
         array (
@@ -205,18 +213,13 @@ array (
             'name' => 'qa_penalty_details_c',
             'label' => 'LBL_QA_PENALTY_DETAILS_C',
           ),
-          1 => '',
-        ),
-        13 => 
-        array (
-          0 => '',
           1 => 
           array (
-            'name' => 'tos_commitment_c',
-            'label' => 'LBL_TOS_COMMITMENT_C',
+            'name' => 'hire_client_mt_s_c',
+            'label' => 'LBL_HIRE_CLIENT_MT_S_C',
           ),
         ),
-        14 => 
+        13 => 
         array (
           0 => 
           array (
@@ -225,20 +228,24 @@ array (
           ),
           1 => 
           array (
-            'name' => 'tos_billing_c',
-            'label' => 'LBL_TOS_BILLING_C',
+            'name' => 'union_mt_s_c',
+            'label' => 'LBL_UNION_MT_S_C',
           ),
         ),
-        15 => 
+        14 => 
         array (
           0 => 
           array (
             'name' => 'tos_pricing_category_uom_c',
             'label' => 'LBL_TOS_PRICING_CATEGORY_UOM_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'number_of_mt_s_for_hire_c',
+            'label' => 'LBL_NUMBER_OF_MT_S_FOR_HIRE_C',
+          ),
         ),
-        16 => 
+        15 => 
         array (
           0 => 
           array (
@@ -247,24 +254,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'hire_client_mt_s_c',
-            'label' => 'LBL_HIRE_CLIENT_MT_S_C',
-          ),
-        ),
-        17 => 
-        array (
-          0 => 
-          array (
             'name' => 'tos_pricing_increase_c',
             'label' => 'LBL_TOS_PRICING_INCREASE_C',
           ),
-          1 => 
-          array (
-            'name' => 'union_mt_s_c',
-            'label' => 'LBL_UNION_MT_S_C',
-          ),
         ),
-        18 => 
+        16 => 
         array (
           0 => 
           array (
@@ -273,24 +267,24 @@ array (
           ),
           1 => 
           array (
-            'name' => 'number_of_mt_s_for_hire_c',
-            'label' => 'LBL_NUMBER_OF_MT_S_FOR_HIRE_C',
-          ),
-        ),
-        19 => 
-        array (
-          0 => 
-          array (
             'name' => 'tos_price_book_rate_v2_c',
             'label' => 'LBL_TOS_PRICE_BOOK_RATE_V2_C',
           ),
-          1 => 
+        ),
+        17 => 
+        array (
+          0 => 
           array (
             'name' => 'volume_guarantee_c',
             'label' => 'LBL_VOLUME_GUARANTEE_C',
           ),
+          1 => 
+          array (
+            'name' => 'estimated_tos_existing_volume_c',
+            'label' => 'LBL_ESTIMATED_TOS_EXISTING_VOLUME_C',
+          ),
         ),
-        20 => 
+        18 => 
         array (
           0 => 
           array (
@@ -299,22 +293,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'estimated_tos_existing_volume_c',
-            'label' => 'LBL_ESTIMATED_TOS_EXISTING_VOLUME_C',
+            'name' => 'estimated_tos_new_volume_c',
+            'label' => 'LBL_ESTIMATED_TOS_NEW_VOLUME_C',
           ),
         ),
-        21 => 
+        19 => 
         array (
           0 => 
           array (
             'name' => 'tos_general_notes_c',
             'label' => 'LBL_TOS_GENERAL_NOTES_C',
           ),
-          1 => 
-          array (
-            'name' => 'estimated_tos_new_volume_c',
-            'label' => 'LBL_ESTIMATED_TOS_NEW_VOLUME_C',
-          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -412,7 +402,11 @@ array (
         ),
         7 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'fft_term_for_convenience_c',
+            'label' => 'LBL_FFT_TERM_FOR_CONVENIENCE_C',
+          ),
           1 => 
           array (
             'name' => 'fft_termination_for_convenience_c',
@@ -421,24 +415,6 @@ array (
         ),
         8 => 
         array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'fft_term_for_convenience_c',
-            'label' => 'LBL_FFT_TERM_FOR_CONVENIENCE_C',
-          ),
-        ),
-        9 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'fft_term_for_convenience_notice_dd_c',
-            'label' => 'LBL_FFT_TERM_FOR_CONVENIENCE_NOTICE_DD_C',
-          ),
-        ),
-        10 => 
-        array (
           0 => 
           array (
             'name' => 'fft_shipping_c',
@@ -446,11 +422,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'fft_pricing_category_c',
-            'label' => 'LBL_FFT_PRICING_CATEGORY_C',
+            'name' => 'fft_term_for_convenience_notice_dd_c',
+            'label' => 'LBL_FFT_TERM_FOR_CONVENIENCE_NOTICE_DD_C',
           ),
         ),
-        11 => 
+        9 => 
         array (
           0 => 
           array (
@@ -459,11 +435,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'fft_pricing_category_uom_c',
-            'label' => 'LBL_FFT_PRICING_CATEGORY_UOM_C',
+            'name' => 'fft_pricing_category_c',
+            'label' => 'LBL_FFT_PRICING_CATEGORY_C',
           ),
         ),
-        12 => 
+        10 => 
         array (
           0 => 
           array (
@@ -472,29 +448,24 @@ array (
           ),
           1 => 
           array (
+            'name' => 'fft_pricing_category_uom_c',
+            'label' => 'LBL_FFT_PRICING_CATEGORY_UOM_C',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
             'name' => 'fft_pricing_other_c',
             'label' => 'LBL_FFT_PRICING_OTHER_C',
           ),
-        ),
-        13 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'fft_pricing_increase_c',
             'label' => 'LBL_FFT_PRICING_INCREASE_C',
           ),
         ),
-        14 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'fft_implementation_training_fees_c',
-            'label' => 'LBL_FFT_IMPLEMENTATION_TRAINING_FEES_C',
-          ),
-        ),
-        15 => 
+        12 => 
         array (
           0 => 
           array (
@@ -503,11 +474,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'fft_billing_c',
-            'label' => 'LBL_FFT_BILLING_C',
+            'name' => 'fft_implementation_training_fees_c',
+            'label' => 'LBL_FFT_IMPLEMENTATION_TRAINING_FEES_C',
           ),
         ),
-        16 => 
+        13 => 
         array (
           0 => 
           array (
@@ -516,20 +487,24 @@ array (
           ),
           1 => 
           array (
-            'name' => 'fft_revenue_c',
-            'label' => 'LBL_FFT_REVENUE_C',
+            'name' => 'fft_billing_c',
+            'label' => 'LBL_FFT_BILLING_C',
           ),
         ),
-        17 => 
+        14 => 
         array (
           0 => 
           array (
             'name' => 'estimated_fft_new_volume_c',
             'label' => 'LBL_ESTIMATED_FFT_NEW_VOLUME_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'fft_revenue_c',
+            'label' => 'LBL_FFT_REVENUE_C',
+          ),
         ),
-        18 => 
+        15 => 
         array (
           0 => 
           array (
@@ -613,7 +588,11 @@ array (
             'name' => 'coding_renewal_term_months_c',
             'label' => 'LBL_CODING_RENEWAL_TERM_MONTHS_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'coding_renewal_consent_c',
+            'label' => 'LBL_CODING_RENEWAL_CONSENT_C',
+          ),
         ),
         6 => 
         array (
@@ -622,18 +601,13 @@ array (
             'name' => 'fluency_for_coding_platform_c',
             'label' => 'LBL_FLUENCY_FOR_CODING_PLATFORM_C',
           ),
-          1 => '',
-        ),
-        7 => 
-        array (
-          0 => '',
           1 => 
           array (
-            'name' => 'coding_renewal_consent_c',
-            'label' => 'LBL_CODING_RENEWAL_CONSENT_C',
+            'name' => 'coding_renewal_notification_period_dd_c',
+            'label' => 'LBL_CODING_RENEWAL_NOTIFICATION_PERIOD_DD_C',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -642,33 +616,33 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coding_renewal_notification_period_dd_c',
-            'label' => 'LBL_CODING_RENEWAL_NOTIFICATION_PERIOD_DD_C',
+            'name' => 'coding_termination_for_convenience_c',
+            'label' => 'LBL_CODING_TERMINATION_FOR_CONVENIENCE_C',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
             'name' => 'coding_sow_date_c',
             'label' => 'LBL_CODING_SOW_DATE_C',
           ),
-          1 => 
-          array (
-            'name' => 'coding_termination_for_convenience_c',
-            'label' => 'LBL_CODING_TERMINATION_FOR_CONVENIENCE_C',
-          ),
+          1 => '',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
             'name' => 'coding_implementation_training_fees_c',
             'label' => 'LBL_CODING_IMPLEMENTATION_TRAINING_FEES_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'coding_term_for_convenience_notice_dd_c',
+            'label' => 'LBL_CODING_TERM_FOR_CONVENIENCE_NOTICE_DD_C',
+          ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -677,11 +651,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coding_term_for_convenience_notice_dd_c',
-            'label' => 'LBL_CODING_TERM_FOR_CONVENIENCE_NOTICE_DD_C',
+            'name' => 'coding_pricing_c',
+            'label' => 'LBL_CODING_PRICING_C',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -694,7 +668,7 @@ array (
             'label' => 'LBL_CODING_PRICING_CATEGORY_RATE_C',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
@@ -703,35 +677,21 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coding_pricing_c',
-            'label' => 'LBL_CODING_PRICING_C',
-          ),
-        ),
-        14 => 
-        array (
-          0 => '',
-          1 => 
-          array (
             'name' => 'coding_pricing_increase_c',
             'label' => 'LBL_CODING_PRICING_INCREASE_C',
           ),
         ),
-        15 => 
+        13 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'coding_estimated_billing_c',
+            'label' => 'LBL_CODING_ESTIMATED_BILLING_C',
+          ),
           1 => 
           array (
             'name' => 'coding_billing_c',
             'label' => 'LBL_CODING_BILLING_C',
-          ),
-        ),
-        16 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'coding_estimated_billing_c',
-            'label' => 'LBL_CODING_ESTIMATED_BILLING_C',
           ),
         ),
       ),
@@ -887,16 +847,11 @@ array (
             'name' => 'virtual_scribing_price_book_rate_c',
             'label' => 'LBL_VIRTUAL_SCRIBING_PRICE_BOOK_RATE_C',
           ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'virtual_scribing_revenue_c',
             'label' => 'LBL_VIRTUAL_SCRIBING_REVENUE_C',
           ),
-          1 => '',
         ),
       ),
     ),
