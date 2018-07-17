@@ -151,7 +151,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         $tableEnd = '</table>' . PHP_EOL;
         $tbodyBegin = '<tbody>' . PHP_EOL;
         $tbodyEnd = '</tbody>' . PHP_EOL;
-        $tableTitle = $advancedReporter->getTitleMarkup($fields);
+        $tableTitle = $advancedReporter->getReportTableTitleMarkup($fields);
 
 //        $printable = $advancedReporter->build_group_report_with_limit(false, 0, 2);
 

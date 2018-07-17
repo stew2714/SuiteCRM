@@ -39,11 +39,12 @@ class AdvancedReporter extends AOR_Report
     private $_groupedByField = null;
     private $_userCurrency = null;
 
-    public function array_copy($arr) {
+    public function array_copy($arr)
+    {
         $newArray = array();
-        foreach($arr as $key => $value) {
-            if(is_array($value)) $newArray[$key] = array_copy($value);
-            else if(is_object($value)) $newArray[$key] = clone $value;
+        foreach ($arr as $key => $value) {
+            if (is_array($value)) $newArray[$key] = array_copy($value);
+            else if (is_object($value)) $newArray[$key] = clone $value;
             else $newArray[$key] = $value;
         }
         return $newArray;
@@ -476,7 +477,7 @@ class AdvancedReporter extends AOR_Report
 
                         return $html;
                     } else {
-                        return $this->build_group_report($offset,null, $links, array(), create_guid());
+                        return $this->build_group_report($offset, null, $links, array(), create_guid());
                     }
                 } else {
                     throw new Exception('incorrect results');
@@ -1084,133 +1085,20 @@ class AdvancedReporter extends AOR_Report
     {
         $sugar_config = $this->getSugarConfig();
         $beanList = $this->getBeanList();
+        $tableBegin = '<table>' . PHP_EOL;
+        $tableEnd = '</table>' . PHP_EOL;
+        $tbodyBegin = '<tbody>' . PHP_EOL;
+        $tbodyEnd = '</tbody>' . PHP_EOL;
 
-        if($limit !== null){
+        if ($limit !== null) {
             $max_rows = $limit;
-        }
-        else if ($sugar_config['list_max_entries_per_page'] != '') {
+        } else if ($sugar_config['list_max_entries_per_page'] != '') {
             $max_rows = $sugar_config['list_max_entries_per_page'];
         } else {
             $max_rows = 20;
         }
 
-//        global $beanList, $sugar_config;
-//
-//        $_group_value = $this->db->quote($group_value);
-//
-//        $report_sql = $this->build_report_query($_group_value, $extra);
-
         $report_sql = $this->getReportQuery($group_value, $extra);
-
-        //echo "<pre>{$report_sql}</pre>";
-        // Fix for issue 1232 - items listed in a single report, should adhere to the same standard as ListView items.
-
-
-//        $total_rows = 0;
-//        $count_sql = explode('ORDER BY', $report_sql);
-//        $count_query = 'SELECT count(*) c FROM (' . $count_sql[0] . ') as n';
-//
-//        // We have a count query.  Run it and get the results.
-//        $result = $this->db->query($count_query);
-//        $assoc = $this->db->fetchByAssoc($result);
-//        if (!empty($assoc['c'])) {
-//            $total_rows = $assoc['c'];
-//        }
-
-        $total_rows = $this->getCountForReportRowNumbers($report_sql);
-
-        $html =
-            "<table class='list aor_reports' id='report_table_" .
-            $tableIdentifier .
-            "' width='100%' cellspacing='0' cellpadding='0' border='0' repeat_header='1'>";
-
-        if ($from >= 0) {
-
-
-            $html = $this->getMarkupForPagination($from, $group_value, $tableIdentifier, $total_rows, $max_rows);
-
-
-
-
-
-            $html .= "</td>
-                       </table>
-                      </td>";
-            $html .= "</tr></thead>";
-
-
-        } else {
-
-            $moduleFieldByGroupValue = $this->getModuleFieldByGroupValue($beanList, $group_value);
-
-            $html = "<H3>$moduleFieldByGroupValue</H3>" . $html;
-        }
-
-
-
-
-
-
-
-
-        if ($this->requestData != false) {
-            $rows = $this->getViewParams();
-        } else {
-            $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND deleted = 0 ORDER BY field_order ASC";
-            $result = $this->db->query($sql);
-            while ($row = $this->db->fetchByAssoc($result)) {
-                $field = new AOR_Field();
-                $field->retrieve($row['id']);
-                $rows[] = $field;
-            }
-        }
-
-        $html .= "<thead>";
-        $html .= "<tr>";
-
-        $fields = array();
-        $i = 0;
-        foreach ($rows as $field) {
-
-            $path = unserialize(base64_decode($field->module_path));
-
-            $field_bean = new $beanList[$this->report_module]();
-
-            $field_module = $this->report_module;
-            $field_alias = $field_bean->table_name;
-            if ($path[0] != $this->report_module) {
-                foreach ($path as $rel) {
-                    if (empty($rel)) {
-                        continue;
-                    }
-                    $field_module = getRelatedModule($field_module, $rel);
-                    $field_alias = $field_alias . ':' . $rel;
-                }
-            }
-            $label = str_replace(' ', '_', $field->label) . $i;
-            $fields[$label]['field'] = $field->field;
-            $fields[$label]['label'] = $field->label;
-            $fields[$label]['display'] = $field->display;
-            $fields[$label]['function'] = $field->field_function;
-            $fields[$label]['module'] = $field_module;
-            $fields[$label]['alias'] = $field_alias;
-            $fields[$label]['link'] = $field->link;
-            $fields[$label]['total'] = $field->total;
-
-            $fields[$label]['params'] = $field->format;
-
-            if ($fields[$label]['display']) {
-                $html .= "<th scope='col'>";
-                $html .= "<div style='white-space: normal;' width='100%' align='left'>";
-                $html .= $field->label;
-                $html .= "</div></th>";
-            }
-            ++$i;
-        }
-
-        $html .= "</tr>";
-        $html .= "</thead>";
-        $html .= "<tbody>";
 
         if ($from >= 0) {
             $result = $this->db->limitQuery($report_sql, $from, $max_rows);
@@ -1220,97 +1108,32 @@ class AdvancedReporter extends AOR_Report
             $result = $this->db->query($report_sql);
         }
 
-        $row_class = 'oddListRowS1';
+        $total_rows = $this->getCountForReportRowNumbers($report_sql);
+        $html = '';
 
-        $j = 0;
-
-        $totals = array();
-        while ($row = $this->db->fetchByAssoc($result)) {
-            $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
-            $html .= "<tr class='" . $row_class . "' height='20'>";
-
-            foreach ($fields as $name => $attribute) {
-                if ($attribute['display']) {
-                    $html .= "<td class='' valign='top' align='left'>";
-                    if ($attribute['link'] && $links) {
-                        $html .= "<a href='" .
-                            $sugar_config['site_url'] .
-                            "/index.php?module=" .
-                            $attribute['module'] .
-                            "&action=DetailView&record=" .
-                            $row[$attribute['alias'] . '_id'] .
-                            "'>";
-                    }
-
-                    $currency_id =
-                        isset($row[$attribute['alias'] . '_currency_id']) ? $row[$attribute['alias'] . '_currency_id'] : '';
-
-                    if ($attribute['function'] == 'COUNT' || !empty($attribute['params'])) {
-                        $html .= $row[$name];
-                    } else {
-                        $vardef = $field_bean->getFieldDefinition($attribute['field']);
-                        if ($vardef['type'] == 'relate') {
-                            $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
-                            $relateResult = $field_bean->db->query($relateSQL);
-                            $relateRow = mysqli_fetch_row($relateResult);
-                            $relateName = $relateRow['name'];
-                        }
-//                        $html .= $row[$name];
-
-                        $this->checkIfCacheExists($attribute['module'], $attribute['field'], 'DetailView', '');
-
-                        $html .= $this->customGetModuleFieldMarkup(
-                            $attribute['module'],
-                            $attribute['field'],
-                            $attribute['field'],
-                            'DetailView',
-                            $row[$name],
-                            '',
-                            $currency_id,
-                            array(),
-                            $j
-                        );
-                    }
-
-                    if ($attribute['total']) {
-                        $totals[$name][] = $row[$name];
-                    }
-                    if ($attribute['link'] && $links) {
-                        $html .= "</a>";
-                    }
-                    $html .= "</td>";
-                }
-            }
-            $html .= "</tr>";
-
-            $row_class = $row_class == 'oddListRowS1' ? 'evenListRowS1' : 'oddListRowS1';
-            $j++;
+        if ($from < 0) {
+            $moduleFieldByGroupValue = $this->getModuleFieldByGroupValue($beanList, $group_value);
+            $html .= "<H3>" . $moduleFieldByGroupValue . "</H3>";
         }
-        $html .= "</tbody>";
 
-        $html .= $this->getTotalHTML($fields, $totals);
+        $html .= "<table class='list aor_reports' id='report_table_" . $tableIdentifier . "' width='100%' cellspacing='0' cellpadding='0' border='0' repeat_header='1'>";
 
-        $html .= "</table>";
+        if ($from >= 0) {
+            $html .= $this->getMarkupForPagination($from, $group_value, $tableIdentifier, $total_rows, $max_rows);
+        }
 
-        $html .= "    <script type=\"text/javascript\">
-                            groupedReportToggler = {
+        $fields = $this->getReportTableFieldArray();
+        $html .= $this->getReportTableTitleMarkup($fields);
 
-                                toggleList: function(elem) {
-                                    $(elem).closest('table.list').find('thead, tbody').each(function(i, e){
-                                        if(i>1) {
-                                            $(e).toggle();
-                                        }
-                                    });
-                                    if($(elem).find('img').first().attr('src') == 'themes/SuiteR/images/basic_search.gif') {
-                                        $(elem).find('img').first().attr('src', 'themes/SuiteR/images/advanced_search.gif');
-                                    }
-                                    else {
-                                        $(elem).find('img').first().attr('src', 'themes/SuiteR/images/basic_search.gif');
-                                    }
-                                }
+        $formattedResultsArray = $this->ReportFormatFields($result);
+        $html .= $tbodyBegin;
+        $html .= $this->buildReportRows($formattedResultsArray, $links);
+        $html .= $tbodyEnd;
+        $html .= $this->getTotalHTML($fields, $formattedResultsArray['totals']);
 
-                            };
-                        </script>";
+        $html .= $tableEnd;
+
+        $html .= $this->getFooterScript();
 
         return $html;
     }
@@ -1466,7 +1289,7 @@ class AdvancedReporter extends AOR_Report
         $row_class = 'oddListRowS1';
         $j = 0;
         $html = '';
-        foreach ($fieldsArray as $row) {
+        foreach ($fieldsArray as $name => $row) {
 //            $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
             $html .= "<tr class='" . $row_class . "' height='20'>";
             foreach ($row as $field => $attribute) {
@@ -1481,25 +1304,17 @@ class AdvancedReporter extends AOR_Report
                             $row[$attribute['alias'] . '_id'] .
                             "'>";
                     }
-
-                    if (isset($row[$attribute['alias'] . '_currency_id'])) {
-                        $currency_id = $row[$attribute['alias'] . '_currency_id'];
-                    }
-
-
                     if ($attribute['function'] == 'COUNT' || !empty($attribute['params'])) {
                         $html .= $row[$name];
                     } else {
-                        $relateName = $attribute["relate_name"];
                         $html .= $attribute["formattedvalue"];
                     }
+
                     if ($attribute['link'] && $links) {
                         $html .= "</a>";
                     }
                     $html .= "</td>";
                 }
-
-
             }
 
             $html .= "</tr>";
@@ -2896,141 +2711,6 @@ class AdvancedReporter extends AOR_Report
     }
 
     /**
-     * @param $offset
-     * @param $group_value
-     * @param $tableIdentifier
-     * @param $total_rows
-     * @param $max_rows
-     * @param $html
-     * @param $beanList
-     * @param $dashletPaginationButtons
-     * @return string
-     */
-    public function markupPageHead($offset, $group_value, $tableIdentifier, $total_rows, $max_rows, $beanList): string
-    {
-        $html =
-            "<table class='list aor_reports' id='report_table_" .
-            $tableIdentifier .
-            "' width='100%' cellspacing='0' cellpadding='0' border='0' repeat_header='1'>";
-
-
-        $start = 0;
-        $end = 0;
-        $previous_offset = 0;
-        $next_offset = 0;
-        $last_offset = 0;
-
-        if ($total_rows > 0) {
-            $start = $offset + 1;
-            $end = (($offset + $max_rows) < $total_rows) ? $offset + $max_rows : $total_rows;
-            $previous_offset = ($offset - $max_rows) < 0 ? 0 : $offset - $max_rows;
-            $next_offset = $offset + $max_rows;
-            if (is_int($total_rows / $max_rows)) {
-                $last_offset = $max_rows * ($total_rows / $max_rows - 1);
-            } else {
-                $last_offset = $max_rows * floor($total_rows / $max_rows);
-            }
-
-        }
-
-        $html .= "<thead><tr class='pagination'>";
-
-        $moduleFieldByGroupValue = $this->getModuleFieldByGroupValue($beanList, $group_value);
-
-        $html .= "<td colspan='18'>
-                       <table class='paginationTable' border='0' cellpadding='0' cellspacing='0' width='100%'>
-                        <td style='text-align:left' ><H3><a href=\"javascript:void(0)\" class=\"collapseLink\" onclick=\"groupedReportToggler.toggleList(this);\"><img border=\"0\" id=\"detailpanel_1_img_hide\" src=\"themes/SuiteR/images/basic_search.gif\"></a>$moduleFieldByGroupValue</H3></td>
-                        <td class='paginationChangeButtons' align='right' nowrap='nowrap' width='1%'>";
-
-        if ($offset == 0 || $offset == "-2") {
-            $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' disabled='disabled'>
-                    <img src='" . SugarThemeRegistry::current()->getImageURL('start_off.gif') . "' alt='Start' align='absmiddle' border='0'>
-                </button>
-                <button type='button' id='listViewPrevButton_top' name='listViewPrevButton' class='button' title='Previous' disabled='disabled'>
-                    <img src='" . SugarThemeRegistry::current()->getImageURL('previous_off.gif') . "' alt='Previous' align='absmiddle' border='0'>
-                </button>";
-        } else {
-            $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' onclick='changeReportPage(\"" .
-                $this->id .
-                "\",0,\"" .
-                $group_value .
-                "\",\"" .
-                $tableIdentifier .
-                "\")'>
-                    <img src='" .
-                SugarThemeRegistry::current()->getImageURL('start.gif') .
-                "' alt='Start' align='absmiddle' border='0'>
-                </button>
-                <button type='button' id='listViewPrevButton_top' name='listViewPrevButton' class='button' title='Previous' onclick='changeReportPage(\"" .
-                $this->id .
-                "\"," .
-                $previous_offset .
-                ",\"" .
-                $group_value .
-                "\",\"" .
-                $tableIdentifier .
-                "\")'>
-                    <img src='" .
-                SugarThemeRegistry::current()->getImageURL('previous.gif') .
-                "' alt='Previous' align='absmiddle' border='0'>
-                </button>";
-        }
-        $html .= " <span class='pageNumbers'>(" . $start . " - " . $end . " of " . $total_rows . ")</span>";
-        if ($next_offset < $total_rows) {
-            $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button' onclick='changeReportPage(\"" .
-                $this->id .
-                "\"," .
-                $next_offset .
-                ",\"" .
-                $group_value .
-                "\",\"" .
-                $tableIdentifier .
-                "\")'>
-                        <img src='" .
-                SugarThemeRegistry::current()->getImageURL('next.gif') .
-                "' alt='Next' align='absmiddle' border='0'>
-                    </button>
-                     <button type='button' id='listViewEndButton_top' name='listViewEndButton' title='End' class='button' onclick='changeReportPage(\"" .
-                $this->id .
-                "\"," .
-                $last_offset .
-                ",\"" .
-                $group_value .
-                "\",\"" .
-                $tableIdentifier .
-                "\")'>
-                        <img src='" .
-                SugarThemeRegistry::current()->getImageURL('end.gif') .
-                "' alt='End' align='absmiddle' border='0'>
-                    </button>";
-        } else {
-            $html .= "<button type='button' id='listViewNextButton_top' name='listViewNextButton' title='Next' class='button'  disabled='disabled'>
-                        <img src='" . SugarThemeRegistry::current()->getImageURL('next_off.gif') . "' alt='Next' align='absmiddle' border='0'>
-                    </button>
-                     <button type='button' id='listViewEndButton_top$dashletPaginationButtons' name='listViewEndButton' title='End' class='button'  disabled='disabled'>
-                        <img src='" . SugarThemeRegistry::current()->getImageURL('end_off.gif') . "' alt='End' align='absmiddle' border='0'>
-                    </button>";
-
-        }
-
-        $html .= "</td>
-                       </table>
-                      </td>";
-
-        $html .= "</tr></thead>";
-
-
-        $moduleFieldByGroupValue = $this->getModuleFieldByGroupValue($beanList, $group_value);
-
-        $html = "<H3>$moduleFieldByGroupValue</H3>" . $html;
-
-
-        $html .= "<thead>";
-        $html .= "<tr>";
-        return $html;
-    }
-
-    /**
      * @param array $rows
      * @return array
      */
@@ -3064,7 +2744,7 @@ class AdvancedReporter extends AOR_Report
      * @param $fields
      * @return string
      */
-    public function getTitleMarkup($fields): string
+    public function getReportTableTitleMarkup($fields): string
     {
         $html = '';
         $html .= '<thead>' . PHP_EOL;
@@ -3316,12 +2996,11 @@ class AdvancedReporter extends AOR_Report
     }
 
     /**
-     * @param $html
      * @return string
      */
-    public function getFooterScript($html): string
+    public function getFooterScript(): string
     {
-        $html .= "    <script type=\"text/javascript\">
+        $html = "    <script type=\"text/javascript\">
                             groupedReportToggler = {
 
                                 toggleList: function(elem) {
@@ -3429,7 +3108,7 @@ class AdvancedReporter extends AOR_Report
     public function getMarkupForPagination($from, $group_value, $tableIdentifier, $total_rows, $max_rows): string
     {
         $html = '';
-        $this->getBeanList();
+        $beanList = $this->getBeanList();
 
         $start = 0;
         $end = 0;
@@ -3458,6 +3137,7 @@ class AdvancedReporter extends AOR_Report
                        <table class='paginationTable' border='0' cellpadding='0' cellspacing='0' width='100%'>
                         <td style='text-align:left' ><H3><a href=\"javascript:void(0)\" class=\"collapseLink\" onclick=\"groupedReportToggler.toggleList(this);\"><img border=\"0\" id=\"detailpanel_1_img_hide\" src=\"themes/SuiteR/images/basic_search.gif\"></a>$moduleFieldByGroupValue</H3></td>
                         <td class='paginationChangeButtons' align='right' nowrap='nowrap' width='1%'>";
+
 
         if ($from == 0 || $from == "-2") {
             $html .= "<button type='button' id='listViewStartButton_top' name='listViewStartButton' title='Start' class='button' disabled='disabled'>
@@ -3531,6 +3211,12 @@ class AdvancedReporter extends AOR_Report
                     </button>";
 
         }
+        $html .= "</td>
+                       </table>
+                      </td>";
+        $html .= "</tr>
+                  </thead>";
+
         return $html;
     }
 
