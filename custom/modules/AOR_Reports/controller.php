@@ -30,6 +30,13 @@ require_once("custom/modules/AOR_Reports/fieldFormatting.php");
 
 class customAOR_ReportsController extends AOR_ReportsController
 {
+    public function __construct()
+    {
+        ini_set('memory_limit', '-1');
+        ini_set("pcre.backtrack_limit", "1000000");
+        parent::__construct();
+    }
+
     public function action_matrixreport()
     {
         $this->view = 'matrixreport';
