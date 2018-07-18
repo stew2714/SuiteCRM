@@ -25,21 +25,19 @@ SUGAR.util.doWhen("YUI.Env.DOMReady == true", function(){
  });
 
 function removeAttachment(record){
-  $.ajax({
-    dataType: "json",
-    url: "index.php?module=Meetings&action=removeAttachment",
-    data: {
-      id : record,
-    },
-    success: removeView,
-  });
+  console.log(record);
+  var deleteInput = "<input type='hidden' name='deleteMeetingAttachment[]' id='deleteMeetingAttachment-"
+    + record + "' value='" + record + "'>";
+  var $listRow = $('#file_list_' + record);
+  $listRow.append(deleteInput);
+  $listRow.hide(400);
 }
 
 var callback = function(data){
   if(data.message == "success"){
     $( data.results ).each(function( index, value ) {
       var button = "";
-      if( $("#EditView [name='record']").length > 0){
+      if( $("#EditView [name='record']").length > 0 || $("#CalendarEditView [name='record']").length > 0){
         button = "<a href='#' onclick='removeAttachment( \"" + value.id + "\" );return false' class='button'>Remove</a> - ";
       }
       $( "#file_create_file_list" ).append( "<li id='file_list_" + value.id + "'>" + button + "<a href='" + value.url + "'>" + value.name + "</a></li>" );
