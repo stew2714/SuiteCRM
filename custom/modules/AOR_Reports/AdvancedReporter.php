@@ -10,6 +10,7 @@ require_once("modules/AOR_Reports/AOR_Report.php");
 require_once("custom/modules/AOR_Reports/dateHelper.php");
 require_once('include/SugarFields/SugarFieldHandler.php');
 require_once("include/TemplateHandler/TemplateHandler.php");
+require_once("include/export_utils.php");
 
 class AdvancedReporter extends AOR_Report
 {
@@ -38,6 +39,66 @@ class AdvancedReporter extends AOR_Report
     private $_reportTableFieldArray = null;
     private $_groupedByField = null;
     private $_userCurrency = null;
+    private $_tags = null;
+
+    public function getTags($class = null, $datacellCount = 1)
+    {
+        if($this->_tags == null){
+            $tags = array(
+                'table',
+                'thead',
+                'tbody',
+                'tfoot',
+                'tr',
+                'th',
+                'td',
+            );
+
+            $tagArray = array();
+
+            foreach($tags as $tag){
+                if($tag == 'th' || $tag == 'td'){
+                    for($i = 1; $i <= $datacellCount; $i++){
+                        $tagBegin = '<'.$tag;
+                        if($class){
+                            $tagBegin .= ' class="'.$tag.'-'.$class.'-'.$i.'"';
+                        }
+                        $tagBegin .= '>';
+                        $tagEnd = '</'.$tag.'>';
+                        if($i <= $datacellCount){
+                            $tagEnd.PHP_EOL;
+                        }
+                        $tagArray[$tag.'-'.$i] = array(
+                            'begin' => $tagBegin,
+                            'end' => $tagEnd,
+                        );
+                    }
+                }else{
+                    $tagBegin = '<'.$tag;
+                    if($class){
+                        $tagBegin .= ' class="'.$tag.'-'.$class.'"';
+                    }
+                    $tagBegin .= '>';
+                    $tagBegin .= PHP_EOL;
+                    $tagEnd = '</'.$tag.'>';
+                    $tagEnd .= PHP_EOL;
+                    $tagArray[$tag] = array(
+                        'begin' => $tagBegin,
+                        'end' => $tagEnd,
+                    );
+                }
+
+            }
+            $this->setTags($tagArray);
+        }
+        return $this->_tags;
+
+    }
+
+    public function setTags($tags){
+        $this->_tags = $tags;
+        return $this;
+    }
 
     public function array_copy($arr)
     {
@@ -416,6 +477,9 @@ class AdvancedReporter extends AOR_Report
         } else {
             $this->report_module = $bean->report_module;
         }
+        $this->field_defs = $bean->field_defs;
+        $this->retrieve($bean->id);
+        parent::__construct();
 
     }
 
@@ -1231,7 +1295,7 @@ class AdvancedReporter extends AOR_Report
     }
 
 
-    function ReportFormatFields($result)
+    function ReportFormatFields($result, $stripTags = false)
     {
 
         $field_bean = $this->getReportModuleBean();
@@ -1267,6 +1331,10 @@ class AdvancedReporter extends AOR_Report
                     } else {
                         $formattedValue = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
                     }
+                    if ($stripTags == true) {
+                        $formattedValue = urldecode(trim(strip_tags($formattedValue)));
+                    }
+
                     $fieldArr['formattedvalue'] = $formattedValue;
 
                     if ($attribute['total']) {
@@ -1287,14 +1355,14 @@ class AdvancedReporter extends AOR_Report
         unset($fieldsArray['totals']);
         $sugar_config = $this->getSugarConfig();
         $row_class = 'oddListRowS1';
-        $j = 0;
+
         $html = '';
         foreach ($fieldsArray as $name => $row) {
-//            $GLOBALS['log']->fatal('Row Number ' . $j . ' START');
             $html .= "<tr class='" . $row_class . "' height='20'>";
+            $j = 1;
             foreach ($row as $field => $attribute) {
                 if ($attribute['display']) {
-                    $html .= "<td class='' valign='top' align='left'>";
+                    $html .= "<td class='col-".$j."' valign='top' align='left'>";
                     if ($attribute['link'] && $links) {
                         $html .= "<a href='" .
                             $sugar_config['site_url'] .
@@ -1314,12 +1382,13 @@ class AdvancedReporter extends AOR_Report
                         $html .= "</a>";
                     }
                     $html .= "</td>";
+                    $j++;
                 }
             }
 
             $html .= "</tr>";
             $row_class = $row_class == 'oddListRowS1' ? 'evenListRowS1' : 'oddListRowS1';
-            $j++;
+
         }
         return $html;
     }
@@ -2727,31 +2796,30 @@ class AdvancedReporter extends AOR_Report
 
     public function getReportTableFieldTitleRowMarkup($fields): string
     {
+        $tags = $this->getTags();
         $html = '';
         foreach ($fields as $field) {
             if ($field['display']) {
-                $html .= "<th scope='col'>" . PHP_EOL;
+                $html .= $tags['th-1']['begin'];
                 $html .= "<div style='white-space: normal;' width='100%' align='left'>";
                 $html .= $field['label'];
                 $html .= "</div>" . PHP_EOL;
-                $html .= "</th>" . PHP_EOL;
+                $html .= $tags['th-1']['end'];
             }
         }
         return $html;
     }
 
-    /**
-     * @param $fields
-     * @return string
-     */
+
     public function getReportTableTitleMarkup($fields): string
     {
+        $tags = $this->getTags();
         $html = '';
-        $html .= '<thead>' . PHP_EOL;
-        $html .= '<tr>' . PHP_EOL;
+        $html .= $tags['thead']['begin'];
+        $html .= $tags['tr']['begin'];
         $html .= $this->getReportTableFieldTitleRowMarkup($fields);
-        $html .= '</tr>' . PHP_EOL;
-        $html .= '</thead>' . PHP_EOL;
+        $html .= $tags['tr']['end'];
+        $html .= $tags['thead']['end'];
         return $html;
     }
 
@@ -3218,6 +3286,60 @@ class AdvancedReporter extends AOR_Report
                   </thead>";
 
         return $html;
+    }
+
+
+    public function build_report_csv_to_file()
+    {
+//        ini_set('zlib.output_compression', 'Off');
+        $sugar_config = $this->getSugarConfig();
+
+        try {
+            $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
+            $file_name = str_replace(" ", "_", $this->name) . "_" . $dateStr . ".csv";
+
+            $delimiter = getDelimiter();
+            $csv = '';
+            $fields = $this->getReportTableFieldArray();
+
+            foreach ($fields as $field) {
+                    $csv .= $this->customEncloseForCSV($field["label"]);
+                    $csv .= $delimiter;
+            }
+
+            $report_sql = $this->build_report_query();
+            $result = $this->getReportQueryResult(0, 20, $report_sql);
+            $formattedResultsArray = $this->ReportFormatFields($result, true);
+            foreach ($formattedResultsArray as $row) {
+                $csv .= "\r\n";
+                foreach ($row as $name => $attribute) {
+                    if ($attribute['display'] == "1") {
+                        $csv .= $this->customEncloseForCSV($attribute["formattedvalue"]);
+                        $csv .= $delimiter;
+                    }
+                }
+            }
+
+            $csv = $GLOBALS['locale']->translateCharset($csv, 'UTF-8', $GLOBALS['locale']->getExportCharset());
+            if (!empty($sugar_config['export_excel_compatible'])) {
+                $csv = chr(255) . chr(254) . mb_convert_encoding($csv, 'UTF-16LE', 'UTF-8');
+            }
+            $fp = fopen($sugar_config['upload_dir'] . $file_name, 'wb');
+            fwrite($fp, $csv);
+            fclose($fp);
+
+            return array('name' => $file_name, 'location' => $sugar_config['upload_dir'] . $file_name);
+
+        } catch
+        (Exception $e) {
+            return false;
+        }
+    }
+
+
+    private function customEncloseForCSV($field)
+    {
+        return '"' . $field . '"';
     }
 
 
