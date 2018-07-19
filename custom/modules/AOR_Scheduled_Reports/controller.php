@@ -48,8 +48,6 @@ class AOR_Scheduled_ReportsController extends SugarController
         $report = $bean->get_linked_beans('aor_report', 'AOR_Reports');
         if ($report) {
             $report = $report[0];
-//            /* @var $report customAOR_Report */
-//            $report = new customAOR_Report();
             /* @var $report AdvancedReporter */
             $report = new AdvancedReporter($report);
             $this->setAdvancedReport($report);
@@ -111,6 +109,8 @@ class AOR_Scheduled_ReportsController extends SugarController
 
     private function generatePDF(AdvancedReporter $report = null)
     {
+        error_reporting(0);
+
         if($report == null){
             $report = $this->getAdvancedReport();
         }
@@ -122,8 +122,6 @@ class AOR_Scheduled_ReportsController extends SugarController
         $sugar_config = $report->getSugarConfig();
         $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
         $file_name = str_replace(" ", "_", $report->name) . "_" . $dateStr . ".pdf";
-        error_reporting(0);
-
 
 
         $links = false;
@@ -147,7 +145,7 @@ class AOR_Scheduled_ReportsController extends SugarController
         $tableTitleMarkup .= $report->getReportTableTitleMarkup($fields);
         $tableTitleMarkup .= $tags['table']['end'];
 
-        $stylesheet = <<<EOD
+        $stylesheetPDF = <<<EOD
 .table-pdf, .table-pdf td, 
 .table-pdf th{
 border: 1px solid black;
@@ -169,7 +167,7 @@ EOD;
             $report_sql = $report->getReportQuery('', $extra);
 
             $mpdf = getNewMPdf();
-            $mpdf->WriteHTML($stylesheet,1);
+            $mpdf->WriteHTML($stylesheetPDF,1);
             $mpdf->WriteHTML($reportTitleMarkup,2);
             $mpdf->WriteHTML($tableTitleMarkup,2);
 
