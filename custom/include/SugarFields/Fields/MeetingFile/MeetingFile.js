@@ -57,7 +57,7 @@ function addAttachmentGroup(obj) {
   var button = "<a href='#' onclick='$(\"#" + groupId
     + "\")[0].remove(); return false;' class='button'>Remove</a> - ";
   $list.append("<li id='" + groupId + "'>" + button
-    + "<a href=''>" + groupName + "</a></li>");
+    + "<span>" + groupName + "</span></li>");
 
   $obj.hide();
   $obj.attr('id', $obj.attr('id') + '_' + attachmentGroupCounter);
