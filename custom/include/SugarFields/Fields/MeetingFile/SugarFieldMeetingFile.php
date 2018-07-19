@@ -99,6 +99,8 @@ class SugarFieldMeetingFile extends SugarFieldBase {
     
     public function save(&$bean, $params, $field, $vardef, $prefix = ''){
 
+        global $sugar_config;
+
         require_once('include/upload_file.php');
 
         foreach($_FILES[ $field  . '_file']['name'] as $key => $file){
@@ -113,6 +115,13 @@ class SugarFieldMeetingFile extends SugarFieldBase {
                 if (empty($bean->id)) {
                     $bean->id = create_guid();
                     $bean->new_with_id = true;
+                }
+                if (!empty($sugar_config['upload_individual_file_size'])) {
+                    $maxSize = $sugar_config['upload_individual_file_size'] * 1024;
+                    if ($_FILES[ $field  . '_file']['size'][$key] > $maxSize) {
+                        // File is too big, we skip
+                        continue;
+                    }
                 }
 
                 $id = create_guid();
