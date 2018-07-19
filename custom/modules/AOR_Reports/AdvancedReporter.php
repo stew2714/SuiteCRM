@@ -3343,4 +3343,34 @@ class AdvancedReporter extends AOR_Report
     }
 
 
+    /**
+     * @return array
+     */
+    public function getFullUserList(): array
+    {
+
+        /* @var $user User */
+        $user = BeanFactory::getBean("Users");
+        $ret_array = $user->create_new_list_query('last_name','','id',array(),0,'',true);
+        $selectSql = <<<EOD
+SELECT 
+users.`id`, 
+LTRIM(RTRIM(CONCAT(IFNULL(users.first_name,''),' ',IFNULL(users.last_name,'')))) as full_name, 
+LTRIM(RTRIM(CONCAT(IFNULL(users.first_name,''),' ',IFNULL(users.last_name,'')))) as name
+EOD;
+
+        $ret_array['select'] = $selectSql;
+
+        $qry = $ret_array['select'] . $ret_array['from'] . $ret_array['where'] . $ret_array['order_by'];
+
+        $ar = new AdvancedReporter($this->bean);
+        $result = $ar->execute_report_query_with_limit($qry, null, null);
+        $rowArray = array();
+        while ($row = $this->db->fetchByAssoc($result)) {
+            array_push($rowArray,$row);
+        }
+        return $rowArray;
+    }
+
+
 }

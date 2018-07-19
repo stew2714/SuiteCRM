@@ -25,6 +25,7 @@
 require_once 'include/MVC/View/views/view.detail.php';
 require_once 'modules/AOW_WorkFlow/aow_utils.php';
 require_once 'modules/AOR_Reports/aor_utils.php';
+require_once 'custom/modules/AOR_Reports/AdvancedReporter.php';
 
 class AOR_ReportsViewDetail extends ViewDetail
 {
@@ -105,24 +106,21 @@ class AOR_ReportsViewDetail extends ViewDetail
             }
         }
 
-        $userList = $this->getFullUserList();
-
-
         // Fetch the bean to return all User Groups (Security Groups)
         $group = BeanFactory::getBean("SecurityGroups");
         $groupsList = $group->get_full_list();
-
-        $app_list_strings['report_private_users'][''] = '';
         $app_list_strings['report_private_groups'][''] = '';
-
-        // Filter through the returned users and sort them into a manageable array
-        foreach ($userList as $user) {
-            $app_list_strings['report_private_users'][$user->id] = $user->name;
-        }
-
         // Filter through the returned groups and sort them into a manageable array
         foreach ($groupsList as $group) {
             $app_list_strings['report_private_groups'][$group->id] = $group->name;
+        }
+
+        $ar = new AdvancedReporter($this->bean);
+        $userList = $ar->getFullUserList();
+        $app_list_strings['report_private_users'][''] = '';
+        // Filter through the returned users and sort them into a manageable array
+        foreach ($userList as $user) {
+            $app_list_strings['report_private_users'][$user['id']] = $user['name'];
         }
 
         parent::preDisplay();
@@ -218,37 +216,6 @@ EOD;
         }
     }
 
-    /**
-     * @return array
-     */
-    public function getFullUserList(): array
-    {
-        global $sugar_config;
 
-        if (isset($sugar_config['reportsCacheUserList']) && $sugar_config['reportsCacheUserList'] != '') {
-            $sessionTimeOut = $sugar_config['reportsCacheUserList'];
-            $sessionIsNotDisabled = strtolower($sessionTimeOut) !== 'disabled';
-            if ($sessionIsNotDisabled) {
-                $sessionTimeOut = intval($sessionTimeOut);
-            }else{
-                $user = BeanFactory::getBean("Users");
-                $userList = $user->get_full_list();
-                return $userList;
-            }
-        } else {
-            $sessionTimeOut = 1800;
-        }
-
-        $userList = null;
-        if (!isset($_SESSION['CREATED']) || (time() - $_SESSION['CREATED'] > $sessionTimeOut)) {
-            $_SESSION['CREATED'] = time();
-            $user = BeanFactory::getBean("Users");
-            $userList = $_SESSION['fullUserList'] = $user->get_full_list();
-        } else {
-            $userList = $_SESSION['fullUserList'];
-        }
-
-        return $userList;
-    }
 
 }
