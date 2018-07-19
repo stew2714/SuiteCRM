@@ -45,12 +45,26 @@ function addAttachmentGroup(obj) {
   var $obj = $(obj);
   var $list = $("#upload_file_list");
 
+  var maxSize = 0;
+  var $sizeInput = $('#upload_individual_file_size');
+  if ($sizeInput.length) {
+    maxSize = $sizeInput.val() * 1024;
+  }
+  var exceedsMaxSize = false;
+
   var groupName = '';
   for (var i = 0; i < obj.files.length; i++) {
+    console.log( obj.files[i]);
     if (i > 0) {
       groupName += ', ';
     }
     groupName += obj.files[i].name;
+    if (maxSize && obj.files[i].size > maxSize) {
+      exceedsMaxSize = true;
+    }
+  }
+  if (exceedsMaxSize) {
+    groupName = 'One or more files exceed the maximum permitted size of ' + maxSize + ' bytes';
   }
   var groupId = 'upload_file_list_' + attachmentGroupCounter;
 
@@ -62,6 +76,10 @@ function addAttachmentGroup(obj) {
   $obj.hide();
   $obj.attr('id', $obj.attr('id') + '_' + attachmentGroupCounter);
   $('#' + groupId).append($obj);
+
+  if (exceedsMaxSize) {
+    $obj.remove();
+  }
 
   attachmentGroupCounter++;
 
