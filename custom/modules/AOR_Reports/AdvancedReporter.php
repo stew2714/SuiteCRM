@@ -43,7 +43,7 @@ class AdvancedReporter extends AOR_Report
 
     public function getTags($class = null, $datacellCount = 1)
     {
-        if($this->_tags == null){
+        if ($this->_tags == null) {
             $tags = array(
                 'table',
                 'thead',
@@ -56,31 +56,31 @@ class AdvancedReporter extends AOR_Report
 
             $tagArray = array();
 
-            foreach($tags as $tag){
-                if($tag == 'th' || $tag == 'td'){
-                    for($i = 1; $i <= $datacellCount; $i++){
-                        $tagBegin = '<'.$tag;
-                        if($class){
-                            $tagBegin .= ' class="'.$tag.'-'.$class.'-'.$i.'"';
+            foreach ($tags as $tag) {
+                if ($tag == 'th' || $tag == 'td') {
+                    for ($i = 1; $i <= $datacellCount; $i++) {
+                        $tagBegin = '<' . $tag;
+                        if ($class) {
+                            $tagBegin .= ' class="' . $tag . '-' . $class . '-' . $i . '"';
                         }
                         $tagBegin .= '>';
-                        $tagEnd = '</'.$tag.'>';
-                        if($i <= $datacellCount){
-                            $tagEnd.PHP_EOL;
+                        $tagEnd = '</' . $tag . '>';
+                        if ($i <= $datacellCount) {
+                            $tagEnd . PHP_EOL;
                         }
-                        $tagArray[$tag.'-'.$i] = array(
+                        $tagArray[$tag . '-' . $i] = array(
                             'begin' => $tagBegin,
                             'end' => $tagEnd,
                         );
                     }
-                }else{
-                    $tagBegin = '<'.$tag;
-                    if($class){
-                        $tagBegin .= ' class="'.$tag.'-'.$class.'"';
+                } else {
+                    $tagBegin = '<' . $tag;
+                    if ($class) {
+                        $tagBegin .= ' class="' . $tag . '-' . $class . '"';
                     }
                     $tagBegin .= '>';
                     $tagBegin .= PHP_EOL;
-                    $tagEnd = '</'.$tag.'>';
+                    $tagEnd = '</' . $tag . '>';
                     $tagEnd .= PHP_EOL;
                     $tagArray[$tag] = array(
                         'begin' => $tagBegin,
@@ -95,7 +95,8 @@ class AdvancedReporter extends AOR_Report
 
     }
 
-    public function setTags($tags){
+    public function setTags($tags)
+    {
         $this->_tags = $tags;
         return $this;
     }
@@ -1326,11 +1327,11 @@ class AdvancedReporter extends AOR_Report
 
                     $this->checkIfCacheExists($attribute['module'], $attribute['field'], 'DetailView', '');
 
-                    if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
-                        $formattedValue = $this->getFieldInFormattedValue($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
-                    } else {
-                        $formattedValue = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
-                    }
+//                    if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
+//                        $formattedValue = $this->getFieldInFormattedValue($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+//                    } else {
+                    $formattedValue = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+//                    }
                     if ($stripTags == true) {
                         $formattedValue = urldecode(trim(strip_tags($formattedValue)));
                     }
@@ -1362,7 +1363,7 @@ class AdvancedReporter extends AOR_Report
             $j = 1;
             foreach ($row as $field => $attribute) {
                 if ($attribute['display']) {
-                    $html .= "<td class='col-".$j."' valign='top' align='left'>";
+                    $html .= "<td class='col-" . $j . "' valign='top' align='left'>";
                     if ($attribute['link'] && $links) {
                         $html .= "<a href='" .
                             $sugar_config['site_url'] .
@@ -1402,13 +1403,8 @@ class AdvancedReporter extends AOR_Report
 
         $report_sql = $this->build_report_query($_group_value, $extra);
 
-        $total_rows = $this->getCountForReportRowNumbers($report_sql);
-
         $fields = $this->getReportTableFieldArray();
-//
-//        $html = $this->getTitleMarkup($fields);
 
-        $field_bean = $this->getReportModuleBean();
         $result = $this->execute_report_query_with_limit($report_sql, $from, $limit);
 
         $row_class = 'oddListRowS1';
@@ -1442,18 +1438,13 @@ class AdvancedReporter extends AOR_Report
                     if ($attribute['function'] == 'COUNT' || !empty($attribute['params'])) {
                         $html .= $row[$name];
                     } else {
-                        $vardef = $field_bean->getFieldDefinition($attribute['field']);
-                        if ($vardef['type'] == 'relate') {
-                            $relateName = $this->getRelationshipName($row, $name, $attribute);
-                        }
-
                         $this->checkIfCacheExists($attribute['module'], $attribute['field'], 'DetailView', '');
 
-                        if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
-                            $html = $this->getFieldInFormattedValue($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
-                        } else {
-                            $html = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
-                        }
+//                        if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
+//                            $html = $this->getFieldInFormattedValue($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+//                        } else {
+                        $html = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+//                        }
                     }
 
                     if ($attribute['total']) {
@@ -2142,12 +2133,6 @@ class AdvancedReporter extends AOR_Report
 
     public function build_group_report_with_limit($from = null, $limit = null, $links = true, $extra = array())
     {
-
-        $tableBegin = '<table>' . PHP_EOL;
-        $tableEnd = '</table>' . PHP_EOL;
-        $tbodyBegin = '<tbody>' . PHP_EOL;
-        $tbodyEnd = '</tbody>' . PHP_EOL;
-
         $html = '';
         $field = $this->getGroupedByField();
         if ($field != false) {
@@ -2163,7 +2148,6 @@ class AdvancedReporter extends AOR_Report
                 }
                 if (!isset($checkListed[$row[$field_label]])) {
                     $checkListed[$row[$field_label]] = $row[$field_label];
-//                    $html .= $this->build_report_html_with_limit($links, $from, $limit, $row[$field_label], $extra);
                     $report_sql = $this->getReportQuery('', $extra);
                     $result = $this->getReportQueryResult($from, $limit, $report_sql);
                     $formateedResultsArray = $this->ReportFormatFields($result);
@@ -2171,12 +2155,9 @@ class AdvancedReporter extends AOR_Report
                     $html .= $this->getReportFooter($formateedResultsArray['totals']);
                 }
             }
-
         }
 
-
         if ($html == '') {
-//            $html = $this->build_report_html_with_limit($offset, $links, $from, $limit, '', create_guid(), $extra);
             $report_sql = $this->getReportQuery('', $extra);
             $result = $this->getReportQueryResult($from, $limit, $report_sql);
             $formateedResultsArray = $this->ReportFormatFields($result);
@@ -3303,8 +3284,8 @@ class AdvancedReporter extends AOR_Report
             $fields = $this->getReportTableFieldArray();
 
             foreach ($fields as $field) {
-                    $csv .= $this->customEncloseForCSV($field["label"]);
-                    $csv .= $delimiter;
+                $csv .= $this->customEncloseForCSV($field["label"]);
+                $csv .= $delimiter;
             }
 
             $report_sql = $this->build_report_query();
@@ -3351,7 +3332,7 @@ class AdvancedReporter extends AOR_Report
 
         /* @var $user User */
         $user = BeanFactory::getBean("Users");
-        $ret_array = $user->create_new_list_query('last_name','','id',array(),0,'',true);
+        $ret_array = $user->create_new_list_query('last_name', '', 'id', array(), 0, '', true);
         $selectSql = <<<EOD
 SELECT 
 users.`id`, 
@@ -3367,7 +3348,7 @@ EOD;
         $result = $ar->execute_report_query_with_limit($qry, null, null);
         $rowArray = array();
         while ($row = $this->db->fetchByAssoc($result)) {
-            array_push($rowArray,$row);
+            array_push($rowArray, $row);
         }
         return $rowArray;
     }
