@@ -30,6 +30,20 @@ require_once("custom/modules/AOR_Reports/fieldFormatting.php");
 
 class customAOR_ReportsController extends AOR_ReportsController
 {
+    private $_advancedReport = null;
+
+    public function getAdvancedReport()
+    {
+        return $this->_advancedReport;
+    }
+
+    public function setAdvancedReport($advancedReport)
+    {
+        $this->_advancedReport = $advancedReport;
+        return $this;
+    }
+
+
     public function __construct()
     {
         ini_set('memory_limit', '-1');
@@ -70,7 +84,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         }
         $bean = BeanFactory::getBean("AOR_Reports", $requestData['id']);
         $preview = new AdvancedReporter($bean, $requestData);
-        echo $preview->buildMultiGroupReport("-2",null, true);
+        echo $preview->buildMultiGroupReport("-2", null, true);
         die();
     }
 
@@ -84,173 +98,108 @@ class customAOR_ReportsController extends AOR_ReportsController
 
     protected function action_downloadPDF()
     {
-        ini_set("pcre.backtrack_limit", "1000000");
-//        error_reporting(0);$rootPath
+        $data = $this->record;
+        $report = BeanFactory::getBean('AOR_Reports', $data);
+        if ($report) {
+            /* @var $bean AdvancedReporter */
+            $report = new AdvancedReporter($report);
+            /* @var $bean AOR_Reports */
+            $this->setAdvancedReport($report);
+        } else {
+            throw new Exception('bean not found');
+        }
+
         $rootPath = __DIR__ . '/../../../';
         $mpdfPath = realpath($rootPath . "/custom/modules/AOR_Reports/getNewMPdf.php");
         require_once($mpdfPath);
 
-//        $mdfLib = realpath($rootPath.'/custom/modules/AOR_Reports/libraries/mpdf-7.1.1/src/Mpdf.php');
-//        require_once($mdfLib);
-//        require_once('modules/AOS_PDF_Templates/PDF_Lib/mpdf.php');
-        $advancedReporter = new AdvancedReporter($this->bean);
-//
-//        $d_image = explode('?', SugarThemeRegistry::current()->getImageURL('company_logo.png'));
-//        $graphs = $_POST["graphsForPDF"];
-//        $graphHtml = "<div class='reportGraphs' style='width:100%; text-align:center;'>";
-//
-//        $chartsPerRow = $advancedReporter->graphs_per_row;
-//        $countOfCharts = count($graphs);
-//        if ($countOfCharts > 0) {
-//            $width = ((int)100 / $chartsPerRow);
-//
-//            $modulusRemainder = $countOfCharts % $chartsPerRow;
-//
-//            if ($modulusRemainder > 0) {
-//                $modulusWidth = ((int)100 / $modulusRemainder);
-//                $itemsWithModulus = $countOfCharts - $modulusRemainder;
-//            }
-//
-//
-//            for ($x = 0; $x < $countOfCharts; $x++) {
-//                if (is_null($itemsWithModulus) || $x < $itemsWithModulus) {
-//                    $graphHtml .= "<img src='.$graphs[$x].' style='width:$width%;' />";
-//                } else {
-//                    $graphHtml .= "<img src='.$graphs[$x].' style='width:$modulusWidth%;' />";
-//                }
-//            }
-//
-//            /*            foreach($graphs as $g)
-//                        {
-//                            $graphHtml.="<img src='.$g.' style='width:$width%;' />";
-//                        }*/
-//            $graphHtml .= "</div>";
-//        }
-//
-//        $head = '<table style="width: 100%; font-family: Arial; text-align: center;" border="0" cellpadding="2" cellspacing="2">
-//                <tbody style="text-align: left;">
-//                <tr style="text-align: left;">
-//                <td style="text-align: left;">
-//                <p><img src="' . $d_image[0] . '" style="float: left;"/>&nbsp;</p>
-//                </td>
-//                <tr style="text-align: left;">
-//                <td style="text-align: left;"></td>
-//                </tr>
-//                 <tr style="text-align: left;">
-//                <td style="text-align: left;">
-//                </td>
-//                <tr style="text-align: left;">
-//                <td style="text-align: left;"></td>
-//                </tr>
-//                <tr style="text-align: left;">
-//                <td style="text-align: left;">
-//                <b>' . strtoupper($advancedReporter->name) . '</b>
-//                </td>
-//                </tr>
-//                </tbody>
-//                </table><br />' . $graphHtml;
-//
-//        $advancedReporter->user_parameters = requestToUserParameters();
-//
-        $fields = $advancedReporter->getReportTableFieldArray();
-
-        $tableBegin = '<table>' . PHP_EOL;
-        $tableEnd = '</table>' . PHP_EOL;
-        $tbodyBegin = '<tbody>' . PHP_EOL;
-        $tbodyEnd = '</tbody>' . PHP_EOL;
-        $tableTitle = $advancedReporter->getReportTableTitleMarkup($fields);
-
-//        $printable = $advancedReporter->build_group_report_with_limit(false, 0, 2);
+        $sugar_config = $report->getSugarConfig();
+        $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
+        $file_name = str_replace(" ", "_", $report->name) . "_" . $dateStr . ".pdf";
 
         $links = false;
-        $from = 0;
-        $limit = 20;
-//        $maxNumberRows = 40000;
-        $maxNumberRows = 8000;
         $extra = array();
-        $html = '';
-//        $field = $advancedReporter->getGroupedByField();
-//        if ($field != false) {
-//            $groupQueryResult = $advancedReporter->getGroupReportQueryResult($extra);
-//        }
-//
-//        if ($field != false) {
-//            $field_label = str_replace(' ', '_', $field->label);
-//            $checkListed = array();
-//            while ($row = $advancedReporter->db->fetchByAssoc($groupQueryResult)) {
-//                if ($html != '') {
-//                    $html .= '<br />';
-//                }
-//                if (!isset($checkListed[$row[$field_label]])) {
-//                    $checkListed[$row[$field_label]] = $row[$field_label];
-////                    $html .= $this->build_report_html_with_limit($links, $from, $limit, $row[$field_label], $extra);
-//                    $result = $advancedReporter->getReportQueryResult($from, $limit, $row[$field_label], $extra);
-//                    $resultArray = $advancedReporter->ReportFormatFields($result);
-//                    $html .= $advancedReporter->buildReportRows($resultArray, $links);
-//                    $html .= $advancedReporter->getReportFooter($resultArray['totals']);
-//                }
-//            }
-//
-//        }
 
-//        if ($html == '') {
-//            $html = $this->build_report_html_with_limit($offset, $links, $from, $limit, '', create_guid(), $extra);
+        $fields = $report->getReportTableFieldArray();
+        $tags = $report->getTags('pdf', count($fields));
 
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['table']['begin'];
+        $reportTitleMarkup .= $this->getTableTitleMarkup($report);
+        $reportTitleMarkup .= $tags['table']['end'];
+        $reportTitleMarkup .= '<br/>';
 
-        $report_sql = $advancedReporter->getReportQuery('', $extra);
-//        $count = $advancedReporter->getCountForReportRowNumbers($report_sql);
+        $tableTitleMarkup = '';
+        $tableTitleMarkup .= $tags['table']['begin'];
+        $tableTitleMarkup .= $report->getReportTableTitleMarkup($fields);
+        $tableTitleMarkup .= $tags['table']['end'];
 
-        $mpdf = getNewMPdf();
+        $stylesheetPDF = <<<EOD
+.table-pdf, .table-pdf td, 
+.table-pdf th{
+border: 1px solid black;
+border-spacing: 0px;
+}
+.table-pdf .col-1,
+.table-pdf{
+width:50%;
+}
+.table-pdf .col-2{
+width:50%;
+}
+EOD;
 
 
+        try {
+            $fp = fopen($sugar_config['upload_dir'] . $file_name, 'wb');
+            fclose($fp);
+            $report_sql = $report->getReportQuery('', $extra);
 
-        $i=$from;
-        while($i <= $maxNumberRows){
-            $result = $advancedReporter->getReportQueryResult($i, $limit,$report_sql);
-            $formattedResultsArray = $advancedReporter->ReportFormatFields($result);
-            $printBody = '';
-            $printBody .= $tableBegin;
-            $printBody .= $tbodyBegin;
-            $printBody .= $advancedReporter->buildReportRows($formattedResultsArray, $links);
-            $printBody .= $tbodyEnd;
-            $printBody .= $tableEnd;
-            $mpdf->WriteHTML($printBody);
-            $i = $i+$limit;
+            $from = 0;
+            $limit = 300;
+
+            if (isset($sugar_config['pdfReportLineLimit']) && $sugar_config['pdfReportLineLimit'] != '') {
+                $configRowLimit = $sugar_config['pdfReportLineLimit'];
+                $rowLimitIsNotDisabled = strtolower($configRowLimit) !== 'disabled';
+                if ($rowLimitIsNotDisabled) {
+                    $maxNumberRows = intval($configRowLimit);
+                } else {
+                    $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+                }
+            } else {
+                $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+            }
+
+            $mpdf = getNewMPdf();
+            $mpdf->WriteHTML($stylesheetPDF, 1);
+            $mpdf->WriteHTML($reportTitleMarkup, 2);
+            $mpdf->WriteHTML($tableTitleMarkup, 2);
+
+            $i = $from;
+            while ($i <= $maxNumberRows) {
+                $result = $report->getReportQueryResult($i, $limit, $report_sql);
+                $formattedResultsArray = $report->ReportFormatFields($result);
+                $printBody = '';
+                $printBody .= $tags['table']['begin'];
+                $printBody .= $tags['tbody']['begin'];
+                $printBody .= $report->buildReportRows($formattedResultsArray, $links);
+                $printBody .= $tags['tbody']['end'];
+                $printBody .= $tags['table']['end'];
+                $mpdf->WriteHTML($printBody, 2);
+                $i = $i + $limit;
+            }
+
+            $mpdf->Output($file_name, 'D');
+
+            if ($report) {
+                return array('name' => $file_name, 'location' => $sugar_config['upload_dir'] . $file_name);
+            } else {
+                return false;
+            }
+
+        } catch (mPDF_exception $e) {
+            echo $e;
         }
-        $mpdf->Output('test' . '.pdf', "D");
-//        $printFooter = '';
-//        $printFooter .= $tbodyBegin;
-//        $printFooter .= $advancedReporter->getReportFooter($formattedResultsArray['totals']);
-//        $printFooter .= $tbodyEnd;
-//        $printFooter .= $tableEnd;
-//        $footerScript = $advancedReporter->getFooterScript($html);
-//        }
-
-//        $stylesheet = file_get_contents(SugarThemeRegistry::current()->getCSSURL('style.css', false));
-//        ob_clean();
-
-//        global $sugar_config;
-//        $file_location = $sugar_config['upload_dir'] . '/' . "testData.html";
-//        $filepath = realpath($file_location);
-//        $markup = file_get_contents($filepath);
-
-//        try {
-////            $pdf = new Mpdf('en', 'A4', '', 'DejaVuSansCondensed');
-//            $mpdf = getNewMPdf();
-////            $pdf->setAutoFont();
-////            $pdf->WriteHTML($stylesheet, 1);
-////            $pdf->WriteHTML($head, 2);
-////            $pdf->WriteHTML($printable, 3);
-////            $mpdf->WriteHTML($markup);
-//            $mpdf->WriteHTML($printBody);
-////            $mpdf->WriteHTML($printFooter, 2);
-//
-////            $pdf->Output($advancedReporter->name . '.pdf', "D");
-//            $mpdf->Output('test' . '.pdf', "D");
-//
-//        } catch (Mpdf_exception $e) {
-//            echo $e;
-//        }
 
         die;
     }
@@ -262,7 +211,7 @@ class customAOR_ReportsController extends AOR_ReportsController
             $this->bean->user_parameters = requestToUserParameters();
             $advancedReporter = new AdvancedReporter($this->bean);
             $advancedReporter->view_as = $_REQUEST['view_as'];
-            echo $advancedReporter->build_group_report($offset,null, true);
+            echo $advancedReporter->build_group_report($offset, null, true);
         }
         die();
     }
@@ -663,4 +612,18 @@ class customAOR_ReportsController extends AOR_ReportsController
             }
         }
     }
+
+
+    private function getTableTitleMarkup(AdvancedReporter $report): string
+    {
+        $tags = $report->getTags();
+
+        $reportTitle = strtoupper($report->name);
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['tr']['begin'];
+        $reportTitleMarkup .= $tags['td-1']['begin'] . '<strong>' . $reportTitle . '</strong>' . $tags['td-1']['end'];
+        $reportTitleMarkup .= $tags['tr']['end'];
+        return $reportTitleMarkup;
+    }
+
 }

@@ -756,6 +756,26 @@ function processAOW_Workflow()
 
 class AORScheduledReportJob implements RunnableSchedulerJob
 {
+    private $_advancedReport = null;
+
+    public function getAdvancedReport()
+    {
+        return $this->_advancedReport;
+    }
+
+    public function setAdvancedReport($advancedReport)
+    {
+        $this->_advancedReport = $advancedReport;
+        return $this;
+    }
+
+    public function __construct()
+    {
+        ini_set('memory_limit', '-1');
+        ini_set("pcre.backtrack_limit", "1000000");
+    }
+
+
     public function setJob(SchedulersJob $job)
     {
         $this->job = $job;
@@ -769,8 +789,10 @@ class AORScheduledReportJob implements RunnableSchedulerJob
         $report = $bean->get_linked_beans('aor_report', 'AOR_Reports');
         if ($report) {
             $report = $report[0];
-            /* @var $report customAOR_Report */
-            $report = new customAOR_Report($report);
+            /* @var $bean AdvancedReporter */
+            $report = new AdvancedReporter($report);
+            /* @var $bean AOR_Reports */
+            $this->setAdvancedReport($report);
         } else {
             return false;
         }
@@ -827,49 +849,96 @@ class AORScheduledReportJob implements RunnableSchedulerJob
     }
 
 
-    private function generatePDF(customAOR_Report $report)
+    private function generatePDF(AdvancedReporter $report)
     {
-        global $sugar_config;
+        $rootPath = __DIR__ . '/../../../';
+        $mpdfPath = realpath($rootPath . "/custom/modules/AOR_Reports/getNewMPdf.php");
+        require_once($mpdfPath);
+
+        $sugar_config = $report->getSugarConfig();
         $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
         $file_name = str_replace(" ", "_", $report->name) . "_" . $dateStr . ".pdf";
-        error_reporting(0);
 
-        $reportTitle = strtoupper($report->name);
-        $head = <<<EOD
-<table style="width: 100%; font-family: Arial; text-align: center;" border="0" cellpadding="2" cellspacing="2">
-    <tbody style="text-align: left;">
-        <tr style="text-align: left;">            
-            <tr style="text-align: left;">
-                <td style="text-align: left;"><strong>{$reportTitle}</strong></td>
-            </tr>
-        </tr>
-    </tbody>
-</table>
-<br />
+        $links = false;
+        $extra = array();
+
+        $fields = $report->getReportTableFieldArray();
+        $tags = $report->getTags('pdf', count($fields));
+
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['table']['begin'];
+        $reportTitleMarkup .= $this->getTableTitleMarkup($report);
+        $reportTitleMarkup .= $tags['table']['end'];
+        $reportTitleMarkup .= '<br/>';
+
+        $tableTitleMarkup = '';
+        $tableTitleMarkup .= $tags['table']['begin'];
+        $tableTitleMarkup .= $report->getReportTableTitleMarkup($fields);
+        $tableTitleMarkup .= $tags['table']['end'];
+
+        $stylesheetPDF = <<<EOD
+.table-pdf, .table-pdf td, 
+.table-pdf th{
+border: 1px solid black;
+border-spacing: 0px;
+}
+.table-pdf .col-1,
+.table-pdf{
+width:50%;
+}
+.table-pdf .col-2{
+width:50%;
+}
 EOD;
-        $report->user_parameters = requestToUserParameters();
 
-        $printable = $report->build_group_report(-1, false);
-
-        $printable = $this->replace_tags($printable);
-
-        $stylesheet = file_get_contents(SugarThemeRegistry::current()->getCSSURL('style.css', false));
-        ob_clean();
         try {
-            $fp = fopen($sugar_config['upload_dir'] . $file_name, 'wb');
+            $filePath = $sugar_config['upload_dir'] . $file_name;
+            $fp = fopen($filePath, 'wb');
             fclose($fp);
-            $pdf = new mPDF('en', 'A4-L', '', 'DejaVuSansCondensed', 15, 15, 16, 16, 8, 8);
-            $pdf->setAutoFont();
-            $pdf->WriteHTML($stylesheet, 1);
-            $pdf->WriteHTML($head, 2);
-            $pdf->WriteHTML($printable, 3);
-            $pdf->Output($sugar_config['upload_dir'] . $file_name, 'F');
+            $report_sql = $report->getReportQuery('', $extra);
 
-            if ($pdf) {
-                return array('name' => $file_name, 'location' => $sugar_config['upload_dir'] . $file_name);
+            $from = 0;
+            $limit = 300;
+
+            if (isset($sugar_config['pdfReportLineLimit']) && $sugar_config['pdfReportLineLimit'] != '') {
+                $configRowLimit = $sugar_config['pdfReportLineLimit'];
+                $rowLimitIsNotDisabled = strtolower($configRowLimit) !== 'disabled';
+                if ($rowLimitIsNotDisabled) {
+                    $maxNumberRows = intval($configRowLimit);
+                } else {
+                    $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+                }
+            } else {
+                $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+            }
+
+            $mpdf = getNewMPdf();
+            $mpdf->WriteHTML($stylesheetPDF, 1);
+            $mpdf->WriteHTML($reportTitleMarkup, 2);
+            $mpdf->WriteHTML($tableTitleMarkup, 2);
+
+            $i = $from;
+            while ($i <= $maxNumberRows) {
+                $result = $report->getReportQueryResult($i, $limit, $report_sql);
+                $formattedResultsArray = $report->ReportFormatFields($result);
+                $printBody = '';
+                $printBody .= $tags['table']['begin'];
+                $printBody .= $tags['tbody']['begin'];
+                $printBody .= $report->buildReportRows($formattedResultsArray, $links);
+                $printBody .= $tags['tbody']['end'];
+                $printBody .= $tags['table']['end'];
+                $mpdf->WriteHTML($printBody, 2);
+                $i = $i + $limit;
+            }
+
+            $mpdf->Output($filePath, 'F');
+
+            if ($report) {
+                return array('name' => $file_name, 'location' => $filePath);
             } else {
                 return false;
             }
+
 
         } catch (mPDF_exception $e) {
             echo $e;

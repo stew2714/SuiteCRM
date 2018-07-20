@@ -109,12 +109,10 @@ class AOR_Scheduled_ReportsController extends SugarController
 
     private function generatePDF(AdvancedReporter $report = null)
     {
-        error_reporting(0);
-
-        if($report == null){
+        if ($report == null) {
             $report = $this->getAdvancedReport();
         }
-        ini_set("pcre.backtrack_limit", "1000000");
+
         $rootPath = __DIR__ . '/../../../';
         $mpdfPath = realpath($rootPath . "/custom/modules/AOR_Reports/getNewMPdf.php");
         require_once($mpdfPath);
@@ -125,14 +123,10 @@ class AOR_Scheduled_ReportsController extends SugarController
 
 
         $links = false;
-        $from = 0;
-        $limit = 20;
-        $maxNumberRows = 100;
         $extra = array();
 
         $fields = $report->getReportTableFieldArray();
         $tags = $report->getTags('pdf', count($fields));
-
 
         $reportTitleMarkup = '';
         $reportTitleMarkup .= $tags['table']['begin'];
@@ -160,16 +154,30 @@ width:50%;
 }
 EOD;
 
-
         try {
             $fp = fopen($sugar_config['upload_dir'] . $file_name, 'wb');
             fclose($fp);
             $report_sql = $report->getReportQuery('', $extra);
 
+            $from = 0;
+            $limit = 300;
+
+            if (isset($sugar_config['pdfReportLineLimit']) && $sugar_config['pdfReportLineLimit'] != '') {
+                $configRowLimit = $sugar_config['pdfReportLineLimit'];
+                $rowLimitIsNotDisabled = strtolower($configRowLimit) !== 'disabled';
+                if ($rowLimitIsNotDisabled) {
+                    $maxNumberRows = intval($configRowLimit);
+                } else {
+                    $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+                }
+            } else {
+                $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+            }
+
             $mpdf = getNewMPdf();
-            $mpdf->WriteHTML($stylesheetPDF,1);
-            $mpdf->WriteHTML($reportTitleMarkup,2);
-            $mpdf->WriteHTML($tableTitleMarkup,2);
+            $mpdf->WriteHTML($stylesheetPDF, 1);
+            $mpdf->WriteHTML($reportTitleMarkup, 2);
+            $mpdf->WriteHTML($tableTitleMarkup, 2);
 
             $i = $from;
             while ($i <= $maxNumberRows) {
@@ -181,11 +189,11 @@ EOD;
                 $printBody .= $report->buildReportRows($formattedResultsArray, $links);
                 $printBody .= $tags['tbody']['end'];
                 $printBody .= $tags['table']['end'];
-                $mpdf->WriteHTML($printBody,2);
+                $mpdf->WriteHTML($printBody, 2);
                 $i = $i + $limit;
             }
 
-            $mpdf->Output($sugar_config['upload_dir'] . $file_name, 'F');
+            $mpdf->Output($file_name, 'D');
 
             if ($report) {
                 return array('name' => $file_name, 'location' => $sugar_config['upload_dir'] . $file_name);
@@ -196,6 +204,8 @@ EOD;
         } catch (mPDF_exception $e) {
             echo $e;
         }
+
+        die;
     }
 
     /**
@@ -204,7 +214,7 @@ EOD;
      */
     private function generateHtmlReport($report = null): string
     {
-        if($report == null){
+        if ($report == null) {
             $report = $this->getAdvancedReport();
         }
 
@@ -236,18 +246,6 @@ EOF;
         return $html;
     }
 
-
-    public function getBetween($content, $start, $end)
-    {
-        $r = explode($start, $content);
-        if (isset($r[1])) {
-            $r = explode($end, $r[1]);
-            return $r[0];
-        }
-        return '';
-    }
-
-
     private function getTableTitleMarkup(AdvancedReporter $report): string
     {
         $tags = $report->getTags();
@@ -255,7 +253,7 @@ EOF;
         $reportTitle = strtoupper($report->name);
         $reportTitleMarkup = '';
         $reportTitleMarkup .= $tags['tr']['begin'];
-        $reportTitleMarkup .= $tags['td-1']['begin'].'<strong>' . $reportTitle . '</strong>'.$tags['td-1']['end'];
+        $reportTitleMarkup .= $tags['td-1']['begin'] . '<strong>' . $reportTitle . '</strong>' . $tags['td-1']['end'];
         $reportTitleMarkup .= $tags['tr']['end'];
         return $reportTitleMarkup;
     }
