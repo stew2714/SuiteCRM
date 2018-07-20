@@ -1,4 +1,7 @@
 <?php
+global $sugar_config;
+$maxSize = empty($sugar_config['upload_individual_file_size']) ? 0 : $sugar_config['upload_individual_file_size'];
+
 $viewdefs ['Meetings'] = 
 array (
   'EditView' => 
@@ -23,6 +26,7 @@ array (
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
+          0 => '<input type="hidden" name="size" id="upload_individual_file_size" value="' . $maxSize . '">',
         ),
         'buttons' => 
         array (
