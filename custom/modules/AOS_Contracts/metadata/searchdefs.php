@@ -65,6 +65,15 @@ array (
         'default' => true,
         'name' => 'agreements_number_and_amendment_c',
       ),
+      'apttus_ff_agreement_number_c' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'apttus_ff_agreement_number_c',
+      ),
       'start_date' => 
       array (
         'type' => 'date',

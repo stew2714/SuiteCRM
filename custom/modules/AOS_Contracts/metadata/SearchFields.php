@@ -1,5 +1,5 @@
 <?php
-// created: 2018-07-17 16:05:45
+// created: 2018-07-23 07:27:01
 $searchFields['AOS_Contracts'] = array (
   'name' => 
   array (

@@ -28,6 +28,14 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'APTTUS_FF_AGREEMENT_NUMBER_C' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => true,
+  ),
   'CONTRACT_ACCOUNT' => 
   array (
     'width' => '15%',
@@ -122,14 +130,6 @@ array (
   array (
     'type' => 'datetimecombo',
     'label' => 'LBL_APTTUS_REQUEST_DATE_C',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'APTTUS_FF_AGREEMENT_NUMBER_C' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
-    'sortable' => false,
     'width' => '10%',
     'default' => false,
   ),
