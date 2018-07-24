@@ -46,6 +46,11 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         $securityGroups = BeanFactory::getBean("SecurityGroups");
         $groups = $securityGroups->getUserSecurityGroups($current_user->id);
 
+        if($this->bean->ACLAccess('edit')){
+            $this->ss->assign('EDIT_ACCESS', true);
+        } else {
+            $this->ss->assign('EDIT_ACCESS', false);
+        }
         if (array_key_exists($sugar_config['CommOpsGroup'],$groups) || is_admin($current_user)) {
             $this->ss->assign('COMMS_OP', true);
         }
