@@ -165,6 +165,23 @@ class AOS_ContractsViewCreate extends ViewCreate
             $this->bean->Oneapttus_parent_agreement_c = $parentContract->id;
             $this->bean->apttus_status_category_c = "req";
             $this->bean->apttus_status_c = "req_ia";
+
+            // Blank out certain fields on amendment
+            $this->bean->apttus_activated_date_c = "";
+            $this->bean->Oneapttus_activated_by = "";
+            $this->bean->apttus_activated_by_name_c = "";
+            $this->bean->apttus_executed_copy_mailed_out_date_c = "";
+            $this->bean->courior_tracking_number_c = "";
+            $this->bean->Oneapttus_company_signed_by = "";
+            $this->bean->apttus_company_signed_by_name_c = "";
+            $this->bean->apttus_company_signed_date_c = "";
+            $this->bean->apttus_company_signed_title_c = "";
+            $this->bean->Oneapttus_other_party_signed_by = "";
+            $this->bean->apttus_other_party_signed_by_name_c = "";
+            $this->bean->apttus_other_party_signed_date_c = "";
+            $this->bean->apttus_other_party_signed_by_unlisted_c = "";
+            $this->bean->apttus_other_party_signed_title_c = "";
+            $this->bean->apttus_amendment_effective_date_c = "";
         }
 
         $securityGroups = BeanFactory::getBean("SecurityGroups");
