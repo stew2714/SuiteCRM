@@ -77,7 +77,7 @@ array (
           'panelDefault' => 'expanded',
         ),
       ),
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -94,7 +94,12 @@ array (
               'required' => true,
             ),
           ),
-          1 => 'account_type',
+          1 => 
+          array (
+            'name' => 'industry',
+            'comment' => 'The company belongs in this industry',
+            'label' => 'LBL_INDUSTRY',
+          ),
         ),
         1 => 
         array (
@@ -104,11 +109,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_FACILITY_TYPE_DD',
           ),
-          1 => 
-          array (
-            'name' => 'account_type_c',
-            'label' => 'Account Type',
-          ),
+          1 => 'account_type',
         ),
         2 => 
         array (
@@ -161,7 +162,11 @@ array (
         ),
         6 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'cms_medicare_number_c',
+            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
+          ),
           1 => 
           array (
             'name' => 'fed_department_c',
@@ -170,7 +175,11 @@ array (
         ),
         7 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'organization_unique_id_c',
+            'label' => 'LBL_ORGANIZATION_UNIQUE_ID_C',
+          ),
           1 => 
           array (
             'name' => 'fed_agency_c',
@@ -179,81 +188,24 @@ array (
         ),
         8 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'organization_c',
+            'label' => 'LBL_ORGANIZATION_C',
+          ),
           1 => '',
         ),
         9 => 
         array (
           0 => 
           array (
-            'name' => 'himss_id_c',
-            'label' => 'LBL_HIMSS_ID',
-          ),
-          1 => '',
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
             'name' => 'organization_primary_service_c',
             'label' => 'Organization Primary Service',
           ),
-          1 => '',
-        ),
-        11 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'fiscal_end_date_month_c',
             'label' => 'Fiscal End Date Month',
-          ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -327,7 +279,11 @@ array (
         2 => 
         array (
           0 => 'annual_revenue',
-          1 => '',
+          1 => 
+          array (
+            'name' => 'practice_physicians_c',
+            'label' => 'LBL_PRACTICE_PHYSICIANS_C',
+          ),
         ),
         3 => 
         array (
@@ -336,7 +292,11 @@ array (
             'name' => 'operating_expense_c',
             'label' => 'Operating Expense',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'admissions_c',
+            'label' => 'LBL_ADMISSIONS_C',
+          ),
         ),
         4 => 
         array (
@@ -390,8 +350,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'number_of_physicians_c',
-            'label' => 'Number Of Physicians',
+            'name' => 'hospital_physicians_total_most_recent_c',
+            'label' => 'LBL_HOSPITAL_PHYSICIANS_TOTAL_MOST_RECENT_C',
           ),
           1 => 
           array (
@@ -432,16 +392,11 @@ array (
             'name' => 'staffed_beds_c',
             'label' => 'Staffed Beds',
           ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'beds_c',
             'label' => 'Beds',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -665,17 +620,13 @@ array (
             'comment' => 'The country used for the billing address',
             'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
           ),
-          1 => '',
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'related_facilitities_c',
             'label' => 'Related Facilities',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -690,21 +641,21 @@ array (
         array (
           0 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
+            'name' => 'slx_account_id_c',
+            'label' => 'SLX Account ID',
           ),
           1 => 
           array (
-            'name' => 'ha_id_c',
-            'label' => 'HA ID',
+            'name' => 'himss_id_c',
+            'label' => 'LBL_HIMSS_ID',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'defintive_id_c',
+            'label' => 'LBL_DEFINTIVE_ID',
           ),
           1 => 
           array (
@@ -716,8 +667,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'slx_account_id_c',
-            'label' => 'SLX Account ID',
+            'name' => 'ucid_c',
+            'label' => 'UCID',
           ),
           1 => 
           array (
@@ -729,10 +680,48 @@ array (
         array (
           0 => 
           array (
-            'name' => 'ucid_c',
-            'label' => 'UCID',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
         ),
       ),
     ),

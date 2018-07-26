@@ -1,5 +1,5 @@
 <?php
- // created: 2018-07-19 20:42:44
+ // created: 2018-07-24 14:48:12
 $dictionary['Account']['fields']['account_type']['len']=100;
 $dictionary['Account']['fields']['account_type']['audited']=true;
 $dictionary['Account']['fields']['account_type']['inline_edit']=true;
