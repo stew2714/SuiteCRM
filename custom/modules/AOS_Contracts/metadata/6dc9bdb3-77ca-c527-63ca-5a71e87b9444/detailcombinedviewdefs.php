@@ -8,7 +8,7 @@ $viewdefs = array (
       array (
         'form' => 
         array (
-	'buttons' => 
+          'buttons' => 
           array (
             0 => 
             array (
