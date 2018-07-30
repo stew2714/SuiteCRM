@@ -728,6 +728,7 @@ function performLuceneIndexing()
 function aorRunScheduledReports()
 {
     require_once 'include/SugarQueue/SugarJobQueue.php';
+    require_once 'custom/modules/AOR_Reports/AdvancedReporter.php';
     $date = new DateTime();//Ensure we check all schedules at the same instant
     foreach (BeanFactory::getBean('AOR_Scheduled_Reports')->get_full_list() as $scheduledReport) {
 
@@ -851,8 +852,8 @@ class AORScheduledReportJob implements RunnableSchedulerJob
 
     private function generatePDF(AdvancedReporter $report)
     {
-        $rootPath = __DIR__ . '/../../../';
-        $mpdfPath = realpath($rootPath . "/custom/modules/AOR_Reports/getNewMPdf.php");
+//        $rootPath = __DIR__ . '/../../../';
+        $mpdfPath = "custom/modules/AOR_Reports/getNewMPdf.php";
         require_once($mpdfPath);
 
         $sugar_config = $report->getSugarConfig();
@@ -949,7 +950,7 @@ EOD;
      * @param $report
      * @return string
      */
-    private function generateHtmlReport($report): string
+    private function generateHtmlReport($report)
     {
         $html = "<h1>{$report->name}</h1>" . $report->build_group_report();
         $html .= <<<EOF
@@ -1024,6 +1025,18 @@ EOF;
         $str = str_replace($sub, '', $str);
 
         return $str;
+    }
+
+    private function getTableTitleMarkup(AdvancedReporter $report)
+    {
+        $tags = $report->getTags();
+
+        $reportTitle = strtoupper($report->name);
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['tr']['begin'];
+        $reportTitleMarkup .= $tags['td-1']['begin'] . '<strong>' . $reportTitle . '</strong>' . $tags['td-1']['end'];
+        $reportTitleMarkup .= $tags['tr']['end'];
+        return $reportTitleMarkup;
     }
 
 }

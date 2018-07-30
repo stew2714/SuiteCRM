@@ -36,7 +36,7 @@ class AOR_Scheduled_ReportsController extends SugarController
 
     public function action_sendreport()
     {
-        $reportId = '31842dfa-467c-0089-d7ba-59f31b09fa12';
+        $reportId = $_REQUEST['record'];
         $this->run($reportId);
     }
 
