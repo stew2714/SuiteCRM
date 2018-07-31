@@ -49,6 +49,9 @@ if (!defined('sugarEntry') || !sugarEntry) {
 require_once __DIR__ . '/../../../modules/Meetings/MeetingFormBase.php';
 require_once __DIR__ . '/../../../include/SugarPHPMailer.php';
 require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
+require_once ('custom/modules/Ews/Create.php');
+
+use \jamesiarmes\PhpEws\Client;
 
 class CustomMeetingFormBase extends MeetingFormBase
 {
@@ -74,6 +77,8 @@ class CustomMeetingFormBase extends MeetingFormBase
      */
     public function handleSave($prefix, $redirect = true, $useRequired = false)
     {
+        global $current_user;
+
         $this->removeDeletedAttachments();
 
         //stop sending the invites as we know currently.
@@ -109,7 +114,7 @@ class CustomMeetingFormBase extends MeetingFormBase
         $focus = parent::handleSave($prefix, false, $useRequired);
 
         if($sendInvites == true){
-            $this->sendNotifications($focus);
+            $this->sendNotifications($focus, $current_user);
         }
 
         if ($this->meetingHasBeenCancelledNow($focus)) {
@@ -139,16 +144,19 @@ class CustomMeetingFormBase extends MeetingFormBase
         }
     }
 
-    private function sendNotifications($bean)
+    private function sendNotifications(SugarBean $bean, User $user)
     {
-        //we want to send the invites to the same people as the core would.
-        $notify_list = $bean->get_notification_recipients();
-        $admin = new Administration();
-        $admin->retrieveSettings();
+        $exchange = new Create();
+        $exchange->createMeeting($bean, $user);
 
-        foreach ($notify_list as $notify_user) {
-            $this->send_assignment_notifications($notify_user, $admin, $bean);
-        }
+        //we want to send the invites to the same people as the core would.
+//        $notify_list = $bean->get_notification_recipients();
+//        $admin = new Administration();
+//        $admin->retrieveSettings();
+//
+//        foreach ($notify_list as $notify_user) {
+//            $this->send_assignment_notifications($notify_user, $admin, $bean);
+//        }
     }
 
     private function addAttachments($notify_mail , $bean){
