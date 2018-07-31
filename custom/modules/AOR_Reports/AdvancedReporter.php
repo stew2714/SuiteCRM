@@ -621,8 +621,8 @@ class AdvancedReporter extends AOR_Report
                 $rows = $this->getViewParams();
             } else {
                 $rows = $this->getFieldArrayForReport();
-                $rowsCopy = $this->array_copy($rows);
             }
+            $rowsCopy = $this->array_copy($rows);
 
             $i = 0;
             foreach ($rowsCopy as $field) {
