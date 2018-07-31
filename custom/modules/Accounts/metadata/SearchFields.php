@@ -224,4 +224,8 @@ $searchFields['Accounts'] = array (
   array (
     'query_type' => 'default',
   ),
+  'ehr_c' => 
+  array (
+    'query_type' => 'default',
+  ),
 );

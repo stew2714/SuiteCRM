@@ -1,5 +1,5 @@
 <?php
-// created: 2018-07-24 21:07:25
+// created: 2018-07-30 20:26:07
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -47,4 +47,5 @@ $mod_strings = array (
   'LBL_MODIFIED_NAME' => 'Last Modified By',
   'NEW_REGION' => 'Region',
   'LBL_CMS_MEDICARE_NUMBER_C' => 'CSM Medicare Number',
+  'EHR' => 'SalesForce EHR',
 );
