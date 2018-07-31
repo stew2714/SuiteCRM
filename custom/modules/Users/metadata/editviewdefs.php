@@ -22,7 +22,7 @@ array (
       'form' => 
       array (
         'headerTpl' => 'modules/Users/tpls/EditViewHeader.tpl',
-        'footerTpl' => 'modules/Users/tpls/EditViewFooter.tpl',
+        'footerTpl' => 'custom/modules/Users/tpls/EditViewFooter.tpl',
       ),
       'useTabs' => false,
       'tabDefs' => 
