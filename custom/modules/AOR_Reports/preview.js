@@ -26,6 +26,7 @@ function UpdatePreview(panel){
   var url = "index.php?module=AOR_Reports&action=getPreview";
     $.ajax({
       url: url,
+      method: 'POST',
       data: {id:$("input[name='record']").val(), formdata: $('#EditView').serialize()},
       context: document.body
     }).done(function(data) {
