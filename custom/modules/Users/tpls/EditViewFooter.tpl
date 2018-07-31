@@ -402,6 +402,13 @@
 						<select tabindex='14' name='fdow'>{html_options options=$FDOWOPTIONS selected=$FDOWCURRENT}</select>
 					</slot></td>
 			</tr>
+			<tr>
+				<td width="17%" scope="row">
+					<slot>{$MOD.LBL_CALENDAR_EXCHANGE}:</slot>&nbsp</td>
+				<td ><slot><input type="checkbox" tabindex='14'class="checkbox" name="exchange" value="0"></slot></td>
+				<td>
+				</td>
+			</tr>
 		</table>
 	</div>
 </div>
