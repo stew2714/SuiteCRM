@@ -1877,3 +1877,11 @@ $GLOBALS['app_list_strings']['imp_timeframe_list']=array (
   'phased4' => 'Phased - Phase 1 starts after 9 Months',
   'other' => 'Other',
 );
+$GLOBALS['app_list_strings']['exchange_list']=array (
+  'NONE' => 'None',
+  'VERSION_2007' => 'Exchange 2007',
+  'VERSION_2009' => 'Exchange 2009',
+  'VERSION_2010' => 'Exchange 2010',
+  'VERSION_2013' => 'Exchange2013',
+  'VERSION_2016' => 'Exchange2016',
+);
