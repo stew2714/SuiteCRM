@@ -49,6 +49,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 require_once __DIR__ . '/../../../modules/Meetings/MeetingFormBase.php';
 require_once __DIR__ . '/../../../include/SugarPHPMailer.php';
 require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
+include_once __DIR__ . '../../../include/utils.php';
 require_once ('custom/modules/Ews/Create.php');
 require_once ('custom/modules/Ews/Cancel.php');
 
@@ -343,7 +344,7 @@ class CustomMeetingFormBase extends MeetingFormBase
                         . '  Title: ' . $item->Subject . "\n"
                         . '  Start: ' . $start->format('l, F jS, Y g:ia') . "\n"
                         . '  End:   ' . $end->format('l, F jS, Y g:ia') . "\n\n";
-                    fwrite(STDOUT, $output);
+                    LoggerManager::getLogger()->warn($output);
                 }
             }
             $cancel->cancelMeeting($current_user, $id, $item->ItemId->ChangeKey);

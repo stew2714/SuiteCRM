@@ -44,6 +44,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 
 require_once __DIR__ . '../../../../vendor/autoload.php';
 require_once __DIR__ . '/Exchange.php';
+include_once __DIR__ . '../../../include/utils.php';
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfAllItemsType;
 use jamesiarmes\PhpEws\Enumeration\MessageDispositionType;
@@ -83,10 +84,7 @@ class Cancel extends SugarBean
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
                 $code = $response_message->ResponseCode;
                 $message = $response_message->MessageText;
-                fwrite(
-                    STDERR,
-                    "Cancellation failed to create with \"$code: $message\"\n"
-                );
+                LoggerManager::getLogger()->warn("Cancellation failed to create with \"$code: $message\"\n");
                 continue;
             }
         }
