@@ -10,4 +10,5 @@ $mod_strings = array (
     'LBL_EMAIL_ADDRESS' => 'Email Address',
     'LBL_EMAIL_PASSWORD' => 'Email Password',
     'LBL_EDITVIEW_PANEL1' => 'Exchange',
+    'LBL_HOST' => 'Host',
 );

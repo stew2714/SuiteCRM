@@ -190,6 +190,15 @@ array (
                                 'label' => 'LBL_EXCHANGE_VERSION',
                             ),
                     ),
+                2 =>
+                    array (
+                        0 =>
+                            array (
+                                'name' => 'exchange_host_c',
+                                'studio' => 'visible',
+                                'label' => 'LBL_HOST',
+                            ),
+                    ),
             ),
     ),
   ),

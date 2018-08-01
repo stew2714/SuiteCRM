@@ -48,10 +48,10 @@ class Exchange extends SugarBean
 {
     public function setConnection(User $user)
     {
-        $username = $user->email1;
-        $password = 'salesagilitypassword1';
-        $host = 'outlook.com';
-        $version = Client::VERSION_2016;
+        $username = $user->email_address_c;
+        $password = $user->email_password_c;
+        $host = $user->exchange_host_c;
+        $version = str_replace('^','', $user->exchange_version_c);
 
         return new Client($host, $username, $password, $version);
     }
