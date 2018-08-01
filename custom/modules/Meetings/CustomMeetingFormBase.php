@@ -289,18 +289,22 @@ class CustomMeetingFormBase extends MeetingFormBase
         return true;
     }
 
-    /**
-     *
-     */
     private function notifyAttendants()
     {
-        if (!$this->setUpMailer()) {
-            return;
-        }
+        global $current_user;
 
-        $this->notifyRelatedBeans('contacts');
-        $this->notifyRelatedBeans('leads');
-        $this->notifyRelatedBeans('users');
+        if (str_replace('^', '', $current_user->exchange_version_c) !== 'NONE') {
+            if (!$this->setUpMailer()) {
+                return;
+            }
+
+            $this->notifyRelatedBeans('contacts');
+            $this->notifyRelatedBeans('leads');
+            $this->notifyRelatedBeans('users');
+        } else {
+            $exchange = new Cancel();
+            $exchange->cancelMeeting($current_user);
+        }
     }
 
     /**

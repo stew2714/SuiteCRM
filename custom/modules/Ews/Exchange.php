@@ -53,6 +53,24 @@ class Exchange extends SugarBean
         $host = $user->exchange_host_c;
         $version = str_replace('^','', $user->exchange_version_c);
 
+        switch ($version) {
+            case 'VERSION_2007':
+                $version = 'Exchange2007';
+                break;
+            case 'VERSION_2009':
+                $version = 'Exchange2009';
+                break;
+            case 'VERSION_2010':
+                $version = 'Exchange2010';
+                break;
+            case 'VERSION_2013':
+                $version = 'Exchange2013';
+                break;
+            case 'VERSION_2016':
+                $version = 'Exchange2016';
+                break;
+        }
+
         return new Client($host, $username, $password, $version);
     }
 }
