@@ -51,8 +51,6 @@ require_once __DIR__ . '/../../../include/SugarPHPMailer.php';
 require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
 require_once ('custom/modules/Ews/Create.php');
 
-use \jamesiarmes\PhpEws\Client;
-
 class CustomMeetingFormBase extends MeetingFormBase
 {
     /**
@@ -146,17 +144,18 @@ class CustomMeetingFormBase extends MeetingFormBase
 
     private function sendNotifications(SugarBean $bean, User $user)
     {
-        $exchange = new Create();
-        $exchange->createMeeting($bean, $user);
+        if (str_replace('^', '', $user->exchange_version_c) !== 'NONE') {
+            $exchange = new Create();
+            $exchange->createMeeting($bean, $user);
+        } else {
+            $notify_list = $bean->get_notification_recipients();
+            $admin = new Administration();
+            $admin->retrieveSettings();
 
-        //we want to send the invites to the same people as the core would.
-//        $notify_list = $bean->get_notification_recipients();
-//        $admin = new Administration();
-//        $admin->retrieveSettings();
-//
-//        foreach ($notify_list as $notify_user) {
-//            $this->send_assignment_notifications($notify_user, $admin, $bean);
-//        }
+            foreach ($notify_list as $notify_user) {
+                $this->send_assignment_notifications($notify_user, $admin, $bean);
+            }
+        }
     }
 
     private function addAttachments($notify_mail , $bean){
