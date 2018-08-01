@@ -173,19 +173,19 @@ class AOR_Scheduled_Reports extends basic {
 
     function shouldRun(DateTime $date){
         return true;
-//        global $timedate;
-//        if(empty($date)){
-//            $date = new DateTime();
-//        }
-//        $cron = Cron\CronExpression::factory($this->schedule);
-//        if(empty($this->last_run) && $cron->isDue($date)){
-//            return true;
-//        }
-//        $lastRun = $timedate->fromDb($this->last_run);
-//        $next = $cron->getNextRunDate($lastRun);
-//        if($next < $date){
-//            return true;
-//        }
-//        return false;
+        global $timedate;
+        if(empty($date)){
+            $date = new DateTime();
+        }
+        $cron = Cron\CronExpression::factory($this->schedule);
+        if(empty($this->last_run) && $cron->isDue($date)){
+            return true;
+        }
+        $lastRun = $timedate->fromDb($this->last_run);
+        $next = $cron->getNextRunDate($lastRun);
+        if($next < $date){
+            return true;
+        }
+        return false;
     }
 }

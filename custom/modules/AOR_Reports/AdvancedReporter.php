@@ -3289,7 +3289,7 @@ class AdvancedReporter extends AOR_Report
             }
 
             $report_sql = $this->build_report_query();
-            $result = $this->getReportQueryResult(0, 20, $report_sql);
+            $result = $this->getReportQueryResult(null, null, $report_sql);
             $formattedResultsArray = $this->ReportFormatFields($result, true);
             foreach ($formattedResultsArray as $row) {
                 $csv .= "\r\n";
