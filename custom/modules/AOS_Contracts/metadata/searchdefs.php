@@ -57,6 +57,17 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'apttus_requestor_name_c' => 
+      array (
+        'type' => 'relate',
+        'studio' => 'visible',
+        'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
+        'id' => 'ONEAPTTUS_REQUESTOR_C',
+        'link' => true,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'apttus_requestor_name_c',
+      ),
       'agreements_number_and_amendment_c' => 
       array (
         'type' => 'customreadonly',
@@ -64,15 +75,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'agreements_number_and_amendment_c',
-      ),
-      'apttus_ff_agreement_number_c' => 
-      array (
-        'type' => 'text',
-        'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'apttus_ff_agreement_number_c',
       ),
       'start_date' => 
       array (
