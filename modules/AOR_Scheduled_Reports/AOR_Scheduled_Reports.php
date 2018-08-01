@@ -172,7 +172,6 @@ class AOR_Scheduled_Reports extends basic {
     }
 
     function shouldRun(DateTime $date){
-        return true;
         global $timedate;
         if(empty($date)){
             $date = new DateTime();
