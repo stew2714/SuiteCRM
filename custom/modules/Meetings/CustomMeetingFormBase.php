@@ -50,6 +50,7 @@ require_once __DIR__ . '/../../../modules/Meetings/MeetingFormBase.php';
 require_once __DIR__ . '/../../../include/SugarPHPMailer.php';
 require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
 require_once ('custom/modules/Ews/Create.php');
+require_once ('custom/modules/Ews/Cancel.php');
 
 class CustomMeetingFormBase extends MeetingFormBase
 {
@@ -293,7 +294,7 @@ class CustomMeetingFormBase extends MeetingFormBase
     {
         global $current_user;
 
-        if (str_replace('^', '', $current_user->exchange_version_c) !== 'NONE') {
+        if (str_replace('^', '', $current_user->exchange_version_c) === 'NONE') {
             if (!$this->setUpMailer()) {
                 return;
             }
