@@ -202,9 +202,11 @@ class Create extends SugarBean
 
     protected function setBody($event)
     {
+        global $current_user;
+
         // Set the event body.
         $event->Body = new BodyType();
-        $event->Body->_ = 'This is the event body';
+        $event->Body->_ = $current_user->full_name . 'has invited you to a Meeting' . PHP_EOL . 'Subject: ' . $event->Subject . PHP_EOL . 'Start Date: ' . $event->Start . PHP_EOL . 'End Date: ' . $event->End . PHP_EOL;
         $event->Body->BodyType = BodyTypeType::TEXT;
     }
 
