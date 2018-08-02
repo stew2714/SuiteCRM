@@ -2757,7 +2757,7 @@ class AdvancedReporter extends AOR_Report
             }
             array_push($this->_fieldList, array('module' => $module, 'fieldlist' => $fieldList));
         }
-        return $this->_fieldList;
+        return $this->_fieldList[0]['fieldlist'];
     }
 
     /**
@@ -2982,7 +2982,7 @@ class AdvancedReporter extends AOR_Report
         $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
         $relateResult = $field_bean->db->query($relateSQL);
         $relateRow = mysqli_fetch_row($relateResult);
-        $relateName = $relateRow['name'];
+        $relateName = $relateRow[0];
         return $relateName;
     }
 
