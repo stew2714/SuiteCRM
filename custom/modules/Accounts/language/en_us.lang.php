@@ -1,5 +1,5 @@
 <?php
-// created: 2018-05-08 03:32:28
+// created: 2018-08-02 14:41:13
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -39,4 +39,5 @@ $mod_strings = array (
   'LBL_BILLING_ADDRESS_COUNTRY' => 'Country',
   'LBL_BILLING_ADDRESS_POSTALCODE' => 'Postal Code',
   'LBL_LIST_ASSIGNED_USER' => 'Owner',
+  'EHR' => 'SalesForce EHR',
 );

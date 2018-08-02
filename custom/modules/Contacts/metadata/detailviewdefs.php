@@ -405,6 +405,12 @@ array (
             'name' => 'reference_program_c',
             'label' => 'LBL_REFERENCE_PROGRAM',
           ),
+          1 => 
+          array (
+            'name' => 'reference_type_c',
+            'studio' => 'visible',
+            'label' => 'LBL_REFERENCE_TYPE',
+          ),
         ),
         1 => 
         array (

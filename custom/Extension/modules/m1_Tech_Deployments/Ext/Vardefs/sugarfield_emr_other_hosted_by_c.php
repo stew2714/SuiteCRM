@@ -1,6 +1,6 @@
 <?php
- // created: 2018-06-28 19:12:12
+ // created: 2018-08-02 14:13:36
 $dictionary['m1_Tech_Deployments']['fields']['emr_other_hosted_by_c']['inline_edit']='';
-$dictionary['m1_Tech_Deployments']['fields']['emr_other_hosted_by_c']['labelValue']='EMR Other hosted by';
+$dictionary['m1_Tech_Deployments']['fields']['emr_other_hosted_by_c']['labelValue']='Other hosted by';
 
  ?>
