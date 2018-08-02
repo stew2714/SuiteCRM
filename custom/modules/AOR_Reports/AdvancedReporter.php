@@ -1303,6 +1303,7 @@ class AdvancedReporter extends AOR_Report
         $fields = $this->getReportTableFieldArray();
         $totals = array();
         $data_returned = array();
+        $bean_id = $field_bean->table_name."_id";
         while ($row = $this->db->fetchByAssoc($result)) {
             $rowArr = array();
 
@@ -1330,7 +1331,7 @@ class AdvancedReporter extends AOR_Report
 //                    if (isset($_REQUEST["action"]) && $_REQUEST["action"] == 'DownloadPDF') {
 //                        $formattedValue = $this->getFieldInFormattedValue($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
 //                    } else {
-                    $formattedValue = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '');
+                    $formattedValue = $this->generateFieldMarkupUsingTemplateEngine($attribute['module'], $attribute['field'], $attribute['field'], 'DetailView', $row[$name], $currency_id, array(), '', $attribute['link'], $row[$bean_id]);
 //                    }
                     if ($stripTags == true) {
                         $formattedValue = urldecode(trim(strip_tags($formattedValue)));
@@ -1617,7 +1618,7 @@ class AdvancedReporter extends AOR_Report
     }
 
 
-    public function generateFieldMarkupUsingTemplateEngine($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $alt_type)
+    public function generateFieldMarkupUsingTemplateEngine($module, $fieldName, $aow_field, $view, $value, $currency_id, $params, $alt_type, $link, $bean_id)
     {
         $file = create_cache_directory('modules/AOW_WorkFlow/') . $module . $view . $alt_type . $fieldName . '.tpl';
         $timedate = $this->getTimedate();
@@ -1752,6 +1753,10 @@ class AdvancedReporter extends AOR_Report
             $ss->assign("APP", $app_strings);
 
             $markup = $ss->fetch($file);
+        }
+        if($link == "1"){
+            $linkURL = "index.php?module=".$module."&action=DetailView&record=".$bean_id;
+            $markup = '<a href="'.$linkURL.'" >'.$markup.'</a>';
         }
         return $markup;
     }
