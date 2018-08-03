@@ -69,6 +69,9 @@ class Exchange extends SugarBean
             case 'VERSION_2016':
                 $version = 'Exchange2016';
                 break;
+            default:
+                $version = 'NONE';
+                break;
         }
 
         return new Client($host, $username, $password, $version);
