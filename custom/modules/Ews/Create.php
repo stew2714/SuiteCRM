@@ -86,7 +86,7 @@ class Create extends SugarBean
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
                 $code = $response_message->ResponseCode;
                 $message = $response_message->MessageText;
-                fwrite(STDERR, "Event failed to create with \"$code: $message\"\n");
+                LoggerManager::getLogger()->warn("Event failed to create with \"$code: $message\"\n");
                 continue;
             }
 

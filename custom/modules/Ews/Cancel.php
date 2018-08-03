@@ -62,7 +62,7 @@ class Cancel extends SugarBean
 
 
         $request = new CreateItemType();
-        $request->MessageDisposition = MessageDispositionType::SAVE_ONLY;
+        $request->MessageDisposition = MessageDispositionType::SEND_AND_SAVE_COPY;
         $request->Items = new NonEmptyArrayOfAllItemsType();
         $cancellation = new CancelCalendarItemType();
         $cancellation->ReferenceItemId = new ItemIdType();
