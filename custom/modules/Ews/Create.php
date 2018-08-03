@@ -119,9 +119,8 @@ class Create extends SugarBean
                     $attachment->ContentType = finfo_file($finfo, $filePath);
                     $request->Attachments->FileAttachment[] = $attachment;
                     fclose($handle);
-
-                    return $request;
                 }
+                return $request;
             }
         }
     }
