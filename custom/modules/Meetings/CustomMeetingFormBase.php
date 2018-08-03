@@ -53,6 +53,7 @@ include_once __DIR__ . '../../../include/utils.php';
 require_once ('custom/modules/Ews/Create.php');
 require_once ('custom/modules/Ews/Cancel.php');
 require_once ('custom/modules/Ews/Find.php');
+require_once ('custom/modules/Ews/Update.php');
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseFolderIdsType;
 use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
@@ -155,9 +156,20 @@ class CustomMeetingFormBase extends MeetingFormBase
 
     private function sendNotifications(SugarBean $bean, User $user)
     {
+        global $current_user;
+
         if (str_replace('^', '', $user->exchange_version_c) !== 'NONE') {
-            $exchange = new Create();
-            $exchange->createMeeting($bean, $user);
+            $find = new Find();
+            $results = $find->findMeeting($bean, $current_user);
+
+            if (empty($results)) {
+                $exchange = new Create();
+                $exchange->createMeeting($bean, $user);
+            } else {
+                $update = new Update();
+                $update->updateMeeting($bean, $user, $results);
+            }
+
         } else {
             $notify_list = $bean->get_notification_recipients();
             $admin = new Administration();

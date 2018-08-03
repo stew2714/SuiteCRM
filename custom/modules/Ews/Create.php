@@ -98,7 +98,7 @@ class Create extends SugarBean
         }
     }
 
-    protected function addAttachments($bean, $request, $client)
+    public function addAttachments($bean, $request, $client)
     {
         $rel = "attachment_notes";
 
