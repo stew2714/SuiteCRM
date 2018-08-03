@@ -119,12 +119,12 @@ class Create extends SugarBean
                     $handle = fopen($filePath, "rb");
                     $contents = fread($handle, filesize($filePath));
                     $attachment->Content = $contents;
-                    $attachment->Name = $file->getBasename();
+                    $attachment->Name = $relatedBean->name;
                     $attachment->ContentType = finfo_file($finfo, $filePath);
                     $request->Attachments->FileAttachment[] = $attachment;
                     fclose($handle);
 
-                    $response = $client->CreateAttachment($request);
+                    $client->CreateAttachment($request);
                 }
             }
         }
