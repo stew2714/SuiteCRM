@@ -652,12 +652,21 @@ class Meeting extends SugarBean {
             $this->set_accept_status($notify_user, 'none');
         }
 
+
+        $organizer = new User();
+        if(isset($this->assigned_user_id) && !empty($this->assigned_user_id)){
+            $organizer->retrieve($this->assigned_user_id);
+        }
+        else{
+            $organizer = $GLOBALS['current_user']; // Why this would happen no idea - this was the default originally
+        }
+
 		$notify_mail = parent::create_notification_email($notify_user);
 
 		$path = SugarConfig::getInstance()->get('upload_dir','upload/') . $this->id;
 
 		require_once("modules/vCals/vCal.php");
-		$content = vCal::get_ical_event($this, $GLOBALS['current_user']);
+		$content = vCal::get_ical_event($this, $organizer); // organizer should be the assigned user
 
 		if(file_put_contents($path,$content)){
 

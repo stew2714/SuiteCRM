@@ -180,12 +180,11 @@ $viewdefs = array (
               'name' => 'recordtypeid_c',
               'label' => 'LBL_RECORDTYPEID_C',
             ),
-            1 => 'contract_account',
           ),
           1 => 
           array (
             0 => 'name',
-            1 => 'opportunity',
+            1 => 'contract_account',
           ),
           2 => 
           array (

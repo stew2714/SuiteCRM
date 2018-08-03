@@ -256,11 +256,11 @@ $(document).ready(function() {
         var response = query.responseText;
 
         if (response === "success") {
-            $("#modal-title").text("Sent Successfully");
-            $("#modal-content").text("This record has been successfully sent over to the Comm Ops Queue.");
+            $("#modal-title").text("Activated Successfully");
+            $("#modal-content").text("This record has been successfully activated.");
         } else {
-            $("#modal-title").text("Sending Failed");
-            $("#modal-content").text("There was a problem sending this record to the Comm Ops Queue as there was no record ID passed to the operation. If the problem persists please contact your System Administrator.");
+            $("#modal-title").text("Activation Failed");
+            $("#modal-content").text("There was a problem activating this record. If the problem persists please contact your System Administrator.");
         }
         $('#modal-dialog').modal("toggle");
     });

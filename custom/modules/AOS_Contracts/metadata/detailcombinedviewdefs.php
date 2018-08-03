@@ -177,8 +177,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_agreement_number_c',
-              'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+              'name' => 'agreements_number_and_amendment_c',
+              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
             ),
             1 => 'recordtypeid_c',
           ),
@@ -200,8 +200,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'agreements_number_and_amendment_c',
-              'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+              'name' => 'type_of_product_services_c',
+              'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
             ),
             1 => 'type_of_request_c',
           ),
@@ -246,8 +246,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apttus_total_contract_value_c',
-              'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+              'name' => 'total_contract_value',
+              'label' => 'LBL_TOTAL_CONTRACT_VALUE',
             ),
             1 => 'apttus_requestor_name_c',
           ),
@@ -305,28 +305,21 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 't_c_version_c',
-              'label' => 'LBL_T_C_VERSION_C',
-            ),
-          ),
-          16 => 
-          array (
-            0 => 
-            array (
               'name' => 'apttus_business_hours_c',
               'label' => 'LBL_APTTUS_BUSINESS_HOURS_C',
             ),
-            1 => 'assigned_user_name',
+            1 => 't_c_version_c',
           ),
-          17 => 
+          16 => 
           array (
             0 => 
             array (
               'name' => 'agreement_summary_c',
               'label' => 'LBL_AGREEMENT_SUMMARY_C',
             ),
+            1 => 'assigned_user_name',
           ),
-          18 => 
+          17 => 
           array (
             0 => 
             array (
@@ -476,28 +469,21 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'intellectual_property_general_informatio_c',
-              'label' => 'LBL_INTELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C',
-            ),
-          ),
-          14 => 
-          array (
-            0 => 
-            array (
               'name' => 'passive_adaptation_c',
               'label' => 'LBL_PASSIVE_ADAPTATION_C',
             ),
             1 => 'passive_adaptation_type_c',
           ),
-          15 => 
+          14 => 
           array (
             0 => 
             array (
               'name' => 'enhanced_data_use_rights_language_c',
               'label' => 'LBL_ENHANCED_DATA_USE_RIGHTS_LANGUAGE_C',
             ),
+            1 => 'intellectual_property_general_informatio_c',
           ),
-          16 => 
+          15 => 
           array (
             0 => 
             array (
@@ -505,7 +491,7 @@ $viewdefs = array (
               'label' => 'LBL_LEGAL_NOTICES_C',
             ),
           ),
-          17 => 
+          16 => 
           array (
             0 => 
             array (
@@ -542,18 +528,14 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'apts_request_date_c',
-              'label' => 'LBL_APTS_REQUEST_DATE_C',
+              'name' => 'apttus_request_date_c',
+              'label' => 'LBL_APTTUS_REQUEST_DATE_C',
             ),
             1 => 'apttus_executed_copy_mailed_out_date_c',
           ),
           1 => 
           array (
-            0 => 
-            array (
-              'name' => 'courior_tracking_number_c',
-              'label' => 'LBL_COURIOR_TRACKING_NUMBER_C',
-            ),
+            1 => 'courior_tracking_number_c',
           ),
           2 => 
           array (
@@ -562,15 +544,7 @@ $viewdefs = array (
               'name' => 'apttus_activated_date_c',
               'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
             ),
-          ),
-          3 => 
-          array (
-            0 => 
-            array (
-              'name' => 'apttus_activated_by_name_c',
-              'studio' => 'visible',
-              'label' => 'LBL_APTTUS_ACTIVATED_BY_NAME_C',
-            ),
+            1 => 'apttus_activated_by_name_c',
           ),
         ),
         'lbl_editview_panel4' => 

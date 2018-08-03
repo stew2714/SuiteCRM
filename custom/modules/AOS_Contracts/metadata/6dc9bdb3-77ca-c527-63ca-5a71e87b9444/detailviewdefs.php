@@ -135,19 +135,16 @@ array (
             'name' => 'recordtypeid_c',
             'label' => 'LBL_RECORDTYPEID_C',
           ),
-          1 => 
-          array (
-            'name' => 'contract_account',
-            'label' => 'LBL_CONTRACT_ACCOUNT',
-          ),
+          1 => '',
         ),
         1 => 
         array (
           0 => 'name',
           1 => 
           array (
-            'name' => 'opportunity',
-            'label' => 'LBL_OPPORTUNITY',
+            'name' => 'contract_account',
+            'studio' => 'visible',
+            'label' => 'LBL_CONTRACT_ACCOUNT',
           ),
         ),
         2 => 

@@ -147,8 +147,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_agreement_number_c',
-            'label' => 'LBL_APTTUS_AGREEMENT_NUMBER_C',
+            'name' => 'agreements_number_and_amendment_c',
+            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
           ),
           1 => 
           array (
@@ -182,8 +182,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'agreements_number_and_amendment_c',
-            'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+            'name' => 'type_of_product_services_c',
+            'label' => 'LBL_TYPE_OF_PRODUCT_SERVICES_C',
           ),
           1 => 
           array (
@@ -248,8 +248,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_total_contract_value_c',
-            'label' => 'LBL_APTTUS_TOTAL_CONTRACT_VALUE_C',
+            'name' => 'total_contract_value',
+            'label' => 'LBL_TOTAL_CONTRACT_VALUE',
           ),
           1 => 
           array (
@@ -337,6 +337,11 @@ array (
         array (
           0 => 
           array (
+            'name' => 'apttus_business_hours_c',
+            'label' => 'LBL_APTTUS_BUSINESS_HOURS_C',
+          ),
+          1 => 
+          array (
             'name' => 't_c_version_c',
             'label' => 'LBL_T_C_VERSION_C',
           ),
@@ -345,69 +350,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apttus_business_hours_c',
-            'label' => 'LBL_APTTUS_BUSINESS_HOURS_C',
+            'name' => 'agreement_summary_c',
+            'label' => 'LBL_AGREEMENT_SUMMARY_C',
           ),
           1 => 
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-        ),
-        17 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agreement_summary_c',
-            'label' => 'LBL_AGREEMENT_SUMMARY_C',
-          ),
-          1 => '',
-        ),
-        18 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -586,15 +535,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'intellectual_property_general_informatio_c',
-            'label' => 'LBL_INTELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C',
-          ),
-          1 => '',
-        ),
-        14 => 
-        array (
-          0 => 
-          array (
             'name' => 'passive_adaptation_c',
             'label' => 'LBL_PASSIVE_ADAPTATION_C',
           ),
@@ -604,16 +544,20 @@ array (
             'label' => 'LBL_PASSIVE_ADAPTATION_TYPE_C',
           ),
         ),
-        15 => 
+        14 => 
         array (
           0 => 
           array (
             'name' => 'enhanced_data_use_rights_language_c',
             'label' => 'LBL_ENHANCED_DATA_USE_RIGHTS_LANGUAGE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'intellectual_property_general_informatio_c',
+            'label' => 'LBL_INTELLECTUAL_PROPERTY_GENERAL_INFORMATIO_C',
+          ),
         ),
-        16 => 
+        15 => 
         array (
           0 => 
           array (
@@ -622,7 +566,7 @@ array (
           ),
           1 => '',
         ),
-        17 => 
+        16 => 
         array (
           0 => 
           array (
@@ -671,8 +615,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apts_request_date_c',
-            'label' => 'LBL_APTS_REQUEST_DATE_C',
+            'name' => 'apttus_request_date_c',
+            'label' => 'LBL_APTTUS_REQUEST_DATE_C',
           ),
           1 => 
           array (
@@ -682,7 +626,8 @@ array (
         ),
         1 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'courior_tracking_number_c',
             'label' => 'LBL_COURIOR_TRACKING_NUMBER_C',
@@ -695,10 +640,7 @@ array (
             'name' => 'apttus_activated_date_c',
             'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'apttus_activated_by_name_c',
             'studio' => 'visible',
@@ -786,6 +728,53 @@ array (
           array (
             'name' => 'total_time_with_comm_ops_c',
             'label' => 'LBL_TOTAL_TIME_WITH_COMM_OPS_C',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

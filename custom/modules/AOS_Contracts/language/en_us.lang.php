@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-01 14:45:48
+// created: 2018-06-18 14:01:06
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Legal Terms',
   'LNK_NEW_RECORD' => 'Create Contract',
@@ -49,4 +49,5 @@ $mod_strings = array (
   'LBL_START_DATE' => 'Agreement Start Date',
   'LBL_END_DATE' => 'Agreement End Date',
   'LBL_SHIPPING_TAX_AMT' => 'Shipping Tax ($$)',
+  'LBL_APTTUS_REQUEST_DATE_C' => 'Request Date*',
 );
