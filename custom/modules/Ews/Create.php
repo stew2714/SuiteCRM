@@ -93,7 +93,7 @@ class Create extends SugarBean
             foreach ($response_message->Items->CalendarItem as $item) {
                 $id = $item->ItemId->Id;
                 $this->addAttachments($bean, $id, $client);
-                fwrite(STDOUT, "Created event $id\n");
+                LoggerManager::getLogger()->info("Created event $id\n");
             }
         }
     }

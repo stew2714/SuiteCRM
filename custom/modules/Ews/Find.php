@@ -89,7 +89,7 @@ class Find extends SugarBean
                     . '  Title: ' . $item->Subject . "\n"
                     . '  Start: ' . $start->format('l, F jS, Y g:ia') . "\n"
                     . '  End:   ' . $end->format('l, F jS, Y g:ia') . "\n\n";
-                LoggerManager::getLogger()->warn($output);
+                LoggerManager::getLogger()->info($output);
 
                 $foundMeeting = [
                     'ID' => $id,
