@@ -46,16 +46,20 @@ require_once __DIR__ . '../../../../vendor/autoload.php';
 require_once __DIR__ . '/Exchange.php';
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfAllItemsType;
+use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfAttachmentsType;
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfAttendeesType;
 use jamesiarmes\PhpEws\Enumeration\BodyTypeType;
 use jamesiarmes\PhpEws\Enumeration\CalendarItemCreateOrDeleteOperationType;
 use jamesiarmes\PhpEws\Enumeration\ResponseClassType;
 use jamesiarmes\PhpEws\Enumeration\RoutingType;
+use jamesiarmes\PhpEws\Request\CreateAttachmentType;
 use jamesiarmes\PhpEws\Request\CreateItemType;
 use jamesiarmes\PhpEws\Type\AttendeeType;
 use jamesiarmes\PhpEws\Type\BodyType;
 use jamesiarmes\PhpEws\Type\CalendarItemType;
 use jamesiarmes\PhpEws\Type\EmailAddressType;
+use jamesiarmes\PhpEws\Type\FileAttachmentType;
+use jamesiarmes\PhpEws\Type\ItemIdType;
 
 class Create extends SugarBean
 {
@@ -77,7 +81,6 @@ class Create extends SugarBean
         // Add the event to the request
         $request->Items->CalendarItem[] = $event;
         $response = $client->CreateItem($request);
-
         $response_messages = $response->ResponseMessages->CreateItemResponseMessage;
         foreach ($response_messages as $response_message) {
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
@@ -89,7 +92,40 @@ class Create extends SugarBean
 
             foreach ($response_message->Items->CalendarItem as $item) {
                 $id = $item->ItemId->Id;
+                $this->addAttachments($bean, $id, $client);
                 fwrite(STDOUT, "Created event $id\n");
+            }
+        }
+    }
+
+    protected function addAttachments($bean, $message_id, $client)
+    {
+        $rel = "attachment_notes";
+
+        if ($bean->load_relationship($rel)) {
+            $results = $bean->{$rel}->getBeans();
+            if (count($results) > 0) {
+                foreach ($results as $relatedBean) {
+                    $filePath = "upload/{$relatedBean->id}";
+                    $request = new CreateAttachmentType();
+                    $request->ParentItemId = new ItemIdType();
+                    $request->ParentItemId->Id = $message_id;
+                    $request->Attachments = new NonEmptyArrayOfAttachmentsType();
+
+                    $attachment = new FileAttachmentType();
+                    $file = new SplFileObject($filePath);
+                    $finfo = finfo_open();
+
+                    $handle = fopen($filePath, "rb");
+                    $contents = fread($handle, filesize($filePath));
+                    $attachment->Content = $contents;
+                    $attachment->Name = $file->getBasename();
+                    $attachment->ContentType = finfo_file($finfo, $filePath);
+                    $request->Attachments->FileAttachment[] = $attachment;
+                    fclose($handle);
+
+                    $response = $client->CreateAttachment($request);
+                }
             }
         }
     }
@@ -210,7 +246,8 @@ class Create extends SugarBean
         $event->Body->BodyType = BodyTypeType::TEXT;
     }
 
-    protected function addAttendees($guests, $event) {
+    protected function addAttendees($guests, $event)
+    {
         foreach ($guests as $guest) {
             $attendee = new AttendeeType();
             $attendee->Mailbox = new EmailAddressType();
