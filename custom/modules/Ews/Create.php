@@ -77,6 +77,7 @@ class Create extends SugarBean
         $event = $this->buildEvent($bean);
         $this->setBody($event);
         $this->addAttendees($guests, $event);
+        $this->addAttachments($bean, $event, $client);
 
         // Add the event to the request
         $request->Items->CalendarItem[] = $event;
@@ -92,13 +93,12 @@ class Create extends SugarBean
 
             foreach ($response_message->Items->CalendarItem as $item) {
                 $id = $item->ItemId->Id;
-                $this->addAttachments($bean, $id, $client);
                 LoggerManager::getLogger()->info("Created event $id\n");
             }
         }
     }
 
-    protected function addAttachments($bean, $message_id, $client)
+    protected function addAttachments($bean, $request, $client)
     {
         $rel = "attachment_notes";
 
@@ -107,10 +107,6 @@ class Create extends SugarBean
             if (count($results) > 0) {
                 foreach ($results as $relatedBean) {
                     $filePath = "upload/{$relatedBean->id}";
-                    $request = new CreateAttachmentType();
-                    $request->ParentItemId = new ItemIdType();
-                    $request->ParentItemId->Id = $message_id;
-                    $request->Attachments = new NonEmptyArrayOfAttachmentsType();
 
                     $attachment = new FileAttachmentType();
                     $file = new SplFileObject($filePath);
@@ -124,7 +120,7 @@ class Create extends SugarBean
                     $request->Attachments->FileAttachment[] = $attachment;
                     fclose($handle);
 
-                    $client->CreateAttachment($request);
+                    return $request;
                 }
             }
         }
