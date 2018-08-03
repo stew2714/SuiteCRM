@@ -52,6 +52,7 @@ require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
 include_once __DIR__ . '../../../include/utils.php';
 require_once ('custom/modules/Ews/Create.php');
 require_once ('custom/modules/Ews/Cancel.php');
+require_once ('custom/modules/Ews/Find.php');
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseFolderIdsType;
 use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
@@ -312,42 +313,12 @@ class CustomMeetingFormBase extends MeetingFormBase
             $this->notifyRelatedBeans('leads');
             $this->notifyRelatedBeans('users');
         } else {
-            // TODO: Move into cancel class
+            $find = new Find();
             $cancel = new Cancel();
-            $exchange = new Exchange();
 
-            $client = $exchange->setConnection($current_user);
-            $start_date = new DateTime($bean->date_start); //$bean->date_start
-            $end_date = new DateTime($bean->date_end); //$bean->date_end
+            $meeting = $find->findMeeting($bean, $current_user);
 
-            $request = new FindItemType();
-            $request->ParentFolderIds = new NonEmptyArrayOfBaseFolderIdsType();
-            $request->ItemShape = new ItemResponseShapeType();
-            $request->ItemShape->BaseShape = DefaultShapeNamesType::ALL_PROPERTIES;
-            $folder_id = new DistinguishedFolderIdType();
-            $folder_id->Id = DistinguishedFolderIdNameType::CALENDAR;
-            $request->ParentFolderIds->DistinguishedFolderId[] = $folder_id;
-            $request->CalendarView = new CalendarViewType();
-            $request->CalendarView->StartDate = $start_date->format('c');
-            $request->CalendarView->EndDate = $end_date->format('c');
-            $response = $client->FindItem($request);
-
-            $response_messages = $response->ResponseMessages->FindItemResponseMessage;
-            foreach ($response_messages as $response_message) {
-                $items = $response_message->RootFolder->Items->CalendarItem;
-                foreach ($items as $item) {
-                    $id = $item->ItemId->Id;
-                    $start = new DateTime($item->Start);
-                    $end = new DateTime($item->End);
-                    $output = 'Found event ' . $item->ItemId->Id . "\n"
-                        . '  Change Key: ' . $item->ItemId->ChangeKey . "\n"
-                        . '  Title: ' . $item->Subject . "\n"
-                        . '  Start: ' . $start->format('l, F jS, Y g:ia') . "\n"
-                        . '  End:   ' . $end->format('l, F jS, Y g:ia') . "\n\n";
-                    LoggerManager::getLogger()->warn($output);
-                }
-            }
-            $cancel->cancelMeeting($current_user, $id, $item->ItemId->ChangeKey);
+            $cancel->cancelMeeting($current_user, $meeting['ID'], $meeting['ChangeKey']);
         }
     }
 

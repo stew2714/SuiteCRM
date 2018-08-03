@@ -46,39 +46,58 @@ require_once __DIR__ . '../../../../vendor/autoload.php';
 require_once __DIR__ . '/Exchange.php';
 include_once __DIR__ . '../../../include/utils.php';
 
-use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfAllItemsType;
-use jamesiarmes\PhpEws\Enumeration\MessageDispositionType;
-use jamesiarmes\PhpEws\Enumeration\ResponseClassType;
-use jamesiarmes\PhpEws\Request\CreateItemType;
-use jamesiarmes\PhpEws\Type\CancelCalendarItemType;
-use jamesiarmes\PhpEws\Type\ItemIdType;
+use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseFolderIdsType;
+use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
+use jamesiarmes\PhpEws\Enumeration\DistinguishedFolderIdNameType;
+use jamesiarmes\PhpEws\Request\FindItemType;
+use jamesiarmes\PhpEws\Type\CalendarViewType;
+use jamesiarmes\PhpEws\Type\DistinguishedFolderIdType;
+use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 
-class Cancel extends SugarBean
+class Find extends SugarBean
 {
-    public function cancelMeeting(User $user, $event_id, $change_key)
+    public function findMeeting(SugarBean $bean, User $current_user)
     {
         $exchange = new Exchange();
-        $client = $exchange->setConnection($user);
+        $client = $exchange->setConnection($current_user);
 
+        $start_date = new DateTime($bean->date_start);
+        $end_date = new DateTime($bean->date_end);
 
-        $request = new CreateItemType();
-        $request->MessageDisposition = MessageDispositionType::SAVE_ONLY;
-        $request->Items = new NonEmptyArrayOfAllItemsType();
-        $cancellation = new CancelCalendarItemType();
-        $cancellation->ReferenceItemId = new ItemIdType();
-        $cancellation->ReferenceItemId->Id = $event_id;
-        $cancellation->ReferenceItemId->ChangeKey = $change_key;
-        $request->Items->CancelCalendarItem[] = $cancellation;
-        $response = $client->CreateItem($request);
+        $request = new FindItemType();
+        $request->ParentFolderIds = new NonEmptyArrayOfBaseFolderIdsType();
+        $request->ItemShape = new ItemResponseShapeType();
+        $request->ItemShape->BaseShape = DefaultShapeNamesType::ALL_PROPERTIES;
+        $folder_id = new DistinguishedFolderIdType();
+        $folder_id->Id = DistinguishedFolderIdNameType::CALENDAR;
+        $request->ParentFolderIds->DistinguishedFolderId[] = $folder_id;
+        $request->CalendarView = new CalendarViewType();
+        $request->CalendarView->StartDate = $start_date->format('c');
+        $request->CalendarView->EndDate = $end_date->format('c');
+        $response = $client->FindItem($request);
 
-        $response_messages = $response->ResponseMessages->CreateItemResponseMessage;
+        $response_messages = $response->ResponseMessages->FindItemResponseMessage;
         foreach ($response_messages as $response_message) {
-            if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
-                $code = $response_message->ResponseCode;
-                $message = $response_message->MessageText;
-                LoggerManager::getLogger()->warn("Cancellation failed to create with \"$code: $message\"\n");
-                continue;
+            $items = $response_message->RootFolder->Items->CalendarItem;
+            foreach ($items as $item) {
+                $id = $item->ItemId->Id;
+                $changeKey = $item->ItemId->ChangeKey;
+                $start = new DateTime($item->Start);
+                $end = new DateTime($item->End);
+                $output = 'Found event ' . $item->ItemId->Id . "\n"
+                    . '  Change Key: ' . $item->ItemId->ChangeKey . "\n"
+                    . '  Title: ' . $item->Subject . "\n"
+                    . '  Start: ' . $start->format('l, F jS, Y g:ia') . "\n"
+                    . '  End:   ' . $end->format('l, F jS, Y g:ia') . "\n\n";
+                LoggerManager::getLogger()->warn($output);
+
+                $foundMeeting = [
+                    'ID' => $id,
+                    'ChangeKey' => $changeKey
+                ];
             }
         }
+
+        return $foundMeeting;
     }
 }
