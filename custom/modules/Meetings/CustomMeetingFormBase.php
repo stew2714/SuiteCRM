@@ -49,6 +49,19 @@ if (!defined('sugarEntry') || !sugarEntry) {
 require_once __DIR__ . '/../../../modules/Meetings/MeetingFormBase.php';
 require_once __DIR__ . '/../../../include/SugarPHPMailer.php';
 require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
+include_once __DIR__ . '../../../include/utils.php';
+require_once ('custom/modules/Ews/Create.php');
+require_once ('custom/modules/Ews/Cancel.php');
+require_once ('custom/modules/Ews/Find.php');
+require_once ('custom/modules/Ews/Update.php');
+
+use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseFolderIdsType;
+use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
+use jamesiarmes\PhpEws\Enumeration\DistinguishedFolderIdNameType;
+use jamesiarmes\PhpEws\Request\FindItemType;
+use jamesiarmes\PhpEws\Type\CalendarViewType;
+use jamesiarmes\PhpEws\Type\DistinguishedFolderIdType;
+use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 
 class CustomMeetingFormBase extends MeetingFormBase
 {
@@ -74,6 +87,8 @@ class CustomMeetingFormBase extends MeetingFormBase
      */
     public function handleSave($prefix, $redirect = true, $useRequired = false)
     {
+        global $current_user;
+
         $this->removeDeletedAttachments();
 
         //stop sending the invites as we know currently.
@@ -109,7 +124,7 @@ class CustomMeetingFormBase extends MeetingFormBase
         $focus = parent::handleSave($prefix, false, $useRequired);
 
         if($sendInvites == true){
-            $this->sendNotifications($focus);
+            $this->sendNotifications($focus, $current_user);
         }
 
         if ($this->meetingHasBeenCancelledNow($focus)) {
@@ -139,15 +154,30 @@ class CustomMeetingFormBase extends MeetingFormBase
         }
     }
 
-    private function sendNotifications($bean)
+    private function sendNotifications(SugarBean $bean, User $user)
     {
-        //we want to send the invites to the same people as the core would.
-        $notify_list = $bean->get_notification_recipients();
-        $admin = new Administration();
-        $admin->retrieveSettings();
+        global $current_user;
 
-        foreach ($notify_list as $notify_user) {
-            $this->send_assignment_notifications($notify_user, $admin, $bean);
+        if (str_replace('^', '', $user->exchange_version_c) !== 'NONE') {
+            $find = new Find();
+            $results = $find->findMeeting($bean, $current_user);
+
+            if (empty($results)) {
+                $exchange = new Create();
+                $exchange->createMeeting($bean, $user);
+            } else {
+                $update = new Update();
+                $update->updateMeeting($bean, $user, $results);
+            }
+
+        } else {
+            $notify_list = $bean->get_notification_recipients();
+            $admin = new Administration();
+            $admin->retrieveSettings();
+
+            foreach ($notify_list as $notify_user) {
+                $this->send_assignment_notifications($notify_user, $admin, $bean);
+            }
         }
     }
 
@@ -255,7 +285,7 @@ class CustomMeetingFormBase extends MeetingFormBase
     {
         $this->focus = $bean;
 
-        $this->notifyAttendants();
+        $this->notifyAttendants($bean);
     }
 
     /**
@@ -282,18 +312,26 @@ class CustomMeetingFormBase extends MeetingFormBase
         return true;
     }
 
-    /**
-     *
-     */
-    private function notifyAttendants()
+    private function notifyAttendants($bean)
     {
-        if (!$this->setUpMailer()) {
-            return;
-        }
+        global $current_user;
 
-        $this->notifyRelatedBeans('contacts');
-        $this->notifyRelatedBeans('leads');
-        $this->notifyRelatedBeans('users');
+        if (str_replace('^', '', $current_user->exchange_version_c) === 'NONE') {
+            if (!$this->setUpMailer()) {
+                return;
+            }
+
+            $this->notifyRelatedBeans('contacts');
+            $this->notifyRelatedBeans('leads');
+            $this->notifyRelatedBeans('users');
+        } else {
+            $find = new Find();
+            $cancel = new Cancel();
+
+            $meeting = $find->findMeeting($bean, $current_user);
+
+            $cancel->cancelMeeting($current_user, $meeting['ID'], $meeting['ChangeKey']);
+        }
     }
 
     /**

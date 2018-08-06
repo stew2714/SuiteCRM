@@ -2049,3 +2049,13 @@ $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   'Urgent_Care' => 'Urgent Care',
   'Wound_Care' => 'Wound Care',
 );
+
+$GLOBALS['app_list_strings']['exchange_list']=array (
+  'NONE' => 'None',
+  'VERSION_2007' => 'Exchange 2007',
+  'VERSION_2009' => 'Exchange 2009',
+  'VERSION_2010' => 'Exchange 2010',
+  'VERSION_2013' => 'Exchange2013',
+  'VERSION_2016' => 'Exchange2016',
+
+);

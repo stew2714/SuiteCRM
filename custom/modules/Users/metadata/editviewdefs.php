@@ -22,7 +22,7 @@ array (
       'form' => 
       array (
         'headerTpl' => 'modules/Users/tpls/EditViewHeader.tpl',
-        'footerTpl' => 'modules/Users/tpls/EditViewFooter.tpl',
+        'footerTpl' => 'custom/modules/Users/tpls/EditViewFooter.tpl',
       ),
       'useTabs' => false,
       'tabDefs' => 
@@ -33,6 +33,11 @@ array (
           'panelDefault' => 'expanded',
         ),
         'LBL_EMPLOYEE_INFORMATION' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -164,6 +169,36 @@ array (
             'label' => 'LBL_WORK_LOCATION',
           ),
           1 => 'photo',
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'email_address_c',
+            'label' => 'LBL_EMAIL_ADDRESS',
+          ),
+          1 => 
+          array (
+            'name' => 'email_password_c',
+            'label' => 'LBL_EMAIL_PASSWORD',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'exchange_version_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EXCHANGE_VERSION',
+          ),
+          1 => 
+          array (
+            'name' => 'exchange_host_c',
+            'label' => 'LBL_EXCHANGE_HOST',
+          ),
         ),
       ),
     ),
