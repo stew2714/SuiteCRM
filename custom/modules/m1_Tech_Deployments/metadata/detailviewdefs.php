@@ -276,17 +276,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'secondary_emr_description',
-            'label' => 'LBL_SECONDARY_EMR_DESCRIPTION',
+            'name' => 'emr2_hosted_by_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR2_HOSTED_BY',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'emr2_hosted_by_c',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR2_HOSTED_BY',
+            'name' => 'secondary_emr_description',
+            'label' => 'LBL_SECONDARY_EMR_DESCRIPTION',
           ),
           1 => 
           array (
