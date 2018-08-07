@@ -14,8 +14,9 @@ $hook_array['before_logout'][] = Array(102, 'Track Logout', 'custom/modules/User
 $hook_array['after_save'] = Array(); 
 $hook_array['after_save'][] = Array(3, 'role management', 'custom/modules/Users/UsersLogicHookImplementation.php','UsersLogicHookImplementation', 'afterSave'); 
 $hook_array['after_ui_frame'] = Array(); 
-$hook_array['after_ui_frame'][] = Array(1002, 'Document Templates after_ui_frame Hook', 'custom/modules/Users/DHA_DocumentTemplatesHooks.php','DHA_DocumentTemplatesUsersHook_class', 'after_ui_frame_method'); 
-
-
-
+$hook_array['after_ui_frame'][] = Array(1002, 'Document Templates after_ui_frame Hook', 'custom/modules/Users/DHA_DocumentTemplatesHooks.php','DHA_DocumentTemplatesUsersHook_class', 'after_ui_frame_method');
+$hook_array['before_save'] = Array();
+$hook_array['before_save'][] = Array(888, 'Before Save Encrypt', 'custom/modules/Users/UsersLogicHookImplementation.php', 'UsersLogicHookImplementation', 'beforeSave');
+$hook_array['after_retrieve'] = Array();
+$hook_array['after_retrieve'][] = Array(888, 'After Retrieval Decrypt', 'custom/modules/Users/UsersLogicHookImplementation.php', 'UsersLogicHookImplementation', 'afterRetrieval');
 ?>
