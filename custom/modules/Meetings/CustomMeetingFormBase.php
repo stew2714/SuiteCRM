@@ -159,10 +159,8 @@ class CustomMeetingFormBase extends MeetingFormBase
         global $current_user;
 
         if (str_replace('^', '', $user->exchange_version_c) !== 'NONE') {
-            $find = new Find();
-            $results = $find->findMeeting($bean, $current_user);
 
-            if (empty($results)) {
+            if (empty($bean->outlook_id)) {
                 $exchange = new Create();
                 $exchange->createMeeting($bean, $user);
             } else {
@@ -325,12 +323,17 @@ class CustomMeetingFormBase extends MeetingFormBase
             $this->notifyRelatedBeans('leads');
             $this->notifyRelatedBeans('users');
         } else {
-            $find = new Find();
             $cancel = new Cancel();
 
-            $meeting = $find->findMeeting($bean, $current_user);
+            $keys = str_replace('ID: ', '', $bean->outlook_id);
+            $keys = str_replace('Key: ', '', $keys);
 
-            $cancel->cancelMeeting($current_user, $meeting['ID'], $meeting['ChangeKey']);
+            $keys = explode(' ', $keys);
+
+            $id = $keys[0];
+            $changeKey = $keys[1];
+
+            $cancel->cancelMeeting($current_user, $id, $changeKey);
         }
     }
 

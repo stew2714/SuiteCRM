@@ -69,6 +69,8 @@ class Create extends SugarBean
 
     public function createMeeting(SugarBean $bean, User $user)
     {
+        global $db;
+
         $exchange = new Exchange();
 
         $guests = $this->getAttendees();
@@ -93,6 +95,11 @@ class Create extends SugarBean
 
             foreach ($response_message->Items->CalendarItem as $item) {
                 $id = $item->ItemId->Id;
+                $changeKey = $item->ItemId->ChangeKey;
+
+                $bean->outlook_id = 'ID: ' . $id . ' Key: ' . $changeKey;
+                $bean->save();
+
                 LoggerManager::getLogger()->info("Created event $id\n");
             }
         }
