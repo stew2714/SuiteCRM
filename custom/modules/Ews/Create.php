@@ -132,7 +132,7 @@ class Create extends SugarBean
         }
     }
 
-    protected function getAttendees()
+    public function getAttendees()
     {
         global $current_user;
 
@@ -251,7 +251,7 @@ class Create extends SugarBean
         $event->Location = $bean->location;
     }
 
-    protected function addAttendees($guests, $event)
+    public function addAttendees($guests, $event)
     {
         foreach ($guests as $guest) {
             $attendee = new AttendeeType();
