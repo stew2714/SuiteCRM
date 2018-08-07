@@ -1,6 +1,8 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
+include_once __DIR__ . '/../../../include/utils.php';
+
 class UsersLogicHookImplementation
 {
 	function afterSave($bean, $event, $arguments){
@@ -50,6 +52,8 @@ class UsersLogicHookImplementation
         if (isset($_REQUEST['module']) && $_REQUEST['modules'] == "Users" && isset($_REQUEST['action']) && $_REQUEST['action'] == "EditView") {
             if (isset($bean->email_password_c) && $bean->email_password_c != "") {
                 $bean->email_password_c = $bean->encrpyt_before_save($bean->email_password_c);
+
+                LoggerManager::getLogger()->info("Encryped: $bean->email_password_c\n");
             }
         }
     }
