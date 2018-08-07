@@ -1898,11 +1898,56 @@ $GLOBALS['app_list_strings']['emr_hosted_by_list']=array (
   'EMR_Vendor' => 'EMR Vendor',
   'Third_Party' => 'Third Party',
 );
+$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
+  '' => '',
+  'Email' => 'Email',
+  'Onsite_Visit' => 'Onsite Visit',
+  'Phone_Call' => 'Phone Call',
+  'Webinar' => 'Webinar',
+);
+
+$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
+  '' => '',
+  'Mobile_Physician' => 'Mobile - Physician (ex: Haiku/Canto)',
+  'Mobile_Nursing' => 'Mobile - Nursing (ex: Rover)',
+  'Pathology' => 'Pathology (ex: Beaker)',
+  'Radiology' => 'Radiology',
+  'Behavior_Health' => 'Behavior Health',
+  'Cardiology' => 'Cardiology (ex: Cupid)',
+  'Dental' => 'Dental',
+  'Dermatology' => 'Dermatology',
+  'Emergency_Department' => 'Emergency Department',
+  'Endoscopy' => 'Endoscopy',
+  'ENT' => 'ENT',
+  'Home_Health' => 'Home Health',
+  'Hospice' => 'Hospice',
+  'Jail_Prison' => 'Jail / Prison',
+  'Long_Term_Care' => 'Long Term Care',
+  'Obstetrics' => 'Obstetrics',
+  'Oncology' => 'Oncology',
+  'Ophthalmology' => 'Ophthalmology',
+  'Orthopedics' => 'Orthopedics',
+  'Pharmacy' => 'Pharmacy',
+  'Rehab_Services' => 'Rehab Services',
+  'Rheumatology' => 'Rheumatology',
+  'Urgent_Care' => 'Urgent Care',
+  'Wound_Care' => 'Wound Care',
+);
+
+$GLOBALS['app_list_strings']['exchange_list']=array (
+  'NONE' => 'None',
+  'VERSION_2007' => 'Exchange 2007',
+  'VERSION_2009' => 'Exchange 2009',
+  'VERSION_2010' => 'Exchange 2010',
+  'VERSION_2013' => 'Exchange2013',
+  'VERSION_2016' => 'Exchange2016',
+
+);
 
 $GLOBALS['app_list_strings']['FD_version_list']=array (
   '' => '',
-  'FD_6928' => 'FD-6928',
-  'FD_7107' => 'FD-7104',
+  '10.0.634' => '10.0.634',
+  '10.0.529' => '10.0.529',
   '10.0.523' => '10.0.523',
   '10.0.519' => '10.0.519',
   '10.0.517' => '10.0.517',
@@ -2012,50 +2057,6 @@ $GLOBALS['app_list_strings']['FD_version_list']=array (
   '7.85.38' => '7.85.38',
   '7.85.36' => '7.85.36',
   '7.85.32' => '7.85.32',
-);
-
-$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
-  '' => '',
-  'Email' => 'Email',
-  'Onsite_Visit' => 'Onsite Visit',
-  'Phone_Call' => 'Phone Call',
-  'Webinar' => 'Webinar',
-);
-
-$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
-  '' => '',
-  'Mobile_Physician' => 'Mobile - Physician (ex: Haiku/Canto)',
-  'Mobile_Nursing' => 'Mobile - Nursing (ex: Rover)',
-  'Pathology' => 'Pathology (ex: Beaker)',
-  'Radiology' => 'Radiology',
-  'Behavior_Health' => 'Behavior Health',
-  'Cardiology' => 'Cardiology (ex: Cupid)',
-  'Dental' => 'Dental',
-  'Dermatology' => 'Dermatology',
-  'Emergency_Department' => 'Emergency Department',
-  'Endoscopy' => 'Endoscopy',
-  'ENT' => 'ENT',
-  'Home_Health' => 'Home Health',
-  'Hospice' => 'Hospice',
-  'Jail_Prison' => 'Jail / Prison',
-  'Long_Term_Care' => 'Long Term Care',
-  'Obstetrics' => 'Obstetrics',
-  'Oncology' => 'Oncology',
-  'Ophthalmology' => 'Ophthalmology',
-  'Orthopedics' => 'Orthopedics',
-  'Pharmacy' => 'Pharmacy',
-  'Rehab_Services' => 'Rehab Services',
-  'Rheumatology' => 'Rheumatology',
-  'Urgent_Care' => 'Urgent Care',
-  'Wound_Care' => 'Wound Care',
-);
-
-$GLOBALS['app_list_strings']['exchange_list']=array (
-  'NONE' => 'None',
-  'VERSION_2007' => 'Exchange 2007',
-  'VERSION_2009' => 'Exchange 2009',
-  'VERSION_2010' => 'Exchange 2010',
-  'VERSION_2013' => 'Exchange2013',
-  'VERSION_2016' => 'Exchange2016',
-
+  'FD_7107' => 'FD-7104',
+  'FD_6928' => 'FD-6928',
 );
