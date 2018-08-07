@@ -158,7 +158,9 @@ class CustomMeetingFormBase extends MeetingFormBase
     {
         global $current_user;
 
-        if (str_replace('^', '', $user->exchange_version_c) !== 'NONE') {
+        $exchangeVersion = str_replace('^', '', $user->exchange_version_c);
+
+        if ($exchangeVersion !== 'NONE' && $exchangeVersion !== '') {
 
             if (empty($bean->outlook_id)) {
                 $exchange = new Create();
