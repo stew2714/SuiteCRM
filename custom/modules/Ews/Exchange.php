@@ -49,7 +49,7 @@ class Exchange extends SugarBean
     public function setConnection(User $user)
     {
         $username = $user->email_address_c;
-        $password = $user->email_password_c;
+        $password = $this->decrypt_after_retrieve($user->email_password_c);
         $host = $user->exchange_host_c;
         $version = str_replace('^','', $user->exchange_version_c);
 
