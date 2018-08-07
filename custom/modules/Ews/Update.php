@@ -125,12 +125,14 @@ class Update extends SugarBean
         $change->Updates->SetItemField[] = $field;
 
         // Set the updated attachments
-        $field = new SetItemFieldType();
-        $field->FieldURI = new PathToUnindexedFieldType();
-        $field->FieldURI->FieldURI = UnindexedFieldURIType::ITEM_ATTACHMENTS;
-        $field->CalendarItem = new CalendarItemType();
-        $field->CalendarItem->Attachments = $request->Attachments;
-        $change->Updates->SetItemField[] = $field;
+        if (!empty($request->Attachments)) {
+            $field = new SetItemFieldType();
+            $field->FieldURI = new PathToUnindexedFieldType();
+            $field->FieldURI->FieldURI = UnindexedFieldURIType::ITEM_ATTACHMENTS;
+            $field->CalendarItem = new CalendarItemType();
+            $field->CalendarItem->Attachments = $request->Attachments;
+            $change->Updates->SetItemField[] = $field;
+        }
 
         $request->ItemChanges[] = $change;
 
