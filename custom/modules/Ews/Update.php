@@ -65,14 +65,23 @@ class Update extends SugarBean
         $exchange = new Exchange();
         $client = $exchange->setConnection($user);
 
+        $keys = str_replace('ID: ', '', $bean->outlook_id);
+        $keys = str_replace('Key: ', '', $keys);
+
+        $keys = explode(' ', $keys);
+
+        $id = $keys[0];
+        $changeKey = $keys[1];
+
         // Build the request
         $request = new UpdateItemType();
         $request->ConflictResolution = ConflictResolutionType::ALWAYS_OVERWRITE;
         $request->SendMeetingInvitationsOrCancellations = CalendarItemUpdateOperationType::SEND_TO_ALL_AND_SAVE_COPY;
 
+        // Build out item change request.
         $change = new ItemChangeType();
         $change->ItemId = new ItemIdType();
-        $change->ItemId->Id = $meeting['ID'];
+        $change->ItemId->Id = $id;
         $change->Updates = new NonEmptyArrayOfItemChangeDescriptionsType();
 
         $request->ItemChanges[] = $change;
