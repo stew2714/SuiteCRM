@@ -60,7 +60,7 @@ class UsersLogicHookImplementation
 
     public function afterRetrieval($bean, $event, $arguments)
     {
-        if (isset($_REQUEST['module']) && $_REQUEST['modules'] == "Users" && isset($_REQUEST['action']) && $_REQUEST['action'] == "EditView") {
+        if (isset($_REQUEST['module']) && $_REQUEST['module'] == "Users" && isset($_REQUEST['action']) && $_REQUEST['action'] == "EditView") {
             if (isset($bean->email_password_c) && $bean->email_password_c != "") {
                 $bean->email_password_c = $bean->decrypt_after_retrieve($bean->email_password_c);
             }
