@@ -91,6 +91,7 @@ class Update extends SugarBean
 
         $create = new Create;
         $create->addAttachments($bean, $request, $client);
+        $guests = $create->getAttendees();
 
         // Set the updated subject
         $field = new SetItemFieldType();
@@ -106,6 +107,21 @@ class Update extends SugarBean
         $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_LOCATION;
         $field->CalendarItem = new CalendarItemType();
         $field->CalendarItem->Location = $bean->location;
+        $change->Updates->SetItemField[] = $field;
+
+        // Add new invitee
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_REQUIRED_ATTENDEES;
+        $field->CalendarItem = new CalendarItemType();
+
+        $count = 0;
+        foreach ($guests as $key => $guest) {
+            $field->CalendarItem->RequiredAttendees->Attendee[$count]->Mailbox->EmailAddress = $guest['email'];
+            $field->CalendarItem->RequiredAttendees->Attendee[$count]->Mailbox->RoutingType = 'SMTP';
+            $count++;
+        }
+
         $change->Updates->SetItemField[] = $field;
 
         // Set the updated attachments
