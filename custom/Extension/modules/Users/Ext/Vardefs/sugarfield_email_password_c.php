@@ -1,7 +1,7 @@
 <?php
 // created: 2018-08-02 10:20:18
 $dictionary['User']['fields']['email_password_c'] = array(
-    'type' => 'password',
+    'type' => 'encrypt',
     'inline_edit' => '1',
     'labelValue' => 'Email Password',
     'source' => 'custom_fields',

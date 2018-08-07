@@ -108,7 +108,7 @@ class Update extends SugarBean
         $field->CalendarItem->Location = $bean->location;
         $change->Updates->SetItemField[] = $field;
 
-        // Set the updated location
+        // Set the updated attachments
         $field = new SetItemFieldType();
         $field->FieldURI = new PathToUnindexedFieldType();
         $field->FieldURI->FieldURI = UnindexedFieldURIType::ITEM_ATTACHMENTS;
@@ -133,6 +133,11 @@ class Update extends SugarBean
             }
             foreach ($response_message->Items->CalendarItem as $item) {
                 $id = $item->ItemId->Id;
+                $changeKey = $item->ItemId->ChangeKey;
+
+                $bean->outlook_id = 'ID: ' . $id . ' Key: ' . $changeKey;
+                $bean->save();
+
                 LoggerManager::getLogger()->info("Updated event $id\n");
             }
         }
