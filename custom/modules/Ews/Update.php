@@ -108,6 +108,14 @@ class Update extends SugarBean
         $field->CalendarItem->Location = $bean->location;
         $change->Updates->SetItemField[] = $field;
 
+        // Set the updated location
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::ITEM_ATTACHMENTS;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->Attachments = $request->Attachments;
+        $change->Updates->SetItemField[] = $field;
+
         $request->ItemChanges[] = $change;
 
         $response = $client->UpdateItem($request);
