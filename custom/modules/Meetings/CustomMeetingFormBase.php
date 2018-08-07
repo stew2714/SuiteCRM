@@ -49,7 +49,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 require_once __DIR__ . '/../../../modules/Meetings/MeetingFormBase.php';
 require_once __DIR__ . '/../../../include/SugarPHPMailer.php';
 require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
-include_once __DIR__ . '../../../include/utils.php';
+include_once __DIR__ . '/../../../include/utils.php';
 require_once ('custom/modules/Ews/Create.php');
 require_once ('custom/modules/Ews/Cancel.php');
 require_once ('custom/modules/Ews/Find.php');

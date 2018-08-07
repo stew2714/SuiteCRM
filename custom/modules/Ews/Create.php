@@ -42,7 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-require_once __DIR__ . '../../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/Exchange.php';
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfAllItemsType;
