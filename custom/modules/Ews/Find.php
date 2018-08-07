@@ -42,9 +42,9 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-require_once __DIR__ . '../../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/Exchange.php';
-include_once __DIR__ . '../../../include/utils.php';
+include_once __DIR__ . '/../../../include/utils.php';
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseFolderIdsType;
 use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
