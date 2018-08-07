@@ -50,9 +50,14 @@ use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfItemChangeDescriptionsType;
 use jamesiarmes\PhpEws\Enumeration\CalendarItemUpdateOperationType;
 use jamesiarmes\PhpEws\Enumeration\ConflictResolutionType;
 use jamesiarmes\PhpEws\Enumeration\ResponseClassType;
+use jamesiarmes\PhpEws\Enumeration\UnindexedFieldURIType;
 use jamesiarmes\PhpEws\Request\UpdateItemType;
+use jamesiarmes\PhpEws\Type\CalendarItemType;
 use jamesiarmes\PhpEws\Type\ItemChangeType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
+use jamesiarmes\PhpEws\Type\PathToUnindexedFieldType;
+use jamesiarmes\PhpEws\Type\SetItemFieldType;
+use jamesiarmes\PhpEws\Type\FileAttachmentType;
 
 class Update extends SugarBean
 {
@@ -84,10 +89,26 @@ class Update extends SugarBean
         $change->ItemId->Id = $id;
         $change->Updates = new NonEmptyArrayOfItemChangeDescriptionsType();
 
-        $request->ItemChanges[] = $change;
-
         $create = new Create;
         $create->addAttachments($bean, $request, $client);
+
+        // Set the updated subject
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::ITEM_SUBJECT;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->Subject = $bean->name;
+        $change->Updates->SetItemField[] = $field;
+
+        // Set the updated location
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_LOCATION;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->Location = $bean->location;
+        $change->Updates->SetItemField[] = $field;
+
+        $request->ItemChanges[] = $change;
 
         $response = $client->UpdateItem($request);
 

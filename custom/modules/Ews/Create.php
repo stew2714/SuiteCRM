@@ -77,7 +77,7 @@ class Create extends SugarBean
         $client = $exchange->setConnection($user);
         $request = $this->buildRequest();
         $event = $this->buildEvent($bean);
-        $this->setBody($event);
+        $this->setBody($event, $bean);
         $this->addAttendees($guests, $event);
         $this->addAttachments($bean, $event, $client);
 
@@ -238,7 +238,7 @@ class Create extends SugarBean
         return $event;
     }
 
-    protected function setBody($event)
+    protected function setBody($event, $bean)
     {
         global $current_user;
 
@@ -246,6 +246,9 @@ class Create extends SugarBean
         $event->Body = new BodyType();
         $event->Body->_ = $current_user->full_name . ' has invited you to a Meeting' . PHP_EOL . 'Subject: ' . $event->Subject . PHP_EOL . 'Start Date: ' . $event->Start . PHP_EOL . 'End Date: ' . $event->End . PHP_EOL;
         $event->Body->BodyType = BodyTypeType::TEXT;
+
+        $event->Location = new CalendarItemType();
+        $event->Location = $bean->location;
     }
 
     protected function addAttendees($guests, $event)
