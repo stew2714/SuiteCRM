@@ -157,14 +157,18 @@ class CustomMeetingFormBase extends MeetingFormBase
         if ($exchangeVersion !== 'NONE' && $exchangeVersion !== '') {
 
             if (empty($bean->outlook_id)) {
+                LoggerManager::getLogger()->fatal("Attempting to send a meeting creation with ExchangeAPI");
                 $exchange = new Create();
                 $exchange->createMeeting($bean, $user);
             } else {
+                LoggerManager::getLogger()->fatal("Attempting to send a meeting update with ExchangeAPI");
                 $update = new Update();
                 $update->updateMeeting($bean, $user, $results);
             }
 
         } else {
+            LoggerManager::getLogger()->fatal("Attempting to send a meeting notification with Ical/Vcal");
+
             $notify_list = $bean->get_notification_recipients();
             $admin = new Administration();
             $admin->retrieveSettings();
@@ -328,11 +332,16 @@ class CustomMeetingFormBase extends MeetingFormBase
             $id = $keys[0];
             $oldChangeKey = $keys[1];
 
+            LoggerManager::getLogger()->fatal("Attempting to send a meeting cancellation with ExchangeAPI. ID: \"$id\"\n");
+
             $find = new Find();
             $newChangeKey = $find->fetchChangeKey($current_user, $id);
 
             $cancel->cancelMeeting($current_user, $id, $newChangeKey);
         } else {
+
+            LoggerManager::getLogger()->fatal("Attempting to send a meeting cancellation with Ical/Vcal");
+
             if (!$this->setUpMailer()) {
                 return;
             }
