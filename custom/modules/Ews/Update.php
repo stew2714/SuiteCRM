@@ -136,7 +136,13 @@ class Update extends SugarBean
 
         $request->ItemChanges[] = $change;
 
-        $response = $client->UpdateItem($request);
+        try {
+            $response = $client->UpdateItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to update event with \"$code: $message\"\n");
+        }
 
 
         $response_messages = $response->ResponseMessages->UpdateItemResponseMessage;
