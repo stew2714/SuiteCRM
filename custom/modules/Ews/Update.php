@@ -47,17 +47,22 @@ require_once __DIR__ . '/Exchange.php';
 require_once('custom/modules/Ews/Create.php');
 require_once('custom/modules/Ews/Find.php');
 
+use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseItemIdsType;
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfItemChangeDescriptionsType;
 use jamesiarmes\PhpEws\Enumeration\CalendarItemUpdateOperationType;
 use jamesiarmes\PhpEws\Enumeration\ConflictResolutionType;
+use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
 use jamesiarmes\PhpEws\Enumeration\ResponseClassType;
 use jamesiarmes\PhpEws\Enumeration\UnindexedFieldURIType;
+use jamesiarmes\PhpEws\Request\GetItemType;
 use jamesiarmes\PhpEws\Request\UpdateItemType;
 use jamesiarmes\PhpEws\Type\CalendarItemType;
 use jamesiarmes\PhpEws\Type\ItemChangeType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
+use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 use jamesiarmes\PhpEws\Type\PathToUnindexedFieldType;
 use jamesiarmes\PhpEws\Type\SetItemFieldType;
+use jamesiarmes\PhpEws\Type\RequestAttachmentIdType;
 
 class Update extends SugarBean
 {
@@ -92,6 +97,10 @@ class Update extends SugarBean
         $change->ItemId = new ItemIdType();
         $change->ItemId->Id = $id;
         $change->Updates = new NonEmptyArrayOfItemChangeDescriptionsType();
+
+
+        $this->deleteAttachments($id, $client);
+
 
         $create = new Create;
         $create->addAttachments($bean, $request, $client);
@@ -179,5 +188,43 @@ class Update extends SugarBean
                 LoggerManager::getLogger()->info("Updated event $id\n");
             }
         }
+    }
+
+    public function deleteAttachments($id, $client)
+    {
+        $request = new GetItemType();
+        $request->ItemShape = new ItemResponseShapeType();
+        $request->ItemShape->BaseShape = DefaultShapeNamesType::ALL_PROPERTIES;
+        $request->ItemIds = new NonEmptyArrayOfBaseItemIdsType();
+
+        $item = new ItemIdType();
+        $item->Id = $id;
+        $request->ItemIds->ItemId[] = $item;
+
+        try {
+            $response = $client->GetItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to get item with \"$code: $message\"\n");
+        }
+
+        $response_messages = $response->ResponseMessages->GetItemResponseMessage;
+        $request->AttachmentIDs = new RequestAttachmentIdType();
+
+        $count = 0;
+        foreach ($response_messages[0]->Items->CalendarItem[0]->Attachments->FileAttachment as $attachment) {
+            $request->AttachmentIDs[$count]->Id = $attachment->AttachmentId->Id;
+            $count++;
+        }
+
+        try {
+            $response = $client->DeleteAttachment($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to delete attachments with \"$code: $message\"\n");
+        }
+
     }
 }
