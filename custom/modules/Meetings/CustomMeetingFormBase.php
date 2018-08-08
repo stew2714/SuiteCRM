@@ -319,7 +319,7 @@ class CustomMeetingFormBase extends MeetingFormBase
     {
         global $current_user;
 
-        $exchangeVersion = str_replace('^', '', $bean->exchange_version_c);
+        $exchangeVersion = str_replace('^', '', $current_user->exchange_version_c);
 
         if ($exchangeVersion !== 'NONE' && $exchangeVersion !== '') {
             $cancel = new Cancel();
