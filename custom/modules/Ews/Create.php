@@ -89,7 +89,7 @@ class Create extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to update event with \"$code: $message\"\n");
+            LoggerManager::getLogger()->warn("Failed to create event with \"$code: $message\"\n");
         }
 
         $response_messages = $response->ResponseMessages->CreateItemResponseMessage;
