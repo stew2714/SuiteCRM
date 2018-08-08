@@ -57,7 +57,6 @@ use jamesiarmes\PhpEws\Type\ItemChangeType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
 use jamesiarmes\PhpEws\Type\PathToUnindexedFieldType;
 use jamesiarmes\PhpEws\Type\SetItemFieldType;
-use jamesiarmes\PhpEws\Type\FileAttachmentType;
 
 class Update extends SugarBean
 {
@@ -67,6 +66,8 @@ class Update extends SugarBean
 
     public function updateMeeting(SugarBean $bean, User $user, $meeting)
     {
+        global $current_user;
+
         $exchange = new Exchange();
         $client = $exchange->setConnection($user);
 
@@ -109,20 +110,30 @@ class Update extends SugarBean
         $field->CalendarItem->Location = $bean->location;
         $change->Updates->SetItemField[] = $field;
 
-        // Add new invitee
-        $field = new SetItemFieldType();
-        $field->FieldURI = new PathToUnindexedFieldType();
-        $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_REQUIRED_ATTENDEES;
-        $field->CalendarItem = new CalendarItemType();
-
-        $count = 0;
-        foreach ($guests as $key => $guest) {
-            $field->CalendarItem->RequiredAttendees->Attendee[$count]->Mailbox->EmailAddress = $guest['email'];
-            $field->CalendarItem->RequiredAttendees->Attendee[$count]->Mailbox->RoutingType = 'SMTP';
-            $count++;
+        // Add current user as default guest
+        if (empty($guests)) {
+            $guests[0] = [
+                'email' => $current_user->email1,
+                'name' => $current_user->name,
+            ];
         }
 
-        $change->Updates->SetItemField[] = $field;
+        // Add new invitee
+        if (!empty($guests)) {
+            $field = new SetItemFieldType();
+            $field->FieldURI = new PathToUnindexedFieldType();
+            $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_REQUIRED_ATTENDEES;
+            $field->CalendarItem = new CalendarItemType();
+
+            $count = 0;
+            foreach ($guests as $key => $guest) {
+                $field->CalendarItem->RequiredAttendees->Attendee[$count]->Mailbox->EmailAddress = $guest['email'];
+                $field->CalendarItem->RequiredAttendees->Attendee[$count]->Mailbox->RoutingType = 'SMTP';
+                $count++;
+            }
+
+            $change->Updates->SetItemField[] = $field;
+        }
 
         // Set the updated attachments
         if (!empty($request->Attachments)) {
@@ -136,7 +147,13 @@ class Update extends SugarBean
 
         $request->ItemChanges[] = $change;
 
-        $response = $client->UpdateItem($request);
+        try {
+            $response = $client->UpdateItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to update event with \"$code: $message\"\n");
+        }
 
 
         $response_messages = $response->ResponseMessages->UpdateItemResponseMessage;

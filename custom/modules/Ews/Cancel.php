@@ -69,7 +69,14 @@ class Cancel extends SugarBean
         $cancellation->ReferenceItemId->Id = $event_id;
         $cancellation->ReferenceItemId->ChangeKey = $change_key;
         $request->Items->CancelCalendarItem[] = $cancellation;
-        $response = $client->CreateItem($request);
+
+        try {
+            $response = $client->CreateItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to cancel event with \"$code: $message\"\n");
+        }
 
         $response_messages = $response->ResponseMessages->CreateItemResponseMessage;
         foreach ($response_messages as $response_message) {
