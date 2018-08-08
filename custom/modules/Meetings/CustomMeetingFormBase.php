@@ -50,18 +50,10 @@ require_once __DIR__ . '/../../../modules/Meetings/MeetingFormBase.php';
 require_once __DIR__ . '/../../../include/SugarPHPMailer.php';
 require_once __DIR__ . '/../../../modules/AOP_Case_Updates/util.php';
 include_once __DIR__ . '/../../../include/utils.php';
-require_once ('custom/modules/Ews/Create.php');
-require_once ('custom/modules/Ews/Cancel.php');
-require_once ('custom/modules/Ews/Find.php');
-require_once ('custom/modules/Ews/Update.php');
-
-use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseFolderIdsType;
-use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
-use jamesiarmes\PhpEws\Enumeration\DistinguishedFolderIdNameType;
-use jamesiarmes\PhpEws\Request\FindItemType;
-use jamesiarmes\PhpEws\Type\CalendarViewType;
-use jamesiarmes\PhpEws\Type\DistinguishedFolderIdType;
-use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
+require_once('custom/modules/Ews/Create.php');
+require_once('custom/modules/Ews/Cancel.php');
+require_once('custom/modules/Ews/Find.php');
+require_once('custom/modules/Ews/Update.php');
 
 class CustomMeetingFormBase extends MeetingFormBase
 {
@@ -82,6 +74,7 @@ class CustomMeetingFormBase extends MeetingFormBase
 
 
     private $inviteChange = false;
+
     /**
      * @inheritdoc
      */
@@ -93,26 +86,27 @@ class CustomMeetingFormBase extends MeetingFormBase
 
         //stop sending the invites as we know currently.
         $sendInvites = false;
-        if($_REQUEST['send_invites'] == true){
+        if ($_REQUEST['send_invites'] == true) {
             $_REQUEST['send_invites'] = false;
             $sendInvites = true;
-            if(!empty($_REQUEST['record']) ){
+            if (!empty($_REQUEST['record'])) {
                 $tempBean = BeanFactory::getBean("Meetings", $_REQUEST['record']);
-                if($tempBean != false && $tempBean->load_relationship("users")){
+                if ($tempBean != false && $tempBean->load_relationship("users")) {
                     $tempObject = $tempBean->users->getBeans();
                     $tempObjectContact = [];
-                    if( $tempBean->load_relationship("contacts") ){
+                    if ($tempBean->load_relationship("contacts")) {
                         $tempObjectContact = $tempBean->contacts->getBeans();
                     }
                     $tempObjectLeads = [];
-                    if( $tempBean->load_relationship("contacts") ){
+                    if ($tempBean->load_relationship("contacts")) {
                         $tempObjectLeads = $tempBean->contacts->getBeans();
                     }
                     $list = array_filter(explode(",", $_REQUEST['user_invitees']));
-                    foreach($list as $key => $value){
-                        if(!is_object($tempObject[ $value ]) &&
-                           !is_object($tempObjectContact[ $value ]) &&
-                           !is_object($tempObjectLeads[ $value ]) ){
+                    foreach ($list as $key => $value) {
+                        if (!is_object($tempObject[$value]) &&
+                            !is_object($tempObjectContact[$value]) &&
+                            !is_object($tempObjectLeads[$value])
+                        ) {
                             $this->inviteChange = true;
                             break;
                         }
@@ -123,7 +117,7 @@ class CustomMeetingFormBase extends MeetingFormBase
         }
         $focus = parent::handleSave($prefix, false, $useRequired);
 
-        if($sendInvites == true){
+        if ($sendInvites == true) {
             $this->sendNotifications($focus, $current_user);
         }
 
@@ -181,21 +175,21 @@ class CustomMeetingFormBase extends MeetingFormBase
         }
     }
 
-    private function addAttachments($notify_mail , $bean){
+    private function addAttachments($notify_mail, $bean)
+    {
         $rel = "attachment_notes";
 
 
-
-        if($bean->load_relationship($rel)) {
+        if ($bean->load_relationship($rel)) {
             $results = $bean->{$rel}->getBeans();
-            if(count($results) > 0 ){
+            if (count($results) > 0) {
 //                $notify_mail->addCustomHeader("Content-Type: text/calendar; charset=\"utf-8\"; method=REQUEST");
 //                $notify_mail->addCustomHeader("Content-Transfer-Encoding: base64");
 //                $notify_mail->addCustomHeader("Content-Transfer-Encoding: 8bit;");
-                foreach($results as $relatedBean){
-                    if(in_array($relatedBean->filename, $_FILES["file_create_file"]["name"]) ||
-                        $this->inviteChange  == true)
-                    {
+                foreach ($results as $relatedBean) {
+                    if (in_array($relatedBean->filename, $_FILES["file_create_file"]["name"]) ||
+                        $this->inviteChange == true
+                    ) {
                         $file = file_get_contents("upload/{$relatedBean->id}");
                         $notify_mail->addStringAttachment(
                             $file,
@@ -208,9 +202,12 @@ class CustomMeetingFormBase extends MeetingFormBase
                 }
             }
         }
+
         return $notify_mail;
     }
-    public function send_assignment_notifications($notify_user, $admin, $bean){
+
+    public function send_assignment_notifications($notify_user, $admin, $bean)
+    {
         global $current_user;
 
         if (($this->object_name == 'Meeting' || $this->object_name == 'Call') || $notify_user->receive_notifications) {
@@ -261,6 +258,7 @@ class CustomMeetingFormBase extends MeetingFormBase
                 //if smtp was not verified against user or system, then do not send out email
                 if (!$smtpVerified) {
                     $GLOBALS['log']->fatal("Notifications: error sending e-mail, smtp server was not found ");
+
                     //break out
                     return;
                 }
@@ -273,11 +271,12 @@ class CustomMeetingFormBase extends MeetingFormBase
             }
         }
 
-        $path = SugarConfig::getInstance()->get('upload_dir','upload/') . $this->id;
+        $path = SugarConfig::getInstance()->get('upload_dir', 'upload/') . $this->id;
         unlink($path);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
+
     /**
      * @param Meeting $bean
      */
@@ -316,15 +315,9 @@ class CustomMeetingFormBase extends MeetingFormBase
     {
         global $current_user;
 
-        if (str_replace('^', '', $current_user->exchange_version_c) === 'NONE') {
-            if (!$this->setUpMailer()) {
-                return;
-            }
+        $exchangeVersion = str_replace('^', '', $bean->exchange_version_c);
 
-            $this->notifyRelatedBeans('contacts');
-            $this->notifyRelatedBeans('leads');
-            $this->notifyRelatedBeans('users');
-        } else {
+        if ($exchangeVersion !== 'NONE' && $exchangeVersion !== '') {
             $cancel = new Cancel();
 
             $keys = str_replace('ID: ', '', $bean->outlook_id);
@@ -338,7 +331,15 @@ class CustomMeetingFormBase extends MeetingFormBase
             $find = new Find();
             $newChangeKey = $find->fetchChangeKey($current_user, $id);
 
-            $cancel->cancelMeeting($current_user, $id, $oldChangeKey);
+            $cancel->cancelMeeting($current_user, $id, $newChangeKey);
+        } else {
+            if (!$this->setUpMailer()) {
+                return;
+            }
+
+            $this->notifyRelatedBeans('contacts');
+            $this->notifyRelatedBeans('leads');
+            $this->notifyRelatedBeans('users');
         }
     }
 
@@ -363,6 +364,7 @@ class CustomMeetingFormBase extends MeetingFormBase
 
         if (!isset($sugar_config['MeetingCancelEmailTemplate'])) {
             $log->error('Email Template for notifying attendants of meeting cancellation not set in config.');
+
             return false;
         }
 
@@ -371,6 +373,7 @@ class CustomMeetingFormBase extends MeetingFormBase
 
         if (empty($this->emailTemplate->id)) {
             $log->error('Email Template for notifying attendants of meeting cancellation not found in db.');
+
             return false;
         }
 
@@ -406,22 +409,21 @@ class CustomMeetingFormBase extends MeetingFormBase
         $mailer->addAddress($emailAddress);
 
         $organizer = new User();
-        if(isset($this->assigned_user_id) && !empty($this->assigned_user_id)){
+        if (isset($this->assigned_user_id) && !empty($this->assigned_user_id)) {
             $organizer->retrieve($this->assigned_user_id);
-        }
-        else{
+        } else {
             $organizer = $GLOBALS['current_user']; // Why this would happen no idea - this was the default originally
         }
 
 
-        $path = SugarConfig::getInstance()->get('upload_dir','upload/') . $this->focus->id."-cancel";
+        $path = SugarConfig::getInstance()->get('upload_dir', 'upload/') . $this->focus->id . "-cancel";
 
         require_once("custom/modules/Meetings/vCal.php");
         $content = customvCal::get_ical_event($this->focus, $organizer);
 
         $mailer->Ical = $content;
 
-        if(file_put_contents($path,$content)){
+        if (file_put_contents($path, $content)) {
             //$mailer->addStringAttachment($content, 'meeting-cancel.ics', 'base64', 'text/calendar');
         }
 
