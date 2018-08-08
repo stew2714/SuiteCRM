@@ -83,7 +83,15 @@ class Create extends SugarBean
 
         // Add the event to the request
         $request->Items->CalendarItem[] = $event;
-        $response = $client->CreateItem($request);
+
+        try {
+            $response = $client->CreateItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to create event with \"$code: $message\"\n");
+        }
+
         $response_messages = $response->ResponseMessages->CreateItemResponseMessage;
         foreach ($response_messages as $response_message) {
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
