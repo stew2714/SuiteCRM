@@ -45,6 +45,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/Exchange.php';
 require_once('custom/modules/Ews/Create.php');
+require_once('custom/modules/Ews/Find.php');
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfItemChangeDescriptionsType;
 use jamesiarmes\PhpEws\Enumeration\CalendarItemUpdateOperationType;
@@ -77,7 +78,9 @@ class Update extends SugarBean
         $keys = explode(' ', $keys);
 
         $id = $keys[0];
-        $changeKey = $keys[1];
+
+        $find = new Find();
+        $changeKey = $find->fetchChangeKey($current_user, $id);
 
         // Build the request
         $request = new UpdateItemType();
