@@ -99,7 +99,13 @@ class Update extends SugarBean
         $change->Updates = new NonEmptyArrayOfItemChangeDescriptionsType();
 
 
-        $this->deleteAttachments($id, $client);
+        try {
+            $this->deleteAttachments($id, $client);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to delete event attachment with \"$code: $message\"\n");
+        }
 
 
         $create = new Create;
