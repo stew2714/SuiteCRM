@@ -8,7 +8,7 @@ class EchoIndividualUploadSize
             return;
         }
 
-        if (isset($_REQUEST['module']) && $_REQUEST['module'] == "Meetings") {
+        if (isset($_REQUEST['module']) && $_REQUEST['module'] == "Meetings" || $_REQUEST['module'] == "Calendar") {
             global $sugar_config;
             $maxSize = empty($sugar_config['upload_individual_file_size'])
                 ? 0 : $sugar_config['upload_individual_file_size'];
