@@ -47,11 +47,14 @@ require_once __DIR__ . '/Exchange.php';
 include_once __DIR__ . '/../../../include/utils.php';
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseFolderIdsType;
+use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseItemIdsType;
 use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
 use jamesiarmes\PhpEws\Enumeration\DistinguishedFolderIdNameType;
 use jamesiarmes\PhpEws\Request\FindItemType;
+use jamesiarmes\PhpEws\Request\GetItemType;
 use jamesiarmes\PhpEws\Type\CalendarViewType;
 use jamesiarmes\PhpEws\Type\DistinguishedFolderIdType;
+use jamesiarmes\PhpEws\Type\ItemIdType;
 use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 
 class Find extends SugarBean
@@ -99,5 +102,30 @@ class Find extends SugarBean
         }
 
         return $foundMeeting;
+    }
+
+    public function fetchChangeKey(User $current_user, $id)
+    {
+        $exchange = new Exchange();
+        $client = $exchange->setConnection($current_user);
+
+        $request = new GetItemType();
+        $request->ItemShape = new ItemResponseShapeType();
+        $request->ItemShape->BaseShape = DefaultShapeNamesType::ALL_PROPERTIES;
+        $request->ItemIds = new NonEmptyArrayOfBaseItemIdsType();
+
+        $item = new ItemIdType();
+        $item->Id = $id;
+        $request->ItemIds->ItemId[] = $item;
+
+        try {
+            $response = $client->GetItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to get item with \"$code: $message\"\n");
+        }
+
+        return $response->ResponseMessages->GetItemResponseMessage[0]->Items->CalendarItem[0]->ItemId->ChangeKey;
     }
 }

@@ -333,9 +333,12 @@ class CustomMeetingFormBase extends MeetingFormBase
             $keys = explode(' ', $keys);
 
             $id = $keys[0];
-            $changeKey = $keys[1];
+            $oldChangeKey = $keys[1];
 
-            $cancel->cancelMeeting($current_user, $id, $changeKey);
+            $find = new Find();
+            $newChangeKey = $find->fetchChangeKey($current_user, $id);
+
+            $cancel->cancelMeeting($current_user, $id, $oldChangeKey);
         }
     }
 
