@@ -97,6 +97,25 @@ class Update extends SugarBean
         $create->addAttachments($bean, $request, $client);
         $guests = $create->getAttendees();
 
+        $startDate = new DateTime($bean->date_start);
+        $endDate = new DateTime($bean->date_end);
+
+        // Set the updated start time.
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_START;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->Start = $startDate->format('c');
+        $change->Updates->SetItemField[] = $field;
+
+        // Set the updated end time.
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_END;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->End = $endDate->format('c');
+        $change->Updates->SetItemField[] = $field;
+
         // Set the updated subject
         $field = new SetItemFieldType();
         $field->FieldURI = new PathToUnindexedFieldType();
