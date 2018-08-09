@@ -61,8 +61,8 @@ use jamesiarmes\PhpEws\Type\ItemChangeType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
 use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 use jamesiarmes\PhpEws\Type\PathToUnindexedFieldType;
-use jamesiarmes\PhpEws\Type\SetItemFieldType;
 use jamesiarmes\PhpEws\Type\RequestAttachmentIdType;
+use jamesiarmes\PhpEws\Type\SetItemFieldType;
 
 class Update extends SugarBean
 {
@@ -190,16 +190,13 @@ class Update extends SugarBean
             $message = $fault->getMessage();
             $code = $fault->getCode();
             LoggerManager::getLogger()->warn("Failed to update event with \"$code: $message\"\n");
-            $caught = true;
         }
 
         $attachmentCount = 0;
 
-        if (!$caught) {
-            foreach ($request->Attachments->FileAttachment as $attachments) {
-                LoggerManager::getLogger()->fatal("Sucessfully updated attachments: \"$attachments->Name: $attachmentCount: $id\"\n");
-                $attachmentCount++;
-            }
+        foreach ($request->Attachments->FileAttachment as $attachments) {
+            LoggerManager::getLogger()->fatal("Sucessfully updated attachments: \"$attachments->Name: $attachmentCount: $id\"\n");
+            $attachmentCount++;
         }
 
         $response_messages = $response->ResponseMessages->UpdateItemResponseMessage;
