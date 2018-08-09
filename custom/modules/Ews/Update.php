@@ -47,17 +47,22 @@ require_once __DIR__ . '/Exchange.php';
 require_once('custom/modules/Ews/Create.php');
 require_once('custom/modules/Ews/Find.php');
 
+use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseItemIdsType;
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfItemChangeDescriptionsType;
 use jamesiarmes\PhpEws\Enumeration\CalendarItemUpdateOperationType;
 use jamesiarmes\PhpEws\Enumeration\ConflictResolutionType;
+use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
 use jamesiarmes\PhpEws\Enumeration\ResponseClassType;
 use jamesiarmes\PhpEws\Enumeration\UnindexedFieldURIType;
+use jamesiarmes\PhpEws\Request\GetItemType;
 use jamesiarmes\PhpEws\Request\UpdateItemType;
 use jamesiarmes\PhpEws\Type\CalendarItemType;
 use jamesiarmes\PhpEws\Type\ItemChangeType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
+use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 use jamesiarmes\PhpEws\Type\PathToUnindexedFieldType;
 use jamesiarmes\PhpEws\Type\SetItemFieldType;
+use jamesiarmes\PhpEws\Type\RequestAttachmentIdType;
 
 class Update extends SugarBean
 {
@@ -93,9 +98,38 @@ class Update extends SugarBean
         $change->ItemId->Id = $id;
         $change->Updates = new NonEmptyArrayOfItemChangeDescriptionsType();
 
+
+        try {
+            $this->deleteAttachments($id, $client);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to delete event attachment with \"$code: $message\"\n");
+        }
+
+
         $create = new Create;
         $create->addAttachments($bean, $request, $client);
         $guests = $create->getAttendees();
+
+        $startDate = new DateTime($bean->date_start);
+        $endDate = new DateTime($bean->date_end);
+
+        // Set the updated start time.
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_START;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->Start = $startDate->format('c');
+        $change->Updates->SetItemField[] = $field;
+
+        // Set the updated end time.
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::CALENDAR_END;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->End = $endDate->format('c');
+        $change->Updates->SetItemField[] = $field;
 
         // Set the updated subject
         $field = new SetItemFieldType();
@@ -179,5 +213,44 @@ class Update extends SugarBean
                 LoggerManager::getLogger()->info("Updated event $id\n");
             }
         }
+    }
+
+    public function deleteAttachments($id, $client)
+    {
+        $request = new GetItemType();
+        $request->ItemShape = new ItemResponseShapeType();
+        $request->ItemShape->BaseShape = DefaultShapeNamesType::ALL_PROPERTIES;
+        $request->ItemIds = new NonEmptyArrayOfBaseItemIdsType();
+
+        $item = new ItemIdType();
+        $item->Id = $id;
+        $request->ItemIds->ItemId[] = $item;
+
+        try {
+            $response = $client->GetItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to get item with \"$code: $message\"\n");
+        }
+
+        $response_messages = $response->ResponseMessages->GetItemResponseMessage;
+
+        $count = 0;
+        foreach ($response_messages[0]->Items->CalendarItem[0]->Attachments->FileAttachment as $attachment) {
+            $id = new RequestAttachmentIdType();
+            $id->Id = $attachment->AttachmentId->Id;
+            $request->AttachmentIds->AttachmentId[] = $id;
+            $count++;
+        }
+
+        try {
+            $response = $client->DeleteAttachment($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->warn("Failed to delete attachments with \"$code: $message\"\n");
+        }
+
     }
 }
