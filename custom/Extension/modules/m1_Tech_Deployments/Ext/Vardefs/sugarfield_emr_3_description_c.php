@@ -1,6 +1,6 @@
 <?php
- // created: 2018-06-25 16:56:42
+ // created: 2018-08-02 14:24:51
 $dictionary['m1_Tech_Deployments']['fields']['emr_3_description_c']['inline_edit']='';
-$dictionary['m1_Tech_Deployments']['fields']['emr_3_description_c']['labelValue']='EMR #3 Description';
+$dictionary['m1_Tech_Deployments']['fields']['emr_3_description_c']['labelValue']='#3 version';
 
  ?>

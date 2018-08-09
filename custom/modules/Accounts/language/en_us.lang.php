@@ -1,5 +1,5 @@
 <?php
-// created: 2018-07-30 20:26:07
+// created: 2018-08-02 14:41:13
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',

@@ -1,5 +1,5 @@
 <?php
-// created: 2018-07-26 13:57:08
+// created: 2018-08-02 14:53:44
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (

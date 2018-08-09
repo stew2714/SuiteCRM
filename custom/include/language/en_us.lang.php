@@ -2013,6 +2013,7 @@ $GLOBALS['app_list_strings']['FD_version_list']=array (
   '7.85.36' => '7.85.36',
   '7.85.32' => '7.85.32',
 );
+
 $GLOBALS['app_list_strings']['countries_dom']=array (
   '' => '',
   'ABU DHABI' => 'ABU DHABI',
@@ -2250,4 +2251,20 @@ $GLOBALS['app_list_strings']['countries_dom']=array (
   'ZAIRE' => 'ZAIRE',
   'ZAMBIA' => 'ZAMBIA',
   'ZIMBABWE' => 'ZIMBABWE',
+);
+
+$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
+  '' => '',
+  'Email' => 'Email',
+  'Onsite_Visit' => 'Onsite Visit',
+  'Phone_Call' => 'Phone Call',
+  'Webinar' => 'Webinar',
+);
+
+$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
+  '' => '',
+  'Pathology' => 'Pathology',
+  'Radiology' => 'Radiology',
+  'Haiku' => 'Haiku',
+  'Canto' => 'Canto',
 );

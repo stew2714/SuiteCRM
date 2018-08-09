@@ -34,6 +34,16 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'EMR_1_C' => 
+  array (
+    'type' => 'relate',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_EMR_1',
+    'id' => 'M1_EMR_ID_C',
+    'link' => true,
+    'width' => '10%',
+  ),
   'DATE_ENTERED' => 
   array (
     'type' => 'datetime',
@@ -151,16 +161,6 @@ array (
     'type' => 'bool',
     'default' => false,
     'label' => 'LBL_CAPD',
-    'width' => '10%',
-  ),
-  'EMR_1_C' => 
-  array (
-    'type' => 'relate',
-    'default' => false,
-    'studio' => 'visible',
-    'label' => 'LBL_EMR_1',
-    'id' => 'M1_EMR_ID_C',
-    'link' => true,
     'width' => '10%',
   ),
   'EMR_2_C' => 
