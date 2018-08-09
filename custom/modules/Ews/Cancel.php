@@ -75,7 +75,7 @@ class Cancel extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to cancel event with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to cancel event with \"$code: $message\"\n");
         }
 
         $response_messages = $response->ResponseMessages->CreateItemResponseMessage;
@@ -83,7 +83,7 @@ class Cancel extends SugarBean
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
                 $code = $response_message->ResponseCode;
                 $message = $response_message->MessageText;
-                LoggerManager::getLogger()->warn("Cancellation failed to create with \"$code: $message\"\n");
+                LoggerManager::getLogger()->fatal("Cancellation failed to create with \"$code: $message\"\n");
                 continue;
             }
         }

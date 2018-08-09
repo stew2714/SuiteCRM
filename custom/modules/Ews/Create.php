@@ -89,7 +89,7 @@ class Create extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to create event with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to create event with \"$code: $message\"\n");
         }
 
         $response_messages = $response->ResponseMessages->CreateItemResponseMessage;
@@ -97,7 +97,7 @@ class Create extends SugarBean
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
                 $code = $response_message->ResponseCode;
                 $message = $response_message->MessageText;
-                LoggerManager::getLogger()->warn("Event failed to create with \"$code: $message\"\n");
+                LoggerManager::getLogger()->fatal("Event failed to create with \"$code: $message\"\n");
                 continue;
             }
 
@@ -108,7 +108,7 @@ class Create extends SugarBean
                 $bean->outlook_id = 'ID: ' . $id . ' Key: ' . $changeKey;
                 $bean->save();
 
-                LoggerManager::getLogger()->info("Created event $id\n");
+                LoggerManager::getLogger()->fatal("Created event $id\n");
             }
         }
     }
