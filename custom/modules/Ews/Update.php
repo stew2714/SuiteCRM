@@ -197,7 +197,7 @@ class Update extends SugarBean
 
         if (!$caught) {
             foreach ($request->Attachments->FileAttachment as $attachments) {
-                LoggerManager::getLogger()->fatal("Sucessfully updated attachments: \"$attachments->Name: $attachmentCount\"\n");
+                LoggerManager::getLogger()->fatal("Sucessfully updated attachments: \"$attachments->Name: $attachmentCount: $id\"\n");
                 $attachmentCount++;
             }
         }
