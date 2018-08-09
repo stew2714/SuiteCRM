@@ -190,8 +190,17 @@ class Update extends SugarBean
             $message = $fault->getMessage();
             $code = $fault->getCode();
             LoggerManager::getLogger()->warn("Failed to update event with \"$code: $message\"\n");
+            $caught = true;
         }
 
+        $attachmentCount = 0;
+
+        if (!$caught) {
+            foreach ($request->Attachments->FileAttachment as $attachments) {
+                LoggerManager::getLogger()->fatal("Sucessfully updated attachments: \"$attachments->Name: $attachmentCount\"\n");
+                $attachmentCount++;
+            }
+        }
 
         $response_messages = $response->ResponseMessages->UpdateItemResponseMessage;
 
