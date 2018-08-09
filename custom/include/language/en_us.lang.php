@@ -524,10 +524,6 @@ $GLOBALS['app_list_strings']['acct_rad_speech_rec_list']=array (
   'Nuance_Powerscribe_5x' => 'Nuance Powerscribe 5.x',
   'Other' => 'Other',
 );
-
-$GLOBALS['app_list_strings']['acct_ownership_list']=array (
-  '' => '',
-);
 $GLOBALS['app_list_strings']['client_buying_tf_list']=array (
   '' => '',
   '0_3' => '0 - 3 months',
@@ -2059,4 +2055,24 @@ $GLOBALS['app_list_strings']['FD_version_list']=array (
   '7.85.32' => '7.85.32',
   'FD_7107' => 'FD-7104',
   'FD_6928' => 'FD-6928',
+);
+$GLOBALS['app_list_strings']['acct_ownership_list']=array (
+  '' => '',
+  'Church_Operated' => 'Church Operated',
+  'Corporation_Investor_Owned' => 'Corporatation: Investor-Owned',
+  'Corporation_Non_Government' => 'Corporation: Non-Government',
+  'Government_Non_Federal' => 'Government: Non-Federal',
+  'Government_City' => 'Government: City',
+  'Government_City_County' => 'Government: City-County',
+  'Government_County' => 'Government: County',
+  'Government_Hospital_District' => 'Government: Hospital District',
+  'Government_State' => 'Government: State',
+  'Individual_Investor_Owned' => 'Individual: Investor-Owned',
+  'Investor_Owned_for_profit' => 'Investor-Owned: for-profit',
+  'Non_Government' => 'Non-Government',
+  'Non_Government_not_for_profit_NFP' => 'Non-Government: non-for-profit (NFP)',
+  'Partnership_Investor_Owned' => 'Partnership: Investor-Owned',
+  'Private' => 'Private',
+  'Public' => 'Public',
+  'Subsidiary' => 'Subsidiary',
 );
