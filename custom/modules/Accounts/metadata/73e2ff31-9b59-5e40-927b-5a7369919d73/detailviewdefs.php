@@ -108,15 +108,15 @@ array (
         array (
           0 => 
           array (
-            'name' => 'facility_type_dd_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FACILITY_TYPE_DD',
+            'name' => 'account_type',
+            'comment' => 'The Company is of this type',
+            'label' => 'LBL_TYPE',
           ),
           1 => 
           array (
-            'name' => 'industry',
-            'comment' => 'The company belongs in this industry',
-            'label' => 'LBL_INDUSTRY',
+            'name' => 'facility_type_dd_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE_DD',
           ),
         ),
         2 => 
@@ -128,9 +128,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'account_type',
-            'comment' => 'The Company is of this type',
-            'label' => 'LBL_TYPE',
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
           ),
         ),
         3 => 
@@ -715,49 +714,19 @@ array (
               'key' => 'billing',
             ),
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => 
-          array (
-            'name' => 'related_facilitities_c',
-            'label' => 'Related Facilities',
-          ),
-        ),
-        3 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 
+          array (
+            'name' => 'related_facilitities_c',
+            'label' => 'Related Facilities',
           ),
         ),
       ),
