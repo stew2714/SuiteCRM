@@ -235,11 +235,12 @@ class Update extends SugarBean
         }
 
         $response_messages = $response->ResponseMessages->GetItemResponseMessage;
-        $request->AttachmentIDs = new RequestAttachmentIdType();
 
         $count = 0;
         foreach ($response_messages[0]->Items->CalendarItem[0]->Attachments->FileAttachment as $attachment) {
-            $request->AttachmentIDs[$count]->Id = $attachment->AttachmentId->Id;
+            $id = new RequestAttachmentIdType();
+            $id->Id = $attachment->AttachmentId->Id;
+            $request->AttachmentIds->AttachmentId[] = $id;
             $count++;
         }
 
