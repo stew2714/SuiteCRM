@@ -111,9 +111,24 @@ class CustomMeetingFormBase extends MeetingFormBase
                             break;
                         }
                     }
+                    $contactlist = array_filter(explode(",", $_REQUEST['contact_invitees']));
+                    foreach($contactlist as $key => $value){
+                        if(!is_object($tempObjectContact[ $value ])){
+                            $this->inviteChange = true;
+                            break;
+                        }
+                    }
+                    $leadlist = array_filter(explode(",", $_REQUEST['lead_invitees']));
+                    foreach($leadlist as $key => $value){
+                        if(!is_object($tempObjectLeads[ $value ]) ){
+                            $this->inviteChange = true;
+                            break;
+                        }
+                    }
+                    $inviteList = array_merge($list, $contactlist, $leadlist);
                 }
             }
-            $this->totalInvites = explode(",", $_REQUEST["user_invitees"]);
+            $this->totalInvites = explode(",", $inviteList);
         }
         $focus = parent::handleSave($prefix, false, $useRequired);
 
@@ -214,7 +229,7 @@ class CustomMeetingFormBase extends MeetingFormBase
     {
         global $current_user;
 
-        if (($this->object_name == 'Meeting' || $this->object_name == 'Call') || $notify_user->receive_notifications) {
+        if (($bean->object_name == 'Meeting' || $bean->object_name == 'Call') || $notify_user->receive_notifications) {
             $sendToEmail = $notify_user->emailAddress->getPrimaryAddress($notify_user);
             $sendEmail = true;
             if (empty($sendToEmail)) {

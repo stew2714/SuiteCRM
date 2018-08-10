@@ -50,10 +50,12 @@ $dictionary['SA_Products']['fields']['cia_auto_renew_c']['source']='custom_field
 
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['name']='cia_effective_date_c';
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['cia_effective_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['cia_effective_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['cia_effective_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['cia_effective_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['cia_effective_date_c']['vname']='LBL_CIA_EFFECTIVE_DATE_C';
@@ -64,10 +66,12 @@ $dictionary['SA_Products']['fields']['cia_effective_date_c']['source']='custom_f
 
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['name']='cia_expiration_date_c';
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['cia_expiration_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['cia_expiration_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['cia_expiration_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['cia_expiration_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['cia_expiration_date_c']['vname']='LBL_CIA_EXPIRATION_DATE_C';
@@ -78,10 +82,12 @@ $dictionary['SA_Products']['fields']['cia_expiration_date_c']['source']='custom_
 
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['name']='cia_renewal_start_date_c';
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['cia_renewal_start_date_c']['vname']='LBL_CIA_RENEWAL_START_DATE_C';
@@ -237,10 +243,12 @@ $dictionary['SA_Products']['fields']['hosting_auto_renew_c']['source']='custom_f
 
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['name']='hosting_effective_date_c';
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['hosting_effective_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['hosting_effective_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['hosting_effective_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['hosting_effective_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['hosting_effective_date_c']['vname']='LBL_HOSTING_EFFECTIVE_DATE_C';
@@ -251,10 +259,12 @@ $dictionary['SA_Products']['fields']['hosting_effective_date_c']['source']='cust
 
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['name']='hosting_expiration_date_c';
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['hosting_expiration_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['hosting_expiration_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['hosting_expiration_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['hosting_expiration_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['vname']='LBL_HOSTING_EXPIRATION_DATE_C';
@@ -265,10 +275,12 @@ $dictionary['SA_Products']['fields']['hosting_expiration_date_c']['source']='cus
 
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['name']='hosting_renewal_start_date_c';
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['hosting_renewal_start_date_c']['vname']='LBL_HOSTING_RENEWAL_START_DATE_C';
@@ -387,10 +399,12 @@ $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_effec_c
 
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['name']='maintenance_and_support_attachment_expir_c';
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['len']='255';
-$dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['type']='date';
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['importable']='true';
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['maintenance_and_support_attachment_expir_c']['vname']='LBL_MAINTENANCE_AND_SUPPORT_ATTACHMENT_EXPIR_C';
@@ -440,10 +454,12 @@ $dictionary['SA_Products']['fields']['maintenance_and_support_renewal_term_mon_c
 
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['name']='maintenance_and_support_sow_date_c';
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['maintenance_and_support_sow_date_c']['vname']='LBL_MAINTENANCE_AND_SUPPORT_SOW_DATE_C';
@@ -532,10 +548,12 @@ $dictionary['SA_Products']['fields']['maintenance_and_support_year_3_c']['source
 
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['name']='product_attachment_effective_date_c';
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['vname']='LBL_PRODUCT_ATTACHMENT_EFFECTIVE_DATE_C';
@@ -546,10 +564,12 @@ $dictionary['SA_Products']['fields']['product_attachment_effective_date_c']['sou
 
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['name']='product_attachment_expiration_date_c';
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_attachment_expiration_date_c']['vname']='LBL_PRODUCT_ATTACHMENT_EXPIRATION_DATE_C';
@@ -627,10 +647,12 @@ $dictionary['SA_Products']['fields']['product_gma_auto_renew_c']['source']='cust
 
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['name']='product_gma_effective_date_c';
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_gma_effective_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_gma_effective_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_gma_effective_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_gma_effective_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['vname']='LBL_PRODUCT_GMA_EFFECTIVE_DATE_C';
@@ -641,10 +663,12 @@ $dictionary['SA_Products']['fields']['product_gma_effective_date_c']['source']='
 
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['name']='product_gma_expiration_date_c';
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['vname']='LBL_PRODUCT_GMA_EXPIRATION_DATE_C';
@@ -655,10 +679,12 @@ $dictionary['SA_Products']['fields']['product_gma_expiration_date_c']['source']=
 
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['name']='product_gma_renewal_start_date_c';
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_gma_renewal_start_date_c']['vname']='LBL_PRODUCT_GMA_RENEWAL_START_DATE_C';
@@ -775,10 +801,12 @@ $dictionary['SA_Products']['fields']['product_maintenance_and_support_auto_ren_c
 
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['name']='product_maintenance_and_support_effectiv_c';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c']['vname']='LBL_PRODUCT_MAINTENANCE_AND_SUPPORT_EFFECTIV_C';
@@ -789,10 +817,12 @@ $dictionary['SA_Products']['fields']['product_maintenance_and_support_effectiv_c
 
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['name']='product_maintenance_and_support_expirati_c';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_maintenance_and_support_expirati_c']['vname']='LBL_PRODUCT_MAINTENANCE_AND_SUPPORT_EXPIRATI_C';
@@ -842,10 +872,12 @@ $dictionary['SA_Products']['fields']['product_perpetual_c']['source']='custom_fi
 
 $dictionary['SA_Products']['fields']['product_sow_date_c']['name']='product_sow_date_c';
 $dictionary['SA_Products']['fields']['product_sow_date_c']['len']='255';
-$dictionary['SA_Products']['fields']['product_sow_date_c']['type']='datetimecombo';
+$dictionary['SA_Products']['fields']['product_sow_date_c']['type']='date';
 $dictionary['SA_Products']['fields']['product_sow_date_c']['inline_edit']=1;
+$dictionary['SA_Products']['fields']['product_sow_date_c']['options']='date_range_search_dom';
 $dictionary['SA_Products']['fields']['product_sow_date_c']['importable']='true';
 $dictionary['SA_Products']['fields']['product_sow_date_c']['reportable']=true;
+$dictionary['SA_Products']['fields']['product_sow_date_c']['enable_range_search']=true;
 $dictionary['SA_Products']['fields']['product_sow_date_c']['dbType']='datetime';
 $dictionary['SA_Products']['fields']['product_sow_date_c']['module']='SA_Products';
 $dictionary['SA_Products']['fields']['product_sow_date_c']['vname']='LBL_PRODUCT_SOW_DATE_C';

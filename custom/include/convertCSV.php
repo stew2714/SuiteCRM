@@ -239,6 +239,13 @@ class convertCSV
                     $field['dbType'] = 'datetime';
                 }
 
+                if (($field['type'] == "date")) {
+                    $field['type'] = 'date';
+                    $field['dbType'] = 'datetime';
+                    $field['enable_range_search'] = true;
+                    $field['options'] = 'date_range_search_dom';
+                }
+
                 if (($field['type'] == "dynamicenum")) {
                     $field['type'] = 'dynamicenum';
                     $field['dbType'] = 'enum';
@@ -485,8 +492,6 @@ class convertCSV
         } elseif ($type == "varchar" && $length >= 255) {
             $type = "text";
         } elseif ($type == "timestamp") {
-            $type = "datetime";
-        } elseif ($type == "date") {
             $type = "datetime";
         }
 

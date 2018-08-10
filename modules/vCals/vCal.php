@@ -369,7 +369,7 @@
             $ical_array[] = array(
                 "DTSTAMP", $GLOBALS['timedate']->getNow(false)->format(self::UTC_FORMAT)
             );
-            $ical_array[] = array("ORGANIZER;CN=" . $user->email1, "mailto:" . $user->email1);
+            $ical_array[] = array("ORGANIZER;CN=" . $user->name, "mailto:" . $user->email1);
             $ical_array[] = array("UID", $bean->id);
 
             if ($bean->object_name == "Meeting")

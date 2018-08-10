@@ -208,6 +208,22 @@ $searchFields['Accounts'] = array (
   array (
     'query_type' => 'default',
   ),
+  'sf_id_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'recordtypeid_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'cms_medicare_number_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'billing_address_country' => 
+  array (
+    'query_type' => 'default',
+  ),
   'ehr_c' => 
   array (
     'query_type' => 'default',

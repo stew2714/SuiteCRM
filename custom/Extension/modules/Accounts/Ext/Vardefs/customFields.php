@@ -2,6 +2,10 @@
  // Vardefs Creator : 
 
 
+ // Vardef Created : short_id_c 
+
+
+
  // Vardef Created : admissions_c 
 
 $dictionary['Account']['fields']['admissions_c']['name']='admissions_c';
@@ -73,8 +77,8 @@ $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['sou
  // Vardef Created : isch_c 
 
 $dictionary['Account']['fields']['isch_c']['name']='isch_c';
-$dictionary['Account']['fields']['isch_c']['len']='1';
-$dictionary['Account']['fields']['isch_c']['type']='bit';
+$dictionary['Account']['fields']['isch_c']['len']='255';
+$dictionary['Account']['fields']['isch_c']['type']='bool';
 $dictionary['Account']['fields']['isch_c']['inline_edit']=1;
 $dictionary['Account']['fields']['isch_c']['importable']='true';
 $dictionary['Account']['fields']['isch_c']['reportable']=true;
@@ -86,8 +90,8 @@ $dictionary['Account']['fields']['isch_c']['source']='custom_fields';
  // Vardef Created : landmark_acquisition_c 
 
 $dictionary['Account']['fields']['landmark_acquisition_c']['name']='landmark_acquisition_c';
-$dictionary['Account']['fields']['landmark_acquisition_c']['len']='1';
-$dictionary['Account']['fields']['landmark_acquisition_c']['type']='bit';
+$dictionary['Account']['fields']['landmark_acquisition_c']['len']='255';
+$dictionary['Account']['fields']['landmark_acquisition_c']['type']='bool';
 $dictionary['Account']['fields']['landmark_acquisition_c']['inline_edit']=1;
 $dictionary['Account']['fields']['landmark_acquisition_c']['importable']='true';
 $dictionary['Account']['fields']['landmark_acquisition_c']['reportable']=true;

@@ -124,4 +124,6 @@ $mod_strings = array (
   'LBL_LAST_MODIFIED_BY_OWNER_C' => 'Last Modified By',
   'LBL_DETAILVIEW_PANEL18' => 'New Panel 18',
   'LBL_DETAILVIEW_PANEL19' => 'System Information',
+  'LBL_AMB_EMR_OTHER_REQUIRED' => 'When “Other” is selected in the Ambulatory EMR field, the Ambulatory EMR Other field must not be blank.',
+  'LBL_SUB_TERM_REQUIRED_FOR_COMMITS' => 'When “Other” is selected in the Ambulatory EMR field, the Ambulatory EMR Other field must not be blank.',
 );

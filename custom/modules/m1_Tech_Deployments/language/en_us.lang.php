@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-02 18:53:25
+// created: 2018-08-09 19:17:37
 $mod_strings = array (
   'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
   'LBL_EMR_1' => 'EMR #1',
@@ -30,7 +30,7 @@ $mod_strings = array (
   'LBL_EMR3_HOSTED_BY' => '#3 hosted by',
   'LBL_EMR4_HOSTED_BY' => '#4 hosted by',
   'LBL_EMR5_HOSTED_BY' => '#5 hosted by',
-  'LBL_EMR_OTHER_HOSTED_BY' => 'Other hosted by',
+  'LBL_EMR_OTHER_HOSTED_BY' => 'Other EMR hosted by',
   'LBL_ASSIGNED_TO_NAME' => 'Owner',
   'LBL_CURR_FD_VERSION' => 'Current FD Version',
   'LBL_PREVIOUS_FD_VERSION' => 'Previous FD Version',
@@ -41,10 +41,10 @@ $mod_strings = array (
   'LBL_EMR_2_OTHER_DETAILS' => '#2 config details',
   'LBL_EMR_4_OTHER_DETAILS' => '#4 config details',
   'LBL_EMR_5_OTHER_DETAILS' => '#5 config details',
+  'LBL_EMR_OTHER_MODULES' => 'Other EMR modules',
   'LBL_EMR_1_MODULES' => '#1 modules',
   'LBL_EMR_2_MODULES' => '#2 modules',
   'LBL_EMR_3_MODULES' => '#3 modules',
   'LBL_EMR_4_MODULES' => '#4 modules',
   'LBL_EMR_5_MODULES' => '#5 modules',
-  'LBL_EMR_OTHER_MODULES' => 'Other EMR modules',
 );

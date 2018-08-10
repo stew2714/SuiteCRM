@@ -346,9 +346,9 @@ class AOS_ContractsController extends SugarController
                 $bean->apttus_status_category_c = "eff";
                 $bean->apttus_status_c = "eff_act";
                 $bean->save();
-                if(!empty($this->bean->Oneapttus_parent_agreement_c) && $this->bean->apttus_status_c == 'eff_act') {
+                if(!empty($bean->Oneapttus_parent_agreement_c) && $bean->apttus_status_c == 'eff_act') {
                     $sql = "UPDATE aos_contracts_cstm SET aos_contracts_cstm.apttus_status_category_c = 'ame', aos_contracts_cstm.apttus_status_c = 'ame_sup' WHERE aos_contracts_cstm.id_c = '".$this->bean->Oneapttus_parent_agreement_c."'";
-                    $this->bean->db->query($sql);
+                    $bean->db->query($sql);
                 }
                 echo "success";
                 die();
