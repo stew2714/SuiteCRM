@@ -1,6 +1,8 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
+include_once __DIR__ . '/../../../include/utils.php';
+
 class UsersLogicHookImplementation
 {
 	function afterSave($bean, $event, $arguments){
@@ -41,6 +43,26 @@ class UsersLogicHookImplementation
                     array('role_id' => $role->id, 'user_id' => $bean->id), 
                     false
                 );
+            }
+        }
+    }
+
+    public function beforeSave($bean, $event, $arguments)
+    {
+        if (isset($_REQUEST['module']) && $_REQUEST['module'] == "Users" && isset($_REQUEST['action']) && $_REQUEST['action'] == "Save") {
+            if (isset($bean->email_password_c) && $bean->email_password_c != "") {
+                $bean->email_password_c = $bean->encrpyt_before_save($bean->email_password_c);
+
+                LoggerManager::getLogger()->info("Encryped: $bean->email_password_c\n");
+            }
+        }
+    }
+
+    public function afterRetrieval($bean, $event, $arguments)
+    {
+        if (isset($_REQUEST['module']) && $_REQUEST['module'] == "Users" && isset($_REQUEST['action']) && $_REQUEST['action'] == "EditView") {
+            if (isset($bean->email_password_c) && $bean->email_password_c != "") {
+                $bean->email_password_c = $bean->decrypt_after_retrieve($bean->email_password_c);
             }
         }
     }

@@ -69,6 +69,7 @@ $sugar_config['salesRoleId'] = '97fd0408-2b26-720b-f753-5a7f78fd6c4b';
 $sugar_config['log_memory_usage'] = true;
 $sugar_config['securitysuite_filter_user_list'] = false;
 $sugar_config['enable_line_editing_detail'] = false;
+
 /***CONFIGURATOR***/
 $sugar_config['upload_individual_file_size'] = '30000';
 /***CONFIGURATOR***/

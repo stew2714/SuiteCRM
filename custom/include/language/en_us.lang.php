@@ -1929,6 +1929,45 @@ $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   'Urgent_Care' => 'Urgent Care',
   'Wound_Care' => 'Wound Care',
 );
+
+$GLOBALS['app_list_strings']['exchange_list']=array (
+  'NONE' => 'None',
+  'VERSION_2007' => 'Exchange 2007',
+  'VERSION_2009' => 'Exchange 2009',
+  'VERSION_2010' => 'Exchange 2010',
+  'VERSION_2013' => 'Exchange2013',
+  'VERSION_2016' => 'Exchange2016',
+
+);
+>>>>>>> origin/ProdPush08062018
+
+$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
+  '' => '',
+  'Mobile_Physician' => 'Mobile - Physician (ex: Haiku/Canto)',
+  'Mobile_Nursing' => 'Mobile - Nursing (ex: Rover)',
+  'Pathology' => 'Pathology (ex: Beaker)',
+  'Radiology' => 'Radiology',
+  'Behavior_Health' => 'Behavior Health',
+  'Cardiology' => 'Cardiology (ex: Cupid)',
+  'Dental' => 'Dental',
+  'Dermatology' => 'Dermatology',
+  'Emergency_Department' => 'Emergency Department',
+  'Endoscopy' => 'Endoscopy',
+  'ENT' => 'ENT',
+  'Home_Health' => 'Home Health',
+  'Hospice' => 'Hospice',
+  'Jail_Prison' => 'Jail / Prison',
+  'Long_Term_Care' => 'Long Term Care',
+  'Obstetrics' => 'Obstetrics',
+  'Oncology' => 'Oncology',
+  'Ophthalmology' => 'Ophthalmology',
+  'Orthopedics' => 'Orthopedics',
+  'Pharmacy' => 'Pharmacy',
+  'Rehab_Services' => 'Rehab Services',
+  'Rheumatology' => 'Rheumatology',
+  'Urgent_Care' => 'Urgent Care',
+  'Wound_Care' => 'Wound Care',
+);
 $GLOBALS['app_list_strings']['FD_version_list']=array (
   '' => '',
   '10.0.634' => '10.0.634',
@@ -2287,19 +2326,10 @@ $GLOBALS['app_list_strings']['countries_dom']=array (
   'ZAMBIA' => 'ZAMBIA',
   'ZIMBABWE' => 'ZIMBABWE',
 );
-
-$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
+$GLOBALS['app_list_strings']['acct_ownership_list']=array (
   '' => '',
-  'Email' => 'Email',
-  'Onsite_Visit' => 'Onsite Visit',
-  'Phone_Call' => 'Phone Call',
-  'Webinar' => 'Webinar',
-);
-
-$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
-  '' => '',
-  'Church_Operated' => 'Church-Operated',
-  'Corporation_Investor_Owned' => 'Corporation: Investor-Owned',
+  'Church_Operated' => 'Church Operated',
+  'Corporation_Investor_Owned' => 'Corporatation: Investor-Owned',
   'Corporation_Non_Government' => 'Corporation: Non-Government',
   'Government_Non_Federal' => 'Government: Non-Federal',
   'Government_City' => 'Government: City',
@@ -2315,4 +2345,7 @@ $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   'Private' => 'Private',
   'Public' => 'Public',
   'Subsidiary' => 'Subsidiary',
+
 );
+
+

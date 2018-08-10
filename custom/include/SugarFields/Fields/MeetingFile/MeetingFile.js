@@ -46,9 +46,8 @@ function addAttachmentGroup(obj) {
   var $list = $("#upload_file_list");
 
   var maxSize = 0;
-  var $sizeInput = $('#upload_individual_file_size');
-  if ($sizeInput.length) {
-    maxSize = $sizeInput.val() * 1024;
+  if (typeof individualUploadMaxSize !== 'undefined') {
+    maxSize = individualUploadMaxSize * 1024;
   }
   var exceedsMaxSize = false;
 
