@@ -241,7 +241,7 @@ $dictionary['Account']['fields']['ehr_percent_c']['options'] = 'acct_ehr_percent
 
 // Field: ehr_install_date_c
 $dictionary['Account']['fields']['ehr_install_date_c']['name'] = 'ehr_install_date_c';
-$dictionary['Account']['fields']['ehr_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['ehr_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['ehr_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['ehr_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['ehr_install_date_c']['required'] = false;
@@ -292,7 +292,7 @@ $dictionary['Account']['fields']['mtso_1_name_c']['vname']='MTSO 1';
 $dictionary['Account']['fields']['mtso_1_name_c']['source']='non-db';
 
 // 2017-11-01 BCG
-$dictionary['Account']['fields']['mtso_1_name_c']['custom_module']='Accounts';
+//$dictionary['Account']['fields']['mtso_1_name_c']['custom_module']='Accounts';
 
 // End of relate for mtso_1
 
@@ -351,7 +351,7 @@ $dictionary['Account']['fields']['mtso_2_name_c']['vname']='MTSO 2';
 $dictionary['Account']['fields']['mtso_2_name_c']['source']='non-db';
 
 // 2017-11-01 BCG
-$dictionary['Account']['fields']['mtso_2_name_c']['custom_module']='Accounts';
+//$dictionary['Account']['fields']['mtso_2_name_c']['custom_module']='Accounts';
 
 // End of relate for mtso_2
 
@@ -409,7 +409,7 @@ $dictionary['Account']['fields']['mtso_3_name_c']['vname']='MTSO 3';
 $dictionary['Account']['fields']['mtso_3_name_c']['source']='non-db';
 
 // 2017-11-01 BCG
-$dictionary['Account']['fields']['mtso_3_name_c']['custom_module']='Accounts';
+//$dictionary['Account']['fields']['mtso_3_name_c']['custom_module']='Accounts';
 
 // End of relate for mtso_3
 
@@ -426,7 +426,7 @@ $dictionary['Account']['fields']['mtso_3_percent_c']['source'] = 'custom_fields'
 
 // Field: tos_contract_expiration_date_c
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['name'] = 'tos_contract_expiration_date_c';
-$dictionary['Account']['fields']['tos_contract_expiration_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['tos_contract_expiration_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['len'] = '';
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_contract_expiration_date_c']['required'] = false;
@@ -436,7 +436,7 @@ $dictionary['Account']['fields']['tos_contract_expiration_date_c']['source'] = '
 
 // Field: tos_budget_start_date_c
 $dictionary['Account']['fields']['tos_budget_start_date_c']['name'] = 'tos_budget_start_date_c';
-$dictionary['Account']['fields']['tos_budget_start_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['tos_budget_start_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['tos_budget_start_date_c']['len'] = '';
 $dictionary['Account']['fields']['tos_budget_start_date_c']['size'] = '20';
 $dictionary['Account']['fields']['tos_budget_start_date_c']['required'] = false;
@@ -451,7 +451,7 @@ $dictionary['Account']['fields']['transcription_volumemonth_c']['len'] = '19';
 $dictionary['Account']['fields']['transcription_volumemonth_c']['size'] = '20';
 $dictionary['Account']['fields']['transcription_volumemonth_c']['required'] = false;
 $dictionary['Account']['fields']['transcription_volumemonth_c']['comments'] = 'Auto-created entry for field transcription_volumemonth_c';
-$dictionary['Account']['fields']['transcription_volumemonth_c']['vname'] = 'Transcription Volumemonth';
+$dictionary['Account']['fields']['transcription_volumemonth_c']['vname'] = 'Transcription Volume/Month';
 $dictionary['Account']['fields']['transcription_volumemonth_c']['source'] = 'custom_fields';
 
 // Field: transcription_uom_c
@@ -558,7 +558,7 @@ $dictionary['Account']['fields']['voice_capture_system_c']['options'] = 'acct_vo
 
 // Field: voice_capture_install_date_c
 $dictionary['Account']['fields']['voice_capture_install_date_c']['name'] = 'voice_capture_install_date_c';
-$dictionary['Account']['fields']['voice_capture_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['voice_capture_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['voice_capture_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['voice_capture_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['voice_capture_install_date_c']['required'] = false;
@@ -579,7 +579,7 @@ $dictionary['Account']['fields']['transcription_system_c']['options'] = 'acct_tr
 
 // Field: transcription_install_date_c
 $dictionary['Account']['fields']['transcription_install_date_c']['name'] = 'transcription_install_date_c';
-$dictionary['Account']['fields']['transcription_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['transcription_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['transcription_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['transcription_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['transcription_install_date_c']['required'] = false;
@@ -600,7 +600,7 @@ $dictionary['Account']['fields']['him_speech_rec_system_c']['options'] = 'acct_s
 
 // Field: him_speech_rec_install_date_c
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['name'] = 'him_speech_rec_install_date_c';
-$dictionary['Account']['fields']['him_speech_rec_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['him_speech_rec_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['him_speech_rec_install_date_c']['required'] = false;
@@ -621,7 +621,7 @@ $dictionary['Account']['fields']['rad_speech_rec_system_c']['options'] = 'acct_r
 
 // Field: rad_speech_rec_install_date_c
 $dictionary['Account']['fields']['rad_speech_rec_install_date_c']['name'] = 'rad_speech_rec_install_date_c';
-$dictionary['Account']['fields']['rad_speech_rec_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['rad_speech_rec_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['rad_speech_rec_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['rad_speech_rec_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['rad_speech_rec_install_date_c']['required'] = false;
@@ -642,7 +642,7 @@ $dictionary['Account']['fields']['ris_c']['options'] = 'acct_ris_list';
 
 // Field: ris_install_date_c
 $dictionary['Account']['fields']['ris_install_date_c']['name'] = 'ris_install_date_c';
-$dictionary['Account']['fields']['ris_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['ris_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['ris_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['ris_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['ris_install_date_c']['required'] = false;
@@ -663,7 +663,7 @@ $dictionary['Account']['fields']['coding_system_c']['options'] = 'acct_coding_sy
 
 // Field: coding_system_install_date_c
 $dictionary['Account']['fields']['coding_system_install_date_c']['name'] = 'coding_system_install_date_c';
-$dictionary['Account']['fields']['coding_system_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['coding_system_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['coding_system_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['coding_system_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['coding_system_install_date_c']['required'] = false;
@@ -683,7 +683,7 @@ $dictionary['Account']['fields']['mobile_devices_c']['source'] = 'custom_fields'
 
 // Field: mobile_devices_install_date_c
 $dictionary['Account']['fields']['mobile_devices_install_date_c']['name'] = 'mobile_devices_install_date_c';
-$dictionary['Account']['fields']['mobile_devices_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['mobile_devices_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['mobile_devices_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['mobile_devices_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['mobile_devices_install_date_c']['required'] = false;
@@ -703,7 +703,7 @@ $dictionary['Account']['fields']['other_system_c']['source'] = 'custom_fields';
 
 // Field: other_system_install_date_c
 $dictionary['Account']['fields']['other_system_install_date_c']['name'] = 'other_system_install_date_c';
-$dictionary['Account']['fields']['other_system_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['other_system_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['other_system_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['other_system_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['other_system_install_date_c']['required'] = false;
@@ -732,7 +732,7 @@ $dictionary['Account']['fields']['top_10_prospecting_status_c']['source'] = 'cus
 
 // Field: top_10_prospecting_start_date_c
 $dictionary['Account']['fields']['top_10_prospecting_start_date_c']['name'] = 'top_10_prospecting_start_date_c';
-$dictionary['Account']['fields']['top_10_prospecting_start_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['top_10_prospecting_start_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['top_10_prospecting_start_date_c']['len'] = '';
 $dictionary['Account']['fields']['top_10_prospecting_start_date_c']['size'] = '20';
 $dictionary['Account']['fields']['top_10_prospecting_start_date_c']['required'] = false;
@@ -793,7 +793,7 @@ $dictionary['Account']['fields']['kam_c']['source'] = 'custom_fields';
 
 // Field: levers_dials_date_c
 $dictionary['Account']['fields']['levers_dials_date_c']['name'] = 'levers_dials_date_c';
-$dictionary['Account']['fields']['levers_dials_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['levers_dials_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['levers_dials_date_c']['len'] = '';
 $dictionary['Account']['fields']['levers_dials_date_c']['size'] = '20';
 $dictionary['Account']['fields']['levers_dials_date_c']['required'] = false;
@@ -814,7 +814,7 @@ $dictionary['Account']['fields']['pacs_c']['options'] = 'acct_pacs_list';
 
 // Field: pacs_install_date_c
 $dictionary['Account']['fields']['pacs_install_date_c']['name'] = 'pacs_install_date_c';
-$dictionary['Account']['fields']['pacs_install_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['pacs_install_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['pacs_install_date_c']['len'] = '';
 $dictionary['Account']['fields']['pacs_install_date_c']['size'] = '20';
 $dictionary['Account']['fields']['pacs_install_date_c']['required'] = false;
@@ -861,7 +861,7 @@ $dictionary['Account']['fields']['radiology_top_10_reason_c']['source'] = 'custo
 
 // Field: radiology_top_10_start_date_c
 $dictionary['Account']['fields']['radiology_top_10_start_date_c']['name'] = 'radiology_top_10_start_date_c';
-$dictionary['Account']['fields']['radiology_top_10_start_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['radiology_top_10_start_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['radiology_top_10_start_date_c']['len'] = '';
 $dictionary['Account']['fields']['radiology_top_10_start_date_c']['size'] = '20';
 $dictionary['Account']['fields']['radiology_top_10_start_date_c']['required'] = false;
@@ -1259,7 +1259,7 @@ $dictionary['Account']['fields']['cdi_comments_c']['source'] = 'custom_fields';
 
 // Field: cdi_comment_date_c
 $dictionary['Account']['fields']['cdi_comment_date_c']['name'] = 'cdi_comment_date_c';
-$dictionary['Account']['fields']['cdi_comment_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['cdi_comment_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['cdi_comment_date_c']['len'] = '';
 $dictionary['Account']['fields']['cdi_comment_date_c']['size'] = '20';
 $dictionary['Account']['fields']['cdi_comment_date_c']['required'] = false;
@@ -1429,7 +1429,7 @@ $dictionary['Account']['fields']['ig_id_c']['len'] = '';
 $dictionary['Account']['fields']['ig_id_c']['size'] = '20';
 $dictionary['Account']['fields']['ig_id_c']['required'] = false;
 $dictionary['Account']['fields']['ig_id_c']['comments'] = 'Auto-created entry for field ig_id_c';
-$dictionary['Account']['fields']['ig_id_c']['vname'] = 'IG Id';
+$dictionary['Account']['fields']['ig_id_c']['vname'] = 'IGN';
 $dictionary['Account']['fields']['ig_id_c']['source'] = 'custom_fields';
 
 // Field: rad_campaign_c
@@ -1488,7 +1488,7 @@ $dictionary['Account']['fields']['new_region_c']['len'] = '30';
 $dictionary['Account']['fields']['new_region_c']['size'] = '20';
 $dictionary['Account']['fields']['new_region_c']['required'] = false;
 $dictionary['Account']['fields']['new_region_c']['comments'] = 'Auto-created entry for field new_region_c';
-$dictionary['Account']['fields']['new_region_c']['vname'] = 'New Region';
+$dictionary['Account']['fields']['new_region_c']['vname'] = 'Region';
 $dictionary['Account']['fields']['new_region_c']['source'] = 'custom_fields';
 
 // Field: state_split_c
@@ -1751,7 +1751,7 @@ $dictionary['Account']['fields']['lmsilt_upsellopportunity_c']['source'] = 'cust
 
 // Field: renewal_expiration_date_c
 $dictionary['Account']['fields']['renewal_expiration_date_c']['name'] = 'renewal_expiration_date_c';
-$dictionary['Account']['fields']['renewal_expiration_date_c']['type'] = 'timestamp';
+$dictionary['Account']['fields']['renewal_expiration_date_c']['type'] = 'date';
 $dictionary['Account']['fields']['renewal_expiration_date_c']['len'] = '';
 $dictionary['Account']['fields']['renewal_expiration_date_c']['size'] = '20';
 $dictionary['Account']['fields']['renewal_expiration_date_c']['required'] = false;

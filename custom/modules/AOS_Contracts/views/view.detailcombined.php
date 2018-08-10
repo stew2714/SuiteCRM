@@ -46,6 +46,11 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         $securityGroups = BeanFactory::getBean("SecurityGroups");
         $groups = $securityGroups->getUserSecurityGroups($current_user->id);
 
+        if($this->bean->ACLAccess('edit') || is_admin($current_user)){
+            $this->ss->assign('EDIT_ACCESS', true);
+        } else {
+            $this->ss->assign('EDIT_ACCESS', false);
+        }
         if (array_key_exists($sugar_config['CommOpsGroup'],$groups) || is_admin($current_user)) {
             $this->ss->assign('COMMS_OP', true);
         }
@@ -62,7 +67,7 @@ class AOS_ContractsViewDetailCombined extends ViewDetailCombined
         if ($this->bean->apttus_status_c == "eff_act") {
             $this->ss->assign('ACTIVATED', true);
             $sql = "SELECT aos_contracts_cstm.amendment_c FROM aos_contracts_cstm LEFT JOIN aos_contracts ON aos_contracts.id = aos_contracts_cstm.id_c 
-                    WHERE aos_contracts.deleted = '0' AND aos_contracts_cstm.Oneapttus_parent_agreement_c = '".$this->bean->Oneapttus_parent_agreement_c."' ORDER BY aos_contracts_cstm.amendment_c DESC";
+                    WHERE aos_contracts.deleted = '0' AND aos_contracts_cstm.agreements_number_c = '".$this->bean->agreements_number_c."' ORDER BY aos_contracts_cstm.amendment_c DESC";
             $result = $this->bean->db->query($sql);
             $row = mysqli_fetch_row($result);
             if($row[0] != $this->bean->amendment_c) {

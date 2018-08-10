@@ -62,17 +62,17 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'APTTUS_CONTRACT_START_DATE_C' => 
+  'START_DATE' => 
   array (
-    'type' => 'datetimecombo',
-    'label' => 'LBL_APTTUS_CONTRACT_START_DATE_C',
+    'type' => 'date',
+    'label' => 'LBL_START_DATE',
     'width' => '10%',
     'default' => true,
   ),
-  'APTTUS_CONTRACT_END_DATE_C' => 
+  'END_DATE' => 
   array (
-    'type' => 'datetimecombo',
-    'label' => 'LBL_APTTUS_CONTRACT_END_DATE_C',
+    'type' => 'date',
+    'label' => 'LBL_END_DATE',
     'width' => '10%',
     'default' => true,
   ),
@@ -84,13 +84,6 @@ array (
     'module' => 'Users',
     'id' => 'ASSIGNED_USER_ID',
     'link' => true,
-  ),
-  'SENT_TO_COMM_OPS_C' => 
-  array (
-    'type' => 'datetimecombo',
-    'label' => 'LBL_SENT_TO_COMM_OPS_C',
-    'width' => '10%',
-    'default' => true,
   ),
   'APTTUS_PRIMARY_CONTACT_C' => 
   array (
@@ -125,11 +118,10 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'APTTUS_FF_AGREEMENT_NUMBER_C' => 
+  'SENT_TO_COMM_OPS_C' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_APTTUS_FF_AGREEMENT_NUMBER_C',
-    'sortable' => false,
+    'type' => 'datetimecombo',
+    'label' => 'LBL_SENT_TO_COMM_OPS_C',
     'width' => '10%',
     'default' => false,
   ),

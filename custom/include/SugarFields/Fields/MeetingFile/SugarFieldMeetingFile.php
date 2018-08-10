@@ -99,6 +99,8 @@ class SugarFieldMeetingFile extends SugarFieldBase {
     
     public function save(&$bean, $params, $field, $vardef, $prefix = ''){
 
+        global $sugar_config;
+
         require_once('include/upload_file.php');
 
         foreach($_FILES[ $field  . '_file']['name'] as $key => $file){
@@ -114,6 +116,13 @@ class SugarFieldMeetingFile extends SugarFieldBase {
                     $bean->id = create_guid();
                     $bean->new_with_id = true;
                 }
+                if (!empty($sugar_config['upload_individual_file_size'])) {
+                    $maxSize = $sugar_config['upload_individual_file_size'] * 1024;
+                    if ($_FILES[ $field  . '_file']['size'][$key] > $maxSize) {
+                        // File is too big, we skip
+                        continue;
+                    }
+                }
 
                 $id = create_guid();
                 $upload_file->final_move($id);
@@ -124,6 +133,8 @@ class SugarFieldMeetingFile extends SugarFieldBase {
                 $noteBean->filename = $file;
                 $noteBean->meeting_link_c = $bean->id;
                 $noteBean->file_mime_type = $upload_file->mime_type;
+                $noteBean->parent_id = $bean->id;
+                $noteBean->parent_type = $bean->module_dir;
                 $noteBean->save();
                 //@todo relate the note bean back to the meeting.
 

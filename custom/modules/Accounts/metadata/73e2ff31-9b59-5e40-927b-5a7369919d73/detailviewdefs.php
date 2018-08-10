@@ -108,15 +108,15 @@ array (
         array (
           0 => 
           array (
-            'name' => 'facility_type_dd_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FACILITY_TYPE_DD',
-          ),
-          1 => 
-          array (
             'name' => 'account_type',
             'comment' => 'The Company is of this type',
             'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'facility_type_dd_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE_DD',
           ),
         ),
         2 => 
@@ -136,8 +136,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'business_type_c',
-            'label' => 'Business Type',
+            'name' => 'health_system_type_c',
+            'label' => 'LBL_HEALTH_SYSTEM_TYPE_C',
           ),
           1 => 
           array (
@@ -215,28 +215,7 @@ array (
         ),
         9 => 
         array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
+          0 => '',
           1 => 
           array (
             'name' => 'it_region_c',
@@ -314,8 +293,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'number_of_physicians_c',
-            'label' => 'Number Of Physicians',
+            'name' => 'hospital_physicians_total_most_recent_c',
+            'label' => 'LBL_HOSPITAL_PHYSICIANS_TOTAL_MOST_RECENT_C',
           ),
           1 => 
           array (
@@ -405,16 +384,11 @@ array (
         ),
         10 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'operating_rooms_c',
             'label' => 'Operating Rooms',
           ),
-        ),
-        11 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'radiology_studies_c',
@@ -504,7 +478,11 @@ array (
         ),
         6 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'tos_budget_start_date_c',
+            'label' => 'TOS Budget Start Date',
+          ),
           1 => 
           array (
             'name' => 'identified_pricedown_target_c',
@@ -513,25 +491,11 @@ array (
         ),
         7 => 
         array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'tos_budget_start_date_c',
-            'label' => 'TOS Budget Start Date',
-          ),
-        ),
-        8 => 
-        array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'transcription_volumemonth_c',
             'label' => 'Transcription Volumemonth',
           ),
-        ),
-        9 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'transcription_uom_c',
@@ -582,20 +546,15 @@ array (
         ),
         3 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'cdi_target_w_fd_c',
+            'label' => 'CDI Target W Fd',
+          ),
           1 => 
           array (
             'name' => 'cdi_tos_check_c',
             'label' => 'CDI TOS Check',
-          ),
-        ),
-        4 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'cdi_target_w_fd_c',
-            'label' => 'CDI Target W Fd',
           ),
         ),
       ),
@@ -755,53 +714,19 @@ array (
               'key' => 'billing',
             ),
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => '',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'related_facilitities_c',
-            'label' => 'Related Facilities',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 
+          array (
+            'name' => 'related_facilitities_c',
+            'label' => 'Related Facilities',
           ),
         ),
       ),
@@ -816,21 +741,21 @@ array (
           ),
           1 => 
           array (
-            'name' => 'ha_id_c',
-            'label' => 'HA ID',
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'himss_id_c',
+            'label' => 'LBL_HIMSS_ID',
           ),
           1 => 
           array (
-            'name' => 'dh_id_c',
-            'label' => 'DH Id',
+            'name' => 'defintive_id_c',
+            'label' => 'LBL_DEFINTIVE_ID',
           ),
         ),
         2 => 
@@ -857,6 +782,53 @@ array (
           array (
             'name' => 'medicare_id_c',
             'label' => 'Medicare ID',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

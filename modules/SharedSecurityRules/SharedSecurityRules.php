@@ -445,6 +445,9 @@ class SharedSecurityRules extends Basic
             }
 
             else {
+                if ($moduleBean->field_defs[$allConditions[$x]['field']]['type'] == "relate") {
+                    $allConditions[$x]['field'] = $moduleBean->field_defs[$allConditions[$x]['field']]['id_name'];
+                }
                 if ($allConditions[$x]['value_type'] == "currentUser") {
                     global $current_user;
                     $allConditions[$x]['value_type'] = "Field";
@@ -630,11 +633,19 @@ class SharedSecurityRules extends Basic
                         }
 
                         if($related == false) {
+                            if ($module->field_defs[$condition['field']]['type'] == "relate") {
+                                $condition['field'] = $module->field_defs[$condition['field']]['id_name'];
+                            }
                             if ($condition['value_type'] == "Field" &&
                                 isset($module->{$condition['value']}) &&
                                 !empty($module->{$condition['value']})) {
                                     $condition['value'] = $module->{$condition['value']};
                                 }
+                            if ($condition['value_type'] == "currentUser") {
+                                global $current_user;
+                                $condition['value_type'] = "Field";
+                                $condition['value'] = $current_user->id;
+                            }
                             $value = $condition['value'];
                             if($accessLevel == 'none') {
                                 $operatorValue = SharedSecurityRules::changeOperator($condition['operator'], $value, true);

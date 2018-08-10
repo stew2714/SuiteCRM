@@ -74,11 +74,14 @@ class CustomMeetingFormBase extends MeetingFormBase
      */
     public function handleSave($prefix, $redirect = true, $useRequired = false)
     {
+        $this->removeDeletedAttachments();
+
         //stop sending the invites as we know currently.
         $sendInvites = false;
         if($_REQUEST['send_invites'] == true){
             $_REQUEST['send_invites'] = false;
             $sendInvites = true;
+            $inviteList = array();
             if(!empty($_REQUEST['record']) ){
                 $tempBean = BeanFactory::getBean("Meetings", $_REQUEST['record']);
                 if($tempBean != false && $tempBean->load_relationship("users")){
@@ -93,16 +96,29 @@ class CustomMeetingFormBase extends MeetingFormBase
                     }
                     $list = array_filter(explode(",", $_REQUEST['user_invitees']));
                     foreach($list as $key => $value){
-                        if(!is_object($tempObject[ $value ]) &&
-                           !is_object($tempObjectContact[ $value ]) &&
-                           !is_object($tempObjectLeads[ $value ]) ){
+                        if(!is_object($tempObject[ $value ])){
                             $this->inviteChange = true;
                             break;
                         }
                     }
+                    $contactlist = array_filter(explode(",", $_REQUEST['contact_invitees']));
+                    foreach($contactlist as $key => $value){
+                        if(!is_object($tempObjectContact[ $value ])){
+                            $this->inviteChange = true;
+                            break;
+                        }
+                    }
+                    $leadlist = array_filter(explode(",", $_REQUEST['lead_invitees']));
+                    foreach($leadlist as $key => $value){
+                        if(!is_object($tempObjectLeads[ $value ]) ){
+                            $this->inviteChange = true;
+                            break;
+                        }
+                    }
+                    $inviteList = array_merge($list, $contactlist, $leadlist);
                 }
             }
-            $this->totalInvites = explode(",", $_REQUEST["user_invitees"]);
+            $this->totalInvites = explode(",", $inviteList);
         }
         $focus = parent::handleSave($prefix, false, $useRequired);
 
@@ -114,10 +130,29 @@ class CustomMeetingFormBase extends MeetingFormBase
             $this->cancelAndNotify($focus);
         }
 
-        SugarApplication::redirect('index.php?module=Meetings&record=' . $focus->id . '&action=DetailView');
+        if ($_REQUEST['module'] !== 'Calendar') {
+            SugarApplication::redirect('index.php?module=Meetings&record=' . $focus->id . '&action=DetailView');
+        }
+
+        return $focus;
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     *
+     */
+    private function removeDeletedAttachments()
+    {
+        if (!empty($_REQUEST['deleteMeetingAttachment']) && is_array($_REQUEST['deleteMeetingAttachment'])) {
+            foreach ($_REQUEST['deleteMeetingAttachment'] as $attachmentId) {
+                $bean = BeanFactory::getBean("Notes", $attachmentId);
+                $bean->deleted = 1;
+                $bean->save();
+            }
+        }
+    }
+
     private function sendNotifications($bean)
     {
         //we want to send the invites to the same people as the core would.
@@ -162,7 +197,7 @@ class CustomMeetingFormBase extends MeetingFormBase
     public function send_assignment_notifications($notify_user, $admin, $bean){
         global $current_user;
 
-        if (($this->object_name == 'Meeting' || $this->object_name == 'Call') || $notify_user->receive_notifications) {
+        if (($bean->object_name == 'Meeting' || $bean->object_name == 'Call') || $notify_user->receive_notifications) {
             $sendToEmail = $notify_user->emailAddress->getPrimaryAddress($notify_user);
             $sendEmail = true;
             if (empty($sendToEmail)) {

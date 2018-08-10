@@ -45,11 +45,12 @@ $sugar_config['disable_persistent_connections'] = false;
 $sugar_config['Implementations'] = '90d40376-027d-a8f7-7cd3-593fb7ce674f';
 $sugar_config['list_max_entries_per_page'] = '50';
 $sugar_config['list_max_entries_per_subpanel'] = '10';
-$sugar_config['email_default_delete_attachments'] = true;
+$sugar_config['email_default_delete_attachments'] = false;
 $sugar_config['outfitters_licenses']['gmsyncaddon'] = '5995b6bb71ddda1e939b1c6ebee5bffd ';
 $sugar_config['outfitters_licenses']['LogTrack'] = 'fb87a82b6123ce2aaf7126c85d162627';
 $sugar_config['outfitters_licenses']['Login Tracker'] = '5748656fd717a9053582e6738f747efb';
 $sugar_config['outfitters_licenses']['analytic-reporting'] = '2f6ac5d86f8b5f0075ff647fe64c7d25';
+$sugar_config['outfitters_licenses']['securitysuite'] = 'f93df3eccc7984f3e954fc223521f46a';
 $sugar_config['eloqua']['sync_every_x_hours'] = '2';
 $sugar_config['default_theme'] = 'SuiteP';
 $sugar_config['disabled_themes'] = 'Suite7,';
@@ -69,3 +70,6 @@ $sugar_config['log_memory_usage'] = true;
 $sugar_config['securitysuite_filter_user_list'] = false;
 $sugar_config['enable_line_editing_detail'] = false;
 /***CONFIGURATOR***/
+$sugar_config['upload_individual_file_size'] = '30000';
+/***CONFIGURATOR***/
+
