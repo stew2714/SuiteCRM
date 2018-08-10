@@ -1939,7 +1939,7 @@ $GLOBALS['app_list_strings']['exchange_list']=array (
   'VERSION_2016' => 'Exchange2016',
 
 );
->>>>>>> origin/ProdPush08062018
+
 
 $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   '' => '',
