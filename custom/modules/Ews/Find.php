@@ -92,7 +92,7 @@ class Find extends SugarBean
                     . '  Title: ' . $item->Subject . "\n"
                     . '  Start: ' . $start->format('l, F jS, Y g:ia') . "\n"
                     . '  End:   ' . $end->format('l, F jS, Y g:ia') . "\n\n";
-                LoggerManager::getLogger()->info($output);
+                LoggerManager::getLogger()->fatal($output);
 
                 $foundMeeting = [
                     'ID' => $id,
@@ -123,7 +123,7 @@ class Find extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to get item with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to get item with \"$code: $message\"\n");
         }
 
         return $response->ResponseMessages->GetItemResponseMessage[0]->Items->CalendarItem[0]->ItemId->ChangeKey;

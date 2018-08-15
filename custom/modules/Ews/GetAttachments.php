@@ -37,7 +37,7 @@ class GetAttachments extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to fetch attachments with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to fetch attachments with \"$code: $message\"\n");
         }
 
         $response_messages = $response->ResponseMessages->GetItemResponseMessage;
@@ -46,7 +46,7 @@ class GetAttachments extends SugarBean
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
                 $code = $response_message->ResponseCode;
                 $message = $response_message->MessageText;
-                LoggerManager::getLogger()->warn("Failed to get message with \"$code: $message\"\n");
+                LoggerManager::getLogger()->fatal("Failed to get message with \"$code: $message\"\n");
                 continue;
             }
 
@@ -74,7 +74,7 @@ class GetAttachments extends SugarBean
             } catch (Exception $fault) {
                 $message = $fault->getMessage();
                 $code = $fault->getCode();
-                LoggerManager::getLogger()->warn("Failed to get attachments with \"$code: $message\"\n");
+                LoggerManager::getLogger()->fatal("Failed to get attachments with \"$code: $message\"\n");
             }
 
             $attachment_response_messages = $response->ResponseMessages->GetAttachmentResponseMessage;
@@ -85,7 +85,7 @@ class GetAttachments extends SugarBean
                 ) {
                     $code = $response_message->ResponseCode;
                     $message = $response_message->MessageText;
-                    LoggerManager::getLogger()->warn("Failed to get attachment with \"$code: $message\"\n");
+                    LoggerManager::getLogger()->fatal("Failed to get attachment with \"$code: $message\"\n");
                     continue;
                 }
             }
