@@ -59,16 +59,24 @@ class Cancel extends SugarBean
     {
         $exchange = new Exchange();
         $client = $exchange->setConnection($user);
+        $create  = new Create();
 
-
+        $attendees = $create->getAttendees();
         $request = new CreateItemType();
-        $request->MessageDisposition = MessageDispositionType::SEND_AND_SAVE_COPY;
+
+        if (empty($attendees)){
+            $request->MessageDisposition = MessageDispositionType::SAVE_ONLY;
+        } else {
+            $request->MessageDisposition = MessageDispositionType::SEND_AND_SAVE_COPY;
+        }
+
         $request->Items = new NonEmptyArrayOfAllItemsType();
         $cancellation = new CancelCalendarItemType();
         $cancellation->ReferenceItemId = new ItemIdType();
         $cancellation->ReferenceItemId->Id = $event_id;
         $cancellation->ReferenceItemId->ChangeKey = $change_key;
         $request->Items->CancelCalendarItem[] = $cancellation;
+
 
         try {
             $response = $client->CreateItem($request);
