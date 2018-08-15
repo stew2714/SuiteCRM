@@ -174,7 +174,7 @@ $viewdefs = array (
               'name' => 'amendment_number_c',
               'label' => 'LBL_AMENDMENT_NUMBER_C',
             ),
-            1 => 'ownership_group_c',
+            1 => 'apttus_requestor_name_c',
           ),
           9 => 
           array (
@@ -183,16 +183,17 @@ $viewdefs = array (
               'name' => 'total_contract_value',
               'label' => 'LBL_TOTAL_CONTRACT_VALUE',
             ),
-            1 => 'awaiting_information_detail_c',
+            1 => 'ownership_group_c',
           ),
           10 => 
           array (
             0 => 
             array (
-              'name' => 'gpo_affiliation_c',
-              'label' => 'LBL_GPO_AFFILIATION_C',
+              'name' => 'description',
+              'comment' => 'Full text of the note',
+              'label' => 'LBL_DESCRIPTION',
             ),
-            1 => 'cancellation_reason_c',
+            1 => 'awaiting_information_detail_c',
           ),
           11 => 
           array (
@@ -201,7 +202,7 @@ $viewdefs = array (
               'name' => 'idn_affiliation_c',
               'label' => 'LBL_IDN_AFFILIATION_C',
             ),
-            1 => 'apttus_termination_notice_issue_date_c',
+            1 => 'cancellation_reason_c',
           ),
           12 => 
           array (
@@ -210,24 +211,23 @@ $viewdefs = array (
               'name' => 'federal_agency_c',
               'label' => 'LBL_FEDERAL_AGENCY_C',
             ),
-            1 => 'apttus_termination_date_c',
+            1 => 'apttus_termination_notice_issue_date_c',
           ),
           13 => 
           array (
             0 => 
             array (
-              'name' => 'description',
-              'comment' => 'Full text of the note',
-              'label' => 'LBL_DESCRIPTION',
+              'name' => 'gpo_affiliation_c',
+              'label' => 'LBL_GPO_AFFILIATION_C',
             ),
-            1 => 'general_terms_and_conditions_c',
+            1 => 'apttus_termination_date_c',
           ),
           14 => 
           array (
             0 => 
             array (
-              'name' => 'apttus_special_terms_c',
-              'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
+              'name' => 'general_terms_and_conditions_c',
+              'label' => 'LBL_GENERAL_TERMS_AND_CONDITIONS_C',
             ),
             1 => 't_c_version_c',
           ),
@@ -235,8 +235,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'requires_po_c',
-              'label' => 'LBL_REQUIRES_PO_C',
+              'name' => 'apttus_special_terms_c',
+              'label' => 'LBL_APTTUS_SPECIAL_TERMS_C',
             ),
             1 => 'strategic_deal_c',
           ),
@@ -244,10 +244,18 @@ $viewdefs = array (
           array (
             0 => 
             array (
+              'name' => 'requires_po_c',
+              'label' => 'LBL_REQUIRES_PO_C',
+            ),
+            1 => 'strategic_deal_description_c',
+          ),
+          17 => 
+          array (
+            0 => 
+            array (
               'name' => 'agreement_summary_c',
               'label' => 'LBL_AGREEMENT_SUMMARY_C',
             ),
-            1 => 'strategic_deal_description_c',
           ),
         ),
         'lbl_editview_panel1' => 
@@ -256,8 +264,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'start_date',
-              'label' => 'LBL_START_DATE',
+              'name' => 'apttus_contract_start_date_c',
+              'label' => 'LBL_APTTUS_CONTRACT_START_DATE_C',
             ),
             1 => 'purchase_order_language_c',
           ),
@@ -265,8 +273,8 @@ $viewdefs = array (
           array (
             0 => 
             array (
-              'name' => 'end_date',
-              'label' => 'LBL_END_DATE',
+              'name' => 'apttus_contract_end_date_c',
+              'label' => 'LBL_APTTUS_CONTRACT_END_DATE_C',
             ),
             1 => 'interest_on_late_payments_c',
           ),
@@ -741,6 +749,32 @@ $viewdefs = array (
             ),
             1 => 'acc_estimated_tos_new_volume_c',
           ),
+          22 => 
+          array (
+            0 => 
+            array (
+              'name' => 'acc_securitygroup_display',
+              'comment' => 'Used for adding to the list, detail, and edit views',
+              'studio' => 
+              array (
+                'visible' => false,
+                'listview' => true,
+                'searchview' => false,
+                'detailview' => true,
+                'editview' => true,
+                'formula' => false,
+                'related' => false,
+                'basic_search' => false,
+                'advanced_search' => false,
+                'popuplist' => true,
+                'popupsearch' => false,
+                'dashletsearch' => false,
+                'dashlet' => false,
+              ),
+              'label' => 'LBL_SECURITYGROUP',
+            ),
+            1 => 'acc_additionalusers',
+          ),
         ),
         'acc_lbl_editview_panel2' => 
         array (
@@ -895,23 +929,16 @@ $viewdefs = array (
               'name' => 'acc_estimated_fft_existing_volume_c',
               'label' => 'LBL_ESTIMATED_FFT_EXISTING_VOLUME_C',
             ),
-            1 => 'acc_fft_revenue_c',
+            1 => 'acc_estimated_fft_new_volume_c',
           ),
           17 => 
-          array (
-            0 => 
-            array (
-              'name' => 'acc_estimated_fft_new_volume_c',
-              'label' => 'LBL_ESTIMATED_FFT_NEW_VOLUME_C',
-            ),
-          ),
-          18 => 
           array (
             0 => 
             array (
               'name' => 'acc_fft_general_notes_c',
               'label' => 'LBL_FFT_GENERAL_NOTES_C',
             ),
+            1 => 'acc_fft_revenue_c',
           ),
         ),
         'acc_lbl_editview_panel3' => 
@@ -1013,6 +1040,7 @@ $viewdefs = array (
               'name' => 'acc_coding_implementation_training_fees_c',
               'label' => 'LBL_CODING_IMPLEMENTATION_TRAINING_FEES_C',
             ),
+            1 => 'acc_coding_term_for_convenience_notice_dd_c',
           ),
           11 => 
           array (
@@ -1021,7 +1049,7 @@ $viewdefs = array (
               'name' => 'acc_coding_commitment_c',
               'label' => 'LBL_CODING_COMMITMENT_C',
             ),
-            1 => 'acc_coding_term_for_convenience_notice_dd_c',
+            1 => 'acc_coding_pricing_c',
           ),
           12 => 
           array (
@@ -1039,19 +1067,16 @@ $viewdefs = array (
               'name' => 'acc_coding_revenue_c',
               'label' => 'LBL_CODING_REVENUE_C',
             ),
-            1 => 'acc_coding_pricing_c',
+            1 => 'acc_coding_pricing_increase_c',
           ),
           14 => 
           array (
-            1 => 'acc_coding_pricing_increase_c',
-          ),
-          15 => 
-          array (
+            0 => 
+            array (
+              'name' => 'acc_coding_estimated_billing_c',
+              'label' => 'LBL_CODING_ESTIMATED_BILLING_C',
+            ),
             1 => 'acc_coding_billing_c',
-          ),
-          16 => 
-          array (
-            1 => 'acc_coding_estimated_billing_c',
           ),
         ),
         'acc_lbl_editview_panel4' => 
@@ -1162,14 +1187,7 @@ $viewdefs = array (
               'name' => 'acc_virtual_scribing_price_book_rate_c',
               'label' => 'LBL_VIRTUAL_SCRIBING_PRICE_BOOK_RATE_C',
             ),
-          ),
-          12 => 
-          array (
-            0 => 
-            array (
-              'name' => 'acc_virtual_scribing_revenue_c',
-              'label' => 'LBL_VIRTUAL_SCRIBING_REVENUE_C',
-            ),
+            1 => 'acc_virtual_scribing_revenue_c',
           ),
         ),
         'con_lbl_editview_panel2' => 
@@ -1454,13 +1472,6 @@ $viewdefs = array (
               'label' => 'LBL_MAINTENANCE_AND_SUPPORT_TERMINATION_PRIO_C',
             ),
             1 => 'con_gma_annual_increase_c',
-          ),
-          7 => 
-          array (
-            1 => 'con_maintenance_general_notes_c',
-          ),
-          8 => 
-          array (
           ),
         ),
       ),

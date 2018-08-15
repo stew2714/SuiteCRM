@@ -52,7 +52,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL14' => 
+        'LBL_DETAILVIEW_PANEL15' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -63,11 +63,6 @@ array (
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL13' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -191,19 +186,23 @@ array (
           ),
           1 => 
           array (
-            'name' => 'must_win_c',
-            'label' => 'LBL_MUST_WIN_C',
+            'name' => 'new_ae2_name_c',
+            'studio' => 'visible',
+            'label' => 'LBL_NEW_AE2_NAME_C',
           ),
         ),
         10 => 
         array (
           0 => 
           array (
-            'name' => 'new_ae2_name_c',
-            'studio' => 'visible',
-            'label' => 'LBL_NEW_AE2_NAME_C',
+            'name' => 'must_win_c',
+            'label' => 'LBL_MUST_WIN_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'extended_term_adoption_services_value_c',
+            'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
+          ),
         ),
         11 => 
         array (
@@ -212,36 +211,26 @@ array (
             'name' => 'count_c',
             'label' => 'LBL_COUNT_C',
           ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'number_of_ftes_c',
             'label' => 'LBL_NUMBER_OF_FTES_C',
           ),
-          1 => '',
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
             'name' => 'coding_start_date_c',
             'label' => 'LBL_CODING_START_DATE_C',
           ),
-          1 => '',
-        ),
-        14 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'coding_end_date_c',
             'label' => 'LBL_CODING_END_DATE_C',
           ),
-          1 => '',
         ),
-        15 => 
+        13 => 
         array (
           0 => 
           array (
@@ -250,11 +239,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'extended_term_adoption_services_value_c',
-            'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
+            'name' => 'non_standard_commissions_release_c',
+            'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
           ),
         ),
-        16 => 
+        14 => 
         array (
           0 => 
           array (
@@ -263,11 +252,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'non_standard_commissions_release_c',
-            'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
+            'name' => 'gp_contract_order_c',
+            'label' => 'LBL_GP_CONTRACT_ORDER_C',
           ),
         ),
-        17 => 
+        15 => 
         array (
           0 => 
           array (
@@ -276,24 +265,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'gp_contract_order_c',
-            'label' => 'LBL_GP_CONTRACT_ORDER_C',
-          ),
-        ),
-        18 => 
-        array (
-          0 => 
-          array (
-            'name' => 'notifi_c',
-            'label' => 'LBL_NOTIFI_C',
-          ),
-          1 => 
-          array (
             'name' => 'commissions_notes_c',
             'label' => 'LBL_COMMISSIONS_NOTES_C',
           ),
         ),
-        19 => 
+        16 => 
         array (
           0 => 
           array (
@@ -302,8 +278,21 @@ array (
           ),
           1 => 
           array (
+            'name' => 'notifi_c',
+            'label' => 'LBL_NOTIFI_C',
+          ),
+        ),
+        17 => 
+        array (
+          0 => 
+          array (
             'name' => 'total_contract_value_c',
             'label' => 'LBL_TOTAL_CONTRACT_VALUE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'description',
+            'nl2br' => true,
           ),
         ),
       ),
@@ -316,20 +305,20 @@ array (
             'name' => 'latest_update_date_c',
             'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'latest_update_c',
+            'label' => 'LBL_LATEST_UPDATE_C',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'latest_update_c',
-            'label' => 'LBL_LATEST_UPDATE_C',
-          ),
-          1 => 
-          array (
             'name' => 'business_type_c',
             'label' => 'LBL_BUSINESS_TYPE_C',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -368,7 +357,11 @@ array (
             'name' => 'license_cost_c',
             'label' => 'LBL_LICENSE_COST_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'other_cost_c',
+            'label' => 'LBL_OTHER_COST_C',
+          ),
         ),
         3 => 
         array (
@@ -377,25 +370,11 @@ array (
             'name' => 'annual_mq_services_estimate_c',
             'label' => 'LBL_ANNUAL_MQ_SERVICES_ESTIMATE_C',
           ),
-          1 => '',
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'other_cost_c',
-            'label' => 'LBL_OTHER_COST_C',
-          ),
-          1 => '',
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'annual_maintenance_cost_c',
             'label' => 'LBL_ANNUAL_MAINTENANCE_COST_C',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel6' => 
@@ -440,7 +419,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel14' => 
+      'lbl_detailview_panel15' => 
       array (
         0 => 
         array (
@@ -540,17 +519,6 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel13' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'nl2br' => true,
-          ),
-        ),
-      ),
       'lbl_editview_panel12' => 
       array (
         0 => 
@@ -562,8 +530,21 @@ array (
           ),
           1 => 
           array (
+            'name' => 'slx_opportunity_id_c',
+            'label' => 'LBL_SLX_OPPORTUNITY_ID_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'modified_by_name',
             'label' => 'LBL_MODIFIED_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'slx_create_date_c',
+            'label' => 'LBL_SLX_CREATE_DATE_C',
           ),
         ),
       ),

@@ -28,17 +28,22 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL15' => 
+        'LBL_EDITVIEW_PANEL18' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL16' => 
+        'LBL_EDITVIEW_PANEL20' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL17' => 
+        'LBL_EDITVIEW_PANEL21' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL19' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -54,16 +59,6 @@ array (
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL13' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL12' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -131,8 +126,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'total_amount_c',
-            'label' => 'LBL_TOTAL_AMOUNT_C',
+            'name' => 'product_c',
+            'label' => 'LBL_PRODUCT_C',
           ),
           1 => 
           array (
@@ -144,8 +139,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'product_c',
-            'label' => 'LBL_PRODUCT_C',
+            'name' => 'campaign_name',
+            'label' => 'LBL_CAMPAIGN',
           ),
           1 => 
           array (
@@ -157,8 +152,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'campaign_name',
-            'label' => 'LBL_CAMPAIGN',
+            'name' => 'tip_source_c',
+            'label' => 'LBL_TIP_SOURCE_C',
           ),
           1 => 
           array (
@@ -170,8 +165,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'tip_source_c',
-            'label' => 'LBL_TIP_SOURCE_C',
+            'name' => 'partner_c',
+            'label' => 'LBL_PARTNER_C',
           ),
           1 => 'sales_stage',
         ),
@@ -179,8 +174,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'partner_c',
-            'label' => 'LBL_PARTNER_C',
+            'name' => 'rfp_required_c',
+            'label' => 'LBL_RFP_REQUIRED_C',
           ),
           1 => 'probability',
         ),
@@ -188,8 +183,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_required_c',
-            'label' => 'LBL_RFP_REQUIRED_C',
+            'name' => 'rfp_due_date_c',
+            'label' => 'LBL_RFP_DUE_DATE_C',
           ),
           1 => 
           array (
@@ -201,21 +196,21 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rfp_due_date_c',
-            'label' => 'LBL_RFP_DUE_DATE_C',
+            'name' => 'preferred_follow_up_c',
+            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
           ),
           1 => 
           array (
-            'name' => 'forecastcategory_c',
-            'label' => 'LBL_FORECASTCATEGORY_C',
+            'name' => 'forecasting_category_c',
+            'label' => 'LBL_FORECASTING_CATEGORY_C',
           ),
         ),
         11 => 
         array (
           0 => 
           array (
-            'name' => 'preferred_follow_up_c',
-            'label' => 'LBL_PREFERRED_FOLLOW_UP_C',
+            'name' => 'crm_c',
+            'label' => 'LBL_CRM_C',
           ),
           1 => 
           array (
@@ -227,8 +222,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'crm_c',
-            'label' => 'LBL_CRM_C',
+            'name' => 'must_win_c',
+            'label' => 'LBL_MUST_WIN_C',
           ),
           1 => 
           array (
@@ -236,21 +231,24 @@ array (
             'label' => 'LBL_VENDOR_OF_CHOICE_C',
           ),
         ),
-        13 => 
+      ),
+      'lbl_editview_panel18' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
-            'name' => 'count_c',
-            'label' => 'LBL_COUNT_C',
+            'name' => 'latest_update_date_c',
+            'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
           1 => 
           array (
-            'name' => 'must_win_c',
-            'label' => 'LBL_MUST_WIN_C',
+            'name' => 'latest_update_c',
+            'label' => 'LBL_LATEST_UPDATE_C',
           ),
         ),
       ),
-      'lbl_editview_panel15' => 
+      'lbl_editview_panel20' => 
       array (
         0 => 
         array (
@@ -396,7 +394,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel16' => 
+      'lbl_editview_panel21' => 
       array (
         0 => 
         array (
@@ -516,7 +514,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel17' => 
+      'lbl_editview_panel19' => 
       array (
         0 => 
         array (
@@ -666,10 +664,7 @@ array (
             'label' => 'LBL_CHANGES_NEXT_TIME_C',
           ),
         ),
-      ),
-      'lbl_editview_panel13' => 
-      array (
-        0 => 
+        2 => 
         array (
           0 => 
           array (
@@ -677,22 +672,7 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
-        ),
-      ),
-      'lbl_editview_panel12' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-          1 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
-          ),
+          1 => '',
         ),
       ),
     ),

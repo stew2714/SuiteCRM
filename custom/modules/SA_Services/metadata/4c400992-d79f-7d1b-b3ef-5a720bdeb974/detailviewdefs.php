@@ -346,6 +346,53 @@ array (
             'label' => 'LBL_ESTIMATED_TOS_NEW_VOLUME_C',
           ),
         ),
+        22 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
+        ),
       ),
       'lbl_editview_panel2' => 
       array (
@@ -566,27 +613,22 @@ array (
           ),
           1 => 
           array (
-            'name' => 'fft_revenue_c',
-            'label' => 'LBL_FFT_REVENUE_C',
+            'name' => 'estimated_fft_new_volume_c',
+            'label' => 'LBL_ESTIMATED_FFT_NEW_VOLUME_C',
           ),
         ),
         17 => 
         array (
           0 => 
           array (
-            'name' => 'estimated_fft_new_volume_c',
-            'label' => 'LBL_ESTIMATED_FFT_NEW_VOLUME_C',
-          ),
-          1 => '',
-        ),
-        18 => 
-        array (
-          0 => 
-          array (
             'name' => 'fft_general_notes_c',
             'label' => 'LBL_FFT_GENERAL_NOTES_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'fft_revenue_c',
+            'label' => 'LBL_FFT_REVENUE_C',
+          ),
         ),
       ),
       'lbl_editview_panel3' => 
@@ -728,7 +770,11 @@ array (
             'name' => 'coding_implementation_training_fees_c',
             'label' => 'LBL_CODING_IMPLEMENTATION_TRAINING_FEES_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'coding_term_for_convenience_notice_dd_c',
+            'label' => 'LBL_CODING_TERM_FOR_CONVENIENCE_NOTICE_DD_C',
+          ),
         ),
         11 => 
         array (
@@ -739,8 +785,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coding_term_for_convenience_notice_dd_c',
-            'label' => 'LBL_CODING_TERM_FOR_CONVENIENCE_NOTICE_DD_C',
+            'name' => 'coding_pricing_c',
+            'label' => 'LBL_CODING_PRICING_C',
           ),
         ),
         12 => 
@@ -765,35 +811,21 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coding_pricing_c',
-            'label' => 'LBL_CODING_PRICING_C',
-          ),
-        ),
-        14 => 
-        array (
-          0 => '',
-          1 => 
-          array (
             'name' => 'coding_pricing_increase_c',
             'label' => 'LBL_CODING_PRICING_INCREASE_C',
           ),
         ),
-        15 => 
+        14 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'coding_estimated_billing_c',
+            'label' => 'LBL_CODING_ESTIMATED_BILLING_C',
+          ),
           1 => 
           array (
             'name' => 'coding_billing_c',
             'label' => 'LBL_CODING_BILLING_C',
-          ),
-        ),
-        16 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'coding_estimated_billing_c',
-            'label' => 'LBL_CODING_ESTIMATED_BILLING_C',
           ),
         ),
       ),
@@ -949,16 +981,11 @@ array (
             'name' => 'virtual_scribing_price_book_rate_c',
             'label' => 'LBL_VIRTUAL_SCRIBING_PRICE_BOOK_RATE_C',
           ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'virtual_scribing_revenue_c',
             'label' => 'LBL_VIRTUAL_SCRIBING_REVENUE_C',
           ),
-          1 => '',
         ),
       ),
     ),

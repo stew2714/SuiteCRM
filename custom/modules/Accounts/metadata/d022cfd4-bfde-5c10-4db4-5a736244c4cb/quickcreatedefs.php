@@ -77,11 +77,6 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
     ),
     'panels' => 
@@ -100,29 +95,30 @@ array (
           ),
           1 => 
           array (
-            'name' => 'account_type',
+            'name' => 'industry',
+            'comment' => 'The company belongs in this industry',
+            'label' => 'LBL_INDUSTRY',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'id_c',
-            'label' => 'Id',
+            'name' => 'facility_type_dd_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE_DD',
           ),
           1 => 
           array (
-            'name' => 'account_type_c',
-            'label' => 'Account Type',
+            'name' => 'account_type',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'facility_type_dd_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FACILITY_TYPE_DD',
+            'name' => 'parent_name',
+            'label' => 'LBL_MEMBER_OF',
           ),
           1 => 
           array (
@@ -134,8 +130,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'label' => 'LBL_MEMBER_OF',
+            'name' => 'primary_gpo_c',
+            'label' => 'Primary GPO',
           ),
           1 => 
           array (
@@ -147,8 +143,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'primary_gpo_c',
-            'label' => 'Primary GPO',
+            'name' => 'phone_office',
           ),
           1 => 
           array (
@@ -160,7 +155,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'phone_office',
+            'name' => 'website',
           ),
           1 => 
           array (
@@ -172,7 +167,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'website',
+            'name' => 'recordtypeid_c',
+            'label' => 'Record Type',
           ),
           1 => 
           array (
@@ -184,8 +180,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'recordtypeid_c',
-            'label' => 'Record Type',
+            'name' => 'health_system_type_c',
+            'label' => 'LBL_HEALTH_SYSTEM_TYPE_C',
           ),
           1 => 
           array (
@@ -195,36 +191,76 @@ array (
         ),
         8 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        9 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        10 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        11 => 
-        array (
           0 => 
           array (
-            'name' => 'himss_id_c',
-            'label' => 'LBL_HIMSS_ID',
+            'name' => 'organization_c',
+            'label' => 'LBL_ORGANIZATION_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'organization_unique_id_c',
+            'label' => 'LBL_ORGANIZATION_UNIQUE_ID_C',
+          ),
         ),
-        12 => 
+        9 => 
         array (
           0 => 
           array (
             'name' => 'organization_primary_service_c',
             'label' => 'Organization Primary Service',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cms_medicare_number_c',
+            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -329,8 +365,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'imaging_exam_volume_c',
-            'label' => 'Imaging Exam Volume',
+            'name' => 'practice_physicians_c',
+            'label' => 'LBL_PRACTICE_PHYSICIANS_C',
           ),
         ),
         5 => 
@@ -340,7 +376,11 @@ array (
             'name' => 'annual_healthcare_visits_c',
             'label' => 'Annual Healthcare Visits',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'hospital_physicians_total_most_recent_c',
+            'label' => 'LBL_HOSPITAL_PHYSICIANS_TOTAL_MOST_RECENT_C',
+          ),
         ),
         6 => 
         array (
@@ -351,8 +391,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'number_of_physicians_c',
-            'label' => 'Number Of Physicians',
+            'name' => 'admissions_c',
+            'label' => 'LBL_ADMISSIONS_C',
           ),
         ),
         7 => 
@@ -362,7 +402,11 @@ array (
             'name' => 'emram_stage_validated_c',
             'label' => 'EMRAM Stage (Validated)',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'births_c',
+            'label' => 'Births',
+          ),
         ),
         8 => 
         array (
@@ -373,8 +417,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'births_c',
-            'label' => 'Births',
+            'name' => 'cardiology_studies_c',
+            'label' => 'Cardiology Studies',
           ),
         ),
         9 => 
@@ -387,8 +431,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'cardiology_studies_c',
-            'label' => 'Cardiology Studies',
+            'name' => 'operating_rooms_c',
+            'label' => 'Operating Rooms',
           ),
         ),
         10 => 
@@ -400,8 +444,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'operating_rooms_c',
-            'label' => 'Operating Rooms',
+            'name' => 'radiology_studies_c',
+            'label' => 'Radiology Studies',
           ),
         ),
         11 => 
@@ -413,18 +457,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'radiology_studies_c',
-            'label' => 'Radiology Studies',
-          ),
-        ),
-        12 => 
-        array (
-          0 => 
-          array (
             'name' => 'op_visits_c',
             'label' => 'OP Visits',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel5' => 
@@ -547,7 +582,11 @@ array (
         ),
         6 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'tos_budget_start_date_c',
+            'label' => 'TOS Budget Start Date',
+          ),
           1 => 
           array (
             'name' => 'identified_pricedown_target_c',
@@ -556,25 +595,11 @@ array (
         ),
         7 => 
         array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'tos_budget_start_date_c',
-            'label' => 'TOS Budget Start Date',
-          ),
-        ),
-        8 => 
-        array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'transcription_volumemonth_c',
             'label' => 'Transcription Volumemonth',
           ),
-        ),
-        9 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'transcription_uom_c',
@@ -734,48 +759,21 @@ array (
             'comment' => 'The street address used for billing address',
             'label' => 'LBL_BILLING_ADDRESS_STREET',
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => '',
-        ),
-        3 => 
         array (
           0 => 
           array (
             'name' => 'related_facilitities_c',
             'label' => 'Related Facilities',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'nih_rating_c',
+            'label' => 'NIH Rating',
+          ),
         ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
@@ -783,16 +781,6 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
-          1 => '',
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'nih_rating_c',
-            'label' => 'NIH Rating',
-          ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel7' => 
@@ -801,29 +789,16 @@ array (
         array (
           0 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
+            'name' => 'himss_id_c',
+            'label' => 'LBL_HIMSS_ID',
           ),
           1 => 
           array (
-            'name' => 'ha_id_c',
-            'label' => 'HA ID',
+            'name' => 'defintive_id_c',
+            'label' => 'LBL_DEFINTIVE_ID',
           ),
         ),
         1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'dh_id_c',
-            'label' => 'DH Id',
-          ),
-        ),
-        2 => 
         array (
           0 => 
           array (
@@ -832,11 +807,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'billians_id_c',
-            'label' => 'Billians ID',
+            'name' => 'ig_id_c',
+            'label' => 'IG Id',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -847,27 +822,6 @@ array (
           array (
             'name' => 'medicare_id_c',
             'label' => 'Medicare ID',
-          ),
-        ),
-        4 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'ig_id_c',
-            'label' => 'IG Id',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'rating',
-            'comment' => 'An arbitrary rating for this company for use in comparisons with others',
-            'label' => 'LBL_RATING',
           ),
         ),
       ),

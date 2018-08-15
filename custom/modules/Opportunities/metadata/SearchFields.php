@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-12 15:03:00
+// created: 2018-06-28 13:29:34
 $searchFields['Opportunities'] = array (
   'name' => 
   array (
@@ -369,6 +369,18 @@ $searchFields['Opportunities'] = array (
     'query_type' => 'default',
   ),
   'specialist_name_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'tos_out_for_convenience_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'tip_source_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'latest_update_c' => 
   array (
     'query_type' => 'default',
   ),

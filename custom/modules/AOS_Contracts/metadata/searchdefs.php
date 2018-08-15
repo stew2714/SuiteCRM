@@ -10,6 +10,15 @@ array (
       array (
         'name' => 'name',
         'default' => true,
+        'width' => '10%',
+      ),
+      'agreements_number_and_amendment_c' => 
+      array (
+        'type' => 'customreadonly',
+        'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'agreements_number_and_amendment_c',
       ),
       'current_user_only' => 
       array (
@@ -17,6 +26,7 @@ array (
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
       'favorites_only' => 
       array (
@@ -24,6 +34,7 @@ array (
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
     ),
     'advanced_search' => 
@@ -46,17 +57,40 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'apttus_requestor_name_c' => 
+      array (
+        'type' => 'relate',
+        'studio' => 'visible',
+        'label' => 'LBL_APTTUS_REQUESTOR_NAME_C',
+        'id' => 'ONEAPTTUS_REQUESTOR_C',
+        'link' => true,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'apttus_requestor_name_c',
+      ),
+      'agreements_number_and_amendment_c' => 
+      array (
+        'type' => 'customreadonly',
+        'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'agreements_number_and_amendment_c',
+      ),
       'start_date' => 
       array (
-        'name' => 'start_date',
-        'default' => true,
+        'type' => 'date',
+        'label' => 'LBL_START_DATE',
         'width' => '10%',
+        'default' => true,
+        'name' => 'start_date',
       ),
       'end_date' => 
       array (
-        'name' => 'end_date',
-        'default' => true,
+        'type' => 'date',
+        'label' => 'LBL_END_DATE',
         'width' => '10%',
+        'default' => true,
+        'name' => 'end_date',
       ),
       'total_contract_value' => 
       array (
@@ -79,12 +113,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'apttus_status_c',
-      ),
-      'contract_type' => 
-      array (
-        'name' => 'contract_type',
-        'default' => true,
-        'width' => '10%',
       ),
       'assigned_user_id' => 
       array (

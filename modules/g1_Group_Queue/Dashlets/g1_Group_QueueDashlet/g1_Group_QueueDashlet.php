@@ -45,7 +45,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 require_once('include/Dashlets/DashletGeneric.php');
 require_once('modules/g1_Group_Queue/g1_Group_Queue.php');
 
-class <module_name > Dashlet extends DashletGeneric {
+class g1_Group_QueueDashlet extends DashletGeneric {
     function __construct($id, $def = null)
     {
         global $current_user, $app_strings;

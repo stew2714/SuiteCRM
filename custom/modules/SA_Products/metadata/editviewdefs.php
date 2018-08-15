@@ -60,7 +60,11 @@ array (
             'name' => 'product_attachment_effective_date_c',
             'label' => 'LBL_PRODUCT_ATTACHMENT_EFFECTIVE_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'gp_quotes_received_c',
+            'label' => 'LBL_GP_QUOTES_RECEIVED_C',
+          ),
         ),
         2 => 
         array (
@@ -69,7 +73,11 @@ array (
             'name' => 'product_attachment_expiration_date_c',
             'label' => 'LBL_PRODUCT_ATTACHMENT_EXPIRATION_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'gpo_affiliation_verified_c',
+            'label' => 'LBL_GPO_AFFILIATION_VERIFIED_C',
+          ),
         ),
         3 => 
         array (
@@ -143,7 +151,11 @@ array (
             'name' => 'product_sow_version_c',
             'label' => 'LBL_PRODUCT_SOW_VERSION_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_effective_date_c',
+            'label' => 'LBL_CIA_EFFECTIVE_DATE_C',
+          ),
         ),
         9 => 
         array (
@@ -152,7 +164,11 @@ array (
             'name' => 'product_sow_date_c',
             'label' => 'LBL_PRODUCT_SOW_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_expiration_date_c',
+            'label' => 'LBL_CIA_EXPIRATION_DATE_C',
+          ),
         ),
         10 => 
         array (
@@ -161,7 +177,11 @@ array (
             'name' => 'product_gma_effective_date_c',
             'label' => 'LBL_PRODUCT_GMA_EFFECTIVE_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_term_months_c',
+            'label' => 'LBL_CIA_TERM_MONTHS_C',
+          ),
         ),
         11 => 
         array (
@@ -170,7 +190,11 @@ array (
             'name' => 'product_gma_expiration_date_c',
             'label' => 'LBL_PRODUCT_GMA_EXPIRATION_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_auto_renew_c',
+            'label' => 'LBL_CIA_AUTO_RENEW_C',
+          ),
         ),
         12 => 
         array (
@@ -179,7 +203,11 @@ array (
             'name' => 'product_gma_term_months_c',
             'label' => 'LBL_PRODUCT_GMA_TERM_MONTHS_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_renewal_term_months_c',
+            'label' => 'LBL_CIA_RENEWAL_TERM_MONTHS_C',
+          ),
         ),
         13 => 
         array (
@@ -188,7 +216,11 @@ array (
             'name' => 'product_gma_auto_renew_c',
             'label' => 'LBL_PRODUCT_GMA_AUTO_RENEW_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_termination_prior_to_renewal_c',
+            'label' => 'LBL_CIA_TERMINATION_PRIOR_TO_RENEWAL_C',
+          ),
         ),
         14 => 
         array (
@@ -197,7 +229,11 @@ array (
             'name' => 'product_gma_renewal_term_months_c',
             'label' => 'LBL_PRODUCT_GMA_RENEWAL_TERM_MONTHS_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_renewal_start_date_c',
+            'label' => 'LBL_CIA_RENEWAL_START_DATE_C',
+          ),
         ),
         15 => 
         array (
@@ -206,7 +242,11 @@ array (
             'name' => 'product_gma_termination_prior_to_ren_pic_c',
             'label' => 'LBL_PRODUCT_GMA_TERMINATION_PRIOR_TO_REN_PIC_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cia_annual_increase_c',
+            'label' => 'LBL_CIA_ANNUAL_INCREASE_C',
+          ),
         ),
         16 => 
         array (
@@ -262,7 +302,11 @@ array (
         ),
         20 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'gma_pricing_discount_c',
+            'label' => 'LBL_GMA_PRICING_DISCOUNT_C',
+          ),
           1 => 
           array (
             'name' => 'hosting_auto_renew_c',
@@ -284,7 +328,11 @@ array (
         ),
         22 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'implementation_and_training_discount_c',
+            'label' => 'LBL_IMPLEMENTATION_AND_TRAINING_DISCOUNT_C',
+          ),
           1 => 
           array (
             'name' => 'hosting_renewal_start_date_c',
@@ -302,6 +350,53 @@ array (
           array (
             'name' => 'hosting_term_notice_period_dd_c',
             'label' => 'LBL_HOSTING_TERM_NOTICE_PERIOD_DD_C',
+          ),
+        ),
+        24 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -388,25 +483,11 @@ array (
             'name' => 'maintenance_and_support_termination_prio_c',
             'label' => 'LBL_MAINTENANCE_AND_SUPPORT_TERMINATION_PRIO_C',
           ),
-          1 => '',
-        ),
-        7 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'maintenance_and_support_year_1_c',
             'label' => 'LBL_MAINTENANCE_AND_SUPPORT_YEAR_1_C',
           ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'maintenance_general_notes_c',
-            'label' => 'LBL_MAINTENANCE_GENERAL_NOTES_C',
-          ),
-          1 => '',
         ),
       ),
     ),

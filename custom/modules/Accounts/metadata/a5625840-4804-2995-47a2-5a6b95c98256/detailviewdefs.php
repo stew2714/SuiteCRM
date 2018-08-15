@@ -48,7 +48,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL8' => 
+        'LBL_EDITVIEW_PANEL9' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -99,11 +99,17 @@ array (
         ),
         2 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'facility_type_dd_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE_DD',
+          ),
           1 => 
           array (
-            'name' => 'account_type_c',
-            'label' => 'Account Type',
+            'name' => 'account_type',
+            'comment' => 'The Company is of this type',
+            'label' => 'LBL_TYPE',
           ),
         ),
         3 => 
@@ -116,8 +122,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'ownership',
-            'label' => 'LBL_OWNERSHIP',
+            'name' => 'industry',
+            'comment' => 'The company belongs in this industry',
+            'label' => 'LBL_INDUSTRY',
           ),
         ),
         4 => 
@@ -130,59 +137,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'profit_non_profit_c',
-            'label' => 'Profit Non Profit',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
+            'name' => 'ownership',
+            'label' => 'LBL_OWNERSHIP',
           ),
         ),
       ),
-      'lbl_editview_panel8' => 
+      'lbl_editview_panel9' => 
       array (
         0 => 
         array (
@@ -244,19 +204,7 @@ array (
             'comment' => 'The country used for the billing address',
             'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
           ),
-          1 => '',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'related_facilitities_c',
-            'label' => 'Related Facilities',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',
@@ -270,8 +218,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
+            'name' => 'account_number_c',
+            'label' => 'Account Number',
           ),
           1 => 
           array (
@@ -283,13 +231,60 @@ array (
         array (
           0 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
           ),
           1 => 
           array (
-            'name' => 'account_number_c',
-            'label' => 'Account Number',
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

@@ -38,13 +38,8 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL12' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -184,72 +179,52 @@ array (
             'name' => 'crm_c',
             'label' => 'LBL_CRM_C',
           ),
-          1 => '',
-        ),
-        12 => 
-        array (
-          0 => 
-          array (
-            'name' => 'count_c',
-            'label' => 'LBL_COUNT_C',
-          ),
-          1 => '',
-        ),
-        13 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'modlink_c',
             'label' => 'LBL_MODLINK_C',
           ),
-          1 => '',
         ),
-        14 => 
-        array (
-          0 => 
-          array (
-            'name' => 'notifi_subscription_amount_c',
-            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
-          ),
-          1 => '',
-        ),
-        15 => 
+        12 => 
         array (
           0 => 
           array (
             'name' => 'notifi_c',
             'label' => 'LBL_NOTIFI_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'notifi_subscription_amount_c',
+            'label' => 'LBL_NOTIFI_SUBSCRIPTION_AMOUNT_C',
+          ),
         ),
-        16 => 
+        13 => 
         array (
           0 => 
           array (
             'name' => 'statdx_c',
             'label' => 'LBL_STATDX_C',
           ),
-          1 => '',
-        ),
-        17 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'extended_term_adoption_services_value_c',
             'label' => 'LBL_EXTENDED_TERM_ADOPTION_SERVICES_VALUE_C',
           ),
-          1 => '',
         ),
-        18 => 
+        14 => 
         array (
           0 => 
           array (
             'name' => 'non_standard_commissions_release_c',
             'label' => 'LBL_NON_STANDARD_COMMISSIONS_RELEASE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'commissions_notes_c',
+            'label' => 'LBL_COMMISSIONS_NOTES_C',
+          ),
         ),
-        19 => 
+        15 => 
         array (
           0 => 
           array (
@@ -258,25 +233,48 @@ array (
           ),
           1 => '',
         ),
-        20 => 
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
-            'name' => 'commissions_notes_c',
-            'label' => 'LBL_COMMISSIONS_NOTES_C',
+            'name' => 'latest_update_date_c',
+            'label' => 'LBL_LATEST_UPDATE_DATE_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'latest_update_c',
+            'label' => 'LBL_LATEST_UPDATE_C',
+          ),
         ),
-        21 => 
+      ),
+      'lbl_editview_panel10' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
-            'name' => 'total_contract_value_c',
-            'label' => 'LBL_TOTAL_CONTRACT_VALUE_C',
+            'name' => 'product_interest_c',
+            'label' => 'LBL_PRODUCT_INTEREST_C',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'purchasing_timeframe_c',
+            'label' => 'LBL_PURCHASING_TIMEFRAME_C',
+          ),
         ),
-        22 => 
+        1 => 
+        array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'lead_rating_c',
+            'label' => 'LBL_LEAD_RATING_C',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -321,79 +319,6 @@ array (
               'dashlet' => true,
             ),
             'label' => 'LBL_ADDITIONALUSERS',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'latest_update_date_c',
-            'label' => 'LBL_LATEST_UPDATE_DATE_C',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'latest_update_c',
-            'label' => 'LBL_LATEST_UPDATE_C',
-          ),
-        ),
-      ),
-      'lbl_editview_panel10' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'product_interest_c',
-            'label' => 'LBL_PRODUCT_INTEREST_C',
-          ),
-          1 => 
-          array (
-            'name' => 'purchasing_timeframe_c',
-            'label' => 'LBL_PURCHASING_TIMEFRAME_C',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'lead_rating_c',
-            'label' => 'LBL_LEAD_RATING_C',
-          ),
-        ),
-      ),
-      'lbl_editview_panel12' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-          1 => 
-          array (
-            'name' => 'slx_opportunity_id_c',
-            'label' => 'LBL_SLX_OPPORTUNITY_ID_C',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'last_modified_by_owner_c',
-            'label' => 'LBL_LAST_MODIFIED_BY_OWNER_C',
-          ),
-          1 => 
-          array (
-            'name' => 'slx_create_date_c',
-            'label' => 'LBL_SLX_CREATE_DATE_C',
           ),
         ),
       ),

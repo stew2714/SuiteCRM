@@ -48,6 +48,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_DETAILVIEW_PANEL3' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'collapsed',
+        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -188,6 +193,53 @@ array (
             'name' => 'fvm_c',
             'label' => 'LBL_FVM',
           ),
+          1 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -256,6 +308,18 @@ array (
             'name' => 'tier_dd_c',
             'studio' => 'visible',
             'label' => 'LBL_TIER_DD',
+          ),
+        ),
+      ),
+      'lbl_detailview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'client_alert_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CLIENT_ALERT',
           ),
         ),
       ),

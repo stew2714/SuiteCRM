@@ -37,17 +37,22 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL15' => 
+        'LBL_EDITVIEW_PANEL18' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL16' => 
+        'LBL_EDITVIEW_PANEL20' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL17' => 
+        'LBL_EDITVIEW_PANEL21' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL19' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -67,12 +72,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL13' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL12' => 
+        'LBL_DETAILVIEW_PANEL22' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -205,8 +205,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'forecastcategory_c',
-            'label' => 'LBL_FORECASTCATEGORY_C',
+            'name' => 'forecasting_category_c',
+            'label' => 'LBL_FORECASTING_CATEGORY_C',
           ),
         ),
         11 => 
@@ -249,7 +249,23 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel15' => 
+      'lbl_editview_panel18' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'latest_update_date_c',
+            'label' => 'LBL_LATEST_UPDATE_DATE_C',
+          ),
+          1 => 
+          array (
+            'name' => 'latest_update_c',
+            'label' => 'LBL_LATEST_UPDATE_C',
+          ),
+        ),
+      ),
+      'lbl_editview_panel20' => 
       array (
         0 => 
         array (
@@ -395,7 +411,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel16' => 
+      'lbl_editview_panel21' => 
       array (
         0 => 
         array (
@@ -515,7 +531,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel17' => 
+      'lbl_editview_panel19' => 
       array (
         0 => 
         array (
@@ -665,19 +681,17 @@ array (
             'label' => 'LBL_CHANGES_NEXT_TIME_C',
           ),
         ),
-      ),
-      'lbl_editview_panel13' => 
-      array (
-        0 => 
+        2 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'nl2br' => true,
           ),
+          1 => '',
         ),
       ),
-      'lbl_editview_panel12' => 
+      'lbl_detailview_panel22' => 
       array (
         0 => 
         array (
@@ -688,8 +702,55 @@ array (
           ),
           1 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'last_modified_by_owner_c',
+            'label' => 'LBL_LAST_MODIFIED_BY_OWNER_C',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

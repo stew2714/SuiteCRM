@@ -218,7 +218,8 @@ foreach($pages[$activePage]['columns'] as $colNum => $column) {
             $myDashlet = new MySugar($module);
 
             if($myDashlet->checkDashletDisplay()) {
-                require_once($dashlets[$id]['fileLocation']);
+
+                require_once(get_custom_file_if_exists($dashlets[$id]['fileLocation']));
 
 
                 $dashlet = new $dashlets[$id]['className']($id, (isset($dashlets[$id]['options']) ? $dashlets[$id]['options'] : array()));

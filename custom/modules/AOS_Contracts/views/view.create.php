@@ -140,11 +140,12 @@ class AOS_ContractsViewCreate extends ViewCreate
 
     public function preDisplay()
     {
+        global $sugar_config, $current_user;
         if (isset($_REQUEST["return_id"]) && $_REQUEST["return_id"] !== '' && isset($_REQUEST["return_module"]) && $_REQUEST["return_module"] !== '') {
             $reqBeanId = $_REQUEST["return_id"];
             $reqBeanType = $_REQUEST["return_module"];
             $returnBean = BeanFactory::getBean($reqBeanType, $reqBeanId);
-            if ($returnBean->id !== ('' || null)) {
+            if ($returnBean->id !== ('' || null) && $reqBeanType == "Opportunities") {
                 $this->bean->apttus_requestor_name_c = $returnBean->assigned_user_name;
                 $this->bean->Oneapttus_requestor_c = $returnBean->assigned_user_id;
                 $this->bean->probability_c = $returnBean->probability;
@@ -159,16 +160,34 @@ class AOS_ContractsViewCreate extends ViewCreate
             $this->bean->amendment_c = $amendment;
             $amendment = str_pad($amendment, 2, '0', STR_PAD_LEFT);
             $this->bean->agreements_number_and_amendment_c = $agreementNumber.".".$amendment;
-            $sql = "SELECT aos_contracts.id, aos_contracts.name FROM aos_contracts LEFT JOIN aos_contracts_cstm ON aos_contracts_cstm.id_c = aos_contracts.id WHERE aos_contracts.deleted = '0' AND aos_contracts_cstm.agreements_number_c = '$agreementNumber' AND aos_contracts_cstm.amendment_c = '0'";
-            $result = $this->bean->db->query($sql);
-            $contractsRow = mysqli_fetch_row($result);
-            $this->bean->apttus_parent_agreement_name_c = $contractsRow[1];
-            $this->bean->Oneapttus_parent_agreement_c = $contractsRow[0];
+            $parentContract = BeanFactory::getBean('AOS_Contracts', $_REQUEST['return_id']);
+            $this->bean->apttus_parent_agreement_name_c = $parentContract->name;
+            $this->bean->Oneapttus_parent_agreement_c = $parentContract->id;
             $this->bean->apttus_status_category_c = "req";
-            $this->bean->apttus_status_c = "req_sr";
+            $this->bean->apttus_status_c = "req_ia";
+
+            // Blank out certain fields on amendment
+            $this->bean->apttus_activated_date_c = "";
+            $this->bean->Oneapttus_activated_by = "";
+            $this->bean->apttus_activated_by_name_c = "";
+            $this->bean->apttus_executed_copy_mailed_out_date_c = "";
+            $this->bean->courior_tracking_number_c = "";
+            $this->bean->Oneapttus_company_signed_by = "";
+            $this->bean->apttus_company_signed_by_name_c = "";
+            $this->bean->apttus_company_signed_date_c = "";
+            $this->bean->apttus_company_signed_title_c = "";
+            $this->bean->Oneapttus_other_party_signed_by = "";
+            $this->bean->apttus_other_party_signed_by_name_c = "";
+            $this->bean->apttus_other_party_signed_date_c = "";
+            $this->bean->apttus_other_party_signed_by_unlisted_c = "";
+            $this->bean->apttus_other_party_signed_title_c = "";
+            $this->bean->apttus_amendment_effective_date_c = "";
         }
 
-        if($this->bean->apttus_status_c == "eff_act" && $_REQUEST['isAmendment'] != "true") {
+        $securityGroups = BeanFactory::getBean("SecurityGroups");
+        $groups = $securityGroups->getUserSecurityGroups($current_user->id);
+
+        if($this->bean->apttus_status_c == "eff_act" && $_REQUEST['isAmendment'] != "true" && !is_admin($current_user) && !array_key_exists($sugar_config['LegalGroup'],$groups)) {
             $redirectURL = "index.php?module=AOS_Contracts&action=DetailView&record=".$this->bean->id;
             echo "<script>
                 alert('This agreement has been activated. You are not allowed to edit it further.');

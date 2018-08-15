@@ -1,11 +1,18 @@
 <?php
-// created: 2016-08-23 20:37:05
+// created: 2018-08-02 14:53:44
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
     'width' => '45%',
+    'default' => true,
+  ),
+  'ucid' => 
+  array (
+    'type' => 'varchar',
+    'vname' => 'LBL_UCID',
+    'width' => '10%',
     'default' => true,
   ),
   'customer_no_c' => 
@@ -15,17 +22,32 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_CUSTOMER_NO',
     'width' => '10%',
   ),
-  'ucid' => 
+  'aplatform_c' => 
   array (
-    'type' => 'varchar',
-    'vname' => 'LBL_UCID',
-    'width' => '10%',
+    'type' => 'enum',
     'default' => true,
+    'studio' => 'visible',
+    'vname' => 'LBL_APLATFORM',
+    'width' => '10%',
   ),
   'himss_id' => 
   array (
     'type' => 'varchar',
     'vname' => 'LBL_HIMSS_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'definitive_id' => 
+  array (
+    'type' => 'varchar',
+    'vname' => 'LBL_DEFINITIVE_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'term_date' => 
+  array (
+    'type' => 'date',
+    'vname' => 'LBL_TERM_DATE',
     'width' => '10%',
     'default' => true,
   ),

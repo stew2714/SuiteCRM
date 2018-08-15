@@ -258,6 +258,9 @@ $(document).ready(function() {
         if (response === "success") {
             $("#modal-title").text("Activated Successfully");
             $("#modal-content").text("This record has been successfully activated.");
+        } else if (response === "validate_fail") {
+            $("#modal-title").text("Activate Validation Failed");
+            $("#modal-content").text("The Contract Start Date and the Company Signed By fields have not been filled in. Please fill these fields in to activate.");
         } else {
             $("#modal-title").text("Activation Failed");
             $("#modal-content").text("There was a problem activating this record. If the problem persists please contact your System Administrator.");
@@ -283,6 +286,9 @@ $(document).ready(function() {
     if (response === "success") {
       $("#modal-title").text("Submitted Successfully");
       $("#modal-content").text("This request has been successfully submitted to the Legal Queue.");
+    } else if (response === "already_submitted") {
+      $("#modal-title").text("Already Submitted");
+      $("#modal-content").text("This request has already been submitted.");
     } else {
       $("#modal-title").text("Submit Failed");
       $("#modal-content").text("There was a problem submitting this request. If the problem persists please contact your System Administrator.");
@@ -307,6 +313,9 @@ $(document).ready(function() {
     if (response === "success") {
       $("#modal-title").text("Cancelled Successfully");
       $("#modal-content").text("This request has been cancelled successfully.");
+    } else if (response === "already_cancelled") {
+      $("#modal-title").text("Already Cancelled");
+      $("#modal-content").text("This request has already been cancelled.");
     } else {
       $("#modal-title").text("Cancel Failed");
       $("#modal-content").text("There was a problem cancelling this request. If the problem persists please contact your System Administrator.");

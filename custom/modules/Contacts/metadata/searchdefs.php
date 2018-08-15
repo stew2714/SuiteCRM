@@ -45,6 +45,22 @@ array (
         'width' => '10%',
         'name' => 'contact_type_c',
       ),
+      'address_city' => 
+      array (
+        'name' => 'address_city',
+        'label' => 'LBL_CITY',
+        'type' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'address_state' => 
+      array (
+        'name' => 'address_state',
+        'label' => 'LBL_STATE',
+        'type' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
       'survey_c' => 
       array (
         'type' => 'bool',
