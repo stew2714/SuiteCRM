@@ -1,13 +1,13 @@
 column,do no create,name,type,options,label
-"   admissions_c double(18,0)",,,,,
-"   ch_beds_c double(18,0)",,,,,
+"   admissions_c int",,,,,
+"   ch_beds_c int",,,,,
 "   cms_medicare_number_c varchar(20)",,,,,"CMS Medicare Number"
 "   health_system_type_c varchar(10)",,,,,
-"   hospital_physicians_total_most_recent_c double(18,0)",,,,,
+"   hospital_physicians_total_most_recent_c int",,,,,
 "   isch_c bool",,,,,
 "   landmark_acquisition_c bool",,,,,
 "   organization_c varchar(200)",,,,,
 "   organization_unique_id_c varchar(8)",,,,,
-"   outpatient_visits_c double(18,0)",,,,,
-"   practice_physicians_c double(18,0)",,,,,
+"   outpatient_visits_c int",,,,,
+"   practice_physicians_c int",,,,,
 "   short_id_c varchar(30)",,,,,

@@ -228,4 +228,128 @@ $searchFields['Accounts'] = array (
   array (
     'query_type' => 'default',
   ),
+  'staffed_beds_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'beds_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'imaging_exam_volume_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_dictators_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'emram_stage_validated_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_mts_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'transcription_volumemonth_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'annual_admissions_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'annual_adj_patient_days_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'annual_outpatient_visits_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'annual_healthcare_visits_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'of_procedures_day_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_locations_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_providers_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'ip_days_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'total_employees_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'radiology_studies_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'cardiology_studies_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'operating_rooms_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'births_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_physicians_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_home_health_fac_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_ambulatory_loc_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_sub_acute_loc_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_hospitals_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'er_visits_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'number_of_facilities_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'tos_opportunity_size_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'site_size_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'tos_rad_opp_size_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'of_hospitals_in_health_system_c' => 
+  array (
+    'query_type' => 'default',
+  ),
 );

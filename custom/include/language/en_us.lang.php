@@ -1939,8 +1939,6 @@ $GLOBALS['app_list_strings']['exchange_list']=array (
   'VERSION_2016' => 'Exchange2016',
 
 );
-
-
 $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   '' => '',
   'Mobile_Physician' => 'Mobile - Physician (ex: Haiku/Canto)',
@@ -2209,7 +2207,19 @@ $GLOBALS['app_list_strings']['countries_dom']=array (
   'ZAMBIA' => 'ZAMBIA',
   'ZIMBABWE' => 'ZIMBABWE',
 );
+
 $GLOBALS['app_list_strings']['acct_ownership_list']=array (
+);
+
+$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
+  '' => '',
+  'Email' => 'Email',
+  'Onsite_Visit' => 'Onsite Visit',
+  'Phone_Call' => 'Phone Call',
+  'Webinar' => 'Webinar',
+);
+
+$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   '' => '',
   'Church_Operated' => 'Church Operated',
   'Corporation_Investor_Owned' => 'Corporatation: Investor-Owned',
@@ -2228,11 +2238,7 @@ $GLOBALS['app_list_strings']['acct_ownership_list']=array (
   'Private' => 'Private',
   'Public' => 'Public',
   'Subsidiary' => 'Subsidiary',
-
 );
-
-
-
 $GLOBALS['app_list_strings']['FD_version_list']=array (
   '' => '',
   '10.0.634' => '10.0.634',
@@ -2245,6 +2251,7 @@ $GLOBALS['app_list_strings']['FD_version_list']=array (
   '10.0.514' => '10.0.514',
   '10.0.513' => '10.0.513',
   '10.0.509' => '10.0.509',
+  '10.0.481' => '10.0.481',
   '10.0.479' => '10.0.479',
   '10.0.476' => '10.0.476',
   '10.0.469' => '10.0.469',

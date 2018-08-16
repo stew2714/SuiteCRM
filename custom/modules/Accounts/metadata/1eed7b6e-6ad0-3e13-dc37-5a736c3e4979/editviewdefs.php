@@ -74,7 +74,11 @@ array (
               'required' => true,
             ),
           ),
-          1 => 'account_type',
+          1 => 
+          array (
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
+          ),
         ),
         1 => 
         array (
@@ -116,42 +120,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => 
-          array (
             'name' => 'website',
             'comment' => 'URL of website for the company',
             'label' => 'LBL_WEBSITE',
           ),
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -164,14 +138,14 @@ array (
             'label' => 'Geostatus',
           ),
         ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
             'name' => 'fiscal_end_date_month_c',
             'label' => 'Fiscal End Date Month',
           ),
-          1 => '',
+          1 => 'account_type',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 

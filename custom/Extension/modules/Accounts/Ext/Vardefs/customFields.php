@@ -6,15 +6,27 @@
 
 
 
+ // Vardef Created : operating_expense_c 
+
+$dictionary['Account']['fields']['operating_expense_c']['name']='operating_expense_c';
+$dictionary['Account']['fields']['operating_expense_c']['len']='255';
+$dictionary['Account']['fields']['operating_expense_c']['type']='currency';
+$dictionary['Account']['fields']['operating_expense_c']['inline_edit']=1;
+$dictionary['Account']['fields']['operating_expense_c']['importable']='true';
+$dictionary['Account']['fields']['operating_expense_c']['reportable']=true;
+$dictionary['Account']['fields']['operating_expense_c']['module']='Accounts';
+$dictionary['Account']['fields']['operating_expense_c']['vname']='LBL_OPERATING_EXPENSE_C';
+$dictionary['Account']['fields']['operating_expense_c']['source']='custom_fields';
+
+
  // Vardef Created : admissions_c 
 
 $dictionary['Account']['fields']['admissions_c']['name']='admissions_c';
-$dictionary['Account']['fields']['admissions_c']['len']='180';
-$dictionary['Account']['fields']['admissions_c']['type']='double';
+$dictionary['Account']['fields']['admissions_c']['len']='255';
+$dictionary['Account']['fields']['admissions_c']['type']='int';
 $dictionary['Account']['fields']['admissions_c']['inline_edit']=1;
 $dictionary['Account']['fields']['admissions_c']['importable']='true';
 $dictionary['Account']['fields']['admissions_c']['reportable']=true;
-$dictionary['Account']['fields']['admissions_c']['precision']='8';
 $dictionary['Account']['fields']['admissions_c']['module']='Accounts';
 $dictionary['Account']['fields']['admissions_c']['vname']='LBL_ADMISSIONS_C';
 $dictionary['Account']['fields']['admissions_c']['source']='custom_fields';
@@ -23,12 +35,11 @@ $dictionary['Account']['fields']['admissions_c']['source']='custom_fields';
  // Vardef Created : ch_beds_c 
 
 $dictionary['Account']['fields']['ch_beds_c']['name']='ch_beds_c';
-$dictionary['Account']['fields']['ch_beds_c']['len']='180';
-$dictionary['Account']['fields']['ch_beds_c']['type']='double';
+$dictionary['Account']['fields']['ch_beds_c']['len']='255';
+$dictionary['Account']['fields']['ch_beds_c']['type']='int';
 $dictionary['Account']['fields']['ch_beds_c']['inline_edit']=1;
 $dictionary['Account']['fields']['ch_beds_c']['importable']='true';
 $dictionary['Account']['fields']['ch_beds_c']['reportable']=true;
-$dictionary['Account']['fields']['ch_beds_c']['precision']='8';
 $dictionary['Account']['fields']['ch_beds_c']['module']='Accounts';
 $dictionary['Account']['fields']['ch_beds_c']['vname']='LBL_CH_BEDS_C';
 $dictionary['Account']['fields']['ch_beds_c']['source']='custom_fields';
@@ -63,12 +74,11 @@ $dictionary['Account']['fields']['health_system_type_c']['source']='custom_field
  // Vardef Created : hospital_physicians_total_most_recent_c 
 
 $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['name']='hospital_physicians_total_most_recent_c';
-$dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['len']='180';
-$dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['type']='double';
+$dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['len']='255';
+$dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['type']='int';
 $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['inline_edit']=1;
 $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['importable']='true';
 $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['reportable']=true;
-$dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['precision']='8';
 $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['module']='Accounts';
 $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['vname']='LBL_HOSPITAL_PHYSICIANS_TOTAL_MOST_RECENT_C';
 $dictionary['Account']['fields']['hospital_physicians_total_most_recent_c']['source']='custom_fields';
@@ -129,12 +139,11 @@ $dictionary['Account']['fields']['organization_unique_id_c']['source']='custom_f
  // Vardef Created : outpatient_visits_c 
 
 $dictionary['Account']['fields']['outpatient_visits_c']['name']='outpatient_visits_c';
-$dictionary['Account']['fields']['outpatient_visits_c']['len']='180';
-$dictionary['Account']['fields']['outpatient_visits_c']['type']='double';
+$dictionary['Account']['fields']['outpatient_visits_c']['len']='255';
+$dictionary['Account']['fields']['outpatient_visits_c']['type']='int';
 $dictionary['Account']['fields']['outpatient_visits_c']['inline_edit']=1;
 $dictionary['Account']['fields']['outpatient_visits_c']['importable']='true';
 $dictionary['Account']['fields']['outpatient_visits_c']['reportable']=true;
-$dictionary['Account']['fields']['outpatient_visits_c']['precision']='8';
 $dictionary['Account']['fields']['outpatient_visits_c']['module']='Accounts';
 $dictionary['Account']['fields']['outpatient_visits_c']['vname']='LBL_OUTPATIENT_VISITS_C';
 $dictionary['Account']['fields']['outpatient_visits_c']['source']='custom_fields';
@@ -143,12 +152,11 @@ $dictionary['Account']['fields']['outpatient_visits_c']['source']='custom_fields
  // Vardef Created : practice_physicians_c 
 
 $dictionary['Account']['fields']['practice_physicians_c']['name']='practice_physicians_c';
-$dictionary['Account']['fields']['practice_physicians_c']['len']='180';
-$dictionary['Account']['fields']['practice_physicians_c']['type']='double';
+$dictionary['Account']['fields']['practice_physicians_c']['len']='255';
+$dictionary['Account']['fields']['practice_physicians_c']['type']='int';
 $dictionary['Account']['fields']['practice_physicians_c']['inline_edit']=1;
 $dictionary['Account']['fields']['practice_physicians_c']['importable']='true';
 $dictionary['Account']['fields']['practice_physicians_c']['reportable']=true;
-$dictionary['Account']['fields']['practice_physicians_c']['precision']='8';
 $dictionary['Account']['fields']['practice_physicians_c']['module']='Accounts';
 $dictionary['Account']['fields']['practice_physicians_c']['vname']='LBL_PRACTICE_PHYSICIANS_C';
 $dictionary['Account']['fields']['practice_physicians_c']['source']='custom_fields';

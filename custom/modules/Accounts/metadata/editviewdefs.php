@@ -99,7 +99,7 @@ array (
               'required' => true,
             ),
           ),
-          1 => 'industry',
+          1 => 'account_type',
         ),
         1 => 
         array (
@@ -109,7 +109,11 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_FACILITY_TYPE_DD',
           ),
-          1 => 'account_type',
+          1 => 
+          array (
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
+          ),
         ),
         2 => 
         array (
@@ -211,53 +215,6 @@ array (
           array (
             'name' => 'organization_primary_service_c',
             'label' => 'Organization Primary Service',
-          ),
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -495,8 +452,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'mtso_1_c',
-            'label' => 'MTSO 1 Old',
+            'name' => 'mtso_1_name_c',
+            'studio' => 'visible',
+            'label' => 'MTSO 1',
           ),
           1 => 
           array (
@@ -521,8 +479,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'mtso_2_c',
-            'label' => 'MTSO 2 Old',
+            'name' => 'mtso_2_name_c',
+            'studio' => 'visible',
+            'label' => 'MTSO 2',
           ),
           1 => 
           array (
@@ -547,8 +506,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'mtso_3_c',
-            'label' => 'MTSO 3 Old',
+            'name' => 'mtso_3_name_c',
+            'studio' => 'visible',
+            'label' => 'MTSO 3',
           ),
           1 => 
           array (
@@ -804,6 +764,53 @@ array (
           array (
             'name' => 'ig_id_c',
             'label' => 'IG Id',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

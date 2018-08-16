@@ -102,8 +102,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'short_id_c',
-            'label' => 'LBL_SHORT_ID_C',
+            'name' => 'new_short_id_c',
+            'label' => 'LBL_NEW_SHORT_ID_C',
           ),
           1 => 
           array (

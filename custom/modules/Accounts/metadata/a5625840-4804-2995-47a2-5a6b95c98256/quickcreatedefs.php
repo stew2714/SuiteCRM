@@ -42,7 +42,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL9' => 
+        'LBL_EDITVIEW_PANEL10' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -133,7 +133,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel9' => 
+      'lbl_editview_panel10' => 
       array (
         0 => 
         array (
@@ -161,37 +161,10 @@ array (
             'comment' => 'The street address used for billing address',
             'label' => 'LBL_BILLING_ADDRESS_STREET',
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
         array (
           0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',

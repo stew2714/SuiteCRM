@@ -42,6 +42,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL8' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
         'LBL_EDITVIEW_PANEL2' => 
         array (
           'newTab' => false,
@@ -52,17 +57,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL5' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL6' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -95,9 +95,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'industry',
-            'comment' => 'The company belongs in this industry',
-            'label' => 'LBL_INDUSTRY',
+            'name' => 'account_type',
           ),
         ),
         1 => 
@@ -110,7 +108,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'account_type',
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
           ),
         ),
         2 => 
@@ -206,64 +205,26 @@ array (
         array (
           0 => 
           array (
-            'name' => 'organization_primary_service_c',
-            'label' => 'Organization Primary Service',
+            'name' => 'cms_medicare_number_c',
+            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
           ),
           1 => 
           array (
-            'name' => 'cms_medicare_number_c',
-            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
+            'name' => 'organization_primary_service_c',
+            'label' => 'Organization Primary Service',
           ),
         ),
         10 => 
         array (
           0 => 
           array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
+            'name' => 'imaging_group_c',
+            'label' => 'LBL_IMAGING_GROUP',
           ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
-          ),
+          1 => '',
         ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_editview_panel8' => 
       array (
         0 => 
         array (
@@ -301,7 +262,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel3' => 
+      'lbl_editview_panel2' => 
       array (
         0 => 
         array (
@@ -462,7 +423,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel5' => 
+      'lbl_editview_panel3' => 
       array (
         0 => 
         array (
@@ -524,8 +485,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'tos_opportunity_size_c',
-            'label' => 'TOS Opportunity Size',
+            'name' => 'tos_rad_opp_size_c',
+            'label' => 'TOS Rad Opp Size',
           ),
         ),
         2 => 
@@ -537,8 +498,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'tos_rad_opp_size_c',
-            'label' => 'TOS Rad Opp Size',
+            'name' => 'tos_contract_expiration_date_c',
+            'label' => 'TOS Contract Expiration Date',
           ),
         ),
         3 => 
@@ -550,8 +511,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'tos_contract_expiration_date_c',
-            'label' => 'TOS Contract Expiration Date',
+            'name' => 'renewal_expiration_date_c',
+            'label' => 'Renewal Expiration Date',
           ),
         ),
         4 => 
@@ -563,8 +524,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'renewal_expiration_date_c',
-            'label' => 'Renewal Expiration Date',
+            'name' => 'evergreen_c',
+            'label' => 'Evergreen',
           ),
         ),
         5 => 
@@ -576,24 +537,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'evergreen_c',
-            'label' => 'Evergreen',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
             'name' => 'tos_budget_start_date_c',
             'label' => 'TOS Budget Start Date',
           ),
-          1 => 
-          array (
-            'name' => 'identified_pricedown_target_c',
-            'label' => 'Identified Pricedown Target',
-          ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -607,7 +555,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel6' => 
+      'lbl_editview_panel5' => 
       array (
         0 => 
         array (
@@ -704,8 +652,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'him_speech_rec_system_c',
-            'label' => 'Him Speech Rec System',
+            'name' => 'him_speech_rec_install_date_c',
+            'label' => 'HIM Speech Rec Install Date',
           ),
           1 => 
           array (
@@ -717,8 +665,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'him_speech_rec_install_date_c',
-            'label' => 'HIM Speech Rec Install Date',
+            'name' => 'him_speech_rec_system_c',
+            'label' => 'Him Speech Rec System',
           ),
           1 => 
           array (
@@ -807,8 +755,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'ig_id_c',
-            'label' => 'IG Id',
+            'name' => 'medicare_id_c',
+            'label' => 'Medicare ID',
           ),
         ),
         2 => 
@@ -820,8 +768,55 @@ array (
           ),
           1 => 
           array (
-            'name' => 'medicare_id_c',
-            'label' => 'Medicare ID',
+            'name' => 'ig_id_c',
+            'label' => 'IG Id',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

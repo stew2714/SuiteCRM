@@ -48,7 +48,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL9' => 
+        'LBL_DETAILVIEW_PANEL10' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -142,7 +142,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel9' => 
+      'lbl_detailview_panel10' => 
       array (
         0 => 
         array (
@@ -174,37 +174,10 @@ array (
               'key' => 'billing',
             ),
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
         array (
           0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',
@@ -218,8 +191,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_number_c',
-            'label' => 'Account Number',
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
           ),
           1 => 
           array (
@@ -231,13 +204,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
           ),
           1 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'account_number_c',
+            'label' => 'Account Number',
           ),
         ),
         2 => 

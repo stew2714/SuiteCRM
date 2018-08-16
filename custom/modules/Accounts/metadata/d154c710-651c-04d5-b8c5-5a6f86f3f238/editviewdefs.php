@@ -46,12 +46,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL2' => 
+        'LBL_EDITVIEW_PANEL8' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL3' => 
+        'LBL_EDITVIEW_PANEL2' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -61,7 +61,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL8' => 
+        'LBL_EDITVIEW_PANEL9' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -94,12 +94,7 @@ array (
               'required' => true,
             ),
           ),
-          1 => 
-          array (
-            'name' => 'industry',
-            'comment' => 'The company belongs in this industry',
-            'label' => 'LBL_INDUSTRY',
-          ),
+          1 => 'account_type',
         ),
         1 => 
         array (
@@ -109,7 +104,11 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_FACILITY_TYPE_DD',
           ),
-          1 => 'account_type',
+          1 => 
+          array (
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
+          ),
         ),
         2 => 
         array (
@@ -164,8 +163,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'cms_medicare_number_c',
-            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
+            'name' => 'health_system_type_c',
+            'label' => 'LBL_HEALTH_SYSTEM_TYPE_C',
           ),
           1 => 
           array (
@@ -177,8 +176,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'organization_unique_id_c',
-            'label' => 'LBL_ORGANIZATION_UNIQUE_ID_C',
+            'name' => 'cms_medicare_number_c',
+            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
           ),
           1 => 
           array (
@@ -190,17 +189,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'organization_c',
-            'label' => 'LBL_ORGANIZATION_C',
-          ),
-          1 => '',
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'organization_primary_service_c',
-            'label' => 'Organization Primary Service',
+            'name' => 'organization_unique_id_c',
+            'label' => 'LBL_ORGANIZATION_UNIQUE_ID_C',
           ),
           1 => 
           array (
@@ -208,8 +198,21 @@ array (
             'label' => 'Fiscal End Date Month',
           ),
         ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'organization_c',
+            'label' => 'LBL_ORGANIZATION_C',
+          ),
+          1 => 
+          array (
+            'name' => 'organization_primary_service_c',
+            'label' => 'Organization Primary Service',
+          ),
+        ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_editview_panel8' => 
       array (
         0 => 
         array (
@@ -248,7 +251,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel3' => 
+      'lbl_editview_panel2' => 
       array (
         0 => 
         array (
@@ -492,7 +495,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel8' => 
+      'lbl_editview_panel9' => 
       array (
         0 => 
         array (
@@ -590,48 +593,18 @@ array (
               'maxlength' => 150,
             ),
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
           ),
           1 => 
           array (
             'name' => 'related_facilitities_c',
             'label' => 'Related Facilities',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
           ),
         ),
       ),

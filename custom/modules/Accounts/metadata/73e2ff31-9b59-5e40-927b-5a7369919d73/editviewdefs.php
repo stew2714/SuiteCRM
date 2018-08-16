@@ -46,12 +46,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL2' => 
+        'LBL_EDITVIEW_PANEL8' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL3' => 
+        'LBL_EDITVIEW_PANEL14' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -61,12 +61,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL5' => 
+        'LBL_EDITVIEW_PANEL12' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL6' => 
+        'LBL_EDITVIEW_PANEL11' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -115,9 +115,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'industry',
-            'comment' => 'The company belongs in this industry',
-            'label' => 'LBL_INDUSTRY',
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
           ),
         ),
         2 => 
@@ -204,8 +203,17 @@ array (
             'label' => 'Fed Agency',
           ),
         ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'imaging_group_c',
+            'label' => 'LBL_IMAGING_GROUP',
+          ),
+          1 => '',
+        ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_editview_panel8' => 
       array (
         0 => 
         array (
@@ -231,7 +239,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel3' => 
+      'lbl_editview_panel14' => 
       array (
         0 => 
         array (
@@ -285,19 +293,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'total_employees_c',
-            'label' => 'Total Employees',
-          ),
-          1 => 
-          array (
-            'name' => 'annual_admissions_c',
-            'label' => 'Annual Admissions',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
             'name' => 'net_patient_revenues_c',
             'label' => 'Net Patient Revenues',
           ),
@@ -305,6 +300,19 @@ array (
           array (
             'name' => 'annual_adj_patient_days_c',
             'label' => 'Annual Adj Patient Days',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'total_employees_c',
+            'label' => 'Total Employees',
+          ),
+          1 => 
+          array (
+            'name' => 'annual_admissions_c',
+            'label' => 'Annual Admissions',
           ),
         ),
         6 => 
@@ -357,12 +365,12 @@ array (
         ),
         10 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'radiology_studies_c',
             'label' => 'Radiology Studies',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -475,7 +483,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel5' => 
+      'lbl_editview_panel12' => 
       array (
         0 => 
         array (
@@ -530,7 +538,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel6' => 
+      'lbl_editview_panel11' => 
       array (
         0 => 
         array (
@@ -689,48 +697,18 @@ array (
               'maxlength' => 150,
             ),
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
           ),
           1 => 
           array (
             'name' => 'related_facilitities_c',
             'label' => 'Related Facilities',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
           ),
         ),
       ),
