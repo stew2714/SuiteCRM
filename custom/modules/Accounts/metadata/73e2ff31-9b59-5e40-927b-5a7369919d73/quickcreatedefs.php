@@ -47,7 +47,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL9' => 
+        'LBL_EDITVIEW_PANEL14' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -57,7 +57,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL10' => 
+        'LBL_EDITVIEW_PANEL12' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -235,7 +235,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel9' => 
+      'lbl_editview_panel14' => 
       array (
         0 => 
         array (
@@ -294,19 +294,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'total_employees_c',
-            'label' => 'Total Employees',
-          ),
-          1 => 
-          array (
-            'name' => 'annual_admissions_c',
-            'label' => 'Annual Admissions',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
             'name' => 'net_patient_revenues_c',
             'label' => 'Net Patient Revenues',
           ),
@@ -314,6 +301,19 @@ array (
           array (
             'name' => 'annual_adj_patient_days_c',
             'label' => 'Annual Adj Patient Days',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'total_employees_c',
+            'label' => 'Total Employees',
+          ),
+          1 => 
+          array (
+            'name' => 'annual_admissions_c',
+            'label' => 'Annual Admissions',
           ),
         ),
         6 => 
@@ -371,12 +371,12 @@ array (
         ),
         10 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'radiology_studies_c',
             'label' => 'Radiology Studies',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -486,7 +486,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel10' => 
+      'lbl_editview_panel12' => 
       array (
         0 => 
         array (

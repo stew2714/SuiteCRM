@@ -52,7 +52,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL9' => 
+        'LBL_EDITVIEW_PANEL10' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -246,7 +246,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel9' => 
+      'lbl_editview_panel10' => 
       array (
         0 => 
         array (

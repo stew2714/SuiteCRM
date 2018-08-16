@@ -63,7 +63,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_DETAILVIEW_PANEL10' => 
+        'LBL_DETAILVIEW_PANEL11' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -233,15 +233,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'imaging_owner_name_c',
-            'label' => 'Imaging Owner',
-          ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
@@ -250,6 +241,15 @@ array (
             'name' => 'sales_region_c',
             'label' => 'Sales Region',
           ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'imaging_owner_name_c',
+            'label' => 'Imaging Owner',
+          ),
+          1 => '',
         ),
       ),
       'lbl_detailview_panel9' => 
@@ -507,7 +507,7 @@ array (
           ),
         ),
       ),
-      'lbl_detailview_panel10' => 
+      'lbl_detailview_panel11' => 
       array (
         0 => 
         array (

@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-16 13:49:43
+// created: 2018-08-16 18:23:00
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -43,7 +43,7 @@ $mod_strings = array (
   'RECORD TYPE' => 'Record Type',
   'LBL_OWNER_SALES_PERSON' => 'Owner',
   'LBL_EDITVIEW_PANEL9' => 'Prospecting',
-  'LBL_EDITVIEW_PANEL10' => 'Account Sizing',
+  'LBL_EDITVIEW_PANEL10' => 'Installed Products',
   'LBL_MODIFIED_NAME' => 'Last Modified By',
   'NEW_REGION' => 'Region',
   'LBL_CMS_MEDICARE_NUMBER_C' => 'CSM Medicare Number',
@@ -83,10 +83,15 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO' => 'Account Owner:',
   'LBL_DETAILVIEW_PANEL8' => 'Territory Information',
   'LBL_DETAILVIEW_PANEL9' => 'Account Statistics',
-  'LBL_DETAILVIEW_PANEL10' => 'Acount Sizing',
+  'LBL_DETAILVIEW_PANEL10' => 'Installed Products',
   'LBL_IMAGING_GROUP' => 'Imaging Group',
   'IG_ID' => 'IGN',
   'ID' => 'ID',
   'GPO' => 'Primary GPO',
   '# OF HOSPITALS IN HEALTH SYSTEM' => '# of Hospitals in Health System',
+  'LBL_EDITVIEW_PANEL12' => 'CDI Information',
+  'LBL_EDITVIEW_PANEL13' => 'Installed Products',
+  'LBL_EDITVIEW_PANEL14' => 'Account Statistics',
+  'LBL_DETAILVIEW_PANEL11' => 'CDI Information',
+  'CDI TARGET W FD' => 'CDI Target w FD',
 );
