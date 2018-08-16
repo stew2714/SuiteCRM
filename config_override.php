@@ -35,9 +35,9 @@ $sugar_config['MeetingCancelEmailTemplate'] = '4e5a4f8f-dde4-09c9-9a79-5af5c16b1
 $sugar_config['eloqua_company'] = 'MModalIncSandbox';
 $sugar_config['eloqua_username'] = 'Kieran.Monaghan';
 $sugar_config['eloqua_password'] = 'SalesAgility01';
-$sugar_config['CommOps'] = '221ff076-2876-7ad7-1dd8-5aabda19da1e';
+$sugar_config['CommOps'] = 'edb9b763-cb5c-3b5a-87bc-5aabda67fe3b';
 $sugar_config['Sales'] = '27f421eb-8f77-fdbd-3816-5abd40117635';
-$sugar_config['Legal'] = '104ca8a3-ceb1-2443-ca2f-5aabda1925f6';
+$sugar_config['Legal'] = '79910483-96ae-d72a-fc0e-5aabd9ae6520';
 $sugar_config['CommOpsGroup'] = '23fce2df-3552-074c-a91e-5b4e8c937eb5';
 $sugar_config['SalesGroup'] = '10303857-2338-ca58-8e28-5a7e5cc91bdd';
 $sugar_config['LegalGroup'] = 'c87eb603-a873-7393-bc0e-5a7e5c68463f';
@@ -69,8 +69,5 @@ $sugar_config['salesRoleId'] = '97fd0408-2b26-720b-f753-5a7f78fd6c4b';
 $sugar_config['log_memory_usage'] = true;
 $sugar_config['securitysuite_filter_user_list'] = false;
 $sugar_config['enable_line_editing_detail'] = false;
-
-/***CONFIGURATOR***/
 $sugar_config['upload_individual_file_size'] = '30000';
 /***CONFIGURATOR***/
-
