@@ -42,12 +42,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL2' => 
+        'LBL_EDITVIEW_PANEL8' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL3' => 
+        'LBL_EDITVIEW_PANEL9' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -57,12 +57,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL5' => 
+        'LBL_EDITVIEW_PANEL10' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL6' => 
+        'LBL_EDITVIEW_PANEL11' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -109,7 +109,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'account_type',
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
           ),
         ),
         2 => 
@@ -121,8 +122,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'account_type_c',
-            'label' => 'Account Type',
+            'name' => 'account_type',
           ),
         ),
         3 => 
@@ -200,8 +200,17 @@ array (
             'label' => 'Fed Agency',
           ),
         ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'imaging_group_c',
+            'label' => 'LBL_IMAGING_GROUP',
+          ),
+          1 => '',
+        ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_editview_panel8' => 
       array (
         0 => 
         array (
@@ -226,7 +235,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel3' => 
+      'lbl_editview_panel9' => 
       array (
         0 => 
         array (
@@ -477,7 +486,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel5' => 
+      'lbl_editview_panel10' => 
       array (
         0 => 
         array (
@@ -532,7 +541,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel6' => 
+      'lbl_editview_panel11' => 
       array (
         0 => 
         array (
@@ -684,49 +693,19 @@ array (
             'comment' => 'The street address used for billing address',
             'label' => 'LBL_BILLING_ADDRESS_STREET',
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => 
-          array (
-            'name' => 'related_facilitities_c',
-            'label' => 'Related Facilities',
-          ),
-        ),
-        3 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 
+          array (
+            'name' => 'related_facilitities_c',
+            'label' => 'Related Facilities',
           ),
         ),
       ),
@@ -736,13 +715,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'ha_id_c',
-            'label' => 'HA ID',
+            'name' => 'himss_id_c',
+            'label' => 'LBL_HIMSS_ID',
           ),
           1 => 
           array (
-            'name' => 'dh_id_c',
-            'label' => 'DH Id',
+            'name' => 'defintive_id_c',
+            'label' => 'LBL_DEFINTIVE_ID',
           ),
         ),
         1 => 

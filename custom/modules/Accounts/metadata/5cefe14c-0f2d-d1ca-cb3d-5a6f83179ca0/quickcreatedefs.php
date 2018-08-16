@@ -42,17 +42,17 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL2' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL6' => 
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL9' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -93,7 +93,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_type',
+            'name' => 'facility_type_dd_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FACILITY_TYPE_DD',
           ),
           1 => 
           array (
@@ -157,19 +159,14 @@ array (
             'name' => 'latitude_c',
             'label' => 'Latitude',
           ),
-          1 => '',
-        ),
-        7 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'geostatus_c',
             'label' => 'Geostatus',
           ),
-          1 => '',
         ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_editview_panel8' => 
       array (
         0 => 
         array (
@@ -197,7 +194,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel8' => 
+      'lbl_editview_panel2' => 
       array (
         0 => 
         array (
@@ -249,7 +246,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel6' => 
+      'lbl_editview_panel9' => 
       array (
         0 => 
         array (
@@ -327,53 +324,19 @@ array (
             'comment' => 'The street address used for billing address',
             'label' => 'LBL_BILLING_ADDRESS_STREET',
           ),
-          1 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
         ),
         1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-          1 => '',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'related_facilitities_c',
-            'label' => 'Related Facilities',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 
+          array (
+            'name' => 'related_facilitities_c',
+            'label' => 'Related Facilities',
           ),
         ),
       ),
@@ -383,8 +346,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
+            'name' => 'sk_a_id_c',
+            'label' => 'SK&A ID',
           ),
           1 => 
           array (
@@ -396,13 +359,47 @@ array (
         array (
           0 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
           ),
           1 => 
           array (
-            'name' => 'sk_a_id_c',
-            'label' => 'SK&A ID',
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

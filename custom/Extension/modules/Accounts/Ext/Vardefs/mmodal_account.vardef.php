@@ -252,7 +252,7 @@ $dictionary['Account']['fields']['ehr_install_date_c']['source'] = 'custom_field
 // Field: mtso_1_c
 $dictionary['Account']['fields']['mtso_1_c']['name'] = 'mtso_1_c';
 $dictionary['Account']['fields']['mtso_1_c']['type'] = 'varchar';
-$dictionary['Account']['fields']['mtso_1_c']['len'] = '18';
+$dictionary['Account']['fields']['mtso_1_c']['len'] = '36';
 $dictionary['Account']['fields']['mtso_1_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_1_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_1_c']['comments'] = 'Auto-created entry for field mtso_1_c';
@@ -310,7 +310,7 @@ $dictionary['Account']['fields']['mtso_1_percent_c']['source'] = 'custom_fields'
 // Field: mtso_2_c
 $dictionary['Account']['fields']['mtso_2_c']['name'] = 'mtso_2_c';
 $dictionary['Account']['fields']['mtso_2_c']['type'] = 'varchar';
-$dictionary['Account']['fields']['mtso_2_c']['len'] = '18';
+$dictionary['Account']['fields']['mtso_2_c']['len'] = '36';
 $dictionary['Account']['fields']['mtso_2_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_2_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_2_c']['comments'] = 'Auto-created entry for field mtso_2_c';
@@ -369,7 +369,7 @@ $dictionary['Account']['fields']['mtso_2_percent_c']['source'] = 'custom_fields'
 // Field: mtso_3_c
 $dictionary['Account']['fields']['mtso_3_c']['name'] = 'mtso_3_c';
 $dictionary['Account']['fields']['mtso_3_c']['type'] = 'varchar';
-$dictionary['Account']['fields']['mtso_3_c']['len'] = '18';
+$dictionary['Account']['fields']['mtso_3_c']['len'] = '36';
 $dictionary['Account']['fields']['mtso_3_c']['size'] = '20';
 $dictionary['Account']['fields']['mtso_3_c']['required'] = false;
 $dictionary['Account']['fields']['mtso_3_c']['comments'] = 'Auto-created entry for field mtso_3_c';

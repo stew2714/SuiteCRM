@@ -48,12 +48,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL2' => 
+        'LBL_DETAILVIEW_PANEL8' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL3' => 
+        'LBL_DETAILVIEW_PANEL9' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -63,12 +63,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL5' => 
+        'LBL_DETAILVIEW_PANEL10' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL6' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -215,7 +215,11 @@ array (
         ),
         9 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'imaging_group_c',
+            'label' => 'LBL_IMAGING_GROUP',
+          ),
           1 => 
           array (
             'name' => 'it_region_c',
@@ -223,9 +227,18 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_detailview_panel8' => 
       array (
         0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'imaging_owner_name_c',
+            'label' => 'Imaging Owner',
+          ),
+          1 => '',
+        ),
+        1 => 
         array (
           0 => 
           array (
@@ -238,17 +251,8 @@ array (
             'label' => 'Sales Region',
           ),
         ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'imaging_owner_name_c',
-            'label' => 'Imaging Owner',
-          ),
-          1 => '',
-        ),
       ),
-      'lbl_editview_panel3' => 
+      'lbl_detailview_panel9' => 
       array (
         0 => 
         array (
@@ -503,7 +507,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel5' => 
+      'lbl_detailview_panel10' => 
       array (
         0 => 
         array (
@@ -558,7 +562,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel6' => 
+      'lbl_editview_panel5' => 
       array (
         0 => 
         array (

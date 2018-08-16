@@ -51,11 +51,6 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL8' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
           'newTab' => false,
@@ -123,13 +118,14 @@ array (
         ),
         1 => 
         array (
-          0 => 'industry',
+          0 => 
+          array (
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
+          ),
           1 => 'annual_revenue',
         ),
-      ),
-      'lbl_editview_panel8' => 
-      array (
-        0 => 
+        2 => 
         array (
           0 => 
           array (
@@ -146,38 +142,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
           ),
         ),
       ),

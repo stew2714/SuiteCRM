@@ -48,12 +48,12 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL2' => 
+        'LBL_EDITVIEW_PANEL8' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL3' => 
+        'LBL_EDITVIEW_PANEL2' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -63,7 +63,7 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL8' => 
+        'LBL_EDITVIEW_PANEL9' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
@@ -95,9 +95,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'industry',
-            'comment' => 'The company belongs in this industry',
-            'label' => 'LBL_INDUSTRY',
+            'name' => 'account_type',
+            'comment' => 'The Company is of this type',
+            'label' => 'LBL_TYPE',
           ),
         ),
         1 => 
@@ -110,9 +110,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'account_type',
-            'comment' => 'The Company is of this type',
-            'label' => 'LBL_TYPE',
+            'name' => 'account_type_c',
+            'label' => 'Account Type',
           ),
         ),
         2 => 
@@ -174,8 +173,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'cms_medicare_number_c',
-            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
+            'name' => 'health_system_type_c',
+            'label' => 'LBL_HEALTH_SYSTEM_TYPE_C',
           ),
           1 => 
           array (
@@ -187,8 +186,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'organization_unique_id_c',
-            'label' => 'LBL_ORGANIZATION_UNIQUE_ID_C',
+            'name' => 'cms_medicare_number_c',
+            'label' => 'LBL_CMS_MEDICARE_NUMBER_C',
           ),
           1 => 
           array (
@@ -200,17 +199,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'organization_c',
-            'label' => 'LBL_ORGANIZATION_C',
-          ),
-          1 => '',
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'organization_primary_service_c',
-            'label' => 'Organization Primary Service',
+            'name' => 'organization_unique_id_c',
+            'label' => 'LBL_ORGANIZATION_UNIQUE_ID_C',
           ),
           1 => 
           array (
@@ -218,8 +208,21 @@ array (
             'label' => 'Fiscal End Date Month',
           ),
         ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'organization_c',
+            'label' => 'LBL_ORGANIZATION_C',
+          ),
+          1 => 
+          array (
+            'name' => 'organization_primary_service_c',
+            'label' => 'Organization Primary Service',
+          ),
+        ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_editview_panel8' => 
       array (
         0 => 
         array (
@@ -257,7 +260,7 @@ array (
           1 => '',
         ),
       ),
-      'lbl_editview_panel3' => 
+      'lbl_editview_panel2' => 
       array (
         0 => 
         array (
@@ -508,7 +511,7 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel8' => 
+      'lbl_editview_panel9' => 
       array (
         0 => 
         array (
@@ -660,11 +663,24 @@ array (
           ),
           1 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'himss_id_c',
+            'label' => 'LBL_HIMSS_ID',
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'defintive_id_c',
+            'label' => 'LBL_DEFINTIVE_ID',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -673,29 +689,16 @@ array (
           ),
           1 => 
           array (
-            'name' => 'himss_id_c',
-            'label' => 'LBL_HIMSS_ID',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ucid_c',
-            'label' => 'LBL_UCID',
-          ),
-          1 => 
-          array (
-            'name' => 'defintive_id_c',
-            'label' => 'LBL_DEFINTIVE_ID',
+            'name' => 'medicare_id_c',
+            'label' => 'Medicare ID',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'medicare_id_c',
-            'label' => 'Medicare ID',
+            'name' => 'ucid_c',
+            'label' => 'LBL_UCID',
           ),
           1 => 
           array (
