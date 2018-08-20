@@ -47,11 +47,15 @@ require_once __DIR__ . '/Exchange.php';
 include_once __DIR__ . '/../../../include/utils.php';
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfAllItemsType;
+use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseItemIdsType;
+use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
 use jamesiarmes\PhpEws\Enumeration\MessageDispositionType;
 use jamesiarmes\PhpEws\Enumeration\ResponseClassType;
 use jamesiarmes\PhpEws\Request\CreateItemType;
+use jamesiarmes\PhpEws\Request\GetItemType;
 use jamesiarmes\PhpEws\Type\CancelCalendarItemType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
+use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 
 class Cancel extends SugarBean
 {
@@ -59,16 +63,9 @@ class Cancel extends SugarBean
     {
         $exchange = new Exchange();
         $client = $exchange->setConnection($user);
-        $create  = new Create();
-
-        $attendees = $create->getAttendees();
         $request = new CreateItemType();
 
-        if (empty($attendees)){
-            $request->MessageDisposition = MessageDispositionType::SAVE_ONLY;
-        } else {
-            $request->MessageDisposition = MessageDispositionType::SEND_AND_SAVE_COPY;
-        }
+        $request->MessageDisposition = $this->getMessageDisposition($event_id, $client);
 
         $request->Items = new NonEmptyArrayOfAllItemsType();
         $cancellation = new CancelCalendarItemType();
@@ -95,5 +92,37 @@ class Cancel extends SugarBean
                 continue;
             }
         }
+    }
+
+    private function getMessageDisposition($id, $client) {
+
+        $request = new GetItemType();
+        $request->ItemShape = new ItemResponseShapeType();
+        $request->ItemShape->BaseShape = DefaultShapeNamesType::ALL_PROPERTIES;
+        $request->ItemIds = new NonEmptyArrayOfBaseItemIdsType();
+
+        $item = new ItemIdType();
+        $item->Id = $id;
+        $request->ItemIds->ItemId[] = $item;
+
+        try {
+            $response = $client->GetItem($request);
+        } catch (Exception $fault) {
+            $message = $fault->getMessage();
+            $code = $fault->getCode();
+            LoggerManager::getLogger()->fatal("Failed to get item with \"$code: $message\"\n");
+        }
+
+        $attendees = $response->ResponseMessages->GetItemResponseMessage[0]->Items->CalendarItem[0]->RequiredAttendees->Attendee[0]->Mailbox->EmailAddress;
+
+        if (!isset($attendees)){
+            $messageDisposition = MessageDispositionType::SAVE_ONLY;
+            LoggerManager::getLogger()->fatal("MessageDispositionType: SAVE_ONLY \"$code: $message\"\n");
+        } else {
+            $messageDisposition = MessageDispositionType::SEND_AND_SAVE_COPY;
+            LoggerManager::getLogger()->fatal("MessageDispositionType: SEND_AND_SAVE_COPY \"$code: $message\"\n");
+        }
+
+        return $messageDisposition;
     }
 }
