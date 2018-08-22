@@ -7,6 +7,9 @@ class EchoIndividualUploadSize
         if (!empty($_REQUEST['sugar_body_only'])) {
             return;
         }
+        if (!empty($_REQUEST['to_pdf'])) {
+            return;
+        }
 
         global $sugar_config;
         $maxSize = empty($sugar_config['upload_individual_file_size'])
