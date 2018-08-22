@@ -7,6 +7,9 @@ class EchoIndividualUploadSize
         if (!empty($_REQUEST['sugar_body_only'])) {
             return;
         }
+        if (!empty($_REQUEST['to_pdf'])) {
+            return;
+        }
 
         if (isset($_REQUEST['module']) && $_REQUEST['module'] == "Meetings" || $_REQUEST['module'] == "Calendar") {
             global $sugar_config;
