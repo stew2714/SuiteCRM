@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-02 13:57:16
+// created: 2018-08-22 15:30:50
 $mod_strings = array (
   'LBL_CONTACT_TYPE' => 'Contact Type',
   'LBL_OPERATIONAL' => 'Operational',
@@ -31,4 +31,8 @@ $mod_strings = array (
   'LBL_PHOTO' => 'Photo',
   'LBL_LIST_ASSIGNED_USER' => 'Owner',
   'LBL_REFERENCE_TYPE' => 'Reference Type',
+  'LBL_OFFICE_PHONE' => 'Phone:',
+  'LBL_CONTACT_INFORMATION' => 'Contact Detail',
+  'LBL_PANEL_ADVANCED' => 'Additional Information',
+  'LBL_EDITVIEW_PANEL4' => 'System Information',
 );

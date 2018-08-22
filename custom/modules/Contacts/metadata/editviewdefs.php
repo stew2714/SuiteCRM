@@ -58,6 +58,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL4' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -74,15 +79,15 @@ array (
           ),
           1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'last_name',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'last_name',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
           1 => 
           array (
@@ -156,68 +161,6 @@ array (
             'name' => 'contact_type_c',
             'studio' => 'visible',
             'label' => 'LBL_CONTACT_TYPE',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -375,11 +318,20 @@ array (
           ),
           1 => 
           array (
-            'name' => 'asst_email_c',
-            'label' => 'Asst Email',
+            'name' => 'status_c',
+            'label' => 'Status',
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'asst_email_c',
+            'label' => 'Asst Email',
+          ),
+          1 => '',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -387,24 +339,7 @@ array (
             'comment' => 'Phone number of the assistant of the contact',
             'label' => 'LBL_ASSISTANT_PHONE',
           ),
-          1 => 
-          array (
-            'name' => 'vip_account_c',
-            'label' => 'VIP Account',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'eloqua_lead_rating_c',
-            'label' => 'Eloqua Lead Rating',
-          ),
-          1 => 
-          array (
-            'name' => 'sync_to_eloqua_c',
-            'label' => 'Sync To Eloqua',
-          ),
+          1 => '',
         ),
         3 => 
         array (
@@ -413,6 +348,82 @@ array (
             'name' => 'do_not_call',
             'comment' => 'An indicator of whether contact can be called',
             'label' => 'LBL_DO_NOT_CALL',
+          ),
+          1 => 
+          array (
+            'name' => 'eloqua_lead_rating_c',
+            'label' => 'Eloqua Lead Rating',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'sync_to_eloqua_c',
+            'label' => 'Sync To Eloqua',
+          ),
+          1 => 
+          array (
+            'name' => 'vip_account_c',
+            'label' => 'VIP Account',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
