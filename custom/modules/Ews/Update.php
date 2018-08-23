@@ -61,8 +61,8 @@ use jamesiarmes\PhpEws\Type\ItemChangeType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
 use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
 use jamesiarmes\PhpEws\Type\PathToUnindexedFieldType;
-use jamesiarmes\PhpEws\Type\SetItemFieldType;
 use jamesiarmes\PhpEws\Type\RequestAttachmentIdType;
+use jamesiarmes\PhpEws\Type\SetItemFieldType;
 
 class Update extends SugarBean
 {
@@ -104,7 +104,7 @@ class Update extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to delete event attachment with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to delete event attachment with \"$code: $message\"\n");
         }
 
 
@@ -189,9 +189,15 @@ class Update extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to update event with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to update event with \"$code: $message\"\n");
         }
 
+        $attachmentCount = 0;
+
+        foreach ($request->Attachments->FileAttachment as $attachments) {
+            LoggerManager::getLogger()->fatal("Sucessfully updated attachments: \"$attachments->Name: $attachmentCount: $id\"\n");
+            $attachmentCount++;
+        }
 
         $response_messages = $response->ResponseMessages->UpdateItemResponseMessage;
 
@@ -200,7 +206,7 @@ class Update extends SugarBean
             if ($response_message->ResponseClass != ResponseClassType::SUCCESS) {
                 $code = $response_message->ResponseCode;
                 $message = $response_message->MessageText;
-                LoggerManager::getLogger()->warn("Failed to update event with \"$code: $message\"\n");
+                LoggerManager::getLogger()->fatal("Failed to update event with \"$code: $message\"\n");
                 continue;
             }
             foreach ($response_message->Items->CalendarItem as $item) {
@@ -210,7 +216,7 @@ class Update extends SugarBean
                 $bean->outlook_id = 'ID: ' . $id . ' Key: ' . $changeKey;
                 $bean->save();
 
-                LoggerManager::getLogger()->info("Updated event $id\n");
+                LoggerManager::getLogger()->fatal("Updated event $id\n");
             }
         }
     }
@@ -231,7 +237,7 @@ class Update extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to get item with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to get item with \"$code: $message\"\n");
         }
 
         $response_messages = $response->ResponseMessages->GetItemResponseMessage;
@@ -249,7 +255,7 @@ class Update extends SugarBean
         } catch (Exception $fault) {
             $message = $fault->getMessage();
             $code = $fault->getCode();
-            LoggerManager::getLogger()->warn("Failed to delete attachments with \"$code: $message\"\n");
+            LoggerManager::getLogger()->fatal("Failed to delete attachments with \"$code: $message\"\n");
         }
 
     }
