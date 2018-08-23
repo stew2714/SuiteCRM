@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-16 18:23:00
+// created: 2018-08-23 15:58:00
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -94,4 +94,6 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL14' => 'Account Statistics',
   'LBL_DETAILVIEW_PANEL11' => 'CDI Information',
   'CDI TARGET W FD' => 'CDI Target w FD',
+  'LBL_ACCOUNT_INFORMATION' => 'Account Detail',
+  'LBL_PANEL_ADVANCED' => 'Additional Information',
 );

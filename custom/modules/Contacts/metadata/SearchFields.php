@@ -233,4 +233,12 @@ $searchFields['Contacts'] = array (
   array (
     'query_type' => 'default',
   ),
+  'eloqua_id_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'eloqua_lead_rating_c' => 
+  array (
+    'query_type' => 'default',
+  ),
 );

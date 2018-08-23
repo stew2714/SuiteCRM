@@ -545,8 +545,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'identified_pricedown_target_c',
-            'label' => 'Identified Pricedown Target',
+            'name' => 'transcription_volumemonth_c',
+            'label' => 'Transcription Volumemonth',
           ),
         ),
         6 => 
@@ -566,8 +566,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'transcription_volumemonth_c',
-            'label' => 'Transcription Volumemonth',
+            'name' => 'identified_pricedown_target_c',
+            'label' => 'Identified Pricedown Target',
           ),
           1 => 
           array (

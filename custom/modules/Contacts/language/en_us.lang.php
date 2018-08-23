@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-22 15:30:50
+// created: 2018-08-23 13:54:16
 $mod_strings = array (
   'LBL_CONTACT_TYPE' => 'Contact Type',
   'LBL_OPERATIONAL' => 'Operational',
@@ -25,7 +25,7 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO_NAME' => 'Owner',
   'LBL_EDITVIEW_PANEL2' => 'Address Information',
   'LBL_EDITVIEW_PANEL3' => 'Reference Program',
-  'SF ID' => 'SF ID',
+  'SF ID' => 'Sf Id',
   'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
   'LBL_TITLE' => 'Title:',
   'LBL_PHOTO' => 'Photo',
@@ -35,4 +35,6 @@ $mod_strings = array (
   'LBL_CONTACT_INFORMATION' => 'Contact Detail',
   'LBL_PANEL_ADVANCED' => 'Additional Information',
   'LBL_EDITVIEW_PANEL4' => 'System Information',
+  'LBL_ELOQUA_ID' => 'Eloqua ID',
+  'ELOQUA LEAD RATING' => 'Eloqua Lead Rating',
 );
