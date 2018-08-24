@@ -38,6 +38,14 @@ array (
         'width' => '10%',
         'name' => 'customer_no_c',
       ),
+      'current_user_only' => 
+      array (
+        'name' => 'current_user_only',
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
     ),
     'advanced_search' => 
     array (

@@ -19,6 +19,14 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'favorites_only' => 
+      array (
+        'name' => 'favorites_only',
+        'label' => 'LBL_FAVORITES_FILTER',
+        'type' => 'bool',
+        'width' => '10%',
+        'default' => true,
+      ),
     ),
     'advanced_search' => 
     array (
