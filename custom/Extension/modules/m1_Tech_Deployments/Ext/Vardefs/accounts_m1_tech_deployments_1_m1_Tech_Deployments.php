@@ -19,6 +19,7 @@ $dictionary["m1_Tech_Deployments"]["fields"]["accounts_m1_tech_deployments_1_nam
   'id_name' => 'accounts_m1_tech_deployments_1accounts_ida',
   'link' => 'accounts_m1_tech_deployments_1',
   'table' => 'accounts',
+  'required' => 'true',
   'module' => 'Accounts',
   'rname' => 'name',
 );

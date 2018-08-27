@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-22 19:03:50
+// created: 2018-08-27 14:58:49
 $mod_strings = array (
   'LBL_FVM' => 'Fluency Voice Manager',
   'LBL_FD' => 'Fluency Direct',
@@ -28,4 +28,6 @@ $mod_strings = array (
   'LBL_CLIENT_ALERT' => 'Client Alert',
   'LBL_EDITVIEW_PANEL3' => 'Client Alert',
   'LBL_DETAILVIEW_PANEL3' => 'Client Alert',
+  'LBL_DETAILVIEW_PANEL4' => 'Platform/Products',
+  'LBL_DETAILVIEW_PANEL6' => 'New Panel 6',
 );
