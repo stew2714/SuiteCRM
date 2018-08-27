@@ -1968,10 +1968,25 @@ class AdvancedReporter extends AOR_Report
         $query = '';
         $query_array = array();
         $module = new $beanList[$this->report_module]();
-        $field = $this->getGroupedByField();
-        if ($field != false) {
-            $groupQueryResult = $this->getGroupReportQueryResult($extra);
+        $field = false;
+        //get the group field.
+        if ($this->requestData != false) {
+            $field = $this->getViewParams(true, false, 1);
+        } else {
+            $sql = "SELECT id FROM aor_fields WHERE aor_report_id = '" . $this->bean->id . "' AND group_display = 1 AND deleted = 0 ORDER BY field_order ASC";
+            $field_id = $this->db->getOne($sql);
+            if (!empty($field_id)) {
+                $field = BeanFactory::getBean("AOR_Fields", $field_id);
+            }
         }
+
+        if (!$field) {
+            $query_array['select'][] = $module->table_name . ".id AS '" . $module->table_name . "_id'";
+        }
+//        $field = $this->getGroupedByField();
+//        if ($field != false) {
+//            $groupQueryResult = $this->getGroupReportQueryResult($extra);
+//        }
 
         if ($field != false) {
 
