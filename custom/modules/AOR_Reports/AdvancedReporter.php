@@ -2039,6 +2039,10 @@ class AdvancedReporter extends AOR_Report
 
             if ((isset($data['source']) && $data['source'] == 'custom_fields')) {
                 $select_field = $this->db->quoteIdentifier($table_alias . '_cstm') . '.' . $field->field;
+                // PHP Deprecation - declare array
+                if(empty($query)) {
+                    $query = array();
+                }
                 // Fix for #1251 - added a missing parameter to the function call
                 $query_array = $this->build_report_query_join(
                     $table_alias . '_cstm',
