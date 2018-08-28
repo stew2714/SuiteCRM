@@ -142,7 +142,7 @@ class CustomMeetingFormBase extends MeetingFormBase
 
         $return_action = !empty($_REQUEST['return_action']) ? $_REQUEST['return_action'] : 'DetailView';
         $return_id = !empty($_REQUEST['return_id']) ? $_REQUEST['return_id'] : $focus->id;
-        if (!empty($_REQUEST['isSaveAndNew'])) {
+        if ($_REQUEST["isSaveAndNew"] == "true") {
             $return_id = '';
         }
         $return_module = !empty($_REQUEST['return_module']) ? $_REQUEST['return_module'] : 'Meetings';
