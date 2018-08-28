@@ -10,13 +10,6 @@ class EchoIndividualUploadSize
 
     public function Output($event, $arguments)
     {
-        if (!empty($_REQUEST['sugar_body_only'])) {
-            return;
-        }
-        if (!empty($_REQUEST['to_pdf'])) {
-            return;
-        }
-
         if ($this->isValidModule()) {
             global $sugar_config;
             $maxSize = empty($sugar_config['upload_individual_file_size'])
@@ -30,6 +23,12 @@ class EchoIndividualUploadSize
      */
     protected function isValidModule()
     {
+        if (!empty($_REQUEST['sugar_body_only'])) {
+            return false;
+        }
+        if (!empty($_REQUEST['to_pdf'])) {
+            return false;
+        }
         if (!isset($_REQUEST['module'])) {
             return false;
         }
