@@ -60,6 +60,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL4' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
     ),
     'panels' => 
@@ -75,25 +80,34 @@ array (
           ),
           1 => 
           array (
-            'name' => 'assigned_user_name',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'last_name',
             'displayParams' => 
             array (
               'required' => true,
             ),
           ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'active_c',
+            'label' => 'LBL_ACTIVE',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'assigned_user_name',
+          ),
           1 => 
           array (
             'name' => 'phone_work',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -104,7 +118,7 @@ array (
             'name' => 'phone_mobile',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -118,7 +132,7 @@ array (
             'label' => 'LBL_OTHER_PHONE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -131,7 +145,7 @@ array (
             'name' => 'phone_fax',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -143,7 +157,7 @@ array (
             'name' => 'email1',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -155,68 +169,6 @@ array (
             'name' => 'contact_type_c',
             'studio' => 'visible',
             'label' => 'LBL_CONTACT_TYPE',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'securitygroup_display',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => false,
-            ),
-            'label' => 'LBL_SECURITYGROUP',
-          ),
-          1 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -300,6 +252,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_CONTACT_ASSOCIATION',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -338,11 +291,78 @@ array (
             'name' => 'reference_association_c',
             'label' => 'LBL_REFERENCE_ASSOCIATION',
           ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_1_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_1',
+          ),
           1 => 
           array (
-            'name' => 'referenced_emr_c',
-            'label' => 'LBL_REFERENCED_EMR',
+            'name' => 'emr_1_modules_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_1_MODULES',
           ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_1_description_c',
+            'label' => 'LBL_EMR_1_DESCRIPTION',
+          ),
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_2_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_2',
+          ),
+          1 => 
+          array (
+            'name' => 'emr_2_modules_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_2_MODULES',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_2_description_c',
+            'label' => 'LBL_EMR_2_DESCRIPTION',
+          ),
+          1 => '',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_other_c',
+            'label' => 'LBL_EMR_OTHER',
+          ),
+          1 => 
+          array (
+            'name' => 'emr_other_modules_c',
+            'studio' => 'visible',
+            'label' => 'LBL_EMR_OTHER_MODULES',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'emr_other_description_c',
+            'label' => 'LBL_EMR_OTHER_DESCRIPTION',
+          ),
+          1 => '',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 
@@ -357,11 +377,20 @@ array (
           ),
           1 => 
           array (
-            'name' => 'asst_email_c',
-            'label' => 'Asst Email',
+            'name' => 'status_c',
+            'label' => 'Status',
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'asst_email_c',
+            'label' => 'Asst Email',
+          ),
+          1 => '',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -369,30 +398,90 @@ array (
             'comment' => 'Phone number of the assistant of the contact',
             'label' => 'LBL_ASSISTANT_PHONE',
           ),
-          1 => 
-          array (
-            'name' => 'vip_account_c',
-            'label' => 'VIP Account',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'eloqua_lead_rating_c',
-            'label' => 'Eloqua Lead Rating',
-          ),
-          1 => 
-          array (
-            'name' => 'sync_to_eloqua_c',
-            'label' => 'Sync To Eloqua',
-          ),
+          1 => '',
         ),
         3 => 
         array (
           0 => 
           array (
             'name' => 'do_not_call',
+          ),
+          1 => 
+          array (
+            'name' => 'eloqua_lead_rating_c',
+            'label' => 'Eloqua Lead Rating',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'sync_to_eloqua_c',
+            'label' => 'Sync To Eloqua',
+          ),
+          1 => 
+          array (
+            'name' => 'vip_account_c',
+            'label' => 'VIP Account',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
+          ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),

@@ -1,7 +1,7 @@
 <?php
-// created: 2018-06-28 17:19:11
+// created: 2018-08-29 20:15:52
 $mod_strings = array (
-  'LBL_EDITVIEW_PANEL2' => 'Opportunity Information',
+  'LBL_EDITVIEW_PANEL2' => 'Opportunity Detail',
   'LBL_EDITVIEW_PANEL1' => 'Latest Update',
   'LBL_EDITVIEW_PANEL3' => 'New Cost Components',
   'LBL_EDITVIEW_PANEL4' => 'Cost Components',
@@ -10,7 +10,7 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL7' => 'Closing Details',
   'LBL_EDITVIEW_PANEL8' => 'Win/Loss Details',
   'LBL_EDITVIEW_PANEL9' => 'Comm Ops',
-  'LBL_EDITVIEW_PANEL10' => 'Additional Information',
+  'LBL_EDITVIEW_PANEL10' => 'System Information',
   'LBL_EDITVIEW_PANEL11' => 'Commissions',
   'LBL_EDITVIEW_PANEL12' => 'System Information',
   'LBL_EDITVIEW_PANEL13' => 'Description Information',
@@ -44,7 +44,7 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO_NAME' => 'Opportunity Owner',
   'LBL_CAMPAIGN' => 'Primary Campaign',
   'LBL_EDITVIEW_PANEL15' => 'Opportunity Status',
-  'LBL_EDITVIEW_PANEL16' => 'Renewal Pricedowns',
+  'LBL_EDITVIEW_PANEL16' => 'Current Deal Status',
   'LBL_RECORDTYPEID_C' => 'Record Type',
   'LBL_ACCOUNTS_OPPORTUNITIES_1_FROM_ACCOUNTS_TITLE' => 'Accounts (Won)',
   'LBL_ACCOUNTS_OPPORTUNITIES_2_FROM_ACCOUNTS_TITLE' => 'Accounts (Incumbent)',
@@ -91,7 +91,7 @@ $mod_strings = array (
   'LBL_SW_MAINTENANCE_TERM_LENGTH_MM_C' => 'M&S Initial Term (MM)',
   'LBL_OPPORTUNITY_NAME' => 'Opportunity Name:',
   'LBL_SHORT_ID_C' => 'Short Id',
-  'LBL_DATE_CLOSED' => 'Expected Close Date:',
+  'LBL_DATE_CLOSED' => 'Close Date',
   'LBL_NEW_AM_REGION_C' => 'AE Region',
   'LBL_PRODUCT_C' => 'Product/Service',
   'LBL_SALES_STAGE' => 'Sales Stage:',
@@ -126,4 +126,6 @@ $mod_strings = array (
   'LBL_DETAILVIEW_PANEL19' => 'System Information',
   'LBL_AMB_EMR_OTHER_REQUIRED' => 'When “Other” is selected in the Ambulatory EMR field, the Ambulatory EMR Other field must not be blank.',
   'LBL_SUB_TERM_REQUIRED_FOR_COMMITS' => 'When “Other” is selected in the Ambulatory EMR field, the Ambulatory EMR Other field must not be blank.',
+  'LBL_EMR2_C' => 'SalesForce EHR',
+  'LBL_LIST_ASSIGNED_USER' => 'Owner',
 );

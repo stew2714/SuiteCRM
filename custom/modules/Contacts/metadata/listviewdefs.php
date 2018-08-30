@@ -413,6 +413,13 @@ array (
     'label' => 'LBL_PRIMARY_ADDRESS_STATE',
     'default' => false,
   ),
+  'ACTIVE_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_ACTIVE',
+    'width' => '10%',
+  ),
   'PRIMARY_ADDRESS_POSTALCODE' => 
   array (
     'width' => '10%',
