@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-09 19:20:24
+// created: 2018-08-24 12:55:45
 $searchFields['Contacts'] = array (
   'first_name' => 
   array (
@@ -187,6 +187,18 @@ $searchFields['Contacts'] = array (
     'query_type' => 'default',
   ),
   'photo' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'phone_work' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'eloqua_id_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'eloqua_lead_rating_c' => 
   array (
     'query_type' => 'default',
   ),

@@ -19,6 +19,14 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'favorites_only' => 
+      array (
+        'name' => 'favorites_only',
+        'label' => 'LBL_FAVORITES_FILTER',
+        'type' => 'bool',
+        'width' => '10%',
+        'default' => true,
+      ),
     ),
     'advanced_search' => 
     array (
@@ -104,31 +112,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'zba_sss_c',
-      ),
-      'securitygroup' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'sortable' => false,
-        'studio' => 
-        array (
-          'visible' => false,
-          'listview' => true,
-          'searchview' => true,
-          'detailview' => false,
-          'editview' => false,
-          'formula' => false,
-          'related' => false,
-          'basic_search' => true,
-          'advanced_search' => true,
-          'popuplist' => false,
-          'popupsearch' => true,
-          'dashletsearch' => true,
-          'dashlet' => false,
-        ),
-        'label' => 'LBL_SECURITYGROUP',
-        'width' => '10%',
-        'name' => 'securitygroup',
       ),
       'sales_territory_c' => 
       array (

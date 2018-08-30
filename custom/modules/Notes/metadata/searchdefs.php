@@ -11,17 +11,21 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      0 => 
+      'current_user_only' => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
       ),
-      1 => 
+      'favorites_only' => 
       array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
       ),
     ),
     'advanced_search' => 
@@ -54,6 +58,16 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'date_entered',
+      ),
+      'assigned_user_name' => 
+      array (
+        'link' => true,
+        'type' => 'relate',
+        'label' => 'LBL_ASSIGNED_TO_NAME',
+        'id' => 'ASSIGNED_USER_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'assigned_user_name',
       ),
     ),
   ),
