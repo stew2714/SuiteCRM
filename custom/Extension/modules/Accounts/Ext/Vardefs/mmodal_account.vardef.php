@@ -1812,7 +1812,7 @@ $dictionary['Account']['fields']['ownership']['name'] = 'ownership';
 $dictionary['Account']['fields']['ownership']['vname'] = 'LBL_OWNERSHIP';
 $dictionary['Account']['fields']['ownership']['type'] = 'enum';
 $dictionary['Account']['fields']['ownership']['len'] = '40';
-$dictionary['Account']['fields']['ownership']['options'] = 'acct_ownership_list';
+$dictionary['Account']['fields']['ownership']['options'] = 'emr_1_modules_list';
 
 // Field: births_c (manually added 2017-11-01)
 $dictionary['Account']['fields']['births_c']['name'] = 'births_c';
