@@ -2381,3 +2381,23 @@ $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   'Public' => 'Public',
   'Subsidiary' => 'Subsidiary',
 );
+$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
+  '' => '',
+  'Church_Operated' => 'Church Operated',
+  'Corporation_Investor_Owned' => 'Corporatation: Investor-Owned',
+  'Corporation_Non_Government' => 'Corporation: Non-Government',
+  'Government_Non_Federal' => 'Government: Non-Federal',
+  'Government_City' => 'Government: City',
+  'Government_City_County' => 'Government: City-County',
+  'Government_County' => 'Government: County',
+  'Government_Hospital_District' => 'Government: Hospital District',
+  'Government_State' => 'Government: State',
+  'Individual_Investor_Owned' => 'Individual: Investor-Owned',
+  'Investor_Owned_for_profit' => 'Investor-Owned: for-profit',
+  'Non_Government' => 'Non-Government',
+  'Non_Government_not_for_profit_NFP' => 'Non-Government: non-for-profit (NFP)',
+  'Partnership_Investor_Owned' => 'Partnership: Investor-Owned',
+  'Private' => 'Private',
+  'Public' => 'Public',
+  'Subsidiary' => 'Subsidiary',
+);
