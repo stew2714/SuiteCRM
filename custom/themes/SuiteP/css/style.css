@@ -1,0 +1,6 @@
+/* Currency setting */
+span#net_patient_revenues_c:before { content:"$"; }
+span#annual_revenue:before { content:"$"; }
+span#total_inpatient_revenues_c:before { content:"$"; }
+span#operating_expense_c:before { content:"$"; }
+span#mq_tos_revenue_c:before { content:"$"; }
