@@ -140,10 +140,16 @@ class CustomMeetingFormBase extends MeetingFormBase
             $this->cancelAndNotify($focus);
         }
 
-        if ($_REQUEST['module'] !== 'Calendar') {
-            SugarApplication::redirect('index.php?module=Meetings&record=' . $focus->id . '&action=DetailView');
+        $return_action = !empty($_REQUEST['return_action']) ? $_REQUEST['return_action'] : 'DetailView';
+        $return_id = !empty($_REQUEST['return_id']) ? $_REQUEST['return_id'] : $focus->id;
+        if ($_REQUEST["isSaveAndNew"] == "true") {
+            $return_id = '';
         }
+        $return_module = !empty($_REQUEST['return_module']) ? $_REQUEST['return_module'] : 'Meetings';
 
+        if ($_REQUEST['module'] !== 'Calendar') {
+            SugarApplication::redirect("index.php?module={$return_module}&record={$return_id}&action={$return_action}");
+        }
         return $focus;
     }
 
