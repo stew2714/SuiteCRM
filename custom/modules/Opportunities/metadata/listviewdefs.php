@@ -45,22 +45,16 @@ array (
     'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
-  'DATE_ENTERED' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_DATE_ENTERED',
-    'default' => true,
-  ),
   'OPPORTUNITY_TYPE' => 
   array (
     'width' => '15%',
     'label' => 'LBL_TYPE',
     'default' => false,
   ),
-  'SHORT_ID_C' => 
+  'NEW_SHORT_ID_C' => 
   array (
     'type' => 'varchar',
-    'label' => 'LBL_SHORT_ID_C',
+    'label' => 'LBL_NEW_SHORT_ID_C',
     'width' => '10%',
     'default' => false,
   ),
@@ -86,6 +80,33 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_CREATED',
+    'default' => false,
+  ),
+  'FORECASTING_CATEGORY_C' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_FORECASTING_CATEGORY_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TOTAL_AMOUNT_C' => 
+  array (
+    'type' => 'float',
+    'label' => 'LBL_TOTAL_AMOUNT_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'TOTAL_CONTRACT_VALUE_C' => 
+  array (
+    'type' => 'float',
+    'label' => 'LBL_TOTAL_CONTRACT_VALUE_C',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
     'default' => false,
   ),
   'MODIFIED_BY_NAME' => 

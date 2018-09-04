@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-02 13:57:16
+// created: 2018-09-04 18:20:02
 $mod_strings = array (
   'LBL_CONTACT_TYPE' => 'Contact Type',
   'LBL_OPERATIONAL' => 'Operational',
@@ -25,10 +25,28 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO_NAME' => 'Owner',
   'LBL_EDITVIEW_PANEL2' => 'Address Information',
   'LBL_EDITVIEW_PANEL3' => 'Reference Program',
-  'SF ID' => 'SF ID',
+  'SF ID' => 'Sf Id',
   'LBL_PRIMARY_CAMPAIGN_FIELDS' => 'Eloqua Primary Campaign:',
   'LBL_TITLE' => 'Title:',
   'LBL_PHOTO' => 'Photo',
   'LBL_LIST_ASSIGNED_USER' => 'Owner',
   'LBL_REFERENCE_TYPE' => 'Reference Type',
+  'LBL_OFFICE_PHONE' => 'Phone:',
+  'LBL_CONTACT_INFORMATION' => 'Contact Detail',
+  'LBL_PANEL_ADVANCED' => 'Additional Information',
+  'LBL_EDITVIEW_PANEL4' => 'System Information',
+  'LBL_ELOQUA_ID' => 'Eloqua ID',
+  'ELOQUA LEAD RATING' => 'Eloqua Lead Rating',
+  'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
+  'LBL_EMR_1' => 'EMR #1',
+  'LBL_EMR_1_DESCRIPTION' => '#1 version',
+  'LBL_EMR_2_DESCRIPTION' => '#2 version',
+  'LBL_EMR_OTHER_DESCRIPTION' => 'other version',
+  'LBL_EMR_OTHER' => 'other EMR',
+  'LBL_EMR_2_M1_EMR_ID' => 'EMR #2 (related  ID)',
+  'LBL_EMR_2' => 'EMR #2',
+  'LBL_MODIFIED_NAME' => 'Modified By',
+  'LBL_EMR_1_MODULES' => '#1 modules',
+  'LBL_EMR_2_MODULES' => '#2 modules',
+  'LBL_OTHER_EMR_MODULES' => 'other modules',
 );

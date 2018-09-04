@@ -1,5 +1,5 @@
 <?php
-// created: 2018-01-31 20:59:08
+// created: 2018-08-23 20:09:01
 $searchFields['A4_SITES'] = array (
   'name' => 
   array (

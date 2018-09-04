@@ -38,7 +38,7 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-
+$app_strings['MSG_LIST_VIEW_NO_RESULTS_SUBMSG'] = '';
 
 $app_list_strings['moduleList']['SharedSecurityRulesFields'] = 'Shared Security Rules Fields';
 $app_list_strings['moduleList']['SharedSecurityRules'] = 'Shared Security Rules';

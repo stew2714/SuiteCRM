@@ -24,7 +24,6 @@ $mod_strings = array (
   'LBL_EMR_3_DESCRIPTION' => '#3 version',
   'LBL_EMR_4_DESCRIPTION' => '#4 version',
   'LBL_EMR_5_DESCRIPTION' => '#5 version',
-  'LBL_M1_TECH_DEPLOYMENTS_ACCOUNTS_1_FROM_ACCOUNTS_TITLE' => 'Accounts',
   'LBL_EMR_HOSTED_BY' => '#1 hosted by',
   'LBL_EMR2_HOSTED_BY' => '#2 hosted by',
   'LBL_EMR3_HOSTED_BY' => '#3 hosted by',
