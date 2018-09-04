@@ -53,7 +53,6 @@ function addAttachmentGroup(obj) {
 
   var groupName = '';
   for (var i = 0; i < obj.files.length; i++) {
-    console.log( obj.files[i]);
     if (i > 0) {
       groupName += ', ';
     }
