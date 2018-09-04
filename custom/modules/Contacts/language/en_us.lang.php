@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-29 20:37:28
+// created: 2018-09-04 18:20:02
 $mod_strings = array (
   'LBL_CONTACT_TYPE' => 'Contact Type',
   'LBL_OPERATIONAL' => 'Operational',
@@ -39,14 +39,14 @@ $mod_strings = array (
   'ELOQUA LEAD RATING' => 'Eloqua Lead Rating',
   'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
   'LBL_EMR_1' => 'EMR #1',
-  'LBL_EMR_1_MODULES' => '#1 modules',
   'LBL_EMR_1_DESCRIPTION' => '#1 version',
   'LBL_EMR_2_DESCRIPTION' => '#2 version',
   'LBL_EMR_OTHER_DESCRIPTION' => 'other version',
   'LBL_EMR_OTHER' => 'other EMR',
-  'LBL_EMR_2_MODULES' => '#2 modules',
-  'LBL_EMR_OTHER_MODULES' => 'other modules',
   'LBL_EMR_2_M1_EMR_ID' => 'EMR #2 (related  ID)',
   'LBL_EMR_2' => 'EMR #2',
   'LBL_MODIFIED_NAME' => 'Modified By',
+  'LBL_EMR_1_MODULES' => '#1 modules',
+  'LBL_EMR_2_MODULES' => '#2 modules',
+  'LBL_OTHER_EMR_MODULES' => 'other modules',
 );

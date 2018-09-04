@@ -94,7 +94,6 @@ array (
             'name' => 'active_c',
             'label' => 'LBL_ACTIVE',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -252,7 +251,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_CONTACT_ASSOCIATION',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -291,7 +289,6 @@ array (
             'name' => 'reference_association_c',
             'label' => 'LBL_REFERENCE_ASSOCIATION',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -315,7 +312,6 @@ array (
             'name' => 'emr_1_description_c',
             'label' => 'LBL_EMR_1_DESCRIPTION',
           ),
-          1 => '',
         ),
         5 => 
         array (
@@ -339,7 +335,6 @@ array (
             'name' => 'emr_2_description_c',
             'label' => 'LBL_EMR_2_DESCRIPTION',
           ),
-          1 => '',
         ),
         7 => 
         array (
@@ -350,9 +345,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'emr_other_modules_c',
-            'studio' => 'visible',
-            'label' => 'LBL_EMR_OTHER_MODULES',
+            'name' => 'other_emr_modules_c',
+            'label' => 'LBL_OTHER_EMR_MODULES',
           ),
         ),
         8 => 
@@ -362,7 +356,6 @@ array (
             'name' => 'emr_other_description_c',
             'label' => 'LBL_EMR_OTHER_DESCRIPTION',
           ),
-          1 => '',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 
@@ -388,7 +381,6 @@ array (
             'name' => 'asst_email_c',
             'label' => 'Asst Email',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -398,7 +390,6 @@ array (
             'comment' => 'Phone number of the assistant of the contact',
             'label' => 'LBL_ASSISTANT_PHONE',
           ),
-          1 => '',
         ),
         3 => 
         array (
