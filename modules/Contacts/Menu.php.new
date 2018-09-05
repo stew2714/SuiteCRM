@@ -22,6 +22,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 global $mod_strings, $app_strings, $sugar_config;
  
-if(ACLController::checkAccess('SA_Legal_Timesheets', 'create', true))$module_menu[]=Array("index.php?module=SA_Legal_Timesheets&action=EditView&return_module=SA_Legal_Timesheets&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Create", 'SA_Legal_Timesheets');
-if(ACLController::checkAccess('SA_Legal_Timesheets', 'list', true))$module_menu[]=Array("index.php?module=SA_Legal_Timesheets&action=index&return_module=SA_Legal_Timesheets&return_action=DetailView", $mod_strings['LNK_LIST'],"List", 'SA_Legal_Timesheets');
-if(ACLController::checkAccess('SA_Legal_Timesheets', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=SA_Legal_Timesheets&return_module=SA_Legal_Timesheets&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'SA_Legal_Timesheets');
+if(ACLController::checkAccess('Contacts', 'create', true))$module_menu[]=Array("index.php?module=Contacts&action=EditView&return_module=Contacts&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Create", 'Contacts');
+
+if(ACLController::checkAccess('Contacts', 'list', true))$module_menu[]=Array("index.php?module=Contacts&action=index&return_module=Contacts&return_action=DetailView", $mod_strings['LNK_LIST'],"List", 'Contacts');
+
+if(ACLController::checkAccess('Contacts', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=Contacts&return_module=Contacts&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'Contacts');
