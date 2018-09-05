@@ -147,6 +147,14 @@ class Update extends SugarBean
         $field->CalendarItem->Location = $bean->location;
         $change->Updates->SetItemField[] = $field;
 
+        // Set the updated body
+        $field = new SetItemFieldType();
+        $field->FieldURI = new PathToUnindexedFieldType();
+        $field->FieldURI->FieldURI = UnindexedFieldURIType::ITEM_BODY;
+        $field->CalendarItem = new CalendarItemType();
+        $field->CalendarItem->Body = $this->updateBody($bean, $startDate, $endDate);
+        $change->Updates->SetItemField[] = $field;
+
         // Add current user as default guest
         if (empty($guests)) {
             $guests[0] = [
@@ -258,5 +266,12 @@ class Update extends SugarBean
             LoggerManager::getLogger()->fatal("Failed to delete attachments with \"$code: $message\"\n");
         }
 
+    }
+
+    protected function updateBody($bean, $startDate, $endDate)
+    {
+        global $current_user;
+
+        return $current_user->full_name . ' has invited you to a Meeting' . PHP_EOL . PHP_EOL . 'Subject: ' . $bean->name . PHP_EOL . 'Start Date: ' . $startDate->format('c') . PHP_EOL . 'End Date: ' . $endDate->format('c') . PHP_EOL . PHP_EOL .'Description: ' . $bean->description;
     }
 }
