@@ -341,10 +341,10 @@ class SugarWebServiceImplv4 extends SugarWebServiceImplv3_1 {
         }
 
         if(!empty($permWhere)) {
-            if(empty($where)) {
+            if(empty($query)) {
                 $query = $permWhere;
             } else {
-                $query .= " AND " . $permWhere;
+                $query = "(".$query.") AND " . $permWhere;
             }
         }
         /* END - SECURITY GROUPS */
