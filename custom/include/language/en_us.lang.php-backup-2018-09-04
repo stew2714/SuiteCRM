@@ -1902,7 +1902,7 @@ $GLOBALS['app_list_strings']['ref_particip_type_list']=array (
   'Webinar' => 'Webinar',
 );
 
-$GLOBALS['app_list_strings']['emr_modules_list']=array (
+$GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   '' => '',
   'Mobile_Physician' => 'Mobile - Physician (ex: Haiku/Canto)',
   'Mobile_Nursing' => 'Mobile - Nursing (ex: Rover)',
@@ -2398,7 +2398,7 @@ $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   'Public' => 'Public',
   'Subsidiary' => 'Subsidiary',
 );
-//$GLOBALS['app_list_strings']['emr_modules_list']=array (
-//  '' => '',
-//  'Physician_Mobile' => 'Physician Mobile (ex. Haiku/Canto)',
-//);
+$GLOBALS['app_list_strings']['emr_modules_list']=array (
+  '' => '',
+  'Physician_Mobile' => 'Physician Mobile (ex. Haiku/Canto)',
+);
