@@ -21,7 +21,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 global $mod_strings, $app_strings, $sugar_config;
+
+$module_menu = array();
  
-if(ACLController::checkAccess('SA_eloqua_activity', 'create', true))$module_menu[]=Array("index.php?module=SA_eloqua_activity&action=EditView&return_module=SA_eloqua_activity&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Create", 'SA_eloqua_activity');
-if(ACLController::checkAccess('SA_eloqua_activity', 'list', true))$module_menu[]=Array("index.php?module=SA_eloqua_activity&action=index&return_module=SA_eloqua_activity&return_action=DetailView", $mod_strings['LNK_LIST'],"List", 'SA_eloqua_activity');
-if(ACLController::checkAccess('SA_eloqua_activity', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=SA_eloqua_activity&return_module=SA_eloqua_activity&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'SA_eloqua_activity');
+if(ACLController::checkAccess('SA_Legal_Vendors', 'create', true))$module_menu[]=Array("index.php?module=SA_Legal_Vendors&action=EditView&return_module=SA_Legal_Vendors&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Create", 'SA_Legal_Vendors');
+if(ACLController::checkAccess('SA_Legal_Vendors', 'list', true))$module_menu[]=Array("index.php?module=SA_Legal_Vendors&action=index&return_module=SA_Legal_Vendors&return_action=DetailView", $mod_strings['LNK_LIST'],"List", 'SA_Legal_Vendors');
+if(ACLController::checkAccess('SA_Legal_Vendors', 'import', true))$module_menu[]=Array("index.php?module=Import&action=Step1&import_module=SA_Legal_Vendors&return_module=SA_Legal_Vendors&return_action=index", $app_strings['LBL_IMPORT'],"Import", 'SA_Legal_Vendors');
