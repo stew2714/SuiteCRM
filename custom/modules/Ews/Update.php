@@ -49,6 +49,7 @@ require_once('custom/modules/Ews/Find.php');
 
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfBaseItemIdsType;
 use jamesiarmes\PhpEws\ArrayType\NonEmptyArrayOfItemChangeDescriptionsType;
+use jamesiarmes\PhpEws\Enumeration\BodyTypeType;
 use jamesiarmes\PhpEws\Enumeration\CalendarItemUpdateOperationType;
 use jamesiarmes\PhpEws\Enumeration\ConflictResolutionType;
 use jamesiarmes\PhpEws\Enumeration\DefaultShapeNamesType;
@@ -56,6 +57,7 @@ use jamesiarmes\PhpEws\Enumeration\ResponseClassType;
 use jamesiarmes\PhpEws\Enumeration\UnindexedFieldURIType;
 use jamesiarmes\PhpEws\Request\GetItemType;
 use jamesiarmes\PhpEws\Request\UpdateItemType;
+use jamesiarmes\PhpEws\Type\BodyType;
 use jamesiarmes\PhpEws\Type\CalendarItemType;
 use jamesiarmes\PhpEws\Type\ItemChangeType;
 use jamesiarmes\PhpEws\Type\ItemIdType;
@@ -152,7 +154,10 @@ class Update extends SugarBean
         $field->FieldURI = new PathToUnindexedFieldType();
         $field->FieldURI->FieldURI = UnindexedFieldURIType::ITEM_BODY;
         $field->CalendarItem = new CalendarItemType();
-        $field->CalendarItem->Body = $this->updateBody($bean, $startDate, $endDate);
+        $field->CalendarItem->Body = new BodyType();
+        $field->CalendarItem->Body->_ = $this->updateBody($bean, $startDate, $endDate);
+        $field->CalendarItem->Body->BodyType =  new BodyTypeType();
+        $field->CalendarItem->Body->BodyType = BodyTypeType::HTML;
         $change->Updates->SetItemField[] = $field;
 
         // Add current user as default guest
@@ -272,6 +277,6 @@ class Update extends SugarBean
     {
         global $current_user;
 
-        return $current_user->full_name . ' has invited you to a Meeting' . PHP_EOL . PHP_EOL . 'Subject: ' . $bean->name . PHP_EOL . 'Start Date: ' . $startDate->format('c') . PHP_EOL . 'End Date: ' . $endDate->format('c') . PHP_EOL . PHP_EOL .'Description: ' . $bean->description;
+        return $current_user->full_name . ' has invited you to a Meeting <br><br> Subject: ' . $bean->name . '<br><br> Description: ' . $bean->description . '<br><br> Start Date: ' . $startDate->format('c') . '<br><br> End Date: ' . $endDate->format('c');
     }
 }

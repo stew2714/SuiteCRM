@@ -253,8 +253,8 @@ class Create extends SugarBean
 
         // Set the event body.
         $event->Body = new BodyType();
-        $event->Body->_ = $current_user->full_name . ' has invited you to a Meeting' . PHP_EOL . PHP_EOL . 'Subject: ' . $event->Subject . PHP_EOL . 'Start Date: ' . $event->Start . PHP_EOL . 'End Date: ' . $event->End . PHP_EOL . PHP_EOL .'Description: ' . $event->Description;
-        $event->Body->BodyType = BodyTypeType::TEXT;
+        $event->Body->_ = $current_user->full_name . ' has invited you to a Meeting <br><br> Subject: ' . $event->Subject . '<br><br> Description: ' . $event->Description . '<br><br> Start Date: ' . $event->Start . '<br><br> End Date: ' . $event->End;
+        $event->Body->BodyType = BodyTypeType::HTML;
 
         $event->Location = new CalendarItemType();
         $event->Location = $bean->location;
