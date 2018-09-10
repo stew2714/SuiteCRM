@@ -536,9 +536,9 @@ function handleSave($prefix,$redirect=true,$useRequired=false) {
         if (empty($_REQUEST['return_action']) || $_REQUEST['return_action'] !== 'EditView') {
             return false;
         }
-        if (empty($_REQUEST['return_id'])) {
-            return false;
-        }
+//        if (empty($_REQUEST['return_id'])) {
+//            return false;
+//        }
         if (empty($_REQUEST['isSaveAndNew'])) {
             return false;
         }
