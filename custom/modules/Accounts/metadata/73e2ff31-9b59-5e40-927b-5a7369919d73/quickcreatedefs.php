@@ -143,7 +143,7 @@ array (
           0 => 
           array (
             'name' => 'primary_gpo_c',
-            'label' => 'Primary GPO',
+            'label' => 'Primary GPO Old',
           ),
           1 => 
           array (

@@ -178,7 +178,7 @@ $dictionary['Account']['fields']['primary_gpo_c']['len'] = '18';
 $dictionary['Account']['fields']['primary_gpo_c']['size'] = '20';
 $dictionary['Account']['fields']['primary_gpo_c']['required'] = false;
 $dictionary['Account']['fields']['primary_gpo_c']['comments'] = 'Auto-created entry for field primary_gpo_c';
-$dictionary['Account']['fields']['primary_gpo_c']['vname'] = 'Primary GPO';
+$dictionary['Account']['fields']['primary_gpo_c']['vname'] = 'Primary GPO Old';
 $dictionary['Account']['fields']['primary_gpo_c']['source'] = 'custom_fields';
 
 // Part 1 - related field for gpo_affiliation
@@ -262,7 +262,7 @@ $dictionary['Account']['fields']['mtso_1_c']['source'] = 'custom_fields';
 // Part 1 - related field for mtso_1
 
 $dictionary['Account']['fields']['Accmtso_1_c']['name']='Accmtso_1_c';
-$dictionary['Account']['fields']['Accmtso_1_c']['len']='18';
+$dictionary['Account']['fields']['Accmtso_1_c']['len']='36';
 $dictionary['Account']['fields']['Accmtso_1_c']['type']='id';
 $dictionary['Account']['fields']['Accmtso_1_c']['inline_edit']=1;
 $dictionary['Account']['fields']['Accmtso_1_c']['importable']='true';
@@ -273,7 +273,7 @@ $dictionary['Account']['fields']['Accmtso_1_c']['vname']='LBL_ACCMTSO_1_C';
 $dictionary['Account']['fields']['Accmtso_1_c']['source']='custom_fields';
 
 // 2017-11-01 BCG
-$dictionary['Account']['fields']['Accmtso_1_c']['custom_module']='Accounts';
+//$dictionary['Account']['fields']['Accmtso_1_c']['custom_module']='Accounts';
 
 // Part 2 - related field for mtso_1
 
@@ -321,7 +321,7 @@ $dictionary['Account']['fields']['mtso_2_c']['source'] = 'custom_fields';
 // Part 1 - related field for mtso_2
 
 $dictionary['Account']['fields']['Accmtso_2_c']['name']='Accmtso_2_c';
-$dictionary['Account']['fields']['Accmtso_2_c']['len']='18';
+$dictionary['Account']['fields']['Accmtso_2_c']['len']='36';
 $dictionary['Account']['fields']['Accmtso_2_c']['type']='id';
 $dictionary['Account']['fields']['Accmtso_2_c']['inline_edit']=1;
 $dictionary['Account']['fields']['Accmtso_2_c']['importable']='true';
@@ -332,7 +332,7 @@ $dictionary['Account']['fields']['Accmtso_2_c']['vname']='LBL_ACCMTSO_2_C';
 $dictionary['Account']['fields']['Accmtso_2_c']['source']='custom_fields';
 
 // 2017-11-01 BCG
-$dictionary['Account']['fields']['Accmtso_2_c']['custom_module']='Accounts';
+//$dictionary['Account']['fields']['Accmtso_2_c']['custom_module']='Accounts';
 
 // Part 2 - related field for mtso_2
 
@@ -379,7 +379,7 @@ $dictionary['Account']['fields']['mtso_3_c']['source'] = 'custom_fields';
 // Part 1 - related field for mtso_3
 
 $dictionary['Account']['fields']['Accmtso_3_c']['name']='Accmtso_3_c';
-$dictionary['Account']['fields']['Accmtso_3_c']['len']='18';
+$dictionary['Account']['fields']['Accmtso_3_c']['len']='36';
 $dictionary['Account']['fields']['Accmtso_3_c']['type']='id';
 $dictionary['Account']['fields']['Accmtso_3_c']['inline_edit']=1;
 $dictionary['Account']['fields']['Accmtso_3_c']['importable']='true';
@@ -390,7 +390,7 @@ $dictionary['Account']['fields']['Accmtso_3_c']['vname']='LBL_ACCMTSO_3_C';
 $dictionary['Account']['fields']['Accmtso_3_c']['source']='custom_fields';
 
 // 2017-11-01 BCG
-$dictionary['Account']['fields']['Accmtso_3_c']['custom_module']='Accounts';
+//$dictionary['Account']['fields']['Accmtso_3_c']['custom_module']='Accounts';
 
 // Part 2 - related field for mtso_3
 
