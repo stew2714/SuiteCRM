@@ -239,8 +239,8 @@ class AOS_ContractsController extends SugarController
 
         if($_REQUEST['record']) {
             $bean = BeanFactory::getBean("AOS_Contracts", $_REQUEST['record']);
-            $bean->apttus_status_category_c = "sig";
-            $bean->apttus_status_c = "sig_ops";
+            $bean->apttus_status_category_c = "aut";
+            $bean->apttus_status_c = "aut_opr";
             $bean->save();
             echo "success";
             die();
