@@ -162,8 +162,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'primary_gpo_c',
-            'label' => 'Primary GPO',
+            'name' => 'gpo_affiliation_name_c',
+            'studio' => 'visible',
+            'label' => 'GPO',
           ),
           1 => 
           array (
