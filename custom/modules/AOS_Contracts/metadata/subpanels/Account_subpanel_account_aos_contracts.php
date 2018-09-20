@@ -1,5 +1,5 @@
 <?php
-// created: 2018-06-25 11:45:54
+// created: 2018-09-18 13:09:01
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -30,11 +30,18 @@ $subpanel_layout['list_fields'] = array (
     'width' => '15%',
     'default' => true,
   ),
-  'status' => 
+  'apttus_status_category_c' => 
   array (
-    'type' => 'date',
-    'vname' => 'LBL_STATUS',
-    'width' => '15%',
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_APTTUS_STATUS_CATEGORY_C',
+    'width' => '10%',
+  ),
+  'apttus_status_c' => 
+  array (
+    'type' => 'dynamicenum',
+    'vname' => 'LBL_APTTUS_STATUS_C',
+    'width' => '10%',
     'default' => true,
   ),
   'assigned_user_name' => 

@@ -150,14 +150,35 @@ array (
         'width' => '10%',
         'name' => 'contact_association_c',
       ),
-      'referenced_emr_c' => 
+      'emr_1_c' => 
       array (
-        'type' => 'multienum',
+        'type' => 'relate',
         'default' => true,
         'studio' => 'visible',
-        'label' => 'LBL_REFERENCED_EMR',
+        'label' => 'LBL_EMR_1',
+        'id' => 'M1_EMR_ID_C',
+        'link' => true,
         'width' => '10%',
-        'name' => 'referenced_emr_c',
+        'name' => 'emr_1_c',
+      ),
+      'emr_2_c' => 
+      array (
+        'type' => 'relate',
+        'default' => true,
+        'studio' => 'visible',
+        'label' => 'LBL_EMR_2',
+        'id' => 'M1_EMR_ID1_C',
+        'link' => true,
+        'width' => '10%',
+        'name' => 'emr_2_c',
+      ),
+      'emr_other_c' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_EMR_OTHER',
+        'width' => '10%',
+        'name' => 'emr_other_c',
       ),
       'reference_start_date_c' => 
       array (

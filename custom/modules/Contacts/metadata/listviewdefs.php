@@ -83,6 +83,13 @@ array (
     'label' => 'LBL_SALES',
     'width' => '10%',
   ),
+  'ACTIVE_C' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_ACTIVE',
+    'width' => '10%',
+  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '10%',
@@ -412,13 +419,6 @@ array (
     'width' => '10%',
     'label' => 'LBL_PRIMARY_ADDRESS_STATE',
     'default' => false,
-  ),
-  'ACTIVE_C' => 
-  array (
-    'type' => 'bool',
-    'default' => false,
-    'label' => 'LBL_ACTIVE',
-    'width' => '10%',
   ),
   'PRIMARY_ADDRESS_POSTALCODE' => 
   array (
