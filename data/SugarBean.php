@@ -2952,7 +2952,10 @@ class SugarBean
         /* BEGIN - SECURITY GROUPS */
         global $current_user, $sugar_config;
 
-        if(!$current_user->is_admin && ($_REQUEST['action'] != "Popup" && $parentbean->module_dir != "Users" && ($_REQUEST['action'] != "DetailView" && $this->module_dir != "Users"))) {
+        if(!$current_user->is_admin &&
+           ($_REQUEST['action'] != "Popup" && $parentbean->module_dir != "Users"
+            && ($_REQUEST['action'] != "DetailView" && $this->module_dir != "Users")
+            && ($_REQUEST['action'] != "index" && $this->module_dir != "Home"))) {
             $rules_where = SharedSecurityRules::buildRuleWhere($this);
         }
 
