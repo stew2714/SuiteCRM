@@ -11,7 +11,7 @@ foreach($results as $row){
 //    if($i == 50) die();
     $shortID_start = substr($row['short_id_c'], 0, 1);
     $shortID_end = substr($row['short_id_c'], 1);
-    $newShortID = $shortID_start."0".$shortID_end;
+    $newShortID = $shortID_start.str_pad($shortID_end, 7, 0, STR_PAD_LEFT);
     echo "<pre>Number ".$i. ": ".print_r($row, true)."New Number ".$i. ": ".$newShortID."</pre><br>";
     $updateSQL = "UPDATE opportunities_cstm SET new_short_id_c = '".$newShortID."' WHERE id_c = '".$row['id']."' ";
     $db->query($updateSQL);
