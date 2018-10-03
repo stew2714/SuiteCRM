@@ -289,16 +289,29 @@ array (
         array (
           0 => 
           array (
-            'name' => 'sales_c',
-            'label' => 'LBL_SALES',
+            'name' => 'fft_admin_c',
+            'label' => 'LBL_FFT_ADMIN',
           ),
           1 => 
           array (
-            'name' => 'survey_c',
-            'label' => 'LBL_SURVEY',
+            'name' => 'sales_c',
+            'label' => 'LBL_SALES',
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fd_admin_c',
+            'label' => 'LBL_FD_ADMIN',
+          ),
+          1 => 
+          array (
+            'name' => 'marketing_c',
+            'label' => 'LBL_MARKETING',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -307,16 +320,16 @@ array (
           ),
           1 => 
           array (
-            'name' => 'technical_c',
-            'label' => 'LBL_TECHNICAL',
+            'name' => 'release_notification_c',
+            'label' => 'LBL_RELEASE_NOTIFICATION',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
-            'name' => 'release_notification_c',
-            'label' => 'LBL_RELEASE_NOTIFICATION',
+            'name' => 'technical_c',
+            'label' => 'LBL_TECHNICAL',
           ),
           1 => 
           array (
@@ -324,12 +337,12 @@ array (
             'label' => 'LBL_ACCOUNTING_INVOICES',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
-            'name' => 'marketing_c',
-            'label' => 'LBL_MARKETING',
+            'name' => 'survey_c',
+            'label' => 'LBL_SURVEY',
           ),
           1 => 
           array (
@@ -337,7 +350,7 @@ array (
             'label' => 'LBL_BUSINESS_CEO',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -345,6 +358,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_CONTACT_ASSOCIATION',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 

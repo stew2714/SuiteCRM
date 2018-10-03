@@ -41,7 +41,7 @@ array (
         'LBL_EDITVIEW_PANEL3' => 
         array (
           'newTab' => false,
-          'panelDefault' => 'collapsed',
+          'panelDefault' => 'expanded',
         ),
       ),
       'syncDetailEditViews' => false,
@@ -53,47 +53,13 @@ array (
         0 => 
         array (
           0 => 'name',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'parent',
-            'label' => 'LBL_PARENT',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_a4_sites_1_name',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ucid',
-            'label' => 'LBL_UCID',
-          ),
-          1 => 
-          array (
-            'name' => 'aplatform_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APLATFORM',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'active_date',
-            'label' => 'LBL_ACTIVE_DATE',
-          ),
           1 => 
           array (
             'name' => 'term_date',
             'label' => 'LBL_TERM_DATE',
           ),
         ),
-        4 => 
+        1 => 
         array (
           0 => 
           array (
@@ -106,77 +72,12 @@ array (
             'label' => 'LBL_HIMSS_ID',
           ),
         ),
-        5 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'b2b_c',
-            'label' => 'LBL_B2B',
-          ),
-          1 => 
-          array (
-            'name' => 'cdia_c',
-            'label' => 'LBL_CDIA',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cdic_c',
-            'label' => 'LBL_CDIC',
-          ),
-          1 => 
-          array (
-            'name' => 'cdie_c',
-            'label' => 'LBL_CDIE',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'dwi_c',
-            'label' => 'LBL_DWI',
-          ),
-          1 => 
-          array (
-            'name' => 'fd_c',
-            'label' => 'LBL_FD',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ff_c',
-            'label' => 'LBL_FF',
-          ),
-          1 => 
-          array (
-            'name' => 'ffc_c',
-            'label' => 'LBL_FFC',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ffi_c',
-            'label' => 'LBL_FFI',
-          ),
-          1 => 
-          array (
-            'name' => 'fm_c',
-            'label' => 'LBL_FM',
-          ),
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'fvm_c',
-            'label' => 'LBL_FVM',
+            'name' => 'ucid',
+            'label' => 'LBL_UCID',
           ),
           1 => 
           array (
@@ -201,9 +102,14 @@ array (
             'label' => 'LBL_SECURITYGROUP',
           ),
         ),
-        11 => 
+        3 => 
         array (
           0 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+          1 => 
           array (
             'name' => 'additionalusers',
             'comment' => 'Used for adding to the list, detail, and edit views',
@@ -244,26 +150,20 @@ array (
             'name' => 'service_address_city',
             'label' => 'LBL_SERVICE_ADDRESS_CITY',
           ),
-        ),
-        2 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'service_address_state',
             'label' => 'LBL_SERVICE_ADDRESS_STATE',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
             'name' => 'service_address_postalcode',
             'label' => 'LBL_SERVICE_ADDRESS_POSTALCODE',
           ),
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'service_address_country',
             'label' => 'LBL_SERVICE_ADDRESS_COUNTRY',

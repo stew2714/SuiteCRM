@@ -93,14 +93,6 @@ array (
         'width' => '10%',
         'name' => 'operational_c',
       ),
-      'marketing_c' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_MARKETING',
-        'width' => '10%',
-        'name' => 'marketing_c',
-      ),
       'technical_c' => 
       array (
         'type' => 'bool',
@@ -108,14 +100,6 @@ array (
         'label' => 'LBL_TECHNICAL',
         'width' => '10%',
         'name' => 'technical_c',
-      ),
-      'release_notification_c' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_RELEASE_NOTIFICATION',
-        'width' => '10%',
-        'name' => 'release_notification_c',
       ),
       'reference_program_c' => 
       array (
@@ -125,14 +109,6 @@ array (
         'width' => '10%',
         'name' => 'reference_program_c',
       ),
-      'accounting_invoices_c' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ACCOUNTING_INVOICES',
-        'width' => '10%',
-        'name' => 'accounting_invoices_c',
-      ),
       'sales_c' => 
       array (
         'type' => 'bool',
@@ -140,6 +116,22 @@ array (
         'label' => 'LBL_SALES',
         'width' => '10%',
         'name' => 'sales_c',
+      ),
+      'fft_admin_c' => 
+      array (
+        'type' => 'bool',
+        'default' => true,
+        'label' => 'LBL_FFT_ADMIN',
+        'width' => '10%',
+        'name' => 'fft_admin_c',
+      ),
+      'fd_admin_c' => 
+      array (
+        'type' => 'bool',
+        'default' => true,
+        'label' => 'LBL_FD_ADMIN',
+        'width' => '10%',
+        'name' => 'fd_admin_c',
       ),
       'contact_association_c' => 
       array (
@@ -179,6 +171,15 @@ array (
         'label' => 'LBL_EMR_OTHER',
         'width' => '10%',
         'name' => 'emr_other_c',
+      ),
+      'reference_type_c' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'studio' => 'visible',
+        'label' => 'LBL_REFERENCE_TYPE',
+        'width' => '10%',
+        'name' => 'reference_type_c',
       ),
       'reference_start_date_c' => 
       array (

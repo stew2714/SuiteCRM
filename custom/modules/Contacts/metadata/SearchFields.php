@@ -1,5 +1,5 @@
 <?php
-// created: 2018-09-17 15:01:00
+// created: 2018-10-02 14:38:49
 $searchFields['Contacts'] = array (
   'first_name' => 
   array (
@@ -199,6 +199,106 @@ $searchFields['Contacts'] = array (
     'query_type' => 'default',
   ),
   'eloqua_lead_rating_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'date_entered' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'date_modified' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'salutation' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'department' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'phone_home' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'phone_mobile' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'phone_other' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'phone_fax' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'primary_address_street' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'primary_address_city' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'primary_address_state' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'primary_address_postalcode' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'primary_address_country' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'lead_source_most_recent_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'asst_email_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'longitude_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'source_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'latitude_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'recordtypeid_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'standard_title_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'previous_account_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'status_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'lastactivitydate_c' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'birthdate' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'assistant_phone' => 
   array (
     'query_type' => 'default',
   ),

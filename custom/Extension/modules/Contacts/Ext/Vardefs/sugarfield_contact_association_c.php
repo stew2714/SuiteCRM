@@ -1,6 +1,6 @@
 <?php
- // created: 2016-11-14 13:10:12
-$dictionary['Contact']['fields']['contact_association_c']['inline_edit']='1';
+ // created: 2018-10-02 13:55:01
+$dictionary['Contact']['fields']['contact_association_c']['inline_edit']='';
 $dictionary['Contact']['fields']['contact_association_c']['labelValue']='Contact Association';
 
  ?>

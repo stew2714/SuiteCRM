@@ -12,6 +12,7 @@ $popupMeta = array (
   'survey_c' => 'contacts_cstm.survey_c',
   'sales_c' => 'contacts_cstm.sales_c',
   'assigned_user_name' => 'contacts.assigned_user_name',
+  'active_c' => 'contacts_cstm.active_c',
 ),
     'searchInputs' => array (
   0 => 'first_name',
@@ -22,6 +23,7 @@ $popupMeta = array (
   7 => 'survey_c',
   8 => 'sales_c',
   9 => 'assigned_user_name',
+  10 => 'active_c',
 ),
     'create' => array (
   'formBase' => 'ContactFormBase.php',
@@ -69,6 +71,13 @@ $popupMeta = array (
     'label' => 'LBL_SURVEY',
     'width' => '10%',
     'name' => 'survey_c',
+  ),
+  'active_c' => 
+  array (
+    'type' => 'bool',
+    'label' => 'LBL_ACTIVE',
+    'width' => '10%',
+    'name' => 'active_c',
   ),
   'sales_c' => 
   array (
@@ -143,6 +152,13 @@ $popupMeta = array (
     'label' => 'LBL_CONTACT_ASSOCIATION',
     'width' => '10%',
     'name' => 'contact_association_c',
+  ),
+  'ACTIVE_C' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_ACTIVE',
+    'width' => '10%',
   ),
 ),
 );

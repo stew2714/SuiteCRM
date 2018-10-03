@@ -56,7 +56,7 @@ array (
         'LBL_DETAILVIEW_PANEL3' => 
         array (
           'newTab' => false,
-          'panelDefault' => 'collapsed',
+          'panelDefault' => 'expanded',
         ),
       ),
       'syncDetailEditViews' => true,
@@ -93,7 +93,12 @@ array (
             'name' => 'ucid',
             'label' => 'LBL_UCID',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'aplatform_c',
+            'studio' => 'visible',
+            'label' => 'LBL_APLATFORM',
+          ),
         ),
         3 => 
         array (
@@ -125,22 +130,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
           1 => 
           array (
@@ -149,31 +140,9 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
-          array (
-            'name' => 'additionalusers',
-            'comment' => 'Used for adding to the list, detail, and edit views',
-            'studio' => 
-            array (
-              'visible' => false,
-              'listview' => true,
-              'searchview' => false,
-              'detailview' => true,
-              'editview' => true,
-              'formula' => false,
-              'related' => false,
-              'basic_search' => false,
-              'advanced_search' => false,
-              'popuplist' => true,
-              'popupsearch' => false,
-              'dashletsearch' => false,
-              'dashlet' => true,
-            ),
-            'label' => 'LBL_ADDITIONALUSERS',
-          ),
-          1 => 
           array (
             'name' => 'securitygroup_display',
             'comment' => 'Used for adding to the list, detail, and edit views',
@@ -195,6 +164,28 @@ array (
             ),
             'label' => 'LBL_SECURITYGROUP',
           ),
+          1 => 
+          array (
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
+          ),
         ),
       ),
       'lbl_detailview_panel4' => 
@@ -203,15 +194,10 @@ array (
         array (
           0 => 
           array (
-            'name' => 'fvm_c',
-            'label' => 'LBL_FVM',
+            'name' => 'fd_c',
+            'label' => 'LBL_FD',
           ),
-          1 => 
-          array (
-            'name' => 'aplatform_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APLATFORM',
-          ),
+          1 => '',
         ),
         1 => 
         array (
@@ -269,8 +255,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'fd_c',
-            'label' => 'LBL_FD',
+            'name' => 'fvm_c',
+            'label' => 'LBL_FVM',
           ),
           1 => 
           array (
@@ -287,6 +273,32 @@ array (
           array (
             'name' => 'service_address',
             'label' => 'LBL_SERVICE_ADDRESS',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'service_address_city',
+            'label' => 'LBL_SERVICE_ADDRESS_CITY',
+          ),
+          1 => 
+          array (
+            'name' => 'service_address_state',
+            'label' => 'LBL_SERVICE_ADDRESS_STATE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'service_address_postalcode',
+            'label' => 'LBL_SERVICE_ADDRESS_POSTALCODE',
+          ),
+          1 => 
+          array (
+            'name' => 'service_address_country',
+            'label' => 'LBL_SERVICE_ADDRESS_COUNTRY',
           ),
         ),
       ),

@@ -129,6 +129,14 @@ array (
         'width' => '10%',
         'name' => 'himss_id_c',
       ),
+      'defintive_id_c' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_DEFINTIVE_ID',
+        'width' => '10%',
+        'name' => 'defintive_id_c',
+      ),
     ),
   ),
   'templateMeta' => 

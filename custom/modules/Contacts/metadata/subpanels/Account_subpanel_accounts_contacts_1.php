@@ -1,5 +1,5 @@
 <?php
-// created: 2018-03-07 02:29:30
+// created: 2018-09-27 14:45:42
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -42,6 +42,13 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'studio' => 'visible',
     'vname' => 'LBL_CONTACT_ASSOCIATION',
+    'width' => '10%',
+  ),
+  'active_c' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'vname' => 'LBL_ACTIVE',
     'width' => '10%',
   ),
   'assigned_user_name' => 

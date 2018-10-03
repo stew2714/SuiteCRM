@@ -2402,3 +2402,6 @@ $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
 //  '' => '',
 //  'Physician_Mobile' => 'Physician Mobile (ex. Haiku/Canto)',
 //);
+
+$app_strings['LBL_GROUPTAB5_1538573998'] = 'Account Mgt';
+?>

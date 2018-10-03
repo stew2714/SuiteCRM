@@ -38,6 +38,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL3' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
     ),
     'panels' => 
@@ -47,58 +52,83 @@ array (
         0 => 
         array (
           0 => 'name',
+          1 => 
+          array (
+            'name' => 'term_date',
+            'label' => 'LBL_TERM_DATE',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'parent',
-            'label' => 'LBL_PARENT',
+            'name' => 'definitive_id',
+            'label' => 'LBL_DEFINITIVE_ID',
           ),
           1 => 
           array (
-            'name' => 'accounts_a4_sites_1_name',
-            'label' => 'LBL_ACCOUNTS_A4_SITES_1_FROM_ACCOUNTS_TITLE',
+            'name' => 'himss_id',
+            'label' => 'LBL_HIMSS_ID',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'aplatform_c',
-            'studio' => 'visible',
-            'label' => 'LBL_APLATFORM',
+            'name' => 'ucid',
+            'label' => 'LBL_UCID',
           ),
           1 => 
           array (
-            'name' => 'ucid',
-            'label' => 'LBL_UCID',
+            'name' => 'securitygroup_display',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => false,
+            ),
+            'label' => 'LBL_SECURITYGROUP',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'himss_id',
-            'label' => 'LBL_HIMSS_ID',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
           1 => 
           array (
-            'name' => 'definitive_id',
-            'label' => 'LBL_DEFINITIVE_ID',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'active_date',
-            'label' => 'LBL_ACTIVE_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'term_date',
-            'label' => 'LBL_TERM_DATE',
+            'name' => 'additionalusers',
+            'comment' => 'Used for adding to the list, detail, and edit views',
+            'studio' => 
+            array (
+              'visible' => false,
+              'listview' => true,
+              'searchview' => false,
+              'detailview' => true,
+              'editview' => true,
+              'formula' => false,
+              'related' => false,
+              'basic_search' => false,
+              'advanced_search' => false,
+              'popuplist' => true,
+              'popupsearch' => false,
+              'dashletsearch' => false,
+              'dashlet' => true,
+            ),
+            'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
       ),
@@ -111,28 +141,28 @@ array (
             'name' => 'service_address',
             'label' => 'LBL_SERVICE_ADDRESS',
           ),
-          1 => 
-          array (
-            'name' => 'service_address_city',
-            'label' => 'LBL_SERVICE_ADDRESS_CITY',
-          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'service_address_state',
-            'label' => 'LBL_SERVICE_ADDRESS_STATE',
+            'name' => 'service_address_city',
+            'label' => 'LBL_SERVICE_ADDRESS_CITY',
           ),
           1 => 
           array (
-            'name' => 'service_address_postalcode',
-            'label' => 'LBL_SERVICE_ADDRESS_POSTALCODE',
+            'name' => 'service_address_state',
+            'label' => 'LBL_SERVICE_ADDRESS_STATE',
           ),
         ),
         2 => 
         array (
           0 => 
+          array (
+            'name' => 'service_address_postalcode',
+            'label' => 'LBL_SERVICE_ADDRESS_POSTALCODE',
+          ),
+          1 => 
           array (
             'name' => 'service_address_country',
             'label' => 'LBL_SERVICE_ADDRESS_COUNTRY',
@@ -142,6 +172,14 @@ array (
       'lbl_editview_panel1' => 
       array (
         0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ops_region',
+            'label' => 'LBL_OPS_REGION',
+          ),
+        ),
+        1 => 
         array (
           0 => 
           array (
@@ -156,12 +194,16 @@ array (
             'label' => 'LBL_TIER_DD',
           ),
         ),
-        1 => 
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
-            'name' => 'ops_region',
-            'label' => 'LBL_OPS_REGION',
+            'name' => 'client_alert_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CLIENT_ALERT',
           ),
         ),
       ),

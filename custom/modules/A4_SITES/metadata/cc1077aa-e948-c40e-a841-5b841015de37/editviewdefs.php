@@ -28,15 +28,10 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_EDITVIEW_PANEL3' => 
         array (
           'newTab' => false,
-          'panelDefault' => 'collapsed',
+          'panelDefault' => 'expanded',
         ),
       ),
       'syncDetailEditViews' => false,
@@ -99,33 +94,6 @@ array (
               'dashlet' => true,
             ),
             'label' => 'LBL_ADDITIONALUSERS',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ops_region',
-            'label' => 'LBL_OPS_REGION',
-          ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cc_region_dd_c',
-            'studio' => 'visible',
-            'label' => 'LBL_CC_REGION_DD',
-          ),
-          1 => 
-          array (
-            'name' => 'tier_dd_c',
-            'studio' => 'visible',
-            'label' => 'LBL_TIER_DD',
           ),
         ),
       ),

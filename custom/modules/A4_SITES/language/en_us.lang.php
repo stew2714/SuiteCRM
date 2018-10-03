@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-27 14:58:49
+// created: 2018-10-02 14:28:51
 $mod_strings = array (
   'LBL_FVM' => 'Fluency Voice Manager',
   'LBL_FD' => 'Fluency Direct',
@@ -25,9 +25,10 @@ $mod_strings = array (
   'LBL_TERM_DATE' => 'Inactivity Date',
   'LBL_OPS_REGION' => 'OPs Region',
   'LBL_LIST_NAME' => 'Site',
-  'LBL_CLIENT_ALERT' => 'Client Alert',
-  'LBL_EDITVIEW_PANEL3' => 'Client Alert',
-  'LBL_DETAILVIEW_PANEL3' => 'Client Alert',
-  'LBL_DETAILVIEW_PANEL4' => 'Platform/Products',
+  'LBL_CLIENT_ALERT' => 'Customer Alert',
+  'LBL_EDITVIEW_PANEL3' => 'Customer Alert',
+  'LBL_DETAILVIEW_PANEL3' => 'Customer Alert',
+  'LBL_DETAILVIEW_PANEL4' => 'Products',
   'LBL_DETAILVIEW_PANEL6' => 'New Panel 6',
+  'LBL_UCID' => 'UCID',
 );

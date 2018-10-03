@@ -1,6 +1,6 @@
 <?php
- // created: 2016-05-11 20:27:50
-$dictionary['Contact']['fields']['release_notification_c']['inline_edit']='1';
+ // created: 2018-10-02 13:53:18
+$dictionary['Contact']['fields']['release_notification_c']['inline_edit']='';
 $dictionary['Contact']['fields']['release_notification_c']['labelValue']='Release Notification';
 
  ?>

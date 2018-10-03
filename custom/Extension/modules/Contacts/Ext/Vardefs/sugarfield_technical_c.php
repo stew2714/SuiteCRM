@@ -1,6 +1,6 @@
 <?php
- // created: 2016-05-11 20:27:29
-$dictionary['Contact']['fields']['technical_c']['inline_edit']='1';
-$dictionary['Contact']['fields']['technical_c']['labelValue']='Technical';
+ // created: 2018-10-02 14:29:19
+$dictionary['Contact']['fields']['technical_c']['inline_edit']='';
+$dictionary['Contact']['fields']['technical_c']['labelValue']='TOS Technical';
 
  ?>

@@ -56,6 +56,7 @@ $dashletData['AOS_ContractsDashlet']['columns'] = array (
     'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
     'width' => '10%',
     'default' => true,
+    'name' => 'agreements_number_and_amendment_c',
   ),
   'apttus_status_category_c' => 
   array (
@@ -73,13 +74,13 @@ $dashletData['AOS_ContractsDashlet']['columns'] = array (
     'default' => true,
     'name' => 'apttus_status_c',
   ),
-  'apttus_activated_date_c' => 
+  'total_contract_value' => 
   array (
-    'type' => 'datetimecombo',
-    'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
-    'width' => '10%',
+    'width' => '12%',
+    'label' => 'LBL_TOTAL_CONTRACT_VALUE',
+    'currency_format' => true,
     'default' => true,
-    'name' => 'apttus_activated_date_c',
+    'name' => 'total_contract_value',
   ),
   'start_date' => 
   array (
@@ -153,6 +154,14 @@ $dashletData['AOS_ContractsDashlet']['columns'] = array (
     'default' => false,
     'name' => 'apttus_agreement_number_c',
   ),
+  'apttus_activated_date_c' => 
+  array (
+    'type' => 'datetimecombo',
+    'label' => 'LBL_APTTUS_ACTIVATED_DATE_C',
+    'width' => '10%',
+    'default' => false,
+    'name' => 'apttus_activated_date_c',
+  ),
   'total_amt' => 
   array (
     'type' => 'currency',
@@ -193,14 +202,6 @@ $dashletData['AOS_ContractsDashlet']['columns'] = array (
     'width' => '10%',
     'default' => false,
     'name' => 'g1_group_queue_aos_contracts_name',
-  ),
-  'total_contract_value' => 
-  array (
-    'width' => '12%',
-    'label' => 'LBL_TOTAL_CONTRACT_VALUE',
-    'currency_format' => true,
-    'default' => false,
-    'name' => 'total_contract_value',
   ),
   'sent_to_comm_ops_c' => 
   array (

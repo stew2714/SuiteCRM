@@ -44,6 +44,10 @@ $dashletData['ContactsDashlet']['searchFields'] = array (
   array (
     'default' => '',
   ),
+  'active_c' => 
+  array (
+    'default' => '',
+  ),
   'assigned_user_name' => 
   array (
     'default' => '',
@@ -88,6 +92,14 @@ $dashletData['ContactsDashlet']['columns'] = array (
     'label' => 'LBL_CONTACT_TYPE',
     'width' => '10%',
     'name' => 'contact_type_c',
+  ),
+  'active_c' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_ACTIVE',
+    'width' => '10%',
+    'name' => 'active_c',
   ),
   'contact_association_c' => 
   array (
@@ -139,14 +151,6 @@ $dashletData['ContactsDashlet']['columns'] = array (
     'width' => '10%',
     'default' => false,
     'name' => 'additionalusers',
-  ),
-  'active_c' => 
-  array (
-    'type' => 'bool',
-    'default' => false,
-    'label' => 'LBL_ACTIVE',
-    'width' => '10%',
-    'name' => 'active_c',
   ),
   'date_entered' => 
   array (

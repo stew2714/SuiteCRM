@@ -148,6 +148,99 @@ array (
     'label' => 'LBL_MARKETING',
     'width' => '10%',
   ),
+  'EMR_OTHER_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_EMR_OTHER',
+    'width' => '10%',
+  ),
+  'EMR_1_C' => 
+  array (
+    'type' => 'relate',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_EMR_1',
+    'id' => 'M1_EMR_ID_C',
+    'link' => true,
+    'width' => '10%',
+  ),
+  'EMR_OTHER_DESCRIPTION_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_EMR_OTHER_DESCRIPTION',
+    'width' => '10%',
+  ),
+  'EMR_2_DESCRIPTION_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_EMR_2_DESCRIPTION',
+    'width' => '10%',
+  ),
+  'OTHER_EMR_MODULES_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_OTHER_EMR_MODULES',
+    'width' => '10%',
+  ),
+  'LONGITUDE_C' => 
+  array (
+    'type' => 'real',
+    'label' => 'Longitude',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ELOQUA_ID_C' => 
+  array (
+    'type' => 'int',
+    'default' => false,
+    'label' => 'LBL_ELOQUA_ID',
+    'width' => '10%',
+  ),
+  'REFERENCE_TYPE_C' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_REFERENCE_TYPE',
+    'width' => '10%',
+  ),
+  'EMR_2_MODULES_C' => 
+  array (
+    'type' => 'multienum',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_EMR_2_MODULES',
+    'width' => '10%',
+  ),
+  'EMR_1_MODULES_C' => 
+  array (
+    'type' => 'multienum',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_EMR_1_MODULES',
+    'width' => '10%',
+  ),
+  'EMR_2_C' => 
+  array (
+    'type' => 'relate',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_EMR_2',
+    'id' => 'M1_EMR_ID1_C',
+    'link' => true,
+    'width' => '10%',
+  ),
+  'EMR_1_DESCRIPTION_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_EMR_1_DESCRIPTION',
+    'width' => '10%',
+  ),
   'DO_NOT_CALL' => 
   array (
     'width' => '10%',
@@ -171,30 +264,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_CREATED',
-    'default' => false,
-  ),
-  'SECURITYGROUP_DISPLAY' => 
-  array (
-    'type' => 'function',
-    'sortable' => false,
-    'studio' => 
-    array (
-      'visible' => false,
-      'listview' => true,
-      'searchview' => false,
-      'detailview' => true,
-      'editview' => true,
-      'formula' => false,
-      'related' => false,
-      'basic_search' => false,
-      'advanced_search' => false,
-      'popuplist' => true,
-      'popupsearch' => false,
-      'dashletsearch' => false,
-      'dashlet' => false,
-    ),
-    'label' => 'LBL_SECURITYGROUP',
-    'width' => '10%',
     'default' => false,
   ),
   'REFERENCE_PROGRAM_C' => 
@@ -393,14 +462,6 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'REFERENCED_EMR_C' => 
-  array (
-    'type' => 'multienum',
-    'default' => false,
-    'studio' => 'visible',
-    'label' => 'LBL_REFERENCED_EMR',
-    'width' => '10%',
-  ),
   'BUSINESS_CEO_C' => 
   array (
     'type' => 'bool',
@@ -443,6 +504,20 @@ array (
     'width' => '10%',
     'label' => 'LBL_ALT_ADDRESS_CITY',
     'default' => false,
+  ),
+  'FFT_ADMIN_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_FFT_ADMIN',
+    'width' => '10%',
+  ),
+  'FD_ADMIN_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_FD_ADMIN',
+    'width' => '10%',
   ),
   'ALT_ADDRESS_STATE' => 
   array (
