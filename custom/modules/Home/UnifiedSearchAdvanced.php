@@ -352,7 +352,7 @@ class customUnifiedSearchAdvanced {
                 $lv->showMassupdateFields = false;
                 $lv->email = false;
 
-                $lv->setup($seed, 'include/ListView/ListViewNoMassUpdate.tpl', $where, $params, 0, 10);
+                $lv->setup($seed, 'custom/include/ListView/ListViewNoMassUpdate.tpl', $where, $params, 0, 10);
 
                 $module_results[$moduleName] = '<br /><br />' . get_form_header($GLOBALS['app_list_strings']['moduleList'][$seed->module_dir] . ' (' . $lv->data['pageData']['offsets']['total'] . ')', '', false);
                 $module_counts[$moduleName] = $lv->data['pageData']['offsets']['total'];
