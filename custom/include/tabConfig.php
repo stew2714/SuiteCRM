@@ -1,5 +1,5 @@
 <?php
-// created: 2018-10-03 13:40:14
+// created: 2018-10-03 15:34:57
 $GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_SALES' => 
   array (
@@ -74,14 +74,15 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_GROUPTAB5_1538573998',
     'modules' => 
     array (
-      0 => 'Contacts',
-      1 => 'Calendar',
-      2 => 'Calls',
-      3 => 'Meetings',
-      4 => 'Accounts',
-      5 => 'A4_SITES',
-      6 => 'A4_SITE_ROLES',
-      7 => 'm1_Tech_Deployments',
+      0 => 'Home',
+      1 => 'Contacts',
+      2 => 'Calendar',
+      3 => 'Calls',
+      4 => 'Meetings',
+      5 => 'Accounts',
+      6 => 'A4_SITES',
+      7 => 'A4_SITE_ROLES',
+      8 => 'm1_Tech_Deployments',
     ),
   ),
 );

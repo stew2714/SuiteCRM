@@ -140,6 +140,15 @@ array (
     'label' => 'LBL_DWI',
     'width' => '10%',
   ),
+  'CLIENT_ALERT_C' => 
+  array (
+    'type' => 'text',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_CLIENT_ALERT',
+    'sortable' => false,
+    'width' => '10%',
+  ),
   'CDIA_C' => 
   array (
     'type' => 'bool',
