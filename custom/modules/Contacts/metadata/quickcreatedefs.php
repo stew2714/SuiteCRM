@@ -209,8 +209,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'fd_admin_c',
-            'label' => 'LBL_FD_ADMIN',
+            'name' => 'operational_c',
+            'label' => 'LBL_OPERATIONAL',
           ),
           1 => 
           array (
@@ -222,8 +222,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'operational_c',
-            'label' => 'LBL_OPERATIONAL',
+            'name' => 'technical_c',
+            'label' => 'LBL_TECHNICAL',
           ),
           1 => 
           array (
@@ -235,8 +235,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'technical_c',
-            'label' => 'LBL_TECHNICAL',
+            'name' => 'survey_c',
+            'label' => 'LBL_SURVEY',
           ),
           1 => 
           array (
@@ -248,24 +248,15 @@ array (
         array (
           0 => 
           array (
-            'name' => 'survey_c',
-            'label' => 'LBL_SURVEY',
-          ),
-          1 => 
-          array (
             'name' => 'business_ceo_c',
             'label' => 'LBL_BUSINESS_CEO',
           ),
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'contact_association_c',
             'studio' => 'visible',
             'label' => 'LBL_CONTACT_ASSOCIATION',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 

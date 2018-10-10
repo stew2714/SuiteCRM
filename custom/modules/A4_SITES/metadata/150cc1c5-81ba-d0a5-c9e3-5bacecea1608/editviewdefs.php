@@ -42,16 +42,12 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 
+          0 => 
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'securitygroup_display',
             'comment' => 'Used for adding to the list, detail, and edit views',
@@ -73,7 +69,10 @@ array (
             ),
             'label' => 'LBL_SECURITYGROUP',
           ),
-          1 => 
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'additionalusers',
             'comment' => 'Used for adding to the list, detail, and edit views',

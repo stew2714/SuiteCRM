@@ -1,6 +1,6 @@
 <?php
- // created: 2017-09-07 15:09:23
-$dictionary['Contact']['fields']['referenced_emr_c']['inline_edit']='1';
+ // created: 2018-10-10 13:33:53
+$dictionary['Contact']['fields']['referenced_emr_c']['inline_edit']='';
 $dictionary['Contact']['fields']['referenced_emr_c']['labelValue']='Referenced EMR';
 
  ?>

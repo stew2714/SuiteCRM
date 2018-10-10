@@ -52,11 +52,15 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 
+          0 => 
           array (
             'name' => 'term_date',
             'label' => 'LBL_TERM_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
         1 => 
@@ -106,11 +110,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => 
-          array (
             'name' => 'additionalusers',
             'comment' => 'Used for adding to the list, detail, and edit views',
             'studio' => 
@@ -131,6 +130,7 @@ array (
             ),
             'label' => 'LBL_ADDITIONALUSERS',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 

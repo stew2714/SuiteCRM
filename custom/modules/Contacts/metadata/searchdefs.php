@@ -125,14 +125,6 @@ array (
         'width' => '10%',
         'name' => 'fft_admin_c',
       ),
-      'fd_admin_c' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_FD_ADMIN',
-        'width' => '10%',
-        'name' => 'fd_admin_c',
-      ),
       'contact_association_c' => 
       array (
         'type' => 'multienum',
