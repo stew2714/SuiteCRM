@@ -113,6 +113,37 @@ class customAOR_ReportsController extends AOR_ReportsController
         $mpdfPath = realpath($rootPath . "/custom/modules/AOR_Reports/getNewMPdf.php");
         require_once($mpdfPath);
 
+        $graphs = $_POST["graphsForPDF"];
+        $graphHtml = "<div class='reportGraphs' style='width:100%; text-align:center;'>";
+
+        $chartsPerRow = $this->bean->graphs_per_row;
+        $countOfCharts = count($graphs);
+        if ($countOfCharts > 0) {
+            $width = ((int)100 / $chartsPerRow);
+
+            $modulusRemainder = $countOfCharts % $chartsPerRow;
+
+            if ($modulusRemainder > 0) {
+                $modulusWidth = ((int)100 / $modulusRemainder);
+                $itemsWithModulus = $countOfCharts - $modulusRemainder;
+            }
+
+
+            for ($x = 0; $x < $countOfCharts; $x++) {
+                if (is_null($itemsWithModulus) || $x < $itemsWithModulus) {
+                    $graphHtml .= "<img src='.$graphs[$x]' style='width:$width%;' />";
+                } else {
+                    $graphHtml .= "<img src='.$graphs[$x]' style='width:$modulusWidth%;' />";
+                }
+            }
+
+            /*            foreach($graphs as $g)
+                        {
+                            $graphHtml.="<img src='.$g.' style='width:$width%;' />";
+                        }*/
+            $graphHtml .= "</div>";
+        }
+
         $sugar_config = $report->getSugarConfig();
         $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
         $file_name = str_replace(" ", "_", $report->name) . "_" . $dateStr . ".pdf";
@@ -173,6 +204,7 @@ EOD;
             $mpdf = getNewMPdf();
             $mpdf->WriteHTML($stylesheetPDF, 1);
             $mpdf->WriteHTML($reportTitleMarkup, 2);
+            $mpdf->WriteHTML($graphHtml, 2);
             $mpdf->WriteHTML($tableTitleMarkup, 2);
 
             $i = $from;
