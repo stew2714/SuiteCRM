@@ -2954,7 +2954,7 @@ class SugarBean
 
         if(!$current_user->is_admin &&
             (($_REQUEST['action'] != "Popup" && $parentbean->module_dir != "Users" && ($_REQUEST['action'] != "DetailView" && $this->module_dir != "Users"))
-            OR ($_REQUEST['action'] == "Popup" && $parentbean->module_dir != "Users"))
+            || ($_REQUEST['action'] == "Popup" && $parentbean->module_dir != "Users"))
         ) {
             $rules_where = SharedSecurityRules::buildRuleWhere($this);
         }
