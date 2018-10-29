@@ -1117,7 +1117,9 @@ function validate_user($user_name, $password){
             $openSSL = openssl_decrypt(pack("H*", $buffer), 'des-ede3-cbc', $key, OPENSSL_NO_PADDING, $iv);
             if (is_bool($openSSL)) {
                 $GLOBALS['log']->fatal('OpenSSL decryption failed');
-            }
+            } else {
+                $GLOBALS['log']->fatal('OpenSSL decryption succeeded');
+			}
             return $openSSL;
 		}else{
 			$GLOBALS['log']->info('End: SoapHelperWebServices->decrypt_string: return string');
