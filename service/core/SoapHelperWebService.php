@@ -1113,9 +1113,14 @@ function validate_user($user_name, $password){
 			$key = substr(md5($key),0,24);
 		    $iv = "password";
 			$GLOBALS['log']->info('End: SoapHelperWebServices->decrypt_string');
-            return openssl_decrypt(pack("H*", $buffer), 'des-ede3-cbc', $key, OPENSSL_NO_PADDING, $iv);
+
+            $openSSL = openssl_decrypt(pack("H*", $buffer), 'des-ede3-cbc', $key, OPENSSL_NO_PADDING, $iv);
+            if (is_bool($openSSL)) {
+                $GLOBALS['log']->fatal('OpenSSL decryption failed');
+            }
+            return $openSSL;
 		}else{
-			$GLOBALS['log']->info('End: SoapHelperWebServices->decrypt_string');
+			$GLOBALS['log']->info('End: SoapHelperWebServices->decrypt_string: return string');
 			return $string;
 		}
 	} // fn

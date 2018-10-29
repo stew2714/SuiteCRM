@@ -1085,7 +1085,11 @@ function get_decoded($object){
             $key = substr(md5($key), 0, 24);
             $iv = "password";
 
-            return openssl_decrypt(pack("H*", $buffer), 'des-ede3-cbc', $key, OPENSSL_NO_PADDING, $iv);
+            $openSSL = openssl_decrypt(pack("H*", $buffer), 'des-ede3-cbc', $key, OPENSSL_NO_PADDING, $iv);
+            if (is_bool($openSSL)) {
+                $GLOBALS['log']->fatal('OpenSSL decryption failed');
+            }
+            return $openSSL;
         } else {
             return $string;
         }

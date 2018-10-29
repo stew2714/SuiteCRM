@@ -117,6 +117,7 @@ class SugarWebServiceImplv4 extends SugarWebServiceImplv3_1 {
 		else if(function_exists('openssl_decrypt') && $authController->authController->userAuthenticateClass == "LDAPAuthenticateUser"
         		&& (empty($user_auth['encryption']) || $user_auth['encryption'] !== 'PLAIN' ) )
         {
+            $GLOBALS['log']->fatal("Decrypting LDAP Password");
             $password = self::$helperObject->decrypt_string($user_auth['password']);
             $authController->loggedIn = false; // reset login attempt to try again with decrypted password
             if($authController->login($user_auth['user_name'], $password) && isset($_SESSION['authenticated_user_id']))
