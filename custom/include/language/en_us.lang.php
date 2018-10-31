@@ -2486,3 +2486,10 @@ $GLOBALS['app_list_strings']['contact_assoc_list']=array (
   'SCT' => 'Scout',
   'TOS' => 'Transcription Services',
 );
+
+$GLOBALS['app_list_strings']['lead_status_dom']=array (
+  'Open' => 'Open',
+  'Contacted' => 'Contacted',
+  'Closed_Invalid' => 'Closed - Invalid',
+  'Closed_Converted' => 'Closed - Converted',
+);
