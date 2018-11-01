@@ -1877,14 +1877,6 @@ $GLOBALS['app_list_strings']['emr_hosted_by_list']=array (
   'EMR_Vendor' => 'EMR Vendor',
   'Third_Party' => 'Third Party',
 );
-$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
-  '' => '',
-  'Email' => 'Email',
-  'Onsite_Visit' => 'Onsite Visit',
-  'Phone_Call' => 'Phone Call',
-  'Webinar' => 'Webinar',
-);
-
 $GLOBALS['app_list_strings']['emr_modules_list']=array (
   '' => '',
   'Mobile_Physician' => 'Mobile - Physician (ex: Haiku/Canto)',
@@ -2193,15 +2185,6 @@ $GLOBALS['app_list_strings']['countries_dom']=array (
 
 $GLOBALS['app_list_strings']['acct_ownership_list']=array (
 );
-
-$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
-  '' => '',
-  'Email' => 'Email',
-  'Onsite_Visit' => 'Onsite Visit',
-  'Phone_Call' => 'Phone Call',
-  'Webinar' => 'Webinar',
-);
-
 $GLOBALS['app_list_strings']['emr_1_modules_list']=array (
   '' => '',
   'Church_Operated' => 'Church Operated',
@@ -2492,4 +2475,10 @@ $GLOBALS['app_list_strings']['lead_status_dom']=array (
   'Contacted' => 'Contacted',
   'Closed_Invalid' => 'Closed - Invalid',
   'Closed_Converted' => 'Closed - Converted',
+);
+$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
+  'Email' => 'Email',
+  'Onsite_Visit' => 'Onsite Visit',
+  'Phone_Call' => 'Phone Call',
+  'Webinar' => 'Webinar',
 );

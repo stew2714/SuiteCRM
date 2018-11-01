@@ -201,4 +201,7 @@ $dictionary['Contact']['fields']['vip_account_c']['comments'] = 'Auto-created en
 $dictionary['Contact']['fields']['vip_account_c']['vname'] = 'VIP Account';
 $dictionary['Contact']['fields']['vip_account_c']['source'] = 'custom_fields';
 
+// Field: reference_type_c
+$dictionary['Contact']['fields']['reference_type_c']['type'] = 'multienum';
+
 ?>
