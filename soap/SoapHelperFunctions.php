@@ -1086,10 +1086,10 @@ function get_decoded($object){
             $iv = "password";
 
             $openSSL = openssl_decrypt(pack("H*", $buffer), 'des-ede3-cbc', $key, OPENSSL_NO_PADDING, $iv);
-            if (is_bool($openSSL)) {
-                $GLOBALS['log']->fatal('OpenSSL decryption failed');
+            if (is_string($openSSL)) {
+                $openSSL = trim($openSSL);
             } else {
-                $GLOBALS['log']->fatal('OpenSSL decryption succeeded');
+                $GLOBALS['log']->fatal('OpenSSL decryption failed');
             }
             return $openSSL;
         } else {
