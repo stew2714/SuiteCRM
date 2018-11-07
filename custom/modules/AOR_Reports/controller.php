@@ -30,7 +30,29 @@ require_once("custom/modules/AOR_Reports/fieldFormatting.php");
 
 class customAOR_ReportsController extends AOR_ReportsController
 {
-    public function action_matrixreport(){
+    private $_advancedReport = null;
+
+    public function getAdvancedReport()
+    {
+        return $this->_advancedReport;
+    }
+
+    public function setAdvancedReport($advancedReport)
+    {
+        $this->_advancedReport = $advancedReport;
+        return $this;
+    }
+
+
+    public function __construct()
+    {
+        ini_set('memory_limit', '-1');
+        ini_set("pcre.backtrack_limit", "1000000");
+        parent::__construct();
+    }
+
+    public function action_matrixreport()
+    {
         $this->view = 'matrixreport';
     }
 
@@ -43,7 +65,7 @@ class customAOR_ReportsController extends AOR_ReportsController
                 $module = $_REQUEST['aor_module'];
             }
             $val = !empty($_REQUEST['aor_value']) ? $_REQUEST['aor_value'] : '';
-            $fields =  getModuleFields($module, $_REQUEST['view'], $val);
+            $fields = getModuleFields($module, $_REQUEST['view'], $val);
             $fields = json_decode($fields, true);
             asort($fields);
             $fields = json_encode($fields);
@@ -57,14 +79,15 @@ class customAOR_ReportsController extends AOR_ReportsController
     {
         parse_str($_REQUEST['formdata'], $requestData);
         $requestData = $this->parseLines($requestData);
-        if(!isset($requestData['id']) ){
+        if (!isset($requestData['id'])) {
             $requestData['id'] = "";
         }
         $bean = BeanFactory::getBean("AOR_Reports", $requestData['id']);
         $preview = new AdvancedReporter($bean, $requestData);
-        echo $preview->buildMultiGroupReport("-2", true);
+        echo $preview->buildMultiGroupReport("-2", null, true);
         die();
     }
+
     protected function action_export()
     {
         $this->bean->user_parameters = requestToUserParameters();
@@ -72,6 +95,147 @@ class customAOR_ReportsController extends AOR_ReportsController
         $advancedReporter->build_report_csv();
         die;
     }
+
+    protected function action_downloadPDF()
+    {
+        $data = $this->record;
+        $report = BeanFactory::getBean('AOR_Reports', $data);
+        if ($report) {
+            /* @var $bean AdvancedReporter */
+            $report = new AdvancedReporter($report);
+            /* @var $bean AOR_Reports */
+            $this->setAdvancedReport($report);
+        } else {
+            throw new Exception('bean not found');
+        }
+
+        $rootPath = __DIR__ . '/../../../';
+        $mpdfPath = realpath($rootPath . "/custom/modules/AOR_Reports/getNewMPdf.php");
+        require_once($mpdfPath);
+
+        $graphs = $_POST["graphsForPDF"];
+        $graphHtml = "<div class='reportGraphs' style='width:100%; text-align:center;'>";
+
+        $chartsPerRow = $this->bean->graphs_per_row;
+        $countOfCharts = count($graphs);
+        if ($countOfCharts > 0) {
+            $width = ((int)100 / $chartsPerRow);
+
+            $modulusRemainder = $countOfCharts % $chartsPerRow;
+
+            if ($modulusRemainder > 0) {
+                $modulusWidth = ((int)100 / $modulusRemainder);
+                $itemsWithModulus = $countOfCharts - $modulusRemainder;
+            }
+
+
+            for ($x = 0; $x < $countOfCharts; $x++) {
+                if (is_null($itemsWithModulus) || $x < $itemsWithModulus) {
+                    $graphHtml .= "<img src='.$graphs[$x]' style='width:$width%;' />";
+                } else {
+                    $graphHtml .= "<img src='.$graphs[$x]' style='width:$modulusWidth%;' />";
+                }
+            }
+
+            /*            foreach($graphs as $g)
+                        {
+                            $graphHtml.="<img src='.$g.' style='width:$width%;' />";
+                        }*/
+            $graphHtml .= "</div>";
+        }
+
+        $sugar_config = $report->getSugarConfig();
+        $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
+        $file_name = str_replace(" ", "_", $report->name) . "_" . $dateStr . ".pdf";
+
+        $links = false;
+        $extra = array();
+
+        $fields = $report->getReportTableFieldArray();
+        $tags = $report->getTags('pdf', count($fields));
+
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['table']['begin'];
+        $reportTitleMarkup .= $this->getTableTitleMarkup($report);
+        $reportTitleMarkup .= $tags['table']['end'];
+        $reportTitleMarkup .= '<br/>';
+
+        $tableTitleMarkup = '';
+        $tableTitleMarkup .= $tags['table']['begin'];
+        $tableTitleMarkup .= $report->getReportTableTitleMarkup($fields);
+        $tableTitleMarkup .= $tags['table']['end'];
+
+        $stylesheetPDF = <<<EOD
+.table-pdf, .table-pdf td, 
+.table-pdf th{
+border: 1px solid black;
+border-spacing: 0px;
+}
+.table-pdf .col-1,
+.table-pdf{
+width:50%;
+}
+.table-pdf .col-2{
+width:50%;
+}
+EOD;
+
+
+        try {
+            $fp = fopen($sugar_config['upload_dir'] . $file_name, 'wb');
+            fclose($fp);
+            $report_sql = $report->getReportQuery('', $extra);
+
+            $from = 0;
+            $limit = 300;
+
+            if (isset($sugar_config['pdfReportLineLimit']) && $sugar_config['pdfReportLineLimit'] != '') {
+                $configRowLimit = $sugar_config['pdfReportLineLimit'];
+                $rowLimitIsNotDisabled = strtolower($configRowLimit) !== 'disabled';
+                if ($rowLimitIsNotDisabled) {
+                    $maxNumberRows = intval($configRowLimit);
+                } else {
+                    $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+                }
+            } else {
+                $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+            }
+
+            $mpdf = getNewMPdf();
+            $mpdf->WriteHTML($stylesheetPDF, 1);
+            $mpdf->WriteHTML($reportTitleMarkup, 2);
+            $mpdf->WriteHTML($graphHtml, 2);
+            $mpdf->WriteHTML($tableTitleMarkup, 2);
+
+            $i = $from;
+            while ($i <= $maxNumberRows) {
+                $result = $report->getReportQueryResult($i, $limit, $report_sql);
+                $formattedResultsArray = $report->ReportFormatFields($result);
+                $printBody = '';
+                $printBody .= $tags['table']['begin'];
+                $printBody .= $tags['tbody']['begin'];
+                $printBody .= $report->buildReportRows($formattedResultsArray, $links);
+                $printBody .= $tags['tbody']['end'];
+                $printBody .= $tags['table']['end'];
+                $mpdf->WriteHTML($printBody, 2);
+                $i = $i + $limit;
+            }
+
+            $mpdf->Output($file_name, 'D');
+
+            if ($report) {
+                return array('name' => $file_name, 'location' => $sugar_config['upload_dir'] . $file_name);
+            } else {
+                return false;
+            }
+
+        } catch (mPDF_exception $e) {
+            echo $e;
+        }
+
+        die;
+    }
+
     protected function action_changeReportPage()
     {
         $offset = !empty($_REQUEST['offset']) ? $_REQUEST['offset'] : 0;
@@ -79,7 +243,7 @@ class customAOR_ReportsController extends AOR_ReportsController
             $this->bean->user_parameters = requestToUserParameters();
             $advancedReporter = new AdvancedReporter($this->bean);
             $advancedReporter->view_as = $_REQUEST['view_as'];
-            echo $advancedReporter->build_group_report($offset, true);
+            echo $advancedReporter->build_group_report($offset, null, true);
         }
         die();
     }
@@ -108,13 +272,12 @@ class customAOR_ReportsController extends AOR_ReportsController
             }
         }
         $requestData['fieldView'] = $fieldView;
-        if(isset($conditionView) && !empty($conditionView)){
+        if (isset($conditionView) && !empty($conditionView)) {
             $requestData['conditionView'] = $conditionView;
         }
 
         return $requestData;
     }
-
 
 
     /***
@@ -198,7 +361,7 @@ class customAOR_ReportsController extends AOR_ReportsController
                 $valid_opp = array('Equal_To', 'Not_Equal_To');
                 break;
             default:
-                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains','Not_Contains', 'Starts_With', 'Ends_With',);
+                $valid_opp = array('Equal_To', 'Not_Equal_To', 'Contains', 'Not_Contains', 'Starts_With', 'Ends_With',);
                 break;
         }
 
@@ -209,8 +372,8 @@ class customAOR_ReportsController extends AOR_ReportsController
         }
 
         $onchange = "";
-        if($_REQUEST['m'] != "aomr"){
-           $onchange = "UpdatePreview(\"preview\");";
+        if ($_REQUEST['m'] != "aomr") {
+            $onchange = "UpdatePreview(\"preview\");";
         }
 
         $app_list_strings['aor_operator_list'];
@@ -224,6 +387,7 @@ class customAOR_ReportsController extends AOR_ReportsController
         die;
 
     }
+
     protected function action_getFieldTypeOptions()
     {
 
@@ -298,8 +462,8 @@ class customAOR_ReportsController extends AOR_ReportsController
 
         if ($view == 'EditView') {
             $onChange = "";
-            if($_REQUEST['m'] != "aomr"){
-               $onChange= 'UpdatePreview("preview");';
+            if ($_REQUEST['m'] != "aomr") {
+                $onChange = 'UpdatePreview("preview");';
             }
             echo "<select type='text' style='width:178px;'  onchange='{$onChange}' name='$aor_field' id='$aor_field' title='' tabindex='116'>" . get_select_options_with_id($app_list_strings['aor_condition_type_list'],
                     $value) . "</select>";
@@ -368,7 +532,7 @@ class customAOR_ReportsController extends AOR_ReportsController
                     );
                     $current_value = base64_decode($_REQUEST['aor_value']);
 
-                    if (in_array($current_value,$options_with_text_field)) {
+                    if (in_array($current_value, $options_with_text_field)) {
                         $show_text_field = "";
                     } else {
                         $show_text_field = "style='display: none'";
@@ -415,7 +579,7 @@ class customAOR_ReportsController extends AOR_ReportsController
     {
         $post_data = $_POST;
         $parent = $_POST['record'];
-        $parent = BeanFactory::getBean('AOR_Reports',$parent);
+        $parent = BeanFactory::getBean('AOR_Reports', $parent);
         // $conditions = BeanFactory::getBean('AOR_Conditions',$parent);
         $key = 'aor_conditions_';
 
@@ -480,4 +644,18 @@ class customAOR_ReportsController extends AOR_ReportsController
             }
         }
     }
+
+
+    private function getTableTitleMarkup(AdvancedReporter $report): string
+    {
+        $tags = $report->getTags();
+
+        $reportTitle = strtoupper($report->name);
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['tr']['begin'];
+        $reportTitleMarkup .= $tags['td-1']['begin'] . '<strong>' . $reportTitle . '</strong>' . $tags['td-1']['end'];
+        $reportTitleMarkup .= $tags['tr']['end'];
+        return $reportTitleMarkup;
+    }
+
 }

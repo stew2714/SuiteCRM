@@ -58,6 +58,11 @@ if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * This array provides the Schedulers admin interface with values for its "Job"
  * dropdown menu.
  */
+
+
+require_once('modules/AOS_PDF_Templates/PDF_Lib/mpdf.php');
+require_once('custom/modules/AOR_Reports/customAOR_Report.php');
+
 $job_strings = array(
     0 => 'refreshJobs',
     1 => 'pollMonitoredInboxes',
@@ -723,6 +728,7 @@ function performLuceneIndexing()
 function aorRunScheduledReports()
 {
     require_once 'include/SugarQueue/SugarJobQueue.php';
+    require_once 'custom/modules/AOR_Reports/AdvancedReporter.php';
     $date = new DateTime();//Ensure we check all schedules at the same instant
     foreach (BeanFactory::getBean('AOR_Scheduled_Reports')->get_full_list() as $scheduledReport) {
 
@@ -751,6 +757,26 @@ function processAOW_Workflow()
 
 class AORScheduledReportJob implements RunnableSchedulerJob
 {
+    private $_advancedReport = null;
+
+    public function getAdvancedReport()
+    {
+        return $this->_advancedReport;
+    }
+
+    public function setAdvancedReport($advancedReport)
+    {
+        $this->_advancedReport = $advancedReport;
+        return $this;
+    }
+
+    public function __construct()
+    {
+        ini_set('memory_limit', '-1');
+        ini_set("pcre.backtrack_limit", "1000000");
+    }
+
+
     public function setJob(SchedulersJob $job)
     {
         $this->job = $job;
@@ -764,9 +790,168 @@ class AORScheduledReportJob implements RunnableSchedulerJob
         $report = $bean->get_linked_beans('aor_report', 'AOR_Reports');
         if ($report) {
             $report = $report[0];
+            /* @var $bean AdvancedReporter */
+            $report = new AdvancedReporter($report);
+            /* @var $bean AOR_Reports */
+            $this->setAdvancedReport($report);
         } else {
             return false;
         }
+
+        $emailTemplate = BeanFactory::getBean('EmailTemplates', $bean->report_email_template_id_c);
+        $emailObj = new Email();
+        $defaults = $emailObj->getSystemDefaultEmail();
+        $mail = new SugarPHPMailer();
+
+        $mail->setMailerForSystem();
+        $mail->IsHTML(true);
+        $mail->From = $defaults['email'];
+        $mail->FromName = $defaults['name'];
+        $mail->Subject = from_html($bean->name);
+
+
+        $reportType = $bean->report_format_c;
+        switch ($reportType) {
+            case 'body':
+                $html = $this->generateHtmlReport($report);
+                $mail->Body = $html;
+                break;
+            case 'pdf':
+                $pdf = $this->generatePDF($report);
+                if ($pdf !== false) {
+                    $mail->addAttachment($pdf['location'], $pdf['name']);
+                }
+
+                $mail->Body = $emailTemplate->body_html;
+                break;
+            case 'csv':
+                $csv = $report->build_report_csv_to_file();
+                if ($csv !== false) {
+                    $mail->addAttachment($csv['location'], $csv['name']);
+                }
+                $mail->Body = $emailTemplate->body_html;
+                break;
+            default:
+                break;
+        }
+
+
+        $mail->prepForOutbound();
+        $success = true;
+        $emails = $bean->get_email_recipients();
+        foreach ($emails as $email_address) {
+            $mail->ClearAddresses();
+            $mail->AddAddress($email_address);
+            $success = $mail->Send() && $success;
+        }
+        $bean->last_run = $timedate->getNow()->asDb(false);
+        $bean->save();
+        return true;
+    }
+
+
+    private function generatePDF(AdvancedReporter $report)
+    {
+//        $rootPath = __DIR__ . '/../../../';
+        $mpdfPath = "custom/modules/AOR_Reports/getNewMPdf.php";
+        require_once($mpdfPath);
+
+        $sugar_config = $report->getSugarConfig();
+        $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
+        $file_name = str_replace(" ", "_", $report->name) . "_" . $dateStr . ".pdf";
+
+        $links = false;
+        $extra = array();
+
+        $fields = $report->getReportTableFieldArray();
+        $tags = $report->getTags('pdf', count($fields));
+
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['table']['begin'];
+        $reportTitleMarkup .= $this->getTableTitleMarkup($report);
+        $reportTitleMarkup .= $tags['table']['end'];
+        $reportTitleMarkup .= '<br/>';
+
+        $tableTitleMarkup = '';
+        $tableTitleMarkup .= $tags['table']['begin'];
+        $tableTitleMarkup .= $report->getReportTableTitleMarkup($fields);
+        $tableTitleMarkup .= $tags['table']['end'];
+
+        $stylesheetPDF = <<<EOD
+.table-pdf, .table-pdf td, 
+.table-pdf th{
+border: 1px solid black;
+border-spacing: 0px;
+}
+.table-pdf .col-1,
+.table-pdf{
+width:50%;
+}
+.table-pdf .col-2{
+width:50%;
+}
+EOD;
+
+        try {
+            $filePath = $sugar_config['upload_dir'] . $file_name;
+            $fp = fopen($filePath, 'wb');
+            fclose($fp);
+            $report_sql = $report->getReportQuery('', $extra);
+
+            $from = 0;
+            $limit = 300;
+
+            if (isset($sugar_config['pdfReportLineLimit']) && $sugar_config['pdfReportLineLimit'] != '') {
+                $configRowLimit = $sugar_config['pdfReportLineLimit'];
+                $rowLimitIsNotDisabled = strtolower($configRowLimit) !== 'disabled';
+                if ($rowLimitIsNotDisabled) {
+                    $maxNumberRows = intval($configRowLimit);
+                } else {
+                    $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+                }
+            } else {
+                $maxNumberRows = $report->getCountForReportRowNumbers($report_sql);
+            }
+
+            $mpdf = getNewMPdf();
+            $mpdf->WriteHTML($stylesheetPDF, 1);
+            $mpdf->WriteHTML($reportTitleMarkup, 2);
+            $mpdf->WriteHTML($tableTitleMarkup, 2);
+
+            $i = $from;
+            while ($i <= $maxNumberRows) {
+                $result = $report->getReportQueryResult($i, $limit, $report_sql);
+                $formattedResultsArray = $report->ReportFormatFields($result);
+                $printBody = '';
+                $printBody .= $tags['table']['begin'];
+                $printBody .= $tags['tbody']['begin'];
+                $printBody .= $report->buildReportRows($formattedResultsArray, $links);
+                $printBody .= $tags['tbody']['end'];
+                $printBody .= $tags['table']['end'];
+                $mpdf->WriteHTML($printBody, 2);
+                $i = $i + $limit;
+            }
+
+            $mpdf->Output($filePath, 'F');
+
+            if ($report) {
+                return array('name' => $file_name, 'location' => $filePath);
+            } else {
+                return false;
+            }
+
+
+        } catch (mPDF_exception $e) {
+            echo $e;
+        }
+    }
+
+    /**
+     * @param $report
+     * @return string
+     */
+    private function generateHtmlReport($report)
+    {
         $html = "<h1>{$report->name}</h1>" . $report->build_group_report();
         $html .= <<<EOF
         <style>
@@ -792,28 +977,68 @@ class AORScheduledReportJob implements RunnableSchedulerJob
         }
         </style>
 EOF;
-        $emailObj = new Email();
-        $defaults = $emailObj->getSystemDefaultEmail();
-        $mail = new SugarPHPMailer();
-
-        $mail->setMailerForSystem();
-        $mail->IsHTML(true);
-        $mail->From = $defaults['email'];
-        $mail->FromName = $defaults['name'];
-        $mail->Subject = from_html($bean->name);
-        $mail->Body = $html;
-        $mail->prepForOutbound();
-        $success = true;
-        $emails = $bean->get_email_recipients();
-        foreach ($emails as $email_address) {
-            $mail->ClearAddresses();
-            $mail->AddAddress($email_address);
-            $success = $mail->Send() && $success;
-        }
-        $bean->last_run = $timedate->getNow()->asDb(false);
-        $bean->save();
-        return true;
+        return $html;
     }
+
+
+    public function getBetween($content, $start, $end)
+    {
+        $r = explode($start, $content);
+        if (isset($r[1])) {
+            $r = explode($end, $r[1]);
+            return $r[0];
+        }
+        return '';
+    }
+
+    public function replace_tags($str)
+    {
+        $tagList = array(
+            '<H3></H3>' => '',
+            '<thead>' => '<tbody>',
+            '</thead>' => '</tbody>',
+            '<th' => '<td',
+            '</th>' => '</td>',
+            "cellpadding='0' border='0'" => "cellpadding='0' border='1'"
+        );
+
+        foreach($tagList as $k => $v) {
+            $str = str_replace($k, $v, $str);
+        }
+
+        $start = '<script';
+        $end = '</script>';
+
+        $sub = $this->getBetween($str, $start, $end);
+
+        $sub = $start . $sub . $end;
+
+        $str = str_replace($sub, '', $str);
+
+        $start = '<tbody><tr><td></td>';
+        $end = '<td></td></tr></tbody>';
+
+        $sub = $this->getBetween($str, $start, $end);
+
+        $sub = $start . $sub . $end;
+
+        $str = str_replace($sub, '', $str);
+
+        return $str;
+    }
+
+    private function getTableTitleMarkup(AdvancedReporter $report)
+    {
+        $tags = $report->getTags();
+
+        $reportTitle = strtoupper($report->name);
+        $reportTitleMarkup = '';
+        $reportTitleMarkup .= $tags['tr']['begin'];
+        $reportTitleMarkup .= $tags['td-1']['begin'] . '<strong>' . $reportTitle . '</strong>' . $tags['td-1']['end'];
+        $reportTitleMarkup .= $tags['tr']['end'];
+        return $reportTitleMarkup;
+    }
+
 }
 
 if (file_exists('custom/modules/Schedulers/_AddJobsHere.php')) {

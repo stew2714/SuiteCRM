@@ -73,4 +73,9 @@ Desktop.ini
 *.sqlite
 
 custom/blowfish/*
+<<<<<<< HEAD
 vendor
+=======
+
+vendor/
+>>>>>>> fix/LDAP

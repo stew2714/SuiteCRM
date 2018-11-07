@@ -65,4 +65,5 @@ $sugar_config['securitysuite_filter_user_list'] = false;
 $sugar_config['enable_line_editing_detail'] = false;
 $sugar_config['upload_individual_file_size'] = '30000';
 $sugar_config['upload_maxsize'] = '100000000';
+$sugar_config['pdfReportLineLimit'] = '100000';
 /***CONFIGURATOR***/
