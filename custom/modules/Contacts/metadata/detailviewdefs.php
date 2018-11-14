@@ -370,6 +370,16 @@ array (
         ),
         1 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'ref_type_comment_c',
+            'studio' => 'visible',
+            'label' => 'LBL_REF_TYPE_COMMENT',
+          ),
+        ),
+        2 => 
+        array (
           0 => 
           array (
             'name' => 'reference_start_date_c',
@@ -381,7 +391,7 @@ array (
             'label' => 'LBL_REFERENCE_END_DATE',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -390,7 +400,7 @@ array (
             'label' => 'LBL_REFERENCE_ASSOCIATION',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -405,7 +415,7 @@ array (
             'label' => 'LBL_EMR_1_MODULES',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -413,7 +423,7 @@ array (
             'label' => 'LBL_EMR_1_DESCRIPTION',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -428,7 +438,7 @@ array (
             'label' => 'LBL_EMR_2_MODULES',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -436,7 +446,7 @@ array (
             'label' => 'LBL_EMR_2_DESCRIPTION',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -449,7 +459,7 @@ array (
             'label' => 'LBL_OTHER_EMR_MODULES',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (

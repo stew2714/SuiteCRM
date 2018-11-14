@@ -1,5 +1,5 @@
 <?php
-// created: 2018-10-02 14:33:24
+// created: 2018-11-14 14:42:29
 $mod_strings = array (
   'LBL_CONTACT_TYPE' => 'Contact Type',
   'LBL_OPERATIONAL' => 'TOS Operational',
@@ -84,4 +84,5 @@ $mod_strings = array (
   'AOS_Contracts' => 'Agreements',
   'LBL_FFT_ADMIN' => 'FFT Admin',
   'LBL_FD_ADMIN' => 'FD Admin',
+  'LBL_REF_TYPE_COMMENT' => 'Comment',
 );

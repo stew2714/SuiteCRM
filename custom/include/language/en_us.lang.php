@@ -2476,9 +2476,11 @@ $GLOBALS['app_list_strings']['lead_status_dom']=array (
   'Closed_Invalid' => 'Closed - Invalid',
   'Closed_Converted' => 'Closed - Converted',
 );
+
 $GLOBALS['app_list_strings']['ref_particip_type_list']=array (
   'Email' => 'Email',
   'Onsite_Visit' => 'Onsite Visit',
   'Phone_Call' => 'Phone Call',
   'Webinar' => 'Webinar',
+  'Other' => 'Other (Please specify)',
 );
