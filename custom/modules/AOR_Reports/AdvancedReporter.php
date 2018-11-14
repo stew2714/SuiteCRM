@@ -1113,11 +1113,13 @@ class AdvancedReporter extends AOR_Report
                     case "datetime":
                     case "date":
                     case "datetimecombo":
-                        $start_case = "CASE WHEN date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/", '%$0', $field->format) . "') = 00000000 THEN '' ";
-                        $middle_case = "WHEN isnull({$select_field}) THEN '' ";
-                        $end_case = "ELSE date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/", '%$0', $field->format) . "') END AS  '{$field->label}' ";
-                        $final = $start_case . $middle_case . $end_case;
-                        $query['select'][] = $final;
+                        if ($field->format) {
+                            $start_case = "CASE WHEN date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/", '%$0', $field->format) . "') = 00000000 THEN '' ";
+                            $middle_case = "WHEN isnull({$select_field}) THEN '' ";
+                            $end_case = "ELSE date_format({$select_field}, '" . preg_replace("/[a-zA-Z]/", '%$0', $field->format) . "') END AS  '{$field->label}' ";
+                            $final = $start_case . $middle_case . $end_case;
+                            $query['select'][] = $final;
+                        }
                         break;
 
                     default:
@@ -2529,10 +2531,29 @@ class AdvancedReporter extends AOR_Report
 
     function build_report_csv()
     {
-        global $beanList;
+
         ini_set('zlib.output_compression', 'Off');
 
         ob_start();
+
+        $csv = $this->csvContent();
+        ob_clean();
+        header("Pragma: cache");
+        header("Content-type: text/comma-separated-values; charset=" . $GLOBALS['locale']->getExportCharset());
+        header("Content-Disposition: attachment; filename=\"{$this->name}.csv\"");
+        header("Content-transfer-encoding: binary");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Last-Modified: " . TimeDate::httpTime());
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Content-Length: " . mb_strlen($csv, '8bit'));
+
+        print $csv;
+
+    }
+
+    public function csvContent() : string
+    {
+        global $beanList;
         require_once('include/export_utils.php');
 
         $delimiter = getDelimiter();
@@ -2594,22 +2615,10 @@ class AdvancedReporter extends AOR_Report
         }
 
         $csv = $GLOBALS['locale']->translateCharset($csv, 'UTF-8', $GLOBALS['locale']->getExportCharset());
-
-        ob_clean();
-        header("Pragma: cache");
-        header("Content-type: text/comma-separated-values; charset=" . $GLOBALS['locale']->getExportCharset());
-        header("Content-Disposition: attachment; filename=\"{$this->name}.csv\"");
-        header("Content-transfer-encoding: binary");
-        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-        header("Last-Modified: " . TimeDate::httpTime());
-        header("Cache-Control: post-check=0, pre-check=0", false);
-        header("Content-Length: " . mb_strlen($csv, '8bit'));
         if (!empty($sugar_config['export_excel_compatible'])) {
             $csv = chr(255) . chr(254) . mb_convert_encoding($csv, 'UTF-16LE', 'UTF-8');
         }
-        print $csv;
-
-        sugar_cleanup(true);
+        return $csv;
     }
 
     function build_export_report_query($group_value = '', $extra = array())
@@ -3303,32 +3312,7 @@ class AdvancedReporter extends AOR_Report
             $dateStr = (new \DateTime())->format('Y-m-d-H-i-s');
             $file_name = str_replace(" ", "_", $this->name) . "_" . $dateStr . ".csv";
 
-            $delimiter = getDelimiter();
-            $csv = '';
-            $fields = $this->getReportTableFieldArray();
-
-            foreach ($fields as $field) {
-                $csv .= $this->customEncloseForCSV($field["label"]);
-                $csv .= $delimiter;
-            }
-
-            $report_sql = $this->build_report_query();
-            $result = $this->getReportQueryResult(null, null, $report_sql);
-            $formattedResultsArray = $this->ReportFormatFields($result, true);
-            foreach ($formattedResultsArray as $row) {
-                $csv .= "\r\n";
-                foreach ($row as $name => $attribute) {
-                    if ($attribute['display'] == "1") {
-                        $csv .= $this->customEncloseForCSV($attribute["formattedvalue"]);
-                        $csv .= $delimiter;
-                    }
-                }
-            }
-
-            $csv = $GLOBALS['locale']->translateCharset($csv, 'UTF-8', $GLOBALS['locale']->getExportCharset());
-            if (!empty($sugar_config['export_excel_compatible'])) {
-                $csv = chr(255) . chr(254) . mb_convert_encoding($csv, 'UTF-16LE', 'UTF-8');
-            }
+            $csv = $this->csvContent();
             $fp = fopen($sugar_config['upload_dir'] . $file_name, 'wb');
             fwrite($fp, $csv);
             fclose($fp);
