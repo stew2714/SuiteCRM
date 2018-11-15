@@ -566,6 +566,7 @@ class SharedSecurityRules extends Basic
         $addWhere = "";
         $resWhere = "";
         $parenthesis = null;
+        $canAlreadyViewAll = ACLController::checkAccess($module->module_dir, 'list');
         $sql = "SELECT * FROM sharedsecurityrules WHERE sharedsecurityrules.status = 'Complete' && sharedsecurityrules.flow_module = '{$module->module_dir}'&& sharedsecurityrules.deleted ='0'";
         $results = $db->query($sql);
         while (($rule = $module->db->fetchByAssoc($results)) != null) {
@@ -577,8 +578,10 @@ class SharedSecurityRules extends Basic
                     $action['parameters'] = unserialize(base64_decode($action['parameters']));
                 }
                 foreach($action['parameters']['accesslevel'] as $key => $accessLevel){
-//                        if($accessLevel == 'none') {
-                            $targetType = $action['parameters']['email_target_type'][$key];
+                        if($accessLevel != 'none' && $canAlreadyViewAll == true) {
+                            continue;
+                        }
+                        $targetType = $action['parameters']['email_target_type'][$key];
 
                         if($targetType == "Users" && $action['parameters']['email'][ $key ]['0'] == "role"){
                             $users_roles_query = "SELECT acl_roles_users.user_id FROM acl_roles_users WHERE acl_roles_users.role_id = '{$action['parameters']['email'][ $key ]['2']}' && acl_roles_users.user_id = '{$current_user->id}' && acl_roles_users.deleted = '0'";
@@ -608,7 +611,6 @@ class SharedSecurityRules extends Basic
 
                             $actionIsUser = true;
                         }
-//                    }
                 }
             }
             if ($actionIsUser == true) {
