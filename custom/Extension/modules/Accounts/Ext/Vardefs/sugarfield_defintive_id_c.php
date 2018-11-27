@@ -1,6 +1,6 @@
 <?php
- // created: 2016-03-08 14:26:46
+ // created: 2018-11-26 18:45:58
 $dictionary['Account']['fields']['defintive_id_c']['inline_edit']='1';
-$dictionary['Account']['fields']['defintive_id_c']['labelValue']='Defintive ID';
+$dictionary['Account']['fields']['defintive_id_c']['labelValue']='Definitive ID';
 
  ?>

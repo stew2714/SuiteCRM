@@ -1,5 +1,5 @@
 <?php
-// created: 2018-09-07 19:34:26
+// created: 2018-11-26 18:46:49
 $mod_strings = array (
   'LBL_UCID' => 'UCID',
   'LBL_DETAILVIEW_PANEL1' => 'Training Panel',
@@ -97,4 +97,5 @@ $mod_strings = array (
   'LBL_ACCOUNT_INFORMATION' => 'Account Detail',
   'LBL_PANEL_ADVANCED' => 'Additional Information',
   'PRIMARY GPO OLD' => 'Primary GPO OLD',
+  'UCID' => 'UCID',
 );
