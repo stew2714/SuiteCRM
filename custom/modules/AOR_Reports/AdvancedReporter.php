@@ -3012,7 +3012,7 @@ class AdvancedReporter extends AOR_Report
     {
         $field_bean = $this->getReportModuleBean();
         $vardef = $field_bean->getFieldDefinition($attribute['field']);
-        $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
+        $relateSQL = "SELECT rel.{$vardef['rname']} FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
         $relateResult = $field_bean->db->query($relateSQL);
         $relateRow = mysqli_fetch_row($relateResult);
         $relateName = $relateRow[0];
