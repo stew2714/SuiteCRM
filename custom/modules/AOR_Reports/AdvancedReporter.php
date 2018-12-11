@@ -2592,6 +2592,7 @@ class AdvancedReporter extends AOR_Report
             $fields[$label]['alias'] = $field_alias;
             $fields[$label]['params'] = $field->format;
 
+
             if ($field->display) {
                 $csv .= $this->encloseForCSV($field->label);
                 $csv .= $delimiter;
@@ -2599,15 +2600,20 @@ class AdvancedReporter extends AOR_Report
             ++$i;
         }
 
+
         $sql = $this->build_export_report_query();
         $result = $this->db->query($sql);
 
         while ($row = $this->db->fetchByAssoc($result)) {
             $csv .= "\r\n";
             foreach ($fields as $name => $att) {
+                $vardef = $field_bean->getFieldDefinition($att['field']);
                 $currency_id = isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
                 if ($att['display']) {
                     $row[$name] = html_entity_decode_utf8($row[$name]);
+                    if ($vardef['type'] == 'relate') {
+                        $row[$name] = $this->getRelationshipName($row, $name, $att);
+                    }
                     $csv .= $this->encloseForCSV($row[$name]);
                     $csv .= $delimiter;
                 }
