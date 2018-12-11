@@ -132,6 +132,26 @@ array (
     'label' => 'LBL_WEB_PROXY',
     'width' => '10%',
   ),
+  'PREV_FD_VERSION_C' => 
+  array (
+    'type' => 'relate',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_PREV_FD_VERSION',
+    'id' => 'FDV_FD_VERSIONS_ID1_C',
+    'link' => true,
+    'width' => '10%',
+  ),
+  'CURRENT_FD_VERSION_C' => 
+  array (
+    'type' => 'relate',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_CURRENT_FD_VERSION',
+    'id' => 'FDV_FD_VERSIONS_ID_C',
+    'link' => true,
+    'width' => '10%',
+  ),
   'FD_OTHER_CLIENT_DD' => 
   array (
     'type' => 'enum',
@@ -210,27 +230,11 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'CURR_FD_VERSION' => 
-  array (
-    'type' => 'enum',
-    'studio' => 'visible',
-    'label' => 'LBL_CURR_FD_VERSION',
-    'width' => '10%',
-    'default' => false,
-  ),
   'SSO_TYPE' => 
   array (
     'type' => 'enum',
     'studio' => 'visible',
     'label' => 'LBL_SSO_TYPE',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'PREVIOUS_FD_VERSION' => 
-  array (
-    'type' => 'enum',
-    'studio' => 'visible',
-    'label' => 'LBL_PREVIOUS_FD_VERSION',
     'width' => '10%',
     'default' => false,
   ),

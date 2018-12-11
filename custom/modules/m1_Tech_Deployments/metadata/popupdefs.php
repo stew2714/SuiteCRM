@@ -7,21 +7,21 @@ $popupMeta = array (
   'name' => 'm1_tech_deployments.name',
   'virtualization_tools' => 'm1_tech_deployments.virtualization_tools',
   'recognition_type' => 'm1_tech_deployments.recognition_type',
-  'curr_fd_version' => 'm1_tech_deployments.curr_fd_version',
-  'previous_fd_version' => 'm1_tech_deployments.previous_fd_version',
   'accounts_m1_tech_deployments_1_name' => 'm1_tech_deployments.accounts_m1_tech_deployments_1_name',
   'emr_fd' => 'm1_tech_deployments.emr_fd',
   'assigned_user_id' => 'm1_tech_deployments.assigned_user_id',
+  'current_fd_version_c' => 'm1_tech_deployments.current_fd_version_c',
+  'prev_fd_version_c' => 'm1_tech_deployments.prev_fd_version_c',
 ),
     'searchInputs' => array (
   1 => 'name',
   4 => 'virtualization_tools',
   5 => 'recognition_type',
-  6 => 'curr_fd_version',
-  7 => 'previous_fd_version',
   8 => 'accounts_m1_tech_deployments_1_name',
   9 => 'emr_fd',
   10 => 'assigned_user_id',
+  11 => 'current_fd_version_c',
+  12 => 'prev_fd_version_c',
 ),
     'searchdefs' => array (
   'name' => 
@@ -45,21 +45,25 @@ $popupMeta = array (
     'width' => '10%',
     'name' => 'recognition_type',
   ),
-  'curr_fd_version' => 
+  'current_fd_version_c' => 
   array (
-    'type' => 'enum',
+    'type' => 'relate',
     'studio' => 'visible',
-    'label' => 'LBL_CURR_FD_VERSION',
+    'label' => 'LBL_CURRENT_FD_VERSION',
+    'id' => 'FDV_FD_VERSIONS_ID_C',
+    'link' => true,
     'width' => '10%',
-    'name' => 'curr_fd_version',
+    'name' => 'current_fd_version_c',
   ),
-  'previous_fd_version' => 
+  'prev_fd_version_c' => 
   array (
-    'type' => 'enum',
+    'type' => 'relate',
     'studio' => 'visible',
-    'label' => 'LBL_PREVIOUS_FD_VERSION',
+    'label' => 'LBL_PREV_FD_VERSION',
+    'id' => 'FDV_FD_VERSIONS_ID1_C',
+    'link' => true,
     'width' => '10%',
-    'name' => 'previous_fd_version',
+    'name' => 'prev_fd_version_c',
   ),
   'accounts_m1_tech_deployments_1_name' => 
   array (

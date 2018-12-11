@@ -103,23 +103,27 @@ array (
         'width' => '10%',
         'name' => 'emr_other_c',
       ),
-      'curr_fd_version' => 
+      'current_fd_version_c' => 
       array (
-        'type' => 'enum',
-        'studio' => 'visible',
-        'label' => 'LBL_CURR_FD_VERSION',
-        'width' => '10%',
+        'type' => 'relate',
         'default' => true,
-        'name' => 'curr_fd_version',
+        'studio' => 'visible',
+        'label' => 'LBL_CURRENT_FD_VERSION',
+        'id' => 'FDV_FD_VERSIONS_ID_C',
+        'link' => true,
+        'width' => '10%',
+        'name' => 'current_fd_version_c',
       ),
-      'previous_fd_version' => 
+      'prev_fd_version_c' => 
       array (
-        'type' => 'enum',
-        'studio' => 'visible',
-        'label' => 'LBL_PREVIOUS_FD_VERSION',
-        'width' => '10%',
+        'type' => 'relate',
         'default' => true,
-        'name' => 'previous_fd_version',
+        'studio' => 'visible',
+        'label' => 'LBL_PREV_FD_VERSION',
+        'id' => 'FDV_FD_VERSIONS_ID1_C',
+        'link' => true,
+        'width' => '10%',
+        'name' => 'prev_fd_version_c',
       ),
       'assigned_user_id' => 
       array (

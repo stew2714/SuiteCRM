@@ -48,15 +48,6 @@ $dashletData['m1_Tech_DeploymentsDashlet']['columns'] = array (
     'width' => '10%',
     'name' => 'emr_1_c',
   ),
-  'curr_fd_version' => 
-  array (
-    'type' => 'enum',
-    'studio' => 'visible',
-    'label' => 'LBL_CURR_FD_VERSION',
-    'width' => '10%',
-    'default' => true,
-    'name' => 'curr_fd_version',
-  ),
   'sso_type' => 
   array (
     'type' => 'enum',
@@ -74,6 +65,17 @@ $dashletData['m1_Tech_DeploymentsDashlet']['columns'] = array (
     'id' => 'ACCOUNTS_M1_TECH_DEPLOYMENTS_1ACCOUNTS_IDA',
     'width' => '10%',
     'default' => true,
+    'name' => 'accounts_m1_tech_deployments_1_name',
+  ),
+  'current_fd_version_c' => 
+  array (
+    'type' => 'relate',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_CURRENT_FD_VERSION',
+    'id' => 'FDV_FD_VERSIONS_ID_C',
+    'link' => true,
+    'width' => '10%',
   ),
   'date_modified' => 
   array (
@@ -81,15 +83,6 @@ $dashletData['m1_Tech_DeploymentsDashlet']['columns'] = array (
     'label' => 'LBL_DATE_MODIFIED',
     'name' => 'date_modified',
     'default' => false,
-  ),
-  'previous_fd_version' => 
-  array (
-    'type' => 'enum',
-    'studio' => 'visible',
-    'label' => 'LBL_PREVIOUS_FD_VERSION',
-    'width' => '10%',
-    'default' => false,
-    'name' => 'previous_fd_version',
   ),
   'emr_2_c' => 
   array (
@@ -188,5 +181,15 @@ $dashletData['m1_Tech_DeploymentsDashlet']['columns'] = array (
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'name' => 'assigned_user_name',
     'default' => false,
+  ),
+  'prev_fd_version_c' => 
+  array (
+    'type' => 'relate',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_PREV_FD_VERSION',
+    'id' => 'FDV_FD_VERSIONS_ID1_C',
+    'link' => true,
+    'width' => '10%',
   ),
 );

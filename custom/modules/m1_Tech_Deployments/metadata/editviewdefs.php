@@ -80,15 +80,15 @@ array (
         array (
           0 => 
           array (
-            'name' => 'curr_fd_version',
+            'name' => 'current_fd_version_c',
             'studio' => 'visible',
-            'label' => 'LBL_CURR_FD_VERSION',
+            'label' => 'LBL_CURRENT_FD_VERSION',
           ),
           1 => 
           array (
-            'name' => 'previous_fd_version',
+            'name' => 'prev_fd_version_c',
             'studio' => 'visible',
-            'label' => 'LBL_PREVIOUS_FD_VERSION',
+            'label' => 'LBL_PREV_FD_VERSION',
           ),
         ),
         1 => 

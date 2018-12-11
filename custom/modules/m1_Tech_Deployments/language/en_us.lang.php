@@ -1,5 +1,5 @@
 <?php
-// created: 2018-08-09 19:17:37
+// created: 2018-12-10 19:39:42
 $mod_strings = array (
   'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
   'LBL_EMR_1' => 'EMR #1',
@@ -31,8 +31,8 @@ $mod_strings = array (
   'LBL_EMR5_HOSTED_BY' => '#5 hosted by',
   'LBL_EMR_OTHER_HOSTED_BY' => 'Other EMR hosted by',
   'LBL_ASSIGNED_TO_NAME' => 'Owner',
-  'LBL_CURR_FD_VERSION' => 'Current FD Version',
-  'LBL_PREVIOUS_FD_VERSION' => 'Previous FD Version',
+  'LBL_CURR_FD_VERSION' => 'Old Current FD Version',
+  'LBL_PREVIOUS_FD_VERSION' => 'Old Previous FD Version',
   'LBL_EMR_1_OTHER_DETAILS' => '#1 config details',
   'LBL_OTHER_EMR' => 'Other EMR_not _used',
   'LBL_EMR_3_OTHER_DETAILS' => '#3 config details',
@@ -46,4 +46,8 @@ $mod_strings = array (
   'LBL_EMR_3_MODULES' => '#3 modules',
   'LBL_EMR_4_MODULES' => '#4 modules',
   'LBL_EMR_5_MODULES' => '#5 modules',
+  'LBL_CURRENT_FD_VERSION_FDV_FD_VERSIONS_ID' => 'Current FD Version (related  ID)',
+  'LBL_CURRENT_FD_VERSION' => 'Current FD Version',
+  'LBL_PREV_FD_VERSION_FDV_FD_VERSIONS_ID' => 'prev fd version (related  ID)',
+  'LBL_PREV_FD_VERSION' => 'Previous FD Version',
 );
