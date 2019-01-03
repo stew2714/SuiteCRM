@@ -1,5 +1,5 @@
 <?php
-// created: 2018-12-10 19:39:42
+// created: 2019-01-03 14:53:52
 $mod_strings = array (
   'LBL_EMR_1_M1_EMR_ID' => 'EMR #1 (related  ID)',
   'LBL_EMR_1' => 'EMR #1',
@@ -50,4 +50,5 @@ $mod_strings = array (
   'LBL_CURRENT_FD_VERSION' => 'Current FD Version',
   'LBL_PREV_FD_VERSION_FDV_FD_VERSIONS_ID' => 'prev fd version (related  ID)',
   'LBL_PREV_FD_VERSION' => 'Previous FD Version',
+  'LBL_M1_TECH_DEPLOYMENTS_DOCUMENTS_1_FROM_DOCUMENTS_TITLE' => 'Documents',
 );

@@ -4,30 +4,30 @@ $popupMeta = array (
     'varName' => 'DOCUMENTS',
     'orderBy' => 'name',
     'whereClauses' => array (
-  'name' => 'documents.name',
   'assigned_user_name' => 'documents.assigned_user_name',
   'filename' => 'documents.filename',
   'created_by_name' => 'documents.created_by_name',
   'contract_name' => 'documents.contract_name',
   'contract_status' => 'documents.contract_status',
   'aos_contracts_documents_1_name' => 'documents.aos_contracts_documents_1_name',
+  'document_name' => 'documents.document_name',
 ),
     'searchInputs' => array (
-  0 => 'name',
   1 => 'assigned_user_name',
   2 => 'filename',
   3 => 'created_by_name',
   4 => 'contract_name',
   5 => 'contract_status',
   6 => 'aos_contracts_documents_1_name',
+  7 => 'document_name',
 ),
     'searchdefs' => array (
-  'name' => 
+  'document_name' => 
   array (
     'type' => 'varchar',
     'label' => 'LBL_NAME',
     'width' => '10%',
-    'name' => 'name',
+    'name' => 'document_name',
   ),
   'assigned_user_name' => 
   array (
@@ -79,13 +79,12 @@ $popupMeta = array (
   ),
 ),
     'listviewdefs' => array (
-  'NAME' => 
+  'DOCUMENT_NAME' => 
   array (
     'type' => 'varchar',
     'label' => 'LBL_NAME',
     'width' => '10%',
     'default' => true,
-    'name' => 'name',
   ),
   'DATE_ENTERED' => 
   array (
@@ -93,6 +92,7 @@ $popupMeta = array (
     'label' => 'LBL_DATE_ENTERED',
     'width' => '10%',
     'default' => true,
+    'name' => 'date_entered',
   ),
   'CREATED_BY_NAME' => 
   array (
@@ -102,6 +102,7 @@ $popupMeta = array (
     'id' => 'CREATED_BY',
     'width' => '10%',
     'default' => true,
+    'name' => 'created_by_name',
   ),
   'DATE_MODIFIED' => 
   array (
@@ -109,6 +110,7 @@ $popupMeta = array (
     'label' => 'LBL_DATE_MODIFIED',
     'width' => '10%',
     'default' => true,
+    'name' => 'date_modified',
   ),
   'MODIFIED_BY_NAME' => 
   array (
@@ -118,6 +120,7 @@ $popupMeta = array (
     'id' => 'MODIFIED_USER_ID',
     'width' => '10%',
     'default' => true,
+    'name' => 'modified_by_name',
   ),
   'ACTIVE_DATE' => 
   array (
@@ -125,6 +128,7 @@ $popupMeta = array (
     'label' => 'LBL_DOC_ACTIVE_DATE',
     'width' => '10%',
     'default' => true,
+    'name' => 'active_date',
   ),
   'CATEGORY_ID' => 
   array (
@@ -132,6 +136,7 @@ $popupMeta = array (
     'label' => 'LBL_SF_CATEGORY',
     'width' => '10%',
     'default' => true,
+    'name' => 'category_id',
   ),
   'SUBCATEGORY_ID' => 
   array (
@@ -139,6 +144,7 @@ $popupMeta = array (
     'label' => 'LBL_SF_SUBCATEGORY',
     'width' => '10%',
     'default' => true,
+    'name' => 'subcategory_id',
   ),
   'AOS_CONTRACTS_DOCUMENTS_1_NAME' => 
   array (
@@ -148,6 +154,7 @@ $popupMeta = array (
     'id' => 'AOS_CONTRACTS_DOCUMENTS_1AOS_CONTRACTS_IDA',
     'width' => '10%',
     'default' => true,
+    'name' => 'aos_contracts_documents_1_name',
   ),
   'FILENAME' => 
   array (
@@ -155,6 +162,7 @@ $popupMeta = array (
     'label' => 'LBL_FILENAME',
     'width' => '10%',
     'default' => true,
+    'name' => 'filename',
   ),
 ),
 );
