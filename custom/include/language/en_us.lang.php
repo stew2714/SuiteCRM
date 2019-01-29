@@ -1336,29 +1336,6 @@ $GLOBALS['app_list_strings']['sharedGroupRule']=array (
   'view_edit_delete' => 'View, Edit & Delete',
   'none' => 'No Access',
 );
-$GLOBALS['app_list_strings']['cc_region_dd_list']=array (
-  '' => '',
-  'AM' => 'Ambulatory Market',
-  'ASP' => 'ASP',
-  'CBS' => 'CBTSI Scribe',
-  'CS' => 'Coding Solutions',
-  'EM' => 'East Market',
-  'Int' => 'International',
-  'MW' => 'Midwest',
-  'MTSO' => 'MTSO',
-  'NM' => 'North Market',
-  'SCRSL' => 'Scribe Solutions',
-  'SM' => 'South Market',
-  'STM' => 'Strategic Market',
-  'STMC' => 'Strategic Market - CHS',
-  'STMH' => 'Strategic Market - HCA',
-  'STML' => 'Strategic Market - LifePoint',
-  'Tech' => 'Technology',
-  'WM' => 'West Market',
-  'AUM' => 'Australia Market',
-  'CM' => 'Canada Market',
-  'UK' => 'United Kingdom Market',
-);
 $GLOBALS['app_list_strings']['contract_product_list']=array (
   'CAPD' => 'CAPD',
   'Catalyst_Embedded' => 'Catalyst (Embedded)',
@@ -2449,10 +2426,51 @@ $GLOBALS['app_list_strings']['emr_modules_list']=array (
   'Urgent_Care' => 'Urgent Care',
   'Wound_Care' => 'Wound Care',
 );
+$GLOBALS['app_list_strings']['lead_status_dom']=array (
+  'Open' => 'Open',
+  'Contacted' => 'Contacted',
+  'Closed_Invalid' => 'Closed - Invalid',
+  'Closed_Converted' => 'Closed - Converted',
+);
+
+$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
+  'Email' => 'Email',
+  'Onsite_Visit' => 'Onsite Visit',
+  'Phone_Call' => 'Phone Call',
+  'Webinar' => 'Webinar',
+  'Other' => 'Other (Please specify)',
+);
+$GLOBALS['app_list_strings']['cc_region_dd_list']=array (
+  '' => '',
+  'AM' => 'Ambulatory Market',
+  'ASP' => 'ASP',
+  'CBS' => 'CBTSI Scribe',
+  'CS' => 'Coding Solutions',
+  'EM' => 'East Market',
+  'HO' => 'Hardware Only',
+  'Int' => 'International',
+  'MW' => 'Midwest',
+  'MTSO' => 'MTSO',
+  'NM' => 'North Market',
+  'OPU' => 'Obsolete Product Usage',
+  'SCRSL' => 'Scribe Solutions',
+  'SM' => 'South Market',
+  'STM' => 'Strategic Market',
+  'STMC' => 'Strategic Market - CHS',
+  'STMH' => 'Strategic Market - HCA',
+  'STML' => 'Strategic Market - LifePoint',
+  'Tech' => 'Technology',
+  'WM' => 'West Market',
+  'AUM' => 'Australia Market',
+  'CM' => 'Canada Market',
+  'UK' => 'United Kingdom Market',
+);
 $GLOBALS['app_list_strings']['contact_assoc_list']=array (
   'CDI' => 'CDI Assess',
   'CDIC' => 'CDI Collaborate',
   'CDIE' => 'CDI Engage',
+  'CDIN' => 'CDI Notereader',
+  'CN' => 'Classic Notereader',
   'CDE' => 'Clinical Documentation Exchange',
   'COS' => 'Coding Services',
   'DWI' => 'Discovery with Imaging',
@@ -2468,19 +2486,4 @@ $GLOBALS['app_list_strings']['contact_assoc_list']=array (
   'HCE' => 'HCC Engage',
   'SCT' => 'Scout',
   'TOS' => 'Transcription Services',
-);
-
-$GLOBALS['app_list_strings']['lead_status_dom']=array (
-  'Open' => 'Open',
-  'Contacted' => 'Contacted',
-  'Closed_Invalid' => 'Closed - Invalid',
-  'Closed_Converted' => 'Closed - Converted',
-);
-
-$GLOBALS['app_list_strings']['ref_particip_type_list']=array (
-  'Email' => 'Email',
-  'Onsite_Visit' => 'Onsite Visit',
-  'Phone_Call' => 'Phone Call',
-  'Webinar' => 'Webinar',
-  'Other' => 'Other (Please specify)',
 );
