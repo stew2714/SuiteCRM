@@ -11,6 +11,7 @@ require_once("custom/modules/AOR_Reports/dateHelper.php");
 require_once('include/SugarFields/SugarFieldHandler.php');
 require_once("include/TemplateHandler/TemplateHandler.php");
 require_once("include/export_utils.php");
+require_once("include/SugarObjects/VardefManager.php");
 
 class AdvancedReporter extends AOR_Report
 {
@@ -3022,7 +3023,15 @@ class AdvancedReporter extends AOR_Report
         if (in_array($vardef["module"], ['Users', 'Contacts', 'Leads', 'Prospects'])) {
             $extraSelect = ", rel.first_name, rel.last_name ";
         }
-        $relateSQL = "SELECT rel.{$vardef['rname']} {$extraSelect}  FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
+        if (isset($vardef['table'])) {
+            $table = $vardef['table'];
+        } else {
+            if(!isset($GLOBALS['dictionary'][$vardef['module']])){
+                VardefManager::loadVardef($vardef['module'], $GLOBALS['beanList'][$vardef['module']], false);
+            }
+            $table = $GLOBALS['dictionary'][$vardef['module']]['table'];
+        }
+        $relateSQL = "SELECT rel.{$vardef['rname']} {$extraSelect}  FROM " . $table . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
         $relateResult = $field_bean->db->query($relateSQL);
         $relateRow = mysqli_fetch_row($relateResult);
         $relateName = $extraSelect ? implode(" ", array_filter([ $relateRow[1],$relateRow['2'] ])) : $relateRow[0];
