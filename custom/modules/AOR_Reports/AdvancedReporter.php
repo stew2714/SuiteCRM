@@ -2795,9 +2795,9 @@ class AdvancedReporter extends AOR_Report
                 if (!isset($fieldList[$name]['options']['']))
                     $fieldList[$name]['options'][''] = '';
             }
-            array_push($this->_fieldList, array('module' => $module, 'fieldlist' => $fieldList));
+            $this->_fieldList[$module] = array('module' => $module, 'fieldlist' => $fieldList);
         }
-        return $this->_fieldList[0]['fieldlist'];
+        return $this->_fieldList[$module]['fieldlist'];
     }
 
     /**
