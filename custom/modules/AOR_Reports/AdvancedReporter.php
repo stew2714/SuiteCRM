@@ -11,6 +11,7 @@ require_once("custom/modules/AOR_Reports/dateHelper.php");
 require_once('include/SugarFields/SugarFieldHandler.php');
 require_once("include/TemplateHandler/TemplateHandler.php");
 require_once("include/export_utils.php");
+require_once("include/SugarObjects/VardefManager.php");
 
 class AdvancedReporter extends AOR_Report
 {
@@ -2592,6 +2593,7 @@ class AdvancedReporter extends AOR_Report
             $fields[$label]['alias'] = $field_alias;
             $fields[$label]['params'] = $field->format;
 
+
             if ($field->display) {
                 $csv .= $this->encloseForCSV($field->label);
                 $csv .= $delimiter;
@@ -2599,15 +2601,20 @@ class AdvancedReporter extends AOR_Report
             ++$i;
         }
 
+
         $sql = $this->build_export_report_query();
         $result = $this->db->query($sql);
 
         while ($row = $this->db->fetchByAssoc($result)) {
             $csv .= "\r\n";
             foreach ($fields as $name => $att) {
+                $vardef = $field_bean->getFieldDefinition($att['field']);
                 $currency_id = isset($row[$att['alias'] . '_currency_id']) ? $row[$att['alias'] . '_currency_id'] : '';
                 if ($att['display']) {
                     $row[$name] = html_entity_decode_utf8($row[$name]);
+                    if ($vardef['type'] == 'relate') {
+                        $row[$name] = $this->getRelationshipName($row, $name, $att);
+                    }
                     $csv .= $this->encloseForCSV($row[$name]);
                     $csv .= $delimiter;
                 }
@@ -2788,9 +2795,9 @@ class AdvancedReporter extends AOR_Report
                 if (!isset($fieldList[$name]['options']['']))
                     $fieldList[$name]['options'][''] = '';
             }
-            array_push($this->_fieldList, array('module' => $module, 'fieldlist' => $fieldList));
+            $this->_fieldList[$module] = array('module' => $module, 'fieldlist' => $fieldList);
         }
-        return $this->_fieldList[0]['fieldlist'];
+        return $this->_fieldList[$module]['fieldlist'];
     }
 
     /**
@@ -3012,10 +3019,22 @@ class AdvancedReporter extends AOR_Report
     {
         $field_bean = $this->getReportModuleBean();
         $vardef = $field_bean->getFieldDefinition($attribute['field']);
-        $relateSQL = "SELECT rel.name FROM " . $vardef['table'] . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
+        $extraSelect = '';
+        if (in_array($vardef["module"], ['Users', 'Contacts', 'Leads', 'Prospects'])) {
+            $extraSelect = ", rel.first_name, rel.last_name ";
+        }
+        if (isset($vardef['table'])) {
+            $table = $vardef['table'];
+        } else {
+            if(!isset($GLOBALS['dictionary'][$vardef['module']])){
+                VardefManager::loadVardef($vardef['module'], $GLOBALS['beanList'][$vardef['module']], false);
+            }
+            $table = $GLOBALS['dictionary'][$vardef['module']]['table'];
+        }
+        $relateSQL = "SELECT rel.{$vardef['rname']} {$extraSelect}  FROM " . $table . " rel WHERE rel.id = '" . $row[$name] . "' AND rel.deleted = '0'";
         $relateResult = $field_bean->db->query($relateSQL);
         $relateRow = mysqli_fetch_row($relateResult);
-        $relateName = $relateRow[0];
+        $relateName = $extraSelect ? implode(" ", array_filter([ $relateRow[1],$relateRow['2'] ])) : $relateRow[0];
         return $relateName;
     }
 
