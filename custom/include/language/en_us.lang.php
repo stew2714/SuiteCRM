@@ -2467,6 +2467,7 @@ $GLOBALS['app_list_strings']['cc_region_dd_list']=array (
   'UK' => 'United Kingdom Market',
   'WM' => 'West Market',
 );
+
 $GLOBALS['app_list_strings']['contact_assoc_list']=array (
   'CDI' => 'CDI Assess',
   'CDIC' => 'CDI Collaborate',
@@ -2487,6 +2488,6 @@ $GLOBALS['app_list_strings']['contact_assoc_list']=array (
   'HCC' => 'HCC Collaborate',
   'HCE' => 'HCC Engage',
   'SCT' => 'Scout',
-  'SCB' => 'Scribe Solutions',
+  'SBE' => 'Scribe Solutions',
   'TOS' => 'Transcription Services',
 );
