@@ -274,7 +274,7 @@
         loadTreeData($('#report_module').val());
 
         $.each(fieldLines,function(key,val){
-            loadFieldLine(val);
+            loadFieldLine(val, true);
         });
         $.each(conditionLines,function(key,val){
             loadConditionLine(val);
