@@ -1377,7 +1377,7 @@ class AdvancedReporter extends AOR_Report
                             $row[$attribute['alias'] . '_id'] .
                             "'>";
                     }
-                    if ($attribute['function'] == 'COUNT' || !empty($attribute['params'])) {
+                    if (!empty($attribute['params'])) {
                         $html .= $row[$name];
                     } else {
                         $html .= $attribute["formattedvalue"];

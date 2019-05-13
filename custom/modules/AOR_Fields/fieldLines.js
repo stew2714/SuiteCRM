@@ -99,7 +99,7 @@ YUI().use('sortable', function(Y) {
     Y.DD.DDM.on('drag:end', fieldSort);
 });
 
-function loadFieldLine(field){
+function loadFieldLine(field, onLoad = false){
 
     var prefix = 'aor_fields_';
     var ln = 0;
@@ -125,7 +125,9 @@ function loadFieldLine(field){
     showFieldOptions(field, ln);
     showFieldModuleField(ln, field['field_function'], field['label']);
     FieldLineHandler.makeGroupDisplaySelectOptions(parseInt(field.group_display) == 1 ? field : null, parseInt(field.group_display) == 2 ? field : null);
-    UpdatePreview('preview');
+    if (!onLoad) {
+        UpdatePreview('preview');
+    }
 }
 
 function showFieldOptions(field, ln){
