@@ -1,59 +1,6 @@
 <?php
-$searchdefs ['Project'] = 
-array (
-  'layout' => 
-  array (
-    'basic_search' => 
-    array (
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-      ),
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-      ),
-    ),
-    'advanced_search' => 
-    array (
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-      ),
-      'estimated_start_date' => 
-      array (
-        'name' => 'estimated_start_date',
-        'default' => true,
-      ),
-      'estimated_end_date' => 
-      array (
-        'name' => 'estimated_end_date',
-        'default' => true,
-      ),
-      'status' => 
-      array (
-        'name' => 'status',
-        'default' => true,
-      ),
-      'priority' => 
-      array (
-        'name' => 'priority',
-        'default' => true,
-      ),
-    ),
-  ),
+// created: 2020-10-16 16:08:37
+$searchdefs['Project'] = array (
   'templateMeta' => 
   array (
     'maxColumns' => '3',
@@ -64,5 +11,57 @@ array (
       'field' => '30',
     ),
   ),
+  'layout' => 
+  array (
+    'basic_search' => 
+    array (
+      0 => 
+      array (
+        'name' => 'name',
+        'default' => true,
+      ),
+      1 => 
+      array (
+        'name' => 'current_user_only',
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+      ),
+      2 => 
+      array (
+        'name' => 'favorites_only',
+        'label' => 'LBL_FAVORITES_FILTER',
+        'type' => 'bool',
+        'default' => true,
+      ),
+    ),
+    'advanced_search' => 
+    array (
+      0 => 
+      array (
+        'name' => 'name',
+        'default' => true,
+      ),
+      1 => 
+      array (
+        'name' => 'estimated_start_date',
+        'default' => true,
+      ),
+      2 => 
+      array (
+        'name' => 'estimated_end_date',
+        'default' => true,
+      ),
+      3 => 
+      array (
+        'name' => 'status',
+        'default' => true,
+      ),
+      4 => 
+      array (
+        'name' => 'priority',
+        'default' => true,
+      ),
+    ),
+  ),
 );
-?>

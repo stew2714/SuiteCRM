@@ -132,6 +132,20 @@ array (
           ),
           1 => '',
         ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contract_assigned_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CONTRACT_ASSIGNED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_assigned_c',
+            'label' => 'LBL_DATE_ASSIGNED',
+          ),
+        ),
       ),
       'lbl_editview_panel2' => 
       array (
@@ -211,4 +225,5 @@ array (
     ),
   ),
 );
+;
 ?>

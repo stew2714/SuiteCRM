@@ -1,6 +1,6 @@
 <?php
-$listViewDefs ['Contacts'] = 
-array (
+// created: 2020-10-16 16:08:36
+$listViewDefs['Contacts'] = array (
   'NAME' => 
   array (
     'width' => '20%',
@@ -437,9 +437,9 @@ array (
   'SYNC_TO_ELOQUA_C' => 
   array (
     'type' => 'bool',
+    'default' => false,
     'label' => 'Sync To Eloqua',
     'width' => '10%',
-    'default' => false,
   ),
   'ACCOUNTING_INVOICES_C' => 
   array (
@@ -458,9 +458,9 @@ array (
   'VIP_ACCOUNT_C' => 
   array (
     'type' => 'bool',
+    'default' => false,
     'label' => 'VIP Account',
     'width' => '10%',
-    'default' => false,
   ),
   'BUSINESS_CEO_C' => 
   array (
@@ -540,4 +540,3 @@ array (
     'sortable' => false,
   ),
 );
-?>

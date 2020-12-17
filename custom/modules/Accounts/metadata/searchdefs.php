@@ -1,17 +1,27 @@
 <?php
-$searchdefs ['Accounts'] = 
-array (
+// created: 2020-10-16 16:08:36
+$searchdefs['Accounts'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'maxColumnsBasic' => '4',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'current_user_only' => 
+      1 => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -19,7 +29,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'favorites_only' => 
+      2 => 
       array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
@@ -30,13 +40,13 @@ array (
     ),
     'advanced_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'facility_type_dd_c' => 
+      1 => 
       array (
         'type' => 'enum',
         'default' => true,
@@ -45,7 +55,7 @@ array (
         'width' => '10%',
         'name' => 'facility_type_dd_c',
       ),
-      'address_city' => 
+      2 => 
       array (
         'name' => 'address_city',
         'label' => 'LBL_CITY',
@@ -53,7 +63,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'address_state' => 
+      3 => 
       array (
         'name' => 'address_state',
         'label' => 'LBL_STATE',
@@ -61,13 +71,13 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'account_type' => 
+      4 => 
       array (
         'name' => 'account_type',
         'default' => true,
         'width' => '10%',
       ),
-      'sales_region_c' => 
+      5 => 
       array (
         'type' => 'varchar',
         'label' => 'Sales Region',
@@ -75,13 +85,13 @@ array (
         'default' => true,
         'name' => 'sales_region_c',
       ),
-      'industry' => 
+      6 => 
       array (
         'name' => 'industry',
         'default' => true,
         'width' => '10%',
       ),
-      'assigned_user_id' => 
+      7 => 
       array (
         'name' => 'assigned_user_id',
         'type' => 'enum',
@@ -97,7 +107,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'ucid_c' => 
+      8 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -105,7 +115,7 @@ array (
         'width' => '10%',
         'name' => 'ucid_c',
       ),
-      'zba_sss_c' => 
+      9 => 
       array (
         'type' => 'varchar',
         'label' => 'ZBA SSS',
@@ -113,7 +123,7 @@ array (
         'default' => true,
         'name' => 'zba_sss_c',
       ),
-      'sales_territory_c' => 
+      10 => 
       array (
         'type' => 'varchar',
         'label' => 'Sales Territory',
@@ -121,7 +131,7 @@ array (
         'default' => true,
         'name' => 'sales_territory_c',
       ),
-      'himss_id_c' => 
+      11 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -129,7 +139,7 @@ array (
         'width' => '10%',
         'name' => 'himss_id_c',
       ),
-      'defintive_id_c' => 
+      12 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -139,15 +149,4 @@ array (
       ),
     ),
   ),
-  'templateMeta' => 
-  array (
-    'maxColumns' => '3',
-    'maxColumnsBasic' => '4',
-    'widths' => 
-    array (
-      'label' => '10',
-      'field' => '30',
-    ),
-  ),
 );
-?>

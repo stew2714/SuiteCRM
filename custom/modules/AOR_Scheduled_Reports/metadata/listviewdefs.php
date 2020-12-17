@@ -1,8 +1,6 @@
 <?php
-$module_name = 'AOR_Scheduled_Reports';
-$OBJECT_NAME = 'AOR_SCHEDULED_REPORTS';
-$listViewDefs [$module_name] = 
-array (
+// created: 2020-10-16 16:08:36
+$listViewDefs['AOR_Scheduled_Reports'] = array (
   'NAME' => 
   array (
     'width' => '40%',
@@ -57,4 +55,3 @@ array (
     'default' => false,
   ),
 );
-?>

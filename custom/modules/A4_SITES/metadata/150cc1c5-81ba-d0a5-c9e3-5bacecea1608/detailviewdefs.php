@@ -262,6 +262,11 @@ array (
             'name' => 'fvm_c',
             'label' => 'LBL_FVM',
           ),
+          1 => 
+          array (
+            'name' => 'vs_c',
+            'label' => 'LBL_VS',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 

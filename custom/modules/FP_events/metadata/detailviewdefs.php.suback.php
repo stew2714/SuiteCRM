@@ -1,5 +1,5 @@
 <?php
-// created: 2016-06-17 17:22:15
+// created: 2020-09-03 14:48:17
 $viewdefs['FP_events']['DetailView'] = array (
   'templateMeta' => 
   array (

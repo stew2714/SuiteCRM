@@ -1,6 +1,6 @@
 <?php
-$listViewDefs ['Notes'] = 
-array (
+// created: 2020-10-16 16:08:37
+$listViewDefs['Notes'] = array (
   'NAME' => 
   array (
     'width' => '40%',
@@ -127,4 +127,3 @@ array (
     'default' => false,
   ),
 );
-?>

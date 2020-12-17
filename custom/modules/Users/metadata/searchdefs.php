@@ -1,11 +1,21 @@
 <?php
-$searchdefs ['Users'] = 
-array (
+// created: 2020-10-16 16:08:37
+$searchdefs['Users'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'maxColumnsBasic' => '4',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'search_name' => 
+      0 => 
       array (
         'name' => 'search_name',
         'label' => 'LBL_NAME',
@@ -15,7 +25,7 @@ array (
     ),
     'advanced_search' => 
     array (
-      'user_name' => 
+      0 => 
       array (
         'type' => 'user_name',
         'studio' => 
@@ -32,19 +42,19 @@ array (
         'default' => true,
         'name' => 'user_name',
       ),
-      'first_name' => 
+      1 => 
       array (
         'name' => 'first_name',
         'default' => true,
         'width' => '10%',
       ),
-      'last_name' => 
+      2 => 
       array (
         'name' => 'last_name',
         'default' => true,
         'width' => '10%',
       ),
-      'reports_to_name' => 
+      3 => 
       array (
         'type' => 'relate',
         'link' => true,
@@ -54,7 +64,7 @@ array (
         'default' => true,
         'name' => 'reports_to_name',
       ),
-      'employee_status' => 
+      4 => 
       array (
         'type' => 'varchar',
         'label' => 'LBL_EMPLOYEE_STATUS',
@@ -62,7 +72,7 @@ array (
         'default' => true,
         'name' => 'employee_status',
       ),
-      'department' => 
+      5 => 
       array (
         'type' => 'varchar',
         'label' => 'LBL_DEPARTMENT',
@@ -70,7 +80,7 @@ array (
         'default' => true,
         'name' => 'department',
       ),
-      'payroll_company_c' => 
+      6 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -78,13 +88,13 @@ array (
         'width' => '10%',
         'name' => 'payroll_company_c',
       ),
-      'title' => 
+      7 => 
       array (
         'name' => 'title',
         'default' => true,
         'width' => '10%',
       ),
-      'phone' => 
+      8 => 
       array (
         'name' => 'phone',
         'label' => 'LBL_ANY_PHONE',
@@ -92,7 +102,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'address_street' => 
+      9 => 
       array (
         'name' => 'address_street',
         'label' => 'LBL_ANY_ADDRESS',
@@ -100,7 +110,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'email' => 
+      10 => 
       array (
         'name' => 'email',
         'label' => 'LBL_ANY_EMAIL',
@@ -108,7 +118,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'address_city' => 
+      11 => 
       array (
         'name' => 'address_city',
         'label' => 'LBL_CITY',
@@ -116,7 +126,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'address_state' => 
+      12 => 
       array (
         'name' => 'address_state',
         'label' => 'LBL_STATE',
@@ -124,7 +134,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'address_country' => 
+      13 => 
       array (
         'name' => 'address_country',
         'label' => 'LBL_COUNTRY',
@@ -134,15 +144,4 @@ array (
       ),
     ),
   ),
-  'templateMeta' => 
-  array (
-    'maxColumns' => '3',
-    'maxColumnsBasic' => '4',
-    'widths' => 
-    array (
-      'label' => '10',
-      'field' => '30',
-    ),
-  ),
 );
-?>

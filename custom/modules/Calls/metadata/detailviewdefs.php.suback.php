@@ -1,5 +1,5 @@
 <?php
-// created: 2016-06-17 17:18:19
+// created: 2020-09-03 14:48:17
 $viewdefs['Calls']['DetailView'] = array (
   'templateMeta' => 
   array (
@@ -178,6 +178,17 @@ $viewdefs['Calls']['DetailView'] = array (
         array (
           'name' => 'reminders',
           'label' => 'LBL_REMINDERS',
+        ),
+      ),
+      5 => 
+      array (
+        0 => 
+        array (
+          'name' => 'sa_legal_vendors_activities_1_calls_name',
+        ),
+        1 => 
+        array (
+          'name' => 'aos_contracts_activities_1_calls_name',
         ),
       ),
     ),

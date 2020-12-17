@@ -1,5 +1,5 @@
 <?php
-// created: 2016-06-17 17:18:19
+// created: 2020-09-03 14:48:17
 $viewdefs['Meetings']['DetailView'] = array (
   'templateMeta' => 
   array (
@@ -100,8 +100,23 @@ $viewdefs['Meetings']['DetailView'] = array (
           'name' => 'date_start',
           'label' => 'LBL_DATE_TIME',
         ),
+        1 => 
+        array (
+          'name' => 'parent_name',
+          'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+        ),
       ),
       2 => 
+      array (
+        0 => 
+        array (
+          'name' => 'date_end',
+          'comment' => 'Date meeting ends',
+          'label' => 'LBL_DATE_END',
+        ),
+        1 => 'location',
+      ),
+      3 => 
       array (
         0 => 
         array (
@@ -109,29 +124,61 @@ $viewdefs['Meetings']['DetailView'] = array (
           'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
           'label' => 'LBL_DURATION',
         ),
-        1 => 
-        array (
-          'name' => 'parent_name',
-          'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
-        ),
-      ),
-      3 => 
-      array (
-        0 => 
-        array (
-          'name' => 'reminder_time',
-          'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-          'label' => 'LBL_REMINDER',
-        ),
-        1 => 'location',
       ),
       4 => 
       array (
         0 => 'description',
         1 => 
         array (
-          'name' => 'a4_sites_meetings_1_name',
+          'name' => 'securitygroup_display',
+          'comment' => 'Used for adding to the list, detail, and edit views',
+          'studio' => 
+          array (
+            'visible' => false,
+            'listview' => true,
+            'searchview' => false,
+            'detailview' => true,
+            'editview' => true,
+            'formula' => false,
+            'related' => false,
+            'basic_search' => false,
+            'advanced_search' => false,
+            'popuplist' => true,
+            'popupsearch' => false,
+            'dashletsearch' => false,
+            'dashlet' => false,
+          ),
+          'label' => 'LBL_SECURITYGROUP',
         ),
+      ),
+      5 => 
+      array (
+        0 => 
+        array (
+          'name' => 'additionalusers',
+          'comment' => 'Used for adding to the list, detail, and edit views',
+          'studio' => 
+          array (
+            'visible' => false,
+            'listview' => true,
+            'searchview' => false,
+            'detailview' => true,
+            'editview' => true,
+            'formula' => false,
+            'related' => false,
+            'basic_search' => false,
+            'advanced_search' => false,
+            'popuplist' => true,
+            'popupsearch' => false,
+            'dashletsearch' => false,
+            'dashlet' => true,
+          ),
+          'label' => 'LBL_ADDITIONALUSERS',
+        ),
+      ),
+      6 => 
+      array (
+        0 => 'file_create',
       ),
     ),
     'LBL_PANEL_ASSIGNMENT' => 
@@ -142,20 +189,6 @@ $viewdefs['Meetings']['DetailView'] = array (
         array (
           'name' => 'assigned_user_name',
           'label' => 'LBL_ASSIGNED_TO',
-        ),
-        1 => 
-        array (
-          'name' => 'date_modified',
-          'label' => 'LBL_DATE_MODIFIED',
-          'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-        ),
-      ),
-      1 => 
-      array (
-        0 => 
-        array (
-          'name' => 'date_entered',
-          'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
         ),
         1 => 
         array (

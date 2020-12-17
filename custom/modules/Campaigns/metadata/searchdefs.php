@@ -1,16 +1,26 @@
 <?php
-$searchdefs ['Campaigns'] = 
-array (
+// created: 2020-10-16 16:08:36
+$searchdefs['Campaigns'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'maxColumnsBasic' => '4',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
       ),
-      'current_user_only' => 
+      1 => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -20,12 +30,12 @@ array (
     ),
     'advanced_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
       ),
-      'start_date' => 
+      1 => 
       array (
         'name' => 'start_date',
         'type' => 'date',
@@ -35,7 +45,7 @@ array (
         ),
         'default' => true,
       ),
-      'end_date' => 
+      2 => 
       array (
         'name' => 'end_date',
         'type' => 'date',
@@ -45,17 +55,17 @@ array (
         ),
         'default' => true,
       ),
-      'status' => 
+      3 => 
       array (
         'name' => 'status',
         'default' => true,
       ),
-      'campaign_type' => 
+      4 => 
       array (
         'name' => 'campaign_type',
         'default' => true,
       ),
-      'assigned_user_id' => 
+      5 => 
       array (
         'name' => 'assigned_user_id',
         'label' => 'LBL_ASSIGNED_TO',
@@ -72,15 +82,4 @@ array (
       ),
     ),
   ),
-  'templateMeta' => 
-  array (
-    'maxColumns' => '3',
-    'maxColumnsBasic' => '4',
-    'widths' => 
-    array (
-      'label' => '10',
-      'field' => '30',
-    ),
-  ),
 );
-?>

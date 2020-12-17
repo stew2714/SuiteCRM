@@ -1,11 +1,14 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-/*********************************************************************************
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
+/**
+ *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
-
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2018 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -16,7 +19,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
  * details.
  *
  * You should have received a copy of the GNU Affero General Public License along with
@@ -34,54 +37,25 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
  * these Appropriate Legal Notices must retain the display of the "Powered by
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
- * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- ********************************************************************************/
+ * reasonably feasible for technical reasons, the Appropriate Legal Notices must
+ * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ */
 
 
-function build_related_list_by_user_id($bean, $user_id,$where) {
+function build_related_list_by_user_id($bean, $user_id, $where)
+{
     $bean_id_name = strtolower($bean->object_name).'_id';
 
-    if(isset($bean->rel_users_table) && !empty($bean->rel_users_table)) {
+    if (isset($bean->rel_users_table) && !empty($bean->rel_users_table)) {
         $select = "SELECT {$bean->table_name}.* from {$bean->rel_users_table},{$bean->table_name} ";
 
         $auto_where = ' WHERE ';
         if (!empty($where)) {
             $auto_where .= $where . ' AND ';
         }
-        /* BEGIN - SECURITY GROUPS */
-        /**
-        $auto_where .= " {$bean->rel_users_table}.{$bean_id_name}={$bean->table_name}.id AND {$bean->rel_users_table}.user_id='{$user_id}' AND {$bean->table_name}.deleted=0 AND {$bean->rel_users_table}.deleted=0";
-        */
-        $auto_where .= " {$bean->rel_users_table}.{$bean_id_name}={$bean->table_name}.id AND {$bean->table_name}.deleted=0 AND {$bean->rel_users_table}.deleted=0";
 
-        $cal_view = $_REQUEST['view'];
-        global $current_user, $sugar_config;
-        // If they shouldn't see non-group records for another user...even if displayed as busy
-        if(
-            !empty($cal_view) && ($cal_view == 'shared' || $cal_view == 'sharedWeek' || $cal_view == 'sharedMonth')
-            && !empty($sugar_config['securitysuite_shared_calendar_hide_restricted']) && $sugar_config['securitysuite_shared_calendar_hide_restricted'] == true
-            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
-        )
-        {
-            require_once('modules/SecurityGroups/SecurityGroup.php');
-            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
-            $auto_where .= " AND ({$bean->rel_users_table}.user_id='{$user_id}' and ".$group_where.") ";
-        } 
-        else if(
-            !empty($sugar_config['securitysuite_show_group_events']) && $sugar_config['securitysuite_show_group_events'] == true
-            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
-        )
-        {
-            require_once('modules/SecurityGroups/SecurityGroup.php');
-            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
-            $auto_where .= " AND ({$bean->rel_users_table}.user_id='{$user_id}' OR ".$group_where.") ";
-        }
-        else
-        {
-            $auto_where .= " AND {$bean->rel_users_table}.user_id='{$user_id}' ";
-        }
-        /* END - SECURITY GROUPS */
+        $auto_where .= " {$bean->rel_users_table}.{$bean_id_name}={$bean->table_name}.id AND {$bean->rel_users_table}.user_id='{$user_id}' AND {$bean->table_name}.deleted=0 AND {$bean->rel_users_table}.deleted=0";
+
 
         $query = $select . $auto_where;
 
@@ -119,7 +93,7 @@ function build_related_list_by_user_id($bean, $user_id,$where) {
         }
 
         return $list;
-    }else{
+    } else {
         $select = "SELECT {$bean->table_name}.* from {$bean->table_name} ";
 
         $auto_where = ' WHERE ';
@@ -127,39 +101,7 @@ function build_related_list_by_user_id($bean, $user_id,$where) {
             $auto_where .= $where . ' AND ';
         }
 
-        /* BEGIN - SECURITY GROUPS */
-        /**
         $auto_where .= " {$bean->table_name}.assigned_user_id='{$user_id}' AND {$bean->table_name}.deleted=0 ";
-        */
-        $auto_where .= " {$bean->table_name}.deleted=0 ";
-
-        $cal_view = $_REQUEST['view'];
-        global $current_user, $sugar_config;
-        // If they shouldn't see non-group records for another user...even if displayed as busy
-        if(
-            !empty($cal_view) && ($cal_view == 'shared' || $cal_view == 'sharedWeek' || $cal_view == 'sharedMonth')
-            && !empty($sugar_config['securitysuite_shared_calendar_hide_restricted']) && $sugar_config['securitysuite_shared_calendar_hide_restricted'] == true
-            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
-        )
-        {
-            require_once('modules/SecurityGroups/SecurityGroup.php');
-            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
-            $auto_where .= " AND ({$bean->table_name}.assigned_user_id='{$user_id}' and ".$group_where.") ";
-        } 
-        else if(
-            !empty($sugar_config['securitysuite_show_group_events']) && $sugar_config['securitysuite_show_group_events'] == true
-            && $bean->bean_implements('ACL') && ACLController::requireSecurityGroup($bean->module_dir, 'list')
-        )
-        {
-            require_once('modules/SecurityGroups/SecurityGroup.php');
-            $group_where = SecurityGroup::getGroupWhere($bean->table_name,$bean->module_dir,$current_user->id);
-            $auto_where .= " AND ({$bean->table_name}.assigned_user_id='{$user_id}' OR ".$group_where.") ";
-        }
-        else
-        {
-            $auto_where .= " AND {$bean->table_name}.assigned_user_id='{$user_id}' ";
-        }
-        /* END - SECURITY GROUPS */
 
 
         $query = $select . $auto_where;
@@ -200,4 +142,3 @@ function build_related_list_by_user_id($bean, $user_id,$where) {
         return $list;
     }
 }
-?>

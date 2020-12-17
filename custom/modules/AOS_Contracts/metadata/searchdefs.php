@@ -1,18 +1,27 @@
 <?php
-$module_name = 'AOS_Contracts';
-$searchdefs [$module_name] = 
-array (
+// created: 2020-10-16 16:08:36
+$searchdefs['AOS_Contracts'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'maxColumnsBasic' => '4',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'agreements_number_and_amendment_c' => 
+      1 => 
       array (
         'type' => 'customreadonly',
         'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
@@ -20,7 +29,7 @@ array (
         'default' => true,
         'name' => 'agreements_number_and_amendment_c',
       ),
-      'current_user_only' => 
+      2 => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -28,7 +37,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'favorites_only' => 
+      3 => 
       array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
@@ -39,25 +48,25 @@ array (
     ),
     'advanced_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'contract_account' => 
+      1 => 
       array (
         'name' => 'contract_account',
         'default' => true,
         'width' => '10%',
       ),
-      'opportunity' => 
+      2 => 
       array (
         'name' => 'opportunity',
         'default' => true,
         'width' => '10%',
       ),
-      'apttus_requestor_name_c' => 
+      3 => 
       array (
         'type' => 'relate',
         'studio' => 'visible',
@@ -68,7 +77,7 @@ array (
         'default' => true,
         'name' => 'apttus_requestor_name_c',
       ),
-      'agreements_number_and_amendment_c' => 
+      4 => 
       array (
         'type' => 'customreadonly',
         'label' => 'LBL_AGREEMENTS_NUMBER_AND_AMENDMENT_C',
@@ -76,7 +85,7 @@ array (
         'default' => true,
         'name' => 'agreements_number_and_amendment_c',
       ),
-      'start_date' => 
+      5 => 
       array (
         'type' => 'date',
         'label' => 'LBL_START_DATE',
@@ -84,7 +93,7 @@ array (
         'default' => true,
         'name' => 'start_date',
       ),
-      'end_date' => 
+      6 => 
       array (
         'type' => 'date',
         'label' => 'LBL_END_DATE',
@@ -92,21 +101,21 @@ array (
         'default' => true,
         'name' => 'end_date',
       ),
-      'total_contract_value' => 
+      7 => 
       array (
         'name' => 'total_contract_value',
         'default' => true,
         'width' => '10%',
       ),
-      'apttus_status_category_c' => 
+      8 => 
       array (
-        'default' => true,
         'type' => 'enum',
+        'default' => true,
         'label' => 'LBL_APTTUS_STATUS_CATEGORY_C',
         'width' => '10%',
         'name' => 'apttus_status_category_c',
       ),
-      'apttus_status_c' => 
+      9 => 
       array (
         'type' => 'dynamicenum',
         'label' => 'LBL_APTTUS_STATUS_C',
@@ -114,7 +123,7 @@ array (
         'default' => true,
         'name' => 'apttus_status_c',
       ),
-      'assigned_user_id' => 
+      10 => 
       array (
         'name' => 'assigned_user_id',
         'label' => 'LBL_ASSIGNED_TO_NAME',
@@ -132,15 +141,4 @@ array (
       ),
     ),
   ),
-  'templateMeta' => 
-  array (
-    'maxColumns' => '3',
-    'maxColumnsBasic' => '4',
-    'widths' => 
-    array (
-      'label' => '10',
-      'field' => '30',
-    ),
-  ),
 );
-?>

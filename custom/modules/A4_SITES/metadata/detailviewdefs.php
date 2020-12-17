@@ -187,6 +187,20 @@ array (
             'label' => 'LBL_ADDITIONALUSERS',
           ),
         ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contract_assigned_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CONTRACT_ASSIGNED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_assigned_c',
+            'label' => 'LBL_DATE_ASSIGNED',
+          ),
+        ),
       ),
       'lbl_detailview_panel4' => 
       array (
@@ -261,6 +275,11 @@ array (
           array (
             'name' => 'fvm_c',
             'label' => 'LBL_FVM',
+          ),
+          1 => 
+          array (
+            'name' => 'vs_c',
+            'label' => 'LBL_VS',
           ),
         ),
       ),
@@ -342,4 +361,5 @@ array (
     ),
   ),
 );
+;
 ?>

@@ -1,5 +1,5 @@
 <?php
-// created: 2016-06-17 17:18:19
+// created: 2020-09-03 14:48:17
 $viewdefs['Tasks']['DetailView'] = array (
   'templateMeta' => 
   array (
@@ -75,11 +75,6 @@ $viewdefs['Tasks']['DetailView'] = array (
         'newTab' => false,
         'panelDefault' => 'expanded',
       ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        'newTab' => false,
-        'panelDefault' => 'expanded',
-      ),
     ),
     'syncDetailEditViews' => true,
   ),
@@ -108,11 +103,6 @@ $viewdefs['Tasks']['DetailView'] = array (
       2 => 
       array (
         0 => 'date_due',
-        1 => 
-        array (
-          'name' => 'contact_name',
-          'label' => 'LBL_CONTACT',
-        ),
       ),
       3 => 
       array (
@@ -122,10 +112,7 @@ $viewdefs['Tasks']['DetailView'] = array (
       array (
         0 => 'description',
       ),
-    ),
-    'LBL_PANEL_ASSIGNMENT' => 
-    array (
-      0 => 
+      5 => 
       array (
         0 => 
         array (

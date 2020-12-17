@@ -1,6 +1,6 @@
 <?php
-$listViewDefs ['Cases'] = 
-array (
+// created: 2020-10-16 16:08:36
+$listViewDefs['Cases'] = array (
   'REMEDY_TICKET_NO_C' => 
   array (
     'type' => 'varchar',
@@ -64,4 +64,3 @@ array (
     'default' => true,
   ),
 );
-?>

@@ -5,7 +5,7 @@
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2018 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -16,7 +16,7 @@
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
  * details.
  *
  * You should have received a copy of the GNU Affero General Public License along with
@@ -34,8 +34,8 @@
  * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
  * these Appropriate Legal Notices must retain the display of the "Powered by
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
- * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ * reasonably feasible for technical reasons, the Appropriate Legal Notices must
+ * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
 $vardefs = array(
@@ -160,49 +160,6 @@ $vardefs = array(
             'reportable' => false,
             'comment' => 'Record deletion indicator'
         ),
-    /* BEGIN - SECURITY GROUPS */ 
-      'securitygroup' =>
-      array (
-        'name' => 'securitygroup',
-        'vname' => 'LBL_SECURITYGROUP',
-        'type' => 'enum',
-        'source' => 'non-db',
-        'function' => 'getUserSecurityGroups',
-        'default' => '0',
-        'sortable' => false,
-        'reportable'=>false,
-        'comment' => 'Used for adding to the search forms',
-        'massupdate' => false,
-        'unified_search' => false,
-        'importable' => 'false',
-        'readonly' => true,
-        'studio' => array('visible' => false, 'listview' => false, 'searchview'=>true, 'detailview'=>false, 'editview'=>false, 'formula' => false, 'related' => false, 'basic_search' => true, 'advanced_search' => true, 'popuplist' => false, 'popupsearch' => true, 'dashletsearch' => true, 'dashlet' => false),
-      ),  
-      'securitygroup_display' =>
-      array (
-        'name' => 'securitygroup_display',
-        'vname' => 'LBL_SECURITYGROUP',
-        'type' => 'function',
-        'function_name'=>'getRecordSecurityGroups',
-        'function_params'=> array('id'),
-        'source'=>'non-db',
-        'function' => array(
-          'name' => 'getRecordSecurityGroups',
-          'returns' => 'html',
-          'onListView' => true,
-        ),
-        //custom_type may be the key for list view
-        'custom_type' => 'securitygroup',
-        'sortable' => false,
-        'reportable'=>false,
-        'comment' => 'Used for adding to the list, detail, and edit views',
-        'massupdate' => false,
-        'unified_search' => false,
-        'importable' => 'false',
-        'readonly' => true,
-        'studio' => array('visible' => false, 'listview' => true, 'searchview'=>false, 'detailview'=>true, 'editview'=>true, 'formula' => false, 'related' => false, 'basic_search' => false, 'advanced_search' => false, 'popuplist' => true, 'popupsearch' => false, 'dashletsearch' => false, 'dashlet' => false),
-      ),
-    /* END - SECURITY GROUPS */      
 
         /////////////////RELATIONSHIP LINKS////////////////////////////
         'created_by_link' => array(

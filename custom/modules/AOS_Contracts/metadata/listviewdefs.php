@@ -1,11 +1,11 @@
 <?php
-$listViewDefs ['AOS_Contracts'] = 
-array (
+// created: 2020-10-16 16:08:36
+$listViewDefs['AOS_Contracts'] = array (
   'DATE_ENTERED' => 
   array (
     'width' => '5%',
     'label' => 'LBL_DATE_ENTERED',
-    'default' => true,
+    'default' => 1,
   ),
   'NAME' => 
   array (
@@ -51,9 +51,9 @@ array (
   'APTTUS_STATUS_CATEGORY_C' => 
   array (
     'type' => 'enum',
+    'default' => true,
     'label' => 'LBL_APTTUS_STATUS_CATEGORY_C',
     'width' => '10%',
-    'default' => true,
   ),
   'APTTUS_STATUS_C' => 
   array (
@@ -87,9 +87,9 @@ array (
   ),
   'APTTUS_PRIMARY_CONTACT_C' => 
   array (
-    'default' => false,
     'type' => 'varchar',
     'label' => 'LBL_APTTUS_PRIMARY_CONTACT_C',
+    'default' => false,
     'width' => '10%',
   ),
   'G1_GROUP_QUEUE_AOS_CONTRACTS_NAME' => 
@@ -143,4 +143,3 @@ array (
     'default' => false,
   ),
 );
-?>

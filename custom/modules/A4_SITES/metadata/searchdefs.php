@@ -187,6 +187,14 @@ array (
         'width' => '10%',
         'name' => 'fvm_c',
       ),
+      'vs_c' => 
+      array (
+        'type' => 'bool',
+        'default' => true,
+        'label' => 'LBL_VS',
+        'width' => '10%',
+        'name' => 'vs_c',
+      ),
     ),
   ),
   'templateMeta' => 

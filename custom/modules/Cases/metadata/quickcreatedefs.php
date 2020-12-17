@@ -1,49 +1,45 @@
 <?php
-$viewdefs ['Cases'] = 
-array (
-  'QuickCreate' => 
+// created: 2020-10-16 16:08:36
+$viewdefs['Cases']['QuickCreate'] = array (
+  'templateMeta' => 
   array (
-    'templateMeta' => 
+    'maxColumns' => '2',
+    'widths' => 
     array (
-      'maxColumns' => '2',
-      'widths' => 
+      0 => 
       array (
-        0 => 
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
-        1 => 
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
+        'label' => '10',
+        'field' => '30',
+      ),
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
       ),
     ),
-    'panels' => 
+  ),
+  'panels' => 
+  array (
+    'default' => 
     array (
-      'default' => 
+      0 => 
       array (
-        0 => 
-        array (
-          0 => 'name',
-          1 => 'priority',
-        ),
-        1 => 
-        array (
-          0 => 'status',
-          1 => 'account_name',
-        ),
-        2 => 
-        array (
-          0 => 'assigned_user_name',
-        ),
-        3 => 
-        array (
-          0 => 'description',
-        ),
+        0 => 'name',
+        1 => 'priority',
+      ),
+      1 => 
+      array (
+        0 => 'status',
+        1 => 'account_name',
+      ),
+      2 => 
+      array (
+        0 => 'assigned_user_name',
+      ),
+      3 => 
+      array (
+        0 => 'description',
       ),
     ),
   ),
 );
-?>

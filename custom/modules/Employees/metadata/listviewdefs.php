@@ -1,6 +1,6 @@
 <?php
-$listViewDefs ['Employees'] = 
-array (
+// created: 2020-10-16 16:08:36
+$listViewDefs['Employees'] = array (
   'NAME' => 
   array (
     'width' => '20%',
@@ -38,10 +38,10 @@ array (
   ),
   'EMAIL1' => 
   array (
-    'width' => '15%',
+    'width' => '15',
     'label' => 'LBL_LIST_EMAIL',
     'link' => true,
-    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'customCode' => '{$EMAIL1_LINK}',
     'default' => true,
     'sortable' => false,
   ),
@@ -53,4 +53,3 @@ array (
     'default' => true,
   ),
 );
-?>

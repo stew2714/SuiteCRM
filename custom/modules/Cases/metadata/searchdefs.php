@@ -1,11 +1,11 @@
 <?php
-$searchdefs ['Cases'] = 
-array (
+// created: 2020-10-16 16:08:36
+$searchdefs['Cases'] = array (
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'remedy_ticket_no_c' => 
+      0 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -13,7 +13,7 @@ array (
         'width' => '10%',
         'name' => 'remedy_ticket_no_c',
       ),
-      'name' => 
+      1 => 
       array (
         'name' => 'name',
         'default' => true,
@@ -22,7 +22,7 @@ array (
     ),
     'advanced_search' => 
     array (
-      'remedy_ticket_no_c' => 
+      0 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -30,31 +30,31 @@ array (
         'width' => '10%',
         'name' => 'remedy_ticket_no_c',
       ),
-      'name' => 
+      1 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'account_name' => 
+      2 => 
       array (
         'name' => 'account_name',
         'default' => true,
         'width' => '10%',
       ),
-      'status' => 
+      3 => 
       array (
         'name' => 'status',
         'default' => true,
         'width' => '10%',
       ),
-      'priority' => 
+      4 => 
       array (
         'name' => 'priority',
         'default' => true,
         'width' => '10%',
       ),
-      'product_c' => 
+      5 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -62,7 +62,7 @@ array (
         'width' => '10%',
         'name' => 'product_c',
       ),
-      'jira_issue_id_c' => 
+      6 => 
       array (
         'type' => 'varchar',
         'default' => true,
@@ -70,7 +70,7 @@ array (
         'width' => '10%',
         'name' => 'jira_issue_id_c',
       ),
-      'assigned_user_id' => 
+      7 => 
       array (
         'name' => 'assigned_user_id',
         'type' => 'enum',
@@ -99,4 +99,3 @@ array (
     ),
   ),
 );
-?>

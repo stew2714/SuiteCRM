@@ -197,7 +197,11 @@ array (
             'name' => 'fd_c',
             'label' => 'LBL_FD',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'vs_c',
+            'label' => 'LBL_VS',
+          ),
         ),
         1 => 
         array (

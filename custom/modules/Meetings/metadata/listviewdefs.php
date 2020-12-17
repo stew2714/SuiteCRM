@@ -1,6 +1,6 @@
 <?php
-$listViewDefs ['Meetings'] = 
-array (
+// created: 2020-10-16 16:08:37
+$listViewDefs['Meetings'] = array (
   'SET_COMPLETE' => 
   array (
     'width' => '1%',
@@ -86,4 +86,3 @@ array (
     'default' => false,
   ),
 );
-?>

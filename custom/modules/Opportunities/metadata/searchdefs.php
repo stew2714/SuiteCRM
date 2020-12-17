@@ -1,17 +1,27 @@
 <?php
-$searchdefs ['Opportunities'] = 
-array (
+// created: 2020-10-16 16:08:37
+$searchdefs['Opportunities'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'maxColumnsBasic' => '4',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'current_user_only' => 
+      1 => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -19,7 +29,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'open_only' => 
+      2 => 
       array (
         'name' => 'open_only',
         'label' => 'LBL_OPEN_ITEMS',
@@ -27,7 +37,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'favorites_only' => 
+      3 => 
       array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
@@ -37,13 +47,13 @@ array (
     ),
     'advanced_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'accounts_opportunities_3_name' => 
+      1 => 
       array (
         'type' => 'relate',
         'link' => true,
@@ -53,13 +63,13 @@ array (
         'default' => true,
         'name' => 'accounts_opportunities_3_name',
       ),
-      'amount' => 
+      2 => 
       array (
         'name' => 'amount',
         'default' => true,
         'width' => '10%',
       ),
-      'assigned_user_id' => 
+      3 => 
       array (
         'name' => 'assigned_user_id',
         'type' => 'enum',
@@ -75,7 +85,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'new_short_id_c' => 
+      4 => 
       array (
         'type' => 'varchar',
         'label' => 'LBL_NEW_SHORT_ID_C',
@@ -83,25 +93,25 @@ array (
         'default' => true,
         'name' => 'new_short_id_c',
       ),
-      'sales_stage' => 
+      5 => 
       array (
         'name' => 'sales_stage',
         'default' => true,
         'width' => '10%',
       ),
-      'lead_source' => 
+      6 => 
       array (
         'name' => 'lead_source',
         'default' => true,
         'width' => '10%',
       ),
-      'date_closed' => 
+      7 => 
       array (
         'name' => 'date_closed',
         'default' => true,
         'width' => '10%',
       ),
-      'next_step' => 
+      8 => 
       array (
         'type' => 'varchar',
         'label' => 'LBL_NEXT_STEP',
@@ -111,15 +121,4 @@ array (
       ),
     ),
   ),
-  'templateMeta' => 
-  array (
-    'maxColumns' => '3',
-    'maxColumnsBasic' => '4',
-    'widths' => 
-    array (
-      'label' => '10',
-      'field' => '30',
-    ),
-  ),
 );
-?>

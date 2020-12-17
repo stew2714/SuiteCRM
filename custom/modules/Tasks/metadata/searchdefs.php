@@ -1,17 +1,17 @@
 <?php
-$searchdefs ['Tasks'] = 
-array (
+// created: 2020-10-16 16:08:37
+$searchdefs['Tasks'] = array (
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'current_user_only' => 
+      1 => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -19,7 +19,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'open_only' => 
+      2 => 
       array (
         'name' => 'open_only',
         'label' => 'LBL_OPEN_ITEMS',
@@ -27,7 +27,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'favorites_only' => 
+      3 => 
       array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
@@ -37,13 +37,13 @@ array (
     ),
     'advanced_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'contact_name' => 
+      1 => 
       array (
         'name' => 'contact_name',
         'label' => 'LBL_CONTACT_NAME',
@@ -51,7 +51,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'current_user_only' => 
+      2 => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -59,13 +59,13 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'status' => 
+      3 => 
       array (
         'name' => 'status',
         'default' => true,
         'width' => '10%',
       ),
-      'parent_name' => 
+      4 => 
       array (
         'type' => 'parent',
         'label' => 'LBL_LIST_RELATED_TO',
@@ -73,7 +73,7 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'assigned_user_id' => 
+      5 => 
       array (
         'name' => 'assigned_user_id',
         'type' => 'enum',
@@ -102,4 +102,3 @@ array (
     ),
   ),
 );
-?>
